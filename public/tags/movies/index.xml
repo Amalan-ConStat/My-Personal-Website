@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Movies on Consulting Statistician</title>
+    <link>/tags/movies/</link>
+    <description>Recent content in Movies on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/movies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Movies</title>
+      <link>/projects/movies/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/movies/</guid>
+      <description>Watching movies for the last six years(from 2012) with much interest in plot, story line and characters. I have watched more than 300 movies but the below mentioned are in my mind. They are from different decades as well, therefore do not hesistate to watch. If you prefer go through the IMDB link so that the ratings and summary will give you more information. 36 Movies will be mentioned below.</description>
+    </item>
+    
+  </channel>
+</rss>
