@@ -42,18 +42,14 @@ attach(Movie)
 
 This is my second post on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) and the dataset 
 in question is [Movie profit](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23) 
-dataset. Even though the title of data says Movie profit I am going to focus on the movies which didnot 
-generate any revenue domestic or otherwise.
+dataset. Even though the title of data says Movie profit I am going to focus on the movies which did not 
+generate any revenue domestic and suggest on gross in worldwide.
 
-## Understand factors (Genre, Mpaa Rating)
+## Understand Genre and  Mpaa Rating on Movies
 
 3401 movies with 8 variables of information which include numeric and categorical. There are 202 distributors 
 for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them. 
-
-Also there are five categories for genre, where Drama with 1236, while horror with 298 movies. There is only one 
-action movie for general audiences(for all) and obviously no horror film should be watched by 
-children alone, yet there are 7 movies which you can watch with your parents.
-
+Also there are five categories for genre, where Drama with 1236, while horror with 298 movies. 
 
 ```{r Genre bar plot,echo=FALSE,warning=FALSE}
 ggplot(Movie,aes(genre))+
@@ -62,7 +58,7 @@ ggplot(Movie,aes(genre))+
 ```
 
 There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 
-are in relative to PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.
+are in category of PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.
 
 ```{r Ratings Bar plot,echo=FALSE,warning=FALSE}
 ggplot(Movie,aes(mpaa_rating))+
@@ -71,20 +67,21 @@ ggplot(Movie,aes(mpaa_rating))+
 ```
 
 Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). 
-The frequencies are respectively 367 and 328. 
+Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with 
+accompanying parents and 67 movies can be watched by all ages. 
 
-Where 309 movies of adventure genre could be watched by children with accompanying parents and most(67) number of 
-adventure movies can be watched by all ages. Yet 645 Drama movies are R-rated.
+Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror 
+film should be watched by children alone, yet there are 7 movies which you can watch with your parents.
 
 ```{r table for rating vs genre,echo=FALSE,warning=FALSE}
 # checking for bias in mpaa rating and genre 
 kable(table(mpaa_rating,genre))
 ```
 
-We think horror movies are mostly R-rated then it is true. But only is relative to percentage because 
-considering the frequencies we make horror movies the least even according to this random sample. 
-
-Action and Comedy movies close to 50 or 40 percentages for for the ratings types of PG-13 and R.  
+We think horror movies are mostly R-rated then it is true. But only it is explainable by percentage. 
+Yet considering the amount of horror movies made generally it is very low even in this random sample. 
+Action and Comedy movies have very close percentages for PG-13 ratedness, while 52% are R rated for Action
+and 47% are comedy.  
 
 ```{r table for rating vs genre percentage,echo=FALSE,warning=FALSE}
 # column percentage for above table
@@ -93,22 +90,21 @@ prop.table(margin=2) %>%
 round(digits = 2))
 ```
 
-This dataset contains the release dates from 1936 to 2019. Even though it is not 2019 there is a movie which 
-has been listed here. This explains the domestic and worldwide gross being zero as the minimum value of zero. 
-Then again we have to be careful because there are movies which might not make profit at all.
+This dataset contains the release dates from 1956 to 2019. Even though it is not 2019 there is a movie which 
+has been listed here. This explains the domestic and worldwide gross being zero as zero. Then again 
+we have to be careful because there are movies which might not make profit at all, domestic or other wise.
 
-## Lets Focus of movies which has zero domestic gross 
+# Lets Focus of movies which has zero domestic gross 
 
 No revenue from 66 movies, that is interesting. So obviously Aqua man has a whopping more than 150 million dollars  
-budget and no profit because it was not released yet when this data set was compiled. Second rank is for "wonder park"
-with 100 million dollars. 
+production budget and no profit because it was not released yet when this data set was compiled. Second rank is for 
+"Wonder park" with 100 million dollars. This movie will be released in 2019.
 
-## Production budget Point of View
+## Zero Domestic gross Point of View
 
 Suprisingly there are movies without any production budget information because I am very sure No movie is done for free.
-Specially it is odd to see "12 Angry Men" in this list, which leads to the conclusion No all Movies in this are to be on
-it in the first place. We have 66 movies to consider.  
-
+Specially it is odd to see "12 Angry Men" in this list, which leads to the conclusion not all Movies in this list are to 
+be onit in the first place. We have 66 movies to consider.  
 
 ```{r domestic gross zero movies,warning=FALSE,include=FALSE}
 Movie_domestic_zero<-subset.data.frame(Movie,c(domestic_gross==0)) 
@@ -125,13 +121,11 @@ ggplot(Movie_domestic_zero,aes(x=reorder(movie,production_budget),y=production_b
 
 ## Genre and MPAA Rating Point of View
 
-So movies with R rated have the most count and they are also action movies. This count is 10.
-Similarly R rated and Drama genre movies also hold the same count. Here also there are 11 movies
-with have not been classfied into any rating. Finally, there is no G rated movie in this graphical
-representation.
+So movies with R ratedness have the most count and they are also action and drama genre movies of count 10.
+Here also there are 11 movies with have not been classfied into any rating. Finally, there is no G rated movie in 
+this graphical representation. Majority of movies (31) are from R rated in related to rating. While considering genre 
+the Drama category is represented by 24. Action, Drama and Horror movies includes missing rating. 
 
-Majority of movies(31) from R rated and 24 of them are Drama genre. Action, Drama and Horror movies are
-not rated. 
 ```{r Domestic zero and genre with rating,warning=FALSE,echo=FALSE}
 #plotting worldwide gross with genre
 Movie_domestic_zero %>% 
@@ -149,12 +143,12 @@ Movie_domestic_zero %>%
 
 ## Finding Outliers in Perspective of Genre and MPAA Rating
 
-Considering the boxplot there are 3 outliers in Drama while plotting data in perspective genre. Most amount of 
+Considering the boxplot there are 3 outliers in Drama while plotting data in perspective of genre. Most amount of 
 production budget is concluded in Action genre, while the least is in Horror. 
 
-If we focus on the production budget with genre there are 7 outliers and one action movie has spent more than 
-1.5 billion dollars from the action genre while a movie from adventure category spent almost 1 billion USD. 
-Others are less than 50 milion USD. 
+If we focus on the production budget with genre there are 7 outliers and one action movie has spent 100 million 
+dollars, similarly a movie from adventure category spent more than 100 million dollars. Others prodcution budget is 
+way less than 50 milion USD. 
 
 ```{r Domestic zero Boxplot production budget with genre,warning=FALSE,echo=FALSE}
 #plotting production budget with genre
@@ -185,7 +179,7 @@ Movie_domestic_zero %>%
 
 ## Production Budget and Worldwide Gross
 
-According to the descending order in the last 10 movies with lowest production budget only 2 have profitted. 
+According to the ascending order in the list of 10 movies with lowest production budget only 2 have profited. 
 One movie (All the Boys Love Mandy Lane) has considereably done good, but if you consider this list of 10 movies 
 we have 12 angry men as well. 
 
@@ -196,9 +190,9 @@ kable(Movie_domestic_zero[order(Movie_domestic_zero$production_budget),-c(1,4)] 
 
 ```
 
-This indicates that we didn't have records how much of profit in home and away, because there is no way that 
-people did not watch that movie and not make money. So we conclude that some movies even though they aired 
-earlier in the century did not has to be recorded for domestic and worldwide profit.
+This indicates that we didn't have records how much of profit in home and away properly, because there is no way that 
+people did not watch that movie and not make any gross. So we conclude that some movies which were released before 1970s 
+didnot pertain any information of gross domestic or worldwide.
 
 ## Years, Months and Days versus Production Budget
 
@@ -214,7 +208,7 @@ ggplot(Movie_domestic_zero,aes(x=year(release_date)))+
       theme(axis.text.x = element_text(angle = 90,hjust = 1))
 ```
 
-Considering the months there is no speciality most of them inbetween 3 and 8. In january there are 
+Considering the months there is no speciality most of the counts are inbetween 3 and 8. In january there are 
 only two movies.
 
 ```{r Confirm possibility of month ,echo=FALSE,warning=FALSE,fig.height=6,fig.width=12}
@@ -225,7 +219,7 @@ ggplot(Movie_domestic_zero,aes(x=month(release_date)))+
       stat_count(aes(y=..count.., label=..count..), geom="text", vjust=-.5)
 ```
 
-Only the release days 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. 
+Only the movies with release dates 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. 
 Most of the days have the count of 1 movie. 
 
 ```{r Confirm possibility of day,echo=FALSE,warning=FALSE,fig.height=6,fig.width=12}
@@ -238,16 +232,17 @@ ggplot(Movie_domestic_zero,aes(x=day(release_date)))+
 
 # Conclusion 
 
-* In the complete data set Drama Genre has most (1236) counts and least count goest to Horror. While,
-  most (1514) of the Movies are R rated. Considering Genre an Rating, it is true that Horror movies 
-  are R rated while it represents 76%.
+* In the complete data set Drama Genre has most (1236) counts and least (298) count goes to Horror. While,
+  most (1514) of the Movies are R rated, least count goes to Grated movies. Considering Genre and Rating, it is true 
+  that Horror movies are R rated while it represents 76%, and should not let children watch alone.
 
 * While there are movies with No domestic gross some have not been released yet (Aqua man and Wonder Park). Further,
   some Movies do not even have worldwide gross. This causes missing information. Even though a famous movies such as
   "12 Angry Men".
 
-* This missing information could be the reason that there are 4 movies which were released before 1972. Oddly in 2014 
-  there are 8 movies which does not contain domestic gross information.
+* This missing information could be the realted to the fact that there are 4 movies which were released before 1972. 
+  Oddly in 2014 there are 8 movies which do not contain domestic gross information. Further, most of these movies 
+  were realesed after year 2000.
   
 * Box plot indicates Adventure genre have spent more range in production budget, while in perspective of MPAA rating
   PG-13 movies have most range in production budget with a clear outlier.

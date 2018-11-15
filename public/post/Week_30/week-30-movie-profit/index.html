@@ -15,8 +15,8 @@
   
     
   
-  <meta name="description" content="Movie Profit GenerallyIntroductionThis is my second post on Tidy Tuesday and the dataset in question is Movie profit dataset.
-# looking at dimensionsdim(Movie)## [1] 3401 8# check for missing values in numerical valuesattach(Movie)summary(release_date)## Length Class Mode ## 3401 character charactersummary(production_budget)## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 250000 9000000 20000000 33284743 45000000 175000000summary(domestic_gross)## Min. 1st Qu.">
+  <meta name="description" content="Movie Profit, Not So ProfitIntroductionThis is my second post on Tidy Tuesday and the dataset in question is Movie profit dataset. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
+Understand Genre and Mpaa Rating on Movies3401 movies with 8 variables of information which include numeric and categorical.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/week_30/week-30-movie-profit/">
@@ -111,8 +111,8 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/week_30/week-30-movie-profit/">
   <meta property="og:title" content="Week 30: Movie Profit | Consulting Statistician">
-  <meta property="og:description" content="Movie Profit GenerallyIntroductionThis is my second post on Tidy Tuesday and the dataset in question is Movie profit dataset.
-# looking at dimensionsdim(Movie)## [1] 3401 8# check for missing values in numerical valuesattach(Movie)summary(release_date)## Length Class Mode ## 3401 character charactersummary(production_budget)## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 250000 9000000 20000000 33284743 45000000 175000000summary(domestic_gross)## Min. 1st Qu.">
+  <meta property="og:description" content="Movie Profit, Not So ProfitIntroductionThis is my second post on Tidy Tuesday and the dataset in question is Movie profit dataset. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
+Understand Genre and Mpaa Rating on Movies3401 movies with 8 variables of information which include numeric and categorical.">
   
   
     
@@ -429,156 +429,515 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <div id="movie-profit-generally" class="section level1">
-<h1>Movie Profit Generally</h1>
+      <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="movie-profit-not-so-profit" class="section level1">
+<h1>Movie Profit, Not So Profit</h1>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This is my second post on <a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday</a> and the dataset in question is <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23">Movie profit</a> dataset.</p>
-<pre class="r"><code># looking at dimensions
-dim(Movie)</code></pre>
-<pre><code>## [1] 3401    8</code></pre>
-<pre class="r"><code># check for missing values in numerical values
-attach(Movie)
-summary(release_date)</code></pre>
-<pre><code>##    Length     Class      Mode 
-##      3401 character character</code></pre>
-<pre class="r"><code>summary(production_budget)</code></pre>
-<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-##    250000   9000000  20000000  33284743  45000000 175000000</code></pre>
-<pre class="r"><code>summary(domestic_gross)</code></pre>
-<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-##         0   6118683  25533818  45421793  60323786 474544677</code></pre>
-<pre class="r"><code>summary(worldwide_gross)</code></pre>
-<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## 0.000e+00 1.062e+07 4.016e+07 9.412e+07 1.176e+08 1.305e+09</code></pre>
-<pre class="r"><code># checking factors or level of categorical variables
-#summary.factor(distributor)   
-length(summary.factor(distributor))</code></pre>
-<pre><code>## [1] 202</code></pre>
-<pre class="r"><code>summary.factor(mpaa_rating)</code></pre>
-<pre><code>##     G    PG PG-13     R  NA&#39;s 
-##    85   573  1092  1514   137</code></pre>
-<pre class="r"><code>ggplot(Movie,aes(mpaa_rating))+theme_bw()+
-  geom_bar()+geom_bar()+stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>summary.factor(genre)</code></pre>
-<pre><code>##    Action Adventure    Comedy     Drama    Horror 
-##       573       481       813      1236       298</code></pre>
-<pre class="r"><code>ggplot(Movie,aes(genre))+theme_bw()+
-  geom_bar()+stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<pre class="r"><code># checking for bias in mpaa rating and genre 
-table(mpaa_rating,genre)</code></pre>
-<pre><code>##            genre
-## mpaa_rating Action Adventure Comedy Drama Horror
-##       G          1        67      6    11      0
-##       PG        34       309     79   144      7
-##       PG-13    225        83    328   398     58
-##       R        286        14    367   645    202</code></pre>
-<pre class="r"><code># column percentage for above table
-table(mpaa_rating,genre) %&gt;%
-prop.table(margin=2) %&gt;%
-round(digits = 2)</code></pre>
-<pre><code>##            genre
-## mpaa_rating Action Adventure Comedy Drama Horror
-##       G       0.00      0.14   0.01  0.01   0.00
-##       PG      0.06      0.65   0.10  0.12   0.03
-##       PG-13   0.41      0.18   0.42  0.33   0.22
-##       R       0.52      0.03   0.47  0.54   0.76</code></pre>
-<ol style="list-style-type: decimal">
-<li>3401 movies with 8 variables of information which include numeric and categorical.</li>
-<li>There are 202 distributors for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them.</li>
-<li>Also there are five categories for genre, where Drama with 1236, while horror with 298 movies.</li>
-<li>There is only one action movie for general audiences(for all) and obviously no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.</li>
-<li>Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). The frequencies are respectively 367 and 328.</li>
-<li>Where 309 movies of adventure genre could be watched by children with accompanying parents and most(67) number of adventure movies can be watched by all ages. Yet 645 Drama movies are R-rated.</li>
-<li>We think horror movies are mostly R-rated then it is true. But only is relative to percentage because considering the frequencies we make horror movies the least even according to this random sample.</li>
-<li>This dataset contains the release dates from 1936 to 2019. Even though it is not 2019 there is a movie which has been listed here.</li>
-<li>This explains the domestic and worldwide gross being zero as the minimum value of zero. Then again we have to be careful because there are movies which might not make profit at all.</li>
-</ol>
-<div id="lets-focus-of-movies-which-has-zero-domestic-gross" class="section level2">
-<h2>Lets Focus of movies which has zero domestic gross</h2>
-<pre><code>## [1] 66  8</code></pre>
-<pre><code>##    Length     Class      Mode 
-##        66 character character</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="672" /></p>
-<pre><code>## [1] 43</code></pre>
-<pre><code>##    PG PG-13     R  NA&#39;s 
-##    12    12    31    11</code></pre>
-<pre><code>##    Action Adventure    Comedy     Drama    Horror 
-##        14        10        10        24         8</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-2.png" width="672" /></p>
-<pre><code>## # A tibble: 9 x 8
-##   release_date movie production_budg~ domestic_gross worldwide_gross
-##   &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
-## 1 5/27/2011    Die ~          7250000              0        35122948
-## 2 11/24/2006   Kurt~          8300000              0        24906717
-## 3 5/4/2012     LOL           11000000              0        10431506
-## 4 3/31/2004    The ~         20000000              0         5918742
-## 5 7/8/2011     Iron~         25000000              0         5297411
-## 6 2/24/2017    The ~          5250000              0         4802379
-## 7 9/29/2017    Don ~          8000000              0         4598934
-## 8 12/14/2007   Good~         30000000              0         2717302
-## 9 9/9/2011     Grav~          2000000              0         2151887
-## # ... with 3 more variables: distributor &lt;chr&gt;, mpaa_rating &lt;chr&gt;,
-## #   genre &lt;chr&gt;</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-3.png" width="672" /></p>
-<pre><code>## # A tibble: 10 x 8
-##    release_date movie production_budg~ domestic_gross worldwide_gross
-##    &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
-##  1 3/31/2004    The ~         20000000              0         5918742
-##  2 8/29/2014    Dweg~         20000000              0               0
-##  3 7/8/2011     Iron~         25000000              0         5297411
-##  4 3/17/2015    Acci~         26000000              0          135436
-##  5 12/14/2007   Good~         30000000              0         2717302
-##  6 3/13/2015    The ~         35000000              0           11106
-##  7 4/14/2017    Quee~         36000000              0         1578543
-##  8 11/11/2016   USS ~         40000000              0         1641255
-##  9 3/15/2019    Wond~        100000000              0               0
-## 10 12/21/2018   Aqua~        160000000              0               0
-## # ... with 3 more variables: distributor &lt;chr&gt;, mpaa_rating &lt;chr&gt;,
-## #   genre &lt;chr&gt;</code></pre>
-<ol style="list-style-type: decimal">
-<li><p>There are 66 movies which have not made domestic profit at all. Majority of movies(31) from R rated<br />
-and 24 of them are Drama genre.</p></li>
-<li><p>Even though no gross in domestic they have done quite done well around. There are 9 movies as outliers of this boxplot for genre. It should be noted that Drama category has the most significant outlier with 30 million where second outlier from action movie of close to 25 million dollars.</p></li>
-</ol>
-<p>If we focus on the production budget with genre there are 7 outliers and one action movie has spent more than 1.5 billion dollars from the action genre while a movie from adventure category spent almost 1 billion USD. others are less than 50 milion USD. According to the descending order in the last 10 movies with lowest production budget only 2 have profitted. One movie (All the Boys Love Mandy Lane) has considereably done good, but if you consider this list of 10 movies we have 12 angry men as well. This indicates that we didn’t have records how much of profit in home and away, because there is no way that people didn’t watch that movie.So we conclude that some movies even though they aired earlier in the century did not has to be recorded for domestic and worldwide profit.</p>
-<pre class="r"><code>Movie_worldwide_zero&lt;-subset.data.frame(Movie,c(worldwide_gross==0))
-attach(Movie_worldwide_zero)</code></pre>
-<pre><code>## The following objects are masked from Movie_domestic_zero:
-## 
-##     distributor, domestic_gross, genre, movie, mpaa_rating,
-##     production_budget, release_date, worldwide_gross</code></pre>
-<pre><code>## The following objects are masked from Movie:
-## 
-##     distributor, domestic_gross, genre, movie, mpaa_rating,
-##     production_budget, release_date, worldwide_gross</code></pre>
-<pre class="r"><code># check for missing values in numerical values
-summary(release_date)</code></pre>
-<pre><code>##    Length     Class      Mode 
-##        36 character character</code></pre>
-<pre class="r"><code>summary(production_budget)</code></pre>
-<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-##    340000   1200000   3500000  11965000   8925000 160000000</code></pre>
-<pre class="r"><code>summary(domestic_gross)</code></pre>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##       0       0       0       0       0       0</code></pre>
-<pre class="r"><code>summary(worldwide_gross)</code></pre>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##       0       0       0       0       0       0</code></pre>
-<pre class="r"><code># checking factors or level of categorical variables
-#summary.factor(distributor)
-length(summary.factor(distributor))</code></pre>
-<pre><code>## [1] 28</code></pre>
-<pre class="r"><code>summary.factor(mpaa_rating)</code></pre>
-<pre><code>##    PG PG-13     R  NA&#39;s 
-##    10     5    16     5</code></pre>
-<pre class="r"><code>summary.factor(genre)</code></pre>
-<pre><code>##    Action Adventure    Comedy     Drama    Horror 
-##         9         5         6        13         3</code></pre>
+<p>This is my second post on <a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday</a> and the dataset in question is <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23">Movie profit</a> dataset. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.</p>
+<div id="understand-genre-and-mpaa-rating-on-movies" class="section level2">
+<h2>Understand Genre and Mpaa Rating on Movies</h2>
+<p>3401 movies with 8 variables of information which include numeric and categorical. There are 202 distributors for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them. Also there are five categories for genre, where Drama with 1236, while horror with 298 movies.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Genre%20bar%20plot-1.png" width="672" /></p>
+<p>There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 are in category of PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Ratings%20Bar%20plot-1.png" width="672" /></p>
+<p>Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with accompanying parents and 67 movies can be watched by all ages.</p>
+<p>Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Action
+</th>
+<th style="text-align:right;">
+Adventure
+</th>
+<th style="text-align:right;">
+Comedy
+</th>
+<th style="text-align:right;">
+Drama
+</th>
+<th style="text-align:right;">
+Horror
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PG
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+309
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:right;">
+328
+</td>
+<td style="text-align:right;">
+398
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+286
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+367
+</td>
+<td style="text-align:right;">
+645
+</td>
+<td style="text-align:right;">
+202
+</td>
+</tr>
+</tbody>
+</table>
+<p>We think horror movies are mostly R-rated then it is true. But only it is explainable by percentage. Yet considering the amount of horror movies made generally it is very low even in this random sample. Action and Comedy movies have very close percentages for PG-13 ratedness, while 52% are R rated for Action and 47% are comedy.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Action
+</th>
+<th style="text-align:right;">
+Adventure
+</th>
+<th style="text-align:right;">
+Comedy
+</th>
+<th style="text-align:right;">
+Drama
+</th>
+<th style="text-align:right;">
+Horror
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PG
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.65
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+0.42
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+0.47
+</td>
+<td style="text-align:right;">
+0.54
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+</tr>
+</tbody>
+</table>
+<p>This dataset contains the release dates from 1956 to 2019. Even though it is not 2019 there is a movie which has been listed here. This explains the domestic and worldwide gross being zero as zero. Then again we have to be careful because there are movies which might not make profit at all, domestic or other wise.</p>
 </div>
+</div>
+<div id="lets-focus-of-movies-which-has-zero-domestic-gross" class="section level1">
+<h1>Lets Focus of movies which has zero domestic gross</h1>
+<p>No revenue from 66 movies, that is interesting. So obviously Aqua man has a whopping more than 150 million dollars<br />
+production budget and no profit because it was not released yet when this data set was compiled. Second rank is for “Wonder park” with 100 million dollars. This movie will be released in 2019.</p>
+<div id="zero-domestic-gross-point-of-view" class="section level2">
+<h2>Zero Domestic gross Point of View</h2>
+<p>Suprisingly there are movies without any production budget information because I am very sure No movie is done for free. Specially it is odd to see “12 Angry Men” in this list, which leads to the conclusion not all Movies in this list are to be onit in the first place. We have 66 movies to consider.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="960" /></p>
+</div>
+<div id="genre-and-mpaa-rating-point-of-view" class="section level2">
+<h2>Genre and MPAA Rating Point of View</h2>
+<p>So movies with R ratedness have the most count and they are also action and drama genre movies of count 10. Here also there are 11 movies with have not been classfied into any rating. Finally, there is no G rated movie in this graphical representation. Majority of movies (31) are from R rated in related to rating. While considering genre the Drama category is represented by 24. Action, Drama and Horror movies includes missing rating.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png" width="672" /><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png" width="672" /></p>
+</div>
+<div id="finding-outliers-in-perspective-of-genre-and-mpaa-rating" class="section level2">
+<h2>Finding Outliers in Perspective of Genre and MPAA Rating</h2>
+<p>Considering the boxplot there are 3 outliers in Drama while plotting data in perspective of genre. Most amount of production budget is concluded in Action genre, while the least is in Horror.</p>
+<p>If we focus on the production budget with genre there are 7 outliers and one action movie has spent 100 million dollars, similarly a movie from adventure category spent more than 100 million dollars. Others prodcution budget is way less than 50 milion USD.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png" width="672" /></p>
+<p>Least amount budget is spent on movies of no rating mentioned while most is on PG-13 rated movies and it has one strong outlier. Previously with genre we had 7 outliers but according to MPAA rating there are only 6 outliers.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png" width="672" /></p>
+</div>
+<div id="production-budget-and-worldwide-gross" class="section level2">
+<h2>Production Budget and Worldwide Gross</h2>
+<p>According to the ascending order in the list of 10 movies with lowest production budget only 2 have profited. One movie (All the Boys Love Mandy Lane) has considereably done good, but if you consider this list of 10 movies we have 12 angry men as well.</p>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:center;">
+Movie Name
+</th>
+<th style="text-align:center;">
+Production Budget
+</th>
+<th style="text-align:center;">
+Wordlwide Gross
+</th>
+<th style="text-align:center;">
+Distributor
+</th>
+<th style="text-align:center;">
+MPAA Rating
+</th>
+<th style="text-align:center;">
+Genre
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+12 Angry Men
+</td>
+<td style="text-align:center;">
+340000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+United Artists
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+My Beautiful Laundrette
+</td>
+<td style="text-align:center;">
+400000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Orion Classics
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Everything Put Together
+</td>
+<td style="text-align:center;">
+500000
+</td>
+<td style="text-align:center;">
+7890
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+R
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+All the Boys Love Mandy Lane
+</td>
+<td style="text-align:center;">
+750000
+</td>
+<td style="text-align:center;">
+1960521
+</td>
+<td style="text-align:center;">
+Radius
+</td>
+<td style="text-align:center;">
+R
+</td>
+<td style="text-align:center;">
+Horror
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Jimmy and Judy
+</td>
+<td style="text-align:center;">
+1000000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Outrider Pictures
+</td>
+<td style="text-align:center;">
+R
+</td>
+<td style="text-align:center;">
+Action
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+The Poker House
+</td>
+<td style="text-align:center;">
+1000000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Phase 4 Films
+</td>
+<td style="text-align:center;">
+R
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Proud
+</td>
+<td style="text-align:center;">
+1000000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Castle Hill Product…
+</td>
+<td style="text-align:center;">
+PG
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Steppin: The Movie
+</td>
+<td style="text-align:center;">
+1000000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Weinstein Co.
+</td>
+<td style="text-align:center;">
+PG-13
+</td>
+<td style="text-align:center;">
+Comedy
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Zombies of Mass Destruction
+</td>
+<td style="text-align:center;">
+1000000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+After Dark
+</td>
+<td style="text-align:center;">
+R
+</td>
+<td style="text-align:center;">
+Comedy
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Grand Theft Parsons
+</td>
+<td style="text-align:center;">
+1200000
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Swipe Films
+</td>
+<td style="text-align:center;">
+PG-13
+</td>
+<td style="text-align:center;">
+Drama
+</td>
+</tr>
+</tbody>
+</table>
+<p>This indicates that we didn’t have records how much of profit in home and away properly, because there is no way that people did not watch that movie and not make any gross. So we conclude that some movies which were released before 1970s didnot pertain any information of gross domestic or worldwide.</p>
+</div>
+<div id="years-months-and-days-versus-production-budget" class="section level2">
+<h2>Years, Months and Days versus Production Budget</h2>
+<p>There are 4 Movies before 1972 with zero for domestic gross which can conclude loss of information. Oddly in year 2014 there are 8 movies with zero domestic gross and most of the movies are after year 2000.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png" width="1152" /></p>
+<p>Considering the months there is no speciality most of the counts are inbetween 3 and 8. In january there are only two movies.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20month%20-1.png" width="1152" /></p>
+<p>Only the movies with release dates 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. Most of the days have the count of 1 movie.</p>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20day-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<ul>
+<li><p>In the complete data set Drama Genre has most (1236) counts and least (298) count goes to Horror. While, most (1514) of the Movies are R rated, least count goes to Grated movies. Considering Genre and Rating, it is true that Horror movies are R rated while it represents 76%, and should not let children watch alone.</p></li>
+<li><p>While there are movies with No domestic gross some have not been released yet (Aqua man and Wonder Park). Further, some Movies do not even have worldwide gross. This causes missing information. Even though a famous movies such as “12 Angry Men”.</p></li>
+<li><p>This missing information could be the realted to the fact that there are 4 movies which were released before 1972. Oddly in 2014 there are 8 movies which do not contain domestic gross information. Further, most of these movies were realesed after year 2000.</p></li>
+<li><p>Box plot indicates Adventure genre have spent more range in production budget, while in perspective of MPAA rating PG-13 movies have most range in production budget with a clear outlier.</p></li>
+</ul>
+</div>
+<div id="further-analysis" class="section level1">
+<h1>Further Analysis</h1>
+<ul>
+<li><p>Similarly we can focus on movies of world wide gross equals to zero with other variables.</p></li>
+<li><p>Conduct scrutinized interest with movies of world wide gross zero and domestic gross zero.</p></li>
+</ul>
 </div>
 
     </div>
