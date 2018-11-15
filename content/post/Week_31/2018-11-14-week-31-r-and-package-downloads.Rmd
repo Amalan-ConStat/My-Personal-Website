@@ -1,5 +1,5 @@
 ---
-title: 'Week_31 : R and Package Downloads'
+title: 'Week 31 : R and Package Downloads'
 author: M.Amalan
 date: '2018-11-14'
 slug: week-31-r-and-package-downloads
@@ -32,6 +32,7 @@ r_downloads <- read_csv("r-downloads.csv",
 ```
 
 # Introduction
+
 [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a very good move to improve R programming for anyone who is interested in statistics.
 Datasets are uploaded every tuesday, and plots are published under the [#tidytuesday](https://twitter.com/hashtag/TidyTuesday?src=hash). This is just me 
 presenting a few accumulated plots for the dataset [r-downloads.csv](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv) 
@@ -275,4 +276,4 @@ I shall conclude my findings in point form
 
 _Please see that_ This is my first post on the internet so please be kind to tolerate my 
 mistakes in grammar and spellings. I intend to post more statistics related materials 
-in the future and learn accordingly. Thank you for reading.. 
+in the future and learn accordingly. Thank you for reading.
