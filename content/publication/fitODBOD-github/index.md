@@ -4,7 +4,7 @@ date = "2018-09-15"
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Amalan Mahendran"]
+authors = ["M.Amalan"]
 
 # Publication type.
 # Legend:
@@ -47,13 +47,15 @@ tags = ["R", "GitHub", "Package"]
 # Links (optional).
 url_pdf = ""
 url_preprint = ""
-url_code = "https://github.com/Amalan-ConStat/R-fitODBOD"
+url_code = ""
 url_dataset = ""
-url_project = "https://github.com/Amalan-ConStat/fitODBOD"
+url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
 url_source = ""
+
+ url_custom = [{name = "GitHub By ME", url = "https://github.com/Amalan-ConStat/R-fitODBOD"}, {name = "GitHub By CRAN", url ="https://github.com/Amalan-ConStat/fitODBOD" }]
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.

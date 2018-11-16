@@ -5,8 +5,8 @@ widget = "posts"
 active = true
 date = 2016-04-20T00:00:00
 
-title = "Recent Posts"
-subtitle = ""
+title = "My Posts"
+subtitle = "Focus on TidyTuesday and fitODBOD related issues. Further, Statistics related Posts"
 
 # Order that this section will appear in.
 weight = 40
@@ -14,16 +14,16 @@ weight = 40
 # Filter posts by tag.
 #  By default, show all recent posts.
 #  Filtering example: `tags_include = ["hugo", "academic"]`
-tags_include = []
+tags_include = ["TidyTuesday"]
 tags_exclude = []
 
 # Number of posts to list.
-count = 5
+count = 3
 
 # List format.
 #   0 = Simple
 #   1 = Detailed
 #   2 = Stream
-list_format = 2
+list_format = 0
 +++
 

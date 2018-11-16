@@ -45,15 +45,17 @@ projects = []
 tags = ["package", "R", "CRAN", "fitODBOD", "GitHub", "Website"]
 
 # Links (optional).
-url_pdf = "https://cran.r-project.org/web/packages/fitODBOD/fitODBOD.pdf"
+url_pdf = ""
 url_preprint = ""
-url_code = "https://github.com/Amalan-ConStat/R-fitODBOD/tree/master/docs"
+url_code = ""
 url_dataset = ""
-url_project = "https://amalan-constat.github.io/R-fitODBOD/index.html"
+url_project = ""
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = "https://www.rdocumentation.org/packages/fitODBOD/versions/1.2.0"
+url_source = ""
+
+url_custom = [{name = "Manual", url = "https://cran.r-project.org/web/packages/fitODBOD/fitODBOD.pdf"}, {name ="GitHub", url = "https://github.com/Amalan-ConStat/R-fitODBOD/tree/master/docs"},{ name = "Website", url = "https://amalan-constat.github.io/R-fitODBOD/index.html"}, {name = "RDocumentation", url = "https://www.rdocumentation.org/packages/fitODBOD/versions/1.2.0"}]
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.

@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>Week 30: Movie Profit</title>
+      <title>Week_30: Movie Profit</title>
       <link>/post/week_30/week-30-movie-profit/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_30/week-30-movie-profit/</guid>
-      <description>Movie Profit, Not So ProfitIntroductionThis is my second post on Tidy Tuesday and the data-set in question is Movie profit data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
-Understand Genre and Mpaa Rating on Movies3401 movies with 8 variables of information which include numeric and categorical.</description>
+      <description>Movie Profit, Not So ProfitThis is my second post on Tidy Tuesday and the data-set in question is Movie profit data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
+The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate.</description>
     </item>
     
     <item>

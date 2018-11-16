@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/movies/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week_30: Movie Profit</title>
+      <link>/post/week_30/week-30-movie-profit/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_30/week-30-movie-profit/</guid>
+      <description>Movie Profit, Not So ProfitThis is my second post on Tidy Tuesday and the data-set in question is Movie profit data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
+The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate.</description>
+    </item>
     
     <item>
       <title>Movies</title>

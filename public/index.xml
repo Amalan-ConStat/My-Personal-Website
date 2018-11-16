@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Week 30: Movie Profit</title>
+      <title>Week_30: Movie Profit</title>
       <link>/post/week_30/week-30-movie-profit/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -21,18 +21,18 @@
 
 &lt;div id=&#34;movie-profit-not-so-profit&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Movie Profit, Not So Profit&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;This is my second post on &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;Tidy Tuesday&lt;/a&gt; and the data-set in question is &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23&#34;&gt;Movie profit&lt;/a&gt; data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.&lt;/p&gt;
-&lt;div id=&#34;understand-genre-and-mpaa-rating-on-movies&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Understand Genre and Mpaa Rating on Movies&lt;/h2&gt;
+&lt;p&gt;The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;understand-genre-and-mpaa-rating-on-movies&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Understand Genre and Mpaa Rating on Movies&lt;/h1&gt;
 &lt;p&gt;3401 movies with 8 variables of information which include numeric and categorical. There are 202 distributors for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them. Also there are five categories for genre, where Drama with 1236, while horror with 298 movies.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Genre%20bar%20plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 are in category of PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Ratings%20Bar%20plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with accompanying parents and 67 movies can be watched by all ages.&lt;/p&gt;
 &lt;p&gt;Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Contengency table in counts for Genre versus MPAA Rating&lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -139,6 +139,7 @@ R
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;We think horror movies are mostly R-rated then it is true. But only it is explainable by percentage. Yet considering the amount of horror movies made generally it is very low even in this random sample. Action and Comedy movies have very close percentages for PG-13 ratedness, while 52% are R rated for Action and 47% are comedy.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Percentage table for Genre versus MPAA Rating&lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -246,253 +247,254 @@ R
 &lt;/table&gt;
 &lt;p&gt;This data-set contains the release dates from 1956 to 2019. Even though it is not 2019 there is a movie which has been listed here. This explains the domestic and worldwide gross being zero as zero. Then again we have to be careful because there are movies which might not make profit at all, domestic or other wise.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;lets-focus-of-movies-which-has-zero-domestic-gross&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Lets Focus of movies which has zero domestic gross&lt;/h1&gt;
 &lt;p&gt;No revenue from 66 movies, that is interesting. So obviously Aqua man has a whopping more than 150 million dollars&lt;br /&gt;
 production budget and no profit because it was not released yet when this data set was compiled. Second rank is for “Wonder park” with 100 million dollars. This movie will be released in 2019.&lt;/p&gt;
-&lt;div id=&#34;zero-domestic-gross-point-of-view&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Zero Domestic gross Point of View&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;zero-domestic-gross-point-of-view&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Zero Domestic gross Point of View&lt;/h1&gt;
 &lt;p&gt;Surprisingly there are movies without any production budget information because I am very sure No movie is done for free. Specially it is odd to see “12 Angry Men” in this list, which leads to the conclusion not all Movies in this list are to be on-it in the first place. We have 66 movies to consider.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;genre-and-mpaa-rating-point-of-view&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Genre and MPAA Rating Point of View&lt;/h2&gt;
+&lt;div id=&#34;genre-and-mpaa-rating-point-of-view&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Genre and MPAA Rating Point of View&lt;/h1&gt;
 &lt;p&gt;So movies with R ratedness have the most count and they are also action and drama genre movies of count 10. Here also there are 11 movies with have not been classified into any rating. Finally, there is no G rated movie in this graphical representation. Majority of movies (31) are from R rated in related to rating. While considering genre the Drama category is represented by 24. Action, Drama and Horror movies includes missing rating.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;finding-outliers-in-perspective-of-genre-and-mpaa-rating&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Finding Outliers in Perspective of Genre and MPAA Rating&lt;/h2&gt;
+&lt;div id=&#34;finding-outliers-in-perspective-of-genre-and-mpaa-rating&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Finding Outliers in Perspective of Genre and MPAA Rating&lt;/h1&gt;
 &lt;p&gt;Considering the box-plot there are 3 outliers in Drama while plotting data in perspective of genre. Most amount of production budget is concluded in Action genre, while the least is in Horror.&lt;/p&gt;
 &lt;p&gt;If we focus on the production budget with genre there are 7 outliers and one action movie has spent 100 million dollars, similarly a movie from adventure category spent more than 100 million dollars. Others production budget is way less than 50 million dollars.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Least amount budget is spent on movies of no rating mentioned while most is on PG-13 rated movies and it has one strong outlier. Previously with genre we had 7 outliers but according to MPAA rating there are only 6 outliers.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;production-budget-and-worldwide-gross&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Production Budget and Worldwide Gross&lt;/h2&gt;
+&lt;div id=&#34;production-budget-and-worldwide-gross&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Production Budget and Worldwide Gross&lt;/h1&gt;
 &lt;p&gt;According to the ascending order in the list of 10 movies with lowest production budget only 2 have profited. One movie (All the Boys Love Mandy Lane) has considerably done good, but if you consider this list of 10 movies we have 12 angry men as well.&lt;/p&gt;
-&lt;table class=&#34;table&#34; style=&#34;width: auto !important; &#34;&gt;
+&lt;pre&gt;&lt;code&gt;First ten Least production budget movies while Domestic gross is zero&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table&#34; style=&#34;font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
 Movie Name
 &lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
 Production Budget
 &lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
 Wordlwide Gross
 &lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
 Distributor
 &lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
 MPAA Rating
 &lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
 Genre
 &lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 12 Angry Men
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 340000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 United Artists
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 NA
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 My Beautiful Laundrette
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 400000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Orion Classics
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 NA
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Everything Put Together
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 500000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 7890
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 NA
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 R
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 All the Boys Love Mandy Lane
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 750000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1960521
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Radius
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 R
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Horror
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Jimmy and Judy
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1000000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Outrider Pictures
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 R
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Action
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 The Poker House
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1000000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Phase 4 Films
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 R
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Proud
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1000000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Castle Hill Product…
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 PG
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Steppin: The Movie
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1000000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Weinstein Co.
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 PG-13
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Comedy
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Zombies of Mass Destruction
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1000000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 After Dark
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 R
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Comedy
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Grand Theft Parsons
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 1200000
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
 0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Swipe Films
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 PG-13
 &lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 Drama
 &lt;/td&gt;
 &lt;/tr&gt;
@@ -500,8 +502,8 @@ Drama
 &lt;/table&gt;
 &lt;p&gt;This indicates that we didn’t have records how much of profit in home and away properly, because there is no way that people did not watch that movie and not make any gross. So we conclude that some movies which were released before 1970s did not pertain any information of gross domestic or worldwide.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;years-months-and-days-versus-production-budget&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Years, Months and Days versus Production Budget&lt;/h2&gt;
+&lt;div id=&#34;years-months-and-days-versus-production-budget&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Years, Months and Days versus Production Budget&lt;/h1&gt;
 &lt;p&gt;There are 4 Movies before 1972 with zero for domestic gross which can conclude loss of information. Oddly in year 2014 there are 8 movies with zero domestic gross and most of the movies are after year 2000.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Considering the months there is no specialty most of the counts are in-between 3 and 8. In January there are only two movies.&lt;/p&gt;
@@ -509,9 +511,9 @@ Drama
 &lt;p&gt;Only the movies with release dates 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. Most of the days have the count of 1 movie.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20day-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;My conclusion of the above plots and tables in point form&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;In the complete data set Drama Genre has most (1236) counts and least (298) count goes to Horror. While, most (1514) of the Movies are R rated, least count goes to Grated movies. Considering Genre and Rating, it is true that Horror movies are R rated while it represents 76%, and should not let children watch alone.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;While there are movies with No domestic gross some have not been released yet (Aqua man and Wonder Park). Further, some Movies do not even have worldwide gross. This causes missing information. Even though a famous movies such as “12 Angry Men”.&lt;/p&gt;&lt;/li&gt;
@@ -983,6 +985,13 @@ Frequency
 &lt;li&gt;&lt;p&gt;Most of the downloads occur in the months October and December, while days are 10th and 11th, while hours are 3rd and 4th and minutes of 59th, 46th, 12th and 0th.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Download size of 82375220 bytes happens with the highest count of 50, while the IP ID of 334 has most downloads of 55.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Further Analysis&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We can do similar analysis for other countries and compare them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Using Size it should be possible to understand what is being downloaded.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt; This is my first post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
 &lt;/div&gt;
 </description>
@@ -1209,6 +1218,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
       <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/publication/fitodbod-cran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</title>
+      <link>/publication/4th-year-research-project/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/4th-year-research-project/</guid>
       <description></description>
     </item>
     

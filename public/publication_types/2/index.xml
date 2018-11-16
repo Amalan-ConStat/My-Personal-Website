@@ -5,20 +5,20 @@
     <link>/publication_types/2/</link>
     <description>Recent content in 2 on Consulting Statistician</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 27 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CRAN-fitODBOD: FITting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-cran/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0530</pubDate>
+      <title>R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</title>
+      <link>/publication/4th-year-research-project/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/fitodbod-cran/</guid>
-      <description>More detail can easily be written here using Markdown and $\rm \LaTeX$ math code.</description>
+      <guid>/publication/4th-year-research-project/</guid>
+      <description></description>
     </item>
     
   </channel>

@@ -1,27 +1,27 @@
 ---
-title: 'Week 30: Movie Profit'
+title: 'Week_30: Movie Profit'
 author: M.Amalan
 date: '2018-11-14'
 slug: week-30-movie-profit
-categories: []
+categories: [TidyTuesday]
 tags:
   - TidyTuesday
+  - Movies
+  - R
+  - R package
 image:
-  caption: ''
+  caption: 'Movie profit data-set has around 3500 movies. Genre, MPAA Rating, Production budget, Release data Domestic gross and World wide gross are important variables. The range of variables are limited for categorical variables, but very wide for numerical variables.'
   focal_point: ''
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,size = "Huge",comment = NA)
 library(magrittr)
 library(tidyverse)
 library(scales)
-library(ggplot2)
 library(ggthemr)
 library(knitr)
 library(kableExtra)
-library(ggthemr)
-library(readr)
 library(lubridate)
 # load the data
 Movie <- read_csv("movie_profit.csv", 
@@ -32,20 +32,20 @@ ggthemr("flat dark")
 
 # looking at dimensions
 dim(Movie)
-
 attach(Movie)
 ```
 
 # Movie Profit, Not So Profit
-
-# Introduction
 
 This is my second post on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) and the data-set 
 in question is [Movie profit](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23) 
 data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not 
 generate any revenue domestic and suggest on gross in worldwide.
 
-## Understand Genre and  Mpaa Rating on Movies
+The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and 
+lubridate.  
+
+# Understand Genre and  Mpaa Rating on Movies
 
 3401 movies with 8 variables of information which include numeric and categorical. There are 202 distributors 
 for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them. 
@@ -54,7 +54,8 @@ Also there are five categories for genre, where Drama with 1236, while horror wi
 ```{r Genre bar plot,echo=FALSE,warning=FALSE}
 ggplot(Movie,aes(genre))+
   geom_bar()+stat_count(aes(y=..count.., label=..count..), geom="text", vjust=-.5)+
-  xlab("Genre")+ylab("Frequency")
+  xlab("Genre")+ylab("Frequency")+
+  ggtitle("All movies in perspevtive of Genre ")
 ```
 
 There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 
@@ -63,18 +64,21 @@ are in category of PG and G rated movies are only 85. Finally, 137 movies do not
 ```{r Ratings Bar plot,echo=FALSE,warning=FALSE}
 ggplot(Movie,aes(mpaa_rating))+
   geom_bar()+geom_bar()+stat_count(aes(y=..count.., label=..count..), geom="text", vjust=-.5)+
-  xlab("Rating")+ylab("Frequency")
+  xlab("Rating")+ylab("Frequency")+
+  ggtitle("All movies in persepvtie of MPAA Rating")
 ```
 
 Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). 
 Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with 
 accompanying parents and 67 movies can be watched by all ages. 
 
-Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror 
-film should be watched by children alone, yet there are 7 movies which you can watch with your parents.
+Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously 
+no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.
 
 ```{r table for rating vs genre,echo=FALSE,warning=FALSE}
-# checking for bias in mpaa rating and genre 
+# checking for bias in mpaa rating and genre
+
+cat("Contengency table in counts for Genre versus MPAA Rating\n")
 kable(table(mpaa_rating,genre))
 ```
 
@@ -85,6 +89,8 @@ and 47% are comedy.
 
 ```{r table for rating vs genre percentage,echo=FALSE,warning=FALSE}
 # column percentage for above table
+
+cat("Percentage table for Genre versus MPAA Rating\n")
 kable(table(mpaa_rating,genre) %>%
 prop.table(margin=2) %>%
 round(digits = 2))
@@ -100,7 +106,7 @@ No revenue from 66 movies, that is interesting. So obviously Aqua man has a whop
 production budget and no profit because it was not released yet when this data set was compiled. Second rank is for 
 "Wonder park" with 100 million dollars. This movie will be released in 2019.
 
-## Zero Domestic gross Point of View
+# Zero Domestic gross Point of View
 
 Surprisingly there are movies without any production budget information because I am very sure No movie is done for free.
 Specially it is odd to see "12 Angry Men" in this list, which leads to the conclusion not all Movies in this list are to 
@@ -113,13 +119,14 @@ attach(Movie_domestic_zero)
 ```
 
 ```{r graphical analysis for domestic gross zero movies,warning=FALSE,echo=FALSE,fig.height=10,fig.width=10}
-# histogram for production budget
+# Scatterplot for production budget
 ggplot(Movie_domestic_zero,aes(x=reorder(movie,production_budget),y=production_budget))+
   geom_point()+theme(axis.text.x =element_text(angle = 90, hjust = 1))+
-  scale_y_continuous(labels = dollar_format())+ylab("Production budget")+xlab("Movie names")
+  scale_y_continuous(labels = dollar_format())+ylab("Production budget")+xlab("Movie names")+
+  ggtitle("Domestic Gross Zero but how production budget varies in Movies")
 ```
 
-## Genre and MPAA Rating Point of View
+# Genre and MPAA Rating Point of View
 
 So movies with R ratedness have the most count and they are also action and drama genre movies of count 10.
 Here also there are 11 movies with have not been classified into any rating. Finally, there is no G rated movie in 
@@ -131,17 +138,18 @@ the Drama category is represented by 24. Action, Drama and Horror movies include
 Movie_domestic_zero %>% 
   ggplot(aes(x=mpaa_rating,fill=genre)) +
   geom_bar(position = "stack")+ylab("Frequency")+xlab("MPAA Rating")+
-  geom_text(aes(label=..count..),stat='count',position=position_stack(0.4))
+  geom_text(aes(label=..count..),stat='count',position=position_stack(0.4))+
+  ggtitle("MPAA Rating counts with Genre")
 
 #plotting worldwide gross with mpaa rating
 Movie_domestic_zero %>% 
   ggplot(aes(fill=mpaa_rating,x=genre)) +
   geom_bar(position = "stack")+ylab("Frequency")+xlab("Genre")+
-  geom_text(aes(label=..count..),stat='count',position=position_stack(0.4))
-
+  geom_text(aes(label=..count..),stat='count',position=position_stack(0.4))+
+  ggtitle("Genre counts with MPAA Rating")
 ```
 
-## Finding Outliers in Perspective of Genre and MPAA Rating
+# Finding Outliers in Perspective of Genre and MPAA Rating
 
 Considering the box-plot there are 3 outliers in Drama while plotting data in perspective of genre. Most amount of 
 production budget is concluded in Action genre, while the least is in Horror. 
@@ -157,8 +165,8 @@ Movie_domestic_zero %>%
   geom_boxplot()+ylab("Production Budget")+
   xlab("Genre")+
   scale_y_continuous(labels = dollar_format())+
-  expand_limits(y=0)+
-  coord_flip()
+  expand_limits(y=0)+coord_flip()+
+  ggtitle("Boxplot for Production budget in perspective of Genre")
 
 ```
 
@@ -172,29 +180,30 @@ Movie_domestic_zero %>%
   geom_boxplot()+ylab("Production Budget")+
   xlab("MPAA rating")+
   scale_y_continuous(labels = dollar_format())+
-  expand_limits(y=0)+
-  coord_flip()
+  expand_limits(y=0)+coord_flip()+
+  ggtitle("Boxplot for Production budget in perspective of MPAA Rating")
 
 ```
 
-## Production Budget and Worldwide Gross
+# Production Budget and Worldwide Gross
 
 According to the ascending order in the list of 10 movies with lowest production budget only 2 have profited. 
 One movie (All the Boys Love Mandy Lane) has considerably done good, but if you consider this list of 10 movies 
 we have 12 angry men as well. 
 
 ```{r list of movies production budget,echo=FALSE,warning=FALSE}
-kable(Movie_domestic_zero[order(Movie_domestic_zero$production_budget),-c(1,4)] %>% head(10),
+cat("First ten Least production budget movies while Domestic gross is zero\n")
+tab1<-kable(Movie_domestic_zero[order(Movie_domestic_zero$production_budget),-c(1,4)] %>% head(10),
       col.names = c("Movie Name","Production Budget","Wordlwide Gross","Distributor",
-                    "MPAA Rating","Genre"),align="c") %>% kable_styling(full_width = F,position = "left")
-
+                    "MPAA Rating","Genre")) %>% kable_styling(full_width = F,font_size = "13")
+tab1
 ```
 
 This indicates that we didn't have records how much of profit in home and away properly, because there is no way that 
 people did not watch that movie and not make any gross. So we conclude that some movies which were released before 1970s 
 did not pertain any information of gross domestic or worldwide.
 
-## Years, Months and Days versus Production Budget
+# Years, Months and Days versus Production Budget
 
 There are 4 Movies before 1972 with zero for domestic gross which can conclude loss of information. Oddly in 
 year 2014 there are 8 movies with zero domestic gross and most of the movies are after year 2000.
@@ -232,6 +241,8 @@ ggplot(Movie_domestic_zero,aes(x=day(release_date)))+
 
 # Conclusion 
 
+My conclusion of the above plots and tables in point form
+
 * In the complete data set Drama Genre has most (1236) counts and least (298) count goes to Horror. While,
   most (1514) of the Movies are R rated, least count goes to Grated movies. Considering Genre and Rating, it is true 
   that Horror movies are R rated while it represents 76%, and should not let children watch alone.
@@ -246,7 +257,6 @@ ggplot(Movie_domestic_zero,aes(x=day(release_date)))+
   
 * Box plot indicates Adventure genre have spent more range in production budget, while in perspective of MPAA rating
   PG-13 movies have most range in production budget with a clear outlier.
-  
   
 # Further Analysis
 

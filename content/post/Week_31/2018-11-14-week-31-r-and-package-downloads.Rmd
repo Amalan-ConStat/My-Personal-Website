@@ -3,11 +3,14 @@ title: 'Week 31 : R and Package Downloads'
 author: M.Amalan
 date: '2018-11-13'
 slug: week-31-r-and-package-downloads
-categories: []
+categories: [TidyTuesday]
 tags:
   - TidyTuesday
+  - R downloads
+  - R
+  - R package
 image:
-  caption: ''
+  caption: 'TidyTuesday week 31, the data-set provided is R and package downloads. I was curious about Sri Lankan users therefore focus on them intensively'
   focal_point: ''
 ---
 
@@ -271,6 +274,12 @@ I shall conclude my findings in point form
   
 * Download size of 82375220 bytes happens with the highest count of 50, while the IP ID 
   of 334 has most downloads of 55. 
+
+# Further Analysis
+
+* We can do similar analysis for other countries and compare them.
+
+* Using Size it should be possible to understand what is being downloaded.
 
 _Please see that_ This is my first post on the internet so please be kind to tolerate my 
 mistakes in grammar and spellings. I intend to post more statistics related materials 
