@@ -34,19 +34,19 @@ r_downloads <- read_csv("r-downloads.csv",
 # Introduction
 
 [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a very good move to improve R programming for anyone who is interested in statistics.
-Datasets are uploaded every tuesday, and plots are published under the [#tidytuesday](https://twitter.com/hashtag/TidyTuesday?src=hash). This is just me 
-presenting a few accumulated plots for the dataset [r-downloads.csv](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv) 
+Data-sets are uploaded every Tuesday, and plots are published under the [#tidytuesday](https://twitter.com/hashtag/TidyTuesday?src=hash). This is just me 
+presenting a few accumulated plots for the data-set [r-downloads.csv](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv) 
 and [r_downloads_year.csv](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r_downloads_year.csv). 
 
 I shall be focusing on the data set provided on 2018 October 30th, Which is 
 [R and Package download stats.](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-30) 
-My main objective is to understand how Sri Lankan users have behaved in this dataset. 
+My main objective is to understand how Sri Lankan users have behaved in this data-set. 
 
 The packages used in R are readr,ggplot2, lubridate, ggthemr, gridExtra, magrittr, knitr and kableExtra. 
 
-There are 701 downloads occured in between the given time limit of 2017 October 20th to 2018 October 20th 
+There are 701 downloads occurred in between the given time limit of 2017 October 20th to 2018 October 20th 
 in Sri Lanka. Similarly, if we look at the downloads on the day of 2018 October 23rd, which is 3 observations. There are 7
-variables to be concerend, which are
+variables to be concerned, which are
 
 * date - date of download (y-m-d)
 * time - time of download (in UTC)
@@ -54,7 +54,7 @@ variables to be concerend, which are
 * version - R release version
 * os - Operating System
 * country -  Two letter ISO country code
-* ip_id - Anonymized dialy ip code(unique identifier)
+* ip_id - Anonymized daily ip code(unique identifier)
 
 ```{r Sri Lanka data extraction,echo=FALSE,warning=FALSE,include=FALSE}
 # extracting the observations only if the country is Sri Lanka
@@ -68,7 +68,7 @@ dim(r_downloads_LK)
 
 # Operating Systems 
 
-Windows is not a favourable operating system for open source programming was my myth.
+Windows is not a favorable operating system for open source programming was my myth.
 Well, No longer I shall believe that if it is considering Sri Lankans and R programming.
 
 ```{r Operating Systems, echo=FALSE, fig.height=6, fig.width=6, warning=FALSE}
@@ -95,7 +95,7 @@ downloaded.
 
 # R versions 
 
-Versions are updated regularly for R and a grand update occured on 2018 April for the version
+Versions are updated regularly for R and a grand update occurred on 2018 April for the version
 3.5.0. Further, versions 3.4.3 and 3.4.4 were updated in the time gap considered.
 There are versions from 3.0.0 and higher for Sri Lankan users. It is crucial to study this where 
 we can understand how far does the user have knowledge about R and updating the software version.
@@ -112,7 +112,7 @@ g2
 ```
 
 Table shows that version 3.5.1 represents a 36.52% followed by version 3.4.3 of 27.96% and in the 
-third place version 3.5.0 with 15.98%. Further, all downloads are occured for versions 3.0.0 
+third place version 3.5.0 with 15.98%. Further, all downloads are occurred for versions 3.0.0 
 or higher than it. People believed in 3.4.3 than 3.5.0, which could only mean that 3.4.3 was more 
 stable for user and package requirements.
 
@@ -146,13 +146,13 @@ cat("Contingency table for R version vs Operating System\n")
 kable(round(prop.table(table(r_downloads_year_LK$os,r_downloads_year_LK$version)),4))
 ```
 
-Windows operating system percentages indicate that 34.66% of users have choosen version 3.5.1,
-26.53% have choosen version 3.4.3 and finally version 3.5.0 with 15.12%. Close to 9% is 
+Windows operating system percentages indicate that 34.66% of users have chosen version 3.5.1,
+26.53% have chosen version 3.4.3 and finally version 3.5.0 with 15.12%. Close to 9% is 
 represented by version 3.4.2 and 3.4.4. 
 
 # Date versus Operating System
 
-Date is a difficult variable in statistics therefore I have dissemininated the date into
+Date is a difficult variable in statistics therefore I have disseminated the date into
 4 types, which are month(January to December), day(1-31), hour(0-23) and minutes(0-59). 
 Further, I have tried to understand what type of operating systems were used in those
 time types.
@@ -173,7 +173,7 @@ So, the first sub part of time is months. Here, we are considering 12 months of 
 months August and April reflects no Operating System is better than Windows property. While, 
 August holding the  least amount of downloads with slightly above frequency 20. Highest frequency 
 occurs to October with count higher than 130 and significantly osx and src types of files also have 
-higher amount than anyother month. Except August only the month of December has counts higher 
+higher amount than any-other month. Except August only the month of December has counts higher 
 than 100. 
 
 ```{r Date versus Operating system 2,echo=FALSE, fig.height=7, fig.width=7, warning=FALSE }
@@ -230,10 +230,10 @@ in perspective of specific operating systems is tedious amount of work and waste
 
 # Download Size and IP ID
 
-Packages were downloaded but none of their names were given in this dataset. Therefore we cannot
+Packages were downloaded but none of their names were given in this data-set. Therefore we cannot
 know which package were downloaded. Yet we can identify the package sizes which were downloaded
 most. According to the table an R package with 82375220 bytes has most downloads of 50, while
-second place goest to a size of 82375219 bytes and finally in third place is for 82375216 bytes 
+second place goes to to a size of 82375219 bytes and finally in third place is for 82375216 bytes 
 with 39 counts. 
 
 ```{r Size classification,echo=FALSE, fig.height=8, fig.width=8, warning=FALSE}
@@ -245,7 +245,7 @@ kable(tab3)  %>%
 ```
 
 Looking at the IP ID it is clear that 334 has the highest downloads of 55, while second place goes
-to 1060 with 46 downloads. Finally, ID nunber 1286 has 16 downloads with third place. 
+to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place. 
 
 ```{r IP ID classification,echo=FALSE, fig.height=8, fig.width=8, warning=FALSE}
 tab4<-as.data.frame(sort(table(r_downloads_year_LK$ip_id))%>% tail(5))
