@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Week 33 : Malaria Deaths</title>
+      <link>/post/week_33/week-33-malaria-deaths/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_33/week-33-malaria-deaths/</guid>
+      <description>What I posted in #TidyTuesday on 13th November 2018.Below is the code and simple analysis I posted in relative to the Malaria data. I only focused on Sri Lanka and Malaria deaths over years. I could not find anything else at that time, but over the days I realized it should be worth to see how death counts change with different regions which do not have Code for the data sets malaria deaths and malaria deaths of age.</description>
+    </item>
+    
+    <item>
       <title>Week_30: Movie Profit</title>
       <link>/post/week_30/week-30-movie-profit/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>

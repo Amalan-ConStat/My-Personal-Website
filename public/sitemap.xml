@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/week_33/week-33-malaria-deaths/</loc>
+      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/week_30/week-30-movie-profit/</loc>
       <lastmod>2018-11-14T00:00:00+00:00</lastmod>
     </url>
@@ -249,7 +257,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-11-14T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -267,7 +275,7 @@
     <url>
     
       <loc>/tags/r-package/</loc>
-      <lastmod>2018-11-14T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -308,7 +316,7 @@
     
     <url>
     
-      <loc>/tags/tidytuesday/</loc>
+      <loc>/categories/tidytuesday/</loc>
       <lastmod>2018-11-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -317,8 +325,8 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
-      <lastmod>2018-11-14T00:00:00+00:00</lastmod>
+      <loc>/tags/tidytuesday/</loc>
+      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
