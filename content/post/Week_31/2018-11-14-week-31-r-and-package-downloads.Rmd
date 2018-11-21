@@ -1,7 +1,7 @@
 ---
 title: 'Week 31 : R and Package Downloads'
 author: M.Amalan
-date: '2018-11-13'
+date: '2018-11-15'
 slug: week-31-r-and-package-downloads
 categories: [TidyTuesday]
 tags:

@@ -22,23 +22,23 @@
     </item>
     
     <item>
-      <title>Week_30: Movie Profit</title>
+      <title>Week 31 : R and Package Downloads</title>
+      <link>/post/week_31/week-31-r-and-package-downloads/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
+      <description>IntroductionTidy Tuesday is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the #tidytuesday. This is just me presenting a few accumulated plots for the data-set r-downloads.csv and r_downloads_year.csv.
+I shall be focusing on the data set provided on 2018 October 30th, Which is R and Package download stats. My main objective is to understand how Sri Lankan users have behaved in this data-set.</description>
+    </item>
+    
+    <item>
+      <title>Week 30: Movie Profit</title>
       <link>/post/week_30/week-30-movie-profit/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_30/week-30-movie-profit/</guid>
       <description>Movie Profit, Not So ProfitThis is my second post on Tidy Tuesday and the data-set in question is Movie profit data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.
 The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate.</description>
-    </item>
-    
-    <item>
-      <title>Week 31 : R and Package Downloads</title>
-      <link>/post/week_31/week-31-r-and-package-downloads/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
-      <description>IntroductionTidy Tuesday is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the #tidytuesday. This is just me presenting a few accumulated plots for the data-set r-downloads.csv and r_downloads_year.csv.
-I shall be focusing on the data set provided on 2018 October 30th, Which is R and Package download stats. My main objective is to understand how Sri Lankan users have behaved in this data-set.</description>
     </item>
     
     <item>

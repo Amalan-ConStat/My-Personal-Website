@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-downloads/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Week 31 : R and Package Downloads</title>
       <link>/post/week_31/week-31-r-and-package-downloads/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
       <description>IntroductionTidy Tuesday is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the #tidytuesday. This is just me presenting a few accumulated plots for the data-set r-downloads.csv and r_downloads_year.csv.

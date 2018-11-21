@@ -148,7 +148,472 @@ This is my first post on the internet so please be kind to tolerate my mistakes 
     </item>
     
     <item>
-      <title>Week_30: Movie Profit</title>
+      <title>Week 31 : R and Package Downloads</title>
+      <link>/post/week_31/week-31-r-and-package-downloads/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;Tidy Tuesday&lt;/a&gt; is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&#34;&gt;#tidytuesday&lt;/a&gt;. This is just me presenting a few accumulated plots for the data-set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv&#34;&gt;r-downloads.csv&lt;/a&gt; and &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r_downloads_year.csv&#34;&gt;r_downloads_year.csv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I shall be focusing on the data set provided on 2018 October 30th, Which is &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-30&#34;&gt;R and Package download stats.&lt;/a&gt; My main objective is to understand how Sri Lankan users have behaved in this data-set.&lt;/p&gt;
+&lt;p&gt;The packages used in R are readr,ggplot2, lubridate, ggthemr, gridExtra, magrittr, knitr and kableExtra.&lt;/p&gt;
+&lt;p&gt;There are 701 downloads occurred in between the given time limit of 2017 October 20th to 2018 October 20th in Sri Lanka. Similarly, if we look at the downloads on the day of 2018 October 23rd, which is 3 observations. There are 7 variables to be concerned, which are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;date - date of download (y-m-d)&lt;/li&gt;
+&lt;li&gt;time - time of download (in UTC)&lt;/li&gt;
+&lt;li&gt;size - size in bytes&lt;/li&gt;
+&lt;li&gt;version - R release version&lt;/li&gt;
+&lt;li&gt;os - Operating System&lt;/li&gt;
+&lt;li&gt;country - Two letter ISO country code&lt;/li&gt;
+&lt;li&gt;ip_id - Anonymized daily ip code(unique identifier)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;operating-systems&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Operating Systems&lt;/h1&gt;
+&lt;p&gt;Windows is not a favorable operating system for open source programming was my myth. Well, No longer I shall believe that if it is considering Sri Lankans and R programming.&lt;/p&gt;
+&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Operating%20Systems-1.png&#34; width=&#34;576&#34; /&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Operating System
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Frequency
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+osx
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0371
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+src
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0271
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+win
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9358
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Majority of users have used Windows which is 93.58%, while Mac users are represented with 3.71% and finally 2.71% from the source file. Next, focusing on the R versions downloaded.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-versions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R versions&lt;/h1&gt;
+&lt;p&gt;Versions are updated regularly for R and a grand update occurred on 2018 April for the version 3.5.0. Further, versions 3.4.3 and 3.4.4 were updated in the time gap considered. There are versions from 3.0.0 and higher for Sri Lankan users. It is crucial to study this where we can understand how far does the user have knowledge about R and updating the software version.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Table shows that version 3.5.1 represents a 36.52% followed by version 3.4.3 of 27.96% and in the third place version 3.5.0 with 15.98%. Further, all downloads are occurred for versions 3.0.0 or higher than it. People believed in 3.4.3 than 3.5.0, which could only mean that 3.4.3 was more stable for user and package requirements.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+R Version
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Frequency
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.2.2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.4.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.3.3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0029
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.4.1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0029
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.4.4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0899
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.4.2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0956
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.5.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1598
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.4.3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2796
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.5.1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3652
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If we further divide the operating systems bar plot with respective to R version it is clearly seen that only versions 3.5.1, 3.5.0, 3.4.4, 3.4.3 and 3.4.2 have maintained importance for the windows operating system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions%203-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Contingency table for R version vs Operating System&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.0.0
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.2.2
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.3.3
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.4.0
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.4.1
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.4.2
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.4.3
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.4.4
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.5.0
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+3.5.1
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+osx
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0029
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0086
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0071
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0086
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+src
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0029
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0043
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0057
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0100
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+win
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0014
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0813
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2653
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0899
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1512
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3466
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Windows operating system percentages indicate that 34.66% of users have chosen version 3.5.1, 26.53% have chosen version 3.4.3 and finally version 3.5.0 with 15.12%. Close to 9% is represented by version 3.4.2 and 3.4.4.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;date-versus-operating-system&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Date versus Operating System&lt;/h1&gt;
+&lt;p&gt;Date is a difficult variable in statistics therefore I have disseminated the date into 4 types, which are month(January to December), day(1-31), hour(0-23) and minutes(0-59). Further, I have tried to understand what type of operating systems were used in those time types.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%201-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So, the first sub part of time is months. Here, we are considering 12 months of an year and months August and April reflects no Operating System is better than Windows property. While, August holding the least amount of downloads with slightly above frequency 20. Highest frequency occurs to October with count higher than 130 and significantly osx and src types of files also have higher amount than any-other month. Except August only the month of December has counts higher than 100.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%202-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, focusing on the days it is clear that 10th and 11th have most downloads respectively reaching more than 60 and 70 in counts, while in other days it is mostly less than 30. Further, clearly on the 31st it includes least frequency of 10 because 31st is not a common day of all 12 months. It would be very tiring to focus on operating systems individually, but to be fair there is clear sign of few days with only the use of windows, and a few days with combination of other operating systems with windows.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%203-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I have been curious at this part because of wanting to know at which hour of the day did our Sri Lankan users download R and packages. Yet it should be noted that the hour of time could be local time of Sri Lanka or otherwise. Still according to the bar chart the hours 4th and 5th have most downloads with counts of above 80 and above 90 respectively. Where in the 21st hour it reaches the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system2-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looking at the minutes it is very spread out. Focusing on special occasions only four minutes which are 59th, 46th, 12th and 0th have counts more than 20. While 51st minute has a count of 2. Rather than this nothing more significant occurs here. I think considering these counts in perspective of specific operating systems is tedious amount of work and waste of time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;download-size-and-ip-id&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Download Size and IP ID&lt;/h1&gt;
+&lt;p&gt;Packages were downloaded but none of their names were given in this data-set. Therefore we cannot know which package were downloaded. Yet we can identify the package sizes which were downloaded most. According to the table an R package with 82375220 bytes has most downloads of 50, while second place goes to to a size of 82375219 bytes and finally in third place is for 82375216 bytes with 39 counts.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Size
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Frequency
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+82877772
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+78171328
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+82375216
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+39
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+82375219
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+48
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+82375220
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+50
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Looking at the IP ID it is clear that 334 has the highest downloads of 55, while second place goes to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+IP ID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Frequency
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+623
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+9
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+157
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1286
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1060
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+46
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+334
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+55
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I shall conclude my findings in point form&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Most of Sri lankans (93.58%) use windows as a OS for R downloads&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Top three R versions are 3.5.1, 3.4.3 and 3.5.0 with percentages respectively 36.52% 27.96% and 15.98%.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Windows users use versions 3.5.1, 3.4.3 and 3.5.0 with percentages 34.56%, 26.53% and 3.5.0.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Most of the downloads occur in the months October and December, while days are 10th and 11th, while hours are 3rd and 4th and minutes of 59th, 46th, 12th and 0th.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Download size of 82375220 bytes happens with the highest count of 50, while the IP ID of 334 has most downloads of 55.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Further Analysis&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We can do similar analysis for other countries and compare them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Using Size it should be possible to understand what is being downloaded.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt; This is my first post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 30: Movie Profit</title>
       <link>/post/week_30/week-30-movie-profit/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -663,471 +1128,6 @@ Drama
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Similarly we can focus on movies of world wide gross equals to zero with other variables.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Conduct scrutinized interest with movies of world wide gross zero and domestic gross zero.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt; This is my first post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 31 : R and Package Downloads</title>
-      <link>/post/week_31/week-31-r-and-package-downloads/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;Tidy Tuesday&lt;/a&gt; is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&#34;&gt;#tidytuesday&lt;/a&gt;. This is just me presenting a few accumulated plots for the data-set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv&#34;&gt;r-downloads.csv&lt;/a&gt; and &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r_downloads_year.csv&#34;&gt;r_downloads_year.csv&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I shall be focusing on the data set provided on 2018 October 30th, Which is &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-30&#34;&gt;R and Package download stats.&lt;/a&gt; My main objective is to understand how Sri Lankan users have behaved in this data-set.&lt;/p&gt;
-&lt;p&gt;The packages used in R are readr,ggplot2, lubridate, ggthemr, gridExtra, magrittr, knitr and kableExtra.&lt;/p&gt;
-&lt;p&gt;There are 701 downloads occurred in between the given time limit of 2017 October 20th to 2018 October 20th in Sri Lanka. Similarly, if we look at the downloads on the day of 2018 October 23rd, which is 3 observations. There are 7 variables to be concerned, which are&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;date - date of download (y-m-d)&lt;/li&gt;
-&lt;li&gt;time - time of download (in UTC)&lt;/li&gt;
-&lt;li&gt;size - size in bytes&lt;/li&gt;
-&lt;li&gt;version - R release version&lt;/li&gt;
-&lt;li&gt;os - Operating System&lt;/li&gt;
-&lt;li&gt;country - Two letter ISO country code&lt;/li&gt;
-&lt;li&gt;ip_id - Anonymized daily ip code(unique identifier)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;operating-systems&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Operating Systems&lt;/h1&gt;
-&lt;p&gt;Windows is not a favorable operating system for open source programming was my myth. Well, No longer I shall believe that if it is considering Sri Lankans and R programming.&lt;/p&gt;
-&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Operating%20Systems-1.png&#34; width=&#34;576&#34; /&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Operating System
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Frequency
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-osx
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0371
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-src
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0271
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-win
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.9358
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Majority of users have used Windows which is 93.58%, while Mac users are represented with 3.71% and finally 2.71% from the source file. Next, focusing on the R versions downloaded.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;r-versions&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R versions&lt;/h1&gt;
-&lt;p&gt;Versions are updated regularly for R and a grand update occurred on 2018 April for the version 3.5.0. Further, versions 3.4.3 and 3.4.4 were updated in the time gap considered. There are versions from 3.0.0 and higher for Sri Lankan users. It is crucial to study this where we can understand how far does the user have knowledge about R and updating the software version.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Table shows that version 3.5.1 represents a 36.52% followed by version 3.4.3 of 27.96% and in the third place version 3.5.0 with 15.98%. Further, all downloads are occurred for versions 3.0.0 or higher than it. People believed in 3.4.3 than 3.5.0, which could only mean that 3.4.3 was more stable for user and package requirements.&lt;/p&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-R Version
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Frequency
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.0.0
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.2.2
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.4.0
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.3.3
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0029
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.4.1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0029
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.4.4
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0899
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.4.2
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0956
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.5.0
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.1598
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.4.3
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.2796
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3.5.1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.3652
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;If we further divide the operating systems bar plot with respective to R version it is clearly seen that only versions 3.5.1, 3.5.0, 3.4.4, 3.4.3 and 3.4.2 have maintained importance for the windows operating system.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions%203-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Contingency table for R version vs Operating System&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.0.0
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.2.2
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.3.3
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.4.0
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.4.1
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.4.2
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.4.3
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.4.4
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.5.0
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-3.5.1
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-osx
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0029
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0100
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0086
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0071
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0086
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-src
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0029
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0043
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0057
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0100
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-win
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0014
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0813
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.2653
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0899
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.1512
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.3466
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Windows operating system percentages indicate that 34.66% of users have chosen version 3.5.1, 26.53% have chosen version 3.4.3 and finally version 3.5.0 with 15.12%. Close to 9% is represented by version 3.4.2 and 3.4.4.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;date-versus-operating-system&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Date versus Operating System&lt;/h1&gt;
-&lt;p&gt;Date is a difficult variable in statistics therefore I have disseminated the date into 4 types, which are month(January to December), day(1-31), hour(0-23) and minutes(0-59). Further, I have tried to understand what type of operating systems were used in those time types.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%201-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;So, the first sub part of time is months. Here, we are considering 12 months of an year and months August and April reflects no Operating System is better than Windows property. While, August holding the least amount of downloads with slightly above frequency 20. Highest frequency occurs to October with count higher than 130 and significantly osx and src types of files also have higher amount than any-other month. Except August only the month of December has counts higher than 100.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%202-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Next, focusing on the days it is clear that 10th and 11th have most downloads respectively reaching more than 60 and 70 in counts, while in other days it is mostly less than 30. Further, clearly on the 31st it includes least frequency of 10 because 31st is not a common day of all 12 months. It would be very tiring to focus on operating systems individually, but to be fair there is clear sign of few days with only the use of windows, and a few days with combination of other operating systems with windows.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%203-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;I have been curious at this part because of wanting to know at which hour of the day did our Sri Lankan users download R and packages. Yet it should be noted that the hour of time could be local time of Sri Lanka or otherwise. Still according to the bar chart the hours 4th and 5th have most downloads with counts of above 80 and above 90 respectively. Where in the 21st hour it reaches the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system2-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Looking at the minutes it is very spread out. Focusing on special occasions only four minutes which are 59th, 46th, 12th and 0th have counts more than 20. While 51st minute has a count of 2. Rather than this nothing more significant occurs here. I think considering these counts in perspective of specific operating systems is tedious amount of work and waste of time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;download-size-and-ip-id&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Download Size and IP ID&lt;/h1&gt;
-&lt;p&gt;Packages were downloaded but none of their names were given in this data-set. Therefore we cannot know which package were downloaded. Yet we can identify the package sizes which were downloaded most. According to the table an R package with 82375220 bytes has most downloads of 50, while second place goes to to a size of 82375219 bytes and finally in third place is for 82375216 bytes with 39 counts.&lt;/p&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Size
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Frequency
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-82877772
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-18
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-78171328
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-22
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-82375216
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-39
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-82375219
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-48
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-82375220
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-50
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Looking at the IP ID it is clear that 334 has the highest downloads of 55, while second place goes to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place.&lt;/p&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; &#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-IP ID
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Frequency
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-623
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-9
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-157
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-12
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1286
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-16
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1060
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-46
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-334
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-55
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;I shall conclude my findings in point form&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Most of Sri lankans (93.58%) use windows as a OS for R downloads&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Top three R versions are 3.5.1, 3.4.3 and 3.5.0 with percentages respectively 36.52% 27.96% and 15.98%.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Windows users use versions 3.5.1, 3.4.3 and 3.5.0 with percentages 34.56%, 26.53% and 3.5.0.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Most of the downloads occur in the months October and December, while days are 10th and 11th, while hours are 3rd and 4th and minutes of 59th, 46th, 12th and 0th.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Download size of 82375220 bytes happens with the highest count of 50, while the IP ID of 334 has most downloads of 55.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Further Analysis&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;We can do similar analysis for other countries and compare them.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Using Size it should be possible to understand what is being downloaded.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt; This is my first post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
 &lt;/div&gt;
