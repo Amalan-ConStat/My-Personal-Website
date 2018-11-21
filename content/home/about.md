@@ -5,7 +5,7 @@ active = true
 date = 2016-04-20T00:00:00
 
 # Order that this section will appear in.
-weight = 5
+weight = 4
 
 # List your academic interests.
 [interests]
@@ -14,7 +14,10 @@ weight = 5
     "Statistics",
     "Data Science",
     "R-package",
-    "Rmarkdown"
+    "RMarkdown",
+    "TidyVerse",
+    "TidyTuesday",
+    "rstats"
   ]
 
 # List your qualifications (such as academic degrees).
