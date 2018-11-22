@@ -22,6 +22,7 @@ library(magrittr)
 library(stringr)
 library(gridExtra)
 library(readr)
+library(gganimate)
 
 ggthemr("flat")
 malaria_deaths<-read_csv("malaria_deaths.csv")
@@ -40,7 +41,7 @@ MD_CM_A<-subset(Malaria_deaths_Code_missing,Entity == "North Africa and Middle E
                  | Entity =="East Asia" | Entity =="Central Asia" | Entity =="Oceania"| Entity =="High-income Asia Pacific"| Entity =="South Asia" )
 MD_CM_C_LA<-subset(Malaria_deaths_Code_missing,Entity == "Caribbean" | Entity == "Latin America and Caribbean")
 
-#attach(malaria_deaths_age)
+attach(malaria_deaths_age)
 #Malaria_deaths_age_Code_missing<-malaria_deaths_age[!complete.cases(code),]
 #MD_age_CM_SDI<-subset(Malaria_deaths_age_Code_missing,entity == "High-middle SDI" | entity == "High SDI" | entity == "Low SDI" | entity =="Low-middle SDI" | entity =="Middle SDI")
 #MD_age_CM_Sahara<-subset(Malaria_deaths_age_Code_missing,entity == "Central Sub-Saharan Africa" | entity == "Western Sub-Saharan Africa" 
