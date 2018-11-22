@@ -54,7 +54,7 @@ url_slides = ""
 url_video = ""
 url_poster = ""
 url_source = ""
-url_custom =[{ name = "Abstract",url = "4th-year/Abstract.pdf"}, { name ="Extended Abstract", url = "4th-year/Extended-Abstract.pdf"},{name = "Source package" , url = "4th-year/fitODBOD_1.0.0.tar.gz"}]
+url_custom =[{ name = "Abstract",url = "publication/4th-year/Abstract.pdf"}, { name ="Extended Abstract", url = "publication/4th-year/Extended-Abstract.pdf"},{name = "Source package" , url = "publication/4th-year/fitODBOD_1.0.0.tar.gz"}]
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
