@@ -130,17 +130,19 @@ data-set are
 dead for both sexes per 100,000 people in a standardized age because of Malaria.
 
 I will focus of each region separately, because even inside the same region sub parts can behave differently.
-The 7 regions are 
+The 9 regions are 
 
 1. SDI Countries
 2. Saharan Region
 3. European Countries
 4. Great Britain or United Kingdom 
-5. Latin American Region
+5. American Region
 6. Asian Countries
-7. Caribbean and Latin American Countries
+7. North Africa and Middle East
+8. Oceania Region
+9. Caribbean and Latin American Countries
 
-# SDI Countries and Malaria Death Count Rate
+# SDI Countries with Malaria Death Count Rate
 
 Initially there are 5 sub parts in SDI countries, but we can factor them into three based on their death rate behavior.
 Some regions are having higher death rate close to 75, while others have lower death rate close to 0.0002.
@@ -197,7 +199,7 @@ death rate change in values.
 It is clear that High SDI values have the lowest death rate and Low, Low middle SDI have the highest death rates over the 
 years 1990 to 2016.
 
-# Saharan Region and Malaria Death Count Rate
+# Saharan Region with Malaria Death Count Rate
 
 There are 5 sub parts for Saharan region countries, which are Central Sub-Saharan, Eastern Sub-Saharan, Southern Sub-Saharan, 
 Sub-Saharan Western and Sub-Saharan Africa countries. Here though it does not look like we need to separate these regions 
@@ -233,7 +235,7 @@ Considering 1990 and 2016 the biggest decrease occurs for the region of Eastern 
 Western Sub-Saharan Africa. While in the year gap of 1990 and 2016 only Southern Sub-Saharan Africa has an increase in death rate 
 from 1.69 to 2.29.
 
-# European Countries and Malaria Death Count Rate
+# European Countries with Malaria Death Count Rate
 
 I believe that European countries had any malaria related deaths even before 1990, because of their weather patterns. That is 
 simply assured by here in this plot, where there is no deaths for the sub regions of Europe. Which are Central Europe, 
@@ -251,7 +253,7 @@ ggplot(MD_CM_EU,aes(x=Year,y=`Deaths - Malaria - Sex: Both - Age: Age-standardiz
 
 ```
 
-# Great Britain or United Kingdom and Malaria Death Count Rate
+# Great Britain or United Kingdom with Malaria Death Count Rate
 
 We consider the collection of these countries as Great Britain or United Kingdom, which are England, Northern Ireland, 
 Scotland and Wales. Here also weather pattern do have a high probability in causing a situation of no malaria related deaths.
@@ -269,7 +271,7 @@ ggplot(MD_CM_GB,aes(x=Year,y=`Deaths - Malaria - Sex: Both - Age: Age-standardiz
       theme(axis.text.x = element_text(angle = 90))+geom_text_repel()+scale_y_continuous(labels = seq(0,1,0.5),breaks =seq(0,1,0.5))
 ```
 
-# American Countries and Malaria Death Count Rate
+# American Region with Malaria Death Count Rate
 
 There are 5 sub regions for American countries, yet we can divide them into two groups. One group
 will include Andean, Central and Tropical Latin American countries, and other group includes North 
@@ -319,28 +321,11 @@ Comparing the American region only North American region is malaria free, while 
 occurred in Central Latin American region. Tropical region has out performed Andean Latin American region.
 Next to North America, Southern Latin American has done more progress than other three regions.
 
-# Asian Countries and Malaria Death Count Rate
+# Asian Countries with Malaria Death Count Rate
 
-There are 7 regions in the Asian region, which are Oceania, South Asia, Southeast Asia, East Asia,
+There are 6 regions in the Asian region, which are Oceania, South Asia, Southeast Asia, East Asia,
 High Income Asia Pacific, Australasia and Central Asia. Asia is a Large continent with wide variety
 of countries therefore we have more sub regions than any other continent here.
-
-
-Oceania region begins the malaria death rate of 14.78 in 1990, even though it oscillates over the next
-few years and reaches a death rate of 12.5 in 1998 and in year 2000 it reaches a staggering highest 
-peak of 53.18 death rate. After reaching the highest peak it decreases slowly in the next few years
-and reaches its lowest point of 8.71 in 2016.
-
-```{r Oceania, echo=FALSE}
-attach(MD_CM_A)
-
-ggplot(subset(MD_CM_A,Entity == "Oceania"),aes(x=Year,y=`Deaths - Malaria - Sex: Both - Age: Age-standardized (Rate) (per 100,000 people)`,
-                        label=round(`Deaths - Malaria - Sex: Both - Age: Age-standardized (Rate) (per 100,000 people)`,2)))+
-      ylab("Deaths - Malaria - Sex: Both \n- Age: Age-standardized \n(Rate) (per 100,000 people)")+
-      ggtitle("Oceania Region")+
-      geom_point()+geom_line()+scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ legend_bottom()+
-      theme(axis.text.x = element_text(angle = 90))+geom_text_repel()+scale_y_continuous(labels = seq(6,54,2),breaks =seq(6,54,2))
-```
 
 South Asia and Southeast Asia are two regions which behave similarly where it begins in a higher 
 rate in year 1990 and gradually decreasing until year 2016. South Asia has a death rate of 6.21 
@@ -404,9 +389,7 @@ ggplot(subset(MD_CM_A, Entity == "Australasia" | Entity == "High-income Asia Pac
 ```
 
 Australasia is the only region which does not have malaria over the years given in the data set. 
-Oceania region behaves very differently than other regions. The lowest death rate occurs to High Income 
-Asian Pacific region than other regions of Asia. By the year 2016 highest death rate of 8.71 occurs for
-Oceania region.
+The lowest death rate occurs to High Income Asian Pacific region than other regions of Asia. 
 
 # North Africa and Middle East Region with Death Count Rate
 
@@ -430,6 +413,27 @@ Comparing all the other region in this data set only North Africa and Middle Eas
 was very special with its odd fluctuations which are odd. At the end comparing the 
 death rates of year 1990 and 2016 there is an increase close to 0.04, but it is far less than
 what was in year 2005.
+
+# Oceania Region with Death Count Rate
+
+Oceania region begins the malaria death rate of 14.78 in 1990, even though it oscillates over the next
+few years and reaches a death rate of 12.5 in 1998 and in year 2000 it reaches a staggering highest 
+peak of 53.18 death rate. After reaching the highest peak it decreases slowly in the next few years
+and reaches its lowest point of 8.71 in 2016.
+
+```{r Oceania, echo=FALSE}
+attach(MD_CM_A)
+
+ggplot(subset(MD_CM_A,Entity == "Oceania"),aes(x=Year,y=`Deaths - Malaria - Sex: Both - Age: Age-standardized (Rate) (per 100,000 people)`,
+                        label=round(`Deaths - Malaria - Sex: Both - Age: Age-standardized (Rate) (per 100,000 people)`,2)))+
+      ylab("Deaths - Malaria - Sex: Both \n- Age: Age-standardized \n(Rate) (per 100,000 people)")+
+      ggtitle("Oceania Region")+
+      geom_point()+geom_line()+scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ legend_bottom()+
+      theme(axis.text.x = element_text(angle = 90))+geom_text_repel()+scale_y_continuous(labels = seq(6,54,2),breaks =seq(6,54,2))
+```
+
+Oceania region behaves very differently than other regions. By 
+the year 2016 highest death rate of 8.71 occurs forOceania region.
 
 # Caribbean and Latin America and Caribbean Countries with Death Count Rate
 
