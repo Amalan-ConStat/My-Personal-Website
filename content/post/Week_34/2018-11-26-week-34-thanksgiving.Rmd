@@ -40,7 +40,7 @@ Thanksgiving_No<-subset(Thanksgiving,celebrate=="No")
 ```
 
 Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving 
-week this is underdstandable. You can previde the data set 
+week this is understandable. You can receive the data set 
 [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv). There are 
 more than 65 variables and 1058 observations. The data was acquired buy a survey 
 conducted online and information about them are [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20).
@@ -93,7 +93,7 @@ detach(Thanksgiving_No)
 
 First table is Age vs Gender for people who celebrate Thanksgiving. All age categories
 have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age 
-category 45 - 59. Female have a higher perentage of 54.3823. 
+category 45 - 59. Female have a higher percentage of 54.3823. 
 
 Female who are 60+ have the highest percentage of 15.2059, while lowest percentage of 8.7645 
 is for male in the age category of 18-29.
@@ -110,7 +110,6 @@ kable(addmargins(round(prop.table(table(age,gender)),6)*100),"html") %>%
   kable_styling("striped",full_width = F) %>%
   column_spec(4,bold = T,color = "red") %>%
   row_spec(5,bold = T,color = "red") %>%
-  column_spec(1,bold = T,width = '2cm') %>%
   row_spec(0,bold = T,align = 'center')
 
 detach(Thanksgiving_Yes)
@@ -134,7 +133,6 @@ kable(addmargins(round(prop.table(table(age,gender)),6)*100),"html") %>%
   kable_styling("striped",full_width = F) %>%
   column_spec(4,bold = T,color = "red") %>%
   row_spec(5,bold = T,color = "red") %>%
-  column_spec(1,bold = T,width = '2cm') %>%
   row_spec(0,bold = T,align = 'center')
 
 detach(Thanksgiving_No)
@@ -159,7 +157,6 @@ kable(addmargins(round(prop.table(table(age,family_income)),6)*100),"html") %>%
   kable_styling("striped",full_width = T,font_size = 9) %>%
   column_spec(13,bold = T,color = "red") %>%
   row_spec(5,bold = T,color = "red") %>%
-  column_spec(1,bold = T,width = '2cm') %>%
   row_spec(0,bold = T,angle = 270,align = 'center')
 detach(Thanksgiving_Yes)
 ```
@@ -168,7 +165,7 @@ Of people who do not celebrate Thanksgiving the Family Income category has
 the highest percentage which goes to People who prefer not to answer.
 
 15 cells in this table are zero which is the lowest percentage that can occur,
-while highest ercentage goes to people who are in the age category 18 -29 while 
+while highest percentage goes to people who are in the age category 18 -29 while 
 Family Income is USD 0 to 9,999 and prefer not to answer.
 
 ```{r Age and Family Income for No People}
@@ -183,7 +180,6 @@ kable(addmargins(round(prop.table(table(age,family_income)),6)*100),"html") %>%
   kable_styling("striped",full_width = T,font_size = 9) %>%
   column_spec(13,bold = T,color = "red") %>%
   row_spec(5,bold = T,color = "red") %>%
-  column_spec(1,bold = T,width = '2cm') %>%
   row_spec(0,bold = T,angle = 270,align = 'center') 
 detach(Thanksgiving_No)
 ```
@@ -191,7 +187,7 @@ detach(Thanksgiving_No)
 For the people who celebrate Thanksgiving highest percentage of 21.80 goes to US region
 of South Atlantic. While lowest percentage goes to Mountain with 4.41.
 
-People who are from South Atlantic in the age categorie sof 45-59 and 60+ have the 
+People who are from South Atlantic in the age categories of 45-59 and 60+ have the 
 highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who 
 are in the age category of 18-29 and from East South Central.
 
@@ -207,7 +203,6 @@ kable(addmargins(round(prop.table(table(age,us_region)),4)*100),"html")  %>%
   kable_styling("striped",full_width = T,font_size = 9) %>%
   column_spec(11,bold = T,color = "red") %>%
   row_spec(5,bold = T,color = "red") %>%
-  column_spec(1,bold = T,width = '2cm') %>%
   row_spec(0,bold = T,align = 'center')
 
 detach(Thanksgiving_Yes)
@@ -336,7 +331,7 @@ detach(Thanksgiving_Yes)
 
 Male respondents who do not celebrate Thanksgiving where they are from 
 Middle Atlantic have a highest percentage of 16.1765. Even though Females 
-of West Sorth Central have the lowest percentage of 1.4706 and Males from
+of West South Central have the lowest percentage of 1.4706 and Males from
 West North Central also have the same percentage value.
 
 ```{r Gender and US Region No People}
@@ -361,7 +356,7 @@ detach(Thanksgiving_No)
 ## Family Income Distribution
 
 There are 11 categories when it comes to Family Income. The option of Prefer
-Not to answer is given and has been choosen by people who celebrate and people 
+Not to answer is given and has been chosen by people who celebrate and people 
 who do not celebrate Thanksgiving.
 
 Considering the people the who celebrate Thanksgiving, highest count of 166 goes
@@ -410,7 +405,7 @@ people from West North Central with Family Income USD 175,000 to 199,999,
 people from West South Central with Family Income USD 175,000 to 199,999, 
 people from Mountain with Family Income USD 150,000 to 174,999 and 
 people from Mountain with Family Income USD 175,000 to 199,999. Highest 
-percentage of 4.9409 goes to people from South Atlantic with Faily Income
+percentage of 4.9409 goes to people from South Atlantic with Family Income
 USD 25,000 to 49,999.
 
 ```{r Family Income and US Regions Yes people}
@@ -491,12 +486,12 @@ I shall conclude my findings in point form
 
 * We can use gganimate to make bar plots interesting and useful.
 
-* kable is very useful because of stying options.
+* kable is very useful because of styling options.
 
 # Further Analysis 
 
 * There are more than 50 variables therefore much more can be done than 
-describing the dataset. 
+describing the data-set. 
 
 * We can use advanced methods such as clustering and model fitting. 
 

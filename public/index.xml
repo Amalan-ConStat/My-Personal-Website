@@ -19,7 +19,7 @@
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is underdstandable. You can previde the data set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv&#34;&gt;here&lt;/a&gt;. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is understandable. You can receive the data set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv&#34;&gt;here&lt;/a&gt;. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;people-who-do-and-do-not-celebrate-thanksgiving&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;People who do and do not celebrate Thanksgiving&lt;/h1&gt;
 &lt;p&gt;In this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving. I will use plots to understand their composition and tables to explain them further.&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;age-with-other-factors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Age with Other Factors&lt;/h2&gt;
-&lt;p&gt;First table is Age vs Gender for people who celebrate Thanksgiving. All age categories have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age category 45 - 59. Female have a higher perentage of 54.3823.&lt;/p&gt;
+&lt;p&gt;First table is Age vs Gender for people who celebrate Thanksgiving. All age categories have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age category 45 - 59. Female have a higher percentage of 54.3823.&lt;/p&gt;
 &lt;p&gt;Female who are 60+ have the highest percentage of 15.2059, while lowest percentage of 8.7645 is for male in the age category of 18-29.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
@@ -53,7 +53,7 @@ Sum
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 18 - 29
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -67,7 +67,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 30 - 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -81,7 +81,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 45 - 59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -95,7 +95,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 60+
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -109,7 +109,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;&#34;&gt;
 Sum
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
@@ -144,7 +144,7 @@ Sum
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 18 - 29
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -158,7 +158,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 30 - 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -172,7 +172,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 45 - 59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -186,7 +186,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 60+
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -200,7 +200,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;&#34;&gt;
 Sum
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
@@ -262,7 +262,7 @@ Sum
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 18 - 29
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -303,7 +303,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 30 - 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -344,7 +344,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 45 - 59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -385,7 +385,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 60+
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -426,7 +426,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;&#34;&gt;
 Sum
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
@@ -469,7 +469,7 @@ Sum
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Of people who do not celebrate Thanksgiving the Family Income category has the highest percentage which goes to People who prefer not to answer.&lt;/p&gt;
-&lt;p&gt;15 cells in this table are zero which is the lowest percentage that can occur, while highest ercentage goes to people who are in the age category 18 -29 while Family Income is USD 0 to 9,999 and prefer not to answer.&lt;/p&gt;
+&lt;p&gt;15 cells in this table are zero which is the lowest percentage that can occur, while highest percentage goes to people who are in the age category 18 -29 while Family Income is USD 0 to 9,999 and prefer not to answer.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -515,7 +515,7 @@ Sum
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 18 - 29
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -556,7 +556,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 30 - 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -597,7 +597,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 45 - 59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -638,7 +638,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 60+
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -679,7 +679,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;&#34;&gt;
 Sum
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
@@ -722,7 +722,7 @@ Sum
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;For the people who celebrate Thanksgiving highest percentage of 21.80 goes to US region of South Atlantic. While lowest percentage goes to Mountain with 4.41.&lt;/p&gt;
-&lt;p&gt;People who are from South Atlantic in the age categorie sof 45-59 and 60+ have the highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who are in the age category of 18-29 and from East South Central.&lt;/p&gt;
+&lt;p&gt;People who are from South Atlantic in the age categories of 45-59 and 60+ have the highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who are in the age category of 18-29 and from East South Central.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -762,7 +762,7 @@ Sum
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 18 - 29
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -797,7 +797,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 30 - 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -832,7 +832,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 45 - 59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -867,7 +867,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
 60+
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
@@ -902,7 +902,7 @@ Sum
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;&#34;&gt;
 Sum
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
@@ -1650,7 +1650,7 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Male respondents who do not celebrate Thanksgiving where they are from Middle Atlantic have a highest percentage of 16.1765. Even though Females of West Sorth Central have the lowest percentage of 1.4706 and Males from West North Central also have the same percentage value.&lt;/p&gt;
+&lt;p&gt;Male respondents who do not celebrate Thanksgiving where they are from Middle Atlantic have a highest percentage of 16.1765. Even though Females of West South Central have the lowest percentage of 1.4706 and Males from West North Central also have the same percentage value.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1799,7 +1799,7 @@ Sum
 &lt;/div&gt;
 &lt;div id=&#34;family-income-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Family Income Distribution&lt;/h2&gt;
-&lt;p&gt;There are 11 categories when it comes to Family Income. The option of Prefer Not to answer is given and has been choosen by people who celebrate and people who do not celebrate Thanksgiving.&lt;/p&gt;
+&lt;p&gt;There are 11 categories when it comes to Family Income. The option of Prefer Not to answer is given and has been chosen by people who celebrate and people who do not celebrate Thanksgiving.&lt;/p&gt;
 &lt;p&gt;Considering the people the who celebrate Thanksgiving, highest count of 166 goes to the category of 25,000 to 49,999 USD. While least count goes to 175,000 to 199,999 USD and the count is 26. Further, 118 people have chosen not to answer this question. 33 Missing observations were removed&lt;/p&gt;
 &lt;p&gt;Where as in people who do not celebrate Thanksgiving, second highest count goes to the categories of 0 to 9,999 USD and 25,000 to 49,999 USD, where the count is 14. Similarly, for the least count of 1 also there are two Family Income categories, which are 125,000 to 149,999 USD and 175,000 to 199,999 USD. Prefer not to answer is the choice of 18 respondents who participated in this survey. No missing observations were recorded.&lt;/p&gt;
 &lt;p&gt;As before here also an animated bar plot is used to explain this.&lt;/p&gt;
@@ -1807,7 +1807,7 @@ Sum
 &lt;/div&gt;
 &lt;div id=&#34;family-income-with-other-factors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Family Income with Other Factors&lt;/h2&gt;
-&lt;p&gt;Of people who do celebrate Thanksgiving the lowest percentage of zero is for people from West North Central with Family Income USD 175,000 to 199,999, people from West South Central with Family Income USD 175,000 to 199,999, people from Mountain with Family Income USD 150,000 to 174,999 and people from Mountain with Family Income USD 175,000 to 199,999. Highest percentage of 4.9409 goes to people from South Atlantic with Faily Income USD 25,000 to 49,999.&lt;/p&gt;
+&lt;p&gt;Of people who do celebrate Thanksgiving the lowest percentage of zero is for people from West North Central with Family Income USD 175,000 to 199,999, people from West South Central with Family Income USD 175,000 to 199,999, people from Mountain with Family Income USD 150,000 to 174,999 and people from Mountain with Family Income USD 175,000 to 199,999. Highest percentage of 4.9409 goes to people from South Atlantic with Family Income USD 25,000 to 49,999.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2741,13 +2741,13 @@ Sum
 &lt;p&gt;I shall conclude my findings in point form&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;We can use gganimate to make bar plots interesting and useful.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;kable is very useful because of stying options.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;kable is very useful because of styling options.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Further Analysis&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;There are more than 50 variables therefore much more can be done than describing the dataset.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are more than 50 variables therefore much more can be done than describing the data-set.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;We can use advanced methods such as clustering and model fitting.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt;&lt;br /&gt;
