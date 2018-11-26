@@ -6,7 +6,7 @@ active = true
 date = 2016-04-20T00:00:00
 
 title = "My Posts"
-subtitle = "Focus on TidyTuesday and fitODBOD related issues. Further, Statistics related Posts"
+subtitle = ""
 
 # Order that this section will appear in.
 weight = 40
@@ -14,11 +14,11 @@ weight = 40
 # Filter posts by tag.
 #  By default, show all recent posts.
 #  Filtering example: `tags_include = ["hugo", "academic"]`
-tags_include = ["TidyTuesday"]
+tags_include = ["TidyTuesday","fitODBOD"]
 tags_exclude = []
 
 # Number of posts to list.
-count = 3
+count = 4
 
 # List format.
 #   0 = Simple
