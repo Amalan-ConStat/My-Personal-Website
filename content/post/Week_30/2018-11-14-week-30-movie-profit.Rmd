@@ -41,13 +41,13 @@ attach(Movie)
 
 # Movie Profit, Not So Profit
 
-This is my second post on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) and the data-set 
+This is my first post on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) and the data-set 
 in question is [Movie profit](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23) 
 data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not 
 generate any revenue domestic and suggest on gross in worldwide.
 
 The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and 
-lubridate.  
+lubridate.  The theme I am using for plots is "flat dark".
 
 # Understand Genre and  Mpaa Rating on Movies
 

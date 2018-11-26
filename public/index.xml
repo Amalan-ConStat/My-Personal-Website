@@ -3376,8 +3376,8 @@ This is my Second post on the internet so please be kind to tolerate my mistakes
 
 &lt;div id=&#34;movie-profit-not-so-profit&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Movie Profit, Not So Profit&lt;/h1&gt;
-&lt;p&gt;This is my second post on &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;Tidy Tuesday&lt;/a&gt; and the data-set in question is &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23&#34;&gt;Movie profit&lt;/a&gt; data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.&lt;/p&gt;
-&lt;p&gt;The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate.&lt;/p&gt;
+&lt;p&gt;This is my first post on &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;Tidy Tuesday&lt;/a&gt; and the data-set in question is &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-10-23&#34;&gt;Movie profit&lt;/a&gt; data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not generate any revenue domestic and suggest on gross in worldwide.&lt;/p&gt;
+&lt;p&gt;The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and lubridate. The theme I am using for plots is “flat dark”.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;understand-genre-and-mpaa-rating-on-movies&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Understand Genre and Mpaa Rating on Movies&lt;/h1&gt;
