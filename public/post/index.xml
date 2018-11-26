@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Week 34 : Thanksgiving </title>
+      <link>/post/week_34/week-34-thanksgiving/</link>
+      <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_34/week-34-thanksgiving/</guid>
+      <description>Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is underdstandable. You can previde the data set here. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are here.
+People who do and do not celebrate ThanksgivingIn this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving.</description>
+    </item>
+    
+    <item>
       <title>Week 33 : Malaria Deaths</title>
       <link>/post/week_33/week-33-malaria-deaths/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>

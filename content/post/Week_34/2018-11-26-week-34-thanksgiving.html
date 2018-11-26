@@ -1,0 +1,2752 @@
+---
+title: 'Week 34 : Thanksgiving '
+author: M.Amalan
+date: '2018-11-26'
+slug: week-34-thanksgiving
+categories: []
+tags:
+  - TidyTuesday
+  - R
+  - R package
+image:
+  caption: ''
+  focal_point: ''
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is underdstandable. You can previde the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv">here</a>. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20">here</a>.</p>
+<div id="people-who-do-and-do-not-celebrate-thanksgiving" class="section level1">
+<h1>People who do and do not celebrate Thanksgiving</h1>
+<p>In this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving. I will use plots to understand their composition and tables to explain them further.</p>
+<p>Variables in consideration for this task is none other than Age, Gender, Family Income and US regions. Finally my aim is to create animated plots and interactive tables for the above variables through the help of packages gganimate and kable.</p>
+<div id="age-distribution" class="section level2">
+<h2>Age Distribution</h2>
+<p>First the age distribution has only 4 groups, where people who celebrate Thanksgiving in the age category of 18-29 is the very least. Highest count goes to the age category of 45-59 with 269. There are 33 missing observations and they were removed.</p>
+<p>Considering the people who do not celebrate Thanksgiving the least count of 6 goes to category of 60+, but here the category of 18-29 has the highest count of 31. No missing observations were recorded here.</p>
+<p>Below is an animated bar plot where the counts change for their respective 4 categories. As 90% of respondents have answered Yes for celebrating Thanksgiving and rest have answered No we can clearly see the count differences</p>
+<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Age%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="age-with-other-factors" class="section level2">
+<h2>Age with Other Factors</h2>
+<p>First table is Age vs Gender for people who celebrate Thanksgiving. All age categories have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age category 45 - 59. Female have a higher perentage of 54.3823.</p>
+<p>Female who are 60+ have the highest percentage of 15.2059, while lowest percentage of 8.7645 is for male in the age category of 18-29.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Female
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Male
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+10.7709
+</td>
+<td style="text-align:right;">
+8.7645
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+19.5354
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+13.4108
+</td>
+<td style="text-align:right;">
+11.4044
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+24.8152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+14.9947
+</td>
+<td style="text-align:right;">
+13.4108
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+28.4055
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+15.2059
+</td>
+<td style="text-align:right;">
+12.0380
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+27.2439
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+54.3823
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+45.6177
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0000
+</td>
+</tr>
+</tbody>
+</table>
+<p>When considering the people who do not celebrate Thanksgiving, highest percentage of 62.8205 is for Male, while age category of 18-29 have the highest percentage of 39.7436.</p>
+<p>Male who are in between 18 and 29 have the highest percentage of 25.6410, while Female who are above 60 have the lowest percentage of 2.5641.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Female
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Male
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+14.1026
+</td>
+<td style="text-align:right;">
+25.6410
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+39.7436
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+11.5385
+</td>
+<td style="text-align:right;">
+19.2308
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+30.7693
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+8.9744
+</td>
+<td style="text-align:right;">
+12.8205
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+21.7949
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.6923
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+37.1796
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+62.8205
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0001
+</td>
+</tr>
+</tbody>
+</table>
+<p>With relative to people who celebrate Thanksgiving in the Family Income category highest percentage goes to USD 25,000 to 49,999.</p>
+<p>People who have Family Income USD 25,000 to 49,999 and age above 60 have the highest percentage of 4.96, while lowest percentage of 0.11 is for people who have Family Income in between USD 175,000 to 199,999 of age category of 18-29.</p>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$0 to $9,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$10,000 to $24,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$100,000 to $124,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$125,000 to $149,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$150,000 to $174,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$175,000 to $199,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$200,000 and up
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$25,000 to $49,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$50,000 to $74,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$75,000 to $99,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Prefer not to answer
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+3.4847
+</td>
+<td style="text-align:right;">
+2.1119
+</td>
+<td style="text-align:right;">
+0.9504
+</td>
+<td style="text-align:right;">
+0.2112
+</td>
+<td style="text-align:right;">
+0.5280
+</td>
+<td style="text-align:right;">
+0.1056
+</td>
+<td style="text-align:right;">
+0.6336
+</td>
+<td style="text-align:right;">
+3.6959
+</td>
+<td style="text-align:right;">
+2.1119
+</td>
+<td style="text-align:right;">
+2.0063
+</td>
+<td style="text-align:right;">
+3.6959
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+19.5354
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+1.3728
+</td>
+<td style="text-align:right;">
+1.5839
+</td>
+<td style="text-align:right;">
+2.5343
+</td>
+<td style="text-align:right;">
+0.8448
+</td>
+<td style="text-align:right;">
+0.6336
+</td>
+<td style="text-align:right;">
+0.3168
+</td>
+<td style="text-align:right;">
+1.2672
+</td>
+<td style="text-align:right;">
+4.8574
+</td>
+<td style="text-align:right;">
+4.0127
+</td>
+<td style="text-align:right;">
+4.2239
+</td>
+<td style="text-align:right;">
+3.1679
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+24.8153
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+0.3168
+</td>
+<td style="text-align:right;">
+1.3728
+</td>
+<td style="text-align:right;">
+4.1183
+</td>
+<td style="text-align:right;">
+2.5343
+</td>
+<td style="text-align:right;">
+2.0063
+</td>
+<td style="text-align:right;">
+1.1616
+</td>
+<td style="text-align:right;">
+3.1679
+</td>
+<td style="text-align:right;">
+4.0127
+</td>
+<td style="text-align:right;">
+3.1679
+</td>
+<td style="text-align:right;">
+3.6959
+</td>
+<td style="text-align:right;">
+2.8511
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+28.4056
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+0.3168
+</td>
+<td style="text-align:right;">
+1.2672
+</td>
+<td style="text-align:right;">
+3.9071
+</td>
+<td style="text-align:right;">
+1.4784
+</td>
+<td style="text-align:right;">
+0.8448
+</td>
+<td style="text-align:right;">
+1.1616
+</td>
+<td style="text-align:right;">
+2.9567
+</td>
+<td style="text-align:right;">
+4.9630
+</td>
+<td style="text-align:right;">
+4.1183
+</td>
+<td style="text-align:right;">
+3.4847
+</td>
+<td style="text-align:right;">
+2.7455
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+27.2441
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.4911
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.3358
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+11.5101
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.0687
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.0127
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.7456
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.0254
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.5290
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.4108
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.4108
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+12.4604
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0004
+</td>
+</tr>
+</tbody>
+</table>
+<p>Of people who do not celebrate Thanksgiving the Family Income category has the highest percentage which goes to People who prefer not to answer.</p>
+<p>15 cells in this table are zero which is the lowest percentage that can occur, while highest ercentage goes to people who are in the age category 18 -29 while Family Income is USD 0 to 9,999 and prefer not to answer.</p>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$0 to $9,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$10,000 to $24,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$100,000 to $124,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$125,000 to $149,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$150,000 to $174,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$175,000 to $199,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$200,000 and up
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$25,000 to $49,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$50,000 to $74,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$75,000 to $99,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Prefer not to answer
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+12.8205
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+12.8205
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+39.7436
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+8.9744
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+30.7695
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+21.7951
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.6925
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.9487
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+10.2565
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.5642
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.2821
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.5642
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.2821
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.1282
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.9488
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+10.2565
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.6924
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+23.0770
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0007
+</td>
+</tr>
+</tbody>
+</table>
+<p>For the people who celebrate Thanksgiving highest percentage of 21.80 goes to US region of South Atlantic. While lowest percentage goes to Mountain with 4.41.</p>
+<p>People who are from South Atlantic in the age categorie sof 45-59 and 60+ have the highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who are in the age category of 18-29 and from East South Central.</p>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+2.79
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+2.26
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+<td style="text-align:right;">
+3.11
+</td>
+<td style="text-align:right;">
+3.76
+</td>
+<td style="text-align:right;">
+2.26
+</td>
+<td style="text-align:right;">
+2.47
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+19.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+3.44
+</td>
+<td style="text-align:right;">
+1.18
+</td>
+<td style="text-align:right;">
+4.51
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+<td style="text-align:right;">
+1.61
+</td>
+<td style="text-align:right;">
+3.87
+</td>
+<td style="text-align:right;">
+4.94
+</td>
+<td style="text-align:right;">
+1.72
+</td>
+<td style="text-align:right;">
+2.47
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+24.71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+4.40
+</td>
+<td style="text-align:right;">
+2.15
+</td>
+<td style="text-align:right;">
+4.94
+</td>
+<td style="text-align:right;">
+1.40
+</td>
+<td style="text-align:right;">
+1.72
+</td>
+<td style="text-align:right;">
+3.22
+</td>
+<td style="text-align:right;">
+6.55
+</td>
+<td style="text-align:right;">
+1.72
+</td>
+<td style="text-align:right;">
+2.69
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+28.79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+4.94
+</td>
+<td style="text-align:right;">
+2.04
+</td>
+<td style="text-align:right;">
+3.87
+</td>
+<td style="text-align:right;">
+1.29
+</td>
+<td style="text-align:right;">
+1.61
+</td>
+<td style="text-align:right;">
+3.76
+</td>
+<td style="text-align:right;">
+6.55
+</td>
+<td style="text-align:right;">
+1.93
+</td>
+<td style="text-align:right;">
+1.50
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+27.49
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.57
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.01
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.58
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.41
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.91
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.96
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+21.80
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.63
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+9.13
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>Of people who do not celebrate Thanksgiving 23.5294% are from Pacific, while lowest percentage is for people who are from New England and West North Central with 4.4118.</p>
+<p>9 cells have zero values which is the lowest percentage value. While highest percentage of 11.7647 occurs to people from Pacific and from age category 30-44.</p>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+18 - 29
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+8.8235
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+7.3529
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+5.8824
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+38.2354
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+30 - 44
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+5.8824
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+11.7647
+</td>
+<td style="text-align:right;">
+5.8824
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+32.3531
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+45 - 59
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+22.0590
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+60+
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.3530
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.3530
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.8824
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+20.5883
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+23.5294
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+16.1766
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0005
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="gender-distribution" class="section level2">
+<h2>Gender Distribution</h2>
+<p>We have two types of gender categories in this data set which are male and female. According to the people who celebrate Thanksgiving 515 are Female, while only 432 are male. Here also there are 33 missing observations and they have been removed.</p>
+<p>But this is not the case for those who do not celebrate Thanksgiving. Female have a count of only 29, where males have a count of 49. There were no missing observations.</p>
+<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Gender%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="gender-with-other-factors" class="section level2">
+<h2>Gender with Other Factors</h2>
+<p>Of people who do celebrate Thanksgiving highest percentage goes to 10.14 to Females where Family Income is USD 25,000 to 49,999. While lowest percentage of 1.27 goes to Males of Family Income category USD 175,000 to 199,999.</p>
+<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$0 to $9,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$10,000 to $24,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$100,000 to $124,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$125,000 to $149,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$150,000 to $174,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$175,000 to $199,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$200,000 and up
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$25,000 to $49,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$50,000 to $74,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$75,000 to $99,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Prefer not to answer
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+Female
+</td>
+<td style="text-align:right;">
+2.64
+</td>
+<td style="text-align:right;">
+3.80
+</td>
+<td style="text-align:right;">
+5.39
+</td>
+<td style="text-align:right;">
+2.11
+</td>
+<td style="text-align:right;">
+2.11
+</td>
+<td style="text-align:right;">
+1.48
+</td>
+<td style="text-align:right;">
+4.44
+</td>
+<td style="text-align:right;">
+10.14
+</td>
+<td style="text-align:right;">
+7.92
+</td>
+<td style="text-align:right;">
+6.97
+</td>
+<td style="text-align:right;">
+7.39
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+54.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2cm; font-weight: bold;">
+Male
+</td>
+<td style="text-align:right;">
+2.85
+</td>
+<td style="text-align:right;">
+2.53
+</td>
+<td style="text-align:right;">
+6.12
+</td>
+<td style="text-align:right;">
+2.96
+</td>
+<td style="text-align:right;">
+1.90
+</td>
+<td style="text-align:right;">
+1.27
+</td>
+<td style="text-align:right;">
+3.59
+</td>
+<td style="text-align:right;">
+7.39
+</td>
+<td style="text-align:right;">
+5.49
+</td>
+<td style="text-align:right;">
+6.44
+</td>
+<td style="text-align:right;">
+5.07
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+45.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.49
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.33
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+11.51
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.07
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.01
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.75
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.03
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.53
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.41
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.41
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+12.46
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>3 cells in the below table are zero values, which is the lowest percentage value. Highest percentage of 14.1026 goes to Males who chose not to answer regarding Family Income.</p>
+<table class="table table-striped" style="font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$0 to $9,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$10,000 to $24,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$100,000 to $124,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$125,000 to $149,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$150,000 to $174,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$175,000 to $199,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$200,000 and up
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$25,000 to $49,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$50,000 to $74,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+$75,000 to $99,999
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Prefer not to answer
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Female
+</td>
+<td style="text-align:right;">
+6.4103
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+5.1282
+</td>
+<td style="text-align:right;">
+8.9744
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+37.1798
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Male
+</td>
+<td style="text-align:right;">
+11.5385
+</td>
+<td style="text-align:right;">
+6.4103
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+1.2821
+</td>
+<td style="text-align:right;">
+3.8462
+</td>
+<td style="text-align:right;">
+12.8205
+</td>
+<td style="text-align:right;">
+6.4103
+</td>
+<td style="text-align:right;">
+2.5641
+</td>
+<td style="text-align:right;">
+14.1026
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+62.8208
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.9488
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+10.2565
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.5642
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.2821
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.5641
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.2821
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.1283
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.9487
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+10.2565
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.6923
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+23.0770
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0006
+</td>
+</tr>
+</tbody>
+</table>
+<p>People from South Atlantic and are Female who celebrate Thanksgiving have a highest percentage of 12.14. Where respondents from Mountain region and Males have the lowest percentage of 1.29.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Female
+</td>
+<td style="text-align:right;">
+8.16
+</td>
+<td style="text-align:right;">
+3.33
+</td>
+<td style="text-align:right;">
+8.59
+</td>
+<td style="text-align:right;">
+3.11
+</td>
+<td style="text-align:right;">
+3.33
+</td>
+<td style="text-align:right;">
+7.30
+</td>
+<td style="text-align:right;">
+12.14
+</td>
+<td style="text-align:right;">
+4.19
+</td>
+<td style="text-align:right;">
+4.40
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+54.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Male
+</td>
+<td style="text-align:right;">
+7.41
+</td>
+<td style="text-align:right;">
+2.69
+</td>
+<td style="text-align:right;">
+6.98
+</td>
+<td style="text-align:right;">
+1.29
+</td>
+<td style="text-align:right;">
+2.58
+</td>
+<td style="text-align:right;">
+6.66
+</td>
+<td style="text-align:right;">
+9.67
+</td>
+<td style="text-align:right;">
+3.44
+</td>
+<td style="text-align:right;">
+4.73
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+45.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.57
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.02
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.57
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.40
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.91
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.96
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+21.81
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.63
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+9.13
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>Male respondents who do not celebrate Thanksgiving where they are from Middle Atlantic have a highest percentage of 16.1765. Even though Females of West Sorth Central have the lowest percentage of 1.4706 and Males from West North Central also have the same percentage value.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Female
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+8.8235
+</td>
+<td style="text-align:right;">
+7.3529
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+38.2354
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.5cm; font-weight: bold;">
+Male
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+16.1765
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+14.7059
+</td>
+<td style="text-align:right;">
+8.8235
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+7.3529
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+61.7648
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.3530
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.8824
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+20.5883
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+23.5294
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+16.1764
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8235
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0002
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="family-income-distribution" class="section level2">
+<h2>Family Income Distribution</h2>
+<p>There are 11 categories when it comes to Family Income. The option of Prefer Not to answer is given and has been choosen by people who celebrate and people who do not celebrate Thanksgiving.</p>
+<p>Considering the people the who celebrate Thanksgiving, highest count of 166 goes to the category of 25,000 to 49,999 USD. While least count goes to 175,000 to 199,999 USD and the count is 26. Further, 118 people have chosen not to answer this question. 33 Missing observations were removed</p>
+<p>Where as in people who do not celebrate Thanksgiving, second highest count goes to the categories of 0 to 9,999 USD and 25,000 to 49,999 USD, where the count is 14. Similarly, for the least count of 1 also there are two Family Income categories, which are 125,000 to 149,999 USD and 175,000 to 199,999 USD. Prefer not to answer is the choice of 18 respondents who participated in this survey. No missing observations were recorded.</p>
+<p>As before here also an animated bar plot is used to explain this.</p>
+<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Family%20Income%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="family-income-with-other-factors" class="section level2">
+<h2>Family Income with Other Factors</h2>
+<p>Of people who do celebrate Thanksgiving the lowest percentage of zero is for people from West North Central with Family Income USD 175,000 to 199,999, people from West South Central with Family Income USD 175,000 to 199,999, people from Mountain with Family Income USD 150,000 to 174,999 and people from Mountain with Family Income USD 175,000 to 199,999. Highest percentage of 4.9409 goes to people from South Atlantic with Faily Income USD 25,000 to 49,999.</p>
+<table class="table table-striped" style="font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$0 to $9,999
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.1074
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+1.0741
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.9667
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.9409
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$10,000 to $24,999
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.1074
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;">
+1.3963
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.2299
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$100,000 to $124,999
+</td>
+<td style="text-align:right;">
+2.7927
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+1.3963
+</td>
+<td style="text-align:right;">
+0.4296
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+1.6112
+</td>
+<td style="text-align:right;">
+2.2556
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+11.7078
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$125,000 to $149,999
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.1074
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+1.8260
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.1558
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$150,000 to $174,999
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.9667
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+0.7519
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.0816
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$175,000 to $199,999
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+1.0741
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.2148
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.7926
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$200,000 and up
+</td>
+<td style="text-align:right;">
+0.7519
+</td>
+<td style="text-align:right;">
+0.4296
+</td>
+<td style="text-align:right;">
+2.0408
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+0.7519
+</td>
+<td style="text-align:right;">
+1.0741
+</td>
+<td style="text-align:right;">
+1.1815
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.0559
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$25,000 to $49,999
+</td>
+<td style="text-align:right;">
+2.2556
+</td>
+<td style="text-align:right;">
+1.1815
+</td>
+<td style="text-align:right;">
+2.5779
+</td>
+<td style="text-align:right;">
+0.6445
+</td>
+<td style="text-align:right;">
+1.0741
+</td>
+<td style="text-align:right;">
+2.1482
+</td>
+<td style="text-align:right;">
+4.9409
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;">
+1.0741
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.4006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$50,000 to $74,999
+</td>
+<td style="text-align:right;">
+2.5779
+</td>
+<td style="text-align:right;">
+0.9667
+</td>
+<td style="text-align:right;">
+2.0408
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+1.8260
+</td>
+<td style="text-align:right;">
+2.7927
+</td>
+<td style="text-align:right;">
+1.3963
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.5339
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$75,000 to $99,999
+</td>
+<td style="text-align:right;">
+2.7927
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+1.9334
+</td>
+<td style="text-align:right;">
+0.8593
+</td>
+<td style="text-align:right;">
+0.5371
+</td>
+<td style="text-align:right;">
+1.2889
+</td>
+<td style="text-align:right;">
+2.4705
+</td>
+<td style="text-align:right;">
+1.2889
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.5339
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+Prefer not to answer
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;">
+0.3222
+</td>
+<td style="text-align:right;">
+2.1482
+</td>
+<td style="text-align:right;">
+0.7519
+</td>
+<td style="text-align:right;">
+1.1815
+</td>
+<td style="text-align:right;">
+1.5038
+</td>
+<td style="text-align:right;">
+2.9001
+</td>
+<td style="text-align:right;">
+1.2889
+</td>
+<td style="text-align:right;">
+0.9667
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+12.5671
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2.5cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.5748
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+6.0149
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+15.5747
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4039
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.9076
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+13.9635
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+21.8044
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.6261
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+9.1301
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0000
+</td>
+</tr>
+</tbody>
+</table>
+<p>There are a lot of cell values which have zero therefore I am not going to state them. Further, Highest percentage value of 5.8824 is from people of Middle Atlantic and Family Income categories of USD 0 to 9,999 and USD 25,000 to 49,999.</p>
+<table class="table table-striped" style="font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;text-align: center;">
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+East South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Middle Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Mountain
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+New England
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Pacific
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+South Atlantic
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West North Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+West South Central
+</th>
+<th style="text-align:right;font-weight: bold;text-align: center;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$0 to $9,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+5.8824
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+17.6472
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$10,000 to $24,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$100,000 to $124,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.9412
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$125,000 to $149,999
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.4706
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$150,000 to $174,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+2.9412
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$175,000 to $199,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+1.4706
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$200,000 and up
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.8824
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$25,000 to $49,999
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+5.8824
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+19.1178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$50,000 to $74,999
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+11.7648
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+$75,000 to $99,999
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 2.5cm; font-weight: bold;">
+Prefer not to answer
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+2.9412
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;">
+1.4706
+</td>
+<td style="text-align:right;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+19.1178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: red;width: 2.5cm; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+7.3530
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+5.8824
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+20.5884
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+23.5296
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+16.1766
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+4.4118
+</td>
+<td style="text-align:right;font-weight: bold;color: red;">
+8.8236
+</td>
+<td style="text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;">
+100.0008
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="us-region-distribution" class="section level2">
+<h2>US Region Distribution</h2>
+<p>There are 9 regions in both sides, and also both sides have missing values. People who do celebrate Thanksgiving have 49 missing values, while only 10 are missing values for people who do not celebrate Thanksgiving.</p>
+<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/US%20region%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>I shall conclude my findings in point form</p>
+<ul>
+<li><p>We can use gganimate to make bar plots interesting and useful.</p></li>
+<li><p>kable is very useful because of stying options.</p></li>
+</ul>
+</div>
+<div id="further-analysis" class="section level1">
+<h1>Further Analysis</h1>
+<ul>
+<li><p>There are more than 50 variables therefore much more can be done than describing the dataset.</p></li>
+<li><p>We can use advanced methods such as clustering and model fitting.</p></li>
+</ul>
+<p><em>Please see that</em><br />
+This is my fourth post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.</p>
+</div>

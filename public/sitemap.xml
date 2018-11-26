@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/week_34/week-34-thanksgiving/</loc>
+      <lastmod>2018-11-26T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/week_33/week-33-malaria-deaths/</loc>
       <lastmod>2018-11-21T00:00:00+00:00</lastmod>
     </url>
@@ -257,7 +265,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-26T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -275,7 +283,7 @@
     <url>
     
       <loc>/tags/r-package/</loc>
-      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-26T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -317,7 +325,7 @@
     <url>
     
       <loc>/tags/tidytuesday/</loc>
-      <lastmod>2018-11-21T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-26T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

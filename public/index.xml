@@ -11,6 +11,2752 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 34 : Thanksgiving </title>
+      <link>/post/week_34/week-34-thanksgiving/</link>
+      <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_34/week-34-thanksgiving/</guid>
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is underdstandable. You can previde the data set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv&#34;&gt;here&lt;/a&gt;. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;people-who-do-and-do-not-celebrate-thanksgiving&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;People who do and do not celebrate Thanksgiving&lt;/h1&gt;
+&lt;p&gt;In this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving. I will use plots to understand their composition and tables to explain them further.&lt;/p&gt;
+&lt;p&gt;Variables in consideration for this task is none other than Age, Gender, Family Income and US regions. Finally my aim is to create animated plots and interactive tables for the above variables through the help of packages gganimate and kable.&lt;/p&gt;
+&lt;div id=&#34;age-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Age Distribution&lt;/h2&gt;
+&lt;p&gt;First the age distribution has only 4 groups, where people who celebrate Thanksgiving in the age category of 18-29 is the very least. Highest count goes to the age category of 45-59 with 269. There are 33 missing observations and they were removed.&lt;/p&gt;
+&lt;p&gt;Considering the people who do not celebrate Thanksgiving the least count of 6 goes to category of 60+, but here the category of 18-29 has the highest count of 31. No missing observations were recorded here.&lt;/p&gt;
+&lt;p&gt;Below is an animated bar plot where the counts change for their respective 4 categories. As 90% of respondents have answered Yes for celebrating Thanksgiving and rest have answered No we can clearly see the count differences&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Age%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;75%&#34; height=&#34;75%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;age-with-other-factors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Age with Other Factors&lt;/h2&gt;
+&lt;p&gt;First table is Age vs Gender for people who celebrate Thanksgiving. All age categories have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age category 45 - 59. Female have a higher perentage of 54.3823.&lt;/p&gt;
+&lt;p&gt;Female who are 60+ have the highest percentage of 15.2059, while lowest percentage of 8.7645 is for male in the age category of 18-29.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Female
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Male
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+10.7709
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.7645
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+19.5354
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+13.4108
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+11.4044
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+24.8152
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+14.9947
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+13.4108
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+28.4055
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15.2059
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.0380
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+27.2439
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+54.3823
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+45.6177
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0000
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;When considering the people who do not celebrate Thanksgiving, highest percentage of 62.8205 is for Male, while age category of 18-29 have the highest percentage of 39.7436.&lt;/p&gt;
+&lt;p&gt;Male who are in between 18 and 29 have the highest percentage of 25.6410, while Female who are above 60 have the lowest percentage of 2.5641.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Female
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Male
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+14.1026
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25.6410
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+39.7436
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+11.5385
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19.2308
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+30.7693
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.9744
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.8205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+21.7949
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.6923
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+37.1796
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+62.8205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0001
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;With relative to people who celebrate Thanksgiving in the Family Income category highest percentage goes to USD 25,000 to 49,999.&lt;/p&gt;
+&lt;p&gt;People who have Family Income USD 25,000 to 49,999 and age above 60 have the highest percentage of 4.96, while lowest percentage of 0.11 is for people who have Family Income in between USD 175,000 to 199,999 of age category of 18-29.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$0 to $9,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$10,000 to $24,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$100,000 to $124,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$125,000 to $149,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$150,000 to $174,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$175,000 to $199,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$200,000 and up
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$25,000 to $49,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$50,000 to $74,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$75,000 to $99,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Prefer not to answer
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.4847
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.1119
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9504
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2112
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5280
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1056
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6336
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.6959
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.1119
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.0063
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.6959
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+19.5354
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.3728
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5839
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5343
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8448
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6336
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3168
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2672
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.8574
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.0127
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.2239
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.1679
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+24.8153
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3168
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.3728
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.1183
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5343
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.0063
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.1616
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.1679
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.0127
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.1679
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.6959
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.8511
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+28.4056
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3168
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2672
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.9071
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4784
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8448
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.1616
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9567
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.9630
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.1183
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.4847
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.7455
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+27.2441
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.4911
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.3358
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+11.5101
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.0687
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.0127
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.7456
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.0254
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.5290
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.4108
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.4108
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+12.4604
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0004
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Of people who do not celebrate Thanksgiving the Family Income category has the highest percentage which goes to People who prefer not to answer.&lt;/p&gt;
+&lt;p&gt;15 cells in this table are zero which is the lowest percentage that can occur, while highest ercentage goes to people who are in the age category 18 -29 while Family Income is USD 0 to 9,999 and prefer not to answer.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$0 to $9,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$10,000 to $24,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$100,000 to $124,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$125,000 to $149,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$150,000 to $174,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$175,000 to $199,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$200,000 and up
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$25,000 to $49,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$50,000 to $74,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$75,000 to $99,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Prefer not to answer
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.8205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.8205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+39.7436
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.9744
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+30.7695
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+21.7951
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.6925
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.9487
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+10.2565
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.5642
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.5642
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.9488
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+10.2565
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.6924
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+23.0770
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0007
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For the people who celebrate Thanksgiving highest percentage of 21.80 goes to US region of South Atlantic. While lowest percentage goes to Mountain with 4.41.&lt;/p&gt;
+&lt;p&gt;People who are from South Atlantic in the age categorie sof 45-59 and 60+ have the highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who are in the age category of 18-29 and from East South Central.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.79
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.26
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.75
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.97
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.76
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.26
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+19.01
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.18
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.51
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.97
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.61
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.87
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.94
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+24.71
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.94
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.55
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.69
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+28.79
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.94
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.04
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.87
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.61
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.76
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.55
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.93
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.50
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+27.49
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.57
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.01
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.58
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.91
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+21.80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.63
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+9.13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.00
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Of people who do not celebrate Thanksgiving 23.5294% are from Pacific, while lowest percentage is for people who are from New England and West North Central with 4.4118.&lt;/p&gt;
+&lt;p&gt;9 cells have zero values which is the lowest percentage value. While highest percentage of 11.7647 occurs to people from Pacific and from age category 30-44.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+18 - 29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.8235
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.3529
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+38.2354
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+30 - 44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+11.7647
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+32.3531
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+45 - 59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+22.0590
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+60+
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.3530
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.3530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+20.5883
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+23.5294
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+16.1766
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0005
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gender-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gender Distribution&lt;/h2&gt;
+&lt;p&gt;We have two types of gender categories in this data set which are male and female. According to the people who celebrate Thanksgiving 515 are Female, while only 432 are male. Here also there are 33 missing observations and they have been removed.&lt;/p&gt;
+&lt;p&gt;But this is not the case for those who do not celebrate Thanksgiving. Female have a count of only 29, where males have a count of 49. There were no missing observations.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Gender%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;75%&#34; height=&#34;75%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gender-with-other-factors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gender with Other Factors&lt;/h2&gt;
+&lt;p&gt;Of people who do celebrate Thanksgiving highest percentage goes to 10.14 to Females where Family Income is USD 25,000 to 49,999. While lowest percentage of 1.27 goes to Males of Family Income category USD 175,000 to 199,999.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$0 to $9,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$10,000 to $24,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$100,000 to $124,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$125,000 to $149,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$150,000 to $174,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$175,000 to $199,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$200,000 and up
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$25,000 to $49,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$50,000 to $74,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$75,000 to $99,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Prefer not to answer
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.80
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.39
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+10.14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.92
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.97
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.39
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+54.39
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2cm; font-weight: bold;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.85
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.53
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.90
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.27
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.39
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.07
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+45.61
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.33
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+11.51
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.07
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.01
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.75
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.03
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.53
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+12.46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.00
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;3 cells in the below table are zero values, which is the lowest percentage value. Highest percentage of 14.1026 goes to Males who chose not to answer regarding Family Income.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$0 to $9,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$10,000 to $24,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$100,000 to $124,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$125,000 to $149,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$150,000 to $174,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$175,000 to $199,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$200,000 and up
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$25,000 to $49,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$50,000 to $74,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+$75,000 to $99,999
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Prefer not to answer
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.4103
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.1282
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.9744
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+37.1798
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+11.5385
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.4103
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.8462
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.8205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.4103
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+14.1026
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+62.8208
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.9488
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+10.2565
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.5642
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.5641
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.2821
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.1283
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.9487
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+10.2565
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.6923
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+23.0770
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0006
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;People from South Atlantic and are Female who celebrate Thanksgiving have a highest percentage of 12.14. Where respondents from Mountain region and Males have the lowest percentage of 1.29.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.16
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.33
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.59
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.33
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12.14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+54.55
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.69
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.98
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.29
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.58
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.66
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+9.67
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.73
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+45.45
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.57
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.02
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.57
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.91
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+21.81
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.63
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+9.13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.00
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Male respondents who do not celebrate Thanksgiving where they are from Middle Atlantic have a highest percentage of 16.1765. Even though Females of West Sorth Central have the lowest percentage of 1.4706 and Males from West North Central also have the same percentage value.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.8235
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.3529
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+38.2354
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 1.5cm; font-weight: bold;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16.1765
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+14.7059
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.8235
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.3529
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+61.7648
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 1.5cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.3530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+20.5883
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+23.5294
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+16.1764
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8235
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0002
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;family-income-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Family Income Distribution&lt;/h2&gt;
+&lt;p&gt;There are 11 categories when it comes to Family Income. The option of Prefer Not to answer is given and has been choosen by people who celebrate and people who do not celebrate Thanksgiving.&lt;/p&gt;
+&lt;p&gt;Considering the people the who celebrate Thanksgiving, highest count of 166 goes to the category of 25,000 to 49,999 USD. While least count goes to 175,000 to 199,999 USD and the count is 26. Further, 118 people have chosen not to answer this question. 33 Missing observations were removed&lt;/p&gt;
+&lt;p&gt;Where as in people who do not celebrate Thanksgiving, second highest count goes to the categories of 0 to 9,999 USD and 25,000 to 49,999 USD, where the count is 14. Similarly, for the least count of 1 also there are two Family Income categories, which are 125,000 to 149,999 USD and 175,000 to 199,999 USD. Prefer not to answer is the choice of 18 respondents who participated in this survey. No missing observations were recorded.&lt;/p&gt;
+&lt;p&gt;As before here also an animated bar plot is used to explain this.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Family%20Income%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;100%&#34; height=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;family-income-with-other-factors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Family Income with Other Factors&lt;/h2&gt;
+&lt;p&gt;Of people who do celebrate Thanksgiving the lowest percentage of zero is for people from West North Central with Family Income USD 175,000 to 199,999, people from West South Central with Family Income USD 175,000 to 199,999, people from Mountain with Family Income USD 150,000 to 174,999 and people from Mountain with Family Income USD 175,000 to 199,999. Highest percentage of 4.9409 goes to people from South Atlantic with Faily Income USD 25,000 to 49,999.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$0 to $9,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1074
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0741
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9667
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.9409
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$10,000 to $24,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1074
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.3963
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.2299
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$100,000 to $124,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.7927
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.3963
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.4296
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.6112
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.2556
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+11.7078
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$125,000 to $149,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.1074
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.8260
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.1558
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$150,000 to $174,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9667
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.7519
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.0816
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$175,000 to $199,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0741
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2148
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.7926
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$200,000 and up
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.7519
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.4296
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.0408
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.7519
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0741
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.1815
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.0559
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$25,000 to $49,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.2556
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.1815
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5779
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.6445
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0741
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.1482
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.9409
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0741
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.4006
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$50,000 to $74,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.5779
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9667
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.0408
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.8260
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.7927
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.3963
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.5339
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$75,000 to $99,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.7927
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.9334
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.8593
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5371
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2889
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.4705
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2889
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.5339
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+Prefer not to answer
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.3222
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.1482
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.7519
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.1815
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.5038
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9001
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.2889
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.9667
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+12.5671
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2.5cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.5748
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+6.0149
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+15.5747
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4039
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.9076
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+13.9635
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+21.8044
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.6261
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+9.1301
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0000
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;There are a lot of cell values which have zero therefore I am not going to state them. Further, Highest percentage value of 5.8824 is from people of Middle Atlantic and Family Income categories of USD 0 to 9,999 and USD 25,000 to 49,999.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+East South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Middle Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Mountain
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+New England
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Pacific
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+South Atlantic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West North Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+West South Central
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;font-weight: bold;text-align: center;&#34;&gt;
+Sum
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$0 to $9,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+17.6472
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$10,000 to $24,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$100,000 to $124,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$125,000 to $149,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$150,000 to $174,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$175,000 to $199,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$200,000 and up
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$25,000 to $49,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+19.1178
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$50,000 to $74,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+11.7648
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+$75,000 to $99,999
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;width: 2.5cm; font-weight: bold;&#34;&gt;
+Prefer not to answer
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.9412
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.4706
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+19.1178
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;color: red;width: 2.5cm; font-weight: bold;&#34;&gt;
+Sum
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+7.3530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+5.8824
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+20.5884
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+23.5296
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+16.1766
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+4.4118
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;&#34;&gt;
+8.8236
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;color: red;font-weight: bold;color: red;&#34;&gt;
+100.0008
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;us-region-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;US Region Distribution&lt;/h2&gt;
+&lt;p&gt;There are 9 regions in both sides, and also both sides have missing values. People who do celebrate Thanksgiving have 49 missing values, while only 10 are missing values for people who do not celebrate Thanksgiving.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/US%20region%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;100%&#34; height=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I shall conclude my findings in point form&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We can use gganimate to make bar plots interesting and useful.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;kable is very useful because of stying options.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Further Analysis&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;There are more than 50 variables therefore much more can be done than describing the dataset.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We can use advanced methods such as clustering and model fitting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt;&lt;br /&gt;
+This is my fourth post on the internet so please be kind to tolerate my mistakes in grammar and spellings. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 33 : Malaria Deaths</title>
       <link>/post/week_33/week-33-malaria-deaths/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
