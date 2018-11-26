@@ -45,6 +45,8 @@ week this is understandable. You can receive the data set
 more than 65 variables and 1058 observations. The data was acquired buy a survey 
 conducted online and information about them are [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20).
 
+This is my [tweet](https://twitter.com/Amalan_Con_Stat/status/1065462771817607168) on week 34
+
 # People who do and do not celebrate Thanksgiving
 
 In this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving. I 

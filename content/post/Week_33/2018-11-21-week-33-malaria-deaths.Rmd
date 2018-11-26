@@ -62,6 +62,8 @@ Below is the code and simple analysis I posted in relative to the Malaria data. 
 I could not find anything else at that time, but over the days I realized it should be worth to see how death rate counts change with different
 regions which do not have Code variable assigned for the data sets malaria deaths and malaria deaths of age.
 
+The [Tweet](https://twitter.com/Amalan_Con_Stat/status/1062339233967415296) itself.
+
 * Packages : ggplot2, ggrepel, ggthemr
 * TidyTuesday : week 33
 * Data: malaria_deaths
