@@ -3,13 +3,13 @@ title: 'Week 34 : Thanksgiving '
 author: M.Amalan
 date: '2018-11-26'
 slug: week-34-thanksgiving
-categories: []
+categories: [TidyTuesday]
 tags:
   - TidyTuesday
   - R
   - R package
 image:
-  caption: ''
+  caption: 'Thanksgiving data from TidyTuesday week 34. Mostly focused on animated plots and tables.'
   focal_point: ''
 ---
 

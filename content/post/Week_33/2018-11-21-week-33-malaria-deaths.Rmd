@@ -7,8 +7,9 @@ tags:
   - R package
   - TidyTuesday
 slug: week-33-malaria-deaths
+categories: [TidyTuesday]
 image:
-  caption: ''
+  caption: 'Malaria deaths in Sri Lanka and special regions of the world. With scatter plots and labels for the malaria data given with different range of y axis values.'
   focal_point: ''
 ---
 
@@ -58,8 +59,8 @@ attach(malaria_deaths_age)
 # What I posted in #TidyTuesday on 13th November 2018.
 
 Below is the code and simple analysis I posted in relative to the Malaria data. I only focused on Sri Lanka and Malaria deaths over years.
-I could not find anything else at that time, but over the days I realized it should be worth to see how death counts change with different
-regions which do not have Code for the data sets malaria deaths and malaria deaths of age.
+I could not find anything else at that time, but over the days I realized it should be worth to see how death rate counts change with different
+regions which do not have Code variable assigned for the data sets malaria deaths and malaria deaths of age.
 
 * Packages : ggplot2, ggrepel, ggthemr
 * TidyTuesday : week 33
@@ -119,7 +120,7 @@ print(Malaria_deaths_age_plot)
 ggsave(Malaria_deaths_age_plot,width=10,height = 10,dpi = 300,filename = "Malaria Deaths Sri Lanka by Age.png")
 ```
 
-Malaria Death count rate can be observed by countries or specific regions given in the data set. There are 7 regions 
+Malaria Death count rate can be observed by countries or specific regions given in the data set. There are 9 regions 
 in concern and each of these regions have sub parts or collections of countries. Variables included in this 
 data-set are 
 
