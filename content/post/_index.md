@@ -10,6 +10,6 @@ list_format = 0
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
-image = "fitODBOD.png"
-caption = ""
+image = "fitODBOD.jpg"
+caption = "Hello"
 +++
