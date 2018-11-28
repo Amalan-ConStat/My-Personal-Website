@@ -34,7 +34,7 @@ attach(bridges)
 
 # Bridge Data and Baltimore 
 
-[Data]() for the analysis and [description]() about the Baltimore bridges. 
+[Data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-27/baltimore_bridges.csv) for the analysis and [description](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-27) about the Baltimore bridges. Further , my [tweet](https://twitter.com/Amalan_Con_Stat/status/1067650979129118720).
 
 Data on bridges is week 35 for TidyTuesday. Trying to explain the data using is obvious, yet I
 will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of 

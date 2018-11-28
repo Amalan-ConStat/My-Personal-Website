@@ -18,9 +18,8 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_35/week-35-baltimore-bridges/</guid>
-      <description>Bridge Data and BaltimoreData for the analysis and description about the Baltimore bridges.
-Data on bridges is week 35 for TidyTuesday. Trying to explain the data using is obvious, yet I will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of limiting my self to less than 10 variables, where latitude, longitude and Vehicles will not be taken into account.
-So with the help of packages tidyverse, ggthemr, gganimate,formattable and readr I will complete this analysis.</description>
+      <description>Bridge Data and BaltimoreData for the analysis and description about the Baltimore bridges. Further , my tweet.
+Data on bridges is week 35 for TidyTuesday. Trying to explain the data using is obvious, yet I will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of limiting my self to less than 10 variables, where latitude, longitude and Vehicles will not be taken into account.</description>
     </item>
     
     <item>

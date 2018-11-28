@@ -18,7 +18,7 @@
       <guid>/post/week_35/week-35-baltimore-bridges/</guid>
       <description>&lt;div id=&#34;bridge-data-and-baltimore&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Bridge Data and Baltimore&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;&#34;&gt;Data&lt;/a&gt; for the analysis and &lt;a href=&#34;&#34;&gt;description&lt;/a&gt; about the Baltimore bridges.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-27/baltimore_bridges.csv&#34;&gt;Data&lt;/a&gt; for the analysis and &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-27&#34;&gt;description&lt;/a&gt; about the Baltimore bridges. Further , my &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1067650979129118720&#34;&gt;tweet&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Data on bridges is week 35 for TidyTuesday. Trying to explain the data using is obvious, yet I will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of limiting my self to less than 10 variables, where latitude, longitude and Vehicles will not be taken into account.&lt;/p&gt;
 &lt;p&gt;So with the help of packages tidyverse, ggthemr, gganimate,formattable and readr I will complete this analysis. Most of the bridges are owned by several agencies, but I will only focus on the top three ownership holders.&lt;/p&gt;
 &lt;div id=&#34;counties-which-have-bridges-owned-by-state-highway-agency&#34; class=&#34;section level2&#34;&gt;
