@@ -9,15 +9,15 @@ weight = 4
 
 # List your academic interests.
 [interests]
-  interests = [
-    "R-programming",
-    "Statistics",
-    "Data Science",
+  interests = [ 
+    "Binomial Outcome Data",
+    "Likert Data",
     "R-package",
     "RMarkdown",
-    "TidyVerse",
+    "tidyverse",
     "TidyTuesday",
-    "rstats"
+    "rstats",
+    "Data Science",
   ]
 
 # List your qualifications (such as academic degrees).

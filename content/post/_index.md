@@ -11,5 +11,5 @@ list_format = 0
 # Optional featured image (relative to `static/img/` folder).
 [header]
 image = "fitODBOD.jpg"
-caption = "Hello"
+caption = "Logo for the package fitODBOD"
 +++
