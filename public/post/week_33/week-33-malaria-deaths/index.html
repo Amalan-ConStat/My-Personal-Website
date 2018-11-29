@@ -443,7 +443,7 @@
 <li>Packages : ggplot2, ggrepel, ggthemr</li>
 <li>TidyTuesday : week 33</li>
 <li>Data: malaria_deaths</li>
-<li>Malaria_deaths_plot: Plot shows the death rate per 100,000 people in Sri Lanka decreasing rapidly from 1996 to 2003 with a drop of 0.89 to 0.29, and by 2016 it reaches 0. While in 2015 this rate is 0.13. Highest death rate was in 1990 with 0.91.</li>
+<li>Malaria_deaths_plot: Plot shows the death rate per 100,000 people in Sri Lanka decreasing rapidly from 1996 to 2003 with a drop of 0.89 to 0.24, and by 2016 it reaches 0. While in 2015 this rate is 0.13. Highest death rate was in 1990 with 0.91.</li>
 </ul>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Deaths-1.png" width="768" /></p>
 <ul>
@@ -458,7 +458,7 @@
 <li>Year - Year range from 1990 to 2016.</li>
 <li>Deaths - Malaria - Sex : Both - Age : Age - Standardized (Rate) (per 100,000 people) - Number of people dead for both sexes per 100,000 people in a standardized age because of Malaria.</li>
 </ul>
-<p>I will focus of each region separately, because even inside the same region sub parts can behave differently. The 9 regions are</p>
+<p>I will focus on each region separately, because even inside the same region sub parts can behave differently. The 9 regions are</p>
 <ol style="list-style-type: decimal">
 <li>SDI Countries</li>
 <li>Saharan Region</li>
@@ -478,30 +478,30 @@
 <p>This is not the case for Low middle SDI countries where in 1990 death rate is 19.11 and reaches its peek of 22.01 in 2003 with small fluctuations. After this it gradually and slowly declines until 2016 while finishing in a rate of 15.7.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20Low%20and%20Low%20middle-1.png" width="768" /></p>
 <p>SDI countries Middle and High-middle are performing better than the above two regions from 1990 itself. While Middle SDI countries have a very low death rate of close to 1 and periodically it decreases to 0.6 at 2016. To be exact in 1990 the death rate is 0.9274 and decrement occurs with small but unaffected fluctuations and reaches 0.6018 in 2016, which is the lowest point.</p>
-<p>For High middle SDI countries the death rate in 1990 is 0.1168 and in 1996 it reaches the highest point of 0.1281. After 1996 there clear decrease of death rate which reaches its minimum value of 0.0456 in 2016.</p>
+<p>For High middle SDI countries the death rate in 1990 is 0.1168 and in 1996 it reaches the highest point of 0.1281. After 1996 there is clear decrease of death rate which reaches its minimum value of 0.0454 in 2013.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20Middle%20and%20High-middle-1.png" width="768" /></p>
 <p>High SDI countries are showing very strong decrease from 1990 it self. While in 1990 the death rate is 0.001387 and by polynomial decreasing by 2016 this reaches the least value of 0.000194.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20High-1.png" width="768" /></p>
-<p>IF we do plot all these 5 sub parts of SDI countries on one plot we would not have seen these differences and even if we do use facet grid this is not possible. Therefore, first i did plot all 5 regions together and then sub setted them based on their death rate change in values.</p>
+<p>If we do plot all these 5 sub parts of SDI countries on one plot we would not have seen these differences and even if we do use facet grid this is not possible. Therefore, first I did plot all 5 regions together and then sub setted them based on their death rate change in values.</p>
 <p>It is clear that High SDI values have the lowest death rate and Low, Low middle SDI have the highest death rates over the years 1990 to 2016.</p>
 </div>
 <div id="saharan-region-with-malaria-death-count-rate" class="section level1">
 <h1>Saharan Region with Malaria Death Count Rate</h1>
-<p>There are 5 sub parts for Saharan region countries, which are Central Sub-Saharan, Eastern Sub-Saharan, Southern Sub-Saharan, Sub-Saharan Western and Sub-Saharan Africa countries. Here though it does not look like we need to separate these regions and plot them as groups. While plotting them as a whole there are clear and interpret-able differences in this line plot.</p>
+<p>There are 5 sub parts for Saharan region countries, which are Central Sub-Saharan, Eastern Sub-Saharan, Southern Sub-Saharan, Western Sub-Saharan and Sub-Saharan Africa countries. Here though it does not look like we need to separate these regions and plot them as groups. While plotting them as a whole they are clear and possible to interpret the differences in this line plot.</p>
 <p>Central Sub-Saharan Africa and Western Sub-Saharan Africa countries behave similarly where they start with death rates respectively 108.67, 118.94. Further this death rate increases and reaches its highest peaks of 138.23 and 121.08 respectively for Western Sub-Saharan Africa and Central Sub-Saharan Africa countries for the year 2003. Finally they decrease into their lowest of 64.64 death rate for Central Sub-Saharan Africa and 87.54 death rate for Western Sub-Saharan Africa.</p>
 <p>Sub-Saharan Africa Regions has a higher death rate performance through out the time line when it begins with 89.33 in 1990, and reaches its highest value of 96.28 in 2003. Further death rate decreases slowly up-to 51.93 in 2016, which is the least minimum value. Eastern Sub-Saharan Africa starts with 77.83 in 1990 and reaches its peak of 78.49 in 1991. In the next few years until 2000 there is small fluctuations. Finally there is a steep slope and reaches its lowest death rate value of 23.15 in 2016.</p>
-<p>Death rate of Southern Sub-Saharan Africa is completely different than above four sub regions of Saharan Africa. In 1990 the death rate is 1.69 and it fluctuates until 2016, but it reaches the highest death rate of 2.57 in 2006. Further with this fluctuation in 2016 the death rate is 2.29 which higher than the previous 7 years from 2016.</p>
+<p>Death rate of Southern Sub-Saharan Africa is completely different than above four sub regions of Saharan Africa. In 1990 the death rate is 1.69 and it fluctuates until 2016, but it reaches the highest death rate of 2.57 in 2006. Further with this fluctuation in 2016 the death rate is 2.29 which is higher than the previous 7 years from 2016.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Sahara-1.png" width="1344" /></p>
 <p>Considering 1990 and 2016 the biggest decrease occurs for the region of Eastern Sub-Saharan Africa, while the lowest decrease is for Western Sub-Saharan Africa. While in the year gap of 1990 and 2016 only Southern Sub-Saharan Africa has an increase in death rate from 1.69 to 2.29.</p>
 </div>
 <div id="european-countries-with-malaria-death-count-rate" class="section level1">
 <h1>European Countries with Malaria Death Count Rate</h1>
-<p>I believe that European countries had any malaria related deaths even before 1990, because of their weather patterns. That is simply assured by here in this plot, where there is no deaths for the sub regions of Europe. Which are Central Europe, Eastern Europe and Western Europe.</p>
+<p>I believe that European countries did not have any malaria related deaths even before 1990, because of their weather patterns. That is simply assured by here in this plot, where there is no deaths for the sub regions of Europe. Which are Central Europe, Eastern Europe and Western Europe.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Europe-1.png" width="768" /></p>
 </div>
 <div id="great-britain-or-united-kingdom-with-malaria-death-count-rate" class="section level1">
 <h1>Great Britain or United Kingdom with Malaria Death Count Rate</h1>
-<p>We consider the collection of these countries as Great Britain or United Kingdom, which are England, Northern Ireland, Scotland and Wales. Here also weather pattern do have a high probability in causing a situation of no malaria related deaths. Further, these four countries are close to the European regions in the previous section therefore this assures us more that over the years from 1990 to 2016 the death rate is zero.</p>
+<p>We consider the collection of these countries as Great Britain or United Kingdom, which are England, Northern Ireland, Scotland and Wales. Here also weather pattern does have a high probability in causing a situation of no malaria related deaths. Further, these four countries are close to the European regions geographically therefore this assures us more that over the years from 1990 to 2016 the death rate is zero.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Great%20Britain-1.png" width="768" /></p>
 </div>
 <div id="american-region-with-malaria-death-count-rate" class="section level1">
@@ -516,14 +516,14 @@
 </div>
 <div id="asian-countries-with-malaria-death-count-rate" class="section level1">
 <h1>Asian Countries with Malaria Death Count Rate</h1>
-<p>There are 6 regions in the Asian region, which are Oceania, South Asia, Southeast Asia, East Asia, High Income Asia Pacific, Australasia and Central Asia. Asia is a Large continent with wide variety of countries therefore we have more sub regions than any other continent here.</p>
+<p>There are 6 regions in the Asian region, which are South Asia, Southeast Asia, East Asia, High Income Asia Pacific, Australasia and Central Asia. Asia is a Large continent with wide variety of countries therefore we have more sub regions than any other continent here.</p>
 <p>South Asia and Southeast Asia are two regions which behave similarly where it begins in a higher rate in year 1990 and gradually decreasing until year 2016. South Asia has a death rate of 6.21 in 1990, but in 2016 it reaches to 3.61. For Southeast Asian region the death rate is 5.29 in year 1990 and reaches the death rate of 2.56 in year 2016.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/South%20Asia%20and%20Southeast%20Asia-1.png" width="768" /></p>
 <p>East Asia region begins with a death rate of 0.0269 in year 1990 and it decreases over the coming years which will reach the lowest death rate of 0.0121 in year 2015. Further in year 2016 it slightly increases to 0.0122.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/East%20Asia-1.png" width="768" /></p>
-<p>Central Asia region begins with a a death rate of 0.0304 in year 1990 and increases very slowly until year 1998 of death rate of 0.0314. After this the death rate decreases gradually until year 2013 where it becomes 0.0057. Until year 2016 this becomes the standard death rate for malaria in Central Asia Region.</p>
+<p>Central Asia region begins with a a death rate of 0.0304 in year 1990 and increases very slowly until year 1998 towards the death rate of 0.0314. After this the death rate decreases gradually until year 2013 where it becomes 0.0057. Until year 2016 this becomes the standard death rate for malaria in Central Asia Region.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Central%20Asia-1.png" width="768" /></p>
-<p>High Income Asia Pacific countries have a better death rate than previous Asian region countries where in 1990 the death rate is 0.0073 but over the years it decreases gradually and reaches the lowest death rate value of 0.0008 in year 2016.</p>
+<p>High Income Asia Pacific countries have a lower death rate than previous Asian region countries where in 1990 the death rate is 0.0073 but over the years it decreases gradually and reaches the lowest death rate value of 0.0008 in year 2016.</p>
 <p>Australasia countries have no death rate over the year range of 1990 to 2016, which implicate that there is a possibility that before 1990 also there could have not been any deaths related to malaria</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/High%20Income%20Pacific%20and%20Australasia-1.png" width="768" /></p>
 <p>Australasia is the only region which does not have malaria over the years given in the data set. The lowest death rate occurs to High Income Asian Pacific region than other regions of Asia.</p>
@@ -532,17 +532,17 @@
 <h1>North Africa and Middle East Region with Death Count Rate</h1>
 <p>North Africa and Middle East region is the only odd region of all in this data set for malaria death rate. In year 1990 the death rate is 0.7968 but in the coming years it increases until 2005 and reaches 1.3444. Despite this increment after 2005 the death rate suddenly and rapidly drops until year 2011 and reaches its lowest point of 0.731. Again there is a steady but slow increase in death rate and reaches 0.8332 in year 2016.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/North%20Africa%20and%20Middle%20East-1.png" width="768" /></p>
-<p>Comparing all the other region in this data set only North Africa and Middle East Region was very special with its odd fluctuations which are odd. At the end comparing the death rates of year 1990 and 2016 there is an increase close to 0.04, but it is far less than what was in year 2005.</p>
+<p>Comparing all the other regions in this data set only North Africa and Middle East Region was very special with its odd fluctuations. At the end comparing the death rates of year 1990 and 2016 there is an increase close to 0.04, but it is far less than what was in year 2005 and 1990.</p>
 </div>
 <div id="oceania-region-with-death-count-rate" class="section level1">
 <h1>Oceania Region with Death Count Rate</h1>
 <p>Oceania region begins the malaria death rate of 14.78 in 1990, even though it oscillates over the next few years and reaches a death rate of 12.5 in 1998 and in year 2000 it reaches a staggering highest peak of 53.18 death rate. After reaching the highest peak it decreases slowly in the next few years and reaches its lowest point of 8.71 in 2016.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Oceania-1.png" width="768" /></p>
-<p>Oceania region behaves very differently than other regions. By the year 2016 highest death rate of 8.71 occurs forOceania region.</p>
+<p>Oceania region behaves very differently than other regions. By the year 2015 lowest death rate of 8.64 occurs for Oceania region.</p>
 </div>
 <div id="caribbean-and-latin-america-and-caribbean-countries-with-death-count-rate" class="section level1">
 <h1>Caribbean and Latin America and Caribbean Countries with Death Count Rate</h1>
-<p>Caribbean region countries in the 1990 has a malaria death rate of 0.1265, but next year it is 0.1519. Further it decreases over the years with some fluctuations in some years. By year 2016 the death rate reaches 0.058.</p>
+<p>Caribbean region countries in the 1990 has a malaria death rate of 0.1265, but next year it is 0.1519. Further it decreases over the years with some fluctuations. By year 2016 the death rate reaches 0.058.</p>
 <p>Latin American and Caribbean region countries begin with the death rate of 0.3043 in 1990, but it exponentially decreases until 2016 and reaches 0.0468. In the course it out performs Caribbean countries after year 1999 where Latin American and Caribbean countries occupy a death rate of 0.1282, Caribbean countries occupy a death rate of 0.1274.</p>
 <p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Caribbean%20and%20Latin%20America-1.png" width="768" /></p>
 <p>Clearly Latin American and Caribbean countries perform better than Caribbean countries after year 1999 until year 2016. At the beginning of 1990 the death rate gap between both these regions are clearly high.</p>
