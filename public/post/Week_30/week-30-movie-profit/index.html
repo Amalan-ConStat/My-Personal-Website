@@ -448,14 +448,54 @@ The packages that I have used here are magrittr, tidyverse, scales, ggthemr, kni
 <div id="understand-genre-and-mpaa-rating-on-movies" class="section level1">
 <h1>Understand Genre and Mpaa Rating on Movies</h1>
 <p>3401 movies with 8 variables of information which include numeric and categorical. There are 202 distributors for movies of four types of ratings which are G, PG, PG-13 and R, but 137 movies have no record of them. Also there are five categories for genre, where Drama with 1236, while horror with 298 movies.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Genre%20bar%20plot-1.png" width="672" /></p>
+<pre class="r"><code># Loading the packages
+library(magrittr)
+library(tidyverse)
+library(scales)
+library(ggthemr)
+library(knitr)
+library(kableExtra)
+library(lubridate)
+
+# load the data
+Movie &lt;- read_csv(&quot;movie_profit.csv&quot;, col_types = cols(X1 = col_skip(), 
+                                      release_date = col_date(format = &quot;%m/%d/%Y&quot;)))
+
+# Load the theme
+ggthemr(&quot;flat dark&quot;)
+
+# looking at dimensions
+dim(Movie)
+attach(Movie)</code></pre>
+<pre class="r"><code># Bar plot to Genre
+ggplot(Movie,aes(genre))+
+  geom_bar()+stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)+
+  xlab(&quot;Genre&quot;)+ylab(&quot;Frequency&quot;)+
+  ggtitle(&quot;All movies in perspevtive of Genre &quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Genre%20bar%20plot-1.png" width="768" /></p>
 <p>There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 are in category of PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Ratings%20Bar%20plot-1.png" width="672" /></p>
+<pre class="r"><code># Bar plot to MPAA Ratings
+ggplot(Movie,aes(mpaa_rating))+
+  geom_bar()+geom_bar()+
+  stat_count(aes(y=..count.., label=..count..),geom=&quot;text&quot;, vjust=-.5)+
+  xlab(&quot;Rating&quot;)+ylab(&quot;Frequency&quot;)+
+  ggtitle(&quot;All movies in persepvtie of MPAA Rating&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Ratings%20Bar%20plot-1.png" width="768" /></p>
 <p>Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with accompanying parents and 67 movies can be watched by all ages.</p>
 <p>Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.</p>
-<pre><code>Contengency table in counts for Genre versus MPAA Rating</code></pre>
-<table>
+<pre class="r"><code>#checking for bias in mpaa rating and genre
+kable(table(mpaa_rating,genre),&quot;html&quot;) %&gt;%
+kable_styling(bootstrap_options = c(&quot;striped&quot;),full_width = T) %&gt;%
+add_header_above(c(&quot;Contingency table in counts for Genre versus MPAA Rating&quot;=6))  </code></pre>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Contingency table in counts for Genre versus MPAA Rating
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 </th>
@@ -560,9 +600,21 @@ R
 </tbody>
 </table>
 <p>We think horror movies are mostly R-rated then it is true. But only it is explainable by percentage. Yet considering the amount of horror movies made generally it is very low even in this random sample. Action and Comedy movies have very close percentages for PG-13 ratedness, while 52% are R rated for Action and 47% are comedy.</p>
-<pre><code>Percentage table for Genre versus MPAA Rating</code></pre>
-<table>
+<pre class="r"><code># column percentage for above table
+kable(table(mpaa_rating,genre) %&gt;%
+    prop.table(margin=2) %&gt;%
+    round(digits = 2)) %&gt;%
+    kable_styling(bootstrap_options = c(&quot;striped&quot;),full_width = T) %&gt;%
+    add_header_above(c(&quot;Percentage table for Genre versus MPAA Rating&quot;=6))</code></pre>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Percentage table for Genre versus MPAA Rating
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 </th>
@@ -676,27 +728,81 @@ production budget and no profit because it was not released yet when this data s
 <div id="zero-domestic-gross-point-of-view" class="section level1">
 <h1>Zero Domestic gross Point of View</h1>
 <p>Surprisingly there are movies without any production budget information because I am very sure No movie is done for free. Specially it is odd to see “12 Angry Men” in this list, which leads to the conclusion not all Movies in this list are to be on-it in the first place. We have 66 movies to consider.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="960" /></p>
+<pre class="r"><code># domestic gross zero only movies
+Movie_domestic_zero&lt;-subset.data.frame(Movie,c(domestic_gross==0)) 
+# checking dimensions
+dim(Movie_domestic_zero)
+attach(Movie_domestic_zero)</code></pre>
+<pre class="r"><code># Scatterplot for production budget
+ggplot(Movie_domestic_zero,aes(x=reorder(movie,production_budget),
+                               y=production_budget))+
+  geom_point()+theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+  scale_y_continuous(labels = dollar_format())+
+  ylab(&quot;Production budget&quot;)+xlab(&quot;Movie names&quot;)+
+  ggtitle(&quot;Domestic Gross Zero but how production budget varies in Movies&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="1056" /></p>
 </div>
 <div id="genre-and-mpaa-rating-point-of-view" class="section level1">
 <h1>Genre and MPAA Rating Point of View</h1>
 <p>So movies with R ratedness have the most count and they are also action and drama genre movies of count 10. Here also there are 11 movies with have not been classified into any rating. Finally, there is no G rated movie in this graphical representation. Majority of movies (31) are from R rated in related to rating. While considering genre the Drama category is represented by 24. Action, Drama and Horror movies includes missing rating.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png" width="672" /><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png" width="672" /></p>
+<pre class="r"><code>#plotting worldwide gross with genre
+Movie_domestic_zero %&gt;% 
+  ggplot(aes(x=mpaa_rating,fill=genre)) +
+  geom_bar(position = &quot;stack&quot;)+ylab(&quot;Frequency&quot;)+xlab(&quot;MPAA Rating&quot;)+
+  geom_text(aes(label=..count..),stat=&#39;count&#39;,position=position_stack(0.4))+
+  ggtitle(&quot;MPAA Rating counts with Genre&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png" width="768" /></p>
+<pre class="r"><code>#plotting worldwide gross with mpaa rating
+Movie_domestic_zero %&gt;% 
+  ggplot(aes(fill=mpaa_rating,x=genre)) +
+  geom_bar(position = &quot;stack&quot;)+ylab(&quot;Frequency&quot;)+xlab(&quot;Genre&quot;)+
+  geom_text(aes(label=..count..),stat=&#39;count&#39;,position=position_stack(0.4))+
+  ggtitle(&quot;Genre counts with MPAA Rating&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png" width="768" /></p>
 </div>
 <div id="finding-outliers-in-perspective-of-genre-and-mpaa-rating" class="section level1">
 <h1>Finding Outliers in Perspective of Genre and MPAA Rating</h1>
 <p>Considering the box-plot there are 3 outliers in Drama while plotting data in perspective of genre. Most amount of production budget is concluded in Action genre, while the least is in Horror.</p>
 <p>If we focus on the production budget with genre there are 7 outliers and one action movie has spent 100 million dollars, similarly a movie from adventure category spent more than 100 million dollars. Others production budget is way less than 50 million dollars.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png" width="672" /></p>
+<pre class="r"><code>#plotting production budget with genre
+Movie_domestic_zero %&gt;% 
+  ggplot(aes(genre,production_budget)) +
+  geom_boxplot()+ylab(&quot;Production Budget&quot;)+
+  xlab(&quot;Genre&quot;)+
+  scale_y_continuous(labels = dollar_format())+
+  expand_limits(y=0)+coord_flip()+
+  ggtitle(&quot;Boxplot for Production budget in perspective of Genre&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png" width="768" /></p>
 <p>Least amount budget is spent on movies of no rating mentioned while most is on PG-13 rated movies and it has one strong outlier. Previously with genre we had 7 outliers but according to MPAA rating there are only 6 outliers.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png" width="672" /></p>
+<pre class="r"><code>#plotting production budget with genre
+Movie_domestic_zero %&gt;% 
+  ggplot(aes(mpaa_rating,production_budget)) +
+  geom_boxplot()+ylab(&quot;Production Budget&quot;)+
+  xlab(&quot;MPAA rating&quot;)+
+  scale_y_continuous(labels = dollar_format())+
+  expand_limits(y=0)+coord_flip()+
+  ggtitle(&quot;Boxplot for Production budget in perspective of MPAA Rating&quot;)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png" width="768" /></p>
 </div>
 <div id="production-budget-and-worldwide-gross" class="section level1">
 <h1>Production Budget and Worldwide Gross</h1>
 <p>According to the ascending order in the list of 10 movies with lowest production budget only 2 have profited. One movie (All the Boys Love Mandy Lane) has considerably done good, but if you consider this list of 10 movies we have 12 angry men as well.</p>
-<pre><code>First ten Least production budget movies while Domestic gross is zero</code></pre>
-<table class="table" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<pre class="r"><code># ascending order of top ten movies in production budget
+kable(Movie_domestic_zero[order(Movie_domestic_zero$production_budget),-c(1,4)] %&gt;% 
+      head(10),
+      col.names=c(&quot;Movie Name&quot;,&quot;Production Budget&quot;,&quot;Wordlwide Gross&quot;,&quot;Distributor&quot;,
+                  &quot;MPAA Rating&quot;,&quot;Genre&quot;)) %&gt;% 
+kable_styling(full_width = T,font_size = 13) %&gt;%
+add_header_above(c(&quot;Top 10 Least production budget movies for Domestic gross 0&quot;=6))</code></pre>
+<table class="table" style="font-size: 13px; margin-left: auto; margin-right: auto;">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Top 10 Least production budget movies for Domestic gross 0
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 Movie Name
@@ -926,11 +1032,28 @@ Drama
 <div id="years-months-and-days-versus-production-budget" class="section level1">
 <h1>Years, Months and Days versus Production Budget</h1>
 <p>There are 4 Movies before 1972 with zero for domestic gross which can conclude loss of information. Oddly in year 2014 there are 8 movies with zero domestic gross and most of the movies are after year 2000.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png" width="1152" /></p>
+<pre class="r"><code># plotting years vs movies released
+ggplot(Movie_domestic_zero,aes(x=year(release_date)))+
+      geom_bar()+ylab(&quot;Frequency&quot;)+xlab(&quot;Years&quot;)+
+      scale_x_continuous(label=1956:2019,breaks=1956:2019)+
+      scale_y_continuous(labels = 0:8,breaks = 0:8)+
+      stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)+
+      theme(axis.text.x = element_text(angle = 90,hjust = 2))</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png" width="768" /></p>
 <p>Considering the months there is no specialty most of the counts are in-between 3 and 8. In January there are only two movies.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20month%20-1.png" width="1152" /></p>
+<pre class="r"><code>ggplot(Movie_domestic_zero,aes(x=month(release_date)))+
+      geom_bar()+ylab(&quot;Frequency&quot;)+xlab(&quot;Months&quot;)+
+      scale_x_continuous(label=1:12,breaks=1:12)+
+      scale_y_continuous(labels = 0:8,breaks = 0:8)+
+      stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20month-1.png" width="768" /></p>
 <p>Only the movies with release dates 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. Most of the days have the count of 1 movie.</p>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20day-1.png" width="1152" /></p>
+<pre class="r"><code>ggplot(Movie_domestic_zero,aes(x=day(release_date)))+
+      geom_bar()+ylab(&quot;Frequency&quot;)+xlab(&quot;Days&quot;)+
+      scale_x_continuous(label=1:31,breaks=1:31)+
+      scale_y_continuous(labels = 0:6,breaks = 0:6)+
+      stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
+<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20day-1.png" width="768" /></p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
