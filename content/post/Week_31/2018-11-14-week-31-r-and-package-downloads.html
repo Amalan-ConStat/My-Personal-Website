@@ -75,9 +75,17 @@ tab1&lt;-round(prop.table(table(r_downloads_year_LK$os)),4)
 tab1&lt;-as.data.frame(tab1)
 names(tab1)&lt;-c(&quot;Operating System&quot;,&quot;Frequency&quot;)
 kable(tab1) %&gt;% 
-  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;)</code></pre>
+  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;) %&gt;%
+  add_header_above(c(&quot;Frequency table to Operating system&quot;=2))</code></pre>
 <table class="table table-striped" style="width: auto !important; ">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Frequency table to Operating system
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 Operating System
@@ -133,9 +141,17 @@ tab2&lt;-sort(round(prop.table(table(r_downloads_year_LK$version)),4))
 tab2&lt;-as.data.frame(tab2)
 names(tab2)&lt;-c(&quot;R Version&quot;,&quot;Frequency&quot;)
 kable(tab2) %&gt;% 
-  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;)</code></pre>
+  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;) %&gt;%
+  add_header_above(c(&quot;Frequency table to R versions&quot;=2))</code></pre>
 <table class="table table-striped" style="width: auto !important; ">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Frequency table to R versions
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 R Version
@@ -230,11 +246,11 @@ Frequency
 </table>
 <p>If we further divide the operating systems bar plot with respective to R version it is clearly seen that only versions 3.5.1, 3.5.0, 3.4.4, 3.4.3 and 3.4.2 have maintained importance for the windows operating system.</p>
 <pre class="r"><code># Checking what type of operating system is used with R version
-#setting 10 colors becuase flat dark theme only has four originially
+#setting 10 colors becuase flat dark theme only has four originally
 set_swatch(c(&quot;white&quot;,&quot;firebrick1&quot;,&quot;gold&quot;,&quot;darkorange&quot;,&quot;dodgerblue&quot;,&quot;darkblue&quot;,
              &quot;forestgreen&quot;,&quot;green&quot;,&quot;grey&quot;,&quot;grey44&quot;,&quot;black&quot;))
 ggplot(r_downloads_year_LK,aes(x=os,fill=version))+geom_bar()+
-    geom_text(stat=&#39;count&#39;,aes(y=..count..,label=..count..),position=&quot;stack&quot;,vjust=1)+
+  geom_text(stat=&#39;count&#39;,aes(y=..count..,label=..count..),position=&quot;stack&quot;,vjust=1)+
     xlab(&quot;Operating System&quot;)+ylab(&quot;Frequency&quot;)+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle(&quot;Operating system preference of Sri lankans for R&quot;,
@@ -412,7 +428,7 @@ ggplot(r_downloads_year_LK,aes(x=month(date),fill=os))+
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
 <p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Month-1.png" width="864" /></p>
 <p>So, the first sub part of time is months. Here, we are considering 12 months of an year and months August and April reflects no Operating System is better than Windows property. While, August holding the least amount of downloads with slightly above frequency 20. Highest frequency occurs to October with count higher than 130 and significantly osx and src types of files also have higher amount than any-other month. Except August only the month of December has counts higher than 100.</p>
-<pre class="r"><code>#checking which day the downloads occured of the week inrespecitive to operating system
+<pre class="r"><code>#checking which days the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
     geom_bar()+xlab(&quot;Days&quot;) +ylab(&quot;Frequency&quot;)+
     scale_y_continuous(breaks =seq(0,80,10))+
@@ -421,7 +437,7 @@ ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
 <p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Days-1.png" width="864" /></p>
 <p>Next, focusing on the days it is clear that 10th and 11th have most downloads respectively reaching more than 60 and 70 in counts, while in other days it is mostly less than 30. Further, clearly on the 31st it includes least frequency of 10 because 31st is not a common day of all 12 months. It would be very tiring to focus on operating systems individually, but to be fair there is clear sign of few days with only the use of windows, and a few days with combination of other operating systems with windows.</p>
-<pre class="r"><code>#checking which hour the downloads occured of the day inrespecitive to operating system
+<pre class="r"><code>#checking which hour the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
     geom_bar()+xlab(&quot;Hour&quot;) +ylab(&quot;Frequency&quot;)+
     scale_y_continuous(breaks = seq(0,100,5))+
@@ -430,7 +446,7 @@ ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
 <p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Hours-1.png" width="864" /></p>
 <p>I have been curious at this part because of wanting to know at which hour of the day did our Sri Lankan users download R and packages. Yet it should be noted that the hour of time could be local time of Sri Lanka or otherwise. Still according to the bar chart the hours 4th and 5th have most downloads with counts of above 80 and above 90 respectively. Where in the 21st hour it reaches the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35.</p>
-<pre class="r"><code>#checking which minute the downloads occured of the day inrespecitive to operating system
+<pre class="r"><code>#checking which minute the downloads occured  inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
     geom_bar()+xlab(&quot;Minute&quot;) +ylab(&quot;Frequency&quot;)+
     scale_y_continuous(breaks = 0:25)+
@@ -444,12 +460,21 @@ ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
 <div id="download-size-and-ip-id" class="section level1">
 <h1>Download Size and IP ID</h1>
 <p>Packages were downloaded but none of their names were given in this data-set. Therefore we cannot know which package were downloaded. Yet we can identify the package sizes which were downloaded most. According to the table an R package with 82375220 bytes has most downloads of 50, while second place goes to to a size of 82375219 bytes and finally in third place is for 82375216 bytes with 39 counts.</p>
-<pre class="r"><code>tab3&lt;-as.data.frame(sort(table(r_downloads_year_LK$size))%&gt;% tail(5))
+<pre class="r"><code># table of frequency for sizes of download
+tab3&lt;-as.data.frame(sort(table(r_downloads_year_LK$size))%&gt;% tail(5))
 names(tab3)&lt;-c(&quot;Size&quot;,&quot;Frequency&quot;)
 kable(tab3)  %&gt;% 
-  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;)</code></pre>
+  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;) %&gt;%
+  add_header_above(c(&quot;Frequency table to Download size&quot;=2))</code></pre>
 <table class="table table-striped" style="width: auto !important; ">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Frequency table to Download size
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 Size
@@ -503,12 +528,21 @@ Frequency
 </tbody>
 </table>
 <p>Looking at the IP ID it is clear that 334 has the highest downloads of 55, while second place goes to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place.</p>
-<pre class="r"><code>tab4&lt;-as.data.frame(sort(table(r_downloads_year_LK$ip_id))%&gt;% tail(5))
+<pre class="r"><code># table of frequency to IP ID
+tab4&lt;-as.data.frame(sort(table(r_downloads_year_LK$ip_id))%&gt;% tail(5))
 names(tab4)&lt;-c(&quot;IP ID&quot;,&quot;Frequency&quot;)
 kable(tab4)  %&gt;% 
-  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;)</code></pre>
+  kable_styling(bootstrap_options = &quot;striped&quot;, full_width = F,position=&quot;left&quot;) %&gt;%
+  add_header_above(c(&quot;Frequency table to IP ID&quot;=2))</code></pre>
 <table class="table table-striped" style="width: auto !important; ">
 <thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Frequency table to IP ID
+</div>
+</th>
+</tr>
 <tr>
 <th style="text-align:left;">
 IP ID

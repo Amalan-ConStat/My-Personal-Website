@@ -95,7 +95,9 @@ tab1<-round(prop.table(table(r_downloads_year_LK$os)),4)
 tab1<-as.data.frame(tab1)
 names(tab1)<-c("Operating System","Frequency")
 kable(tab1) %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F,position="left")
+  kable_styling(bootstrap_options = "striped", full_width = F,position="left") %>%
+  add_header_above(c("Frequency table to Operating system"=2))
+  
 ```
 
 Majority of users have used Windows which is 93.58%, while Mac users are represented 
@@ -130,7 +132,8 @@ tab2<-sort(round(prop.table(table(r_downloads_year_LK$version)),4))
 tab2<-as.data.frame(tab2)
 names(tab2)<-c("R Version","Frequency")
 kable(tab2) %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F,position="left")
+  kable_styling(bootstrap_options = "striped", full_width = F,position="left") %>%
+  add_header_above(c("Frequency table to R versions"=2))
 ```
 
 If we further divide the operating systems bar plot with respective to
@@ -139,11 +142,11 @@ maintained importance for the windows operating system.
 
 ```{r R versions with operating system}
 # Checking what type of operating system is used with R version
-#setting 10 colors becuase flat dark theme only has four originially
+#setting 10 colors becuase flat dark theme only has four originally
 set_swatch(c("white","firebrick1","gold","darkorange","dodgerblue","darkblue",
              "forestgreen","green","grey","grey44","black"))
 ggplot(r_downloads_year_LK,aes(x=os,fill=version))+geom_bar()+
-    geom_text(stat='count',aes(y=..count..,label=..count..),position="stack",vjust=1)+
+  geom_text(stat='count',aes(y=..count..,label=..count..),position="stack",vjust=1)+
     xlab("Operating System")+ylab("Frequency")+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle("Operating system preference of Sri lankans for R",
@@ -186,7 +189,7 @@ higher amount than any-other month. Except August only the month of December has
 than 100. 
 
 ```{r Date versus Operating system for Days}
-#checking which day the downloads occured of the week inrespecitive to operating system
+#checking which days the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
     geom_bar()+xlab("Days") +ylab("Frequency")+
     scale_y_continuous(breaks =seq(0,80,10))+
@@ -203,7 +206,7 @@ but to be fair there is clear sign of few days with only the use of windows, and
 with combination of other operating systems with windows.
 
 ```{r Date versus Operating system for Hours}
-#checking which hour the downloads occured of the day inrespecitive to operating system
+#checking which hour the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
     geom_bar()+xlab("Hour") +ylab("Frequency")+
     scale_y_continuous(breaks = seq(0,100,5))+
@@ -219,7 +222,7 @@ downloads with counts of above 80 and above 90 respectively. Where in the 21st h
 the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35. 
 
 ```{r Date versus Operating system for minutes}
-#checking which minute the downloads occured of the day inrespecitive to operating system
+#checking which minute the downloads occured  inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
     geom_bar()+xlab("Minute") +ylab("Frequency")+
     scale_y_continuous(breaks = 0:25)+
@@ -243,10 +246,12 @@ second place goes to to a size of 82375219 bytes and finally in third place is f
 with 39 counts. 
 
 ```{r Size classification}
+# table of frequency for sizes of download
 tab3<-as.data.frame(sort(table(r_downloads_year_LK$size))%>% tail(5))
 names(tab3)<-c("Size","Frequency")
 kable(tab3)  %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F,position="left")
+  kable_styling(bootstrap_options = "striped", full_width = F,position="left") %>%
+  add_header_above(c("Frequency table to Download size"=2))
 
 ```
 
@@ -254,10 +259,12 @@ Looking at the IP ID it is clear that 334 has the highest downloads of 55, while
 to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place. 
 
 ```{r IP ID classification}
+# table of frequency to IP ID
 tab4<-as.data.frame(sort(table(r_downloads_year_LK$ip_id))%>% tail(5))
 names(tab4)<-c("IP ID","Frequency")
 kable(tab4)  %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F,position="left")
+  kable_styling(bootstrap_options = "striped", full_width = F,position="left") %>%
+  add_header_above(c("Frequency table to IP ID"=2))
 ```
 
 # Conclusion 
