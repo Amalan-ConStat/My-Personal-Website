@@ -16,11 +16,12 @@ image:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,size = "Huge",comment = NA)
+knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.height = 9,fig.width = 9)
+```
+
+```{r Prepartion to TidyTuesday}
+# load the packages
 library(readr)
-r_downloads_year <- read_csv("r_downloads_year.csv", 
-     col_types = cols(X1 = col_skip(), date = col_date(format = "%Y-%m-%d"), 
-                      time = col_time(format = "%H:%M:%S")))
 library(ggplot2)
 library(lubridate)
 library(ggthemr)
@@ -29,6 +30,11 @@ library(magrittr)
 library(knitr)
 library(kableExtra)
 library(readr)
+
+# load the data
+r_downloads_year <- read_csv("r_downloads_year.csv", 
+     col_types = cols(X1 = col_skip(), date = col_date(format = "%Y-%m-%d"), 
+                      time = col_time(format = "%H:%M:%S")))
 r_downloads <- read_csv("r-downloads.csv", 
      col_types = cols(X1 = col_skip(), date = col_date(format = "%Y-%m-%d"), 
                       time = col_time(format = "%H:%M:%S")))
@@ -59,14 +65,14 @@ variables to be concerned, which are
 * country -  Two letter ISO country code
 * ip_id - Anonymized daily ip code(unique identifier)
 
-```{r Sri Lanka data extraction,echo=FALSE,warning=FALSE,include=FALSE}
+```{r Sri Lanka data extraction}
 # extracting the observations only if the country is Sri Lanka
 r_downloads_year_LK<-subset.data.frame(r_downloads_year,country=="LK")
 r_downloads_LK<-subset.data.frame(r_downloads,country=="LK")
 
 # number of observations 
-dim(r_downloads_year_LK)
-dim(r_downloads_LK)
+#dim(r_downloads_year_LK)
+#dim(r_downloads_LK)
 ```
 
 # Operating Systems 
@@ -74,17 +80,17 @@ dim(r_downloads_LK)
 Windows is not a favorable operating system for open source programming was my myth.
 Well, No longer I shall believe that if it is considering Sri Lankans and R programming.
 
-```{r Operating Systems, echo=FALSE, fig.height=6, fig.width=6, warning=FALSE}
+```{r Operating Systems}
 #checking what type of operating systems are in use
 ggthemr("flat dark")
-g1<-ggplot(r_downloads_year_LK,aes(x=os))+geom_bar()+
+ggplot(r_downloads_year_LK,aes(x=os))+geom_bar()+
     geom_text(stat='count', aes(label=..count..), vjust=-0.5)+
     xlab("Operating System")+ylab("Frequency")+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle("Operating system preference of Sri lankans for R",
               subtitle = "2017 October 20th - 2018 October 20th")
-g1
 
+# frequency table for Operating system
 tab1<-round(prop.table(table(r_downloads_year_LK$os)),4)
 tab1<-as.data.frame(tab1)
 names(tab1)<-c("Operating System","Frequency")
@@ -103,15 +109,14 @@ Versions are updated regularly for R and a grand update occurred on 2018 April f
 There are versions from 3.0.0 and higher for Sri Lankan users. It is crucial to study this where 
 we can understand how far does the user have knowledge about R and updating the software version.
 
-```{r R versions, echo=FALSE, fig.height=6, fig.width=6, warning=FALSE}
+```{r R versions plot}
 #checking what type of R versions were downloaded
-g2<-ggplot(r_downloads_year_LK,aes(x=version))+geom_bar()+
+ggplot(r_downloads_year_LK,aes(x=version))+geom_bar()+
     geom_text(stat='count', aes(label=..count..), vjust=-0.5)+
     xlab("R versions")+ylab("Frequency")+
     scale_y_continuous(breaks = seq(0,275,by=25))+
     ggtitle("R versions downloaded of Sri Lankans for R",
             subtitle = "2017 October 20th - 2018 October 20th")
-g2
 ```
 
 Table shows that version 3.5.1 represents a 36.52% followed by version 3.4.3 of 27.96% and in the 
@@ -119,11 +124,11 @@ third place version 3.5.0 with 15.98%. Further, all downloads are occurred for v
 or higher than it. People believed in 3.4.3 than 3.5.0, which could only mean that 3.4.3 was more 
 stable for user and package requirements.
 
-```{r R versions 2,echo=FALSE,fig.height=6,fig.width=6,warning=FALSE}
+```{r R versions table}
+# frequency table to R versions
 tab2<-sort(round(prop.table(table(r_downloads_year_LK$version)),4))
 tab2<-as.data.frame(tab2)
 names(tab2)<-c("R Version","Frequency")
-cat("\n")
 kable(tab2) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F,position="left")
 ```
@@ -132,21 +137,23 @@ If we further divide the operating systems bar plot with respective to
 R version it is clearly seen that only versions 3.5.1, 3.5.0, 3.4.4, 3.4.3 and 3.4.2 have 
 maintained importance for the windows operating system.  
 
-```{r R versions 3,echo=FALSE,fig.height=6,fig.width=6,warning=FALSE}
+```{r R versions with operating system}
 # Checking what type of operating system is used with R version
+#setting 10 colors becuase flat dark theme only has four originially
 set_swatch(c("white","firebrick1","gold","darkorange","dodgerblue","darkblue",
              "forestgreen","green","grey","grey44","black"))
-g1_R<-ggplot(r_downloads_year_LK,aes(x=os,fill=version))+geom_bar()+
-    geom_text(stat='count', aes(y=..count..,label=..count..), position="stack",vjust=1)+
+ggplot(r_downloads_year_LK,aes(x=os,fill=version))+geom_bar()+
+    geom_text(stat='count',aes(y=..count..,label=..count..),position="stack",vjust=1)+
     xlab("Operating System")+ylab("Frequency")+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle("Operating system preference of Sri lankans for R",
               subtitle = "2017 October 20th - 2018 October 20th")
       
-g1_R
-
-cat("Contingency table for R version vs Operating System\n")
-kable(round(prop.table(table(r_downloads_year_LK$os,r_downloads_year_LK$version)),4))
+#Contingency table to R version versus operating System
+kable(round(prop.table(table(r_downloads_year_LK$os,
+                             r_downloads_year_LK$version)),4)) %>%
+  kable_styling(bootstrap_options = "striped",full_width = T) %>%
+  add_header_above(c("Contingency table for R version vs Operating System"=11))
 ```
 
 Windows operating system percentages indicate that 34.66% of users have chosen version 3.5.1,
@@ -160,16 +167,15 @@ Date is a difficult variable in statistics therefore I have disseminated the dat
 Further, I have tried to understand what type of operating systems were used in those
 time types.
 
-```{r Date versus Operating system 1,echo=FALSE, fig.height=6, fig.width=6, warning=FALSE}
-#checking which day the downloads occured of the months inrespecitive to operating system
+```{r Date versus Operating system for Month}
+#checking which months the downloads occured inrespecitive to operating system
 ggthemr("flat dark")
-g3<-ggplot(r_downloads_year_LK,aes(x=month(date),fill=os))+
+ggplot(r_downloads_year_LK,aes(x=month(date),fill=os))+
     geom_bar()+ xlab("Months") +ylab("Frequency")+
     scale_y_continuous(breaks =seq(0,140,10))+
     scale_x_continuous(breaks=1:12) +
     ggtitle("Operating systems used in the months of R download",
               subtitle = "2017 October 20th - 2018 October 20th")
-g3
 ```
 
 So, the first sub part of time is months. Here, we are considering 12 months of an year and 
@@ -179,15 +185,14 @@ occurs to October with count higher than 130 and significantly osx and src types
 higher amount than any-other month. Except August only the month of December has counts higher 
 than 100. 
 
-```{r Date versus Operating system 2,echo=FALSE, fig.height=7, fig.width=7, warning=FALSE }
+```{r Date versus Operating system for Days}
 #checking which day the downloads occured of the week inrespecitive to operating system
-g4<-ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
+ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
     geom_bar()+xlab("Days") +ylab("Frequency")+
     scale_y_continuous(breaks =seq(0,80,10))+
     scale_x_continuous(breaks=1:31)+
     ggtitle("Operating systems used in the days of R download",
               subtitle = "2017 October 20th - 2018 October 20th")
-g4
 ```
 
 Next, focusing on the days it is clear that 10th and 11th have most downloads respectively
@@ -197,15 +202,14 @@ common day of all 12 months. It would be very tiring to focus on operating syste
 but to be fair there is clear sign of few days with only the use of windows, and a few days
 with combination of other operating systems with windows.
 
-```{r Date versus Operating system 3,echo=FALSE, fig.height=7, fig.width=7, warning=FALSE}
+```{r Date versus Operating system for Hours}
 #checking which hour the downloads occured of the day inrespecitive to operating system
-g5<-ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
+ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
     geom_bar()+xlab("Hour") +ylab("Frequency")+
     scale_y_continuous(breaks = seq(0,100,5))+
     scale_x_continuous(breaks=0:23)+
     ggtitle("Operating systems used in the Hours of the day of R download",
               subtitle = "2017 October 20th - 2018 October 20th")
-g5
 ```
 
 I have been curious at this part because of wanting to know at which hour of the day did our 
@@ -214,16 +218,15 @@ local time of Sri Lanka or otherwise. Still according to the bar chart the hours
 downloads with counts of above 80 and above 90 respectively. Where in the 21st hour it reaches
 the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35. 
 
-```{r Date versus Operating system2,echo=FALSE, fig.height=9, fig.width=9, warning=FALSE}
+```{r Date versus Operating system for minutes}
 #checking which minute the downloads occured of the day inrespecitive to operating system
-g6<-ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
+ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
     geom_bar()+xlab("Minute") +ylab("Frequency")+
     scale_y_continuous(breaks = 0:25)+
     scale_x_continuous(breaks=0:59)+
     ggtitle("Operating systems used in the minutes of the day of R download",
               subtitle = "2017 October 20th - 2018 October 20th")+
     coord_flip()
-g6
 ```
 
 Looking at the minutes it is very spread out. Focusing on special occasions only four minutes
@@ -239,7 +242,7 @@ most. According to the table an R package with 82375220 bytes has most downloads
 second place goes to to a size of 82375219 bytes and finally in third place is for 82375216 bytes 
 with 39 counts. 
 
-```{r Size classification,echo=FALSE, fig.height=8, fig.width=8, warning=FALSE}
+```{r Size classification}
 tab3<-as.data.frame(sort(table(r_downloads_year_LK$size))%>% tail(5))
 names(tab3)<-c("Size","Frequency")
 kable(tab3)  %>% 
@@ -250,7 +253,7 @@ kable(tab3)  %>%
 Looking at the IP ID it is clear that 334 has the highest downloads of 55, while second place goes
 to 1060 with 46 downloads. Finally, ID number 1286 has 16 downloads with third place. 
 
-```{r IP ID classification,echo=FALSE, fig.height=8, fig.width=8, warning=FALSE}
+```{r IP ID classification}
 tab4<-as.data.frame(sort(table(r_downloads_year_LK$ip_id))%>% tail(5))
 names(tab4)<-c("IP ID","Frequency")
 kable(tab4)  %>% 
