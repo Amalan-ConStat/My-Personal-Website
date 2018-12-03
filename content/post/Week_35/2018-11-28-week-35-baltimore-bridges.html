@@ -87,8 +87,9 @@ ggplot(subset(bridges,Owner==&quot;State Toll Authority&quot;)
 <p>Years 1957, 1970, 1975, 1991, 1963 and 1961 have the top 6 spots for building more than 50 bridges in those years. If we consider the conditions of Fair and Good only the year 1991 is suitable to be mentioned, while all other years has at-least one Poor condition bridge. Further There are more Poor condition bridges in 1961 than in 1957. While all Poor condition bridges has Average Daily Traffic less than 50,000.</p>
 <p>Finally, there are only few bridges which have Average Daily Traffic above 100,000 and only 3 are in Good condition. There are Bridges which can have Average Daily Traffic close to zero in all 6 years and all conditions.</p>
 <pre class="r"><code># jitter plot to years based on Most amount of bridges built
-ggplot(subset(bridges,`Year Built`==&quot;1957&quot; | `Year Built`==&quot;1970&quot; | `Year Built`==&quot;1975&quot; | 
-                `Year Built`==&quot;1991&quot; | `Year Built`==&quot;1963&quot; | `Year Built`==&quot;1961&quot;)
+ggplot(subset(bridges,`Year Built`==&quot;1957&quot; | `Year Built`==&quot;1970&quot; | 
+                `Year Built`==&quot;1975&quot; | `Year Built`==&quot;1991&quot; |
+                `Year Built`==&quot;1963&quot; | `Year Built`==&quot;1961&quot;)
        ,aes(color=Condition,y=`Average Daily Traffic`,x=factor(`Year Built`)))+
   xlab(&quot;Year Built&quot;)+ylab(&quot;Average Daily Traffic&quot;)+
   ggtitle(&quot;Most amount of Bridges built based on Years \nand their Conditions&quot;)+
@@ -104,7 +105,7 @@ ggplot(subset(bridges,`Year Built`==&quot;1957&quot; | `Year Built`==&quot;1970&
 <p>We can see that there are more Fair Condition bridges than Good ones. In Baltimore County most of the Fair condition bridges have Average Daily Traffic less than 15000. Similarly Carroll county and Hartford county also behave under such criteria. But for Good condition bridges this is not the case where there is no certain strong dense region as similar to Fair condition bridges.</p>
 <p>Previously when we looked into county we did not see Baltimore City often as a factor, but here that is not the case.</p>
 <pre class="r"><code># jitter plot to average daily Traffic less than or equal 1000000
-ggplot(subset(bridges, `Average Daily Traffic` &lt;= 100000 &amp; County != &quot;Baltimore city&quot;),
+ggplot(subset(bridges,`Average Daily Traffic`&lt;=100000 &amp; County!=&quot;Baltimore city&quot;),
        aes(x=County,y=`Average Daily Traffic`,color=Condition))+
   xlab(&quot;County&quot;)+ylab(&quot;Averag Daily Traffic&quot;)+
   ggtitle(&quot;Average Daily Traffic Less than 100,000 \nFor Counties&quot;)+
@@ -122,7 +123,7 @@ ggplot(subset(bridges, `Average Daily Traffic` &gt; 100000 &amp; County != &quot
        aes(x=County,y=`Average Daily Traffic`,color=Condition))+
   xlab(&quot;County&quot;)+ylab(&quot;Average Daily Traffic&quot;)+
   ggtitle(&quot;Average Daily Traffic More than 100,000 \nFor Counties&quot;)+
-  scale_y_continuous(labels = seq(100000,230000,5000),breaks = seq(100000,230000,5000))+
+  scale_y_continuous(labels=seq(100000,230000,5000),breaks=seq(100000,230000,5000))+
   coord_flip()+ theme(axis.text.x = element_text(angle = -90))+
   geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>

@@ -139,8 +139,9 @@ condition. There are Bridges which can have Average Daily Traffic close to zero 
 
 ```{r Year Built with Condition and Average Daily Traffic}
 # jitter plot to years based on Most amount of bridges built
-ggplot(subset(bridges,`Year Built`=="1957" | `Year Built`=="1970" | `Year Built`=="1975" | 
-                `Year Built`=="1991" | `Year Built`=="1963" | `Year Built`=="1961")
+ggplot(subset(bridges,`Year Built`=="1957" | `Year Built`=="1970" | 
+                `Year Built`=="1975" | `Year Built`=="1991" |
+                `Year Built`=="1963" | `Year Built`=="1961")
        ,aes(color=Condition,y=`Average Daily Traffic`,x=factor(`Year Built`)))+
   xlab("Year Built")+ylab("Average Daily Traffic")+
   ggtitle("Most amount of Bridges built based on Years \nand their Conditions")+
@@ -170,7 +171,7 @@ case.
 
 ```{r Average Traffic less than 100000}
 # jitter plot to average daily Traffic less than or equal 1000000
-ggplot(subset(bridges, `Average Daily Traffic` <= 100000 & County != "Baltimore city"),
+ggplot(subset(bridges,`Average Daily Traffic`<=100000 & County!="Baltimore city"),
        aes(x=County,y=`Average Daily Traffic`,color=Condition))+
   xlab("County")+ylab("Averag Daily Traffic")+
   ggtitle("Average Daily Traffic Less than 100,000 \nFor Counties")+
@@ -196,7 +197,7 @@ ggplot(subset(bridges, `Average Daily Traffic` > 100000 & County != "Baltimore c
        aes(x=County,y=`Average Daily Traffic`,color=Condition))+
   xlab("County")+ylab("Average Daily Traffic")+
   ggtitle("Average Daily Traffic More than 100,000 \nFor Counties")+
-  scale_y_continuous(labels = seq(100000,230000,5000),breaks = seq(100000,230000,5000))+
+  scale_y_continuous(labels=seq(100000,230000,5000),breaks=seq(100000,230000,5000))+
   coord_flip()+ theme(axis.text.x = element_text(angle = -90))+
   geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
