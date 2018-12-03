@@ -481,7 +481,7 @@ dont_age&lt;-as.data.frame(summary.factor(Thanksgiving_No$age))
 do_age&lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$age)))
 # people who do celebrate
 data_do_age&lt;-data.frame(group=c(&quot;18-29&quot;,&quot;30-44&quot;,&quot;45-59&quot;,&quot;60+&quot;),
-                        values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
+                      values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
                         frame=rep(&quot;Do Celebrate&quot;,4))
 # people who do not celebrate
 data_dont_age&lt;-data.frame(group=c(&quot;18-29&quot;,&quot;30-44&quot;,&quot;45-59&quot;,&quot;60+&quot;),
@@ -1726,8 +1726,8 @@ dont_sex&lt;-as.data.frame(summary.factor(Thanksgiving_No$gender))
 do_sex&lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$gender)))
 # people who do celebrate
 data_do_sex&lt;-data.frame(group=c(&quot;Female&quot;,&quot;Male&quot;),
-                        values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
-                        frame=rep(&quot;Do Celebrate&quot;,2))
+                  values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
+                  frame=rep(&quot;Do Celebrate&quot;,2))
 # people who do not celebrate
 data_dont_sex&lt;-data.frame(group=c(&quot;Female&quot;,&quot;Male&quot;),
                           values=dont_sex$`summary.factor(Thanksgiving_No$gender)`,
@@ -2293,12 +2293,12 @@ Sum
 
 # table of percentages for people who do not celebrate
 kable(addmargins(round(prop.table(table(gender,us_region)),6)*100),&quot;html&quot;)  %&gt;% 
-  kable_styling(&quot;striped&quot;,full_width = F) %&gt;%
+  kable_styling(&quot;striped&quot;,full_width = F,font_size = 10) %&gt;%
   column_spec(11,bold = T,color = &quot;red&quot;) %&gt;%
   row_spec(3,bold = T,color = &quot;red&quot;) %&gt;%
   column_spec(1,bold = T,width = &#39;1.5cm&#39;) %&gt;%
   row_spec(0,bold = T,align = &#39;center&#39;)</code></pre>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;font-weight: bold;text-align: center;">
@@ -2475,9 +2475,12 @@ data_dont_FI&lt;-data.frame(group=c(&quot;0-9,999&quot;,&quot;10,000-24,999&quot
 data_FI&lt;-rbind(data_do_FI,data_dont_FI)
 
 # animated plot for people who do celebrate and who do not celebrate
-ggplot(data_FI,aes(group,values))+geom_bar(stat = &#39;identity&#39;,position = &quot;identity&quot;)+
-  ylab(&quot;Frequency&quot;)+xlab(&quot;Family Income in dollars&quot;)+ggtitle(&quot;Animated plot how Do and Do not people prefer \naccording to Family Income&quot;)+
-  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+geom_text(aes(label=values), vjust=1)+coord_flip()+
+ggplot(data_FI,aes(group,values))+
+  geom_bar(stat = &#39;identity&#39;,position = &quot;identity&quot;)+
+  ylab(&quot;Frequency&quot;)+xlab(&quot;Family Income in dollars&quot;)+
+  ggtitle(&quot;Animated plot how Do and Do not people prefer \naccording to Family Income&quot;)+
+  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+
+  geom_text(aes(label=values), vjust=1)+coord_flip()+
   transition_states(frame,transition_length = 2,state_length = 3)+
   enter_fade()+
   exit_shrink()+
@@ -2497,13 +2500,13 @@ detach(Thanksgiving_No)</code></pre>
 #  row_spec(12,bold = T,color = &quot;red&quot;)
 
 # table of percentages for people who do celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&quot;html&quot;)  %&gt;% 
-  kable_styling(&quot;striped&quot;,full_width = F,font_size = 9) %&gt;%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&quot;html&quot;)%&gt;% 
+  kable_styling(&quot;striped&quot;,full_width = F,font_size = 10) %&gt;%
   column_spec(11,bold = T,color = &quot;red&quot;) %&gt;%
   row_spec(12,bold = T,color = &quot;red&quot;) %&gt;%
   column_spec(1,bold = T,width = &#39;2.5cm&#39;) %&gt;%
   row_spec(0,bold = T,align = &#39;center&#39;)</code></pre>
-<table class="table table-striped" style="font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;font-weight: bold;text-align: center;">
@@ -2973,13 +2976,13 @@ Sum
 #  row_spec(12,bold = T,color = &quot;red&quot;)
 
 # table of percentages for people who do not celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&quot;html&quot;)  %&gt;% 
-  kable_styling(&quot;striped&quot;,full_width = F,font_size = 9) %&gt;%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&quot;html&quot;)%&gt;% 
+  kable_styling(&quot;striped&quot;,full_width = F,font_size = 10) %&gt;%
   column_spec(11,bold = T,color = &quot;red&quot;) %&gt;%
   row_spec(12,bold = T,color = &quot;red&quot;)%&gt;%
   column_spec(1,bold = T,width = &#39;2.5cm&#39;) %&gt;%
   row_spec(0,bold = T,align = &#39;center&#39;)</code></pre>
-<table class="table table-striped" style="font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;font-weight: bold;text-align: center;">

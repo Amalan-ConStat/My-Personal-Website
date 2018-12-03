@@ -14,21 +14,26 @@ image:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,fig.width = 9,fig.height = 7)
+knitr::opts_chunk$set(echo =TRUE,message = FALSE,warning = FALSE,fig.width = 9,fig.height = 7)
+```
 
+```{r Preparing for TidyTuesday}
+# loading the packages
 library(readr)
 library(tidyverse)
 library(stringr)
 library(ggthemr)
 library(gganimate)
 library(formattable)
-
+# load the theme flat dark
 ggthemr("flat dark")
-
+# reading the data
 bridges <- read_csv("baltimore_bridges.csv")
 #View(bridges)
-
-names(bridges)<-c("lat","long","County","Carries","Year Built","Condition","Average Daily Traffic","Total Improvement","Month","Year","Owner","Responsibility","Vehicles")
+# naming the columns
+names(bridges)<-c("lat","long","County","Carries","Year Built",
+                  "Condition","Average Daily Traffic","Total Improvement",
+                  "Month","Year","Owner","Responsibility","Vehicles")
 attach(bridges)
 ```
 
@@ -60,12 +65,14 @@ Average Daily Traffic for both Fair and Good conditions. Hartford and Carroll Co
 their Average Daily Traffic which does not exceed 80,000 at any condition of the bridge.
 
 ```{r County with Condition and Average Daily Traffic SHA}
+# jitter plot to State Highway Agency
 ggplot(subset(bridges,Owner=="State Highway Agency")
-       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+xlab("County")+
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab("County")+
   ggtitle("Condition of Bridges owned by State Highway Agency \nand their Average Daily Traffic")+
   scale_y_continuous(labels =seq(0,230000,10000) ,breaks = seq(0,230000,10000))+
-  geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
-  enter_fade()+exit_shrink()+ease_aes("back-in")
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes("back-in")+geom_jitter()
 ```
 
 ## Counties which have bridges owned by  County Highway Agency 
@@ -89,11 +96,13 @@ only Hartford County has bridges which has Average Daily Traffic less than
 10,000.
 
 ```{r County with Condition and Average Daily Traffic CHA}
+# jitter plot to County Highway Agency
 ggplot(subset(bridges,Owner=="County Highway Agency")
-       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+xlab("County")+
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab("County")+ geom_jitter()+
   ggtitle("Condition of Bridges owned by County Highway Agency \nand their Average Daily Traffic")+
   scale_y_continuous(labels =seq(0,40000,5000) ,breaks = seq(0,40000,5000))+
-  geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
 ```
 
@@ -108,11 +117,13 @@ Further, Anne Arundel County has only one Good bridge and in Hartford it is six 
 of the bridges have Average Daily Traffic close to zero. 
 
 ```{r County with Condition and Average Daily Traffic STA}
+# jitter plot to State tolll authority
 ggplot(subset(bridges,Owner=="State Toll Authority")
-       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+xlab("County")+
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab("County")+geom_jitter()+
   ggtitle("Condition of Bridges owned by State Toll Authority \nand their Average Daily Traffic")+
   scale_y_continuous(labels =seq(0,170000,10000) ,breaks = seq(0,170000,10000))+
-  geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
 ```
 
@@ -127,12 +138,14 @@ Finally, there are only few bridges which have Average Daily Traffic above 100,0
 condition. There are Bridges which can have Average Daily Traffic close to zero in all 6 years and all conditions. 
 
 ```{r Year Built with Condition and Average Daily Traffic}
-ggplot(subset(bridges,`Year Built`=="1957" | `Year Built`=="1970" | `Year Built`=="1975" | `Year Built`=="1991" 
-              | `Year Built`=="1963" | `Year Built`=="1961")
+# jitter plot to years based on Most amount of bridges built
+ggplot(subset(bridges,`Year Built`=="1957" | `Year Built`=="1970" | `Year Built`=="1975" | 
+                `Year Built`=="1991" | `Year Built`=="1963" | `Year Built`=="1961")
        ,aes(color=Condition,y=`Average Daily Traffic`,x=factor(`Year Built`)))+
   xlab("Year Built")+ylab("Average Daily Traffic")+
   ggtitle("Most amount of Bridges built based on Years \nand their Conditions")+
-  geom_jitter()+legend_bottom()+transition_states(Condition,transition_length = 2,state_length = 3)+
+  geom_jitter()+legend_bottom()+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
 ```
 
@@ -156,11 +169,14 @@ Previously when we looked into county we did not see Baltimore City often as a f
 case. 
 
 ```{r Average Traffic less than 100000}
-ggplot(subset(bridges, `Average Daily Traffic` <= 100000 & County != "Baltimore city"),aes(x=County,y=`Average Daily Traffic`,color=Condition))+
-  xlab("County")+ylab("Averag Daily Traffic")+ggtitle("Average Daily Traffic Less than 100,000 \nFor Counties")+
-  scale_y_continuous(labels = seq(0,100000,5000),breaks = seq(0,100000,5000))+coord_flip()+
-  theme(axis.text.x = element_text(angle = -90))+
-  geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
+# jitter plot to average daily Traffic less than or equal 1000000
+ggplot(subset(bridges, `Average Daily Traffic` <= 100000 & County != "Baltimore city"),
+       aes(x=County,y=`Average Daily Traffic`,color=Condition))+
+  xlab("County")+ylab("Averag Daily Traffic")+
+  ggtitle("Average Daily Traffic Less than 100,000 \nFor Counties")+
+  scale_y_continuous(labels = seq(0,100000,5000),breaks = seq(0,100000,5000))+
+  theme(axis.text.x = element_text(angle = -90))+coord_flip()+ geom_jitter()+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
 
 ```
@@ -175,10 +191,13 @@ density occurs between 190,000 to 205,000. Bridges in Good condition have more h
 than Anne Arundel County. 
 
 ```{r  Average Traffic more than 100000}
-ggplot(subset(bridges, `Average Daily Traffic` > 100000 & County != "Baltimore city"),aes(x=County,y=`Average Daily Traffic`,color=Condition))+
-  xlab("County")+ylab("Average Daily Traffic")+ggtitle("Average Daily Traffic More than 100,000 \nFor Counties")+
-  scale_y_continuous(labels = seq(100000,230000,5000),breaks = seq(100000,230000,5000))+coord_flip()+
-  theme(axis.text.x = element_text(angle = -90))+
+# jitter plot to average daily Traffic more than  1000000
+ggplot(subset(bridges, `Average Daily Traffic` > 100000 & County != "Baltimore city"),
+       aes(x=County,y=`Average Daily Traffic`,color=Condition))+
+  xlab("County")+ylab("Average Daily Traffic")+
+  ggtitle("Average Daily Traffic More than 100,000 \nFor Counties")+
+  scale_y_continuous(labels = seq(100000,230000,5000),breaks = seq(100000,230000,5000))+
+  coord_flip()+ theme(axis.text.x = element_text(angle = -90))+
   geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes("back-in")
 
@@ -203,8 +222,12 @@ and 16,264,000. The bridge with Highest amount of Average Daily traffic is built
 
 
 ```{r Bridge Condition and County with Improvement Next 7}
-Top10<-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], `Total Improvement` > 9999 & `Total Improvement` < 30000)
+# removing unnecessary columns and setting restriction to 
+# Total Improvement
+Top10<-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], 
+              `Total Improvement` > 9999 & `Total Improvement` < 30000)
 
+# setting colours
 customRed0 = "#FF8080"
 customRed = "#7F0000"
 
@@ -214,6 +237,7 @@ customyellow = "#BFBF00"
 customblue0 = "#6060BF"
 customblue =  "#00007F"
 
+# creating the table for above data set
 formattable(Top10,align=c("l","l","c","c","c","c"),
             list(
               County =formatter("span",style= ~style(color="grey")),
@@ -236,8 +260,11 @@ Improvement amount is 35,026,000. Here, the Average Daily Traffic is 3900.
 
 
 ```{r Bridge Condition and County with Improvement Top 3}
+# removing unnecessary columns and setting restriction to 
+# Total Improvement
 Top3<-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], `Total Improvement` >= 30000)
 
+# setting colours
 customRed0 = "#FF8080"
 customRed = "#7F0000"
 
@@ -247,6 +274,7 @@ customyellow = "#BFBF00"
 customblue0 = "#6060BF"
 customblue =  "#00007F"
 
+# creating the table for above data set
 formattable(Top3,align=c("l","l","c","c","c","c"),
             list(
               County =formatter("span",style= ~style(color="black")),

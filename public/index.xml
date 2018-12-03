@@ -16,7 +16,24 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_35/week-35-baltimore-bridges/</guid>
-      <description>&lt;div id=&#34;bridge-data-and-baltimore&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# loading the packages
+library(readr)
+library(tidyverse)
+library(stringr)
+library(ggthemr)
+library(gganimate)
+library(formattable)
+# load the theme flat dark
+ggthemr(&amp;quot;flat dark&amp;quot;)
+# reading the data
+bridges &amp;lt;- read_csv(&amp;quot;baltimore_bridges.csv&amp;quot;)
+#View(bridges)
+# naming the columns
+names(bridges)&amp;lt;-c(&amp;quot;lat&amp;quot;,&amp;quot;long&amp;quot;,&amp;quot;County&amp;quot;,&amp;quot;Carries&amp;quot;,&amp;quot;Year Built&amp;quot;,
+                  &amp;quot;Condition&amp;quot;,&amp;quot;Average Daily Traffic&amp;quot;,&amp;quot;Total Improvement&amp;quot;,
+                  &amp;quot;Month&amp;quot;,&amp;quot;Year&amp;quot;,&amp;quot;Owner&amp;quot;,&amp;quot;Responsibility&amp;quot;,&amp;quot;Vehicles&amp;quot;)
+attach(bridges)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;bridge-data-and-baltimore&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Bridge Data and Baltimore&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-27/baltimore_bridges.csv&#34;&gt;Data&lt;/a&gt; for the analysis and &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-27&#34;&gt;description&lt;/a&gt; about the Baltimore bridges are hyper-linked. Further , my &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1067650979129118720&#34;&gt;tweet&lt;/a&gt; is also in this hyperlink.&lt;/p&gt;
 &lt;p&gt;Data on bridges is of week 35 from TidyTuesday. Trying to explain the data using maps is obvious, yet I will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of limiting my self to less than 10 variables, where latitude, longitude and Vehicles will not be taken into account.&lt;/p&gt;
@@ -26,6 +43,14 @@
 &lt;p&gt;Close to 1000 bridges are owned by State Highway Agency, where most of them are in Baltimore County. High amount of bridges are in good condition, further more bridges are in Fair condition and only around 10 bridges in Poor condition.&lt;/p&gt;
 &lt;p&gt;Considering the Average Daily Traffic only one bridge in Poor condition has the amount of close to 110,000, while all the other poor condition bridges have Average Daily Traffic less than 30,000. While counties Anne Arundel and Hartford have no Poor condition bridges at all.&lt;/p&gt;
 &lt;p&gt;Most of the bridges are from Baltimore County and around 20 bridges have count of more than 150,000 Average Daily Traffic for both Fair and Good conditions. Hartford and Carroll Counties have their Average Daily Traffic which does not exceed 80,000 at any condition of the bridge.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to State Highway Agency
+ggplot(subset(bridges,Owner==&amp;quot;State Highway Agency&amp;quot;)
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab(&amp;quot;County&amp;quot;)+
+  ggtitle(&amp;quot;Condition of Bridges owned by State Highway Agency \nand their Average Daily Traffic&amp;quot;)+
+  scale_y_continuous(labels =seq(0,230000,10000) ,breaks = seq(0,230000,10000))+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)+geom_jitter()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20SHA-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;counties-which-have-bridges-owned-by-county-highway-agency&#34; class=&#34;section level2&#34;&gt;
@@ -34,18 +59,43 @@
 &lt;p&gt;Less amount of poor condition bridges in all counties except Anne Roundel County. All bridges owned by County Highway Agency have a limited Average Daily Traffic less than 50,000. Clearly we have more Fair bridges than Good ones. In the Poor condition category only two have Average Daily Traffic more than 20,000, while other two have more than 10 bridges.&lt;/p&gt;
 &lt;p&gt;Most of these bridges are in Baltimore County even it is in any one of three conditions. There are few bridges which have values more than 40,000 Average Daily Traffic and they are also in Baltimore County.&lt;/p&gt;
 &lt;p&gt;There are bridges which have Zero Average Daily Traffic. In all three Conditions only Hartford County has bridges which has Average Daily Traffic less than 10,000.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to County Highway Agency
+ggplot(subset(bridges,Owner==&amp;quot;County Highway Agency&amp;quot;)
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab(&amp;quot;County&amp;quot;)+ geom_jitter()+
+  ggtitle(&amp;quot;Condition of Bridges owned by County Highway Agency \nand their Average Daily Traffic&amp;quot;)+
+  scale_y_continuous(labels =seq(0,40000,5000) ,breaks = seq(0,40000,5000))+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20CHA-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;counties-which-have-bridges-owned-by-state-toll-authority&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Counties which have bridges owned by State Toll Authority&lt;/h2&gt;
 &lt;p&gt;There is only bridge which is in Poor condition and it is in Baltimore County, while counties Howard and Anne Arundel have no Good condition bridges. Further there is only 3 Fair condition bridges in Howard County while they have values for Average Daily Traffic less than 10,000.&lt;/p&gt;
 &lt;p&gt;The highest Average Daily Traffic is close to 170,000 which are only 4 and are in Good and Fair conditions. Further, Anne Arundel County has only one Good bridge and in Hartford it is six bridges. Only few of the bridges have Average Daily Traffic close to zero.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to State tolll authority
+ggplot(subset(bridges,Owner==&amp;quot;State Toll Authority&amp;quot;)
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=str_wrap(County,7)))+
+  xlab(&amp;quot;County&amp;quot;)+geom_jitter()+
+  ggtitle(&amp;quot;Condition of Bridges owned by State Toll Authority \nand their Average Daily Traffic&amp;quot;)+
+  scale_y_continuous(labels =seq(0,170000,10000) ,breaks = seq(0,170000,10000))+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20STA-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;most-amount-of-bridges-built-based-on-year&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Most amount of bridges Built based on Year&lt;/h2&gt;
 &lt;p&gt;Years 1957, 1970, 1975, 1991, 1963 and 1961 have the top 6 spots for building more than 50 bridges in those years. If we consider the conditions of Fair and Good only the year 1991 is suitable to be mentioned, while all other years has at-least one Poor condition bridge. Further There are more Poor condition bridges in 1961 than in 1957. While all Poor condition bridges has Average Daily Traffic less than 50,000.&lt;/p&gt;
 &lt;p&gt;Finally, there are only few bridges which have Average Daily Traffic above 100,000 and only 3 are in Good condition. There are Bridges which can have Average Daily Traffic close to zero in all 6 years and all conditions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to years based on Most amount of bridges built
+ggplot(subset(bridges,`Year Built`==&amp;quot;1957&amp;quot; | `Year Built`==&amp;quot;1970&amp;quot; | `Year Built`==&amp;quot;1975&amp;quot; | 
+                `Year Built`==&amp;quot;1991&amp;quot; | `Year Built`==&amp;quot;1963&amp;quot; | `Year Built`==&amp;quot;1961&amp;quot;)
+       ,aes(color=Condition,y=`Average Daily Traffic`,x=factor(`Year Built`)))+
+  xlab(&amp;quot;Year Built&amp;quot;)+ylab(&amp;quot;Average Daily Traffic&amp;quot;)+
+  ggtitle(&amp;quot;Most amount of Bridges built based on Years \nand their Conditions&amp;quot;)+
+  geom_jitter()+legend_bottom()+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Year%20Built%20with%20Condition%20and%20Average%20Daily%20Traffic-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;average-traffic-less-than-or-equal-to-100000-for-counties-with-bridge-condition&#34; class=&#34;section level2&#34;&gt;
@@ -54,17 +104,58 @@
 &lt;p&gt;If we focus on Average Daily Traffic less than or equal to 100,000 based on County and Condition. It is clear that Poor condition bridges are part of this criteria and mostly Average Daily Traffic is less than 5000 for Counties Howard, Hartford and Carroll. While Baltimore County has highest amount up-to 75,000, but Baltimore County has highest amount close to 40,000 for Average Daily Traffic. Finally Anne Arundel County has only one Poor condition bridge which has Average Daily Traffic close to zero.&lt;/p&gt;
 &lt;p&gt;We can see that there are more Fair Condition bridges than Good ones. In Baltimore County most of the Fair condition bridges have Average Daily Traffic less than 15000. Similarly Carroll county and Hartford county also behave under such criteria. But for Good condition bridges this is not the case where there is no certain strong dense region as similar to Fair condition bridges.&lt;/p&gt;
 &lt;p&gt;Previously when we looked into county we did not see Baltimore City often as a factor, but here that is not the case.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to average daily Traffic less than or equal 1000000
+ggplot(subset(bridges, `Average Daily Traffic` &amp;lt;= 100000 &amp;amp; County != &amp;quot;Baltimore city&amp;quot;),
+       aes(x=County,y=`Average Daily Traffic`,color=Condition))+
+  xlab(&amp;quot;County&amp;quot;)+ylab(&amp;quot;Averag Daily Traffic&amp;quot;)+
+  ggtitle(&amp;quot;Average Daily Traffic Less than 100,000 \nFor Counties&amp;quot;)+
+  scale_y_continuous(labels = seq(0,100000,5000),breaks = seq(0,100000,5000))+
+  theme(axis.text.x = element_text(angle = -90))+coord_flip()+ geom_jitter()+
+  transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Average%20Traffic%20less%20than%20100000-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;average-traffic-more-than-100000-for-counties-with-bridge-condition&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Average Traffic More than 100,000 for Counties with Bridge Condition&lt;/h2&gt;
 &lt;p&gt;This Jitter plot is completely different than previous one, because there are no clear dense regions for any counties and conditions of the bridge. There is only one Poor condition bridge in Baltimore County where the Average Daily Traffic is close to 115,000. In Fair condition bridges also Baltimore County holds the most, while they are slightly dense in the region of 175,000 to 190,000. while for Howard County similar density occurs between 190,000 to 205,000. Bridges in Good condition have more higher values in Baltimore County than Anne Arundel County.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# jitter plot to average daily Traffic more than  1000000
+ggplot(subset(bridges, `Average Daily Traffic` &amp;gt; 100000 &amp;amp; County != &amp;quot;Baltimore city&amp;quot;),
+       aes(x=County,y=`Average Daily Traffic`,color=Condition))+
+  xlab(&amp;quot;County&amp;quot;)+ylab(&amp;quot;Average Daily Traffic&amp;quot;)+
+  ggtitle(&amp;quot;Average Daily Traffic More than 100,000 \nFor Counties&amp;quot;)+
+  scale_y_continuous(labels = seq(100000,230000,5000),breaks = seq(100000,230000,5000))+
+  coord_flip()+ theme(axis.text.x = element_text(angle = -90))+
+  geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Average%20Traffic%20more%20than%20100000-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;improvement-and-bridge-conditions-with-counties&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Improvement and Bridge Conditions with Counties&lt;/h2&gt;
 &lt;p&gt;In the variable of Total Improvement there are 1438 missing values, 42 values are zero and the rest are actual values. I am going to look at Total Improvement in two tables. First table will include where Bridges have Total Improvement higher than 9,999,000 and less than 30,000,000. Second table is for Bridges which have Total Improvement higher than or equal to 30,000,000.&lt;/p&gt;
 &lt;p&gt;Further to make these tables interesting I will be using the package formattable, and colors and tiles for numerical values. In the first table there are 7 bridges while only Anne Arundel County holds 3 and Baltimore City holds 4. One bridge is from 1953, and others are from the period of 1977 to 1983. Conditions of these bridges are mostly Fair and two bridges are in Good condition. Lowest Average Daily Traffic is 11760, while highest is 124193, where both bridges are in Fair Condition, and the amount spent on them for Total Improvement are respectively 18,163,000 and 16,264,000. The bridge with Highest amount of Average Daily traffic is built in 1953.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# removing unnecessary columns and setting restriction to 
+# Total Improvement
+Top10&amp;lt;-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], 
+              `Total Improvement` &amp;gt; 9999 &amp;amp; `Total Improvement` &amp;lt; 30000)
+
+# setting colours
+customRed0 = &amp;quot;#FF8080&amp;quot;
+customRed = &amp;quot;#7F0000&amp;quot;
+
+customyellow0 = &amp;quot;#FFFF80&amp;quot;
+customyellow = &amp;quot;#BFBF00&amp;quot;
+
+customblue0 = &amp;quot;#6060BF&amp;quot;
+customblue =  &amp;quot;#00007F&amp;quot;
+
+# creating the table for above data set
+formattable(Top10,align=c(&amp;quot;l&amp;quot;,&amp;quot;l&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;),
+            list(
+              County =formatter(&amp;quot;span&amp;quot;,style= ~style(color=&amp;quot;grey&amp;quot;)),
+            `Total Improvement`=color_tile(customblue0,customblue),
+            `Average Daily Traffic`=color_tile(customyellow0,customyellow),
+            `Year Built`=color_tile(customRed0,customRed)
+            ))&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-condensed&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -234,6 +325,28 @@ Good
 &lt;p&gt;When I did try to plot the top ten bridges with most Total improvement values there was one issue, which is the distance between first two values and the next 8 values. Therefore I divided the table into two.&lt;/p&gt;
 &lt;p&gt;In this second table We can see there are two bridges which are from Baltimore City and are built in 1980 and 1971, but the amount spent on Total Improvement is 300,000,000 each. But their Average Daily Traffic is respectively 56280 and 30600.&lt;/p&gt;
 &lt;p&gt;While we have another bridge from Baltimore City and built in 1907, but Total Improvement amount is 35,026,000. Here, the Average Daily Traffic is 3900.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# removing unnecessary columns and setting restriction to 
+# Total Improvement
+Top3&amp;lt;-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], `Total Improvement` &amp;gt;= 30000)
+
+# setting colours
+customRed0 = &amp;quot;#FF8080&amp;quot;
+customRed = &amp;quot;#7F0000&amp;quot;
+
+customyellow0 = &amp;quot;#FFFF80&amp;quot;
+customyellow = &amp;quot;#BFBF00&amp;quot;
+
+customblue0 = &amp;quot;#6060BF&amp;quot;
+customblue =  &amp;quot;#00007F&amp;quot;
+
+# creating the table for above data set
+formattable(Top3,align=c(&amp;quot;l&amp;quot;,&amp;quot;l&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c&amp;quot;),
+            list(
+              County =formatter(&amp;quot;span&amp;quot;,style= ~style(color=&amp;quot;black&amp;quot;)),
+            `Total Improvement`=color_tile(customblue0,customblue),
+            `Average Daily Traffic`=color_tile(customyellow0,customyellow),
+            `Year Built`=color_tile(customRed0,customRed)
+            ))&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-condensed&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -393,7 +506,7 @@ dont_age&amp;lt;-as.data.frame(summary.factor(Thanksgiving_No$age))
 do_age&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$age)))
 # people who do celebrate
 data_do_age&amp;lt;-data.frame(group=c(&amp;quot;18-29&amp;quot;,&amp;quot;30-44&amp;quot;,&amp;quot;45-59&amp;quot;,&amp;quot;60+&amp;quot;),
-                        values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
+                      values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
                         frame=rep(&amp;quot;Do Celebrate&amp;quot;,4))
 # people who do not celebrate
 data_dont_age&amp;lt;-data.frame(group=c(&amp;quot;18-29&amp;quot;,&amp;quot;30-44&amp;quot;,&amp;quot;45-59&amp;quot;,&amp;quot;60+&amp;quot;),
@@ -1638,8 +1751,8 @@ dont_sex&amp;lt;-as.data.frame(summary.factor(Thanksgiving_No$gender))
 do_sex&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$gender)))
 # people who do celebrate
 data_do_sex&amp;lt;-data.frame(group=c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;),
-                        values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
-                        frame=rep(&amp;quot;Do Celebrate&amp;quot;,2))
+                  values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
+                  frame=rep(&amp;quot;Do Celebrate&amp;quot;,2))
 # people who do not celebrate
 data_dont_sex&amp;lt;-data.frame(group=c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;),
                           values=dont_sex$`summary.factor(Thanksgiving_No$gender)`,
@@ -2205,12 +2318,12 @@ Sum
 
 # table of percentages for people who do not celebrate
 kable(addmargins(round(prop.table(table(gender,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
-  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 10) %&amp;gt;%
   column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
   row_spec(3,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
   column_spec(1,bold = T,width = &amp;#39;1.5cm&amp;#39;) %&amp;gt;%
   row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
@@ -2387,9 +2500,12 @@ data_dont_FI&amp;lt;-data.frame(group=c(&amp;quot;0-9,999&amp;quot;,&amp;quot;10
 data_FI&amp;lt;-rbind(data_do_FI,data_dont_FI)
 
 # animated plot for people who do celebrate and who do not celebrate
-ggplot(data_FI,aes(group,values))+geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
-  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;Family Income in dollars&amp;quot;)+ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to Family Income&amp;quot;)+
-  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+geom_text(aes(label=values), vjust=1)+coord_flip()+
+ggplot(data_FI,aes(group,values))+
+  geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
+  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;Family Income in dollars&amp;quot;)+
+  ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to Family Income&amp;quot;)+
+  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+
+  geom_text(aes(label=values), vjust=1)+coord_flip()+
   transition_states(frame,transition_length = 2,state_length = 3)+
   enter_fade()+
   exit_shrink()+
@@ -2409,13 +2525,13 @@ detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 #  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)
 
 # table of percentages for people who do celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
-  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 9) %&amp;gt;%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)%&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 10) %&amp;gt;%
   column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
   row_spec(12,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
   column_spec(1,bold = T,width = &amp;#39;2.5cm&amp;#39;) %&amp;gt;%
   row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;
@@ -2885,13 +3001,13 @@ Sum
 #  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)
 
 # table of percentages for people who do not celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
-  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 9) %&amp;gt;%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)%&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 10) %&amp;gt;%
   column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
   row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)%&amp;gt;%
   column_spec(1,bold = T,width = &amp;#39;2.5cm&amp;#39;) %&amp;gt;%
   row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:left;font-weight: bold;text-align: center;&#34;&gt;

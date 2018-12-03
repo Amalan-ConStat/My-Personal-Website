@@ -84,7 +84,7 @@ dont_age<-as.data.frame(summary.factor(Thanksgiving_No$age))
 do_age<-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$age)))
 # people who do celebrate
 data_do_age<-data.frame(group=c("18-29","30-44","45-59","60+"),
-                        values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
+                      values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
                         frame=rep("Do Celebrate",4))
 # people who do not celebrate
 data_dont_age<-data.frame(group=c("18-29","30-44","45-59","60+"),
@@ -278,8 +278,8 @@ dont_sex<-as.data.frame(summary.factor(Thanksgiving_No$gender))
 do_sex<-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$gender)))
 # people who do celebrate
 data_do_sex<-data.frame(group=c("Female","Male"),
-                        values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
-                        frame=rep("Do Celebrate",2))
+                  values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
+                  frame=rep("Do Celebrate",2))
 # people who do not celebrate
 data_dont_sex<-data.frame(group=c("Female","Male"),
                           values=dont_sex$`summary.factor(Thanksgiving_No$gender)`,
@@ -388,7 +388,7 @@ attach(Thanksgiving_No)
 
 # table of percentages for people who do not celebrate
 kable(addmargins(round(prop.table(table(gender,us_region)),6)*100),"html")  %>% 
-  kable_styling("striped",full_width = F) %>%
+  kable_styling("striped",full_width = F,font_size = 10) %>%
   column_spec(11,bold = T,color = "red") %>%
   row_spec(3,bold = T,color = "red") %>%
   column_spec(1,bold = T,width = '1.5cm') %>%
@@ -443,9 +443,12 @@ data_dont_FI<-data.frame(group=c("0-9,999","10,000-24,999","25,000-49,999",
 data_FI<-rbind(data_do_FI,data_dont_FI)
 
 # animated plot for people who do celebrate and who do not celebrate
-ggplot(data_FI,aes(group,values))+geom_bar(stat = 'identity',position = "identity")+
-  ylab("Frequency")+xlab("Family Income in dollars")+ggtitle("Animated plot how Do and Do not people prefer \naccording to Family Income")+
-  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+geom_text(aes(label=values), vjust=1)+coord_flip()+
+ggplot(data_FI,aes(group,values))+
+  geom_bar(stat = 'identity',position = "identity")+
+  ylab("Frequency")+xlab("Family Income in dollars")+
+  ggtitle("Animated plot how Do and Do not people prefer \naccording to Family Income")+
+  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+
+  geom_text(aes(label=values), vjust=1)+coord_flip()+
   transition_states(frame,transition_length = 2,state_length = 3)+
   enter_fade()+
   exit_shrink()+
@@ -474,8 +477,8 @@ attach(Thanksgiving_Yes)
 #  row_spec(12,bold = T,color = "red")
 
 # table of percentages for people who do celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),"html")  %>% 
-  kable_styling("striped",full_width = F,font_size = 9) %>%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),"html")%>% 
+  kable_styling("striped",full_width = F,font_size = 10) %>%
   column_spec(11,bold = T,color = "red") %>%
   row_spec(12,bold = T,color = "red") %>%
   column_spec(1,bold = T,width = '2.5cm') %>%
@@ -498,8 +501,8 @@ attach(Thanksgiving_No)
 #  row_spec(12,bold = T,color = "red")
 
 # table of percentages for people who do not celebrate
-kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),"html")  %>% 
-  kable_styling("striped",full_width = F,font_size = 9) %>%
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),"html")%>% 
+  kable_styling("striped",full_width = F,font_size = 10) %>%
   column_spec(11,bold = T,color = "red") %>%
   row_spec(12,bold = T,color = "red")%>%
   column_spec(1,bold = T,width = '2.5cm') %>%

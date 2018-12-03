@@ -354,8 +354,8 @@
     <h2><a href="/post/week_35/week-35-baltimore-bridges/">Week 35: Baltimore Bridges</a></h2>
     <div class="article-style">
       
-      Bridge Data and BaltimoreData for the analysis and description about the Baltimore bridges are hyper-linked. Further , my tweet is also in this hyperlink.
-Data on bridges is of week 35 from TidyTuesday. Trying to explain the data using maps is obvious, yet I will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of limiting my self to less than 10 variables, where latitude, longitude and Vehicles will not be taken into account.
+      # loading the packageslibrary(readr)library(tidyverse)library(stringr)library(ggthemr)library(gganimate)library(formattable)# load the theme flat darkggthemr(&quot;flat dark&quot;)# reading the databridges &lt;- read_csv(&quot;baltimore_bridges.csv&quot;)#View(bridges)# naming the columnsnames(bridges)&lt;-c(&quot;lat&quot;,&quot;long&quot;,&quot;County&quot;,&quot;Carries&quot;,&quot;Year Built&quot;,&quot;Condition&quot;,&quot;Average Daily Traffic&quot;,&quot;Total Improvement&quot;,&quot;Month&quot;,&quot;Year&quot;,&quot;Owner&quot;,&quot;Responsibility&quot;,&quot;Vehicles&quot;)attach(bridges)Bridge Data and BaltimoreData for the analysis and description about the Baltimore bridges are hyper-linked. Further , my tweet is also in this hyperlink.
+Data on bridges is of week 35 from TidyTuesday.
       
     </div>
   </div>
