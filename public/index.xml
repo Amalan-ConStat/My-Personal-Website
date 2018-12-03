@@ -350,6 +350,30 @@ This is my fifth post on the internet so please be kind to tolerate my mistakes 
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load the packges
+library(ggplot2)
+library(ggthemr)
+library(stringr)
+library(gridExtra)
+library(tidyverse)
+library(tweenr)
+library(gganimate)
+library(kableExtra)
+library(magrittr)
+library(knitr)
+library(readr)
+
+#load the data
+Thanksgiving&amp;lt;-read_csv(&amp;quot;thanksgiving_meals.csv&amp;quot;)
+
+# apply the theme grape
+ggthemr(&amp;quot;grape&amp;quot;)
+
+#subset the people who said yes for celebrating thanksgiving
+Thanksgiving_Yes&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;Yes&amp;quot;)
+
+#subset the people who said no for celebrating thanksgiving
+Thanksgiving_No&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;No&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is understandable. You can receive the data set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv&#34;&gt;here&lt;/a&gt;. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This is my &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1065462771817607168&#34;&gt;tweet&lt;/a&gt; on week 34&lt;/p&gt;
 &lt;div id=&#34;people-who-do-and-do-not-celebrate-thanksgiving&#34; class=&#34;section level1&#34;&gt;
@@ -361,12 +385,54 @@ This is my fifth post on the internet so please be kind to tolerate my mistakes 
 &lt;p&gt;First the age distribution has only 4 groups, where people who celebrate Thanksgiving in the age category of 18-29 is the very least. Highest count goes to the age category of 45-59 with 269. There are 33 missing observations and they were removed.&lt;/p&gt;
 &lt;p&gt;Considering the people who do not celebrate Thanksgiving the least count of 6 goes to category of 60+, but here the category of 18-29 has the highest count of 31. No missing observations were recorded here.&lt;/p&gt;
 &lt;p&gt;Below is an animated bar plot where the counts change for their respective 4 categories. As 90% of respondents have answered Yes for celebrating Thanksgiving and rest have answered No we can clearly see the count differences&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+attach(Thanksgiving_No)
+# people who do not celebrate 
+dont_age&amp;lt;-as.data.frame(summary.factor(Thanksgiving_No$age))
+# people who do celebrate
+do_age&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$age)))
+# people who do celebrate
+data_do_age&amp;lt;-data.frame(group=c(&amp;quot;18-29&amp;quot;,&amp;quot;30-44&amp;quot;,&amp;quot;45-59&amp;quot;,&amp;quot;60+&amp;quot;),
+                        values=do_age$`summary.factor(na.omit(Thanksgiving_Yes$age))`,
+                        frame=rep(&amp;quot;Do Celebrate&amp;quot;,4))
+# people who do not celebrate
+data_dont_age&amp;lt;-data.frame(group=c(&amp;quot;18-29&amp;quot;,&amp;quot;30-44&amp;quot;,&amp;quot;45-59&amp;quot;,&amp;quot;60+&amp;quot;),
+                          values=dont_age$`summary.factor(Thanksgiving_No$age)`,
+                          frame=rep(&amp;quot;Do not Celebrate&amp;quot;,4))
+# combining both
+data_age&amp;lt;-rbind(data_do_age,data_dont_age)
+
+# animated bar plot for people who do celebrate and who do not celebrate 
+ggplot(data_age,aes(x=factor(group),values))+
+  geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
+  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;Age Group&amp;quot;)+
+  ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to Age&amp;quot;)+
+  geom_text(aes(label=values), vjust=1)+
+  transition_states(frame,transition_length = 2,state_length = 3)+
+  enter_fade()+
+  exit_shrink()+
+  ease_aes(&amp;#39;cubic-in-out&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Age%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;75%&#34; height=&#34;75%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)
+detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;age-with-other-factors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Age with Other Factors&lt;/h2&gt;
 &lt;p&gt;First table is Age vs Gender for people who celebrate Thanksgiving. All age categories have a percentage range in between 19 and 29. Highest percentage of 28.4055 is for Age category 45 - 59. Female have a higher percentage of 54.3823.&lt;/p&gt;
 &lt;p&gt;Female who are 60+ have the highest percentage of 15.2059, while lowest percentage of 8.7645 is for male in the age category of 18-29.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(age,gender))) %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(4,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(age,gender)),6)*100),&amp;quot;html&amp;quot;) %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+  column_spec(4,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -456,8 +522,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;When considering the people who do not celebrate Thanksgiving, highest percentage of 62.8205 is for Male, while age category of 18-29 have the highest percentage of 39.7436.&lt;/p&gt;
 &lt;p&gt;Male who are in between 18 and 29 have the highest percentage of 25.6410, while Female who are above 60 have the lowest percentage of 2.5641.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No)
+
+#kable(addmargins(table(age,gender))) %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(4,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(age,gender)),6)*100),&amp;quot;html&amp;quot;) %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+  column_spec(4,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -547,8 +627,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;With relative to people who celebrate Thanksgiving in the Family Income category highest percentage goes to USD 25,000 to 49,999.&lt;/p&gt;
 &lt;p&gt;People who have Family Income USD 25,000 to 49,999 and age above 60 have the highest percentage of 4.96, while lowest percentage of 0.11 is for people who have Family Income in between USD 175,000 to 199,999 of age category of 18-29.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(age,family_income)),&amp;quot;html&amp;quot;) %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(age,family_income)),6)*100),&amp;quot;html&amp;quot;) %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = T,font_size = 9) %&amp;gt;%
+  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(0,bold = T,angle = 270,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -800,8 +894,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Of people who do not celebrate Thanksgiving the Family Income category has the highest percentage which goes to People who prefer not to answer.&lt;/p&gt;
 &lt;p&gt;15 cells in this table are zero which is the lowest percentage that can occur, while highest percentage goes to people who are in the age category 18 -29 while Family Income is USD 0 to 9,999 and prefer not to answer.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No) 
+
+#kable(addmargins(table(age,family_income))) %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(age,family_income)),6)*100),&amp;quot;html&amp;quot;) %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = T,font_size = 9) %&amp;gt;%
+  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(0,bold = T,angle = 270,align = &amp;#39;center&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1053,8 +1161,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For the people who celebrate Thanksgiving highest percentage of 21.80 goes to US region of South Atlantic. While lowest percentage goes to Mountain with 4.41.&lt;/p&gt;
 &lt;p&gt;People who are from South Atlantic in the age categories of 45-59 and 60+ have the highest percentage of 6.55. While the lowest percentage of 0.64 goes to people who are in the age category of 18-29 and from East South Central.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(age,us_region))) %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(age,us_region)),4)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = T,font_size = 9) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1270,8 +1392,23 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Of people who do not celebrate Thanksgiving 23.5294% are from Pacific, while lowest percentage is for people who are from New England and West North Central with 4.4118.&lt;/p&gt;
 &lt;p&gt;10 cells have zero values which is the lowest percentage value. While highest percentage of 11.7647 occurs to people from Pacific and in the age category 30-44.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No)
+
+#kable(addmargins(table(age,us_region)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(age,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = T,font_size = 9) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(5,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;2cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1487,16 +1624,61 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;gender-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Gender Distribution&lt;/h2&gt;
 &lt;p&gt;We have two types of gender categories in this data set which are male and female. According to the people who celebrate Thanksgiving 515 are Female, while only 432 are male. Here also there are 33 missing observations and they have been removed.&lt;/p&gt;
 &lt;p&gt;But this is not the case for those who do not celebrate Thanksgiving. Female have a count of only 29, where males have a count of 49. There were no missing observations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+attach(Thanksgiving_No)
+# people who do not celebrate
+dont_sex&amp;lt;-as.data.frame(summary.factor(Thanksgiving_No$gender))
+# people who do celebrate
+do_sex&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$gender)))
+# people who do celebrate
+data_do_sex&amp;lt;-data.frame(group=c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;),
+                        values=do_sex$`summary.factor(na.omit(Thanksgiving_Yes$gender))`,
+                        frame=rep(&amp;quot;Do Celebrate&amp;quot;,2))
+# people who do not celebrate
+data_dont_sex&amp;lt;-data.frame(group=c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;),
+                          values=dont_sex$`summary.factor(Thanksgiving_No$gender)`,
+                          frame=rep(&amp;quot;Do not Celebrate&amp;quot;,2))
+# combining both 
+data_sex&amp;lt;-rbind(data_do_sex,data_dont_sex)
+
+# animated plot for people who do celebrate and who do not celebrate
+ggplot(data_sex,aes(group,values))+
+  geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
+  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;Gender&amp;quot;)+
+  ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to Gender&amp;quot;)+
+  scale_y_continuous(labels= seq(0,520,10),breaks = seq(0,520,10))+
+  geom_text(aes(label=values), vjust=1)+
+  transition_states(frame,transition_length = 2,state_length = 3)+
+  enter_fade()+
+  exit_shrink()+
+  ease_aes(&amp;#39;elastic-in-out&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Gender%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;75%&#34; height=&#34;75%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)
+detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;gender-with-other-factors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Gender with Other Factors&lt;/h2&gt;
 &lt;p&gt;Of people who do celebrate Thanksgiving highest percentage of 10.14 goes to Females where Family Income is USD 25,000 to 49,999. While lowest percentage of 1.27 goes to Males of Family Income category USD 175,000 to 199,999.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(gender,family_income)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(gender,family_income)),4)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = T,font_size = 9) %&amp;gt;%
+  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;2cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,angle = 270,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1666,7 +1848,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;3 cells in the below table are zero values, which is the lowest percentage value. Highest percentage of 14.1026 goes to Males who chose not to answer regarding Family Income where they do not celebrate Thanksgiving.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No)
+
+#kable(addmargins(table(gender,family_income)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(gender,family_income)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 10) %&amp;gt;%
+  column_spec(13,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;1.5cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,angle = 270,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1836,7 +2033,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Female from South Atlantic who celebrate Thanksgiving have a highest percentage of 12.14. Where respondents from Mountain region and Males have the lowest percentage of 1.29.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(gender,us_region)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(gender,us_region)),4)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 10) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;1.5cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1982,7 +2194,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Male respondents who do not celebrate Thanksgiving where they are from Middle Atlantic have a highest percentage of 16.1765. Even though Females of West South Central have the lowest percentage of 1.4706 and Males from West North Central also have the same percentage value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No)
+
+#kable(addmargins(table(gender,us_region)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(gender,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(3,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;1.5cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2128,6 +2355,7 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;family-income-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Family Income Distribution&lt;/h2&gt;
@@ -2135,11 +2363,58 @@ Sum
 &lt;p&gt;Considering the people the who celebrate Thanksgiving, highest count of 166 goes to the category of 25,000 to 49,999 USD. While least count goes to 175,000 to 199,999 USD and the count is 26. Further, 118 people have chosen not to answer this question. 33 Missing observations were removed.&lt;/p&gt;
 &lt;p&gt;Where as in people who do not celebrate Thanksgiving, second highest count goes to the categories of 0 to 9,999 USD and 25,000 to 49,999 USD, where the count is 14. Similarly, for the least count of 1 also there are two Family Income categories, which are 125,000 to 149,999 USD and 175,000 to 199,999 USD. Prefer not to answer is the choice of 18 respondents who participated in this survey. No missing observations were recorded.&lt;/p&gt;
 &lt;p&gt;As before here also an animated bar plot is used to explain this.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+attach(Thanksgiving_No)
+# people who do not celebrate
+dont_FI&amp;lt;-as.data.frame(summary.factor(Thanksgiving_No$family_income))
+# people who do celebrate
+do_FI&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$family_income)))
+# people who do celebrate
+data_do_FI&amp;lt;-data.frame(group=c(&amp;quot;0-9,999&amp;quot;,&amp;quot;10,000-24,999&amp;quot;,&amp;quot;25,000-49,999&amp;quot;,
+                               &amp;quot;50,000-74,999&amp;quot;,&amp;quot;75,000-99,999&amp;quot;,&amp;quot;100,000-124,999&amp;quot;,
+                               &amp;quot;125,000-149,999&amp;quot;,&amp;quot;150,000-174,999&amp;quot;,
+                               &amp;quot;175,000-199,999&amp;quot;,&amp;quot;200,000 and up&amp;quot;,&amp;quot;Not to answer&amp;quot;),
+                       values=c(52,60,166,127,127,109,48,38,26,76,118),
+                       frame=rep(&amp;quot;Do Celebrate&amp;quot;,11))
+# people who do not celebrate
+data_dont_FI&amp;lt;-data.frame(group=c(&amp;quot;0-9,999&amp;quot;,&amp;quot;10,000-24,999&amp;quot;,&amp;quot;25,000-49,999&amp;quot;,
+                                 &amp;quot;50,000-74,999&amp;quot;,&amp;quot;75,000-99,999&amp;quot;,&amp;quot;100,000-124,999&amp;quot;,
+                               &amp;quot;125,000-149,999&amp;quot;,&amp;quot;150,000-174,999&amp;quot;,&amp;quot;175,000-199,999&amp;quot;,
+                               &amp;quot;200,000 and up&amp;quot;,&amp;quot;Not to answer&amp;quot;),
+                         values=c(14,8,14,8,6,2,1,2,1,4,18),
+                         frame=rep(&amp;quot;Do not Celebrate&amp;quot;,11))
+# combine the dataset
+data_FI&amp;lt;-rbind(data_do_FI,data_dont_FI)
+
+# animated plot for people who do celebrate and who do not celebrate
+ggplot(data_FI,aes(group,values))+geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
+  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;Family Income in dollars&amp;quot;)+ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to Family Income&amp;quot;)+
+  scale_y_continuous(labels= seq(0,170,10),breaks = seq(0,170,10))+geom_text(aes(label=values), vjust=1)+coord_flip()+
+  transition_states(frame,transition_length = 2,state_length = 3)+
+  enter_fade()+
+  exit_shrink()+
+  ease_aes(&amp;#39;bounce-in&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Family%20Income%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;100%&#34; height=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)
+detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;family-income-with-other-factors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Family Income with Other Factors&lt;/h2&gt;
 &lt;p&gt;Of people who do celebrate Thanksgiving the lowest percentage of zero is for people from West North Central with Family Income USD 175,000 to 199,999, people from West South Central with Family Income USD 175,000 to 199,999, people from Mountain with Family Income USD 150,000 to 174,999 and people from Mountain with Family Income USD 175,000 to 199,999. Highest percentage of 4.9409 goes to people from South Atlantic with Family Income USD 25,000 to 49,999.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+
+#kable(addmargins(table(family_income,us_region)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do celebrate
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 9) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;2.5cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2600,7 +2875,22 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There are a lot of cell values which have zero therefore I am not going to state them. Further, Highest percentage value of 5.8824 is from people of Middle Atlantic and Family Income categories of USD 0 to 9,999 and USD 25,000 to 49,999.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_No)
+
+#kable(addmargins(table(family_income,us_region)))  %&amp;gt;% 
+#  kable_styling(&amp;quot;striped&amp;quot;,full_width = F) %&amp;gt;%
+#  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+#  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)
+
+# table of percentages for people who do not celebrate
+kable(addmargins(round(prop.table(table(family_income,us_region)),6)*100),&amp;quot;html&amp;quot;)  %&amp;gt;% 
+  kable_styling(&amp;quot;striped&amp;quot;,full_width = F,font_size = 9) %&amp;gt;%
+  column_spec(11,bold = T,color = &amp;quot;red&amp;quot;) %&amp;gt;%
+  row_spec(12,bold = T,color = &amp;quot;red&amp;quot;)%&amp;gt;%
+  column_spec(1,bold = T,width = &amp;#39;2.5cm&amp;#39;) %&amp;gt;%
+  row_spec(0,bold = T,align = &amp;#39;center&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 9px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3061,11 +3351,48 @@ Sum
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;us-region-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;US Region Distribution&lt;/h2&gt;
 &lt;p&gt;There are 9 regions in both sides, and also both sides have missing values. People who do celebrate Thanksgiving have 49 missing values, while only 10 are missing values for people who do not celebrate Thanksgiving.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Thanksgiving_Yes)
+attach(Thanksgiving_No)
+# people who do not celebrate
+dont_USR&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_No$us_region)))
+# people who do celebrate
+do_USR&amp;lt;-as.data.frame(summary.factor(na.omit(Thanksgiving_Yes$us_region)))
+# people who do celebrate
+data_do_USR&amp;lt;-data.frame(group=c(&amp;quot;East North Central&amp;quot;, &amp;quot;East South Central&amp;quot;,
+                                &amp;quot;West South Central&amp;quot;, &amp;quot;West North Central&amp;quot;,
+                                &amp;quot;Middle Atlantic&amp;quot;,&amp;quot;South Atlantic&amp;quot;, &amp;quot;Mountain&amp;quot;, 
+                                &amp;quot;New England&amp;quot;, &amp;quot;Pacific&amp;quot;),
+                       values=c(145,56,85,71,145,203,41,55,130),
+                       frame=rep(&amp;quot;Do Celebrate&amp;quot;,9))
+# people who do not celebrate
+data_dont_USR&amp;lt;-data.frame(group=c(&amp;quot;East North Central&amp;quot;, &amp;quot;East South Central&amp;quot;,
+                                  &amp;quot;West South Central&amp;quot;, &amp;quot;West North Central&amp;quot;,
+                                &amp;quot;Middle Atlantic&amp;quot;,&amp;quot;South Atlantic&amp;quot;, &amp;quot;Mountain&amp;quot;, 
+                                &amp;quot;New England&amp;quot;, &amp;quot;Pacific&amp;quot;),
+                         values=c(5,4,6,3,14,11,6,3,16),
+                         frame=rep(&amp;quot;Do not Celebrate&amp;quot;,9))
+# combine both datasets
+data_USR&amp;lt;-rbind(data_do_USR,data_dont_USR)
+
+# animated plot for people who do celebrate and who do not celebrate
+ggplot(data_USR,aes(x=str_wrap(group,7),values))+
+  geom_bar(stat = &amp;#39;identity&amp;#39;,position = &amp;quot;identity&amp;quot;)+
+  ylab(&amp;quot;Frequency&amp;quot;)+xlab(&amp;quot;US Regions&amp;quot;)+
+  ggtitle(&amp;quot;Animated plot how Do and Do not people prefer \naccording to US Regions&amp;quot;)+
+  scale_y_continuous(labels= seq(0,210,10),breaks = seq(0,210,10))+
+  geom_text(aes(label=values), vjust=1)+
+  transition_states(frame,transition_length = 2,state_length = 3)+
+  enter_fade()+
+  exit_shrink()+
+  ease_aes(&amp;#39;cubic-in-out&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/US%20region%20with%20do%20people%20and%20do%20not%20people-1.gif&#34; width=&#34;100%&#34; height=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(Thanksgiving_Yes)
+detach(Thanksgiving_No)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;

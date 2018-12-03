@@ -28,9 +28,7 @@ Data on bridges is of week 35 from TidyTuesday. Trying to explain the data using
       <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_34/week-34-thanksgiving/</guid>
-      <description>Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is understandable. You can receive the data set here. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are here.
-This is my tweet on week 34
-People who do and do not celebrate ThanksgivingIn this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving.</description>
+      <description># Load the packgeslibrary(ggplot2)library(ggthemr)library(stringr)library(gridExtra)library(tidyverse)library(tweenr)library(gganimate)library(kableExtra)library(magrittr)library(knitr)library(readr)#load the dataThanksgiving&amp;lt;-read_csv(&amp;quot;thanksgiving_meals.csv&amp;quot;)# apply the theme grapeggthemr(&amp;quot;grape&amp;quot;)#subset the people who said yes for celebrating thanksgivingThanksgiving_Yes&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;Yes&amp;quot;)#subset the people who said no for celebrating thanksgivingThanksgiving_No&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;No&amp;quot;)Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is understandable. You can receive the data set here.</description>
     </item>
     
     <item>
