@@ -1,20 +1,20 @@
 ---
-title: Benchmarking Maximum Liklihood functions from R
+title: Benchmarking Maximum Liklihood Estimation functions from R
 author: M.Amalan
 date: '2018-12-04'
-slug: benchmarking-maximum-liklihood-functions-from-r
 categories:
   - fitODBOD
 tags:
-  - fitODBOD
-  - mle2
-  - optim
   - bbmle
-  - nlm
-  - ucminf
-  - nlminb
+  - fitODBOD
   - maxLik
   - mle
+  - mle2
+  - nlm
+  - nlminb
+  - optim
+  - ucminf
+slug: benchmarking-maximum-liklihood-functions-from-r
 image:
   caption: ''
   focal_point: ''
@@ -188,7 +188,8 @@ optim_answer$convergence # indicates successful completion
 optim_answer$message # additional information
 
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,optim_answer$par[1],optim_answer$par[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           optim_answer$par[1],optim_answer$par[2])</code></pre>
 <p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further we have scrutinized the outputs.</p>
 <ul>
 <li>package : stats</li>
@@ -227,7 +228,8 @@ nlm_answer$code # indicates successful completion
 nlm_answer$iterations # number of iterations performed
 
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,nlm_answer$estimate[1],nlm_answer$estimate[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           nlm_answer$estimate[1],nlm_answer$estimate[2])</code></pre>
 <p>Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data. of week 1.</p>
 <ul>
 <li>package : stats</li>
@@ -267,7 +269,8 @@ nlminb_answer$message # additional information
 nlminb_answer$iterations # number of iterations performed
 
 # fitting the Beta-Binomial distribution with estimated shape parameter values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,nlminb_answer$par[1],nlminb_answer$par[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           nlminb_answer$par[1],nlminb_answer$par[2])</code></pre>
 <p><a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlminb">Documentation</a> includes the information related to the function therefore referring it will be useful. After estimating values for a and b using nlminb function these were noticed as before in input and output criteria</p>
 <ul>
 <li>package : stats</li>
@@ -309,7 +312,8 @@ ucminf_answer$message # additional information
 ucminf_answer$info
 
 # fitting the Beta-Binomial distribution with estimated shape parameter values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,ucminf_answer$par[1],ucminf_answer$par[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           ucminf_answer$par[1],ucminf_answer$par[2])</code></pre>
 <p>With the help of R <a href="https://www.rdocumentation.org/packages/ucminf/versions/1.1-4/topics/ucminf">Documentation</a> the estimation was done for shape parameter values a and b using the ucminf function. Below are the initial understandings of the inputs and outputs of ucminf function</p>
 <ul>
 <li>package : ucminf</li>
@@ -356,7 +360,8 @@ maxLik_answer$last.step # list describing the last unsuccessful step
 maxLik_answer$control # see the documentation understand
 
 # fitting the Beta-Binomial distribution with estimated shape parameter values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,maxLik_answer$estimate[1],maxLik_answer$estimate[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           maxLik_answer$estimate[1],maxLik_answer$estimate[2])</code></pre>
 <p>Using the <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> of maxLik and further using the <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxNR">Documentation</a> of maxNR function. According to the code above below are the findings in for maxLik function in point form</p>
 <ul>
 <li>package : maxLik</li>
@@ -392,25 +397,26 @@ length(mle_answer)
 # the outputs
 mle_answer@call # inputs i have used 
 mle_answer@coef # estimated values for a,b
-mle_answer@fullcoef # all values , even the fixed values we did not want to estimate
+mle_answer@fullcoef # all values, even the fixed values we did not want to estimate
 mle_answer@vcov # variance covariance matrix for a,b
 mle_answer@min # minimized function value
 mle_answer@details # details after estimation process
-mle_answer@nobs # number of observations to be used for computing only if given by us
+mle_answer@nobs # number of observations to be used for computing only if given 
 mle_answer@method # optimization methods used
 
 # Methods used
 confint(mle_answer) # confidence intervals for estimated values
 logLik(mle_answer) # Negative loglikelihood value for estimated values 
 profile(mle_answer) # Likelihood profile generation.
-nobs(mle_answer)  # number of observations to be used for computing only if given by us
+nobs(mle_answer) # number of observations to be used for computing only if given
 show(mle_answer) # display object briefly
 summary(mle_answer) # generate a summary
 #update()   # updating if we have new data and need to estimate new values
 vcov(mle_answer) # variance covariance matrix
 
 # fitting the Beta-Binomial distribution with estimated shape parameter values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,mle_answer@coef[1],mle_answer@coef[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           mle_answer@coef[1],mle_answer@coef[2])</code></pre>
 <p>It should be noted that in all 5 previous function we only saw lists of output, but through mle we are seeing a class of mle output.The <a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle">Documention</a> explains the inputs and outputs of mle. <a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class">Documentation</a> for mle-class explains further about the methods that can be used. Further, below is a list of findings based on the outputs from mle function.</p>
 <ul>
 <li>package : stats4</li>
@@ -444,7 +450,7 @@ length(mle2_answer)
 mle2_answer@call # inputs generally considered 
 mle2_answer@call.orig # inputs i have given
 mle2_answer@coef # estimated values for a,b
-mle2_answer@fullcoef # all values , even the fixed values we did not want to estimate
+mle2_answer@fullcoef # all values, even the fixed values we did not want to estimate
 mle2_answer@vcov # variance covariance matrix for a,b
 mle2_answer@min # minimized function value
 mle2_answer@details # details after estimation process
@@ -466,7 +472,8 @@ logLik(mle2_answer) # Negative loglikelihood value for estimated values
 profile(mle2_answer) # profile of estimated values
 
 # fitting the Beta-Binomial distribution with estimated shape parameter values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,mle2_answer@coef[1],mle2_answer@coef[2])</code></pre>
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           mle2_answer@coef[1],mle2_answer@coef[2])</code></pre>
 <p>After estimation, fiddling with the output, with the <a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2">Documention</a> of mle2 function and mle2-class <a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2-class">Documentation</a> few findings are mentioned below in point form.</p>
 <ul>
 <li>package : bbmle</li>
@@ -484,7 +491,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,mle2_answer@coef[1],mle2_answer@
 <h1>Summary of package Information of the R functions</h1>
 <p>After completing a brief fact finding of the R functions optim, nlm, nlminb, ucminf maxLik, mle and mle2 we can record the facts and results in a table. Using this table we can choose the best suitable function for our needs of estimating parameters.</p>
 <p>I would prefer mle2 function than others because it provides special methods to handle the mle2 outputs and the output themselves are very thorough than other R functions. It can be seen that even though estimated a and b shape parameter values seem different only from the fourth decimal point in between all outputs. But this does not effect the minimized Negative Log Likelihood function which is same for all seven function outputs.</p>
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:center;color: blue;">
@@ -800,10 +807,10 @@ Results2&lt;-benchmark(
           )
 
 kable(Results2,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
-  kable_styling(full_width = T,bootstrap_options = c(&quot;striped&quot;),font_size = 14) %&gt;%
+  kable_styling(full_width = F,bootstrap_options = c(&quot;striped&quot;),font_size = 10) %&gt;%
   row_spec(0,color = &quot;blue&quot;) %&gt;%
   column_spec(1,color = &quot;red&quot;)</code></pre>
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;color: blue;">
@@ -840,16 +847,16 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-6.83
+6.34
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-6.77
+6.35
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 <tr>
@@ -863,16 +870,16 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-8.03
+7.66
 </td>
 <td style="text-align:center;">
-1.176
+1.208
 </td>
 <td style="text-align:center;">
-8.03
+7.62
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 <tr>
@@ -886,16 +893,16 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-8.84
+8.58
 </td>
 <td style="text-align:center;">
-1.294
+1.353
 </td>
 <td style="text-align:center;">
-8.82
+8.55
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 <tr>
@@ -909,16 +916,16 @@ optim
 1000
 </td>
 <td style="text-align:center;">
-10.64
+10.24
 </td>
 <td style="text-align:center;">
-1.558
+1.615
 </td>
 <td style="text-align:center;">
-10.63
+10.24
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 <tr>
@@ -932,16 +939,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-24.06
+22.76
 </td>
 <td style="text-align:center;">
-3.523
+3.590
 </td>
 <td style="text-align:center;">
-24.04
+22.76
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 <tr>
@@ -955,16 +962,16 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-37.98
+36.04
 </td>
 <td style="text-align:center;">
-5.561
+5.685
 </td>
 <td style="text-align:center;">
-37.92
+35.96
 </td>
 <td style="text-align:center;">
-0
+0.03
 </td>
 </tr>
 <tr>
@@ -978,16 +985,16 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-43.75
+40.69
 </td>
 <td style="text-align:center;">
-6.406
+6.418
 </td>
 <td style="text-align:center;">
-43.70
+40.66
 </td>
 <td style="text-align:center;">
-0
+0.00
 </td>
 </tr>
 </tbody>
@@ -997,7 +1004,7 @@ mle2
 <h1>Summary of Results after estimating parameters using the R functions</h1>
 <p>After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate the shape parameters a, b we can use the estimated parameters in the function fitBetaBin. Using this function we can find expected frequencies for each of these functions and compare p-values and over-dispersion and understand if using different estimation functions had any effect on them.</p>
 <p>According to the below table there is no significant changes between the expected frequencies, p-values or the over dispersion values. This is a clear indication of it does not matter what function we use the estimation will occur effectively but only efficiency will be affected.</p>
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:center;color: blue;">
