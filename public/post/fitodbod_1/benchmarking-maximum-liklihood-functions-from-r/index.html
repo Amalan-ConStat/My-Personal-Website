@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.49.2" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
+  <meta property="og:title" content="Benchmarking Maximum Liklihood functions from R | Consulting Statistician">
+  <meta property="og:description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2018-12-04T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-12-04T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Benchmarking Maximum Liklihood functions from R | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan-Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Benchmarking Maximum Liklihood functions from R</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-12-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-12-04 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Dec 4, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/fitodbod/">fitODBOD</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Benchmarking%20Maximum%20Liklihood%20functions%20from%20R&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Liklihood%20functions%20from%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Liklihood%20functions%20from%20R"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Benchmarking%20Maximum%20Liklihood%20functions%20from%20R&amp;body=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.</p>
+<p>Using the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package, I will use the Alcohol Consumption data to try and model it for the Beta Binomial Distribution, which has two shape parameters to estimate. The process is that we find values for shape parameters a and b (or <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) which will maximize the Log Likelihood function of Beta Binomial Distribution or in our case minimize the Negative Log Likelihood function of Beta Binomial Distribution.</p>
+<p>Above mentioned Beta-Binomial distributions Probability Mass function is denoted as</p>
+<p><span class="math display">\[P_{BetaBin}(x)= {n \choose x} \frac{B(\alpha+x,n+\beta-x)}{B(\alpha,\beta)} \]</span></p>
+<p>where <span class="math inline">\(n=0,1,2,...\)</span>, <span class="math inline">\(x=0,1,2,...,n\)</span> and <span class="math inline">\(\alpha,\beta &gt; 0\)</span>. Further <span class="math inline">\(x\)</span> is the Binomial Random variable, a,b(or <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) are shape parameters and <span class="math inline">\(n\)</span> is the binomial trial value. Also B(<span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\beta\)</span>) is the beta function. In this distribution we have to estimate the values for a and b.</p>
+<p>Further, using the PMF we can construct the Likelihood function for <span class="math inline">\(\Omega_{BB}=(\alpha,\beta)^T\)</span> as given below:</p>
+<p><span class="math display">\[L(\Omega_{BB}|x)=\prod_{i=1}^{N} \binom{n}{x_i} \frac{B(\alpha+x_i,n+\beta-x_i)}{B(\alpha,\beta)}\]</span></p>
+<p>where N is the Number of observations. Then Negative Log Likelihood function is given as</p>
+<p><span class="math display">\[l(\Omega_{BB}|x)=-\sum_{i=1}^{N} log\binom{n}{x_i} + \sum_{i=1}^{N} log(B(\alpha+x_i,n+\beta-x_i)) - Nlog(B(\alpha,\beta))\]</span></p>
+<p>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the above Negative Log Likelihood function and we will use it.</p>
+<p>We take Log to transform the Likelihood function values into small values, which will simplify the computation process and save time. The estimation functions we need to compare will use specific mathematical methods to find the most appropriate shape parameter values.</p>
+<p>The functions in question are</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">optim</a></li>
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm">nlm</a></li>
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlminb">nlminb</a></li>
+<li><a href="https://www.rdocumentation.org/packages/ucminf/versions/1.1-4/topics/ucminf">ucminf</a></li>
+<li><a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">maxLik</a></li>
+<li><a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle">mle</a></li>
+<li><a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2">mle2</a></li>
+</ol>
+<p>Further, I will focus on the attributes of the above functions considering from which package, Inputs, Outputs, Time to complete estimation and Analytical Methods used with the assistance of tables. Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<pre class="r"><code>library(fitODBOD)
+kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
+  row_spec(0,color = &quot;blue&quot;) %&gt;%
+  column_spec(1,color = &quot;red&quot;)</code></pre>
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+Days
+</th>
+<th style="text-align:center;color: blue;">
+week1
+</th>
+<th style="text-align:center;color: blue;">
+week2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+0
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+1
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+2
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+3
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+5
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+6
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+7
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+</tbody>
+</table>
+<div id="optim-function" class="section level2">
+<h2>optim Function</h2>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O">optim</a> is the first function in concern. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">Documentation</a> of the optim function is useful and it indicates that this function is only used on one input situations only. This means our EstMLEBetaBin function has to be modified. Reason for this is that only the parameters that should be estimated need to be input values but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values).</p>
+<p>While using optim function first index refers to <span class="math inline">\(\alpha\)</span> or a and second index refers to <span class="math inline">\(\beta\)</span> or b. Further, we have to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would become extra work. After modification we have a new function which is foroptim and I can use it for demonstration and comparison.</p>
+<p>Below is the code to estimation and going through the outputs. It should be noted that we have to provide initial parameter values as an input to the optim function and it is best to provide values in the domain of<br />
+values a and b.</p>
+<p>Here the shape parameters a and b are in the region of greater than zero but less than positive infinity. So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative Log Likelihood function of Beta-Binomial distribution.</p>
+<pre class="r"><code># new function to facilitate optim criteria
+# only one input but has two elements
+foroptim&lt;-function(a)
+  {
+  EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
+  }
+
+# optimizing values for a,b using default inputs
+optim_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim)
+
+# obtaining class of output
+class(optim_answer)
+
+#length of output
+length(optim_answer)
+
+# the outputs
+optim_answer$par # estimated values for a, b
+optim_answer$value # minimized function value 
+optim_answer$counts  # see the documentation to understand
+optim_answer$convergence # indicates successful completion
+optim_answer$message # additional information
+
+# fitting the Beta-Binomial distribution with estimated shape parameter  values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,optim_answer$par[1],optim_answer$par[2])</code></pre>
+<p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further we have scrutinized the outputs.</p>
+<ul>
+<li>package : stats</li>
+<li>No of Inputs: 7</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list</li>
+<li>No of outputs: 5</li>
+<li>No of Analytical Methods : 6</li>
+<li>Default Method : Nelder-Mead</li>
+</ul>
+</div>
+<div id="nlm-function" class="section level2">
+<h2>nlm Function</h2>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N">nlm</a> function is also similar to optim but only one analytical method will be used, which is a Newton-type Algorithm. Here also there need to be changes made to our EstMLEBetaBin function as previously. After making those changes we have called the new Negative Log-likelihood R function as fornlm. Then we can use the nlm function and estimate a and b which are the initial shape parameter values of 0.1 and 0.2 respectively. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm">Documentation</a> of nlm function is very useful to understand how it works.</p>
+<p>Below is the code for using nlm function appropriately and fiddling with the results.</p>
+<pre class="r"><code>#new function to facilitate nlm criteria
+fornlm&lt;-function(a)
+  {
+  EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
+  }
+
+#optimizing values for a,b using default input
+nlm_answer&lt;-nlm(f=fornlm,p=c(0.1,0.2))
+
+#obtaining class of output
+class(nlm_answer)
+
+#length of output
+length(nlm_answer)
+
+# the outputs
+nlm_answer$estimate # estimated values for a, b
+nlm_answer$minimum # minimized function value 
+nlm_answer$gradient  # gradient at the estimated minimum of given funciton
+nlm_answer$code # indicates successful completion
+nlm_answer$iterations # number of iterations performed
+
+# fitting the Beta-Binomial distribution with estimated shape parameter  values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,nlm_answer$estimate[1],nlm_answer$estimate[2])</code></pre>
+<p>Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data. of week 1.</p>
+<ul>
+<li>package : stats</li>
+<li>No of Inputs: 12</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list</li>
+<li>No of outputs: 5</li>
+<li>No of Analytical Methods : 1</li>
+<li>Default Method : Newton-type Algorithm</li>
+</ul>
+</div>
+<div id="nlminb-function" class="section level2">
+<h2>nlminb Function</h2>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N">nlminb</a> is also similar and requires that EstMLEBetaBin function to be restructured as previous two situations. After this task we now have a function called fornlminb. nlminb function is based on analytical method of unconstrained and box-constrained optimization using PORT routines.</p>
+<p>After choosing initial parameter values for a and b, which are respectively 0.1 and 0.2 the estimation was done using nlminb function.</p>
+<pre class="r"><code># new function to facilitate nlminb criteria
+fornlminb&lt;-function(a)
+  {
+  EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
+}
+
+# optimizing values for a,b using default inputs
+nlminb_answer&lt;-nlminb(start=c(0.1,0.2), objective=fornlminb)
+
+# obtaining class of output
+class(nlminb_answer)
+
+# length of output
+length(nlminb_answer)
+
+# the outputs
+nlminb_answer$par # estimated values for a, b
+nlminb_answer$objective # minimized function value 
+nlminb_answer$evaluations  # see the documentation to understand
+nlminb_answer$convergence # indicates successful completion
+nlminb_answer$message # additional information
+nlminb_answer$iterations # number of iterations performed
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,nlminb_answer$par[1],nlminb_answer$par[2])</code></pre>
+<p><a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlminb">Documentation</a> includes the information related to the function therefore referring it will be useful. After estimating values for a and b using nlminb function these were noticed as before in input and output criteria</p>
+<ul>
+<li>package : stats</li>
+<li>No of Inputs: 8</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list</li>
+<li>No of outputs: 6</li>
+<li>No of Analytical Methods : 1</li>
+<li>Default Method : Unconstrained and box-constrained optimization using PORT routines</li>
+</ul>
+</div>
+<div id="ucminf-function" class="section level2">
+<h2>ucminf Function</h2>
+<p>Package <a href="https://cran.r-project.org/package=ucminf">uncminf</a> produces the ucminf function, as previously mentioned functions here also we have to change the EstMLEBetaBin function. After making the changes we will be using the forucminf function to the estimation process of shape parameters a and b.</p>
+<p>When initial parameter values are set to a=0.1 and b=0.2 we will obtain results from ucminf function, which will minimize the Negative Log-likelihood function. Below is the code for estimation and using the results to understand the function ucminf.</p>
+<pre class="r"><code>library(ucminf)
+
+# new function to facilitate ucminf criteria
+forucminf&lt;-function(a)
+  {
+  EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a=a[1],a[2])
+}
+
+# optimizing values for a,b using default methods
+ucminf_answer&lt;-ucminf(par=c(0.1,0.2),fn=forucminf)
+
+#obtaining class
+class(ucminf_answer)
+
+# length of output
+length(ucminf_answer)
+
+# the outputs
+ucminf_answer$par # estimated values for a, b
+ucminf_answer$value # minimized function value 
+ucminf_answer$invhessian.lt  # see the documentation understand
+ucminf_answer$convergence # indicates successful completion
+ucminf_answer$message # additional information
+ucminf_answer$info
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,ucminf_answer$par[1],ucminf_answer$par[2])</code></pre>
+<p>With the help of R <a href="https://www.rdocumentation.org/packages/ucminf/versions/1.1-4/topics/ucminf">Documentation</a> the estimation was done for shape parameter values a and b using the ucminf function. Below are the initial understandings of the inputs and outputs of ucminf function</p>
+<ul>
+<li>package : ucminf</li>
+<li>No of Inputs: 5</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list</li>
+<li>No of outputs: 6</li>
+<li>No of Analytical Methods : 1</li>
+<li>Default Method : Quasi-Newton Algorithm type with BFGS updating</li>
+</ul>
+</div>
+<div id="maxlik-function" class="section level2">
+<h2>maxLik Function</h2>
+<p>maxLik function is the cause of <a href="https://cran.r-project.org/package=maxLik">maxLik</a> package, which only maximizes the Log Likelihood function. Therefore we have to restructure EstMLEBetaBin as previously mentioned but as an addition a negative sign is added for the output. This new function will be called as formaxLik.</p>
+<p>For the initial parameter values where a=0.1 and b=0.2 the maxLik function will be used and results will be evaluated as below.</p>
+<pre class="r"><code>library(maxLik)
+
+# new function to facilitate maxLik criteria
+formaxLik&lt;-function(a)
+  {
+  -EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a=a[1],a[2])
+  }
+
+# optimizing values for a,b using default methods
+maxLik_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2))
+
+# obtaining class of output
+class(maxLik_answer)
+
+# length of output
+length(maxLik_answer)
+
+# the outputs
+maxLik_answer$estimate # estimated values for a, b
+maxLik_answer$maximum # minimized function value 
+maxLik_answer$iterations  # no of iterations to succeed
+maxLik_answer$gradient # last gradient value which was calculated
+maxLik_answer$message # additional information
+maxLik_answer$hessian # hessian matrix
+maxLik_answer$code # indicates successful completion
+maxLik_answer$fixed # logical vector indicating which parameters are constants
+maxLik_answer$type # type of maximization
+maxLik_answer$last.step # list describing the last unsuccessful step
+maxLik_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,maxLik_answer$estimate[1],maxLik_answer$estimate[2])</code></pre>
+<p>Using the <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> of maxLik and further using the <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxNR">Documentation</a> of maxNR function. According to the code above below are the findings in for maxLik function in point form</p>
+<ul>
+<li>package : maxLik</li>
+<li>No of Inputs: 6</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list or class of maxim or class of maxLik</li>
+<li>No of outputs: 11</li>
+<li>No of Analytical Methods : 7</li>
+<li>Default Method : Automatically chosen</li>
+</ul>
+</div>
+<div id="mle-function" class="section level2">
+<h2>mle Function</h2>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html">stats4</a> package is installed so that mle function can be operated for the purpose of estimating a and b parameters. Here also as previously we need to make some changes as below and create a new estimating function called formle.</p>
+<p>For the initial parameter values of a=0.1 and b=0.2 the Negative Log Likelihood value has been minimized using mle function. Below is the code for estimation and investigation from the outputs of mle after estimation.</p>
+<pre class="r"><code>library(stats4)
+
+# new function to facilitate mle criteria
+formle&lt;-function(a,b)
+  {
+  EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a,b)
+  }
+
+# optimizing values for a,b using default methods
+mle_answer&lt;-mle(minuslogl=formle,start = list(a=0.1,b=0.2))
+
+# obtaining class
+class(mle_answer)
+
+# length of output
+length(mle_answer)
+
+# the outputs
+mle_answer@call # inputs i have used 
+mle_answer@coef # estimated values for a,b
+mle_answer@fullcoef # all values , even the fixed values we did not want to estimate
+mle_answer@vcov # variance covariance matrix for a,b
+mle_answer@min # minimized function value
+mle_answer@details # details after estimation process
+mle_answer@nobs # number of observations to be used for computing only if given by us
+mle_answer@method # optimization methods used
+
+# Methods used
+confint(mle_answer) # confidence intervals for estimated values
+logLik(mle_answer) # Negative loglikelihood value for estimated values 
+profile(mle_answer) # Likelihood profile generation.
+nobs(mle_answer)  # number of observations to be used for computing only if given by us
+show(mle_answer) # display object briefly
+summary(mle_answer) # generate a summary
+#update()   # updating if we have new data and need to estimate new values
+vcov(mle_answer) # variance covariance matrix
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,mle_answer@coef[1],mle_answer@coef[2])</code></pre>
+<p>It should be noted that in all 5 previous function we only saw lists of output, but through mle we are seeing a class of mle output.The <a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle">Documention</a> explains the inputs and outputs of mle. <a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class">Documentation</a> for mle-class explains further about the methods that can be used. Further, below is a list of findings based on the outputs from mle function.</p>
+<ul>
+<li>package : stats4</li>
+<li>No of Inputs: 5</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : class of mle</li>
+<li>No of outputs: 9</li>
+<li>Methods for output: 8</li>
+<li>No of Analytical Methods :6</li>
+<li>Default Method : Nelder and Mead</li>
+</ul>
+</div>
+<div id="mle2-function" class="section level2">
+<h2>mle2 Function</h2>
+<p>mle2 function is advanced than mle function and it is from the package <a href="https://cran.r-project.org/package=bbmle">bbmle</a>. Here, there is no need to modify the EstMLEBetabin function from the fitODBOD package to estimation as all previous situations .</p>
+<p>For the initial parameter values of a=0.1 and b=0.2 Negative Log Likelihood function will be minimized where outputs will be investigated and methods related to output in class of mle2 will be used.</p>
+<p>Below is the code for using mle2 function and scrutinizing the output and methods relate to it.</p>
+<pre class="r"><code>library(bbmle)
+
+# optimizing values for a,b using default methods
+mle2_answer&lt;-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
+                  data = list(x=Alcohol_data$Days,freq=Alcohol_data$week1))
+
+# obtaining class
+class(mle2_answer)
+
+# length of output
+length(mle2_answer)
+
+# the outputs
+mle2_answer@call # inputs generally considered 
+mle2_answer@call.orig # inputs i have given
+mle2_answer@coef # estimated values for a,b
+mle2_answer@fullcoef # all values , even the fixed values we did not want to estimate
+mle2_answer@vcov # variance covariance matrix for a,b
+mle2_answer@min # minimized function value
+mle2_answer@details # details after estimation process
+mle2_answer@method # optimization methods used
+mle2_answer@data # data used for estimation 
+mle2_answer@formula # if a formula was specified in the input 
+mle2_answer@optimizer # function used for optimizing
+
+# Methods used
+coef(mle2_answer) # extrat the estimated values
+confint(mle2_answer) # confidence intervals for estimated values
+show(mle2_answer) # display object briefly
+summary(mle2_answer) # generate a summary
+#update()   #updating if we have new data and need to estimate new values
+vcov(mle2_answer) # variance covariance matrix
+#formula(mle2_answer) # if a formula was specified in the input 
+#plot(mle2_answer) # plot the profile
+logLik(mle2_answer) # Negative loglikelihood value for estimated values 
+profile(mle2_answer) # profile of estimated values
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,mle2_answer@coef[1],mle2_answer@coef[2])</code></pre>
+<p>After estimation, fiddling with the output, with the <a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2">Documention</a> of mle2 function and mle2-class <a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2-class">Documentation</a> few findings are mentioned below in point form.</p>
+<ul>
+<li>package : bbmle</li>
+<li>No of Inputs: 22</li>
+<li>Minimum required Inputs : 3</li>
+<li>Class of output : class of mle2</li>
+<li>No of outputs: 12</li>
+<li>Methods for output: 9</li>
+<li>No of Analytical Methods : 6</li>
+<li>Default Method : Nelder and Mead</li>
+</ul>
+</div>
+</div>
+<div id="summary-of-package-information-of-the-r-functions" class="section level1">
+<h1>Summary of package Information of the R functions</h1>
+<p>After completing a brief fact finding of the R functions optim, nlm, nlminb, ucminf maxLik, mle and mle2 we can record the facts and results in a table. Using this table we can choose the best suitable function for our needs of estimating parameters.</p>
+<p>I would prefer mle2 function than others because it provides special methods to handle the mle2 outputs and the output themselves are very thorough than other R functions. It can be seen that even though estimated a and b shape parameter values seem different only from the fourth decimal point in between all outputs. But this does not effect the minimized Negative Log Likelihood function which is same for all seven function outputs.</p>
+<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+Function
+</th>
+<th style="text-align:center;color: blue;">
+optim
+</th>
+<th style="text-align:center;color: blue;">
+nlm
+</th>
+<th style="text-align:center;color: blue;">
+nlminb
+</th>
+<th style="text-align:center;color: blue;">
+ucminf
+</th>
+<th style="text-align:center;color: blue;">
+maxLik
+</th>
+<th style="text-align:center;color: blue;">
+mle
+</th>
+<th style="text-align:center;color: blue;">
+mle2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+Package
+</td>
+<td style="text-align:center;">
+stats
+</td>
+<td style="text-align:center;">
+stats
+</td>
+<td style="text-align:center;">
+stats
+</td>
+<td style="text-align:center;">
+ucminf
+</td>
+<td style="text-align:center;">
+maxLik
+</td>
+<td style="text-align:center;">
+stats4
+</td>
+<td style="text-align:center;">
+bbmle
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+No of Inputs
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Minimum No of Inputs
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Analytical Methods
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Output Type
+</td>
+<td style="text-align:center;">
+List
+</td>
+<td style="text-align:center;">
+List
+</td>
+<td style="text-align:center;">
+List
+</td>
+<td style="text-align:center;">
+List
+</td>
+<td style="text-align:center;">
+List class maxLik class maxim
+</td>
+<td style="text-align:center;">
+class mle
+</td>
+<td style="text-align:center;">
+class mle2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+No of Outputs
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+No of Methods
+</td>
+<td style="text-align:center;">
+None
+</td>
+<td style="text-align:center;">
+None
+</td>
+<td style="text-align:center;">
+None
+</td>
+<td style="text-align:center;">
+None
+</td>
+<td style="text-align:center;">
+None
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Initial value(a,b)
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+<td style="text-align:center;">
+a=0.1 b=0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Estimated value(a,b)
+</td>
+<td style="text-align:center;">
+a=0.7230707 b=0.5809894
+</td>
+<td style="text-align:center;">
+a=0.7229384 b=0.5808448
+</td>
+<td style="text-align:center;">
+a=0.7229404 b=0.5808469
+</td>
+<td style="text-align:center;">
+a=0.7229390 b=0.5808458
+</td>
+<td style="text-align:center;">
+a=0.7229428 b=0.5808488
+</td>
+<td style="text-align:center;">
+a=0.7228930 b=0.5807279
+</td>
+<td style="text-align:center;">
+a=0.7228930 b=0.5807279
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Negative Log Likelihood value
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summary-of-time-evaluation-for-the-r-functions" class="section level1">
+<h1>Summary of Time evaluation for the R functions</h1>
+<p>Further at the beginning I have considered to evaluate the time of system process for the functions to produce results and compare them. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package and below mentioned code chunk provides the output in a table form which includes the functions and their respective time values. The estimation process of the parameters where each function has been replicated 1000 times to receive a more accurate and strong table of time values.</p>
+<p>The table is order according to the elapsed time value column in ascending order. According to this we can see that least time takes to the nlminb function and most time is taken to the mle2 function. These times complete depends on the Negative Log Likelihood function you need to minimize, the data you provided, the number of estimators that needs to be estimated and finally the complexity of the function.</p>
+<p>Therefore based on the needs of your output and the function which needs estimation choose the best function. Because as we say in the earlier table the estimated values are slightly different but does not make any strong influence on the results.</p>
+<pre class="r"><code>library(rbenchmark)
+
+Results2&lt;-benchmark(
+          &quot;optim&quot;={optim(par = c(0.1,0.2), fn = foroptim)},
+          &quot;nlm&quot;={nlm(f = fornlm, p = c(0.1,0.2))},
+          &quot;nlminb&quot;={nlminb(start = c(0.1,0.2), objective = fornlminb)},
+          &quot;ucminf&quot;={ucminf(par = c(0.1,0.2), fn = forucminf)},
+          &quot;maxLik&quot;={maxLik(logLik = formaxLik, start = c(0.1,0.2))},
+          &quot;mle&quot;={mle(minuslogl = formle, start = list(a=0.1,b=0.2))},
+          &quot;mle2&quot;={mle2(minuslogl = EstMLEBetaBin, start = list(a=0.1, b=0.2),
+                       data = list(x=Alcohol_data$Days, freq=Alcohol_data$week1))},
+          replications = 1000,
+          columns = c(&quot;test&quot;,&quot;replications&quot;,&quot;elapsed&quot;,
+                      &quot;relative&quot;,&quot;user.self&quot;,&quot;sys.self&quot;),
+          order = &#39;elapsed&#39;
+          )
+
+kable(Results2,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
+  kable_styling(full_width = T,bootstrap_options = c(&quot;striped&quot;),font_size = 14) %&gt;%
+  row_spec(0,color = &quot;blue&quot;) %&gt;%
+  column_spec(1,color = &quot;red&quot;)</code></pre>
+<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;color: blue;">
+</th>
+<th style="text-align:center;color: blue;">
+test
+</th>
+<th style="text-align:center;color: blue;">
+replications
+</th>
+<th style="text-align:center;color: blue;">
+elapsed
+</th>
+<th style="text-align:center;color: blue;">
+relative
+</th>
+<th style="text-align:center;color: blue;">
+user.self
+</th>
+<th style="text-align:center;color: blue;">
+sys.self
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: red;">
+3
+</td>
+<td style="text-align:center;">
+nlminb
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+6.83
+</td>
+<td style="text-align:center;">
+1.000
+</td>
+<td style="text-align:center;">
+6.77
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+4
+</td>
+<td style="text-align:center;">
+ucminf
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+8.03
+</td>
+<td style="text-align:center;">
+1.176
+</td>
+<td style="text-align:center;">
+8.03
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+2
+</td>
+<td style="text-align:center;">
+nlm
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+8.84
+</td>
+<td style="text-align:center;">
+1.294
+</td>
+<td style="text-align:center;">
+8.82
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+1
+</td>
+<td style="text-align:center;">
+optim
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+10.64
+</td>
+<td style="text-align:center;">
+1.558
+</td>
+<td style="text-align:center;">
+10.63
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+6
+</td>
+<td style="text-align:center;">
+mle
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+24.06
+</td>
+<td style="text-align:center;">
+3.523
+</td>
+<td style="text-align:center;">
+24.04
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+5
+</td>
+<td style="text-align:center;">
+maxLik
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+37.98
+</td>
+<td style="text-align:center;">
+5.561
+</td>
+<td style="text-align:center;">
+37.92
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+7
+</td>
+<td style="text-align:center;">
+mle2
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+43.75
+</td>
+<td style="text-align:center;">
+6.406
+</td>
+<td style="text-align:center;">
+43.70
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summary-of-results-after-estimating-parameters-using-the-r-functions" class="section level1">
+<h1>Summary of Results after estimating parameters using the R functions</h1>
+<p>After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate the shape parameters a, b we can use the estimated parameters in the function fitBetaBin. Using this function we can find expected frequencies for each of these functions and compare p-values and over-dispersion and understand if using different estimation functions had any effect on them.</p>
+<p>According to the below table there is no significant changes between the expected frequencies, p-values or the over dispersion values. This is a clear indication of it does not matter what function we use the estimation will occur effectively but only efficiency will be affected.</p>
+<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+BinomialRandomVariable
+</th>
+<th style="text-align:center;color: blue;">
+Frequency
+</th>
+<th style="text-align:center;color: blue;">
+optim
+</th>
+<th style="text-align:center;color: blue;">
+nlm
+</th>
+<th style="text-align:center;color: blue;">
+nlminb
+</th>
+<th style="text-align:center;color: blue;">
+ucminf
+</th>
+<th style="text-align:center;color: blue;">
+maxLik
+</th>
+<th style="text-align:center;color: blue;">
+mle
+</th>
+<th style="text-align:center;color: blue;">
+mle2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+0
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+54.61
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+1
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+2
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+38.91
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+3
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+5
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+43.99
+</td>
+<td style="text-align:center;">
+43.99
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+6
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+7
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+87.77
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.8
+</td>
+<td style="text-align:center;">
+87.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Total No of Observations
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+398.99
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+p-value
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.0902
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0903
+</td>
+<td style="text-align:center;">
+0.0903
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Over Dispersion
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.4340165
+</td>
+<td style="text-align:center;">
+0.4340686
+</td>
+<td style="text-align:center;">
+0.4340679
+</td>
+<td style="text-align:center;">
+0.4340683
+</td>
+<td style="text-align:center;">
+0.434067
+</td>
+<td style="text-align:center;">
+0.4340992
+</td>
+<td style="text-align:center;">
+0.4340992
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="final-conclusion" class="section level1">
+<h1>Final conclusion</h1>
+<p>We had 7 functions to compare but choosing one over the other is completely harmless to the final result of estimation as seen by our tables. The only issue is time, therefore I would recommend chose the best function based on your needs of output and research objective.</p>
+<p><em>Thank You</em></p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/fitodbod/">fitODBOD</a>
+  
+  <a class="badge badge-light" href="/tags/mle2/">mle2</a>
+  
+  <a class="badge badge-light" href="/tags/optim/">optim</a>
+  
+  <a class="badge badge-light" href="/tags/bbmle/">bbmle</a>
+  
+  <a class="badge badge-light" href="/tags/nlm/">nlm</a>
+  
+  <a class="badge badge-light" href="/tags/ucminf/">ucminf</a>
+  
+  <a class="badge badge-light" href="/tags/nlminb/">nlminb</a>
+  
+  <a class="badge badge-light" href="/tags/maxlik/">maxLik</a>
+  
+  <a class="badge badge-light" href="/tags/mle/">mle</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mle2 on Consulting Statistician</title>
+    <link>/tags/mle2/</link>
+    <description>Recent content in mle2 on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/mle2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Benchmarking Maximum Liklihood functions from R</title>
+      <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
+      <description>IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.</description>
+    </item>
+    
+  </channel>
+</rss>

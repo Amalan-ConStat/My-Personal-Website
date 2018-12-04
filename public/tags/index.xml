@@ -112,11 +112,74 @@
     </item>
     
     <item>
+      <title>bbmle</title>
+      <link>/tags/bbmle/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bbmle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>fitODBOD</title>
       <link>/tags/fitodbod/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/fitodbod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maxLik</title>
+      <link>/tags/maxlik/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/maxlik/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mle</title>
+      <link>/tags/mle/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mle2</title>
+      <link>/tags/mle2/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mle2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nlm</title>
+      <link>/tags/nlm/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/nlm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nlminb</title>
+      <link>/tags/nlminb/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/nlminb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>optim</title>
+      <link>/tags/optim/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/optim/</guid>
       <description></description>
     </item>
     
@@ -126,6 +189,15 @@
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ucminf</title>
+      <link>/tags/ucminf/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ucminf/</guid>
       <description></description>
     </item>
     

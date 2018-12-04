@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/week_35/week-35-baltimore-bridges/</loc>
       <lastmod>2018-11-28T00:00:00+00:00</lastmod>
     </url>
@@ -359,8 +367,80 @@
     
     <url>
     
+      <loc>/tags/bbmle/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/fitodbod/</loc>
-      <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/fitodbod/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/maxlik/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/mle/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/mle2/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/nlm/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/nlminb/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/optim/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -370,6 +450,15 @@
     
       <loc>/tags/package/</loc>
       <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/ucminf/</loc>
+      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
