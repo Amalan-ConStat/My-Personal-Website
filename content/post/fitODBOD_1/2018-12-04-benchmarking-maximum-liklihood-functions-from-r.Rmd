@@ -1,5 +1,5 @@
 ---
-title: Benchmarking Maximum Liklihood Estimation functions from R
+title: Benchmarking Maximum Likelihood Estimation functions from R
 author: M.Amalan
 date: '2018-12-04'
 categories:

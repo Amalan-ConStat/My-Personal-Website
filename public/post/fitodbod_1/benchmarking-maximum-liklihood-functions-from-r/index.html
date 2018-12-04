@@ -109,7 +109,7 @@
   
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
-  <meta property="og:title" content="Benchmarking Maximum Liklihood Estimation functions from R | Consulting Statistician">
+  <meta property="og:title" content="Benchmarking Maximum Likelihood Estimation functions from R | Consulting Statistician">
   <meta property="og:description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.">
   
   
@@ -126,7 +126,7 @@
 
   
 
-  <title>Benchmarking Maximum Liklihood Estimation functions from R | Consulting Statistician</title>
+  <title>Benchmarking Maximum Likelihood Estimation functions from R | Consulting Statistician</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -336,7 +336,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Benchmarking Maximum Liklihood Estimation functions from R</h1>
+  <h1 itemprop="name">Benchmarking Maximum Likelihood Estimation functions from R</h1>
 
   
 
@@ -387,7 +387,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Benchmarking%20Maximum%20Liklihood%20Estimation%20functions%20from%20R&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f"
+         href="https://twitter.com/intent/tweet?text=Benchmarking%20Maximum%20Likelihood%20Estimation%20functions%20from%20R&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -401,21 +401,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Liklihood%20Estimation%20functions%20from%20R"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Likelihood%20Estimation%20functions%20from%20R"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Liklihood%20Estimation%20functions%20from%20R"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f&amp;title=Benchmarking%20Maximum%20Likelihood%20Estimation%20functions%20from%20R"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Benchmarking%20Maximum%20Liklihood%20Estimation%20functions%20from%20R&amp;body=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f">
+         href="mailto:?subject=Benchmarking%20Maximum%20Likelihood%20Estimation%20functions%20from%20R&amp;body=%2fpost%2ffitodbod_1%2fbenchmarking-maximum-liklihood-functions-from-r%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -1262,13 +1262,13 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-6.34
+6.97
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-6.35
+6.95
 </td>
 <td style="text-align:center;">
 0.00
@@ -1285,13 +1285,13 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-7.66
+8.42
 </td>
 <td style="text-align:center;">
 1.208
 </td>
 <td style="text-align:center;">
-7.62
+8.41
 </td>
 <td style="text-align:center;">
 0.00
@@ -1308,16 +1308,16 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-8.58
+9.68
 </td>
 <td style="text-align:center;">
-1.353
+1.389
 </td>
 <td style="text-align:center;">
-8.55
+9.55
 </td>
 <td style="text-align:center;">
-0.00
+0.02
 </td>
 </tr>
 <tr>
@@ -1331,13 +1331,13 @@ optim
 1000
 </td>
 <td style="text-align:center;">
-10.24
+11.28
 </td>
 <td style="text-align:center;">
-1.615
+1.618
 </td>
 <td style="text-align:center;">
-10.24
+11.22
 </td>
 <td style="text-align:center;">
 0.00
@@ -1354,16 +1354,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-22.76
+25.63
 </td>
 <td style="text-align:center;">
-3.590
+3.677
 </td>
 <td style="text-align:center;">
-22.76
+25.34
 </td>
 <td style="text-align:center;">
-0.00
+0.03
 </td>
 </tr>
 <tr>
@@ -1377,16 +1377,16 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-36.04
+40.71
 </td>
 <td style="text-align:center;">
-5.685
+5.841
 </td>
 <td style="text-align:center;">
-35.96
+40.34
 </td>
 <td style="text-align:center;">
-0.03
+0.02
 </td>
 </tr>
 <tr>
@@ -1400,16 +1400,16 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-40.69
+45.76
 </td>
 <td style="text-align:center;">
-6.418
+6.565
 </td>
 <td style="text-align:center;">
-40.66
+45.28
 </td>
 <td style="text-align:center;">
-0.00
+0.06
 </td>
 </tr>
 </tbody>

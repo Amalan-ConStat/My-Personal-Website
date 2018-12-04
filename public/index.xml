@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Benchmarking Maximum Liklihood Estimation functions from R</title>
+      <title>Benchmarking Maximum Likelihood Estimation functions from R</title>
       <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
       <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -843,13 +843,13 @@ nlminb
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.34
+6.97
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.35
+6.95
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -866,13 +866,13 @@ ucminf
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.66
+8.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.208
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.62
+8.41
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -889,16 +889,16 @@ nlm
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.58
+9.68
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.353
+1.389
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.55
+9.55
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -912,13 +912,13 @@ optim
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.24
+11.28
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.615
+1.618
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.24
+11.22
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -935,16 +935,16 @@ mle
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-22.76
+25.63
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.590
+3.677
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-22.76
+25.34
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.03
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -958,16 +958,16 @@ maxLik
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-36.04
+40.71
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-5.685
+5.841
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-35.96
+40.34
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -981,16 +981,16 @@ mle2
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.69
+45.76
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.418
+6.565
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.66
+45.28
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.06
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
