@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/week_36/week-36-medium-posts/</loc>
+      <lastmod>2018-12-08T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</loc>
       <lastmod>2018-12-04T00:00:00+00:00</lastmod>
     </url>
@@ -244,6 +252,15 @@
     
     <url>
     
+      <loc>/tags/medium/</loc>
+      <lastmod>2018-12-08T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/movies/</loc>
       <lastmod>2018-11-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -299,7 +316,7 @@
     <url>
     
       <loc>/tags/r-package/</loc>
-      <lastmod>2018-11-26T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-08T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -340,8 +357,8 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/tags/tidytuesday/</loc>
+      <lastmod>2018-12-08T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -349,8 +366,8 @@
     
     <url>
     
-      <loc>/tags/tidytuesday/</loc>
-      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      <loc>/categories/tidytuesday/</loc>
+      <lastmod>2018-12-08T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -376,7 +393,7 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
+      <loc>/tags/fitodbod/</loc>
       <lastmod>2018-12-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -385,7 +402,7 @@
     
     <url>
     
-      <loc>/tags/fitodbod/</loc>
+      <loc>/categories/fitodbod/</loc>
       <lastmod>2018-12-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
