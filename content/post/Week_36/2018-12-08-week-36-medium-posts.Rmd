@@ -56,6 +56,8 @@ will get you popularity and claps. The code will focus on Top 10 Authors with
 most of the posts and Claps they have received. Further, does having an image in the 
 post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.
 
+The [Tweet](https://twitter.com/Amalan_Con_Stat/status/1071369742672429056)
+
 # Claps 
 
 Table indicates that 25,729 posts have 0 claps, while 7,093  posts with only one 
@@ -333,4 +335,27 @@ wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
           random.order = TRUE)
 ```
 
+# Conclusion 
 
+My conclusion of the above plots and tables in point form
+
+* Using dplyr to manipulate the datset was useful when there is complication.
+
+* grid and gridExtra packages provide a safe way of combining multiple plots into
+one plot.
+
+* formattable and kableExtra were crucial in generating tables which are informative.
+
+* Word cloud or analyzing text is very useful and flexible when we use the above packages.
+
+# Further Analysis
+
+* Similarly we can do the above analysis for Top 5 publications and other variables.
+
+* Word clouds for subtitles also will be interesting to see, specially focusing on authors 
+and publications. 
+
+_Please see that_      
+This is my sixth post on the internet so my mistakes in grammar and spellings should be
+very less than previous posts. I intend to post more statistics related materials 
+in the future and learn accordingly. Thank you for reading.

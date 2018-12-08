@@ -469,6 +469,7 @@ ggthemr(&quot;fresh&quot;)
 medium &lt;- read_csv(&quot;medium_datasci.csv&quot;)
 attach(medium)</code></pre>
 <p>Focusing on Claps with Authors and publications, where does writing alot of posts will get you popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.</p>
+<p>The <a href="https://twitter.com/Amalan_Con_Stat/status/1071369742672429056">Tweet</a></p>
 <div id="claps" class="section level1">
 <h1>Claps</h1>
 <p>Table indicates that 25,729 posts have 0 claps, while 7,093 posts with only one clap, and finally 3044 posts with 2 claps. The only odd one is posts with 50 claps where the count is 970.</p>
@@ -948,6 +949,25 @@ wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
           colors = brewer.pal(11,&quot;Spectral&quot;),random.color = FALSE,
           random.order = TRUE)</code></pre>
 <p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%205%20publications-1.png" width="552" /></p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>My conclusion of the above plots and tables in point form</p>
+<ul>
+<li><p>Using dplyr to manipulate the datset was useful when there is complication.</p></li>
+<li><p>grid and gridExtra packages provide a safe way of combining multiple plots into one plot.</p></li>
+<li><p>formattable and kableExtra were crucial in generating tables which are informative.</p></li>
+<li><p>Word cloud or analyzing text is very useful and flexible when we use the above packages.</p></li>
+</ul>
+</div>
+<div id="further-analysis" class="section level1">
+<h1>Further Analysis</h1>
+<ul>
+<li><p>Similarly we can do the above analysis for Top 5 publications and other variables.</p></li>
+<li><p>Word clouds for subtitles also will be interesting to see, specially focusing on authors and publications.</p></li>
+</ul>
+<p><em>Please see that</em><br />
+This is my sixth post on the internet so my mistakes in grammar and spellings should be very less than previous posts. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.</p>
 </div>
 
     </div>

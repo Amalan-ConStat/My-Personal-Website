@@ -50,6 +50,7 @@ ggthemr(&amp;quot;fresh&amp;quot;)
 medium &amp;lt;- read_csv(&amp;quot;medium_datasci.csv&amp;quot;)
 attach(medium)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Focusing on Claps with Authors and publications, where does writing alot of posts will get you popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1071369742672429056&#34;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;claps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Claps&lt;/h1&gt;
 &lt;p&gt;Table indicates that 25,729 posts have 0 claps, while 7,093 posts with only one clap, and finally 3044 posts with 2 claps. The only odd one is posts with 50 claps where the count is 970.&lt;/p&gt;
@@ -529,6 +530,25 @@ wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
           colors = brewer.pal(11,&amp;quot;Spectral&amp;quot;),random.color = FALSE,
           random.order = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%205%20publications-1.png&#34; width=&#34;552&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;My conclusion of the above plots and tables in point form&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Using dplyr to manipulate the datset was useful when there is complication.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;grid and gridExtra packages provide a safe way of combining multiple plots into one plot.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;formattable and kableExtra were crucial in generating tables which are informative.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Word cloud or analyzing text is very useful and flexible when we use the above packages.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Further Analysis&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Similarly we can do the above analysis for Top 5 publications and other variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Word clouds for subtitles also will be interesting to see, specially focusing on authors and publications.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt;&lt;br /&gt;
+This is my sixth post on the internet so my mistakes in grammar and spellings should be very less than previous posts. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
