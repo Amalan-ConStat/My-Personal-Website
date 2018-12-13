@@ -332,6 +332,22 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
 &lt;p&gt;&lt;img src=&#34;/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Kennedy%20Fried%20Chicken,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;My conclusion of the above plots and a table in point form&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;facet wrap is very useful.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding colors makes it more useful for the plots.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;pie chart using bar chart looks good.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Further Analysis&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;It is possible to focus on violation codes.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Further looking at the cuisines we can divide it based on the boros as well.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 </description>
     </item>
     

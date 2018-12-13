@@ -399,3 +399,19 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
       facet_wrap(~cuisine_description) 
 ```
+
+# Conclusion 
+
+My conclusion of the above plots and a table in point form
+
+* facet wrap is very useful.
+
+* Adding colors makes it more useful for the plots.
+
+* pie chart using bar chart looks good. 
+
+# Further Analysis
+
+* It is possible to focus on violation codes. 
+
+* Further looking at the cuisines we can divide it based on the boros as well.
