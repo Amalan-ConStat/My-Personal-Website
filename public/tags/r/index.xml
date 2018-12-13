@@ -19,7 +19,7 @@
       
       <guid>/post/week_37/week-37-nyc-restaurants/</guid>
       <description># load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&amp;quot;fresh&amp;quot;)#load dataNYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;, col_types = cols(inspection_date = col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-First see what type of inspections have occurred.</description>
+That tweet.</description>
     </item>
     
     <item>

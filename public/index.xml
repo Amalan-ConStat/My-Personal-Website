@@ -34,6 +34,7 @@ NYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;,
                        col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))
 attach(NYC)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.&lt;/p&gt;
+&lt;p&gt;That &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1073204074579968000&#34;&gt;tweet.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;First see what type of inspections have occurred.&lt;/p&gt;
 &lt;div id=&#34;inpsection-type&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Inpsection Type&lt;/h1&gt;
@@ -69,7 +70,7 @@ CF&amp;lt;-data.frame(
 # pie chart for percentages
 P1&amp;lt;-ggplot(CF,aes(x=&amp;quot;&amp;quot;,y=per,fill=group))+
     geom_col()+ theme_void()+
-    geom_text(aes(label = scales::percent(per/100)), position = position_stack(vjust = 0.5)) +
+    geom_text(aes(label=scales::percent(per/100)),position=position_stack(vjust=0.5))+
     labs(title = &amp;quot;Critical Flag \nDistribution&amp;quot;,fill=&amp;quot;Type&amp;quot;)+
     coord_polar(theta = &amp;quot;y&amp;quot;,start = 0)
 

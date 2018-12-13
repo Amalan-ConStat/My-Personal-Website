@@ -16,7 +16,7 @@
     
   
   <meta name="description" content="# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-First see what type of inspections have occurred.">
+That tweet.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/week_37/week-37-nyc-restaurants/">
@@ -112,7 +112,7 @@ First see what type of inspections have occurred.">
   <meta property="og:url" content="/post/week_37/week-37-nyc-restaurants/">
   <meta property="og:title" content="Week 37: NYC Restaurants | Consulting Statistician">
   <meta property="og:description" content="# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-First see what type of inspections have occurred.">
+That tweet.">
   
   
     
@@ -455,6 +455,7 @@ NYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;,
                        col_date(format = &quot;%m/%d/%Y&quot;)))
 attach(NYC)</code></pre>
 <p>Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.</p>
+<p>That <a href="https://twitter.com/Amalan_Con_Stat/status/1073204074579968000">tweet.</a></p>
 <p>First see what type of inspections have occurred.</p>
 <div id="inpsection-type" class="section level1">
 <h1>Inpsection Type</h1>
@@ -490,7 +491,7 @@ CF&lt;-data.frame(
 # pie chart for percentages
 P1&lt;-ggplot(CF,aes(x=&quot;&quot;,y=per,fill=group))+
     geom_col()+ theme_void()+
-    geom_text(aes(label = scales::percent(per/100)), position = position_stack(vjust = 0.5)) +
+    geom_text(aes(label=scales::percent(per/100)),position=position_stack(vjust=0.5))+
     labs(title = &quot;Critical Flag \nDistribution&quot;,fill=&quot;Type&quot;)+
     coord_polar(theta = &quot;y&quot;,start = 0)
 
