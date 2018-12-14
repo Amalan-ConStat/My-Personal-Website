@@ -15,7 +15,9 @@
   
     
   
-  <meta name="description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R function. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare the mathematical methods of the R function optim, because it might benefit people who are struggling which method to choose.">
+  <meta name="description" content="In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the Negative Log Likelihood function of Beta-Binomial distribution and we will use it. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.
+They are given below in point form 1. Nelder Mead 2. BFGS 3. CG 4. L-BFGS-B 5. SANN 6. Brent
+Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/">
@@ -110,7 +112,9 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/">
   <meta property="og:title" content="optim: Estimating the shape parameters of Beta-Binomial Distribution | Consulting Statistician">
-  <meta property="og:description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R function. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare the mathematical methods of the R function optim, because it might benefit people who are struggling which method to choose.">
+  <meta property="og:description" content="In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the Negative Log Likelihood function of Beta-Binomial distribution and we will use it. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.
+They are given below in point form 1. Nelder Mead 2. BFGS 3. CG 4. L-BFGS-B 5. SANN 6. Brent
+Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used.">
   
   
     
@@ -438,19 +442,7 @@
       <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R function. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare the mathematical methods of the R function <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">optim</a>, because it might benefit people who are struggling which method to choose. We have 6 methods in total accoding to documentation.</p>
-<p>Using the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package, I will use the Alcohol Consumption data to try and model it for the Beta Binomial Distribution, which has two shape parameters to estimate. The process is that we find values for shape parameters a and b (or <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) which will maximize the Log Likelihood function of Beta Binomial Distribution or in our case minimize the Negative Log Likelihood function of Beta Binomial Distribution.</p>
-<p>Above mentioned Beta-Binomial distributions Probability Mass function is denoted as</p>
-<p><span class="math display">\[P_{BetaBin}(x)= {n \choose x} \frac{B(\alpha+x,n+\beta-x)}{B(\alpha,\beta)} \]</span></p>
-<p>where <span class="math inline">\(n=0,1,2,...\)</span>, <span class="math inline">\(x=0,1,2,...,n\)</span> and <span class="math inline">\(\alpha,\beta &gt; 0\)</span>. Further <span class="math inline">\(x\)</span> is the Binomial Random variable, a,b(or <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) are shape parameters and <span class="math inline">\(n\)</span> is the binomial trial value. Also B(<span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\beta\)</span>) is the beta function. In this distribution we have to estimate the values for a and b.</p>
-<p>Further, using the PMF we can construct the Likelihood function for <span class="math inline">\(\Omega_{BB}=(\alpha,\beta)^T\)</span> as given below:</p>
-<p><span class="math display">\[L(\Omega_{BB}|x)=\prod_{i=1}^{N} \binom{n}{x_i} \frac{B(\alpha+x_i,n+\beta-x_i)}{B(\alpha,\beta)}\]</span></p>
-<p>where N is the Number of observations. Then Negative Log Likelihood function is given as</p>
-<p><span class="math display">\[l(\Omega_{BB}|x)=-\sum_{i=1}^{N} log\binom{n}{x_i} + \sum_{i=1}^{N} log(B(\alpha+x_i,n+\beta-x_i)) - Nlog(B(\alpha,\beta))\]</span></p>
-<p>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the above Negative Log Likelihood function and we will use it.</p>
-<p>We take Log to transform the Likelihood function values into small values, which will simplify the computation process and save time. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.</p>
+<p>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the Negative Log Likelihood function of Beta-Binomial distribution and we will use it. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.</p>
 <p>They are given below in point form 1. Nelder Mead 2. BFGS 3. CG 4. L-BFGS-B 5. SANN 6. Brent</p>
 <p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
 <pre class="r"><code>library(fitODBOD)
@@ -587,10 +579,9 @@ foroptim&lt;-function(a)
 <li>Default Method : Nelder-Mead</li>
 </ul>
 </div>
-</div>
 <div id="using-nelder-and-mead-method" class="section level1">
 <h1>Using Nelder and Mead method</h1>
-<p>If we do not mention any method it will automatically consider Nelder and Mead method. According to the documentation says that it uses only function values and is robust but relatively slow. It will work reasonably well for non-differentiable functions.</p>
+<p>If we do not mention any method it will automatically consider Nelder and Mead method. According to the documentation says that it uses only function values and is robust but relatively slow. It will work reasonably well for non-differential functions.</p>
 <p>Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.</p>
 <pre class="r"><code># optimizing values for a,b using default inputs
 NM_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim)
@@ -608,7 +599,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,NM_answer$par[1],NM_answer$par[2
 <div id="using-bfgs-method" class="section level1">
 <h1>Using BFGS method</h1>
 <p>The documentation indicates that BFGS is a Quasi-Newton method (also known as a variable metric algorithm), specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses function values and gradients to build up a picture of the surface to be optimized.</p>
-<p>Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimisation. Mathematics of Computation, 21(99), pp.368-381.</p>
+<p>Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
 <pre class="r"><code># optimizing values for a,b using BFGS inputs
 BFGS_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;BFGS&quot;)
 
@@ -658,7 +649,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,L_BFGS_B_answer$par[1],L_BFGS_B_
 </div>
 <div id="using-sann-method" class="section level1">
 <h1>Using SANN method</h1>
-<p>Method “SANN” is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differentiable functions. This implementation uses the Metropolis function for the acceptance probability. By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method “SANN” can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control, see below. Note that the “SANN” method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
+<p>Method “SANN” is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability. By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method “SANN” can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control, see below. Note that the “SANN” method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
 <p>Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied Probability, 29(4), pp.885-895.</p>
 <pre class="r"><code># optimizing values for a,b using default inputs
 SANN_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;SANN&quot;)
@@ -737,16 +728,16 @@ Nelder Mead
 1000
 </td>
 <td style="text-align:center;">
-12.14
+10.95
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-11.80
+10.90
 </td>
 <td style="text-align:center;">
-0.04
+0.03
 </td>
 </tr>
 <tr>
@@ -760,16 +751,16 @@ L-BFGS-B
 1000
 </td>
 <td style="text-align:center;">
-13.65
+12.01
 </td>
 <td style="text-align:center;">
-1.124
+1.097
 </td>
 <td style="text-align:center;">
-12.99
+12.00
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -783,13 +774,13 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-20.25
+21.11
 </td>
 <td style="text-align:center;">
-1.668
+1.928
 </td>
 <td style="text-align:center;">
-20.09
+20.80
 </td>
 <td style="text-align:center;">
 0.00
@@ -806,16 +797,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-40.94
+39.16
 </td>
 <td style="text-align:center;">
-3.372
+3.576
 </td>
 <td style="text-align:center;">
-40.28
+38.98
 </td>
 <td style="text-align:center;">
-0.05
+0.00
 </td>
 </tr>
 <tr>
@@ -829,16 +820,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-2447.72
+1831.74
 </td>
 <td style="text-align:center;">
-201.624
+167.282
 </td>
 <td style="text-align:center;">
-2197.94
+1779.06
 </td>
 <td style="text-align:center;">
-5.69
+1.61
 </td>
 </tr>
 </tbody>
@@ -1175,7 +1166,7 @@ Over Dispersion
 </div>
 <div id="final-conclusion" class="section level1">
 <h1>Final conclusion</h1>
-<p>We had 6 methods to compare but choosing one over the other is completely harmless to the final result of estimation as seen by our tables. And our situation foces us to not use the Brent method. The only issue is time, therefore I would recommend chose the best method based on your needs of output and research objective.</p>
+<p>We had 6 methods to compare but choosing one over the other is completely harmless to the final result of estimation as seen by our tables. And our situation forces us to not use the Brent method. The only issue is time, therefore I would recommend chose the best method based on your needs of output and research objective.</p>
 <p><em>Thank You</em></p>
 </div>
 
@@ -1208,9 +1199,9 @@ Over Dispersion
         
         <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
-        
         <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
         <li><a href="/post/week_37/week-37-nyc-restaurants/">Week 37: NYC Restaurants</a></li>
         

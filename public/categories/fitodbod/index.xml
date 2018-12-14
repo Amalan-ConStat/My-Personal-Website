@@ -18,7 +18,9 @@
       <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</guid>
-      <description>IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R function. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare the mathematical methods of the R function optim, because it might benefit people who are struggling which method to choose.</description>
+      <description>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the Negative Log Likelihood function of Beta-Binomial distribution and we will use it. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.
+They are given below in point form 1. Nelder Mead 2. BFGS 3. CG 4. L-BFGS-B 5. SANN 6. Brent
+Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used.</description>
     </item>
     
     <item>
