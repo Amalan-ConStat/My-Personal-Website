@@ -1,0 +1,16 @@
+---
+title: 'optim: Estimating the shape parameters of Beta-Binomial Distribution'
+author: M.Amalan
+date: '2018-12-14'
+slug: optim-estimating-the-shape-parameters-of-beta-binomial-distribution
+categories:
+  - fitODBOD
+tags:
+  - optim
+  - fitODBOD
+  - R
+image:
+  caption: ''
+  focal_point: ''
+---
+
