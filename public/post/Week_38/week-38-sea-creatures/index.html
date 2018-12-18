@@ -16,8 +16,9 @@
     
   
   <meta name="description" content="Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.
-There are 6 plots in concern.
-PLOT 1PLOT 2PLOT 3PLOT 4PLOT 5PLOT 6IOS slide PresentationPresentation">
+IOS slide PresentationPresentation
+Below is the content from the presentation, but I have included the plots.
+#load the packageslibrary(readr)library(lubridate)## ## Attaching package: &#39;lubridate&#39;## The following object is masked from &#39;package:base&#39;:## ## datelibrary(tidyverse)## -- Attaching packages ------------------------- tidyverse 1.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/week_38/week-38-sea-creatures/">
@@ -113,8 +114,9 @@ PLOT 1PLOT 2PLOT 3PLOT 4PLOT 5PLOT 6IOS slide PresentationPre
   <meta property="og:url" content="/post/week_38/week-38-sea-creatures/">
   <meta property="og:title" content="Week 38: Sea Creatures | Consulting Statistician">
   <meta property="og:description" content="Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.
-There are 6 plots in concern.
-PLOT 1PLOT 2PLOT 3PLOT 4PLOT 5PLOT 6IOS slide PresentationPresentation">
+IOS slide PresentationPresentation
+Below is the content from the presentation, but I have included the plots.
+#load the packageslibrary(readr)library(lubridate)## ## Attaching package: &#39;lubridate&#39;## The following object is masked from &#39;package:base&#39;:## ## datelibrary(tidyverse)## -- Attaching packages ------------------------- tidyverse 1.">
   
   
     
@@ -440,52 +442,252 @@ PLOT 1PLOT 2PLOT 3PLOT 4PLOT 5PLOT 6IOS slide PresentationPre
 
     <div class="article-style" itemprop="articleBody">
       <p>Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.</p>
-<p>There are 6 plots in concern.</p>
-<div id="plot-1" class="section level2">
-<h2>PLOT 1</h2>
+<div id="ios-slide-presentation" class="section level2">
+<h2>IOS slide Presentation</h2>
+<p><a href="/html/Seaslides.html">Presentation</a></p>
+<p>Below is the content from the presentation, but I have included the plots.</p>
+<pre class="r"><code>#load the packages
+library(readr)
+library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.1.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.8
+## v tidyr   0.8.2     v stringr 1.3.1
+## v ggplot2 3.1.0     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts ---------------------------- tidyverse_conflicts() --
+## x lubridate::as.difftime() masks base::as.difftime()
+## x lubridate::date()        masks base::date()
+## x dplyr::filter()          masks stats::filter()
+## x lubridate::intersect()   masks base::intersect()
+## x dplyr::lag()             masks stats::lag()
+## x lubridate::setdiff()     masks base::setdiff()
+## x lubridate::union()       masks base::union()</code></pre>
+<pre class="r"><code>library(magrittr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre class="r"><code>library(ggthemr)
+library(stringr)</code></pre>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<ul>
+<li>2194 observations.</li>
+<li>21 variables.</li>
+<li>Data : <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-12-18">Cetacean Data</a></li>
+<li>Read : <a href="https://pudding.cool/2017/07/cetaceans/">The Pudding Article</a></li>
+<li>About : Big Fish in the Sea.</li>
+</ul>
+</div>
+<div id="packages-used" class="section level2">
+<h2>Packages Used</h2>
+<ul>
+<li>readr</li>
+<li>lubridate</li>
+<li>tidyverse</li>
+<li>magrittr</li>
+<li>ggthemr</li>
+<li>stringr</li>
+</ul>
+<pre class="r"><code>#load the data
+SeaCreature &lt;- read_csv(&quot;allCetaceanData.csv&quot;, 
+                         col_types = cols(X1 = col_skip()))</code></pre>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre class="r"><code>attach(SeaCreature)
+
+# loading theme
+ggthemr(&quot;flat dark&quot;)</code></pre>
+<pre><code>## Warning: New theme missing the following elements: panel.grid, plot.tag,
+## plot.tag.position</code></pre>
+</div>
+<div id="species-vs-sex-vs-birthyear-code" class="section level2">
+<h2>Species vs Sex vs BirthYear (code)</h2>
+<pre class="r"><code>Plot1&lt;-ggplot(SeaCreature,aes(x=species,y=birthYear,color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&quot;Species and Sex over their BirthYear&quot;)+
+       ylab(&quot;Birth Year&quot;)+
+       xlab(&quot;Species&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_1.png&quot;,width = 12,height = 12)</code></pre>
+</div>
+<div id="species-vs-sex-vs-birthyear-plot" class="section level2">
+<h2>Species vs Sex vs BirthYear (plot)</h2>
+<ul>
+<li>Plot 1</li>
+<li>Alot of Bottle-nose type species from early years.</li>
+<li>More missing values for Birth Year.</li>
+<li>Second most goes to Killer Whale Orca.</li>
+<li>Third place is in with Beluga type Species.</li>
+<li>Here and there few of them without knowledge of Gender.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_1.png" />
 
 </div>
 </div>
-<div id="plot-2" class="section level2">
-<h2>PLOT 2</h2>
+<div id="status-vs-sex-vs-birthyear-code" class="section level2">
+<h2>Status vs Sex vs BirthYear (code)</h2>
+<pre class="r"><code>Plot2&lt;-ggplot(SeaCreature,aes(x=str_wrap(status,8),
+                              y=birthYear,color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&quot;Status and Sex over their BirthYear&quot;)+
+       ylab(&quot;Birth Year&quot;)+
+       xlab(&quot;Status&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_2.png&quot;,width = 12,height = 12)</code></pre>
+</div>
+<div id="sex-vs-status-vs-birthyear-plot" class="section level2">
+<h2>Sex vs Status vs BirthYear (plot)</h2>
+<ul>
+<li>Plot 2</li>
+<li>Dead Sea Creatures from the beginning of time itself.</li>
+<li>Mostly dead, but from 1960 alot of them are alive.</li>
+<li>Birth Year unknown for most of the Dead and few of the Released.</li>
+<li>Quite a few with status unknown.</li>
+<li>Only one escaped and it is a male in 1981.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_2.png" />
 
 </div>
 </div>
-<div id="plot-3" class="section level2">
-<h2>PLOT 3</h2>
+<div id="species-vs-sex-vs-status-code" class="section level2">
+<h2>Species vs Sex vs Status (code)</h2>
+<pre class="r"><code>Plot3&lt;-ggplot(SeaCreature,aes(x=str_wrap(status,8),
+                              y=str_wrap(species,12),color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&quot;Species and Sex over their status&quot;)+
+       ylab(&quot;Species&quot;)+
+       xlab(&quot;Status&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_3.png&quot;,width = 14,height = 12)</code></pre>
+</div>
+<div id="species-vs-sex-vs-status-plot" class="section level2">
+<h2>Species vs Sex vs Status (plot)</h2>
+<ul>
+<li>Plot 3</li>
+<li>One male Bottle-nose species escaped.</li>
+<li>More Killer whale orca’s and White-sided Pacific Species are dead than alive</li>
+<li>Around 15 Species have dead creatures and non alive.</li>
+<li>One male Bottle-nose species Escaped but found dead.</li>
+<li>There are 4 miscarriaged Bottle-nose species and three are female.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_3.png" />
 
 </div>
 </div>
-<div id="plot-4" class="section level2">
-<h2>PLOT 4</h2>
+<div id="birth-year-and-sex-of-the-acquisitioned-code" class="section level2">
+<h2>Birth Year and Sex of the Acquisitioned (code)</h2>
+<pre class="r"><code>Plot4&lt;-ggplot(SeaCreature,aes(x=acquisition,
+                              y=birthYear,color=sex))+
+       geom_jitter()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&quot;Acquisitioned ones with their and BirthYear&quot;)+
+       ylab(&quot;Birth Year&quot;)+
+       xlab(&quot;Acquisition&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_4.png&quot;,width = 12,height = 12)</code></pre>
+</div>
+<div id="birth-year-and-sex-of-the-acquisitioned-plot" class="section level2">
+<h2>Birth Year and Sex of the Acquisitioned (plot)</h2>
+<ul>
+<li>Plot 4</li>
+<li>With early Birth Year to until 1990 the creatures were captured.</li>
+<li>From Birth Year 1971 to 2017 only the creatures are born.</li>
+<li>After 1965 around 30 creatures have been rescued.</li>
+<li>Close to 40 creatures with unknown status with Birth Year known.</li>
+<li>Most of the rescued ones are of Male gender.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_4.png" />
 
 </div>
 </div>
-<div id="plot-5" class="section level2">
-<h2>PLOT 5</h2>
+<div id="species-and-their-sex-over-current-location-code" class="section level2">
+<h2>Species and their sex over current location (code)</h2>
+<pre class="r"><code>Plot5&lt;-ggplot(SeaCreature,aes(x=str_wrap(species,12),
+                              y=currently,color=sex))+
+       geom_jitter()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&quot;Species and Sex over their Current Location&quot;)+
+       ylab(&quot;Current Location&quot;)+
+       xlab(&quot;Species&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_5.png&quot;,width = 14,height = 14)</code></pre>
+</div>
+<div id="species-and-their-sex-over-current-location-plot" class="section level2">
+<h2>Species and their sex over current location (plot)</h2>
+<ul>
+<li>Plot 5</li>
+<li>Close to 50 current locations.</li>
+<li>There are few locations with only one type of species.</li>
+<li>Bottle-nose creatures in most of these locations.</li>
+<li>Sea Life park in Hawaii has a diverse amount of Species.</li>
+<li>Sea world in San Diego is second when it comes to diversity.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_5.png" />
 
 </div>
 </div>
-<div id="plot-6" class="section level2">
-<h2>PLOT 6</h2>
+<div id="acquisitioned-ones-and-thier-sex-with-status-code" class="section level2">
+<h2>Acquisitioned ones and thier Sex with Status (code)</h2>
+<pre class="r"><code>Plot6&lt;-ggplot(SeaCreature,aes(x=status,y=acquisition,color=sex))+
+       geom_jitter()+
+       ggtitle(&quot;Acquisitioned with Sex and Status&quot;)+
+       xlab(&quot;Status&quot;)+
+       ylab(&quot;Acquisition&quot;)+ 
+       legend_bottom()  
+
+#ggsave(&quot;Plot_6.png&quot;,width = 12,height = 12)</code></pre>
+</div>
+<div id="acquisitioned-ones-and-thier-sex-with-status-plot" class="section level2">
+<h2>Acquisitioned ones and thier Sex with Status (plot)</h2>
+<ul>
+<li>Plot 6</li>
+<li>Most of the Captured creatures are Dead, but few of them Released.</li>
+<li>Most of the Rescued creatures are Dead, few alive and some Released.</li>
+<li>In Unknown acquisition-ed type alot of them are Dead.</li>
+<li>One rescued creature with unknown status.</li>
+<li>6 creatures which were born have been released and 50% are male.</li>
+</ul>
 <div class="figure">
 <img src="/html/Plot_6.png" />
 
 </div>
 </div>
-<div id="ios-slide-presentation" class="section level2">
-<h2>IOS slide Presentation</h2>
-<p><a href="/html/Seaslides.html">Presentation</a></p>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<ul>
+<li>Ios slides are NICE.</li>
+<li>Jitter plots useful for categorical.</li>
+<li>Plots are too complex when using Location, Currently and Birth Year, but manageable.</li>
+<li>Bottle-nose species is holding a special place in this data-set.</li>
+<li>Alot of unknown data points when it comes to Birth Year.</li>
+</ul>
 </div>
 <div id="thank-you" class="section level2">
 <h2>THANK YOU</h2>

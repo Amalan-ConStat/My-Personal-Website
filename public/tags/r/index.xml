@@ -19,8 +19,9 @@
       
       <guid>/post/week_38/week-38-sea-creatures/</guid>
       <description>Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.
-There are 6 plots in concern.
-PLOT 1PLOT 2PLOT 3PLOT 4PLOT 5PLOT 6IOS slide PresentationPresentation</description>
+IOS slide PresentationPresentation
+Below is the content from the presentation, but I have included the plots.
+#load the packageslibrary(readr)library(lubridate)## ## Attaching package: &amp;#39;lubridate&amp;#39;## The following object is masked from &amp;#39;package:base&amp;#39;:## ## datelibrary(tidyverse)## -- Attaching packages ------------------------- tidyverse 1.</description>
     </item>
     
     <item>

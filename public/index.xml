@@ -17,52 +17,252 @@
       
       <guid>/post/week_38/week-38-sea-creatures/</guid>
       <description>&lt;p&gt;Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.&lt;/p&gt;
-&lt;p&gt;There are 6 plots in concern.&lt;/p&gt;
-&lt;div id=&#34;plot-1&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 1&lt;/h2&gt;
+&lt;div id=&#34;ios-slide-presentation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;IOS slide Presentation&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;/html/Seaslides.html&#34;&gt;Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Below is the content from the presentation, but I have included the plots.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#load the packages
+library(readr)
+library(lubridate)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
+## 
+##     date&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages ------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## v ggplot2 3.1.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.8
+## v tidyr   0.8.2     v stringr 1.3.1
+## v ggplot2 3.1.0     v forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ---------------------------- tidyverse_conflicts() --
+## x lubridate::as.difftime() masks base::as.difftime()
+## x lubridate::date()        masks base::date()
+## x dplyr::filter()          masks stats::filter()
+## x lubridate::intersect()   masks base::intersect()
+## x dplyr::lag()             masks stats::lag()
+## x lubridate::setdiff()     masks base::setdiff()
+## x lubridate::union()       masks base::union()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(magrittr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;magrittr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:purrr&amp;#39;:
+## 
+##     set_names&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:tidyr&amp;#39;:
+## 
+##     extract&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggthemr)
+library(stringr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2194 observations.&lt;/li&gt;
+&lt;li&gt;21 variables.&lt;/li&gt;
+&lt;li&gt;Data : &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-12-18&#34;&gt;Cetacean Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Read : &lt;a href=&#34;https://pudding.cool/2017/07/cetaceans/&#34;&gt;The Pudding Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;About : Big Fish in the Sea.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;packages-used&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Packages Used&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;readr&lt;/li&gt;
+&lt;li&gt;lubridate&lt;/li&gt;
+&lt;li&gt;tidyverse&lt;/li&gt;
+&lt;li&gt;magrittr&lt;/li&gt;
+&lt;li&gt;ggthemr&lt;/li&gt;
+&lt;li&gt;stringr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#load the data
+SeaCreature &amp;lt;- read_csv(&amp;quot;allCetaceanData.csv&amp;quot;, 
+                         col_types = cols(X1 = col_skip()))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(SeaCreature)
+
+# loading theme
+ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: New theme missing the following elements: panel.grid, plot.tag,
+## plot.tag.position&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;species-vs-sex-vs-birthyear-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species vs Sex vs BirthYear (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot1&amp;lt;-ggplot(SeaCreature,aes(x=species,y=birthYear,color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&amp;quot;Species and Sex over their BirthYear&amp;quot;)+
+       ylab(&amp;quot;Birth Year&amp;quot;)+
+       xlab(&amp;quot;Species&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_1.png&amp;quot;,width = 12,height = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;species-vs-sex-vs-birthyear-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species vs Sex vs BirthYear (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 1&lt;/li&gt;
+&lt;li&gt;Alot of Bottle-nose type species from early years.&lt;/li&gt;
+&lt;li&gt;More missing values for Birth Year.&lt;/li&gt;
+&lt;li&gt;Second most goes to Killer Whale Orca.&lt;/li&gt;
+&lt;li&gt;Third place is in with Beluga type Species.&lt;/li&gt;
+&lt;li&gt;Here and there few of them without knowledge of Gender.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_1.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;plot-2&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 2&lt;/h2&gt;
+&lt;div id=&#34;status-vs-sex-vs-birthyear-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Status vs Sex vs BirthYear (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot2&amp;lt;-ggplot(SeaCreature,aes(x=str_wrap(status,8),
+                              y=birthYear,color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&amp;quot;Status and Sex over their BirthYear&amp;quot;)+
+       ylab(&amp;quot;Birth Year&amp;quot;)+
+       xlab(&amp;quot;Status&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_2.png&amp;quot;,width = 12,height = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sex-vs-status-vs-birthyear-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sex vs Status vs BirthYear (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 2&lt;/li&gt;
+&lt;li&gt;Dead Sea Creatures from the beginning of time itself.&lt;/li&gt;
+&lt;li&gt;Mostly dead, but from 1960 alot of them are alive.&lt;/li&gt;
+&lt;li&gt;Birth Year unknown for most of the Dead and few of the Released.&lt;/li&gt;
+&lt;li&gt;Quite a few with status unknown.&lt;/li&gt;
+&lt;li&gt;Only one escaped and it is a male in 1981.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_2.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;plot-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 3&lt;/h2&gt;
+&lt;div id=&#34;species-vs-sex-vs-status-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species vs Sex vs Status (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot3&amp;lt;-ggplot(SeaCreature,aes(x=str_wrap(status,8),
+                              y=str_wrap(species,12),color=sex))+
+       geom_jitter()+
+       coord_flip()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&amp;quot;Species and Sex over their status&amp;quot;)+
+       ylab(&amp;quot;Species&amp;quot;)+
+       xlab(&amp;quot;Status&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_3.png&amp;quot;,width = 14,height = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;species-vs-sex-vs-status-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species vs Sex vs Status (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 3&lt;/li&gt;
+&lt;li&gt;One male Bottle-nose species escaped.&lt;/li&gt;
+&lt;li&gt;More Killer whale orca’s and White-sided Pacific Species are dead than alive&lt;/li&gt;
+&lt;li&gt;Around 15 Species have dead creatures and non alive.&lt;/li&gt;
+&lt;li&gt;One male Bottle-nose species Escaped but found dead.&lt;/li&gt;
+&lt;li&gt;There are 4 miscarriaged Bottle-nose species and three are female.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_3.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;plot-4&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 4&lt;/h2&gt;
+&lt;div id=&#34;birth-year-and-sex-of-the-acquisitioned-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Birth Year and Sex of the Acquisitioned (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot4&amp;lt;-ggplot(SeaCreature,aes(x=acquisition,
+                              y=birthYear,color=sex))+
+       geom_jitter()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&amp;quot;Acquisitioned ones with their and BirthYear&amp;quot;)+
+       ylab(&amp;quot;Birth Year&amp;quot;)+
+       xlab(&amp;quot;Acquisition&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_4.png&amp;quot;,width = 12,height = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;birth-year-and-sex-of-the-acquisitioned-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Birth Year and Sex of the Acquisitioned (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 4&lt;/li&gt;
+&lt;li&gt;With early Birth Year to until 1990 the creatures were captured.&lt;/li&gt;
+&lt;li&gt;From Birth Year 1971 to 2017 only the creatures are born.&lt;/li&gt;
+&lt;li&gt;After 1965 around 30 creatures have been rescued.&lt;/li&gt;
+&lt;li&gt;Close to 40 creatures with unknown status with Birth Year known.&lt;/li&gt;
+&lt;li&gt;Most of the rescued ones are of Male gender.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_4.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;plot-5&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 5&lt;/h2&gt;
+&lt;div id=&#34;species-and-their-sex-over-current-location-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species and their sex over current location (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot5&amp;lt;-ggplot(SeaCreature,aes(x=str_wrap(species,12),
+                              y=currently,color=sex))+
+       geom_jitter()+
+       theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+       ggtitle(&amp;quot;Species and Sex over their Current Location&amp;quot;)+
+       ylab(&amp;quot;Current Location&amp;quot;)+
+       xlab(&amp;quot;Species&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_5.png&amp;quot;,width = 14,height = 14)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;species-and-their-sex-over-current-location-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Species and their sex over current location (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 5&lt;/li&gt;
+&lt;li&gt;Close to 50 current locations.&lt;/li&gt;
+&lt;li&gt;There are few locations with only one type of species.&lt;/li&gt;
+&lt;li&gt;Bottle-nose creatures in most of these locations.&lt;/li&gt;
+&lt;li&gt;Sea Life park in Hawaii has a diverse amount of Species.&lt;/li&gt;
+&lt;li&gt;Sea world in San Diego is second when it comes to diversity.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_5.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;plot-6&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;PLOT 6&lt;/h2&gt;
+&lt;div id=&#34;acquisitioned-ones-and-thier-sex-with-status-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Acquisitioned ones and thier Sex with Status (code)&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Plot6&amp;lt;-ggplot(SeaCreature,aes(x=status,y=acquisition,color=sex))+
+       geom_jitter()+
+       ggtitle(&amp;quot;Acquisitioned with Sex and Status&amp;quot;)+
+       xlab(&amp;quot;Status&amp;quot;)+
+       ylab(&amp;quot;Acquisition&amp;quot;)+ 
+       legend_bottom()  
+
+#ggsave(&amp;quot;Plot_6.png&amp;quot;,width = 12,height = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;acquisitioned-ones-and-thier-sex-with-status-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Acquisitioned ones and thier Sex with Status (plot)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot 6&lt;/li&gt;
+&lt;li&gt;Most of the Captured creatures are Dead, but few of them Released.&lt;/li&gt;
+&lt;li&gt;Most of the Rescued creatures are Dead, few alive and some Released.&lt;/li&gt;
+&lt;li&gt;In Unknown acquisition-ed type alot of them are Dead.&lt;/li&gt;
+&lt;li&gt;One rescued creature with unknown status.&lt;/li&gt;
+&lt;li&gt;6 creatures which were born have been released and 50% are male.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/html/Plot_6.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;ios-slide-presentation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;IOS slide Presentation&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;/html/Seaslides.html&#34;&gt;Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ios slides are NICE.&lt;/li&gt;
+&lt;li&gt;Jitter plots useful for categorical.&lt;/li&gt;
+&lt;li&gt;Plots are too complex when using Location, Currently and Birth Year, but manageable.&lt;/li&gt;
+&lt;li&gt;Bottle-nose species is holding a special place in this data-set.&lt;/li&gt;
+&lt;li&gt;Alot of unknown data points when it comes to Birth Year.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;thank-you&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;THANK YOU&lt;/h2&gt;
