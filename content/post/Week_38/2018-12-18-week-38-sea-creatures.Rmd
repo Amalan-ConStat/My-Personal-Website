@@ -13,4 +13,40 @@ image:
   focal_point: ''
 ---
 
-My [file](/html/Seaslides.html)
+```{r, include=FALSE,echo=FALSE}
+knitr::opts_chunk$set(out.width=12, out.height=12,fig.align = 'center') 
+```
+Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am 
+going to present my blog post in a presentation. This presentation does not include 
+plots, but the code only. Therefore, I am putting the plots here. 
+
+There are 6 plots in concern. 
+
+## PLOT 1
+
+![](/html/Plot_1.png)
+
+
+## PLOT 2
+
+![](/html/Plot_2.png)
+
+## PLOT 3
+
+![](/html/Plot_3.png)
+
+## PLOT 4
+
+![](/html/Plot_4.png)
+
+## PLOT 5
+
+![](/html/Plot_5.png)
+
+## PLOT 6
+
+![](/html/Plot_6.png)
+
+## IOS slide Presentation
+
+[Presentation](/html/Seaslides.html)
