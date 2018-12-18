@@ -14,7 +14,7 @@ image:
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width=12, fig.height=12,fig.align = 'center',echo = TRUE,fig.align = 'center',fig.height = 13,fig.width = 13) 
+knitr::opts_chunk$set(fig.align = 'center',echo = TRUE,fig.height = 13,fig.width = 13,message = FALSE,warning = FALSE) 
 ```
 
 Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am 
@@ -23,7 +23,8 @@ plots, but the code only. Therefore, I am putting the plots here.
 
 ## IOS slide Presentation
 
-[Presentation](/html/Seaslides.html)
+* [Presentation](/html/Seaslides.html)
+* [Rmarkdown for the same presentation](https://github.com/Amalan-ConStat/TidyTuesday/blob/master/Week%2038/Seaslides.Rmd)
 
 Below is the content from the presentation, but I have included the plots.
 
