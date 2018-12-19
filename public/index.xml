@@ -24,7 +24,7 @@
 &lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-birthyear-code&#34;&gt;Species vs Sex vs BirthYear (code)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-birthyear-plot&#34;&gt;Species vs Sex vs BirthYear (plot)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#status-vs-sex-vs-birthyear-code&#34;&gt;Status vs Sex vs BirthYear (code)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#sex-vs-status-vs-birthyear-plot&#34;&gt;Sex vs Status vs BirthYear (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#status-vs-sex-vs-birthyear-plot&#34;&gt;Status vs Sex vs BirthYear (plot)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-status-code&#34;&gt;Species vs Sex vs Status (code)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-status-plot&#34;&gt;Species vs Sex vs Status (plot)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#birth-year-and-sex-of-the-acquisitioned-code&#34;&gt;Birth Year and Sex of the Acquisitioned (code)&lt;/a&gt;&lt;/li&gt;
@@ -124,8 +124,8 @@ ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 
 #ggsave(&amp;quot;Plot_2.png&amp;quot;,width = 12,height = 12)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;sex-vs-status-vs-birthyear-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Sex vs Status vs BirthYear (plot)&lt;/h2&gt;
+&lt;div id=&#34;status-vs-sex-vs-birthyear-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Status vs Sex vs BirthYear (plot)&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Plot 2&lt;/li&gt;
 &lt;li&gt;Dead Sea Creatures from the beginning of time itself.&lt;/li&gt;

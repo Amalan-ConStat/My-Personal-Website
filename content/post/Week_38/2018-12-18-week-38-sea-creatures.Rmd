@@ -110,7 +110,7 @@ Plot2<-ggplot(SeaCreature,aes(x=str_wrap(status,8),
 #ggsave("Plot_2.png",width = 12,height = 12)
 ```
 
-## Sex vs Status vs BirthYear (plot)
+## Status vs Sex vs BirthYear (plot)
 
 - Plot 2
 - Dead Sea Creatures from the beginning of time itself. 
