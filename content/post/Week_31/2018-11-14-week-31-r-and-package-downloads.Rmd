@@ -2,6 +2,9 @@
 title: 'Week 31 : R and Package Downloads'
 author: M.Amalan
 date: '2018-11-15'
+output: 
+  blogdown::html:
+    toc: true
 slug: week-31-r-and-package-downloads
 categories: [TidyTuesday]
 tags:
