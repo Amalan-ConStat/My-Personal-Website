@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.">
+  <meta name="description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
@@ -110,7 +110,7 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">
   <meta property="og:title" content="Benchmarking Maximum Likelihood Estimation functions from R | Consulting Statistician">
-  <meta property="og:description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.">
+  <meta property="og:description" content="IntroductionWhen we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post.">
   
   
     
@@ -440,16 +440,16 @@
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling to which one to choose. We have 7 functions in total by my knowledge when I was writing this post.</p>
-<p>Using the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package, I will use the Alcohol Consumption data to try and model it for the Beta Binomial Distribution, which has two shape parameters to estimate. The process is that we find values for shape parameters a and b (or <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) which will maximize the Log Likelihood function of Beta Binomial Distribution or in our case minimize the Negative Log Likelihood function of Beta Binomial Distribution.</p>
-<p>Above mentioned Beta-Binomial distributions Probability Mass function is denoted as</p>
+<p>When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post.</p>
+<p>Using the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package, I will use the Alcohol Consumption data to try and model it for the Beta-Binomial Distribution, which has two shape parameters to estimate. The process is that we find values for shape parameters a and b (or <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) which will maximize the Log Likelihood function of Beta Binomial Distribution or in our case minimize the Negative Log Likelihood function of Beta Binomial Distribution.</p>
+<p>Above mentioned Beta-Binomial distributions Probability Mass Function(PMF) is denoted as</p>
 <p><span class="math display">\[P_{BetaBin}(x)= {n \choose x} \frac{B(\alpha+x,n+\beta-x)}{B(\alpha,\beta)} \]</span></p>
 <p>where <span class="math inline">\(n=0,1,2,...\)</span>, <span class="math inline">\(x=0,1,2,...,n\)</span> and <span class="math inline">\(\alpha,\beta &gt; 0\)</span>. Further <span class="math inline">\(x\)</span> is the Binomial Random variable, a,b(or <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) are shape parameters and <span class="math inline">\(n\)</span> is the binomial trial value. Also B(<span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\beta\)</span>) is the beta function. In this distribution we have to estimate the values for a and b.</p>
 <p>Further, using the PMF we can construct the Likelihood function for <span class="math inline">\(\Omega_{BB}=(\alpha,\beta)^T\)</span> as given below:</p>
 <p><span class="math display">\[L(\Omega_{BB}|x)=\prod_{i=1}^{N} \binom{n}{x_i} \frac{B(\alpha+x_i,n+\beta-x_i)}{B(\alpha,\beta)}\]</span></p>
 <p>where N is the Number of observations. Then Negative Log Likelihood function is given as</p>
 <p><span class="math display">\[l(\Omega_{BB}|x)=-\sum_{i=1}^{N} log\binom{n}{x_i} + \sum_{i=1}^{N} log(B(\alpha+x_i,n+\beta-x_i)) - Nlog(B(\alpha,\beta))\]</span></p>
-<p>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the above Negative Log Likelihood function and we will use it.</p>
+<p>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the above Negative Log Likelihood function, and we will use it.</p>
 <p>We take Log to transform the Likelihood function values into small values, which will simplify the computation process and save time. The estimation functions we need to compare will use specific mathematical methods to find the most appropriate shape parameter values.</p>
 <p>The functions in question are</p>
 <ol style="list-style-type: decimal">
@@ -461,7 +461,7 @@
 <li><a href="https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle">mle</a></li>
 <li><a href="https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2">mle2</a></li>
 </ol>
-<p>Further, I will focus on the attributes of the above functions considering from which package, Inputs, Outputs, Time to complete estimation and Analytical Methods used with the assistance of tables. Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<p>Further, I will focus on the attributes of the above functions. Focusing from which package, Number of Inputs, Number of Outputs, Time to complete estimation and Analytical Methods used with the assistance of two tables. Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
 <pre class="r"><code>library(fitODBOD)
 kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
@@ -574,11 +574,11 @@ week2
 </table>
 <div id="optim-function" class="section level2">
 <h2>optim Function</h2>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O">optim</a> is the first function in concern. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">Documentation</a> of the optim function is useful and it indicates that this function is only used on one input situations only. This means our EstMLEBetaBin function has to be modified. Reason for this is that only the parameters that should be estimated need to be input values but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values).</p>
-<p>While using optim function first index refers to <span class="math inline">\(\alpha\)</span> or a and second index refers to <span class="math inline">\(\beta\)</span> or b. Further, we have to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would become extra work. After modification we have a new function which is foroptim and I can use it for demonstration and comparison.</p>
-<p>Below is the code to estimation and going through the outputs. It should be noted that we have to provide initial parameter values as an input to the optim function and it is best to provide values in the domain of<br />
-values a and b.</p>
-<p>Here the shape parameters a and b are in the region of greater than zero but less than positive infinity. So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative Log Likelihood function of Beta-Binomial distribution.</p>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O">optim</a> is the first function in concern. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">Documentation</a> of the optim function is useful and it indicates that this function is only used on one input situations only. This means our EstMLEBetaBin function has to be modified. Reason for this is only the parameters that should be estimated need to be input values but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values).</p>
+<p>While using optim function first index refers to shape parameter a and second index refers to shape parameter b. Further, we have to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would become tedious. After modification we have a new function foroptim which can be used for demonstration and comparison.</p>
+<p>Below is the code to estimation and going through the outputs. It should be noted that we have to provide initial parameter values as an input to the optim function, and it is best to provide values in the domain of<br />
+shape parameter values which we want to estimate.</p>
+<p>Here the shape parameters a and b are in the region of greater than zero but less than positive infinity(<span class="math inline">\(+\infty &gt;a,b&gt;0\)</span>). So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative Log Likelihood function of Beta-Binomial distribution with the Alcohol Consumption data.</p>
 <pre class="r"><code># new function to facilitate optim criteria
 # only one input but has two elements
 foroptim&lt;-function(a)
@@ -586,7 +586,7 @@ foroptim&lt;-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
   }
 
-# optimizing values for a,b using default inputs
+# optimizing values for a,b using default mathematical method
 optim_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim)
 
 # obtaining class of output
@@ -605,7 +605,7 @@ optim_answer$message # additional information
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            optim_answer$par[1],optim_answer$par[2])</code></pre>
-<p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further we have scrutinized the outputs.</p>
+<p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further we have scrutinized the function as below.</p>
 <ul>
 <li>package : stats</li>
 <li>No of Inputs: 7</li>
@@ -1262,13 +1262,13 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-6.97
+7.49
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-6.95
+7.33
 </td>
 <td style="text-align:center;">
 0.00
@@ -1285,16 +1285,16 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-8.42
+10.08
 </td>
 <td style="text-align:center;">
-1.208
+1.346
 </td>
 <td style="text-align:center;">
-8.41
+9.42
 </td>
 <td style="text-align:center;">
-0.00
+0.03
 </td>
 </tr>
 <tr>
@@ -1308,13 +1308,13 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-9.68
+11.09
 </td>
 <td style="text-align:center;">
-1.389
+1.481
 </td>
 <td style="text-align:center;">
-9.55
+10.39
 </td>
 <td style="text-align:center;">
 0.02
@@ -1331,16 +1331,16 @@ optim
 1000
 </td>
 <td style="text-align:center;">
-11.28
+12.47
 </td>
 <td style="text-align:center;">
-1.618
+1.665
 </td>
 <td style="text-align:center;">
-11.22
+12.10
 </td>
 <td style="text-align:center;">
-0.00
+0.03
 </td>
 </tr>
 <tr>
@@ -1354,16 +1354,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-25.63
+25.93
 </td>
 <td style="text-align:center;">
-3.677
+3.462
 </td>
 <td style="text-align:center;">
-25.34
+25.75
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -1377,16 +1377,16 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-40.71
+44.27
 </td>
 <td style="text-align:center;">
-5.841
+5.911
 </td>
 <td style="text-align:center;">
-40.34
+43.33
 </td>
 <td style="text-align:center;">
-0.02
+0.06
 </td>
 </tr>
 <tr>
@@ -1400,16 +1400,16 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-45.76
+47.10
 </td>
 <td style="text-align:center;">
-6.565
+6.288
 </td>
 <td style="text-align:center;">
-45.28
+46.82
 </td>
 <td style="text-align:center;">
-0.06
+0.00
 </td>
 </tr>
 </tbody>

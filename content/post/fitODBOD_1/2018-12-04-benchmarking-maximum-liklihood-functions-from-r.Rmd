@@ -34,15 +34,15 @@ When we need to estimate parameters from a discrete distribution or continuous d
 or a function we can use the below mentioned R functions. We will be using the technique of maximizing the 
 Log Likelihood function or minimizing the Negative Log Likelihood function.  Based on 
 this technique we will compare these R functions because it might benefit people who are struggling
-to which one to choose. We have 7 functions in total by my knowledge when I was writing this post. 
+which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post. 
 
 Using the [fitODBOD](https://cran.r-project.org/package=fitODBOD) package, I will use the Alcohol Consumption data to try 
-and model it for the Beta Binomial Distribution, which has two shape parameters to estimate. The process is that
+and model it for the Beta-Binomial Distribution, which has two shape parameters to estimate. The process is that
 we find values for shape parameters a and b (or $\alpha$ and $\beta$) which will maximize the Log 
 Likelihood function of Beta Binomial Distribution or in our case minimize the Negative Log Likelihood 
 function of Beta Binomial Distribution.
 
-Above mentioned Beta-Binomial distributions Probability Mass function is denoted as
+Above mentioned Beta-Binomial distributions Probability Mass Function(PMF) is denoted as
 
 $$P_{BetaBin}(x)= {n \choose x} \frac{B(\alpha+x,n+\beta-x)}{B(\alpha,\beta)} $$
 
@@ -59,7 +59,7 @@ where N is the Number of observations. Then Negative Log Likelihood function is 
 $$l(\Omega_{BB}|x)=-\sum_{i=1}^{N} log\binom{n}{x_i} + \sum_{i=1}^{N} log(B(\alpha+x_i,n+\beta-x_i)) - Nlog(B(\alpha,\beta))$$
 
 In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the above 
-Negative Log Likelihood function and we will use it. 
+Negative Log Likelihood function, and we will use it. 
 
 We take Log to transform the Likelihood function values into small values, which will simplify the 
 computation process and save time. The estimation functions we need to compare will use specific 
@@ -75,8 +75,8 @@ The functions in question are
 6. [mle](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle)
 7. [mle2](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2)
 
-Further, I will focus on the attributes of the above functions considering from which package, Inputs, Outputs, 
-Time to complete estimation and Analytical Methods used with the assistance of tables. Alcohol Consumption data 
+Further, I will focus on the attributes of the above functions. Focusing from which package, Number of Inputs, Number of Outputs, 
+Time to complete estimation and Analytical Methods used with the assistance of two tables. Alcohol Consumption data 
 has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations
 is 399 and the Binomial Random variable is a vector of values from zero to seven. 
 
@@ -93,21 +93,21 @@ kable(Alcohol_data,"html",align=c('c','c','c')) %>%
 [optim](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O) is the first function in concern.
 [Documentation](https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim) 
 of the optim function is useful and it indicates that this function is only used on one input situations only. This means our 
-EstMLEBetaBin function has to be modified. Reason for this is that only the parameters that should be estimated need to be input values
+EstMLEBetaBin function has to be modified. Reason for this is only the parameters that should be estimated need to be input values
 but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values). 
 
-While using optim function first index refers to $\alpha$ or a and second index refers to $\beta$ or b. Further, we have 
+While using optim function first index refers to shape parameter a and second index refers to shape parameter b. Further, we have 
 to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it
 is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would 
-become extra work. After modification we have a new function which is foroptim and I can use it for demonstration and comparison.
+become tedious. After modification we have a new function foroptim which can be used for demonstration and comparison.
 
 Below is the code to estimation and going through the outputs. It should be noted that we have to provide 
-initial parameter values as an input to the optim function and it is best to provide values in the domain of  
-values a and b. 
+initial parameter values as an input to the optim function, and it is best to provide values in the domain of  
+shape parameter values which we want to estimate. 
 
-Here the shape parameters a and b are in the region of greater than zero but less than positive infinity. 
+Here the shape parameters a and b are in the region of greater than zero but less than positive infinity($+\infty >a,b>0$). 
 So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative
-Log Likelihood function of Beta-Binomial distribution.
+Log Likelihood function of Beta-Binomial distribution with the Alcohol Consumption data.
 
 ```{r optim function from stats package,results='hide'}
 # new function to facilitate optim criteria
@@ -117,7 +117,7 @@ foroptim<-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
   }
 
-# optimizing values for a,b using default inputs
+# optimizing values for a,b using default mathematical method
 optim_answer<-optim(par=c(0.1,0.2),fn=foroptim)
 
 # obtaining class of output
@@ -139,7 +139,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 ```
 
 So the foroptim function can be used as above and parameters are estimated for $\alpha$ and $\beta$ (or a, b) for the Alcohol Consumption 
-data week 1. Further we have scrutinized the outputs.
+data week 1. Further we have scrutinized the function as below.
 
 * package : stats 
 * No of Inputs: 7
