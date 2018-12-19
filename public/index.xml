@@ -1868,7 +1868,7 @@ This is my sixth post on the internet so my mistakes in grammar and spellings sh
     </item>
     
     <item>
-      <title>Benchmarking optimization functions in R : Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.</title>
+      <title>Benchmarking optimization functions in R</title>
       <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
       <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -1877,6 +1877,7 @@ This is my sixth post on the internet so my mistakes in grammar and spellings sh
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#estimating-the-shape-parameters-by-maximizing-the-log-likelihood-value-of-beta-binomial-distribution.&#34;&gt;Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#optim-function&#34;&gt;optim Function&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#nlm-function&#34;&gt;nlm Function&lt;/a&gt;&lt;/li&gt;
@@ -1893,6 +1894,9 @@ This is my sixth post on the internet so my mistakes in grammar and spellings sh
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;div id=&#34;estimating-the-shape-parameters-by-maximizing-the-log-likelihood-value-of-beta-binomial-distribution.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.&lt;/h1&gt;
+&lt;/div&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post.&lt;/p&gt;
@@ -2718,16 +2722,16 @@ nlminb
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.60
+7.53
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.54
+7.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.01
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2741,13 +2745,13 @@ ucminf
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.47
+8.54
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.283
+1.134
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.31
+8.51
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -2764,13 +2768,13 @@ nlm
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.98
+10.46
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.361
+1.389
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.94
+10.25
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -2787,16 +2791,16 @@ optim
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.42
+13.17
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.730
+1.749
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.14
+12.45
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.05
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2810,16 +2814,16 @@ mle
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-24.42
+25.20
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.700
+3.347
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-24.34
+25.12
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2833,16 +2837,16 @@ maxLik
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.71
+41.25
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-5.714
+5.478
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.59
+40.97
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.01
+0.05
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2856,16 +2860,16 @@ mle2
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-50.39
+45.61
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.635
+6.057
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-48.58
+45.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.11
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

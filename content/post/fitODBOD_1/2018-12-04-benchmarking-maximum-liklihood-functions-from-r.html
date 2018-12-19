@@ -1,12 +1,12 @@
 ---
-title: 'Benchmarking optimization functions in R : Estimating the shape parameters
-  by Maximizing the Log Likelihood value of Beta-Binomial Distribution.'
+title: Benchmarking optimization functions in R
 author: M.Amalan
 date: '2018-12-04'
 categories:
   - fitODBOD
 tags:
   - bbmle
+  - Beta-Binomial
   - fitODBOD
   - maxLik
   - mle
@@ -15,12 +15,11 @@ tags:
   - nlminb
   - optim
   - ucminf
-  - Beta-Binomial
 output:
   blogdown::html_page:
     toc: yes
 slug: benchmarking-maximum-liklihood-functions-from-r
-image:
+image: 
   caption: ''
   focal_point: ''
 ---
@@ -29,6 +28,7 @@ image:
 
 <div id="TOC">
 <ul>
+<li><a href="#estimating-the-shape-parameters-by-maximizing-the-log-likelihood-value-of-beta-binomial-distribution.">Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.</a></li>
 <li><a href="#introduction">Introduction</a><ul>
 <li><a href="#optim-function">optim Function</a></li>
 <li><a href="#nlm-function">nlm Function</a></li>
@@ -45,6 +45,9 @@ image:
 </ul>
 </div>
 
+<div id="estimating-the-shape-parameters-by-maximizing-the-log-likelihood-value-of-beta-binomial-distribution." class="section level1">
+<h1>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.</h1>
+</div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>When we need to estimate parameters from a discrete distribution or continuous distribution or a function we can use the below mentioned R functions. We will be using the technique of maximizing the Log Likelihood function or minimizing the Negative Log Likelihood function. Based on this technique we will compare these R functions because it might benefit people who are struggling which one to choose. We have 7 functions in total by my knowledge when I was writing this blog post.</p>
@@ -870,16 +873,16 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-6.60
+7.53
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-6.54
+7.39
 </td>
 <td style="text-align:center;">
-0.02
+0.01
 </td>
 </tr>
 <tr>
@@ -893,13 +896,13 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-8.47
+8.54
 </td>
 <td style="text-align:center;">
-1.283
+1.134
 </td>
 <td style="text-align:center;">
-8.31
+8.51
 </td>
 <td style="text-align:center;">
 0.00
@@ -916,13 +919,13 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-8.98
+10.46
 </td>
 <td style="text-align:center;">
-1.361
+1.389
 </td>
 <td style="text-align:center;">
-8.94
+10.25
 </td>
 <td style="text-align:center;">
 0.00
@@ -939,16 +942,16 @@ optim
 1000
 </td>
 <td style="text-align:center;">
-11.42
+13.17
 </td>
 <td style="text-align:center;">
-1.730
+1.749
 </td>
 <td style="text-align:center;">
-11.14
+12.45
 </td>
 <td style="text-align:center;">
-0.00
+0.05
 </td>
 </tr>
 <tr>
@@ -962,16 +965,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-24.42
+25.20
 </td>
 <td style="text-align:center;">
-3.700
+3.347
 </td>
 <td style="text-align:center;">
-24.34
+25.12
 </td>
 <td style="text-align:center;">
-0.02
+0.00
 </td>
 </tr>
 <tr>
@@ -985,16 +988,16 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-37.71
+41.25
 </td>
 <td style="text-align:center;">
-5.714
+5.478
 </td>
 <td style="text-align:center;">
-37.59
+40.97
 </td>
 <td style="text-align:center;">
-0.01
+0.05
 </td>
 </tr>
 <tr>
@@ -1008,16 +1011,16 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-50.39
+45.61
 </td>
 <td style="text-align:center;">
-7.635
+6.057
 </td>
 <td style="text-align:center;">
-48.58
+45.42
 </td>
 <td style="text-align:center;">
-0.11
+0.00
 </td>
 </tr>
 </tbody>

@@ -1,12 +1,12 @@
 ---
-title: 'Benchmarking optimization functions in R : Estimating the shape parameters
-  by Maximizing the Log Likelihood value of Beta-Binomial Distribution.'
+title: Benchmarking optimization functions in R
 author: M.Amalan
 date: '2018-12-04'
 categories:
   - fitODBOD
 tags:
   - bbmle
+  - Beta-Binomial
   - fitODBOD
   - maxLik
   - mle
@@ -15,12 +15,11 @@ tags:
   - nlminb
   - optim
   - ucminf
-  - Beta-Binomial
 output:
   blogdown::html_page:
     toc: yes
 slug: benchmarking-maximum-liklihood-functions-from-r
-image:
+image: 
   caption: ''
   focal_point: ''
 ---
@@ -32,6 +31,8 @@ library(tidyverse)
 library(formattable)
 library(kableExtra)
 ```
+
+# Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.
 
 # Introduction 
 
