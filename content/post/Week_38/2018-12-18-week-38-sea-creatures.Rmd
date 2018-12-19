@@ -1,6 +1,9 @@
 ---
 title: 'Week 38: Sea Creatures'
 author: M.Amalan
+output: 
+  blogdown::html_page:
+    toc: true
 date: '2018-12-18'
 slug: week-38-sea-creatures
 categories:

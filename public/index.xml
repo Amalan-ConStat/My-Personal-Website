@@ -16,7 +16,29 @@
       <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_38/week-38-sea-creatures/</guid>
-      <description>&lt;p&gt;Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.&lt;/p&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ios-slide-presentation&#34;&gt;IOS slide Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#packages-used&#34;&gt;Packages Used&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-birthyear-code&#34;&gt;Species vs Sex vs BirthYear (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-birthyear-plot&#34;&gt;Species vs Sex vs BirthYear (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#status-vs-sex-vs-birthyear-code&#34;&gt;Status vs Sex vs BirthYear (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sex-vs-status-vs-birthyear-plot&#34;&gt;Sex vs Status vs BirthYear (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-status-code&#34;&gt;Species vs Sex vs Status (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-vs-sex-vs-status-plot&#34;&gt;Species vs Sex vs Status (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#birth-year-and-sex-of-the-acquisitioned-code&#34;&gt;Birth Year and Sex of the Acquisitioned (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#birth-year-and-sex-of-the-acquisitioned-plot&#34;&gt;Birth Year and Sex of the Acquisitioned (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-and-their-sex-over-current-location-code&#34;&gt;Species and their sex over current location (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#species-and-their-sex-over-current-location-plot&#34;&gt;Species and their sex over current location (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#acquisitioned-ones-and-thier-sex-with-status-code&#34;&gt;Acquisitioned ones and thier Sex with Status (code)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#acquisitioned-ones-and-thier-sex-with-status-plot&#34;&gt;Acquisitioned ones and thier Sex with Status (plot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#thank-you&#34;&gt;THANK YOU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I am going to present my blog post in a presentation. This presentation does not include plots, but the code only. Therefore, I am putting the plots here.&lt;/p&gt;
 &lt;div id=&#34;ios-slide-presentation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;IOS slide Presentation&lt;/h2&gt;
 &lt;ul&gt;
