@@ -1,6 +1,9 @@
 ---
 title: Benchmarking Maximum Likelihood Estimation functions from R
 author: M.Amalan
+output: 
+  blogdown::html_page:
+    toc: true
 date: '2018-12-04'
 categories:
   - fitODBOD
@@ -153,11 +156,11 @@ data week 1. Further we have scrutinized the function as below.
 
 [nlm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N) function is also similar to optim 
 but only one analytical method will be used, which is a Newton-type Algorithm. 
-Here also there need to be changes made to our EstMLEBetaBin function as previously. After making those changes 
-we have called the new Negative Log-likelihood R function as fornlm. Then we can use the nlm function and estimate 
-a and b which are the initial shape parameter values of 0.1 and 0.2 respectively. 
+Here also there needs to be changes made to our EstMLEBetaBin function as previously. After making those changes 
+we have called the new Negative Log-likelihood function of Beta-Binomial distribution as fornlm. Then we can use the nlm function and estimate 
+a and b for the initial shape parameter values of 0.1 and 0.2 respectively. 
 [Documentation](https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm) 
-of nlm function is very useful to understand how it works.
+of nlm function is very useful so that we can understand how it works.
 
 Below is the code for using nlm function appropriately and fiddling with the results.
 
@@ -168,7 +171,7 @@ fornlm<-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
   }
 
-#optimizing values for a,b using default input
+#optimizing values for a,b using the only analytical method
 nlm_answer<-nlm(f=fornlm,p=c(0.1,0.2))
 
 #obtaining class of output
@@ -189,8 +192,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            nlm_answer$estimate[1],nlm_answer$estimate[2])
 ```
 
-Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data.
-of week 1.
+Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data
+of week 1. Below is a point form summary of nlm function.
 
 * package : stats 
 * No of Inputs: 12
@@ -203,12 +206,12 @@ of week 1.
 ## nlminb Function
 
 [nlminb](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N) is also similar and 
-requires that EstMLEBetaBin function to be restructured as previous two situations. 
+requires the EstMLEBetaBin function to be restructured as similar to previous situations. 
 After this task we now have a function called fornlminb. nlminb function is based on analytical method of 
 unconstrained and box-constrained optimization using PORT routines.
 
-After choosing initial parameter values for a and b, which are respectively 0.1 and 0.2 the estimation was done using
-nlminb function. 
+After choosing initial parameter values for a and b, which are respectively 0.1 and 0.2 the estimation was done 
+following the process below
 
 ```{r nlminb function from stats package, results='hide'}
 # new function to facilitate nlminb criteria
@@ -217,7 +220,7 @@ fornlminb<-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
 }
 
-# optimizing values for a,b using default inputs
+# optimizing values for a,b using default analytical method
 nlminb_answer<-nlminb(start=c(0.1,0.2), objective=fornlminb)
 
 # obtaining class of output
@@ -241,8 +244,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 [Documentation](https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlminb) 
 includes the information related to the function therefore referring it will 
-be useful. After estimating values for a and b using nlminb function these were noticed as before in 
-input and output criteria
+be useful. After estimating values for a and b using nlminb function these were noticed regarding
+the function in concern
 
 * package : stats 
 * No of Inputs: 8

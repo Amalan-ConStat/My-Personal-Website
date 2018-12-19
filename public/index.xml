@@ -1875,6 +1875,23 @@ This is my sixth post on the internet so my mistakes in grammar and spellings sh
       <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#optim-function&#34;&gt;optim Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#nlm-function&#34;&gt;nlm Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#nlminb-function&#34;&gt;nlminb Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ucminf-function&#34;&gt;ucminf Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#maxlik-function&#34;&gt;maxLik Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mle-function&#34;&gt;mle Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mle2-function&#34;&gt;mle2 Function&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summary-of-package-information-of-the-r-functions&#34;&gt;Summary of package Information of the R functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summary-of-time-evaluation-for-the-r-functions&#34;&gt;Summary of Time evaluation for the R functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summary-of-results-after-estimating-parameters-using-the-r-functions&#34;&gt;Summary of Results after estimating parameters using the R functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#final-conclusion&#34;&gt;Final conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
@@ -2056,7 +2073,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;/div&gt;
 &lt;div id=&#34;nlm-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;nlm Function&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N&#34;&gt;nlm&lt;/a&gt; function is also similar to optim but only one analytical method will be used, which is a Newton-type Algorithm. Here also there need to be changes made to our EstMLEBetaBin function as previously. After making those changes we have called the new Negative Log-likelihood R function as fornlm. Then we can use the nlm function and estimate a and b which are the initial shape parameter values of 0.1 and 0.2 respectively. &lt;a href=&#34;https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm&#34;&gt;Documentation&lt;/a&gt; of nlm function is very useful to understand how it works.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N&#34;&gt;nlm&lt;/a&gt; function is also similar to optim but only one analytical method will be used, which is a Newton-type Algorithm. Here also there needs to be changes made to our EstMLEBetaBin function as previously. After making those changes we have called the new Negative Log-likelihood function of Beta-Binomial distribution as fornlm. Then we can use the nlm function and estimate a and b for the initial shape parameter values of 0.1 and 0.2 respectively. &lt;a href=&#34;https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm&#34;&gt;Documentation&lt;/a&gt; of nlm function is very useful so that we can understand how it works.&lt;/p&gt;
 &lt;p&gt;Below is the code for using nlm function appropriately and fiddling with the results.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#new function to facilitate nlm criteria
 fornlm&amp;lt;-function(a)
@@ -2064,7 +2081,7 @@ fornlm&amp;lt;-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
   }
 
-#optimizing values for a,b using default input
+#optimizing values for a,b using the only analytical method
 nlm_answer&amp;lt;-nlm(f=fornlm,p=c(0.1,0.2))
 
 #obtaining class of output
@@ -2083,7 +2100,7 @@ nlm_answer$iterations # number of iterations performed
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            nlm_answer$estimate[1],nlm_answer$estimate[2])&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data. of week 1.&lt;/p&gt;
+&lt;p&gt;Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data of week 1. Below is a point form summary of nlm function.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;package : stats&lt;/li&gt;
 &lt;li&gt;No of Inputs: 12&lt;/li&gt;
@@ -2700,13 +2717,13 @@ nlminb
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.49
+6.67
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.33
+6.68
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -2723,16 +2740,16 @@ ucminf
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.08
+8.03
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.346
+1.204
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-9.42
+8.02
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2746,16 +2763,16 @@ nlm
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.09
+8.81
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.481
+1.321
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.39
+8.82
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2769,16 +2786,16 @@ optim
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-12.47
+11.09
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.665
+1.663
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-12.10
+11.07
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2792,16 +2809,16 @@ mle
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-25.93
+24.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.462
+3.657
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-25.75
+24.36
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.01
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2815,16 +2832,16 @@ maxLik
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-44.27
+38.78
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-5.911
+5.814
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-43.33
+38.53
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.06
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2838,16 +2855,16 @@ mle2
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-47.10
+44.64
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.288
+6.693
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-46.82
+44.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.04
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

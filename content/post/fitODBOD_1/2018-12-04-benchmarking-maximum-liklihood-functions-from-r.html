@@ -1,6 +1,9 @@
 ---
 title: Benchmarking Maximum Likelihood Estimation functions from R
 author: M.Amalan
+output: 
+  blogdown::html_page:
+    toc: true
 date: '2018-12-04'
 categories:
   - fitODBOD
@@ -22,6 +25,23 @@ image:
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#optim-function">optim Function</a></li>
+<li><a href="#nlm-function">nlm Function</a></li>
+<li><a href="#nlminb-function">nlminb Function</a></li>
+<li><a href="#ucminf-function">ucminf Function</a></li>
+<li><a href="#maxlik-function">maxLik Function</a></li>
+<li><a href="#mle-function">mle Function</a></li>
+<li><a href="#mle2-function">mle2 Function</a></li>
+</ul></li>
+<li><a href="#summary-of-package-information-of-the-r-functions">Summary of package Information of the R functions</a></li>
+<li><a href="#summary-of-time-evaluation-for-the-r-functions">Summary of Time evaluation for the R functions</a></li>
+<li><a href="#summary-of-results-after-estimating-parameters-using-the-r-functions">Summary of Results after estimating parameters using the R functions</a></li>
+<li><a href="#final-conclusion">Final conclusion</a></li>
+</ul>
+</div>
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
@@ -203,7 +223,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="nlm-function" class="section level2">
 <h2>nlm Function</h2>
-<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N">nlm</a> function is also similar to optim but only one analytical method will be used, which is a Newton-type Algorithm. Here also there need to be changes made to our EstMLEBetaBin function as previously. After making those changes we have called the new Negative Log-likelihood R function as fornlm. Then we can use the nlm function and estimate a and b which are the initial shape parameter values of 0.1 and 0.2 respectively. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm">Documentation</a> of nlm function is very useful to understand how it works.</p>
+<p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#N">nlm</a> function is also similar to optim but only one analytical method will be used, which is a Newton-type Algorithm. Here also there needs to be changes made to our EstMLEBetaBin function as previously. After making those changes we have called the new Negative Log-likelihood function of Beta-Binomial distribution as fornlm. Then we can use the nlm function and estimate a and b for the initial shape parameter values of 0.1 and 0.2 respectively. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/nlm">Documentation</a> of nlm function is very useful so that we can understand how it works.</p>
 <p>Below is the code for using nlm function appropriately and fiddling with the results.</p>
 <pre class="r"><code>#new function to facilitate nlm criteria
 fornlm&lt;-function(a)
@@ -211,7 +231,7 @@ fornlm&lt;-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],a[2])
   }
 
-#optimizing values for a,b using default input
+#optimizing values for a,b using the only analytical method
 nlm_answer&lt;-nlm(f=fornlm,p=c(0.1,0.2))
 
 #obtaining class of output
@@ -230,7 +250,7 @@ nlm_answer$iterations # number of iterations performed
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            nlm_answer$estimate[1],nlm_answer$estimate[2])</code></pre>
-<p>Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data. of week 1.</p>
+<p>Similarly for the fornlm function we have estimated values for a and b which would fit the Alcohol consumption data of week 1. Below is a point form summary of nlm function.</p>
 <ul>
 <li>package : stats</li>
 <li>No of Inputs: 12</li>
@@ -847,13 +867,13 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-7.49
+6.67
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-7.33
+6.68
 </td>
 <td style="text-align:center;">
 0.00
@@ -870,16 +890,16 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-10.08
+8.03
 </td>
 <td style="text-align:center;">
-1.346
+1.204
 </td>
 <td style="text-align:center;">
-9.42
+8.02
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -893,16 +913,16 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-11.09
+8.81
 </td>
 <td style="text-align:center;">
-1.481
+1.321
 </td>
 <td style="text-align:center;">
-10.39
+8.82
 </td>
 <td style="text-align:center;">
-0.02
+0.00
 </td>
 </tr>
 <tr>
@@ -916,16 +936,16 @@ optim
 1000
 </td>
 <td style="text-align:center;">
-12.47
+11.09
 </td>
 <td style="text-align:center;">
-1.665
+1.663
 </td>
 <td style="text-align:center;">
-12.10
+11.07
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -939,16 +959,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-25.93
+24.39
 </td>
 <td style="text-align:center;">
-3.462
+3.657
 </td>
 <td style="text-align:center;">
-25.75
+24.36
 </td>
 <td style="text-align:center;">
-0.00
+0.01
 </td>
 </tr>
 <tr>
@@ -962,16 +982,16 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-44.27
+38.78
 </td>
 <td style="text-align:center;">
-5.911
+5.814
 </td>
 <td style="text-align:center;">
-43.33
+38.53
 </td>
 <td style="text-align:center;">
-0.06
+0.02
 </td>
 </tr>
 <tr>
@@ -985,16 +1005,16 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-47.10
+44.64
 </td>
 <td style="text-align:center;">
-6.288
+6.693
 </td>
 <td style="text-align:center;">
-46.82
+44.42
 </td>
 <td style="text-align:center;">
-0.00
+0.04
 </td>
 </tr>
 </tbody>
