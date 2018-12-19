@@ -3304,7 +3304,23 @@ Over Dispersion
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_35/week-35-baltimore-bridges/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# loading the packages
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#bridge-data-and-baltimore&#34;&gt;Bridge Data and Baltimore&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#counties-which-have-bridges-owned-by-state-highway-agency&#34;&gt;Counties which have bridges owned by State Highway Agency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#counties-which-have-bridges-owned-by-county-highway-agency&#34;&gt;Counties which have bridges owned by County Highway Agency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#counties-which-have-bridges-owned-by-state-toll-authority&#34;&gt;Counties which have bridges owned by State Toll Authority&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#most-amount-of-bridges-built-based-on-year&#34;&gt;Most amount of bridges Built based on Year&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-traffic-less-than-or-equal-to-100000-for-counties-with-bridge-condition&#34;&gt;Average Traffic Less than or equal to 100,000 for Counties with Bridge Condition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-traffic-more-than-100000-for-counties-with-bridge-condition&#34;&gt;Average Traffic More than 100,000 for Counties with Bridge Condition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#improvement-and-bridge-conditions-with-counties&#34;&gt;Improvement and Bridge Conditions with Counties&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# loading the packages
 library(readr)
 library(tidyverse)
 library(stringr)

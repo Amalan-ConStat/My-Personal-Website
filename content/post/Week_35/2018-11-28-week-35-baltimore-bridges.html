@@ -2,6 +2,9 @@
 title: 'Week 35: Baltimore Bridges'
 author: M.Amalan
 date: '2018-11-28'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: week-35-baltimore-bridges
 categories:
   - TidyTuesday
@@ -14,6 +17,21 @@ image:
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#bridge-data-and-baltimore">Bridge Data and Baltimore</a><ul>
+<li><a href="#counties-which-have-bridges-owned-by-state-highway-agency">Counties which have bridges owned by State Highway Agency</a></li>
+<li><a href="#counties-which-have-bridges-owned-by-county-highway-agency">Counties which have bridges owned by County Highway Agency</a></li>
+<li><a href="#counties-which-have-bridges-owned-by-state-toll-authority">Counties which have bridges owned by State Toll Authority</a></li>
+<li><a href="#most-amount-of-bridges-built-based-on-year">Most amount of bridges Built based on Year</a></li>
+<li><a href="#average-traffic-less-than-or-equal-to-100000-for-counties-with-bridge-condition">Average Traffic Less than or equal to 100,000 for Counties with Bridge Condition</a></li>
+<li><a href="#average-traffic-more-than-100000-for-counties-with-bridge-condition">Average Traffic More than 100,000 for Counties with Bridge Condition</a></li>
+<li><a href="#improvement-and-bridge-conditions-with-counties">Improvement and Bridge Conditions with Counties</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-analysis">Further Analysis</a></li>
+</ul>
+</div>
 
 <pre class="r"><code># loading the packages
 library(readr)

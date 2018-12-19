@@ -45,8 +45,7 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_35/week-35-baltimore-bridges/</guid>
-      <description># loading the packageslibrary(readr)library(tidyverse)library(stringr)library(ggthemr)library(gganimate)library(formattable)# load the theme flat darkggthemr(&amp;quot;flat dark&amp;quot;)# reading the databridges &amp;lt;- read_csv(&amp;quot;baltimore_bridges.csv&amp;quot;)#View(bridges)# naming the columnsnames(bridges)&amp;lt;-c(&amp;quot;lat&amp;quot;,&amp;quot;long&amp;quot;,&amp;quot;County&amp;quot;,&amp;quot;Carries&amp;quot;,&amp;quot;Year Built&amp;quot;,&amp;quot;Condition&amp;quot;,&amp;quot;Average Daily Traffic&amp;quot;,&amp;quot;Total Improvement&amp;quot;,&amp;quot;Month&amp;quot;,&amp;quot;Year&amp;quot;,&amp;quot;Owner&amp;quot;,&amp;quot;Responsibility&amp;quot;,&amp;quot;Vehicles&amp;quot;)attach(bridges)Bridge Data and BaltimoreData for the analysis and description about the Baltimore bridges are hyper-linked. Further , my tweet is also in this hyperlink.
-Data on bridges is of week 35 from TidyTuesday.</description>
+      <description>Bridge Data and BaltimoreCounties which have bridges owned by State Highway AgencyCounties which have bridges owned by County Highway AgencyCounties which have bridges owned by State Toll AuthorityMost amount of bridges Built based on YearAverage Traffic Less than or equal to 100,000 for Counties with Bridge ConditionAverage Traffic More than 100,000 for Counties with Bridge ConditionImprovement and Bridge Conditions with CountiesConclusionFurther Analysis# loading the packageslibrary(readr)library(tidyverse)library(stringr)library(ggthemr)library(gganimate)library(formattable)# load the theme flat darkggthemr(&amp;quot;flat dark&amp;quot;)# reading the databridges &amp;lt;- read_csv(&amp;quot;baltimore_bridges.</description>
     </item>
     
     <item>

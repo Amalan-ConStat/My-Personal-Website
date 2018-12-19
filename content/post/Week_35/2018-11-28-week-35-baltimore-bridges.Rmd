@@ -2,6 +2,9 @@
 title: 'Week 35: Baltimore Bridges'
 author: M.Amalan
 date: '2018-11-28'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: week-35-baltimore-bridges
 categories:
   - TidyTuesday
