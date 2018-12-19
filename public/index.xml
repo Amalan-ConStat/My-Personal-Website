@@ -2287,7 +2287,7 @@ vcov(mle_answer) # variance covariance matrix
 # fitting the Beta-Binomial distribution with estimated shape parameter values
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            mle_answer@coef[1],mle_answer@coef[2])&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It should be noted that in all 5 previous functions we only outpus in the form of lists, but through mle we are seeing a class of mle output.The &lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle&#34;&gt;Documention&lt;/a&gt; explains the inputs and outputs of mle. &lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class&#34;&gt;Documentation&lt;/a&gt; for mle-class explains further about the methods that can be used. Below is a list of findings based on the outputs of the mle function.&lt;/p&gt;
+&lt;p&gt;It should be noted that in all 5 previous functions we had only outputs in the form of lists, but through mle we are seeing a class of mle output.The &lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle&#34;&gt;Documention&lt;/a&gt; explains the inputs and outputs of mle. &lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class&#34;&gt;Documentation&lt;/a&gt; for mle-class explains further about the methods that can be used. Below is a list of findings based on the outputs of the mle function.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;package : stats4&lt;/li&gt;
 &lt;li&gt;No of Inputs: 5&lt;/li&gt;
@@ -2718,16 +2718,16 @@ nlminb
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.06
+6.60
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.92
+6.54
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2741,10 +2741,10 @@ ucminf
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-8.37
+8.47
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.186
+1.283
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 8.31
@@ -2764,16 +2764,16 @@ nlm
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.28
+8.98
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.456
+1.361
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-9.81
+8.94
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2787,16 +2787,16 @@ optim
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-12.50
+11.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.771
+1.730
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-12.00
+11.14
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2810,16 +2810,16 @@ mle
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-24.57
+24.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.480
+3.700
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-24.49
+24.34
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2833,16 +2833,16 @@ maxLik
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.08
+37.71
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-5.677
+5.714
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-39.72
+37.59
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.01
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2856,16 +2856,16 @@ mle2
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-43.20
+50.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.119
+7.635
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-43.15
+48.58
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.11
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2873,7 +2873,7 @@ mle2
 &lt;/div&gt;
 &lt;div id=&#34;summary-of-results-after-estimating-parameters-using-the-optimization-r-functions&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Summary of Results after estimating parameters using the optimization R functions&lt;/h1&gt;
-&lt;p&gt;After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate the shape parameters a, b we can use the estimated parameters in the function fitBetaBin. Using this function we can find expected frequencies for each of the estimated parameters a,b and compare p-values and over-dispersion and understand if using different optmization functions had any effect on them.&lt;/p&gt;
+&lt;p&gt;After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate the shape parameters a, b we can use the estimated parameters in the function fitBetaBin. Using this function we can find expected frequencies for each of the estimated parameters a,b and compare p-values and over-dispersion and understand if using different optimization functions had any effect on them.&lt;/p&gt;
 &lt;p&gt;According to the below table there is no significant changes between the expected frequencies, p-values or the over dispersion values. This is a clear indication that it does not matter what function we use for the optimization. Because the process will occur effectively only efficiency(time) will be affected.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;

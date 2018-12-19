@@ -421,7 +421,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            mle_answer@coef[1],mle_answer@coef[2])
 ```
 
-It should be noted that in all 5 previous functions we only outpus in the form of lists, but
+It should be noted that in all 5 previous functions we had only outputs in the form of lists, but
 through mle we are seeing a class of mle output.The [Documention](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle) 
 explains the inputs and outputs of mle. [Documentation](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class) 
 for mle-class explains further about the methods that can be used. Below is a list of findings 
@@ -584,7 +584,7 @@ kable(Results2,"html",align = c('c','c','c','c','c','c')) %>%
 After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate
 the shape parameters a, b we can use the estimated parameters in the function fitBetaBin.
 Using this function we can find expected frequencies for each of the estimated parameters a,b and 
-compare p-values and over-dispersion and understand if using different optmization functions had
+compare p-values and over-dispersion and understand if using different optimization functions had
 any effect on them.
 
 According to the below table there is no significant changes between the expected frequencies,
