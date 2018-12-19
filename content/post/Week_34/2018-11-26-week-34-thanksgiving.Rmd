@@ -3,7 +3,7 @@ title: 'Week 34 : Thanksgiving '
 author: M.Amalan
 date: '2018-11-26'
 output: 
-  blogdown::html:
+  blogdown::html_page:
     toc: true
 slug: week-34-thanksgiving
 categories: [TidyTuesday]

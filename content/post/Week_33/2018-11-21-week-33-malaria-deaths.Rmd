@@ -3,7 +3,7 @@ title: 'Week 33 : Malaria Deaths'
 author: M.Amalan
 date: '2018-11-21'
 output: 
-  blogdown::html:
+  blogdown::html_page:
     toc: true
 tags:
   - R

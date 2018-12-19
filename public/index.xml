@@ -3767,6 +3767,21 @@ This is my fifth post on the internet so please be kind to tolerate my mistakes 
       <guid>/post/week_34/week-34-thanksgiving/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#people-who-do-and-do-not-celebrate-thanksgiving&#34;&gt;People who do and do not celebrate Thanksgiving&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#age-distribution&#34;&gt;Age Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#age-with-other-factors&#34;&gt;Age with Other Factors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gender-distribution&#34;&gt;Gender Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gender-with-other-factors&#34;&gt;Gender with Other Factors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#family-income-distribution&#34;&gt;Family Income Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#family-income-with-other-factors&#34;&gt;Family Income with Other Factors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#us-region-distribution&#34;&gt;US Region Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load the packges
 library(ggplot2)
@@ -6842,7 +6857,24 @@ This is my fourth post on the internet so please be kind to tolerate my mistakes
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_33/week-33-malaria-deaths/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-i-posted-in-tidytuesday-on-13th-november-2018.&#34;&gt;What I posted in #TidyTuesday on 13th November 2018.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sdi-countries-with-malaria-death-count-rate&#34;&gt;SDI Countries with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#saharan-region-with-malaria-death-count-rate&#34;&gt;Saharan Region with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#european-countries-with-malaria-death-count-rate&#34;&gt;European Countries with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#great-britain-or-united-kingdom-with-malaria-death-count-rate&#34;&gt;Great Britain or United Kingdom with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#american-region-with-malaria-death-count-rate&#34;&gt;American Region with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#asian-countries-with-malaria-death-count-rate&#34;&gt;Asian Countries with Malaria Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#north-africa-and-middle-east-region-with-death-count-rate&#34;&gt;North Africa and Middle East Region with Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#oceania-region-with-death-count-rate&#34;&gt;Oceania Region with Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#caribbean-and-latin-america-and-caribbean-countries-with-death-count-rate&#34;&gt;Caribbean and Latin America and Caribbean Countries with Death Count Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
 library(ggplot2)
 library(ggrepel)
 library(ggthemr)
@@ -7294,6 +7326,17 @@ This is my third post on the internet so please be kind to tolerate my mistakes 
       <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#operating-systems&#34;&gt;Operating Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r-versions&#34;&gt;R versions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#date-versus-operating-system&#34;&gt;Date versus Operating System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#download-size-and-ip-id&#34;&gt;Download Size and IP ID&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
 library(readr)
