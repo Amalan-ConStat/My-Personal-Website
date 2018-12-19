@@ -2,6 +2,9 @@
 title: 'Week 37: NYC Restaurants'
 author: M.Amalan
 date: '2018-12-13'
+output: 
+  blogdown::html_page:
+    toc: true
 categories:
   - TidyTuesday
 tags:
@@ -45,7 +48,7 @@ That [tweet.](https://twitter.com/Amalan_Con_Stat/status/1073204074579968000)
 
 First see what type of inspections have occurred.
 
-# Inpsection Type
+# Inspection Type
 
 This ordered bar plot for inspection type clearly indicates that cycle inspection / initial inspection 
 has the highest amount of counts with 171,657. while second place goes to cycle inspection/ re-inspection with

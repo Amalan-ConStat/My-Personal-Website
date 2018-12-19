@@ -2,6 +2,9 @@
 title: 'Week 37: NYC Restaurants'
 author: M.Amalan
 date: '2018-12-13'
+output: 
+  blogdown::html_page:
+    toc: true
 categories:
   - TidyTuesday
 tags:
@@ -14,6 +17,26 @@ image:
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#inspection-type">Inspection Type</a></li>
+<li><a href="#critical-flag">Critical Flag</a></li>
+<li><a href="#inspection-type-and-critical-flag-over-the-years">Inspection Type and Critical Flag over the years</a><ul>
+<li><a href="#cycle-inspection">Cycle Inspection</a></li>
+<li><a href="#pre-permit-operational">Pre-permit Operational</a></li>
+<li><a href="#administrative-miscellaneous">Administrative Miscellaneous</a></li>
+</ul></li>
+<li><a href="#most-inspected-restaurants">Most Inspected Restaurants</a><ul>
+<li><a href="#dunkin-donuts">Dunkin Donuts</a></li>
+<li><a href="#subway">Subway</a></li>
+<li><a href="#mcdonalds">McDonalds</a></li>
+<li><a href="#starbucks">Starbucks</a></li>
+<li><a href="#kennedy-fried-chicken">Kennedy Fried Chicken</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-analysis">Further Analysis</a></li>
+</ul>
+</div>
 
 <pre class="r"><code># load the packages
 library(readr)
@@ -35,8 +58,8 @@ attach(NYC)</code></pre>
 <p>Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.</p>
 <p>That <a href="https://twitter.com/Amalan_Con_Stat/status/1073204074579968000">tweet.</a></p>
 <p>First see what type of inspections have occurred.</p>
-<div id="inpsection-type" class="section level1">
-<h1>Inpsection Type</h1>
+<div id="inspection-type" class="section level1">
+<h1>Inspection Type</h1>
 <p>This ordered bar plot for inspection type clearly indicates that cycle inspection / initial inspection has the highest amount of counts with 171,657. while second place goes to cycle inspection/ re-inspection with 73207. Other types of inspection hold less than 21,000 counts, where there are more than 10 types of inspections which hold counts less than 1000.</p>
 <pre class="r"><code>#summary.factor(inspection_type)  %&gt;%
 #  sort()

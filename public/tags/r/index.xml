@@ -38,8 +38,7 @@ Alcohol Consumption data has two sets of frequency values but only values from w
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_37/week-37-nyc-restaurants/</guid>
-      <description># load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&amp;quot;fresh&amp;quot;)#load dataNYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;, col_types = cols(inspection_date = col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-That tweet.</description>
+      <description>Inspection TypeCritical FlagInspection Type and Critical Flag over the yearsCycle InspectionPre-permit OperationalAdministrative MiscellaneousMost Inspected RestaurantsDunkin DonutsSubwayMcDonaldsStarbucksKennedy Fried ChickenConclusionFurther Analysis# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&amp;quot;fresh&amp;quot;)#load dataNYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;, col_types = cols(inspection_date = col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description.</description>
     </item>
     
     <item>

@@ -15,8 +15,7 @@
   
     
   
-  <meta name="description" content="# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-That tweet.">
+  <meta name="description" content="Inspection TypeCritical FlagInspection Type and Critical Flag over the yearsCycle InspectionPre-permit OperationalAdministrative MiscellaneousMost Inspected RestaurantsDunkin DonutsSubwayMcDonaldsStarbucksKennedy Fried ChickenConclusionFurther Analysis# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/week_37/week-37-nyc-restaurants/">
@@ -111,8 +110,7 @@ That tweet.">
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/week_37/week-37-nyc-restaurants/">
   <meta property="og:title" content="Week 37: NYC Restaurants | Consulting Statistician">
-  <meta property="og:description" content="# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.
-That tweet.">
+  <meta property="og:description" content="Inspection TypeCritical FlagInspection Type and Critical Flag over the yearsCycle InspectionPre-permit OperationalAdministrative MiscellaneousMost Inspected RestaurantsDunkin DonutsSubwayMcDonaldsStarbucksKennedy Fried ChickenConclusionFurther Analysis# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&quot;fresh&quot;)#load dataNYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, col_types = cols(inspection_date = col_date(format = &quot;%m/%d/%Y&quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description.">
   
   
     
@@ -437,7 +435,28 @@ That tweet.">
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre class="r"><code># load the packages
+      <div id="TOC">
+<ul>
+<li><a href="#inspection-type">Inspection Type</a></li>
+<li><a href="#critical-flag">Critical Flag</a></li>
+<li><a href="#inspection-type-and-critical-flag-over-the-years">Inspection Type and Critical Flag over the years</a><ul>
+<li><a href="#cycle-inspection">Cycle Inspection</a></li>
+<li><a href="#pre-permit-operational">Pre-permit Operational</a></li>
+<li><a href="#administrative-miscellaneous">Administrative Miscellaneous</a></li>
+</ul></li>
+<li><a href="#most-inspected-restaurants">Most Inspected Restaurants</a><ul>
+<li><a href="#dunkin-donuts">Dunkin Donuts</a></li>
+<li><a href="#subway">Subway</a></li>
+<li><a href="#mcdonalds">McDonalds</a></li>
+<li><a href="#starbucks">Starbucks</a></li>
+<li><a href="#kennedy-fried-chicken">Kennedy Fried Chicken</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-analysis">Further Analysis</a></li>
+</ul>
+</div>
+
+<pre class="r"><code># load the packages
 library(readr)
 library(tidyverse)
 library(magrittr)
@@ -457,8 +476,8 @@ attach(NYC)</code></pre>
 <p>Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.</p>
 <p>That <a href="https://twitter.com/Amalan_Con_Stat/status/1073204074579968000">tweet.</a></p>
 <p>First see what type of inspections have occurred.</p>
-<div id="inpsection-type" class="section level1">
-<h1>Inpsection Type</h1>
+<div id="inspection-type" class="section level1">
+<h1>Inspection Type</h1>
 <p>This ordered bar plot for inspection type clearly indicates that cycle inspection / initial inspection has the highest amount of counts with 171,657. while second place goes to cycle inspection/ re-inspection with 73207. Other types of inspection hold less than 21,000 counts, where there are more than 10 types of inspections which hold counts less than 1000.</p>
 <pre class="r"><code>#summary.factor(inspection_type)  %&gt;%
 #  sort()

@@ -1011,7 +1011,28 @@ Over Dispersion
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/week_37/week-37-nyc-restaurants/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#inspection-type&#34;&gt;Inspection Type&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#critical-flag&#34;&gt;Critical Flag&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#inspection-type-and-critical-flag-over-the-years&#34;&gt;Inspection Type and Critical Flag over the years&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cycle-inspection&#34;&gt;Cycle Inspection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pre-permit-operational&#34;&gt;Pre-permit Operational&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#administrative-miscellaneous&#34;&gt;Administrative Miscellaneous&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#most-inspected-restaurants&#34;&gt;Most Inspected Restaurants&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#dunkin-donuts&#34;&gt;Dunkin Donuts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#subway&#34;&gt;Subway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mcdonalds&#34;&gt;McDonalds&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#starbucks&#34;&gt;Starbucks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#kennedy-fried-chicken&#34;&gt;Kennedy Fried Chicken&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
 library(readr)
 library(tidyverse)
 library(magrittr)
@@ -1031,8 +1052,8 @@ attach(NYC)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.&lt;/p&gt;
 &lt;p&gt;That &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1073204074579968000&#34;&gt;tweet.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;First see what type of inspections have occurred.&lt;/p&gt;
-&lt;div id=&#34;inpsection-type&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Inpsection Type&lt;/h1&gt;
+&lt;div id=&#34;inspection-type&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Inspection Type&lt;/h1&gt;
 &lt;p&gt;This ordered bar plot for inspection type clearly indicates that cycle inspection / initial inspection has the highest amount of counts with 171,657. while second place goes to cycle inspection/ re-inspection with 73207. Other types of inspection hold less than 21,000 counts, where there are more than 10 types of inspections which hold counts less than 1000.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#summary.factor(inspection_type)  %&amp;gt;%
 #  sort()
