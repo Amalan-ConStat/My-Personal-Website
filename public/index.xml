@@ -1375,6 +1375,21 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       <guid>/post/week_36/week-36-medium-posts/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#claps&#34;&gt;Claps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-10-authors-and-claps-for-their-posts&#34;&gt;Top 10 Authors and Claps for their posts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-10-authors-with-most-posts&#34;&gt;Top 10 Authors with most posts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-10-authors-who-have-posts-with-images&#34;&gt;Top 10 Authors who have posts with Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-10-authors-who-have-posts-without-images&#34;&gt;Top 10 Authors who have posts without Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-10-authors-and-reading-time-for-their-posts&#34;&gt;Top 10 Authors and Reading time for their posts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#top-5-publications-with-most-posts&#34;&gt;Top 5 Publications with most posts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#word-cloud-for-the-titles-from-top-10-authors&#34;&gt;Word Cloud for the Titles from Top 10 Authors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#word-cloud-for-the-titles-from-top-5-publications&#34;&gt;Word Cloud for the Titles from Top 5 publications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#loading packages
 #load data
