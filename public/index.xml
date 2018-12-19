@@ -7827,6 +7827,20 @@ This is my Second post on the internet so please be kind to tolerate my mistakes
       <guid>/post/week_30/week-30-movie-profit/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#movie-profit-not-so-profit&#34;&gt;Movie Profit, Not So Profit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#understand-genre-and-mpaa-rating-on-movies&#34;&gt;Understand Genre and Mpaa Rating on Movies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lets-focus-of-movies-which-has-zero-domestic-gross&#34;&gt;Lets Focus of movies which has zero domestic gross&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#zero-domestic-gross-point-of-view&#34;&gt;Zero Domestic gross Point of View&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#genre-and-mpaa-rating-point-of-view&#34;&gt;Genre and MPAA Rating Point of View&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#finding-outliers-in-perspective-of-genre-and-mpaa-rating&#34;&gt;Finding Outliers in Perspective of Genre and MPAA Rating&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#production-budget-and-worldwide-gross&#34;&gt;Production Budget and Worldwide Gross&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#years-months-and-days-versus-production-budget&#34;&gt;Years, Months and Days versus Production Budget&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;div id=&#34;movie-profit-not-so-profit&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Movie Profit, Not So Profit&lt;/h1&gt;

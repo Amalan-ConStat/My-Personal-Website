@@ -1,6 +1,9 @@
 ---
 title: 'Week 30: Movie Profit'
 author: M.Amalan
+output:
+  blogdown::html_page:
+    toc: yes
 date: '2018-11-14'
 categories:
   - TidyTuesday
