@@ -1,9 +1,7 @@
 ---
-title: Benchmarking Maximum Likelihood Estimation functions from R
+title: 'Benchmarking optimization functions in R : Estimating the shape parameters
+  by Maximizing the Log Likelihood value of Beta-Binomial Distribution.'
 author: M.Amalan
-output: 
-  blogdown::html_page:
-    toc: true
 date: '2018-12-04'
 categories:
   - fitODBOD
@@ -17,6 +15,10 @@ tags:
   - nlminb
   - optim
   - ucminf
+  - Beta-Binomial
+output:
+  blogdown::html_page:
+    toc: yes
 slug: benchmarking-maximum-liklihood-functions-from-r
 image:
   caption: ''
@@ -65,7 +67,7 @@ In the package fitODBOD we have the function EstMLEBetaBin which is constructed 
 Negative Log Likelihood function, and we will use it. 
 
 We take Log to transform the Likelihood function values into small values, which will simplify the 
-computation process and save time. The estimation functions we need to compare will use specific 
+computation process and save time. The optimization functions we need to compare will use specific 
 mathematical methods to find the most appropriate shape parameter values.
 
 The functions in question are 
@@ -79,7 +81,7 @@ The functions in question are
 7. [mle2](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2)
 
 Further, I will focus on the attributes of the above functions. Focusing from which package, Number of Inputs, Number of Outputs, 
-Time to complete estimation and Analytical Methods used with the assistance of two tables. Alcohol Consumption data 
+Time to complete optimization and Analytical Methods used with the assistance of two tables. Alcohol Consumption data 
 has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations
 is 399 and the Binomial Random variable is a vector of values from zero to seven. 
 
@@ -262,8 +264,8 @@ we have to change the EstMLEBetaBin function. After making the changes we will b
 forucminf function to the estimation process of shape parameters a and b. 
 
 When initial parameter values are set to a=0.1 and b=0.2 we will obtain results from 
-ucminf function, which will minimize the Negative Log-likelihood function. Below is the 
-code for estimation and using the results to understand the function ucminf.
+ucminf function, which will minimize the Negative Log-likelihood value of Beta-Binomial distribution.
+Below is the code for estimation and using the results to understand the function ucminf.
 
 ```{r ucminf function from stats package, results='hide'}
 library(ucminf)
@@ -274,7 +276,7 @@ forucminf<-function(a)
   EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a=a[1],a[2])
 }
 
-# optimizing values for a,b using default methods
+# optimizing values for a,b using default analytical method
 ucminf_answer<-ucminf(par=c(0.1,0.2),fn=forucminf)
 
 #obtaining class
@@ -297,8 +299,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 ```
 
 With the help of R [Documentation](https://www.rdocumentation.org/packages/ucminf/versions/1.1-4/topics/ucminf) the 
-estimation was done for shape parameter values a and b using the ucminf function. Below are the initial understandings of
-the inputs and outputs of ucminf function 
+estimation was done for shape parameter values a and b using the ucminf function. Below are the initial understanding of
+the ucminf function 
 
 * package : ucminf
 * No of Inputs: 5
@@ -310,8 +312,8 @@ the inputs and outputs of ucminf function
 
 ## maxLik Function
 
-maxLik function is the cause of [maxLik](https://cran.r-project.org/package=maxLik) package, which only 
-maximizes the Log Likelihood function. Therefore we have to restructure EstMLEBetaBin as previously mentioned but as 
+maxLik function is from the [maxLik](https://cran.r-project.org/package=maxLik) package, which only 
+maximizes the Log Likelihood function. Therefore we have to restructure EstMLEBetaBin as previously mentioned, but as 
 an addition a negative sign is added for the output. This new function will be called as formaxLik. 
 
 For the initial parameter values where a=0.1 and b=0.2 the maxLik function will be used and 
@@ -326,7 +328,7 @@ formaxLik<-function(a)
   -EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a=a[1],a[2])
   }
 
-# optimizing values for a,b using default methods
+# optimizing values for a,b using default analytical method
 maxLik_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2))
 
 # obtaining class of output
@@ -354,8 +356,9 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 ```
 
 Using the [Documentation](https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik) of maxLik
-and further using the [Documentation](https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxNR) of 
-maxNR function. According to the code above below are the findings in for maxLik function in point form 
+and the [Documentation](https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxNR) of 
+maxNR function the above analysis was done for the maxLik function. According to the above code below are the findings from the maxLik 
+function in point form 
 
 * package : maxLik
 * No of Inputs: 6
@@ -371,7 +374,7 @@ maxNR function. According to the code above below are the findings in for maxLik
 estimating a and b parameters. Here also as previously we need to make some changes 
 as below and create a new estimating function called formle. 
 
-For the initial parameter values of a=0.1 and b=0.2 the Negative Log Likelihood value 
+For the initial parameter values of a=0.1 and b=0.2 the Negative Log Likelihood value of Beta-Binomial distribution
 has been minimized using mle function. Below is the code for estimation and investigation
 from the outputs of mle after estimation. 
 
@@ -384,7 +387,7 @@ formle<-function(a,b)
   EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a,b)
   }
 
-# optimizing values for a,b using default methods
+# optimizing values for a,b using default analytical method
 mle_answer<-mle(minuslogl=formle,start = list(a=0.1,b=0.2))
 
 # obtaining class
@@ -418,11 +421,11 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            mle_answer@coef[1],mle_answer@coef[2])
 ```
 
-It should be noted that in all 5 previous function we only saw lists of output, but
+It should be noted that in all 5 previous functions we only outpus in the form of lists, but
 through mle we are seeing a class of mle output.The [Documention](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle) 
 explains the inputs and outputs of mle. [Documentation](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle-class) 
-for mle-class explains further about the methods that can be used. Further, below is a list of findings 
-based on the outputs from mle function.
+for mle-class explains further about the methods that can be used. Below is a list of findings 
+based on the outputs of the mle function.
 
 * package : stats4
 * No of Inputs: 5
@@ -439,17 +442,16 @@ mle2 function is advanced than mle function and it is from the package [bbmle](h
 Here, there is no need to modify the EstMLEBetabin function from the fitODBOD package 
 to estimation as all previous situations . 
 
-For the initial parameter values of a=0.1 and b=0.2 Negative Log Likelihood function will be
-minimized where outputs will be investigated and methods related to output in class of mle2 will 
-be used.
+For the initial parameter values of a=0.1 and b=0.2 Negative Log Likelihood function of Beta-Binomial distribution will be
+minimized where outputs will be investigated and methods related to output of class mle2 will be used.
 
 Below is the code for using mle2 function and scrutinizing the output and methods 
-relate to it. 
+related to it. 
 
 ```{r mle2 function from bbmle package, results='hide'}
 library(bbmle)
 
-# optimizing values for a,b using default methods
+# optimizing values for a,b using default analytical method
 mle2_answer<-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
                   data = list(x=Alcohol_data$Days,freq=Alcohol_data$week1))
 
@@ -489,9 +491,9 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
            mle2_answer@coef[1],mle2_answer@coef[2])
 ```
 
-After estimation, fiddling with the output, with the [Documention](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2) of
-mle2 function and mle2-class [Documentation](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2-class) few findings are mentioned below
-in point form.
+[Documention](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2) of
+mle2 function and [Documentation](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2-class) of mle2-class  
+provide a few findings as mentioned below in point form.
 
 * package : bbmle
 * No of Inputs: 22
@@ -502,17 +504,18 @@ in point form.
 * No of Analytical Methods : 6
 * Default Method : Nelder and Mead
 
-# Summary of package Information of the R functions 
+# Summary of the seven optimization functions in R 
 
-After completing a brief fact finding of the R functions optim, nlm, nlminb, ucminf
-maxLik, mle and mle2 we can record the facts and results in a table. Using this
-table we can choose the best suitable function for our needs of estimating parameters.
+After completing a brief fact finding of the R functions optim, nlm, nlminb, ucminf, 
+maxLik, mle and mle2. We can record the facts and results in two tables. Using them
+we can choose the best suitable function for our needs of estimation from optimization.
 
-I would prefer mle2 function than others because it provides special methods to handle
-the mle2 outputs and the output themselves are very thorough than other R functions. It 
-can be seen that even though estimated a and b shape parameter values seem different only 
-from the fourth decimal point in between all outputs. But this does not effect the 
-minimized Negative Log Likelihood function which is same for all seven function outputs.
+Mostly I prefer mle2 function than others because it provides special methods to handle
+the mle2 outputs, and the output themselves are very thorough than other R function outputs. 
+It can be seen that estimated a and b shape parameter values are different only 
+from the third decimal point in all outputs. But this does not effect the 
+minimized Negative Log Likelihood value of Beta-Binomial distribution for our Alcohol
+Consumption data, which is same for all outputs.
 
 ```{r Summary of package info,input and output,echo=FALSE}
 Results1<-data.frame(
@@ -532,25 +535,24 @@ kable(Results1,"html",align = c('c','c','c','c','c','c','c','c')) %>%
    column_spec(1,color = "red")
 ```
 
-# Summary of Time evaluation for the R functions
+# Summary of Time evaluation for the seven optimization R functions
 
-Further at the beginning I have considered to evaluate the time of system process 
-for the functions to produce results and compare them. In order to do this time comparison
-it is possible to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
+Further at the beginning I have mentioned to evaluate the system process time 
+for the seven functions. In order to do this time comparison it is possible to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
 function of [rbenchmark](https://cran.r-project.org/package=rbenchmark) 
-package and below mentioned code chunk provides the output 
-in a table form which includes the functions and their respective time values. The estimation 
+package, and below mentioned code chunk provides the output in a table form. 
+It includes the functions and their respective time values. The estimation 
 process of the parameters where each function has been replicated 1000 times to receive a
-more accurate and strong table of time values. 
+more accurate table of time values. 
 
-
-The table is order according to the elapsed time value column in ascending order. According to this we 
+The table is in ascending order according to the elapsed time values column. According to this we 
 can see that least time takes to the nlminb function and most time is taken to the mle2 function. These 
-times complete depends on the Negative Log Likelihood function you need to minimize, the data you provided,
-the number of estimators that needs to be estimated and finally the complexity of the function. 
+times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided,
+the number of estimators that needs to be estimated, the complexity of the function and finally your computer's 
+processing power. 
 
-Therefore based on the needs of your output and the function which needs estimation choose the best function.
-Because as we say in the earlier table the estimated values are slightly different but does not make any strong influence 
+Therefore based on the needs of your output and the function which needs estimation choose the best function out of the above seven.
+Because as I said in the earlier table the estimated values are slightly different but does not make any strong influence 
 on the results.
 
 ```{r time benchmark}
@@ -577,17 +579,17 @@ kable(Results2,"html",align = c('c','c','c','c','c','c')) %>%
   column_spec(1,color = "red")
 ```
 
-# Summary of Results after estimating parameters using the R functions
+# Summary of Results after estimating parameters using the optimization R functions
 
 After using the functions optim, nlm, nlminb, ucminf, maxLik, mle and mle2 to estimate
 the shape parameters a, b we can use the estimated parameters in the function fitBetaBin.
-Using this function we can find expected frequencies for each of these functions and 
-compare p-values and over-dispersion and understand if using different estimation functions had
+Using this function we can find expected frequencies for each of the estimated parameters a,b and 
+compare p-values and over-dispersion and understand if using different optmization functions had
 any effect on them.
 
 According to the below table there is no significant changes between the expected frequencies,
-p-values or the over dispersion values. This is a clear indication of it does not matter what function we
-use the estimation will occur effectively but only efficiency will be affected.
+p-values or the over dispersion values. This is a clear indication that it does not matter what function we
+use for the optimization. Because the process will occur effectively only efficiency(time) will be affected.
 
 ```{r Summary of Results,echo=FALSE}
 Results3<-data.frame(
@@ -613,6 +615,6 @@ kable(Results3,"html",align = c('c','c','c','c','c','c','c','c')) %>%
 
 We had 7 functions to compare but choosing one over the other is completely harmless
 to the final result of estimation as seen by our tables. The only issue is time, therefore
-I would recommend chose the best function based on your needs of output and research objective.
+I would recommend choose the best function based on your needs of output and research objective.
 
 *Thank You*
