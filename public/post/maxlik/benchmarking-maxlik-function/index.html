@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.49.2" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
+Focusing on the seven analytical methods is my intention from this blog post.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/maxlik/benchmarking-maxlik-function/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/maxlik/benchmarking-maxlik-function/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/maxlik/benchmarking-maxlik-function/">
+  <meta property="og:title" content="Benchmarking maxLik function | Consulting Statistician">
+  <meta property="og:description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
+Focusing on the seven analytical methods is my intention from this blog post.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2018-12-20T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-12-20T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Benchmarking maxLik function | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan-Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Benchmarking maxLik function</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-12-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-12-20 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Dec 20, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/fitodbod/">fitODBOD</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Benchmarking%20maxLik%20function&amp;url=%2fpost%2fmaxlik%2fbenchmarking-maxlik-function%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fmaxlik%2fbenchmarking-maxlik-function%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmaxlik%2fbenchmarking-maxlik-function%2f&amp;title=Benchmarking%20maxLik%20function"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmaxlik%2fbenchmarking-maxlik-function%2f&amp;title=Benchmarking%20maxLik%20function"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Benchmarking%20maxLik%20function&amp;body=%2fpost%2fmaxlik%2fbenchmarking-maxlik-function%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
+<h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Beginning of this month I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a> regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package <a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further, <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> clearly indicates all things related to the function in detail.</p>
+<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
+<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion in tables.</p>
+<p>Below are the seven analytical methods in concern</p>
+<ol style="list-style-type: decimal">
+<li>NR</li>
+<li>BFGS</li>
+<li>BFGSR</li>
+<li>BHHH</li>
+<li>SANN</li>
+<li>CG</li>
+<li>NM</li>
+</ol>
+<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<pre class="r"><code>library(fitODBOD)
+kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
+  row_spec(0,color = &quot;blue&quot;) %&gt;%
+  column_spec(1,color = &quot;red&quot;)</code></pre>
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+Days
+</th>
+<th style="text-align:center;color: blue;">
+week1
+</th>
+<th style="text-align:center;color: blue;">
+week2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+0
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+1
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+2
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+3
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+5
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+6
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+7
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+</tbody>
+</table>
+<div id="breif-of-maxlik-function" class="section level2">
+<h2>Breif of maxLik Function</h2>
+<p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
+<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
+<p>Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
+<pre class="r"><code># new function to facilitate maxLik criteria
+# only one input but has two elements
+formaxLik&lt;-function(a)
+  {
+  -EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
+  }</code></pre>
+<p>So the formaxLik function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further the maxLik function can be scrutinized as below.</p>
+<ul>
+<li>package : maxLik</li>
+<li>No of Inputs: 6</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list or class of maxim or class of maxLik</li>
+<li>No of outputs: 11</li>
+<li>No of Analytical Methods : 7</li>
+<li>Default Method : Automatically chosen</li>
+</ul>
+</div>
+<div id="nr-method" class="section level2">
+<h2>NR method</h2>
+<pre class="r"><code>library(maxLik)
+
+# optimizing values for a,b using NR analytical method
+NR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;NR&quot;)
+
+# obtaining class of output
+class(NR_answer)
+
+# length of output
+length(NR_answer)
+
+# the outputs
+NR_answer$estimate # estimated values for a, b
+NR_answer$maximum # minimized function value 
+NR_answer$iterations  # no of iterations to succeed
+NR_answer$gradient # last gradient value which was calculated
+NR_answer$message # additional information
+NR_answer$hessian # hessian matrix
+NR_answer$code # indicates successful completion
+NR_answer$fixed # logical vector indicating which parameters are constants
+NR_answer$type # type of maximization
+NR_answer$last.step # list describing the last unsuccessful step
+NR_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           NR_answer$estimate[1],NR_answer$estimate[2])</code></pre>
+</div>
+<div id="bfgs-method" class="section level2">
+<h2>BFGS method</h2>
+<pre class="r"><code># optimizing values for a,b using BFGS analytical method
+BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;BFGS&quot;)
+
+# obtaining class of output
+class(BFGS_answer)
+
+# length of output
+length(BFGS_answer)
+
+# the outputs
+BFGS_answer$estimate # estimated values for a, b
+BFGS_answer$maximum # minimized function value 
+BFGS_answer$iterations  # no of iterations to succeed
+BFGS_answer$gradient # last gradient value which was calculated
+BFGS_answer$message # additional information
+BFGS_answer$hessian # hessian matrix
+BFGS_answer$code # indicates successful completion
+BFGS_answer$fixed # logical vector indicating which parameters are constants
+BFGS_answer$type # type of maximization
+BFGS_answer$last.step # list describing the last unsuccessful step
+BFGS_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           BFGS_answer$estimate[1],BFGS_answer$estimate[2])</code></pre>
+</div>
+<div id="bfgsr-method" class="section level2">
+<h2>BFGSR method</h2>
+<pre class="r"><code># optimizing values for a,b using BFGSR analytical method
+BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;BFGSR&quot;)
+
+# obtaining class of output
+class(BFGSR_answer)
+
+# length of output
+length(BFGSR_answer)
+
+# the outputs
+BFGSR_answer$estimate # estimated values for a, b
+BFGSR_answer$maximum # minimized function value 
+BFGSR_answer$iterations  # no of iterations to succeed
+BFGSR_answer$gradient # last gradient value which was calculated
+BFGSR_answer$message # additional information
+BFGSR_answer$hessian # hessian matrix
+BFGSR_answer$code # indicates successful completion
+BFGSR_answer$fixed # logical vector indicating which parameters are constants
+BFGSR_answer$type # type of maximization
+BFGSR_answer$last.step # list describing the last unsuccessful step
+BFGSR_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           BFGSR_answer$estimate[1],BFGSR_answer$estimate[2])</code></pre>
+</div>
+<div id="bhhh-method" class="section level2">
+<h2>BHHH method</h2>
+</div>
+<div id="sann-method" class="section level2">
+<h2>SANN method</h2>
+<pre class="r"><code># optimizing values for a,b using SANN analytical method
+SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;SANN&quot;)
+
+# obtaining class of output
+class(SANN_answer)
+
+# length of output
+length(SANN_answer)
+
+# the outputs
+SANN_answer$estimate # estimated values for a, b
+SANN_answer$maximum # minimized function value 
+SANN_answer$iterations  # no of iterations to succeed
+SANN_answer$gradient # last gradient value which was calculated
+SANN_answer$message # additional information
+SANN_answer$hessian # hessian matrix
+SANN_answer$code # indicates successful completion
+SANN_answer$fixed # logical vector indicating which parameters are constants
+SANN_answer$type # type of maximization
+SANN_answer$last.step # list describing the last unsuccessful step
+SANN_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           SANN_answer$estimate[1],SANN_answer$estimate[2])</code></pre>
+</div>
+<div id="cg-method" class="section level2">
+<h2>CG method</h2>
+<pre class="r"><code># optimizing values for a,b using CG analytical method
+CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;CG&quot;)
+
+# obtaining class of output
+class(CG_answer)
+
+# length of output
+length(CG_answer)
+
+# the outputs
+CG_answer$estimate # estimated values for a, b
+CG_answer$maximum # minimized function value 
+CG_answer$iterations  # no of iterations to succeed
+CG_answer$gradient # last gradient value which was calculated
+CG_answer$message # additional information
+CG_answer$hessian # hessian matrix
+CG_answer$code # indicates successful completion
+CG_answer$fixed # logical vector indicating which parameters are constants
+CG_answer$type # type of maximization
+CG_answer$last.step # list describing the last unsuccessful step
+CG_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           CG_answer$estimate[1],CG_answer$estimate[2])</code></pre>
+</div>
+<div id="nm-method" class="section level2">
+<h2>NM method</h2>
+<pre class="r"><code># optimizing values for a,b using NM analytical method
+NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;NM&quot;)
+
+# obtaining class of output
+class(NM_answer)
+
+# length of output
+length(NM_answer)
+
+# the outputs
+NM_answer$estimate # estimated values for a, b
+NM_answer$maximum # minimized function value 
+NM_answer$iterations  # no of iterations to succeed
+NM_answer$gradient # last gradient value which was calculated
+NM_answer$message # additional information
+NM_answer$hessian # hessian matrix
+NM_answer$code # indicates successful completion
+NM_answer$fixed # logical vector indicating which parameters are constants
+NM_answer$type # type of maximization
+NM_answer$last.step # list describing the last unsuccessful step
+NM_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           NM_answer$estimate[1],NM_answer$estimate[2])</code></pre>
+</div>
+</div>
+<div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
+<h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
+</div>
+<div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
+<h1>Summary of results after using the maxLik function for different analytical methods</h1>
+</div>
+<div id="final-conclusion" class="section level1">
+<h1>Final Conclusion</h1>
+<p><em>Thank you</em></p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/beta-binomial/">Beta-Binomial</a>
+  
+  <a class="badge badge-light" href="/tags/fitodbod/">fitODBOD</a>
+  
+  <a class="badge badge-light" href="/tags/maxlik/">maxLik</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">Benchmarking optimization functions in R</a></li>
+        
+        <li><a href="/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/">Benchmarking the optim function</a></li>
+        
+        <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

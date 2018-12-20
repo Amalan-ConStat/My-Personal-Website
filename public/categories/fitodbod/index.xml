@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 14 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/fitodbod/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Benchmarking maxLik function</title>
+      <link>/post/maxlik/benchmarking-maxlik-function/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/maxlik/benchmarking-maxlik-function/</guid>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
+Focusing on the seven analytical methods is my intention from this blog post.</description>
+    </item>
     
     <item>
       <title>Benchmarking the optim function</title>

@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Benchmarking maxLik function</title>
+      <link>/post/maxlik/benchmarking-maxlik-function/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/maxlik/benchmarking-maxlik-function/</guid>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
+Focusing on the seven analytical methods is my intention from this blog post.</description>
+    </item>
+    
+    <item>
       <title>Week 38: Sea Creatures</title>
       <link>/post/week_38/week-38-sea-creatures/</link>
       <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>

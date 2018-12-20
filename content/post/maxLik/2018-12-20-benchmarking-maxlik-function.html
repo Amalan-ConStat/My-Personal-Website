@@ -1,0 +1,360 @@
+---
+title: Benchmarking maxLik function
+author: M.Amalan
+date: '2018-12-20'
+slug: benchmarking-maxlik-function
+categories:
+  - fitODBOD
+tags:
+  - Beta-Binomial
+  - fitODBOD
+  - maxLik
+image:
+  caption: ''
+  focal_point: ''
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
+<h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Beginning of this month I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a> regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package <a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further, <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> clearly indicates all things related to the function in detail.</p>
+<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
+<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion in tables.</p>
+<p>Below are the seven analytical methods in concern</p>
+<ol style="list-style-type: decimal">
+<li>NR</li>
+<li>BFGS</li>
+<li>BFGSR</li>
+<li>BHHH</li>
+<li>SANN</li>
+<li>CG</li>
+<li>NM</li>
+</ol>
+<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<pre class="r"><code>library(fitODBOD)
+kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
+  row_spec(0,color = &quot;blue&quot;) %&gt;%
+  column_spec(1,color = &quot;red&quot;)</code></pre>
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+Days
+</th>
+<th style="text-align:center;color: blue;">
+week1
+</th>
+<th style="text-align:center;color: blue;">
+week2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+0
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+1
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+2
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+3
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+5
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+6
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+7
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+</tbody>
+</table>
+<div id="breif-of-maxlik-function" class="section level2">
+<h2>Breif of maxLik Function</h2>
+<p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
+<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
+<p>Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
+<pre class="r"><code># new function to facilitate maxLik criteria
+# only one input but has two elements
+formaxLik&lt;-function(a)
+  {
+  -EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
+  }</code></pre>
+<p>So the formaxLik function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further the maxLik function can be scrutinized as below.</p>
+<ul>
+<li>package : maxLik</li>
+<li>No of Inputs: 6</li>
+<li>Minimum required Inputs : 2</li>
+<li>Class of output : list or class of maxim or class of maxLik</li>
+<li>No of outputs: 11</li>
+<li>No of Analytical Methods : 7</li>
+<li>Default Method : Automatically chosen</li>
+</ul>
+</div>
+<div id="nr-method" class="section level2">
+<h2>NR method</h2>
+<pre class="r"><code>library(maxLik)
+
+# optimizing values for a,b using NR analytical method
+NR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;NR&quot;)
+
+# obtaining class of output
+class(NR_answer)
+
+# length of output
+length(NR_answer)
+
+# the outputs
+NR_answer$estimate # estimated values for a, b
+NR_answer$maximum # minimized function value 
+NR_answer$iterations  # no of iterations to succeed
+NR_answer$gradient # last gradient value which was calculated
+NR_answer$message # additional information
+NR_answer$hessian # hessian matrix
+NR_answer$code # indicates successful completion
+NR_answer$fixed # logical vector indicating which parameters are constants
+NR_answer$type # type of maximization
+NR_answer$last.step # list describing the last unsuccessful step
+NR_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           NR_answer$estimate[1],NR_answer$estimate[2])</code></pre>
+</div>
+<div id="bfgs-method" class="section level2">
+<h2>BFGS method</h2>
+<pre class="r"><code># optimizing values for a,b using BFGS analytical method
+BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;BFGS&quot;)
+
+# obtaining class of output
+class(BFGS_answer)
+
+# length of output
+length(BFGS_answer)
+
+# the outputs
+BFGS_answer$estimate # estimated values for a, b
+BFGS_answer$maximum # minimized function value 
+BFGS_answer$iterations  # no of iterations to succeed
+BFGS_answer$gradient # last gradient value which was calculated
+BFGS_answer$message # additional information
+BFGS_answer$hessian # hessian matrix
+BFGS_answer$code # indicates successful completion
+BFGS_answer$fixed # logical vector indicating which parameters are constants
+BFGS_answer$type # type of maximization
+BFGS_answer$last.step # list describing the last unsuccessful step
+BFGS_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           BFGS_answer$estimate[1],BFGS_answer$estimate[2])</code></pre>
+</div>
+<div id="bfgsr-method" class="section level2">
+<h2>BFGSR method</h2>
+<pre class="r"><code># optimizing values for a,b using BFGSR analytical method
+BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;BFGSR&quot;)
+
+# obtaining class of output
+class(BFGSR_answer)
+
+# length of output
+length(BFGSR_answer)
+
+# the outputs
+BFGSR_answer$estimate # estimated values for a, b
+BFGSR_answer$maximum # minimized function value 
+BFGSR_answer$iterations  # no of iterations to succeed
+BFGSR_answer$gradient # last gradient value which was calculated
+BFGSR_answer$message # additional information
+BFGSR_answer$hessian # hessian matrix
+BFGSR_answer$code # indicates successful completion
+BFGSR_answer$fixed # logical vector indicating which parameters are constants
+BFGSR_answer$type # type of maximization
+BFGSR_answer$last.step # list describing the last unsuccessful step
+BFGSR_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           BFGSR_answer$estimate[1],BFGSR_answer$estimate[2])</code></pre>
+</div>
+<div id="bhhh-method" class="section level2">
+<h2>BHHH method</h2>
+</div>
+<div id="sann-method" class="section level2">
+<h2>SANN method</h2>
+<pre class="r"><code># optimizing values for a,b using SANN analytical method
+SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;SANN&quot;)
+
+# obtaining class of output
+class(SANN_answer)
+
+# length of output
+length(SANN_answer)
+
+# the outputs
+SANN_answer$estimate # estimated values for a, b
+SANN_answer$maximum # minimized function value 
+SANN_answer$iterations  # no of iterations to succeed
+SANN_answer$gradient # last gradient value which was calculated
+SANN_answer$message # additional information
+SANN_answer$hessian # hessian matrix
+SANN_answer$code # indicates successful completion
+SANN_answer$fixed # logical vector indicating which parameters are constants
+SANN_answer$type # type of maximization
+SANN_answer$last.step # list describing the last unsuccessful step
+SANN_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           SANN_answer$estimate[1],SANN_answer$estimate[2])</code></pre>
+</div>
+<div id="cg-method" class="section level2">
+<h2>CG method</h2>
+<pre class="r"><code># optimizing values for a,b using CG analytical method
+CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;CG&quot;)
+
+# obtaining class of output
+class(CG_answer)
+
+# length of output
+length(CG_answer)
+
+# the outputs
+CG_answer$estimate # estimated values for a, b
+CG_answer$maximum # minimized function value 
+CG_answer$iterations  # no of iterations to succeed
+CG_answer$gradient # last gradient value which was calculated
+CG_answer$message # additional information
+CG_answer$hessian # hessian matrix
+CG_answer$code # indicates successful completion
+CG_answer$fixed # logical vector indicating which parameters are constants
+CG_answer$type # type of maximization
+CG_answer$last.step # list describing the last unsuccessful step
+CG_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           CG_answer$estimate[1],CG_answer$estimate[2])</code></pre>
+</div>
+<div id="nm-method" class="section level2">
+<h2>NM method</h2>
+<pre class="r"><code># optimizing values for a,b using NM analytical method
+NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
+                      method = &quot;NM&quot;)
+
+# obtaining class of output
+class(NM_answer)
+
+# length of output
+length(NM_answer)
+
+# the outputs
+NM_answer$estimate # estimated values for a, b
+NM_answer$maximum # minimized function value 
+NM_answer$iterations  # no of iterations to succeed
+NM_answer$gradient # last gradient value which was calculated
+NM_answer$message # additional information
+NM_answer$hessian # hessian matrix
+NM_answer$code # indicates successful completion
+NM_answer$fixed # logical vector indicating which parameters are constants
+NM_answer$type # type of maximization
+NM_answer$last.step # list describing the last unsuccessful step
+NM_answer$control # see the documentation understand
+
+# fitting the Beta-Binomial distribution with estimated shape parameter values
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           NM_answer$estimate[1],NM_answer$estimate[2])</code></pre>
+</div>
+</div>
+<div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
+<h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
+</div>
+<div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
+<h1>Summary of results after using the maxLik function for different analytical methods</h1>
+</div>
+<div id="final-conclusion" class="section level1">
+<h1>Final Conclusion</h1>
+<p><em>Thank you</em></p>
+</div>

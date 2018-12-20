@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/maxlik/benchmarking-maxlik-function/</loc>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/week_38/week-38-sea-creatures/</loc>
       <lastmod>2018-12-18T00:00:00+00:00</lastmod>
     </url>
@@ -233,7 +241,7 @@
     <url>
     
       <loc>/tags/beta-binomial/</loc>
-      <lastmod>2018-12-14T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -382,16 +390,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2018-12-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tags/tidytuesday/</loc>
-      <lastmod>2018-12-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -400,6 +399,15 @@
     <url>
     
       <loc>/categories/tidytuesday/</loc>
+      <lastmod>2018-12-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/tidytuesday/</loc>
       <lastmod>2018-12-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -426,8 +434,8 @@
     
     <url>
     
-      <loc>/tags/fitodbod/</loc>
-      <lastmod>2018-12-14T00:00:00+00:00</lastmod>
+      <loc>/categories/fitodbod/</loc>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -435,8 +443,8 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
-      <lastmod>2018-12-14T00:00:00+00:00</lastmod>
+      <loc>/tags/fitodbod/</loc>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -445,7 +453,7 @@
     <url>
     
       <loc>/tags/maxlik/</loc>
-      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
