@@ -18,8 +18,7 @@
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/maxlik/benchmarking-maxlik-function/</guid>
-      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
-Focusing on the seven analytical methods is my intention from this blog post.</description>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions.</description>
     </item>
     
     <item>

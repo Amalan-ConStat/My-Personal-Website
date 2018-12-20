@@ -18,6 +18,24 @@
       <guid>/post/maxlik/benchmarking-maxlik-function/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#estimating-the-shape-parameters-of-beta-binomial-distribution&#34;&gt;Estimating the shape parameters of Beta-Binomial Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#brief-of-maxlik-function&#34;&gt;Brief of maxLik Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#nr-method&#34;&gt;NR method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bfgs-method&#34;&gt;BFGS method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bfgsr-method&#34;&gt;BFGSR method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bhhh-method&#34;&gt;BHHH method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sann-method&#34;&gt;SANN method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cg-method&#34;&gt;CG method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#nm-method&#34;&gt;NM method&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function&#34;&gt;Sumary of Time evalutation for different Analytical methods of maxLik function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods&#34;&gt;Summary of results after using the maxLik function for different analytical methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#final-conclusion&#34;&gt;Final Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;div id=&#34;estimating-the-shape-parameters-of-beta-binomial-distribution&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Estimating the shape parameters of Beta-Binomial Distribution&lt;/h1&gt;

@@ -2,6 +2,9 @@
 title: Benchmarking maxLik function
 author: M.Amalan
 date: '2018-12-20'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: benchmarking-maxlik-function
 categories:
   - fitODBOD
@@ -16,6 +19,24 @@ image:
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#estimating-the-shape-parameters-of-beta-binomial-distribution">Estimating the shape parameters of Beta-Binomial Distribution</a></li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#brief-of-maxlik-function">Brief of maxLik Function</a></li>
+<li><a href="#nr-method">NR method</a></li>
+<li><a href="#bfgs-method">BFGS method</a></li>
+<li><a href="#bfgsr-method">BFGSR method</a></li>
+<li><a href="#bhhh-method">BHHH method</a></li>
+<li><a href="#sann-method">SANN method</a></li>
+<li><a href="#cg-method">CG method</a></li>
+<li><a href="#nm-method">NM method</a></li>
+</ul></li>
+<li><a href="#sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function">Sumary of Time evalutation for different Analytical methods of maxLik function</a></li>
+<li><a href="#summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods">Summary of results after using the maxLik function for different analytical methods</a></li>
+<li><a href="#final-conclusion">Final Conclusion</a></li>
+</ul>
+</div>
 
 <div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
 <h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>

@@ -15,8 +15,7 @@
   
     
   
-  <meta name="description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
-Focusing on the seven analytical methods is my intention from this blog post.">
+  <meta name="description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/maxlik/benchmarking-maxlik-function/">
@@ -111,8 +110,7 @@ Focusing on the seven analytical methods is my intention from this blog post.">
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/maxlik/benchmarking-maxlik-function/">
   <meta property="og:title" content="Benchmarking maxLik function | Consulting Statistician">
-  <meta property="og:description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package maxLik. Further, Documentation clearly indicates all things related to the function in detail.
-Focusing on the seven analytical methods is my intention from this blog post.">
+  <meta property="og:description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions.">
   
   
     
@@ -439,6 +437,24 @@ Focusing on the seven analytical methods is my intention from this blog post.">
     <div class="article-style" itemprop="articleBody">
       <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#estimating-the-shape-parameters-of-beta-binomial-distribution">Estimating the shape parameters of Beta-Binomial Distribution</a></li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#brief-of-maxlik-function">Brief of maxLik Function</a></li>
+<li><a href="#nr-method">NR method</a></li>
+<li><a href="#bfgs-method">BFGS method</a></li>
+<li><a href="#bfgsr-method">BFGSR method</a></li>
+<li><a href="#bhhh-method">BHHH method</a></li>
+<li><a href="#sann-method">SANN method</a></li>
+<li><a href="#cg-method">CG method</a></li>
+<li><a href="#nm-method">NM method</a></li>
+</ul></li>
+<li><a href="#sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function">Sumary of Time evalutation for different Analytical methods of maxLik function</a></li>
+<li><a href="#summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods">Summary of results after using the maxLik function for different analytical methods</a></li>
+<li><a href="#final-conclusion">Final Conclusion</a></li>
+</ul>
+</div>
 
 <div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
 <h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>
