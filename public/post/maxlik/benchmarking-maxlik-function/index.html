@@ -572,6 +572,7 @@ week2
 <div id="brief-of-maxlik-function" class="section level2">
 <h2>Brief of maxLik Function</h2>
 <p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
+<p>Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26, 443–458 Marquardt, D.W., (1963) An Algorithm for Least-Squares Estimation of Nonlinear Parameters, Journal of the Society for Industrial &amp; Applied Mathematics 11, 2, 431–441</p>
 <p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
 <p>Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
 <pre class="r"><code># new function to facilitate maxLik criteria
@@ -593,6 +594,7 @@ formaxLik&lt;-function(a)
 </div>
 <div id="nr-method" class="section level2">
 <h2>NR method</h2>
+<p>NR is an abbreviation for Unconstrained and equality-constrained maximization based on the quadratic approximation (Newton) method. The idea of the Newton method is to approximate the function at a given location by a multidimensional quadratic function, and use the estimated maximum as the start value for the next iteration.</p>
 <pre class="r"><code>library(maxLik)
 
 # optimizing values for a,b using NR analytical method
@@ -623,6 +625,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="bfgs-method" class="section level2">
 <h2>BFGS method</h2>
+<p>BFGS is a Quasi-Newton method (also known as a variable metric algorithm), specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses function values and gradients to build up a picture of the surface to be optimized.</p>
+<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
 <pre class="r"><code># optimizing values for a,b using BFGS analytical method
 BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGS&quot;)
 
@@ -710,6 +714,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="cg-method" class="section level2">
 <h2>CG method</h2>
+<p>According to the documentation Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) (but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
+<p>Reference : Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2), pp.149-154.</p>
 <pre class="r"><code># optimizing values for a,b using CG analytical method
 CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;CG&quot;)
 
@@ -738,6 +744,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="nm-method" class="section level2">
 <h2>NM method</h2>
+<p>NM is the abbreviation to Nelder and Mead method. According to the documentation it uses only function values and is robust but relatively slow. It will work reasonably well for non-differential functions.</p>
+<p>Reference : Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.</p>
 <pre class="r"><code># optimizing values for a,b using NM analytical method
 NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;NM&quot;)
 
@@ -807,9 +815,9 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
         
         <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
-        
         <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
       </ul>
     </div>
