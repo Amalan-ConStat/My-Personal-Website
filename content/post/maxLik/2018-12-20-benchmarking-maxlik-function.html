@@ -24,7 +24,7 @@ image:
 <h1>Introduction</h1>
 <p>Beginning of this month I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a> regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package <a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further, <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> clearly indicates all things related to the function in detail.</p>
 <p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
-<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion in tables.</p>
+<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion with tables.</p>
 <p>Below are the seven analytical methods in concern</p>
 <ol style="list-style-type: decimal">
 <li>NR</li>
@@ -146,8 +146,8 @@ week2
 </tr>
 </tbody>
 </table>
-<div id="breif-of-maxlik-function" class="section level2">
-<h2>Breif of maxLik Function</h2>
+<div id="brief-of-maxlik-function" class="section level2">
+<h2>Brief of maxLik Function</h2>
 <p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
 <p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
 <p>Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
@@ -173,8 +173,7 @@ formaxLik&lt;-function(a)
 <pre class="r"><code>library(maxLik)
 
 # optimizing values for a,b using NR analytical method
-NR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;NR&quot;)
+NR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;NR&quot;)
 
 # obtaining class of output
 class(NR_answer)
@@ -202,8 +201,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="bfgs-method" class="section level2">
 <h2>BFGS method</h2>
 <pre class="r"><code># optimizing values for a,b using BFGS analytical method
-BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;BFGS&quot;)
+BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGS&quot;)
 
 # obtaining class of output
 class(BFGS_answer)
@@ -231,8 +229,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="bfgsr-method" class="section level2">
 <h2>BFGSR method</h2>
 <pre class="r"><code># optimizing values for a,b using BFGSR analytical method
-BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;BFGSR&quot;)
+BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGSR&quot;)
 
 # obtaining class of output
 class(BFGSR_answer)
@@ -263,8 +260,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="sann-method" class="section level2">
 <h2>SANN method</h2>
 <pre class="r"><code># optimizing values for a,b using SANN analytical method
-SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;SANN&quot;)
+SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;SANN&quot;)
 
 # obtaining class of output
 class(SANN_answer)
@@ -292,8 +288,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="cg-method" class="section level2">
 <h2>CG method</h2>
 <pre class="r"><code># optimizing values for a,b using CG analytical method
-CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;CG&quot;)
+CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;CG&quot;)
 
 # obtaining class of output
 class(CG_answer)
@@ -321,8 +316,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="nm-method" class="section level2">
 <h2>NM method</h2>
 <pre class="r"><code># optimizing values for a,b using NM analytical method
-NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = &quot;NM&quot;)
+NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;NM&quot;)
 
 # obtaining class of output
 class(NM_answer)

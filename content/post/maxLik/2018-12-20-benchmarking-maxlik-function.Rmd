@@ -39,7 +39,7 @@ distribution for the above Binomial Outcome data. In this case Alcohol Consumpti
 [fitODBOD](https://cran.r-project.org/package=fitODBOD) package will be used.
 
 Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, 
-expected frequencies, p-value and Over-dispersion in tables.
+expected frequencies, p-value and Over-dispersion with tables.
 
 Below are the seven analytical methods in concern
 
@@ -62,7 +62,7 @@ kable(Alcohol_data,"html",align=c('c','c','c')) %>%
   column_spec(1,color = "red")
 ```
 
-## Breif of maxLik Function
+## Brief of maxLik Function
 
 Small [section](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function)
 about the maxLik function will be very useful to understand this blog post. 
@@ -98,8 +98,7 @@ Consumption data week 1. Further the maxLik function can be scrutinized as below
 library(maxLik)
 
 # optimizing values for a,b using NR analytical method
-NR_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "NR")
+NR_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "NR")
 
 # obtaining class of output
 class(NR_answer)
@@ -129,8 +128,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ```{r maxLik function BFGS method, results='hide'}
 # optimizing values for a,b using BFGS analytical method
-BFGS_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "BFGS")
+BFGS_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "BFGS")
 
 # obtaining class of output
 class(BFGS_answer)
@@ -161,8 +159,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ```{r maxLik function BFGSR method, results='hide'}
 # optimizing values for a,b using BFGSR analytical method
-BFGSR_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "BFGSR")
+BFGSR_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "BFGSR")
 
 # obtaining class of output
 class(BFGSR_answer)
@@ -196,8 +193,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ```{r maxLik function SANN method, results='hide'}
 # optimizing values for a,b using SANN analytical method
-SANN_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "SANN")
+SANN_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "SANN")
 
 # obtaining class of output
 class(SANN_answer)
@@ -227,8 +223,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ```{r maxLik function CG method, results='hide'}
 # optimizing values for a,b using CG analytical method
-CG_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "CG")
+CG_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "CG")
 
 # obtaining class of output
 class(CG_answer)
@@ -258,8 +253,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ```{r maxLik function NM method, results='hide'}
 # optimizing values for a,b using NM analytical method
-NM_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),
-                      method = "NM")
+NM_answer<-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = "NM")
 
 # obtaining class of output
 class(NM_answer)
