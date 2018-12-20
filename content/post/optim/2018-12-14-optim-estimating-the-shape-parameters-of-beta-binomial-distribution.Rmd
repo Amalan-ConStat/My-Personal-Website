@@ -1,14 +1,18 @@
 ---
-title: 'optim: Estimating the shape parameters of Beta-Binomial Distribution'
+title: Benchmarking the optim function
 author: M.Amalan
 date: '2018-12-14'
-slug: optim-estimating-the-shape-parameters-of-beta-binomial-distribution
 categories:
   - fitODBOD
 tags:
-  - optim
+  - Beta-Binomial
   - fitODBOD
+  - optim
   - R
+output:
+  blogdown::html_page:
+    toc: yes
+slug: optim-estimating-the-shape-parameters-of-beta-binomial-distribution
 image:
   caption: ''
   focal_point: ''
@@ -21,11 +25,26 @@ library(formattable)
 library(kableExtra)
 ```
 
-In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the 
-Negative Log Likelihood function of Beta-Binomial distribution and we will use it. 
-The optim function uses specific mathematical methods to find the most appropriate shape parameter values.
+# Estimating the shape parameters of Beta-Binomial Distribution
 
-They are given below in point form 
+# Introduction
+
+I wrote a [blog post](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/) 
+earlier this month to understand the optimization functions in R and compare them.
+Here I am taking my time to go through one function at a time, only when there are more than one analytical 
+method to use.
+
+Today I will scrutinize the optim function which has six analytical methods. Setting the stage, we have the Beta-Binomial
+distribution and Binomial Outcome data, and we need to estimate proper shape parameters which would minimize the 
+Negative Log Likelihood value or Maximize the Log Likelihood value of the Beta-Binomial distribution for the 
+above Binomial Outcome data. In this case Alcohol Consumption data from the [fitODBOD](https://cran.r-project.org/package=fitODBOD) 
+package will be used. 
+
+In this blog post we focus on the process time to optimization, estimated shape parameters, minimized Negative Log Likelihood value, 
+expected frequencies, p-value and Over-dispersion in tables.
+
+Below are the six analytical methods in concern
+
 1. Nelder Mead
 2. BFGS
 3. CG
@@ -45,26 +64,16 @@ kable(Alcohol_data,"html",align=c('c','c','c')) %>%
   column_spec(1,color = "red")
 ```
 
-## optim Function
+## Brief of optim Function
 
-[optim](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O) is the function in concern.
-[Documentation](https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim) 
-of the optim function is useful and it indicates that this function is only used on one input situations. This means our 
-EstMLEBetaBin function has to be modified. Reason for this is that only the parameters that should be estimated need to be input values
-but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values). 
+Reading through the optim function
+[brief](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#optim-function)
+from the previous post it will help the reader regarding operational questions of the function. 
 
-While using optim function first index refers to $\alpha$ or a and second index refers to $\beta$ or b. Further, we have 
-to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it
-is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would 
-become extra work. After modification we have a new function which is foroptim and I can use it for demonstration and comparison.
+So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which 
+would minimize the Negative Log Likelihood value of the Beta-Binomial distribution.
 
-Below is the code to estimation and going through the outputs. It should be noted that we have to provide 
-initial parameter values as an input to the optim function and it is best to provide values in the domain of  
-values a and b. 
-
-Here the shape parameters a and b are in the region of greater than zero but less than positive infinity. 
-So for the initial parameters of a=0.1 and b=0.2 we will be finding parameters from different methods which 
-would minimize the Negative Log Likelihood function of Beta-Binomial distribution.
+Here also we are transforming the given EstMLEBetaBin function to satisfy the optim function conditions.
 
 ```{r optim function from stats package}
 # new function to facilitate optim criteria
@@ -76,7 +85,7 @@ foroptim<-function(a)
 ```
 
 So the foroptim function can be used as above and parameters are estimated for $\alpha$ and $\beta$ (or a, b) for the Alcohol Consumption 
-data week 1. Further we have scrutinized the outputs.
+data week 1. Further the optim function can be scrutinized as below.
 
 * package : stats 
 * No of Inputs: 7
@@ -86,16 +95,17 @@ data week 1. Further we have scrutinized the outputs.
 * No of Analytical Methods : 6
 * Default Method : Nelder-Mead
 
-# Using Nelder and Mead method
+## Nelder and Mead method
 
-If we do not mention any method it will automatically consider Nelder and Mead method. 
-According to the documentation says that it uses only function values and is robust but relatively 
+Default analytical method is Nelder and Mead method. 
+According to the documentation it uses only function values and is robust but relatively 
 slow. It will work reasonably well for non-differential functions.
 
+Reference : 
 Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.
 
 ```{r Nelder Mead,results='hide'}
-# optimizing values for a,b using default inputs
+# optimizing values for a,b using default analytical method or Nelder and Mead
 NM_answer<-optim(par=c(0.1,0.2),fn=foroptim)
 
 # the outputs
@@ -109,12 +119,13 @@ NM_answer$message # additional information
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,NM_answer$par[1],NM_answer$par[2])
 ```
 
-# Using BFGS method 
+## BFGS method 
 
 The documentation indicates that BFGS is a Quasi-Newton method (also known as a variable metric algorithm), 
 specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses 
 function values and gradients to build up a picture of the surface to be optimized.
 
+Reference :
 Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of
 Computation, 21(99), pp.368-381.
 
@@ -130,16 +141,18 @@ BFGS_answer$convergence # indicates successful completion
 BFGS_answer$message # additional information
 
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,BFGS_answer$par[1],BFGS_answer$par[2])
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           BFGS_answer$par[1],BFGS_answer$par[2])
 ```
 
-# Using CG method
+## CG method
 
-According to the documentation Method "CG" is a conjugate gradients method based on that by Fletcher and Reeves 
+According to the documentation Method CG is a conjugate gradients method based on that by Fletcher and Reeves 
 (1964) (but with the option of Polak--Ribiere or Beale--Sorenson updates). Conjugate gradient methods will generally 
 be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger 
 optimization problems.
 
+Reference :
 Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2),
 pp.149-154.
 
@@ -158,13 +171,14 @@ CG_answer$message # additional information
 fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,CG_answer$par[1],CG_answer$par[2])
 ```
 
-# Using L-BFGS-B method
+## L-BFGS-B method
 
-Method "L-BFGS-B" is that of Byrd et. al. (1995) which allows box constraints, that is each variable can be 
+Method L-BFGS-B is that of Byrd et. al. (1995) which allows box constraints, that is each variable can be 
 given a lower and/or upper bound. The initial value must satisfy the constraints. This uses a limited-memory 
 modification of the BFGS quasi-Newton method. If non-trivial bounds are supplied, this method will be selected, 
 with a warning.
 
+Reference :
 Byrd, R.H., Lu, P., Nocedal, J. and Zhu, C., 1995. A limited memory algorithm for bound constrained optimization.
 SIAM Journal on Scientific Computing, 16(5), pp.1190-1208.
 
@@ -180,10 +194,11 @@ L_BFGS_B_answer$convergence # indicates successful completion
 L_BFGS_B_answer$message # additional information
 
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,L_BFGS_B_answer$par[1],L_BFGS_B_answer$par[2])
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           L_BFGS_B_answer$par[1],L_BFGS_B_answer$par[2])
 ```
 
-# Using SANN method
+## SANN method
 
 Method "SANN" is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to 
 the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also 
@@ -196,6 +211,7 @@ is the current iteration step and temp and tmax are specifiable via control, see
 depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful 
 in getting to a good value on a very rough surface.
 
+Reference :
 Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied
 Probability, 29(4), pp.885-895.
 
@@ -211,32 +227,35 @@ SANN_answer$convergence # indicates successful completion
 SANN_answer$message # additional information
 
 # fitting the Beta-Binomial distribution with estimated shape parameter  values
-fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,SANN_answer$par[1],SANN_answer$par[2])
+fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
+           SANN_answer$par[1],SANN_answer$par[2])
 ```
 
-# Using Brent method
+## Brent method
 
 Method "Brent" is for one-dimensional problems only, using optimize(). It can be useful in cases where optim() 
 is used inside other functions where only method can be specified, such as in mle from package stats4.
 Brent method does not work for our situation.
 
+Reference :
 Brent, R.P., 2013. Algorithms for minimization without derivatives. Courier Corporation.
 
-# Summary of Time evaluation for the R functions
+# Summary of Time evaluation for different Analytical methods of optim function
 
-Further at the beginning I have considered to evaluate the time of system process 
-for the methods to produce results and compare them. In order to do this time comparison
+As I have considered below table will compare the the system process time for different analytical methods. 
+In order to do this time comparison
 it is possible to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
 function of [rbenchmark](https://cran.r-project.org/package=rbenchmark) 
-package and below mentioned code chunk provides the output 
-in a table form which includes the functions and their respective time values. The estimation 
+package. Below mentioned code chunk provides the output 
+in a table form which includes the analytical methods and their respective time values. The estimation 
 process of the parameters where each method has been replicated 1000 times to receive a
-more accurate and strong table of time values. 
+more accurate table for time values. 
 
-The table is in accordance to the elapsed time value column in ascending order. According to this we 
-can see that least time takes to the Nelder Mead method and most time is taken to the SANN method. These 
+The table is in accordance to the elapsed time value column in the ascending order. According to this we 
+can see that least time takes to the Nelder and Mead method and most time is taken to the SANN method. These 
 times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided,
-the number of estimators that needs to be estimated and finally the complexity of the function. 
+the number of estimators that needs to be estimated, the complexity of the function and finally computer's processing 
+power. 
 
 ```{r time benchmark}
 library(rbenchmark)
@@ -259,20 +278,19 @@ kable(Results1,"html",align = c('c','c','c','c','c','c')) %>%
   column_spec(1,color = "red")
 ```
 
-# Summary of Results after estimating parameters using the R functions
+# Summary of results after using the optim function for different analytical methods
 
 After using the methods Nelder Mead, BFGS, CG, L-BFGS-B and SANN to estimate
 the shape parameters a, b we can use the estimated parameters in the function fitBetaBin.
-Using this function we can find expected frequencies for each of these functions and 
-compare p-values and over-dispersion and understand if using different estimation methods had
+Using this function we can find expected frequencies for each of these analytical methods and 
+compare p-values and over-dispersion. Further, understand if using different analytical methods had
 any effect on them.
 
-According to the below table there is no significant changes between the expected frequencies except
-while using SANN method. All five methods generate different Over dispersion values in the first three
-decimal places. First three decimal places are similar for all 5 estimation methods, but after this 
-they are different. Negative Log Likelihood values and p values are same for all 5 methods.
-This is a clear indication of it does not matter what method we
-use the estimation will occur effectively but only efficiency will be affected.
+According to the below table there is no significant changes between the expected frequencies, except
+while using SANN method. All five methods generate different Over-dispersion values after the first three
+decimal places. Negative Log Likelihood values and p values are same for all 5 methods until first three
+decimal places. This is a clear indication of it does not matter what analytical method we use the estimation 
+will occur effectively but only efficiency will be affected.
 
 ```{r Summary of Results,echo=FALSE}
 Results2<-data.frame(
@@ -282,7 +300,7 @@ Results2<-data.frame(
                     BFGS=c("54.62","42","38.9","38.54","40.07","43.99","53.09","87.8","399.01","0.0903","a=0.7228930\nb=0.5807279","813.4571","0.4340992"),
                       CG=c("54.62","42","38.9","38.54","40.07","44","53.09","87.78","399","0.0901","a=0.7229414\nb=0.5808477","813.4571","0.4340675"),
                 LBFGSB=c("54.62","42","38.9","38.54","40.07","44","53.09","87.78","399","0.0901","a=0.7229432\nb=0.5808496","813.4571","0.4340668"),
-                    SANN=c("54.75","42.02","38.89","38.52","40.04","43.96","53.05","87.78","399","0.0901","a=0.7215669\nb=0.5802982","813.4573","0.4344303")
+                    SANN=c("54.75","42.02","38.89","38.52","40.04","43.96","53.05","87.78","399.01","0.0901","a=0.7215669\nb=0.5802982","813.4573","0.4344303")
                   )
 
 kable(Results2,"html",align = c('c','c','c','c','c','c','c')) %>%
@@ -292,11 +310,11 @@ kable(Results2,"html",align = c('c','c','c','c','c','c','c')) %>%
 
 ```
 
-# Final conclusion
+# Final Conclusion
 
 We had 6 methods to compare but choosing one over the other is completely harmless
 to the final result of estimation as seen by our tables. And our situation forces us to not use
-the Brent method. The only issue is time, therefore I would recommend chose the best method 
-based on your needs of output and research objective.
+the Brent method. The only issue is time, therefore I would recommend choose the best analytical method 
+from the optim function based on your needs of output and research objective.
 
 *Thank You*

@@ -13,14 +13,12 @@
     
     
     <item>
-      <title>optim: Estimating the shape parameters of Beta-Binomial Distribution</title>
+      <title>Benchmarking the optim function</title>
       <link>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</link>
       <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</guid>
-      <description>In the package fitODBOD we have the function EstMLEBetaBin which is constructed based on the Negative Log Likelihood function of Beta-Binomial distribution and we will use it. The optim function uses specific mathematical methods to find the most appropriate shape parameter values.
-They are given below in point form 1. Nelder Mead 2. BFGS 3. CG 4. L-BFGS-B 5. SANN 6. Brent
-Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used.</description>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of optim FunctionNelder and Mead methodBFGS methodCG methodL-BFGS-B methodSANN methodBrent methodSummary of Time evaluation for different Analytical methods of optim functionSummary of results after using the optim function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionI wrote a blog post earlier this month to understand the optimization functions in R and compare them.</description>
     </item>
     
     <item>
