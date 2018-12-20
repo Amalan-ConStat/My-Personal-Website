@@ -253,6 +253,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="bfgsr-method" class="section level2">
 <h2>BFGSR method</h2>
+<p>Combination of two methods which are Newton-Raphson, BFGS (Broyden 1970, Fletcher 1970, Goldfarb 1970, Shanno 1970).</p>
+<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
 <pre class="r"><code># optimizing values for a,b using BFGSR analytical method
 BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGSR&quot;)
 
@@ -281,6 +283,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="bhhh-method" class="section level2">
 <h2>BHHH method</h2>
+<p>BHHH method (Berndt, Hall, Hall, Hausman 1974). The BHHH (information equality) approximation is only valid for log-likelihood functions. It requires the score (gradient) values by individual observations and hence those must be returned by individual observations by grad or fn. With the complexity of BHHH method I choose not to discuss it here, but a reference is mentioned to anyone who has interest in this analytical method.</p>
+<p>Reference : Berndt, E., Hall, B., Hall, R. and Hausman, J. (1974): Estimation and Inference in Nonlinear Structural Models, Annals of Social Measurement 3, 653–665.</p>
 </div>
 <div id="sann-method" class="section level2">
 <h2>SANN method</h2>

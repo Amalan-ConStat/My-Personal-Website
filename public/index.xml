@@ -252,6 +252,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;/div&gt;
 &lt;div id=&#34;bfgsr-method&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;BFGSR method&lt;/h2&gt;
+&lt;p&gt;Combination of two methods which are Newton-Raphson, BFGS (Broyden 1970, Fletcher 1970, Goldfarb 1970, Shanno 1970).&lt;/p&gt;
+&lt;p&gt;Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# optimizing values for a,b using BFGSR analytical method
 BFGSR_answer&amp;lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &amp;quot;BFGSR&amp;quot;)
 
@@ -280,6 +282,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;/div&gt;
 &lt;div id=&#34;bhhh-method&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;BHHH method&lt;/h2&gt;
+&lt;p&gt;BHHH method (Berndt, Hall, Hall, Hausman 1974). The BHHH (information equality) approximation is only valid for log-likelihood functions. It requires the score (gradient) values by individual observations and hence those must be returned by individual observations by grad or fn. With the complexity of BHHH method I choose not to discuss it here, but a reference is mentioned to anyone who has interest in this analytical method.&lt;/p&gt;
+&lt;p&gt;Reference : Berndt, E., Hall, B., Hall, R. and Hausman, J. (1974): Estimation and Inference in Nonlinear Structural Models, Annals of Social Measurement 3, 653–665.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;sann-method&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SANN method&lt;/h2&gt;
