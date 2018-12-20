@@ -242,7 +242,7 @@ Brent, R.P., 2013. Algorithms for minimization without derivatives. Courier Corp
 
 # Summary of Time evaluation for different Analytical methods of optim function
 
-As I have considered below table will compare the the system process time for different analytical methods. 
+As I have considered below table will compare the system process time for different analytical methods. 
 In order to do this time comparison
 it is possible to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
 function of [rbenchmark](https://cran.r-project.org/package=rbenchmark) 

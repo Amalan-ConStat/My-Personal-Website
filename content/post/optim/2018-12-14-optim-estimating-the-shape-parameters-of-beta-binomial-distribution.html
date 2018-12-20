@@ -284,7 +284,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="summary-of-time-evaluation-for-different-analytical-methods-of-optim-function" class="section level1">
 <h1>Summary of Time evaluation for different Analytical methods of optim function</h1>
-<p>As I have considered below table will compare the the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
+<p>As I have considered below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
 <p>The table is in accordance to the elapsed time value column in the ascending order. According to this we can see that least time takes to the Nelder and Mead method and most time is taken to the SANN method. These times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided, the number of estimators that needs to be estimated, the complexity of the function and finally computer’s processing power.</p>
 <pre class="r"><code>library(rbenchmark)
 
@@ -332,29 +332,6 @@ sys.self
 <tbody>
 <tr>
 <td style="text-align:left;color: red;">
-1
-</td>
-<td style="text-align:center;">
-Nelder Mead
-</td>
-<td style="text-align:center;">
-1000
-</td>
-<td style="text-align:center;">
-10.60
-</td>
-<td style="text-align:center;">
-1.000
-</td>
-<td style="text-align:center;">
-10.54
-</td>
-<td style="text-align:center;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: red;">
 4
 </td>
 <td style="text-align:center;">
@@ -364,16 +341,39 @@ L-BFGS-B
 1000
 </td>
 <td style="text-align:center;">
-11.64
+11.18
 </td>
 <td style="text-align:center;">
-1.098
+1.000
 </td>
 <td style="text-align:center;">
-11.61
+11.15
 </td>
 <td style="text-align:center;">
 0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+1
+</td>
+<td style="text-align:center;">
+Nelder Mead
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+11.82
+</td>
+<td style="text-align:center;">
+1.057
+</td>
+<td style="text-align:center;">
+11.48
+</td>
+<td style="text-align:center;">
+0.01
 </td>
 </tr>
 <tr>
@@ -387,16 +387,16 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-19.05
+18.56
 </td>
 <td style="text-align:center;">
-1.797
+1.660
 </td>
 <td style="text-align:center;">
-19.03
+18.39
 </td>
 <td style="text-align:center;">
-0.00
+0.02
 </td>
 </tr>
 <tr>
@@ -410,16 +410,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-37.13
+39.56
 </td>
 <td style="text-align:center;">
-3.503
+3.538
 </td>
 <td style="text-align:center;">
-37.11
+38.83
 </td>
 <td style="text-align:center;">
-0.00
+0.05
 </td>
 </tr>
 <tr>
@@ -433,16 +433,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-1687.28
+1715.46
 </td>
 <td style="text-align:center;">
-159.177
+153.440
 </td>
 <td style="text-align:center;">
-1671.42
+1690.86
 </td>
 <td style="text-align:center;">
-0.54
+0.75
 </td>
 </tr>
 </tbody>

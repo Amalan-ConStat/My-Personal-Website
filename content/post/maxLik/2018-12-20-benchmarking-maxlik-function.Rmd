@@ -335,6 +335,36 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 # Sumary of Time evalutation for different Analytical methods of maxLik function
 
+Below table will compare the system process time for different analytical methods. 
+In order to do this time comparison it is possible to use the 
+[benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
+function of [rbenchmark](https://cran.r-project.org/package=rbenchmark) package. 
+Below mentioned code chunk provides the output in a table form which includes the analytical 
+methods and their respective time values. The estimation process of the parameters where each
+method has been replicated 1000 times to receive a more accurate table for time values.
+
+```{r time benchmark}
+library(rbenchmark)
+
+Results1<-benchmark(
+          "NR"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "NR")},
+          "BFGS"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "BFGS")},
+          "BFGSR"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "BFGSR")},
+          "SANN"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "SANN")},
+          "CG"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "CG")},
+          "NM"={maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "NM")},
+          replications = 1000,
+          columns = c("test","replications","elapsed",
+                      "relative","user.self","sys.self"),
+          order = 'elapsed'
+          )
+
+kable(Results1,"html",align = c('c','c','c','c','c','c')) %>%
+  kable_styling(full_width = T,bootstrap_options = c("striped"),font_size = 14) %>%
+  row_spec(0,color = "blue") %>%
+  column_spec(1,color = "red")
+```
+
 # Summary of results after using the maxLik function for different analytical methods 
 
 # Final Conclusion

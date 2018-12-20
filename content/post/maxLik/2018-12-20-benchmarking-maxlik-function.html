@@ -379,6 +379,192 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
 <h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
+<p>Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
+<pre class="r"><code>library(rbenchmark)
+
+Results1&lt;-benchmark(
+          &quot;NR&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;NR&quot;)},
+          &quot;BFGS&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;BFGS&quot;)},
+          &quot;BFGSR&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;BFGSR&quot;)},
+          &quot;SANN&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;SANN&quot;)},
+          &quot;CG&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;CG&quot;)},
+          &quot;NM&quot;={maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;NM&quot;)},
+          replications = 1000,
+          columns = c(&quot;test&quot;,&quot;replications&quot;,&quot;elapsed&quot;,
+                      &quot;relative&quot;,&quot;user.self&quot;,&quot;sys.self&quot;),
+          order = &#39;elapsed&#39;
+          )
+
+kable(Results1,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
+  kable_styling(full_width = T,bootstrap_options = c(&quot;striped&quot;),font_size = 14) %&gt;%
+  row_spec(0,color = &quot;blue&quot;) %&gt;%
+  column_spec(1,color = &quot;red&quot;)</code></pre>
+<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;color: blue;">
+</th>
+<th style="text-align:center;color: blue;">
+test
+</th>
+<th style="text-align:center;color: blue;">
+replications
+</th>
+<th style="text-align:center;color: blue;">
+elapsed
+</th>
+<th style="text-align:center;color: blue;">
+relative
+</th>
+<th style="text-align:center;color: blue;">
+user.self
+</th>
+<th style="text-align:center;color: blue;">
+sys.self
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: red;">
+6
+</td>
+<td style="text-align:center;">
+NM
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+20.14
+</td>
+<td style="text-align:center;">
+1.000
+</td>
+<td style="text-align:center;">
+19.53
+</td>
+<td style="text-align:center;">
+0.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+2
+</td>
+<td style="text-align:center;">
+BFGS
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+33.91
+</td>
+<td style="text-align:center;">
+1.684
+</td>
+<td style="text-align:center;">
+32.89
+</td>
+<td style="text-align:center;">
+0.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+1
+</td>
+<td style="text-align:center;">
+NR
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+42.69
+</td>
+<td style="text-align:center;">
+2.120
+</td>
+<td style="text-align:center;">
+41.25
+</td>
+<td style="text-align:center;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+5
+</td>
+<td style="text-align:center;">
+CG
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+71.50
+</td>
+<td style="text-align:center;">
+3.550
+</td>
+<td style="text-align:center;">
+69.83
+</td>
+<td style="text-align:center;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+3
+</td>
+<td style="text-align:center;">
+BFGSR
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+1439.64
+</td>
+<td style="text-align:center;">
+71.482
+</td>
+<td style="text-align:center;">
+1146.09
+</td>
+<td style="text-align:center;">
+5.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+4
+</td>
+<td style="text-align:center;">
+SANN
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+2265.22
+</td>
+<td style="text-align:center;">
+112.474
+</td>
+<td style="text-align:center;">
+2115.87
+</td>
+<td style="text-align:center;">
+4.02
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the maxLik function for different analytical methods</h1>

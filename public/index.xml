@@ -378,6 +378,192 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;/div&gt;
 &lt;div id=&#34;sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Sumary of Time evalutation for different Analytical methods of maxLik function&lt;/h1&gt;
+&lt;p&gt;Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the &lt;a href=&#34;https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark&#34;&gt;benchmark&lt;/a&gt; function of &lt;a href=&#34;https://cran.r-project.org/package=rbenchmark&#34;&gt;rbenchmark&lt;/a&gt; package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
+
+Results1&amp;lt;-benchmark(
+          &amp;quot;NR&amp;quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;NR&amp;quot;)},
+          &amp;quot;BFGS&amp;quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;BFGS&amp;quot;)},
+          &amp;quot;BFGSR&amp;quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;BFGSR&amp;quot;)},
+          &amp;quot;SANN&amp;quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;SANN&amp;quot;)},
+          &amp;quot;CG&amp;quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;CG&amp;quot;)},
+          &amp;quot;NM&amp;quot;={maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &amp;quot;NM&amp;quot;)},
+          replications = 1000,
+          columns = c(&amp;quot;test&amp;quot;,&amp;quot;replications&amp;quot;,&amp;quot;elapsed&amp;quot;,
+                      &amp;quot;relative&amp;quot;,&amp;quot;user.self&amp;quot;,&amp;quot;sys.self&amp;quot;),
+          order = &amp;#39;elapsed&amp;#39;
+          )
+
+kable(Results1,&amp;quot;html&amp;quot;,align = c(&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;)) %&amp;gt;%
+  kable_styling(full_width = T,bootstrap_options = c(&amp;quot;striped&amp;quot;),font_size = 14) %&amp;gt;%
+  row_spec(0,color = &amp;quot;blue&amp;quot;) %&amp;gt;%
+  column_spec(1,color = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 14px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;color: blue;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+test
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+replications
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+elapsed
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+relative
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+user.self
+&lt;/th&gt;
+&lt;th style=&#34;text-align:center;color: blue;&#34;&gt;
+sys.self
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+NM
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+20.14
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1.000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+19.53
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.05
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+BFGS
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+33.91
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1.684
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+32.89
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.09
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+NR
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+42.69
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+2.120
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+41.25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.06
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+CG
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+71.50
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+3.550
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+69.83
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.06
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+BFGSR
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1439.64
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+71.482
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1146.09
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+5.50
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+SANN
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+2265.22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+112.474
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+2115.87
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+4.02
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div id=&#34;summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Summary of results after using the maxLik function for different analytical methods&lt;/h1&gt;
@@ -917,7 +1103,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;/div&gt;
 &lt;div id=&#34;summary-of-time-evaluation-for-different-analytical-methods-of-optim-function&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Summary of Time evaluation for different Analytical methods of optim function&lt;/h1&gt;
-&lt;p&gt;As I have considered below table will compare the the system process time for different analytical methods. In order to do this time comparison it is possible to use the &lt;a href=&#34;https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark&#34;&gt;benchmark&lt;/a&gt; function of &lt;a href=&#34;https://cran.r-project.org/package=rbenchmark&#34;&gt;rbenchmark&lt;/a&gt; package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.&lt;/p&gt;
+&lt;p&gt;As I have considered below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the &lt;a href=&#34;https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark&#34;&gt;benchmark&lt;/a&gt; function of &lt;a href=&#34;https://cran.r-project.org/package=rbenchmark&#34;&gt;rbenchmark&lt;/a&gt; package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.&lt;/p&gt;
 &lt;p&gt;The table is in accordance to the elapsed time value column in the ascending order. According to this we can see that least time takes to the Nelder and Mead method and most time is taken to the SANN method. These times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided, the number of estimators that needs to be estimated, the complexity of the function and finally computer’s processing power.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
 
@@ -965,29 +1151,6 @@ sys.self
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;color: red;&#34;&gt;
-1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-Nelder Mead
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-1000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-10.60
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-1.000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-10.54
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
 4
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
@@ -997,16 +1160,39 @@ L-BFGS-B
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.64
+11.18
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.098
+1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.61
+11.15
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+Nelder Mead
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+11.82
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1.057
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+11.48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.01
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1020,16 +1206,16 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.05
+18.56
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.797
+1.660
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.03
+18.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.02
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1043,16 +1229,16 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.13
+39.56
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.503
+3.538
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.11
+38.83
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.05
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1066,16 +1252,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1687.28
+1715.46
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-159.177
+153.440
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1671.42
+1690.86
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.54
+0.75
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
