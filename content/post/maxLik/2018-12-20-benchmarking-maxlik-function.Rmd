@@ -1,17 +1,17 @@
 ---
-title: Benchmarking maxLik function
+title: Benchmarking the maxLik function
 author: M.Amalan
 date: '2018-12-20'
-output: 
-  blogdown::html_page:
-    toc: true
-slug: benchmarking-maxlik-function
 categories:
   - fitODBOD
 tags:
   - Beta-Binomial
   - fitODBOD
   - maxLik
+output:
+  blogdown::html_page:
+    toc: yes
+slug: benchmarking-maxlik-function
 image:
   caption: ''
   focal_point: ''
@@ -381,10 +381,10 @@ CG and NM. These estimated parameters will be now used in the fitBetaBin functio
 the expected frequencies, p-values and over-dispersion. The above measurements can be used
 compared for each analytical methods for any significance difference. 
 
-Comparing p-values it is clear that all analytical methods generate the same value upto third 
+Comparing p-values it is clear that all analytical methods generate the same value up-to third 
 decimal point. This is not the case in Maximum Log Likelihood value where analytical methods
 NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further,
-Over-dispersion values are similar until third decimal point, but after that threre is clear difference
+Over-dispersion values are similar until third decimal point, but after that there is clear difference
 among all six methods.
 
 All of the analytical methods have produced distinct values for estimated shape parameters of a and b.

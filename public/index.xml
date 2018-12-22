@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Benchmarking maxLik function</title>
+      <title>Benchmarking the maxLik function</title>
       <link>/post/maxlik/benchmarking-maxlik-function/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -436,16 +436,16 @@ NM
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-18.26
+16.53
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-18.11
+16.53
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.03
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -459,16 +459,16 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-32.23
+30.04
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.765
+1.817
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-31.92
+29.86
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.03
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -482,13 +482,13 @@ NR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-39.50
+43.12
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-2.163
+2.609
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-38.91
+41.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.06
@@ -505,16 +505,16 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-63.82
+63.45
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.495
+3.838
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-63.77
+63.44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -528,16 +528,16 @@ BFGSR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-672.79
+612.34
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-36.845
+37.044
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-664.97
+612.23
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.35
+0.03
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -551,16 +551,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1752.08
+1679.46
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-95.952
+101.601
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1738.94
+1678.32
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.56
+0.08
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -569,7 +569,7 @@ SANN
 &lt;div id=&#34;summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Summary of results after using the maxLik function for different analytical methods&lt;/h1&gt;
 &lt;p&gt;Estimated shape parameter a,b received by the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used compared for each analytical methods for any significance difference.&lt;/p&gt;
-&lt;p&gt;Comparing p-values it is clear that all analytical methods generate the same value upto third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that threre is clear difference among all six methods.&lt;/p&gt;
+&lt;p&gt;Comparing p-values it is clear that all analytical methods generate the same value up-to third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that there is clear difference among all six methods.&lt;/p&gt;
 &lt;p&gt;All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a similarity is only until second decimal point and for shape parameter b similarity of value is only on first decimal point.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 12px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
