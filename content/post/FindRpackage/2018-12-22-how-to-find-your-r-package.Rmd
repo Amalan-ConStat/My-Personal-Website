@@ -25,7 +25,7 @@ This is a list with 16 items
 When you have no idea to find a package first thing is to "Google".
 
 [Link](https://www.google.com/)
-![]()
+![](/screenshots/Google.PNG)
 
 # 2. CRAN
 
@@ -34,7 +34,7 @@ have documentation manuals, vignettes and sometimes journal articles which would
 simplify work for people who use them.
 
 [Link](https://cran.r-project.org/)
-![]()
+![](/screenshots/CRAN.PNG)
 
 # 3. Bio - Conductor
 
@@ -42,7 +42,7 @@ This is another location to publish your R package, but only related to the
 field of biology. 
 
 [Link](https://www.bioconductor.org/)
-![]()
+![](/screenshots/Bioconductor.PNG)
 
 # 4. GitHub pages
 
