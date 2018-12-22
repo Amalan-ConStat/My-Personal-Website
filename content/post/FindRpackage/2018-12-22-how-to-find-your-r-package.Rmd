@@ -18,7 +18,7 @@ a list of websites. This websites were useful for me while developing
 my own package [fitODBOD](https://cran.r-project.org/package=fitODBOD)to be sure 
 that it is a unique package and to choose what my functions should be able to do. 
 
-This is a list with 14 items 
+This is a list with 16 items 
 
 # 1. Google
 
@@ -31,7 +31,7 @@ When you have no idea to find a package first thing is to "Google".
 
 Official website to find standard packages. The packages downloaded here will 
 have documentation manuals, vignettes and sometimes journal articles which would 
-simplify work for people who use thme.
+simplify work for people who use them.
 
 [Link](https://cran.r-project.org/)
 ![]()
@@ -86,7 +86,7 @@ I would say better than previous ones.
 
 # 9. Rseek
 
-This is like search engine for R packges. 
+This is like search engine for R packages. 
 
 [Link](https://rseek.org/)
 ![]()
@@ -127,7 +127,7 @@ about what is unique is these packages.
 
 # 14. Rstudio - Rpackages
 
-Several crucial pacakges which would be very useful are considered here. All of
+Several crucial packages which would be very useful are considered here. All of
 these packages are projects.
 
 [Link](https://www.rstudio.com/products/rpackages/)
@@ -136,7 +136,7 @@ these packages are projects.
 # 15. stack overflow - r  
 
 If you cannot achieve something very specific related to it is possible to use
-the website. It provides answeres from other R users, sometimes even blogs related 
+the website. It provides answers from other R users, sometimes even blogs related 
 to the issue with solutions.
 
 [Link](https://stackoverflow.com/questions/tagged/r)

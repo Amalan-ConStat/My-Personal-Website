@@ -17,7 +17,7 @@
       
       <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
       <description>&lt;p&gt;How to find your R package is simply a blog post helping people to provide a list of websites. This websites were useful for me while developing my own package &lt;a href=&#34;https://cran.r-project.org/package=fitODBOD&#34;&gt;fitODBOD&lt;/a&gt;to be sure that it is a unique package and to choose what my functions should be able to do.&lt;/p&gt;
-&lt;p&gt;This is a list with 14 items&lt;/p&gt;
+&lt;p&gt;This is a list with 16 items&lt;/p&gt;
 &lt;div id=&#34;google&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;1. Google&lt;/h1&gt;
 &lt;p&gt;When you have no idea to find a package first thing is to “Google”.&lt;/p&gt;
@@ -25,7 +25,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;cran&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;2. CRAN&lt;/h1&gt;
-&lt;p&gt;Official website to find standard packages. The packages downloaded here will have documentation manuals, vignettes and sometimes journal articles which would simplify work for people who use thme.&lt;/p&gt;
+&lt;p&gt;Official website to find standard packages. The packages downloaded here will have documentation manuals, vignettes and sometimes journal articles which would simplify work for people who use them.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;bio---conductor&#34; class=&#34;section level1&#34;&gt;
@@ -60,7 +60,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;rseek&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;9. Rseek&lt;/h1&gt;
-&lt;p&gt;This is like search engine for R packges.&lt;/p&gt;
+&lt;p&gt;This is like search engine for R packages.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://rseek.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;r-site-search&#34; class=&#34;section level1&#34;&gt;
@@ -84,12 +84,12 @@
 &lt;/div&gt;
 &lt;div id=&#34;rstudio---rpackages&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;14. Rstudio - Rpackages&lt;/h1&gt;
-&lt;p&gt;Several crucial pacakges which would be very useful are considered here. All of these packages are projects.&lt;/p&gt;
+&lt;p&gt;Several crucial packages which would be very useful are considered here. All of these packages are projects.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.rstudio.com/products/rpackages/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;stack-overflow---r&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;15. stack overflow - r&lt;/h1&gt;
-&lt;p&gt;If you cannot achieve something very specific related to it is possible to use the website. It provides answeres from other R users, sometimes even blogs related to the issue with solutions.&lt;/p&gt;
+&lt;p&gt;If you cannot achieve something very specific related to it is possible to use the website. It provides answers from other R users, sometimes even blogs related to the issue with solutions.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/tagged/r&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;cranalerts&#34; class=&#34;section level1&#34;&gt;
