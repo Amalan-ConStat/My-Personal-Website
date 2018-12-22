@@ -54,35 +54,54 @@ package we can still publish it. The ideal place is GitHub.
 
 # 5. Rdocumentation
 
+This is a place to find interactive documentation for the packages in 
+CRAN, Bio - Conductor and GitHub. Further they include functions with examples,
+which is very useful.
+
 [Link](https://www.rdocumentation.org/)
 ![]()
 
 # 6. Crantastic
+
+All packages which are a part of CRAN is in this website. We can search packages based
+on Authors, package name, reviews and tags. 
 
 [Link](https://www.crantastic.org/)
 ![]()
 
 # 7. rpackages 
 
+Similar to crantastic this website also provides information to CRAN packages.
+
 [Link](http://www.rpackages.io/)
 ![]()
 
 # 8. R - Opensci
+
+Search range for R packages in this website is vary lengthy and informative. 
+I would say better than previous ones.
 
 [Link](https://ropensci.org/packages/)
 ![]()
 
 # 9. Rseek
 
+This is like search engine for R packges. 
+
 [Link](https://rseek.org/)
 ![]()
 
 # 10. R Site Search
 
+
+
 [Link](http://finzi.psych.upenn.edu/search.html)
 ![]()
 
 # 11. R-forge
+
+Projects related to R are mentioned in this website and how progress has 
+been made on them is also here.
 
 [Link](http://r-forge.r-project.org/)
 ![]()
@@ -90,25 +109,46 @@ package we can still publish it. The ideal place is GitHub.
 
 # 12. AwesomeR
 
+This is a website which has R packages based on topics related to statistics.
+Some of these topics are Machine Learning, Bayesian, Optimization, Bio statistics
+and much more.
+
 [Link](https://awesome-r.com/)
 ![]()
 
 # 13. CRAN Task View
+
+Topic related R packages are bundled together in this website. Further, the topics
+give a brief explanation, but the webpages give an extensive amount of information
+about what is unique is these packages.
 
 [Link](https://cran.r-project.org/web/views/)
 ![]()
 
 # 14. Rstudio - Rpackages
 
+Several crucial pacakges which would be very useful are considered here. All of
+these packages are projects.
+
 [Link](https://www.rstudio.com/products/rpackages/)
 ![]()
 
 # 15. stack overflow - r  
+
+If you cannot achieve something very specific related to it is possible to use
+the website. It provides answeres from other R users, sometimes even blogs related 
+to the issue with solutions.
 
 [Link](https://stackoverflow.com/questions/tagged/r)
 ![]()
 
 # 16. CRANalerts
 
+This is an email service which would alert us regarding specific packages. Whenever 
+there is an update for a chosen package we would receive an email alert.
+
 [Link](https://cranalerts.com/)
 ![]()
+
+
+_Thank You_
