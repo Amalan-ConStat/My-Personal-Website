@@ -798,6 +798,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
 <h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
 <p>Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
+<p>Table is in the ascending order for elapsed time column. It is evidently clear that &lt;&gt; analytical method has taken the most time. While &lt;&gt; method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Negative Log Likelihood function that needs to be minimized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.</p>
 <pre class="r"><code>library(rbenchmark)
 
 Results1&lt;-benchmark(
@@ -854,16 +855,16 @@ NM
 1000
 </td>
 <td style="text-align:center;">
-20.14
+17.60
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-19.53
+17.54
 </td>
 <td style="text-align:center;">
-0.05
+0.00
 </td>
 </tr>
 <tr>
@@ -877,16 +878,16 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-33.91
+29.44
 </td>
 <td style="text-align:center;">
-1.684
+1.673
 </td>
 <td style="text-align:center;">
-32.89
+29.42
 </td>
 <td style="text-align:center;">
-0.09
+0.00
 </td>
 </tr>
 <tr>
@@ -900,16 +901,16 @@ NR
 1000
 </td>
 <td style="text-align:center;">
-42.69
+37.45
 </td>
 <td style="text-align:center;">
-2.120
+2.128
 </td>
 <td style="text-align:center;">
-41.25
+37.16
 </td>
 <td style="text-align:center;">
-0.06
+0.05
 </td>
 </tr>
 <tr>
@@ -923,16 +924,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-71.50
+71.04
 </td>
 <td style="text-align:center;">
-3.550
+4.036
 </td>
 <td style="text-align:center;">
-69.83
+69.91
 </td>
 <td style="text-align:center;">
-0.06
+0.02
 </td>
 </tr>
 <tr>
@@ -946,16 +947,16 @@ BFGSR
 1000
 </td>
 <td style="text-align:center;">
-1439.64
+664.54
 </td>
 <td style="text-align:center;">
-71.482
+37.758
 </td>
 <td style="text-align:center;">
-1146.09
+661.88
 </td>
 <td style="text-align:center;">
-5.50
+0.06
 </td>
 </tr>
 <tr>
@@ -969,16 +970,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-2265.22
+1801.83
 </td>
 <td style="text-align:center;">
-112.474
+102.377
 </td>
 <td style="text-align:center;">
-2115.87
+1787.92
 </td>
 <td style="text-align:center;">
-4.02
+0.48
 </td>
 </tr>
 </tbody>
@@ -986,6 +987,373 @@ SANN
 </div>
 <div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the maxLik function for different analytical methods</h1>
+<p>Estimated shape parameter a,b received by the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used compared for each analytical methods for any significance difference.</p>
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;color: blue;">
+BinomialRandomVariable
+</th>
+<th style="text-align:center;color: blue;">
+Frequency
+</th>
+<th style="text-align:center;color: blue;">
+NR
+</th>
+<th style="text-align:center;color: blue;">
+BFGS
+</th>
+<th style="text-align:center;color: blue;">
+BFGSR
+</th>
+<th style="text-align:center;color: blue;">
+SANN
+</th>
+<th style="text-align:center;color: blue;">
+CG
+</th>
+<th style="text-align:center;color: blue;">
+NM
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;color: red;">
+0
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+54.61
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.62
+</td>
+<td style="text-align:center;">
+54.75
+</td>
+<td style="text-align:center;">
+54.75
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+1
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42.02
+</td>
+<td style="text-align:center;">
+42.02
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+2
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+38.91
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.9
+</td>
+<td style="text-align:center;">
+38.89
+</td>
+<td style="text-align:center;">
+38.89
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+3
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.54
+</td>
+<td style="text-align:center;">
+38.52
+</td>
+<td style="text-align:center;">
+38.52
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+4
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.07
+</td>
+<td style="text-align:center;">
+40.04
+</td>
+<td style="text-align:center;">
+40.04
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+5
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+43.99
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+43.96
+</td>
+<td style="text-align:center;">
+43.96
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+6
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.09
+</td>
+<td style="text-align:center;">
+53.05
+</td>
+<td style="text-align:center;">
+53.05
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+7
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+87.77
+</td>
+<td style="text-align:center;">
+87.8
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+<td style="text-align:center;">
+87.78
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Total No of Observations
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+398.99
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+399
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+<td style="text-align:center;">
+399.01
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+p-value
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.0902
+</td>
+<td style="text-align:center;">
+0.0903
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+<td style="text-align:center;">
+0.0901
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Estimated a and b
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+a=0.7230707 b=0.5809894
+</td>
+<td style="text-align:center;">
+a=0.7228930 b=0.5807279
+</td>
+<td style="text-align:center;">
+a=0.7229414 b=0.5808477
+</td>
+<td style="text-align:center;">
+a=0.7229432 b=0.5808496
+</td>
+<td style="text-align:center;">
+a=0.7215669 b=0.5802982
+</td>
+<td style="text-align:center;">
+a=0.7215669 b=0.5802982
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Negative Log Likelihood
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4571
+</td>
+<td style="text-align:center;">
+813.4573
+</td>
+<td style="text-align:center;">
+813.4573
+</td>
+</tr>
+<tr>
+<td style="text-align:center;color: red;">
+Over Dispersion
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.4340165
+</td>
+<td style="text-align:center;">
+0.4340992
+</td>
+<td style="text-align:center;">
+0.4340675
+</td>
+<td style="text-align:center;">
+0.4340668
+</td>
+<td style="text-align:center;">
+0.4344303
+</td>
+<td style="text-align:center;">
+0.4344303
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="final-conclusion" class="section level1">
 <h1>Final Conclusion</h1>

@@ -706,7 +706,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <pre class="r"><code>library(rbenchmark)
 
 Results1&lt;-benchmark(
-          &quot;Nelder\nMead&quot;={ optim(par = c(0.1,0.2), fn = foroptim)},
+          &quot;NelderMead&quot;={ optim(par = c(0.1,0.2), fn = foroptim)},
           &quot;BFGS&quot;={optim(par = c(0.1,0.2), fn = foroptim,method = &quot;BFGS&quot;)},
           &quot;CG&quot;={optim(par = c(0.1,0.2), fn = foroptim,method = &quot;CG&quot;)},
           &quot;L-BFGS-B&quot;={optim(par = c(0.1,0.2), fn = foroptim,method = &quot;L-BFGS-B&quot;)},
@@ -749,6 +749,29 @@ sys.self
 <tbody>
 <tr>
 <td style="text-align:left;color: red;">
+1
+</td>
+<td style="text-align:center;">
+NelderMead
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+11.38
+</td>
+<td style="text-align:center;">
+1.000
+</td>
+<td style="text-align:center;">
+11.04
+</td>
+<td style="text-align:center;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
 4
 </td>
 <td style="text-align:center;">
@@ -758,39 +781,16 @@ L-BFGS-B
 1000
 </td>
 <td style="text-align:center;">
-11.18
+13.12
 </td>
 <td style="text-align:center;">
-1.000
+1.153
 </td>
 <td style="text-align:center;">
-11.15
+12.63
 </td>
 <td style="text-align:center;">
-0.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: red;">
-1
-</td>
-<td style="text-align:center;">
-Nelder Mead
-</td>
-<td style="text-align:center;">
-1000
-</td>
-<td style="text-align:center;">
-11.82
-</td>
-<td style="text-align:center;">
-1.057
-</td>
-<td style="text-align:center;">
-11.48
-</td>
-<td style="text-align:center;">
-0.01
+0.03
 </td>
 </tr>
 <tr>
@@ -804,16 +804,16 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-18.56
+19.61
 </td>
 <td style="text-align:center;">
-1.660
+1.723
 </td>
 <td style="text-align:center;">
-18.39
+19.38
 </td>
 <td style="text-align:center;">
-0.02
+0.00
 </td>
 </tr>
 <tr>
@@ -827,13 +827,13 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-39.56
+40.51
 </td>
 <td style="text-align:center;">
-3.538
+3.560
 </td>
 <td style="text-align:center;">
-38.83
+39.47
 </td>
 <td style="text-align:center;">
 0.05
@@ -850,16 +850,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-1715.46
+1703.42
 </td>
 <td style="text-align:center;">
-153.440
+149.685
 </td>
 <td style="text-align:center;">
-1690.86
+1678.69
 </td>
 <td style="text-align:center;">
-0.75
+0.72
 </td>
 </tr>
 </tbody>
@@ -1231,9 +1231,9 @@ Over Dispersion
         
         <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
-        
         <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
         
         <li><a href="/post/week_37/week-37-nyc-restaurants/">Week 37: NYC Restaurants</a></li>
         
