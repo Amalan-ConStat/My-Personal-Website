@@ -65,6 +65,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;r-site-search&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;10. R Site Search&lt;/h1&gt;
+&lt;p&gt;Website dedicated to search R functions, package vignettes and task views.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://finzi.psych.upenn.edu/search.html&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rsitesearch.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;r-forge&#34; class=&#34;section level1&#34;&gt;
@@ -85,7 +86,7 @@
 &lt;div id=&#34;rstudio---rpackages&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;14. Rstudio - Rpackages&lt;/h1&gt;
 &lt;p&gt;Several crucial packages which would be very useful are considered here. All of these packages are projects.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.rstudio.com/products/rpackages/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rstudio-packages.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.rstudio.com/products/rpackages/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rstudio-rpackages.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;stack-overflow---r&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;15. stack overflow - r&lt;/h1&gt;

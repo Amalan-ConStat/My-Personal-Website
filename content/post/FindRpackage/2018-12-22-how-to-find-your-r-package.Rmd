@@ -93,7 +93,7 @@ This is like search engine for R packages.
 
 # 10. R Site Search
 
-
+Website dedicated to search R functions, package vignettes and task views.
 
 [Link](http://finzi.psych.upenn.edu/search.html)
 ![](/screenshots/rsitesearch.PNG)
@@ -131,7 +131,7 @@ Several crucial packages which would be very useful are considered here. All of
 these packages are projects.
 
 [Link](https://www.rstudio.com/products/rpackages/)
-![](/screenshots/rstudio-packages.PNG)
+![](/screenshots/rstudio-rpackages.PNG)
 
 # 15. stack overflow - r  
 
