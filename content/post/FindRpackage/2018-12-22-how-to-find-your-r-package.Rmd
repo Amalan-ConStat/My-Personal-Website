@@ -22,43 +22,93 @@ This is a list with 14 items
 
 # 1. Google
 
+When you have no idea to find a package first thing is to "Google".
 
+[Link](https://www.google.com/)
+![]()
 
 # 2. CRAN
 
+Official website to find standard packages. The packages downloaded here will 
+have documentation manuals, vignettes and sometimes journal articles which would 
+simplify work for people who use thme.
 
-# 3. Bio-Conductor
+[Link](https://cran.r-project.org/)
+![]()
 
+# 3. Bio - Conductor
+
+This is another location to publish your R package, but only related to the 
+field of biology. 
+
+[Link](https://www.bioconductor.org/)
+![]()
 
 # 4. GitHub pages
 
+If CRAN or Bio - Conductor is with high standards or too much work for your 
+package we can still publish it. The ideal place is GitHub. 
+
+[Link](https://github.com/)
+![]()
 
 # 5. Rdocumentation
 
+[Link](https://www.rdocumentation.org/)
+![]()
 
 # 6. Crantastic
 
+[Link](https://www.crantastic.org/)
+![]()
 
 # 7. rpackages 
 
+[Link](http://www.rpackages.io/)
+![]()
 
-# 8. R-opensci
+# 8. R - Opensci
+
+[Link](https://ropensci.org/packages/)
+![]()
+
+# 9. Rseek
+
+[Link](https://rseek.org/)
+![]()
+
+# 10. R Site Search
+
+[Link](http://finzi.psych.upenn.edu/search.html)
+![]()
+
+# 11. R-forge
+
+[Link](http://r-forge.r-project.org/)
+![]()
 
 
-# 9. R-forge
+# 12. AwesomeR
 
+[Link](https://awesome-r.com/)
+![]()
 
-# 10. AwesomeR
+# 13. CRAN Task View
 
+[Link](https://cran.r-project.org/web/views/)
+![]()
 
-# 11. CRAN Task View
+# 14. Rstudio - Rpackages
 
+[Link](https://www.rstudio.com/products/rpackages/)
+![]()
 
-# 12. Rstudio-rpackages
+# 15. stack overflow - r  
 
+[Link](https://stackoverflow.com/questions/tagged/r)
+![]()
 
-# 13. stack overflow - r  
+# 16. CRANalerts
 
-
-# 14. CRANalters
-
+[Link](https://cranalerts.com/)
+![]()
