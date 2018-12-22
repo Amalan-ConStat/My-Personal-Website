@@ -50,7 +50,7 @@ If CRAN or Bio - Conductor is with high standards or too much work for your
 package we can still publish it. The ideal place is GitHub. 
 
 [Link](https://github.com/)
-![]()
+![](/screenshots/GitHub.PNG)
 
 # 5. Rdocumentation
 
@@ -59,7 +59,7 @@ CRAN, Bio - Conductor and GitHub. Further they include functions with examples,
 which is very useful.
 
 [Link](https://www.rdocumentation.org/)
-![]()
+![](/screenshots/rdocumentation.PNG)
 
 # 6. Crantastic
 
@@ -67,14 +67,14 @@ All packages which are a part of CRAN is in this website. We can search packages
 on Authors, package name, reviews and tags. 
 
 [Link](https://www.crantastic.org/)
-![]()
+![](/screenshots/crantastic.PNG)
 
 # 7. rpackages 
 
 Similar to crantastic this website also provides information to CRAN packages.
 
 [Link](http://www.rpackages.io/)
-![]()
+![](/screenshots/rpackages.PNG)
 
 # 8. R - Opensci
 
@@ -82,21 +82,21 @@ Search range for R packages in this website is vary lengthy and informative.
 I would say better than previous ones.
 
 [Link](https://ropensci.org/packages/)
-![]()
+![](/screenshots/ropensci.PNG)
 
 # 9. Rseek
 
 This is like search engine for R packages. 
 
 [Link](https://rseek.org/)
-![]()
+![](/screenshots/rseek.PNG)
 
 # 10. R Site Search
 
 
 
 [Link](http://finzi.psych.upenn.edu/search.html)
-![]()
+![](/screenshots/rsitesearch.PNG)
 
 # 11. R-forge
 
@@ -104,7 +104,7 @@ Projects related to R are mentioned in this website and how progress has
 been made on them is also here.
 
 [Link](http://r-forge.r-project.org/)
-![]()
+![](/screenshots/rforge.PNG)
 
 
 # 12. AwesomeR
@@ -114,7 +114,7 @@ Some of these topics are Machine Learning, Bayesian, Optimization, Bio statistic
 and much more.
 
 [Link](https://awesome-r.com/)
-![]()
+![](/screenshots/AwesomeR.PNG)
 
 # 13. CRAN Task View
 
@@ -123,7 +123,7 @@ give a brief explanation, but the webpages give an extensive amount of informati
 about what is unique is these packages.
 
 [Link](https://cran.r-project.org/web/views/)
-![]()
+![](/screenshots/Crantaskview.PNG)
 
 # 14. Rstudio - Rpackages
 
@@ -131,7 +131,7 @@ Several crucial packages which would be very useful are considered here. All of
 these packages are projects.
 
 [Link](https://www.rstudio.com/products/rpackages/)
-![]()
+![](/screenshots/rstudio-packages.PNG)
 
 # 15. stack overflow - r  
 
@@ -140,7 +140,7 @@ the website. It provides answers from other R users, sometimes even blogs relate
 to the issue with solutions.
 
 [Link](https://stackoverflow.com/questions/tagged/r)
-![]()
+![](/screenshots/stackoverflow.PNG)
 
 # 16. CRANalerts
 
@@ -148,7 +148,7 @@ This is an email service which would alert us regarding specific packages. Whene
 there is an update for a chosen package we would receive an email alert.
 
 [Link](https://cranalerts.com/)
-![]()
+![](/screenshots/Cranalerts.PNG)
 
 
 _Thank You_
