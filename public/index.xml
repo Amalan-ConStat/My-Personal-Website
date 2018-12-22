@@ -379,7 +379,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 &lt;div id=&#34;sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Sumary of Time evalutation for different Analytical methods of maxLik function&lt;/h1&gt;
 &lt;p&gt;Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the &lt;a href=&#34;https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark&#34;&gt;benchmark&lt;/a&gt; function of &lt;a href=&#34;https://cran.r-project.org/package=rbenchmark&#34;&gt;rbenchmark&lt;/a&gt; package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.&lt;/p&gt;
-&lt;p&gt;Table is in the ascending order for elapsed time column. It is evidently clear that &amp;lt;&amp;gt; analytical method has taken the most time. While &amp;lt;&amp;gt; method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Negative Log Likelihood function that needs to be minimized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.&lt;/p&gt;
+&lt;p&gt;Table is in the ascending order for elapsed time column. It is evidently clear that SANN analytical method has taken the most time. Before that the analytical method BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Negative Log Likelihood function that needs to be minimized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rbenchmark)
 
 Results1&amp;lt;-benchmark(
@@ -396,7 +396,7 @@ Results1&amp;lt;-benchmark(
           )
 
 kable(Results1,&amp;quot;html&amp;quot;,align = c(&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;c&amp;#39;)) %&amp;gt;%
-  kable_styling(full_width = T,bootstrap_options = c(&amp;quot;striped&amp;quot;),font_size = 14) %&amp;gt;%
+  kable_styling(full_width = T,bootstrap_options = c(&amp;quot;striped&amp;quot;),font_size = 14)%&amp;gt;%
   row_spec(0,color = &amp;quot;blue&amp;quot;) %&amp;gt;%
   column_spec(1,color = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 14px; margin-left: auto; margin-right: auto;&#34;&gt;
@@ -436,16 +436,16 @@ NM
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-17.60
+18.26
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-17.54
+18.11
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.03
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -459,13 +459,13 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-29.44
+32.23
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.673
+1.765
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-29.42
+31.92
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -482,16 +482,16 @@ NR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.45
+39.50
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-2.128
+2.163
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.16
+38.91
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.05
+0.06
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -505,13 +505,13 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-71.04
+63.82
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-4.036
+3.495
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-69.91
+63.77
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.02
@@ -528,16 +528,16 @@ BFGSR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-664.54
+672.79
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.758
+36.845
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-661.88
+664.97
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.06
+0.35
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -551,16 +551,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1801.83
+1752.08
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-102.377
+95.952
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1787.92
+1738.94
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.48
+0.56
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -569,6 +569,8 @@ SANN
 &lt;div id=&#34;summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Summary of results after using the maxLik function for different analytical methods&lt;/h1&gt;
 &lt;p&gt;Estimated shape parameter a,b received by the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used compared for each analytical methods for any significance difference.&lt;/p&gt;
+&lt;p&gt;Comparing p-values it is clear that all analytical methods generate the same value upto third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that threre is clear difference among all six methods.&lt;/p&gt;
+&lt;p&gt;All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a similarity is only until second decimal point and for shape parameter b similarity of value is only on first decimal point.&lt;/p&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;font-size: 12px; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -607,22 +609,22 @@ NM
 47
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+54.62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+54.62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+54.72
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+54.78
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+54.62
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
 54.61
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-54.62
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-54.62
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-54.62
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-54.75
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-54.75
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -639,16 +641,16 @@ NM
 42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-42
+41.98
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+42.06
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-42.02
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-42.02
+42
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -659,22 +661,22 @@ NM
 43
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+38.9
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+38.9
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+38.85
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+38.93
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+38.9
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
 38.91
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.9
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.9
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.9
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.89
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.89
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -691,16 +693,16 @@ NM
 38.54
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-38.54
+38.47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+38.55
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 38.54
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-38.52
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-38.52
+38.54
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -717,16 +719,16 @@ NM
 40.07
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.07
+40
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+40.06
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 40.07
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.04
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-40.04
+40.07
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -743,16 +745,16 @@ NM
 43.99
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-44
+43.93
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+43.97
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-43.96
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-43.96
+44
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -769,16 +771,16 @@ NM
 53.09
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-53.09
+53.06
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+53.03
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 53.09
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-53.05
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-53.05
+53.09
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -789,22 +791,22 @@ NM
 95
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-87.77
+87.78
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 87.8
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-87.78
+87.98
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+87.76
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 87.78
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-87.78
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-87.78
+87.77
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -815,22 +817,22 @@ Total No of Observations
 399
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+399
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+399.01
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
 398.99
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-399.01
+399.14
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 399
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-399
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-399.01
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-399.01
+398.99
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -838,6 +840,12 @@ Total No of Observations
 p-value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.0901
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.0903
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.0902
@@ -849,13 +857,7 @@ p-value
 0.0901
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.0901
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.0901
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.0901
+0.0902
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -865,47 +867,47 @@ Estimated a and b
 &lt;td style=&#34;text-align:center;&#34;&gt;
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+a=0.7229428 b=0.5808488
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+a=0.7228919 b=0.5807283
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+a=0.7209896 b=0.5790360
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+a=0.7219066 b=0.5813484
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+a=0.7229403 b=0.5808469
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
 a=0.7230707 b=0.5809894
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-a=0.7228930 b=0.5807279
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-a=0.7229414 b=0.5808477
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-a=0.7229432 b=0.5808496
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-a=0.7215669 b=0.5802982
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-a=0.7215669 b=0.5802982
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center;color: red;&#34;&gt;
-Negative Log Likelihood
+Maximum Log Likelihood
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4571
+-813.4571
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4571
+-813.4571
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4571
+-813.4576
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4571
+-813.4576
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4573
+-813.4571
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-813.4573
+-813.4571
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -915,22 +917,22 @@ Over Dispersion
 &lt;td style=&#34;text-align:center;&#34;&gt;
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
+0.434067
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.4340993
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.4347778
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.4341682
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.4340679
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
 0.4340165
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.4340992
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.4340675
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.4340668
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.4344303
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.4344303
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -938,6 +940,7 @@ Over Dispersion
 &lt;/div&gt;
 &lt;div id=&#34;final-conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Final Conclusion&lt;/h1&gt;
+&lt;p&gt;Now we can conclude the above findings using the tables provided and it is clear that there is no strong change in expected frequencies, maximum Log Likelihood value or p-value if we use any one of the methods mentioned above. If time is crucial it is best to avoid BFGSR and SANN methods as they take considerable amount of time. I would recommend choose the method analytical method from maxLik function based on your needs of output and research objective.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Thank you&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
