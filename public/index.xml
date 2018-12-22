@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How To Find Your R package ?</title>
+      <link>/post/findrpackage/how-to-find-your-r-package/</link>
+      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Benchmarking the maxLik function</title>
       <link>/post/maxlik/benchmarking-maxlik-function/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
@@ -9717,15 +9726,6 @@ rewatching these TV shows again.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0086831/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Yes, Prime Minister&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-website/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-website/</guid>
-      <description></description>
     </item>
     
   </channel>
