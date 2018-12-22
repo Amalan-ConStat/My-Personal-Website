@@ -261,7 +261,7 @@ power.
 library(rbenchmark)
 
 Results1<-benchmark(
-          "Nelder\nMead"={ optim(par = c(0.1,0.2), fn = foroptim)},
+          "NelderMead"={ optim(par = c(0.1,0.2), fn = foroptim)},
           "BFGS"={optim(par = c(0.1,0.2), fn = foroptim,method = "BFGS")},
           "CG"={optim(par = c(0.1,0.2), fn = foroptim,method = "CG")},
           "L-BFGS-B"={optim(par = c(0.1,0.2), fn = foroptim,method = "L-BFGS-B")},
