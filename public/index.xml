@@ -11,6 +11,91 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Build a New Package with Existing R packages</title>
+      <link>/post/newpackage/build-a-new-package-with-existing-r-packages/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
+      <description>&lt;div id=&#34;badgecreatr-and-badger&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;badgecreatr and badger&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=badgecreatr&#34;&gt;&lt;/a&gt; &lt;a href=&#34;https://cran.r-project.org/package=badger&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;desc&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;desc&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=desc&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;git2r-and-gh&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;git2r and gh&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=git2r&#34;&gt;&lt;/a&gt; &lt;a href=&#34;https://cran.r-project.org/package=gh&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;covr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;covr&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=covr&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hexsticker&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;hexSticker&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=hexSticker&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pkgdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;pkgdown&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=pkgdown&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;testthat&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;testthat&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=testthat&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;devtools&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;devtools&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=devtools&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;pkgbuild&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;pkgbuild&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=pkgbuild&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pkgload&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;pkgload&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=pkgload&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rcmdcheck&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;rcmdcheck&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=rcmdcheck&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usethis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;usethis&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=usethis&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;roxygen2&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;roxygen2&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=roxygen2&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;knitr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;knitr&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=knitr&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;markdown&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;markdown&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=markdown&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rmarkdown&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;rmarkdown&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=rmarkdown&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rmdformats&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;rmdformats&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=rmdformats&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;spelling&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;spelling&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=spelling&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;trackmd&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;trackmd&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ropenscilabs/trackmd&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How To Find Your R package ?</title>
       <link>/post/findrpackage/how-to-find-your-r-package/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
@@ -9739,74 +9824,6 @@ give you more information. 36 Movies will be mentioned below.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Unbreakable&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0105695/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Unforgiven&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0910970/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Wall-E&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>TV Shows</title>
-      <link>/projects/tvshows/</link>
-      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/tvshows/</guid>
-      <description>&lt;p&gt;More than 50 TV shows are on my list and I have watched all of them. There are alot of shows in this list
-where all would agree be great and enticing. There is no specific genre of my interest and I do not mind
-rewatching these TV shows again.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0101049/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;A bit of Fry and Laurie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2261227/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Altered Carbon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0185906/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Band of Brothers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2085059/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Black Mirror&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt6769208/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Blue Planet I,II&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2249364/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;BroadChurch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5348176/?ref_=fn_al_tt_1&#34; target=&#34;_blank&#34;&gt;Barry&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2467372/?ref_=nv_sr_4&#34; target=&#34;_blank&#34;&gt;Brookynn Nine Nine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5620076/?ref_=nv_sr_3&#34; target=&#34;_blank&#34;&gt;Chance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt6510950/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Condor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2395695/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Cosmos A space time odyssey&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0436992/?ref_=nv_sr_3&#34; target=&#34;_blank&#34;&gt;Doctor Who&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0072500/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Fawlty Towers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0108778/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Friends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0412142/?ref_=nv_sr_4&#34; target=&#34;_blank&#34;&gt;House&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1856010/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;House of Cards US&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0098825/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;House of Cards UK&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0460649/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;How I Met Your Mother&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0098833/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Jeeves and Wooster&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt7016936/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Killing Eve&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2303687/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Line of Duty&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1474684/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Luther&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0063929/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Monty Python The Flying Circus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0075537/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Mind Your Language&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt4158110/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Mr. Robot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2707408/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Narcos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0080253/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Not the Nine O&amp;rsquo;Clock News&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5071412/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Ozark&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1839578/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Person of Interest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2442560/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Peaky Blinders&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5491994/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Planet Earth I,II&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5016504/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Preacher&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2861424/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Rick and Morty&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0098904/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Seinfeld&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0121955/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Southpark&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1475582/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Sherlock&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0098800/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Fresh Prince of Bel-Air&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt4955642/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;The Good Place&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1196946/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Mentalist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2741602/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Blacklist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5712554/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;The Grand Tour&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1399664/?ref_=nv_sr_5&#34; target=&#34;_blank&#34;&gt;The Night Manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0084988/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Black Adder&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0112194/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Thin Blue Line&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0306414/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Wire&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0459159/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Thick of It&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt5057054/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Tom Clancys Jack Ryan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1628033/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Top Gear&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0369179/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Two and a Half Men&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt4192812/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Unforgotten&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0475784/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Westworld&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0080306/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Yes Minister&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0086831/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Yes, Prime Minister&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>

@@ -13,3 +13,80 @@ image:
   focal_point: ''
 ---
 
+# badgecreatr and badger
+
+[](https://cran.r-project.org/package=badgecreatr)
+[](https://cran.r-project.org/package=badger)
+
+# desc 
+
+[](https://cran.r-project.org/package=desc)
+
+# git2r and gh
+
+[](https://cran.r-project.org/package=git2r)
+[](https://cran.r-project.org/package=gh)
+
+# covr
+
+[](https://cran.r-project.org/package=covr)
+
+# hexSticker
+
+[](https://cran.r-project.org/package=hexSticker)
+
+# pkgdown
+
+[](https://cran.r-project.org/package=pkgdown)
+
+# testthat
+
+[](https://cran.r-project.org/package=testthat)
+
+# devtools
+
+[](https://cran.r-project.org/package=devtools)
+
+## pkgbuild
+
+[](https://cran.r-project.org/package=pkgbuild)
+
+## pkgload
+
+[](https://cran.r-project.org/package=pkgload)
+
+## rcmdcheck 
+
+[](https://cran.r-project.org/package=rcmdcheck)
+
+## usethis
+
+[](https://cran.r-project.org/package=usethis)
+
+# roxygen2
+
+[](https://cran.r-project.org/package=roxygen2)
+
+## knitr 
+
+[](https://cran.r-project.org/package=knitr)
+
+## markdown
+
+[](https://cran.r-project.org/package=markdown)
+
+## rmarkdown
+
+[](https://cran.r-project.org/package=rmarkdown)
+
+## rmdformats
+
+[](https://cran.r-project.org/package=rmdformats)
+
+## spelling
+
+[](https://cran.r-project.org/package=spelling)
+
+## trackmd
+
+[](https://github.com/ropenscilabs/trackmd)

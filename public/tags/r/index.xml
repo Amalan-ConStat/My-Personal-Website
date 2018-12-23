@@ -7,10 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 22 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Build a New Package with Existing R packages</title>
+      <link>/post/newpackage/build-a-new-package-with-existing-r-packages/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
+      <description>badgecreatr and badger 
+desc
+git2r and gh 
+covr
+hexSticker
+pkgdown
+testthat
+devtools
+pkgbuild
+pkgload
+rcmdcheck
+usethis
+roxygen2
+knitr
+markdown
+rmarkdown
+rmdformats
+spelling
+trackmd
+</description>
+    </item>
     
     <item>
       <title>How To Find Your R package ?</title>
