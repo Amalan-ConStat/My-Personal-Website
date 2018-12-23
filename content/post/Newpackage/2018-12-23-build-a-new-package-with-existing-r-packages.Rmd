@@ -2,6 +2,9 @@
 title: Build a New Package with Existing R packages
 author: M.Amalan
 date: '2018-12-23'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: build-a-new-package-with-existing-r-packages
 categories:
   - R

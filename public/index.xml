@@ -16,7 +16,40 @@
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
-      <description>&lt;div id=&#34;badgecreatr-and-badger&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#badgecreatr-and-badger&#34;&gt;badgecreatr and badger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#desc&#34;&gt;desc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#git2r-and-gh&#34;&gt;git2r and gh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#covr&#34;&gt;covr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hexsticker&#34;&gt;hexSticker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pkgdown&#34;&gt;pkgdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#testthat&#34;&gt;testthat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#devtools&#34;&gt;devtools&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pkgbuild&#34;&gt;pkgbuild&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pkgload&#34;&gt;pkgload&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rcmdcheck&#34;&gt;rcmdcheck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usethis&#34;&gt;usethis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#roxygen2&#34;&gt;roxygen2&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#knitr&#34;&gt;knitr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#markdown&#34;&gt;markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rmarkdown&#34;&gt;rmarkdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rmdformats&#34;&gt;rmdformats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#spelling&#34;&gt;spelling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#trackmd&#34;&gt;trackmd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#packrat&#34;&gt;packrat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pkgconfig&#34;&gt;pkgconfig&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pkginspector&#34;&gt;pkginspector&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rvcheck&#34;&gt;rvcheck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rversions&#34;&gt;rversions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#formatr&#34;&gt;formatR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#whoami&#34;&gt;whoami&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;badgecreatr-and-badger&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;badgecreatr and badger&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=badgecreatr&#34;&gt;&lt;/a&gt; &lt;a href=&#34;https://cran.r-project.org/package=badger&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
