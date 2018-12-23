@@ -37,7 +37,9 @@ knitr
 rmdformats
 spelling
 trackmd
-</description>
+packrat
+pkgconfig
+pkginspector</description>
     </item>
     
     <item>

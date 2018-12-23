@@ -90,3 +90,31 @@ image:
 ## trackmd
 
 [](https://github.com/ropenscilabs/trackmd)
+
+# packrat
+
+[](https://cran.r-project.org/package=packrat)
+
+# pkgconfig
+
+[](https://cran.r-project.org/package=pkgconfig)
+
+# pkginspector
+
+[](https://github.com/ropenscilabs/pkginspector)
+
+# rvcheck
+
+[](https://cran.r-project.org/package=rvcheck)
+
+# rversions
+
+[](https://cran.r-project.org/package=rversions)
+
+# formatR
+
+[](https://cran.r-project.org/package=formatR)
+
+# whoami
+
+[](https://cran.r-project.org/package=whoami)
