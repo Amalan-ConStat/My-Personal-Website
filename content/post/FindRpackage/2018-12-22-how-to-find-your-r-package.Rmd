@@ -2,6 +2,9 @@
 title: How To Find Your R package ?
 author: M.Amalan
 date: '2018-12-22'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: how-to-find-your-r-package
 categories:
   - R

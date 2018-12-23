@@ -162,7 +162,28 @@
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
-      <description>&lt;p&gt;How to find your R package is simply a blog post helping people to provide a list of websites. This websites were useful for me while developing my own package &lt;a href=&#34;https://cran.r-project.org/package=fitODBOD&#34;&gt;fitODBOD&lt;/a&gt;to be sure that it is a unique package and to choose what my functions should be able to do.&lt;/p&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#google&#34;&gt;1. Google&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cran&#34;&gt;2. CRAN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bio---conductor&#34;&gt;3. Bio - Conductor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#github-pages&#34;&gt;4. GitHub pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rdocumentation&#34;&gt;5. Rdocumentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#crantastic&#34;&gt;6. Crantastic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rpackages&#34;&gt;7. rpackages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r---opensci&#34;&gt;8. R - Opensci&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rseek&#34;&gt;9. Rseek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r-site-search&#34;&gt;10. R Site Search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r-forge&#34;&gt;11. R-forge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#awesomer&#34;&gt;12. AwesomeR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cran-task-view&#34;&gt;13. CRAN Task View&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rstudio---rpackages&#34;&gt;14. Rstudio - Rpackages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#stack-overflow---r&#34;&gt;15. stack overflow - r&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cranalerts&#34;&gt;16. CRANalerts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;How to find your R package is simply a blog post helping people to provide a list of websites. This websites were useful for me while developing my own package &lt;a href=&#34;https://cran.r-project.org/package=fitODBOD&#34;&gt;fitODBOD&lt;/a&gt;to be sure that it is a unique package and to choose what my functions should be able to do.&lt;/p&gt;
 &lt;p&gt;This is a list with 16 items&lt;/p&gt;
 &lt;div id=&#34;google&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;1. Google&lt;/h1&gt;
