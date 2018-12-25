@@ -17,9 +17,9 @@ image:
 ---
 
 How to find your R package is simply a blog post helping people to provide 
-a list of websites. This websites were useful for me while developing 
-my own package [fitODBOD](https://cran.r-project.org/package=fitODBOD)to be sure 
-that it is a unique package and to choose what my functions should be able to do. 
+a list of websites where they can find R packages. These websites were useful for me while developing 
+my own R package [fitODBOD](https://cran.r-project.org/package=fitODBOD). So that I would be sure 
+that fitODBOD is a unique package and what its functions should be able to do. 
 
 This is a list with 16 items 
 
@@ -41,8 +41,8 @@ simplify work for people who use them.
 
 # 3. Bio - Conductor
 
-This is another location to publish your R package, but only related to the 
-field of biology. 
+Another standard location to publish your R package, but only related to the 
+field of Biology. 
 
 [Link](https://www.bioconductor.org/)
 ![](/screenshots/Bioconductor.PNG)
@@ -50,16 +50,16 @@ field of biology.
 # 4. GitHub pages
 
 If CRAN or Bio - Conductor is with high standards or too much work for your 
-package we can still publish it. The ideal place is GitHub. 
+package you can still publish it and the ideal place for this is GitHub. 
 
 [Link](https://github.com/)
 ![](/screenshots/GitHub.PNG)
 
 # 5. Rdocumentation
 
-This is a place to find interactive documentation for the packages in 
-CRAN, Bio - Conductor and GitHub. Further they include functions with examples,
-which is very useful.
+A place to find interactive documentation for the packages in 
+CRAN, Bio - Conductor and GitHub. They simply include everything in the manual of a
+package but in html format.
 
 [Link](https://www.rdocumentation.org/)
 ![](/screenshots/rdocumentation.PNG)
@@ -74,22 +74,23 @@ on Authors, package name, reviews and tags.
 
 # 7. rpackages 
 
-Similar to crantastic this website also provides information to CRAN packages.
+Similar to crantastic this website also provides information to CRAN packages, but it is better 
+because package related statistics is also shown here.
 
 [Link](http://www.rpackages.io/)
 ![](/screenshots/rpackages.PNG)
 
 # 8. R - Opensci
 
-Search range for R packages in this website is vary lengthy and informative. 
-I would say better than previous ones.
+Search range for R packages in this website has more categories which is informative. 
+I would say better than above mentioned ones.
 
 [Link](https://ropensci.org/packages/)
 ![](/screenshots/ropensci.PNG)
 
 # 9. Rseek
 
-This is like search engine for R packages. 
+This is like a google search engine for R packages. 
 
 [Link](https://rseek.org/)
 ![](/screenshots/rseek.PNG)
@@ -104,11 +105,11 @@ Website dedicated to search R functions, package vignettes and task views.
 # 11. R-forge
 
 Projects related to R are mentioned in this website and how progress has 
-been made on them is also here.
+been made on them is also here. Most of these projects will be published 
+as packages later with significant importance.
 
 [Link](http://r-forge.r-project.org/)
 ![](/screenshots/rforge.PNG)
-
 
 # 12. AwesomeR
 
@@ -123,7 +124,8 @@ and much more.
 
 Topic related R packages are bundled together in this website. Further, the topics
 give a brief explanation, but the webpages give an extensive amount of information
-about what is unique is these packages.
+about what is unique is these packages. Also you do not need internet to use this
+because it is part of Rstudio help. 
 
 [Link](https://cran.r-project.org/web/views/)
 ![](/screenshots/Crantaskview.PNG)
@@ -131,27 +133,30 @@ about what is unique is these packages.
 # 14. Rstudio - Rpackages
 
 Several crucial packages which would be very useful are considered here. All of
-these packages are projects.
+these packages are projects. Further they are very popular in the R community.
 
 [Link](https://www.rstudio.com/products/rpackages/)
 ![](/screenshots/rstudio-rpackages.PNG)
 
 # 15. stack overflow - r  
 
-If you cannot achieve something very specific related to it is possible to use
+If you cannot achieve something very specific related to R coding it is possible to use
 the website. It provides answers from other R users, sometimes even blogs related 
-to the issue with solutions.
+to the issues with solutions.
 
 [Link](https://stackoverflow.com/questions/tagged/r)
 ![](/screenshots/stackoverflow.PNG)
 
 # 16. CRANalerts
 
-This is an email service which would alert us regarding specific packages. Whenever 
-there is an update for a chosen package we would receive an email alert.
+This is an email service which would alert us regarding specific packages accordance 
+to our request. Whenever there is an update for a chosen package we would receive an email alert.
 
 [Link](https://cranalerts.com/)
 ![](/screenshots/Cranalerts.PNG)
 
+This is my list of places for reaching out to help with related to R packages and R programming.
+I use them constantly and they are very much helpful to me. Finally, I hope this post would be 
+useful to anyone who wants to find or use R packages.  
 
 _Thank You_

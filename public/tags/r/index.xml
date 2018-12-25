@@ -37,7 +37,7 @@ pkgbuild
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
-      <description>1. Google2. CRAN3. Bio - Conductor4. GitHub pages5. Rdocumentation6. Crantastic7. rpackages8. R - Opensci9. Rseek10. R Site Search11. R-forge12. AwesomeR13. CRAN Task View14. Rstudio - Rpackages15. stack overflow - r16. CRANalertsHow to find your R package is simply a blog post helping people to provide a list of websites. This websites were useful for me while developing my own package fitODBODto be sure that it is a unique package and to choose what my functions should be able to do.</description>
+      <description>1. Google2. CRAN3. Bio - Conductor4. GitHub pages5. Rdocumentation6. Crantastic7. rpackages8. R - Opensci9. Rseek10. R Site Search11. R-forge12. AwesomeR13. CRAN Task View14. Rstudio - Rpackages15. stack overflow - r16. CRANalertsHow to find your R package is simply a blog post helping people to provide a list of websites where they can find R packages.</description>
     </item>
     
     <item>
