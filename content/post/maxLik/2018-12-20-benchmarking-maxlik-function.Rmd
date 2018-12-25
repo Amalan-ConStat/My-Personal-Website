@@ -71,13 +71,15 @@ Small [section](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking
 about the maxLik function will be very useful to understand this blog post. 
 
 Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26, 
-443--458 Marquardt, D.W., (1963) An Algorithm for Least-Squares Estimation of Nonlinear Parameters, 
+443--458 Marquardt, D.W., (1963) 
+
+An Algorithm for Least-Squares Estimation of Nonlinear Parameters, 
 Journal of the Society for Industrial & Applied Mathematics 11, 2, 431--441
 
 So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which 
 would maximize the Log Likelihood value of the Beta-Binomial distribution.
 
-Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.
+First we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.
 
 ```{r maxLik function from stats package}
 # new function to facilitate maxLik criteria
@@ -219,16 +221,18 @@ Annals of Social Measurement 3, 653--665.
 
 ## SANN method
 
-Method "SANN" is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to 
+Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to 
 the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also 
 work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability. 
+
 By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual
-temperature. If a function to generate a new candidate point is given, method "SANN" can also be used to solve
+temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve
 combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given 
 in Belisle (1992, p.890); specifically, the temperature is set to $temp / log(((t-1) %/% tmax)*tmax + exp(1))$, where $t$ 
-is the current iteration step and temp and tmax are specifiable via control, see below. Note that the "SANN" method 
-depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful 
-in getting to a good value on a very rough surface.
+is the current iteration step and temp and tmax are specifiable via control. 
+
+Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose method 
+but can be very useful in getting to a good value on a very rough surface.
 
 Reference :
 Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied
@@ -264,7 +268,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ## CG method
 
-According to the documentation Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) 
+Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) 
 (but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile 
 than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.
 
@@ -348,7 +352,7 @@ SANN analytical method has taken the most time. Before that the analytical metho
 BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time.
 This time is calculated for 1000 replications of the function being repeated under
 same conditions. These times does not only reflect based on analytical method, rather
-on the Negative Log Likelihood function that needs to be minimized, the data provided,
+on the Log Likelihood function that needs to be maximized, the data provided,
 the number of estimated that needs to be estimated, the complexity of the function and 
 finally the computer's processing power.
 
@@ -356,12 +360,12 @@ finally the computer's processing power.
 library(rbenchmark)
 
 Results1<-benchmark(
-          "NR"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "NR")},
-          "BFGS"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "BFGS")},
-          "BFGSR"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "BFGSR")},
-          "SANN"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "SANN")},
-          "CG"={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "CG")},
-          "NM"={maxLik(logLik =formaxLik, start = c(0.1,0.2), method = "NM")},
+          "NR"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "NR")},
+          "BFGS"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "BFGS")},
+          "BFGSR"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "BFGSR")},
+          "SANN"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "SANN")},
+          "CG"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "CG")},
+          "NM"={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = "NM")},
           replications = 1000,
           columns = c("test","replications","elapsed",
                       "relative","user.self","sys.self"),
@@ -369,26 +373,26 @@ Results1<-benchmark(
           )
 
 kable(Results1,"html",align = c('c','c','c','c','c','c')) %>%
-  kable_styling(full_width = T,bootstrap_options = c("striped"),font_size = 14)%>%
+  kable_styling(full_width=T,bootstrap_options=c("striped"),font_size = 14)%>%
   row_spec(0,color = "blue") %>%
   column_spec(1,color = "red")
 ```
 
 # Summary of results after using the maxLik function for different analytical methods 
 
-Estimated shape parameter a,b received by the analytical methods NR, BFGS, BFGSR, SANN,
+Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN,
 CG and NM. These estimated parameters will be now used in the fitBetaBin function to find
-the expected frequencies, p-values and over-dispersion. The above measurements can be used
-compared for each analytical methods for any significance difference. 
+the expected frequencies, p-values and over-dispersion. The above measurements can be used to
+compared for each analytical method for any significance difference. 
 
 Comparing p-values it is clear that all analytical methods generate the same value up-to third 
 decimal point. This is not the case in Maximum Log Likelihood value where analytical methods
-NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further,
-Over-dispersion values are similar until third decimal point, but after that there is clear difference
+NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have shown -813.4576. Further,
+Over-dispersion values are similar until third decimal point, but after that there is a clear difference
 among all six methods.
 
 All of the analytical methods have produced distinct values for estimated shape parameters of a and b.
-For the shape parameter a similarity is only until second decimal point and for shape parameter b
+For the shape parameter a, similarity is only until second decimal point, and for shape parameter b,
 similarity of value is only on first decimal point. 
 
 ```{r Summary of Results,echo=FALSE}
@@ -412,11 +416,11 @@ kable(Results2,"html",align = c('c','c','c','c','c','c','c','c')) %>%
 
 # Final Conclusion
 
-Now we can conclude the above findings using the tables provided and it is clear that 
+Now we can conclude the above findings using the tables provided, and it is clear that 
 there is no strong change in expected frequencies, maximum Log Likelihood value or p-value
 if we use any one of the methods mentioned above. If time is crucial it is best to avoid 
 BFGSR and SANN methods as they take considerable amount of time. I would recommend choose 
-the method analytical method from maxLik function based on your needs of output and 
+the analytical method from maxLik function based on your needs of output and 
 research objective.
 
-_Thank you_ 
+*Thank you* 

@@ -588,9 +588,10 @@ week2
 <div id="brief-of-maxlik-function" class="section level2">
 <h2>Brief of maxLik Function</h2>
 <p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
-<p>Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26, 443–458 Marquardt, D.W., (1963) An Algorithm for Least-Squares Estimation of Nonlinear Parameters, Journal of the Society for Industrial &amp; Applied Mathematics 11, 2, 431–441</p>
+<p>Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26, 443–458 Marquardt, D.W., (1963)</p>
+<p>An Algorithm for Least-Squares Estimation of Nonlinear Parameters, Journal of the Society for Industrial &amp; Applied Mathematics 11, 2, 431–441</p>
 <p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
-<p>Here also we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
+<p>First we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
 <pre class="r"><code># new function to facilitate maxLik criteria
 # only one input but has two elements
 formaxLik&lt;-function(a)
@@ -706,7 +707,9 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="sann-method" class="section level2">
 <h2>SANN method</h2>
-<p>Method “SANN” is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability. By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method “SANN” can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control, see below. Note that the “SANN” method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
+<p>Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability.</p>
+<p>By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control.</p>
+<p>Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
 <p>Reference : Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied Probability, 29(4), pp.885-895.</p>
 <pre class="r"><code># optimizing values for a,b using SANN analytical method
 SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;SANN&quot;)
@@ -736,7 +739,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="cg-method" class="section level2">
 <h2>CG method</h2>
-<p>According to the documentation Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) (but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
+<p>Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) (but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
 <p>Reference : Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2), pp.149-154.</p>
 <pre class="r"><code># optimizing values for a,b using CG analytical method
 CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;CG&quot;)
@@ -798,16 +801,16 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
 <h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
 <p>Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
-<p>Table is in the ascending order for elapsed time column. It is evidently clear that SANN analytical method has taken the most time. Before that the analytical method BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Negative Log Likelihood function that needs to be minimized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.</p>
+<p>Table is in the ascending order for elapsed time column. It is evidently clear that SANN analytical method has taken the most time. Before that the analytical method BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Log Likelihood function that needs to be maximized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.</p>
 <pre class="r"><code>library(rbenchmark)
 
 Results1&lt;-benchmark(
-          &quot;NR&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;NR&quot;)},
-          &quot;BFGS&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;BFGS&quot;)},
-          &quot;BFGSR&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;BFGSR&quot;)},
-          &quot;SANN&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;SANN&quot;)},
-          &quot;CG&quot;={ maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;CG&quot;)},
-          &quot;NM&quot;={maxLik(logLik =formaxLik, start = c(0.1,0.2), method = &quot;NM&quot;)},
+          &quot;NR&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;NR&quot;)},
+          &quot;BFGS&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;BFGS&quot;)},
+          &quot;BFGSR&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;BFGSR&quot;)},
+          &quot;SANN&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;SANN&quot;)},
+          &quot;CG&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;CG&quot;)},
+          &quot;NM&quot;={maxLik(logLik=formaxLik, start = c(0.1,0.2), method = &quot;NM&quot;)},
           replications = 1000,
           columns = c(&quot;test&quot;,&quot;replications&quot;,&quot;elapsed&quot;,
                       &quot;relative&quot;,&quot;user.self&quot;,&quot;sys.self&quot;),
@@ -815,7 +818,7 @@ Results1&lt;-benchmark(
           )
 
 kable(Results1,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
-  kable_styling(full_width = T,bootstrap_options = c(&quot;striped&quot;),font_size = 14)%&gt;%
+  kable_styling(full_width=T,bootstrap_options=c(&quot;striped&quot;),font_size = 14)%&gt;%
   row_spec(0,color = &quot;blue&quot;) %&gt;%
   column_spec(1,color = &quot;red&quot;)</code></pre>
 <table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
@@ -855,16 +858,16 @@ NM
 1000
 </td>
 <td style="text-align:center;">
-16.53
+16.86
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-16.53
+16.81
 </td>
 <td style="text-align:center;">
-0.00
+0.02
 </td>
 </tr>
 <tr>
@@ -878,16 +881,16 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-30.04
+32.59
 </td>
 <td style="text-align:center;">
-1.817
+1.933
 </td>
 <td style="text-align:center;">
-29.86
+32.20
 </td>
 <td style="text-align:center;">
-0.03
+0.01
 </td>
 </tr>
 <tr>
@@ -901,16 +904,16 @@ NR
 1000
 </td>
 <td style="text-align:center;">
-43.12
+39.59
 </td>
 <td style="text-align:center;">
-2.609
+2.348
 </td>
 <td style="text-align:center;">
-41.39
+39.08
 </td>
 <td style="text-align:center;">
-0.06
+0.05
 </td>
 </tr>
 <tr>
@@ -924,16 +927,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-63.45
+65.11
 </td>
 <td style="text-align:center;">
-3.838
+3.862
 </td>
 <td style="text-align:center;">
-63.44
+65.02
 </td>
 <td style="text-align:center;">
-0.00
+0.01
 </td>
 </tr>
 <tr>
@@ -947,16 +950,16 @@ BFGSR
 1000
 </td>
 <td style="text-align:center;">
-612.34
+700.44
 </td>
 <td style="text-align:center;">
-37.044
+41.544
 </td>
 <td style="text-align:center;">
-612.23
+681.86
 </td>
 <td style="text-align:center;">
-0.03
+0.82
 </td>
 </tr>
 <tr>
@@ -970,16 +973,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-1679.46
+1741.50
 </td>
 <td style="text-align:center;">
-101.601
+103.292
 </td>
 <td style="text-align:center;">
-1678.32
+1736.73
 </td>
 <td style="text-align:center;">
-0.08
+0.17
 </td>
 </tr>
 </tbody>
@@ -987,9 +990,9 @@ SANN
 </div>
 <div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the maxLik function for different analytical methods</h1>
-<p>Estimated shape parameter a,b received by the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used compared for each analytical methods for any significance difference.</p>
-<p>Comparing p-values it is clear that all analytical methods generate the same value up-to third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that there is clear difference among all six methods.</p>
-<p>All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a similarity is only until second decimal point and for shape parameter b similarity of value is only on first decimal point.</p>
+<p>Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used to compared for each analytical method for any significance difference.</p>
+<p>Comparing p-values it is clear that all analytical methods generate the same value up-to third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have shown -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that there is a clear difference among all six methods.</p>
+<p>All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a, similarity is only until second decimal point, and for shape parameter b, similarity of value is only on first decimal point.</p>
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1359,7 +1362,7 @@ Over Dispersion
 </div>
 <div id="final-conclusion" class="section level1">
 <h1>Final Conclusion</h1>
-<p>Now we can conclude the above findings using the tables provided and it is clear that there is no strong change in expected frequencies, maximum Log Likelihood value or p-value if we use any one of the methods mentioned above. If time is crucial it is best to avoid BFGSR and SANN methods as they take considerable amount of time. I would recommend choose the method analytical method from maxLik function based on your needs of output and research objective.</p>
+<p>Now we can conclude the above findings using the tables provided, and it is clear that there is no strong change in expected frequencies, maximum Log Likelihood value or p-value if we use any one of the methods mentioned above. If time is crucial it is best to avoid BFGSR and SANN methods as they take considerable amount of time. I would recommend choose the analytical method from maxLik function based on your needs of output and research objective.</p>
 <p><em>Thank you</em></p>
 </div>
 
