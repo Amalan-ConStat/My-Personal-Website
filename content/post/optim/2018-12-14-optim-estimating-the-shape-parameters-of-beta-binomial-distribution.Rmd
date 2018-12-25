@@ -73,7 +73,7 @@ from the previous post it will help the reader regarding operational questions o
 So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which 
 would minimize the Negative Log Likelihood value of the Beta-Binomial distribution.
 
-Here also we are transforming the given EstMLEBetaBin function to satisfy the optim function conditions.
+First we are transforming the given EstMLEBetaBin function to satisfy the optim function conditions.
 
 ```{r optim function from stats package}
 # new function to facilitate optim criteria
@@ -104,6 +104,8 @@ slow. It will work reasonably well for non-differential functions.
 Reference : 
 Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.
 
+Below is the code of using optim function with Nelder and Mead analytical method.
+
 ```{r Nelder Mead,results='hide'}
 # optimizing values for a,b using default analytical method or Nelder and Mead
 NM_answer<-optim(par=c(0.1,0.2),fn=foroptim)
@@ -129,6 +131,8 @@ Reference :
 Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of
 Computation, 21(99), pp.368-381.
 
+Below is the code for using optim function with BFGS analytical method
+
 ```{r BFGS,results='hide'}
 # optimizing values for a,b using BFGS inputs
 BFGS_answer<-optim(par=c(0.1,0.2),fn=foroptim,method = "BFGS")
@@ -147,7 +151,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ## CG method
 
-According to the documentation Method CG is a conjugate gradients method based on that by Fletcher and Reeves 
+The documentation indicates the Method CG is a conjugate gradients method based on that by Fletcher and Reeves 
 (1964) (but with the option of Polak--Ribiere or Beale--Sorenson updates). Conjugate gradient methods will generally 
 be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger 
 optimization problems.
@@ -155,6 +159,8 @@ optimization problems.
 Reference :
 Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2),
 pp.149-154.
+
+Using CG method with optim function is explained below
 
 ```{r CG,results='hide'}
 # optimizing values for a,b using CG inputs
@@ -182,6 +188,8 @@ Reference :
 Byrd, R.H., Lu, P., Nocedal, J. and Zhu, C., 1995. A limited memory algorithm for bound constrained optimization.
 SIAM Journal on Scientific Computing, 16(5), pp.1190-1208.
 
+Refer the below code chunk to under the L-BFGS-B method from optim function
+
 ```{r L-BFGS-B,results='hide'}
 # optimizing values for a,b using L-BFGS-B inputs
 L_BFGS_B_answer<-optim(par=c(0.1,0.2),fn=foroptim,method = "L-BFGS-B")
@@ -200,20 +208,24 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ## SANN method
 
-Method "SANN" is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to 
+Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to 
 the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also 
 work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability. 
+
 By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual
-temperature. If a function to generate a new candidate point is given, method "SANN" can also be used to solve
+temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve
 combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given 
 in Belisle (1992, p.890); specifically, the temperature is set to $temp / log(((t-1) %/% tmax)*tmax + exp(1))$, where $t$ 
-is the current iteration step and temp and tmax are specifiable via control, see below. Note that the "SANN" method 
-depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful 
-in getting to a good value on a very rough surface.
+is the current iteration step and temp and tmax are specifiable via control. 
+
+Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose 
+method but can be very useful in getting to a good value on a very rough surface.
 
 Reference :
 Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied
 Probability, 29(4), pp.885-895.
+
+Below mentioned code chunk is simply using SANN method for optim function
 
 ```{r SANN,results='hide'}
 # optimizing values for a,b using default inputs
@@ -233,7 +245,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 
 ## Brent method
 
-Method "Brent" is for one-dimensional problems only, using optimize(). It can be useful in cases where optim() 
+Brent Method is for one-dimensional problems only, using optimize(). It can be useful in cases where optim() 
 is used inside other functions where only method can be specified, such as in mle from package stats4.
 Brent method does not work for our situation.
 
@@ -242,11 +254,11 @@ Brent, R.P., 2013. Algorithms for minimization without derivatives. Courier Corp
 
 # Summary of Time evaluation for different Analytical methods of optim function
 
-As I have considered below table will compare the system process time for different analytical methods. 
+Below considered table will compare the system process time for different analytical methods. 
 In order to do this time comparison
-it is possible to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
+it is necessary to use the [benchmark](https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark) 
 function of [rbenchmark](https://cran.r-project.org/package=rbenchmark) 
-package. Below mentioned code chunk provides the output 
+package. Below written code chunk provides the output 
 in a table form which includes the analytical methods and their respective time values. The estimation 
 process of the parameters where each method has been replicated 1000 times to receive a
 more accurate table for time values. 
