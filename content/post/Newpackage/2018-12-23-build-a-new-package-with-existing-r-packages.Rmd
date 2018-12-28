@@ -40,8 +40,8 @@ ignored, second "Essential packages" it is your choice to ignore and finally, "S
 
 # Most Essential Packages
 
-There are three packages in my main interest list and they are [devtools](),
-[roxygen2]() and [testhat]().
+There are three packages in my main interest list and they are [devtools](https://cran.r-project.org/package=devtools),
+[roxygen2](https://cran.r-project.org/package=roxygen2) and [testhat](https://cran.r-project.org/package=testthat).
 
 ## devtools
 
@@ -93,11 +93,7 @@ Useful to develop vignettes related to R package development.
 Html formats to vignettes in R package development and special template
 styles for the vignettes.
 
-[markdown](https://cran.r-project.org/package=markdown)
-
-[rmarkdown](https://cran.r-project.org/package=rmarkdown)
-
-[rmdformats](https://cran.r-project.org/package=rmdformats)
+[markdown](https://cran.r-project.org/package=markdown) [rmarkdown](https://cran.r-project.org/package=rmarkdown) [rmdformats](https://cran.r-project.org/package=rmdformats)
 
 ### spelling
 
@@ -120,32 +116,50 @@ multiple ways for errors, outputs and inputs.
 
 # Essential Packages
 
-## badgecreatr and badger
-
-[](https://cran.r-project.org/package=badgecreatr)
-[](https://cran.r-project.org/package=badger)
-
-## desc 
-
-[](https://cran.r-project.org/package=desc)
+We would not necessarily need these packages to develop our package, but
+it would make things more official if we choose to use them. Creating official badges,
+using github for version control, checking for code coverage, distinct logo and having a website
+to explore the functions and vignettes of the package. 
 
 ## git2r and gh
 
-[](https://cran.r-project.org/package=git2r)
-[](https://cran.r-project.org/package=gh)
+Access to GitHub so that version control would occur smoothly with integration in Rstudio.
+
+[git2r](https://cran.r-project.org/package=git2r) [gh](https://cran.r-project.org/package=gh)
+
+## desc 
+
+Editing the Description file using package rather than manually editing the file.
+
+[Link to package](https://cran.r-project.org/package=desc)
 
 ## covr
 
-[](https://cran.r-project.org/package=covr)
+Checking code coverage, which means does all functions have examples and are there tests for
+error messages, etc.
+
+[Link to package](https://cran.r-project.org/package=covr)
+
+## badgecreatr and badger
+
+Adding badges to GitHub repository, for example Download, CRAN status, codecoverage, 
+Release date, version and much more.
+
+[badgecreatr](https://cran.r-project.org/package=badgecreatr) [badger](https://cran.r-project.org/package=badger)
 
 ## hexSticker
 
-[](https://cran.r-project.org/package=hexSticker)
+Creating a hexagon sticker for your package. Mostly just for the fun, but in a while its like
+promoting a brand.
+
+[Link to package](https://cran.r-project.org/package=hexSticker)
 
 ## pkgdown
 
-[](https://cran.r-project.org/package=pkgdown)
+Using man files, vignette of your package to develop a static website. Further, it is possible to
+promote this site to get more people interested in the package.
 
+[Link to package](https://cran.r-project.org/package=pkgdown)
 
 #  Still I have not Used
 
