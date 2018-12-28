@@ -38,116 +38,141 @@ for the users, which would lead to lot of attention in the R community.
 There are three types of packages in my perspective, first "Most Essential Packages" which cannot be 
 ignored, second "Essential packages" it is your choice to ignore and finally, "Still I have not Used" packages.
 
-## Most Essential Packages
+# Most Essential Packages
 
-There are three packages in my main interest list
+There are three packages in my main interest list and they are [devtools](),
+[roxygen2]() and [testhat]().
 
-## Essential Packages
+## devtools
 
-## Still I have not Used
+Collection of packages which would significantly help the package development 
+process. Functions such as dev_mode, check_failures, check_win and check_man.
 
-# badgecreatr and badger
+[Link for the package](https://cran.r-project.org/package=devtools)
+
+### pkgbuild
+
+Locates compilers needed to build R packages on various platforms.
+
+[Link for the package](https://cran.r-project.org/package=pkgbuild)
+
+### pkgload
+
+Simulate the process of installing a package and then attacking it.
+
+[Link for the package](https://cran.r-project.org/package=pkgload)
+
+### rcmdcheck 
+
+Run "R CMD check" from R programmaticallly, and capture the results
+of the individual checks.
+
+[Link for the package](https://cran.r-project.org/package=rcmdcheck)
+
+### usethis
+
+Automating few tasks related to package building.
+
+[Link for the package](https://cran.r-project.org/package=usethis)
+
+## roxygen2
+
+Generate Rd documentation, and Namespace file with simplicity
+which would save time, when package update occurs.
+
+[Link for the package](https://cran.r-project.org/package=roxygen2)
+
+### knitr 
+
+Useful to develop vignettes related to R package development.
+
+[Link for the package](https://cran.r-project.org/package=knitr)
+
+### markdown, rmarkdown, rmdformats
+
+Html formats to vignettes in R package development and special template
+styles for the vignettes.
+
+[markdown](https://cran.r-project.org/package=markdown)
+
+[rmarkdown](https://cran.r-project.org/package=rmarkdown)
+
+[rmdformats](https://cran.r-project.org/package=rmdformats)
+
+### spelling
+
+Checking for spelling issues in Rd documentation files.
+
+[Link for the package](https://cran.r-project.org/package=spelling)
+
+### trackmd
+
+Tracking changes in markdown files for vignette.
+
+[Link for the package](https://github.com/ropenscilabs/trackmd)
+
+## testthat
+
+Checking if functions work properly by testing them in 
+multiple ways for errors, outputs and inputs.
+
+[Link for the package](https://cran.r-project.org/package=testthat)
+
+# Essential Packages
+
+## badgecreatr and badger
 
 [](https://cran.r-project.org/package=badgecreatr)
 [](https://cran.r-project.org/package=badger)
 
-# desc 
+## desc 
 
 [](https://cran.r-project.org/package=desc)
 
-# git2r and gh
+## git2r and gh
 
 [](https://cran.r-project.org/package=git2r)
 [](https://cran.r-project.org/package=gh)
 
-# covr
+## covr
 
 [](https://cran.r-project.org/package=covr)
 
-# hexSticker
+## hexSticker
 
 [](https://cran.r-project.org/package=hexSticker)
 
-# pkgdown
+## pkgdown
 
 [](https://cran.r-project.org/package=pkgdown)
 
-# testthat
 
-[](https://cran.r-project.org/package=testthat)
+#  Still I have not Used
 
-# devtools
-
-[](https://cran.r-project.org/package=devtools)
-
-## pkgbuild
-
-[](https://cran.r-project.org/package=pkgbuild)
-
-## pkgload
-
-[](https://cran.r-project.org/package=pkgload)
-
-## rcmdcheck 
-
-[](https://cran.r-project.org/package=rcmdcheck)
-
-## usethis
-
-[](https://cran.r-project.org/package=usethis)
-
-# roxygen2
-
-[](https://cran.r-project.org/package=roxygen2)
-
-## knitr 
-
-[](https://cran.r-project.org/package=knitr)
-
-## markdown
-
-[](https://cran.r-project.org/package=markdown)
-
-## rmarkdown
-
-[](https://cran.r-project.org/package=rmarkdown)
-
-## rmdformats
-
-[](https://cran.r-project.org/package=rmdformats)
-
-## spelling
-
-[](https://cran.r-project.org/package=spelling)
-
-## trackmd
-
-[](https://github.com/ropenscilabs/trackmd)
-
-# packrat
+## packrat
 
 [](https://cran.r-project.org/package=packrat)
 
-# pkgconfig
+## pkgconfig
 
 [](https://cran.r-project.org/package=pkgconfig)
 
-# pkginspector
+## pkginspector
 
 [](https://github.com/ropenscilabs/pkginspector)
 
-# rvcheck
+## rvcheck
 
 [](https://cran.r-project.org/package=rvcheck)
 
-# rversions
+## rversions
 
 [](https://cran.r-project.org/package=rversions)
 
-# formatR
+## formatR
 
 [](https://cran.r-project.org/package=formatR)
 
-# whoami
+## whoami
 
 [](https://cran.r-project.org/package=whoami)

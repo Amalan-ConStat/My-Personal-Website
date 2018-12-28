@@ -19,16 +19,7 @@ image:
 
 <div id="TOC">
 <ul>
-<li><a href="#most-essential-packages">Most Essential Packages</a></li>
-<li><a href="#essential-packages">Essential Packages</a></li>
-<li><a href="#still-i-have-not-used">Still I have not Used</a></li>
-<li><a href="#badgecreatr-and-badger">badgecreatr and badger</a></li>
-<li><a href="#desc">desc</a></li>
-<li><a href="#git2r-and-gh">git2r and gh</a></li>
-<li><a href="#covr">covr</a></li>
-<li><a href="#hexsticker">hexSticker</a></li>
-<li><a href="#pkgdown">pkgdown</a></li>
-<li><a href="#testthat">testthat</a></li>
+<li><a href="#most-essential-packages">Most Essential Packages</a><ul>
 <li><a href="#devtools">devtools</a><ul>
 <li><a href="#pkgbuild">pkgbuild</a></li>
 <li><a href="#pkgload">pkgload</a></li>
@@ -37,12 +28,21 @@ image:
 </ul></li>
 <li><a href="#roxygen2">roxygen2</a><ul>
 <li><a href="#knitr">knitr</a></li>
-<li><a href="#markdown">markdown</a></li>
-<li><a href="#rmarkdown">rmarkdown</a></li>
-<li><a href="#rmdformats">rmdformats</a></li>
+<li><a href="#markdown-rmarkdown-rmdformats">markdown, rmarkdown, rmdformats</a></li>
 <li><a href="#spelling">spelling</a></li>
 <li><a href="#trackmd">trackmd</a></li>
 </ul></li>
+<li><a href="#testthat">testthat</a></li>
+</ul></li>
+<li><a href="#essential-packages">Essential Packages</a><ul>
+<li><a href="#badgecreatr-and-badger">badgecreatr and badger</a></li>
+<li><a href="#desc">desc</a></li>
+<li><a href="#git2r-and-gh">git2r and gh</a></li>
+<li><a href="#covr">covr</a></li>
+<li><a href="#hexsticker">hexSticker</a></li>
+<li><a href="#pkgdown">pkgdown</a></li>
+</ul></li>
+<li><a href="#still-i-have-not-used">Still I have not Used</a><ul>
 <li><a href="#packrat">packrat</a></li>
 <li><a href="#pkgconfig">pkgconfig</a></li>
 <li><a href="#pkginspector">pkginspector</a></li>
@@ -50,6 +50,7 @@ image:
 <li><a href="#rversions">rversions</a></li>
 <li><a href="#formatr">formatR</a></li>
 <li><a href="#whoami">whoami</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -58,117 +59,122 @@ image:
 <p>In the beginning, R package developers have used manual techniques (which mean difficult techniques)<br />
 to develop R functions, documentation and examples for their packages. Over time it has changed rapidly, where currently we are using R pacakges to develop our own R package. In this post I shall briefly mention these packages which you can use. Using these packages it is possible to make package development stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive for the users, which would lead to lot of attention in the R community.</p>
 <p>There are three types of packages in my perspective, first “Most Essential Packages” which cannot be ignored, second “Essential packages” it is your choice to ignore and finally, “Still I have not Used” packages.</p>
-<div id="most-essential-packages" class="section level2">
-<h2>Most Essential Packages</h2>
-<p>There are three packages in my main interest list</p>
+<div id="most-essential-packages" class="section level1">
+<h1>Most Essential Packages</h1>
+<p>There are three packages in my main interest list and they are <a href="">devtools</a>, <a href="">roxygen2</a> and <a href="">testhat</a>.</p>
+<div id="devtools" class="section level2">
+<h2>devtools</h2>
+<p>Collection of packages which would significantly help the package development process. Functions such as dev_mode, check_failures, check_win and check_man.</p>
+<p><a href="https://cran.r-project.org/package=devtools">Link for the package</a></p>
+<div id="pkgbuild" class="section level3">
+<h3>pkgbuild</h3>
+<p>Locates compilers needed to build R packages on various platforms.</p>
+<p><a href="https://cran.r-project.org/package=pkgbuild">Link for the package</a></p>
 </div>
-<div id="essential-packages" class="section level2">
-<h2>Essential Packages</h2>
+<div id="pkgload" class="section level3">
+<h3>pkgload</h3>
+<p>Simulate the process of installing a package and then attacking it.</p>
+<p><a href="https://cran.r-project.org/package=pkgload">Link for the package</a></p>
 </div>
-<div id="still-i-have-not-used" class="section level2">
-<h2>Still I have not Used</h2>
+<div id="rcmdcheck" class="section level3">
+<h3>rcmdcheck</h3>
+<p>Run “R CMD check” from R programmaticallly, and capture the results of the individual checks.</p>
+<p><a href="https://cran.r-project.org/package=rcmdcheck">Link for the package</a></p>
 </div>
-<div id="badgecreatr-and-badger" class="section level1">
-<h1>badgecreatr and badger</h1>
+<div id="usethis" class="section level3">
+<h3>usethis</h3>
+<p>Automating few tasks related to package building.</p>
+<p><a href="https://cran.r-project.org/package=usethis">Link for the package</a></p>
+</div>
+</div>
+<div id="roxygen2" class="section level2">
+<h2>roxygen2</h2>
+<p>Generate Rd documentation, and Namespace file with simplicity which would save time, when package update occurs.</p>
+<p><a href="https://cran.r-project.org/package=roxygen2">Link for the package</a></p>
+<div id="knitr" class="section level3">
+<h3>knitr</h3>
+<p>Useful to develop vignettes related to R package development.</p>
+<p><a href="https://cran.r-project.org/package=knitr">Link for the package</a></p>
+</div>
+<div id="markdown-rmarkdown-rmdformats" class="section level3">
+<h3>markdown, rmarkdown, rmdformats</h3>
+<p>Html formats to vignettes in R package development and special template styles for the vignettes.</p>
+<p><a href="https://cran.r-project.org/package=markdown">markdown</a></p>
+<p><a href="https://cran.r-project.org/package=rmarkdown">rmarkdown</a></p>
+<p><a href="https://cran.r-project.org/package=rmdformats">rmdformats</a></p>
+</div>
+<div id="spelling" class="section level3">
+<h3>spelling</h3>
+<p>Checking for spelling issues in Rd documentation files.</p>
+<p><a href="https://cran.r-project.org/package=spelling">Link for the package</a></p>
+</div>
+<div id="trackmd" class="section level3">
+<h3>trackmd</h3>
+<p>Tracking changes in markdown files for vignette.</p>
+<p><a href="https://github.com/ropenscilabs/trackmd">Link for the package</a></p>
+</div>
+</div>
+<div id="testthat" class="section level2">
+<h2>testthat</h2>
+<p>Checking if functions work properly by testing them in multiple ways for errors, outputs and inputs.</p>
+<p><a href="https://cran.r-project.org/package=testthat">Link for the package</a></p>
+</div>
+</div>
+<div id="essential-packages" class="section level1">
+<h1>Essential Packages</h1>
+<div id="badgecreatr-and-badger" class="section level2">
+<h2>badgecreatr and badger</h2>
 <p><a href="https://cran.r-project.org/package=badgecreatr"></a> <a href="https://cran.r-project.org/package=badger"></a></p>
 </div>
-<div id="desc" class="section level1">
-<h1>desc</h1>
+<div id="desc" class="section level2">
+<h2>desc</h2>
 <p><a href="https://cran.r-project.org/package=desc"></a></p>
 </div>
-<div id="git2r-and-gh" class="section level1">
-<h1>git2r and gh</h1>
+<div id="git2r-and-gh" class="section level2">
+<h2>git2r and gh</h2>
 <p><a href="https://cran.r-project.org/package=git2r"></a> <a href="https://cran.r-project.org/package=gh"></a></p>
 </div>
-<div id="covr" class="section level1">
-<h1>covr</h1>
+<div id="covr" class="section level2">
+<h2>covr</h2>
 <p><a href="https://cran.r-project.org/package=covr"></a></p>
 </div>
-<div id="hexsticker" class="section level1">
-<h1>hexSticker</h1>
+<div id="hexsticker" class="section level2">
+<h2>hexSticker</h2>
 <p><a href="https://cran.r-project.org/package=hexSticker"></a></p>
 </div>
-<div id="pkgdown" class="section level1">
-<h1>pkgdown</h1>
+<div id="pkgdown" class="section level2">
+<h2>pkgdown</h2>
 <p><a href="https://cran.r-project.org/package=pkgdown"></a></p>
 </div>
-<div id="testthat" class="section level1">
-<h1>testthat</h1>
-<p><a href="https://cran.r-project.org/package=testthat"></a></p>
 </div>
-<div id="devtools" class="section level1">
-<h1>devtools</h1>
-<p><a href="https://cran.r-project.org/package=devtools"></a></p>
-<div id="pkgbuild" class="section level2">
-<h2>pkgbuild</h2>
-<p><a href="https://cran.r-project.org/package=pkgbuild"></a></p>
-</div>
-<div id="pkgload" class="section level2">
-<h2>pkgload</h2>
-<p><a href="https://cran.r-project.org/package=pkgload"></a></p>
-</div>
-<div id="rcmdcheck" class="section level2">
-<h2>rcmdcheck</h2>
-<p><a href="https://cran.r-project.org/package=rcmdcheck"></a></p>
-</div>
-<div id="usethis" class="section level2">
-<h2>usethis</h2>
-<p><a href="https://cran.r-project.org/package=usethis"></a></p>
-</div>
-</div>
-<div id="roxygen2" class="section level1">
-<h1>roxygen2</h1>
-<p><a href="https://cran.r-project.org/package=roxygen2"></a></p>
-<div id="knitr" class="section level2">
-<h2>knitr</h2>
-<p><a href="https://cran.r-project.org/package=knitr"></a></p>
-</div>
-<div id="markdown" class="section level2">
-<h2>markdown</h2>
-<p><a href="https://cran.r-project.org/package=markdown"></a></p>
-</div>
-<div id="rmarkdown" class="section level2">
-<h2>rmarkdown</h2>
-<p><a href="https://cran.r-project.org/package=rmarkdown"></a></p>
-</div>
-<div id="rmdformats" class="section level2">
-<h2>rmdformats</h2>
-<p><a href="https://cran.r-project.org/package=rmdformats"></a></p>
-</div>
-<div id="spelling" class="section level2">
-<h2>spelling</h2>
-<p><a href="https://cran.r-project.org/package=spelling"></a></p>
-</div>
-<div id="trackmd" class="section level2">
-<h2>trackmd</h2>
-<p><a href="https://github.com/ropenscilabs/trackmd"></a></p>
-</div>
-</div>
-<div id="packrat" class="section level1">
-<h1>packrat</h1>
+<div id="still-i-have-not-used" class="section level1">
+<h1>Still I have not Used</h1>
+<div id="packrat" class="section level2">
+<h2>packrat</h2>
 <p><a href="https://cran.r-project.org/package=packrat"></a></p>
 </div>
-<div id="pkgconfig" class="section level1">
-<h1>pkgconfig</h1>
+<div id="pkgconfig" class="section level2">
+<h2>pkgconfig</h2>
 <p><a href="https://cran.r-project.org/package=pkgconfig"></a></p>
 </div>
-<div id="pkginspector" class="section level1">
-<h1>pkginspector</h1>
+<div id="pkginspector" class="section level2">
+<h2>pkginspector</h2>
 <p><a href="https://github.com/ropenscilabs/pkginspector"></a></p>
 </div>
-<div id="rvcheck" class="section level1">
-<h1>rvcheck</h1>
+<div id="rvcheck" class="section level2">
+<h2>rvcheck</h2>
 <p><a href="https://cran.r-project.org/package=rvcheck"></a></p>
 </div>
-<div id="rversions" class="section level1">
-<h1>rversions</h1>
+<div id="rversions" class="section level2">
+<h2>rversions</h2>
 <p><a href="https://cran.r-project.org/package=rversions"></a></p>
 </div>
-<div id="formatr" class="section level1">
-<h1>formatR</h1>
+<div id="formatr" class="section level2">
+<h2>formatR</h2>
 <p><a href="https://cran.r-project.org/package=formatR"></a></p>
 </div>
-<div id="whoami" class="section level1">
-<h1>whoami</h1>
+<div id="whoami" class="section level2">
+<h2>whoami</h2>
 <p><a href="https://cran.r-project.org/package=whoami"></a></p>
+</div>
 </div>
