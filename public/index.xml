@@ -18,6 +18,9 @@
       <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
       <description>&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#most-essential-packages&#34;&gt;Most Essential Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#essential-packages&#34;&gt;Essential Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#still-i-have-not-used&#34;&gt;Still I have not Used&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#badgecreatr-and-badger&#34;&gt;badgecreatr and badger&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#desc&#34;&gt;desc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#git2r-and-gh&#34;&gt;git2r and gh&lt;/a&gt;&lt;/li&gt;
@@ -49,6 +52,21 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Package developement is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package &lt;a href=&#34;&#34;&gt;fitODBOD&lt;/a&gt; for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how to develop an R package, which took me around 6 months while understanding the theoretical aspects of my research project and doing my 4th year courses.&lt;/p&gt;
+&lt;p&gt;I am still learning new things related to R, which is helpful for this R package development. Making package version updates regularly is for the benefit of the user. I have learned new ways to express the theoretical concepts in the simplest form of functions, classes and methods. Currently, I am exploring the possibility of using Rshiny dashboard and GUI.&lt;/p&gt;
+&lt;p&gt;In the beginning, R package developers have used manual techniques (which mean difficult techniques)&lt;br /&gt;
+to develop R functions, documentation and examples for their packages. Over time it has changed rapidly, where currently we are using R pacakges to develop our own R package. In this post I shall briefly mention these packages which you can use. Using these packages it is possible to make package development stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive for the users, which would lead to lot of attention in the R community.&lt;/p&gt;
+&lt;p&gt;There are three types of packages in my perspective, first “Most Essential Packages” which cannot be ignored, second “Essential packages” it is your choice to ignore and finally, “Still I have not Used” packages.&lt;/p&gt;
+&lt;div id=&#34;most-essential-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Most Essential Packages&lt;/h2&gt;
+&lt;p&gt;There are three packages in my main interest list&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;essential-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Essential Packages&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;still-i-have-not-used&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Still I have not Used&lt;/h2&gt;
+&lt;/div&gt;
 &lt;div id=&#34;badgecreatr-and-badger&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;badgecreatr and badger&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=badgecreatr&#34;&gt;&lt;/a&gt; &lt;a href=&#34;https://cran.r-project.org/package=badger&#34;&gt;&lt;/a&gt;&lt;/p&gt;

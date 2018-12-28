@@ -16,6 +16,36 @@ image:
   focal_point: ''
 ---
 
+Package developement is a sense of accomplishment for any statistical programmer who needs self
+satisfaction. I developed the R package [fitODBOD]()
+for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture 
+Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how 
+to develop an R package, which took me around 6 months while understanding the theoretical
+aspects of my research project and doing my 4th year courses. 
+
+I am still learning new things related to R, which is helpful for this R package development.
+Making package version updates regularly is for the benefit of the user. I have learned new ways
+to express the theoretical concepts in the simplest form of functions, classes and methods. Currently,
+I am exploring the possibility of using Rshiny dashboard and GUI. 
+
+In the beginning, R package developers have used manual techniques (which mean difficult techniques)  
+to develop R functions, documentation and examples for their packages. Over time it has changed rapidly,
+where currently we are using R pacakges to develop our own R package. In this post I shall briefly 
+mention these packages which you can use. Using these packages it is possible to make package development
+stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive
+for the users, which would lead to lot of attention in the R community.
+
+There are three types of packages in my perspective, first "Most Essential Packages" which cannot be 
+ignored, second "Essential packages" it is your choice to ignore and finally, "Still I have not Used" packages.
+
+## Most Essential Packages
+
+There are three packages in my main interest list
+
+## Essential Packages
+
+## Still I have not Used
+
 # badgecreatr and badger
 
 [](https://cran.r-project.org/package=badgecreatr)
