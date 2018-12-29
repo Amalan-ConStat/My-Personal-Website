@@ -57,10 +57,10 @@
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Package developement is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package &lt;a href=&#34;&#34;&gt;fitODBOD&lt;/a&gt; for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how to develop an R package, which took me around 6 months while understanding the theoretical aspects of my research project and doing my 4th year courses.&lt;/p&gt;
+&lt;p&gt;Package development is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package &lt;a href=&#34;&#34;&gt;fitODBOD&lt;/a&gt; for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how to develop an R package, which took me around 6 months while understanding the theoretical aspects of my research project and doing my 4th year courses.&lt;/p&gt;
 &lt;p&gt;I am still learning new things related to R, which is helpful for this R package development. Making package version updates regularly is for the benefit of the user. I have learned new ways to express the theoretical concepts in the simplest form of functions, classes and methods. Currently, I am exploring the possibility of using Rshiny dashboard and GUI.&lt;/p&gt;
 &lt;p&gt;In the beginning, R package developers have used manual techniques (which mean difficult techniques)&lt;br /&gt;
-to develop R functions, documentation and examples for their packages. Over time it has changed rapidly, where currently we are using R pacakges to develop our own R package. In this post I shall briefly mention these packages which you can use. Using these packages it is possible to make package development stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive for the users, which would lead to lot of attention in the R community.&lt;/p&gt;
+to develop R functions, documentation and examples for their packages. Over time it has changed rapidly, where currently we are using R packages to develop our own R package. In this post I shall briefly mention these packages which you can use. Using these packages it is possible to make package development stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive for the users, which would lead to lot of attention in the R community.&lt;/p&gt;
 &lt;p&gt;There are three types of packages in my perspective, first “Most Essential Packages” which cannot be ignored, second “Essential packages” it is your choice to ignore and finally, “Still I have not Used” packages.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;most-essential-packages&#34; class=&#34;section level1&#34;&gt;
@@ -124,7 +124,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;/div&gt;
 &lt;div id=&#34;essential-packages&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Essential Packages&lt;/h1&gt;
-&lt;p&gt;We would not necessarily need these packages to develop our package, but it would make things more official if we choose to use them. Creating official badges, using github for version control, checking for code coverage, distinct logo and having a website to explore the functions and vignettes of the package.&lt;/p&gt;
+&lt;p&gt;We would not necessarily need these packages to develop our package, but it would make things more official if we choose to use them. Creating official badges, using GitHub for version control, checking for code coverage, distinct logo and having a website to explore the functions and vignettes of the package.&lt;/p&gt;
 &lt;div id=&#34;git2r-and-gh&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;git2r and gh&lt;/h2&gt;
 &lt;p&gt;Access to GitHub so that version control would occur smoothly with integration in Rstudio.&lt;/p&gt;
@@ -142,7 +142,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;/div&gt;
 &lt;div id=&#34;badgecreatr-and-badger&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;badgecreatr and badger&lt;/h2&gt;
-&lt;p&gt;Adding badges to GitHub repository, for example Download, CRAN status, codecoverage, Release date, version and much more.&lt;/p&gt;
+&lt;p&gt;Adding badges to GitHub repository, for example Download, CRAN status, code coverage, Release date, version and much more.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=badgecreatr&#34;&gt;badgecreatr&lt;/a&gt; &lt;a href=&#34;https://cran.r-project.org/package=badger&#34;&gt;badger&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hexsticker&#34; class=&#34;section level2&#34;&gt;
@@ -161,7 +161,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;p&gt;In this list I will explore packages which can be used to make package development more simple and elegant. Mostly using functions for the tasks of proper code spaces, indent and necessary R versions of dependency packages.&lt;/p&gt;
 &lt;div id=&#34;packrat&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;packrat&lt;/h2&gt;
-&lt;p&gt;Manage the R pacakges in an isolated, portable and reproducible way.&lt;/p&gt;
+&lt;p&gt;Manage the R packages in an isolated, portable and reproducible way.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=packrat&#34;&gt;Link to package&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;pkgconfig&#34; class=&#34;section level2&#34;&gt;
@@ -191,7 +191,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;/div&gt;
 &lt;div id=&#34;whoami&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;whoami&lt;/h2&gt;
-&lt;p&gt;Username and fullname of current user, also email address and GitHub username.&lt;/p&gt;
+&lt;p&gt;Username and full-name of current user, also email address and GitHub username.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=whoami&#34;&gt;Link to package&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -200,10 +200,14 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;p&gt;Hopefully we would have more packages and awareness towards R package development with more simplicity in the coming years. Even though we have more than 15,000 packages in CRAN it would still rapidly increase in the coming years, not only in CRAN but also in GitHub as well.&lt;/p&gt;
 &lt;p&gt;So far this post has only word content and links, therefore I am adding a screenshot of my fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads, R version, published date, package version and a hexagon logo sticker.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;&#34; /&gt;
+&lt;img src=&#34;/screenshots/GitHub1.png&#34; /&gt;
 
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&#34;&#34; /&gt; I hope this blog post is useful for anyone who has intentions to develop their R package or in the process of development or version controlling. I developed fitODBOD as a research project for my final year and it included a thesis report as well. Over time I wrote a Journal article as well and it is still under review. Also I have seen R package development as a Phd submission as well. Therefore it would be worthwhile developing an R package as a way to keep an active status regarding your field of interest in Statistics.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/screenshots/GitHub2.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;I hope this blog post is useful for anyone who has intentions to develop their R package or in the process of development or version controlling. I developed fitODBOD as a research project for my final year and it included a thesis report as well. Over time I wrote a Journal article as well and it is still under review. Also I have seen R package development as a PhD submission as well. Therefore it would be worthwhile developing an R package as a way to keep an active status regarding your field of interest in Statistics.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

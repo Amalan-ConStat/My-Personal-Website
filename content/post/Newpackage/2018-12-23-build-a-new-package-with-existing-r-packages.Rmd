@@ -17,7 +17,7 @@ image:
 ---
 # Introduction
 
-Package developement is a sense of accomplishment for any statistical programmer who needs self
+Package development is a sense of accomplishment for any statistical programmer who needs self
 satisfaction. I developed the R package [fitODBOD]()
 for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture 
 Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how 
@@ -31,7 +31,7 @@ I am exploring the possibility of using Rshiny dashboard and GUI.
 
 In the beginning, R package developers have used manual techniques (which mean difficult techniques)  
 to develop R functions, documentation and examples for their packages. Over time it has changed rapidly,
-where currently we are using R pacakges to develop our own R package. In this post I shall briefly 
+where currently we are using R packages to develop our own R package. In this post I shall briefly 
 mention these packages which you can use. Using these packages it is possible to make package development
 stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive
 for the users, which would lead to lot of attention in the R community.
@@ -119,7 +119,7 @@ multiple ways for errors, outputs and inputs.
 
 We would not necessarily need these packages to develop our package, but
 it would make things more official if we choose to use them. Creating official badges,
-using github for version control, checking for code coverage, distinct logo and having a website
+using GitHub for version control, checking for code coverage, distinct logo and having a website
 to explore the functions and vignettes of the package. 
 
 ## git2r and gh
@@ -143,7 +143,7 @@ error messages, etc.
 
 ## badgecreatr and badger
 
-Adding badges to GitHub repository, for example Download, CRAN status, codecoverage, 
+Adding badges to GitHub repository, for example Download, CRAN status, code coverage, 
 Release date, version and much more.
 
 [badgecreatr](https://cran.r-project.org/package=badgecreatr) [badger](https://cran.r-project.org/package=badger)
@@ -170,7 +170,7 @@ and necessary R versions of dependency packages.
 
 ## packrat
 
-Manage the R pacakges in an isolated, portable and reproducible way.
+Manage the R packages in an isolated, portable and reproducible way.
 
 [Link to package](https://cran.r-project.org/package=packrat)
 
@@ -206,7 +206,7 @@ Spaces and Indent for the code automatically added
 
 ## whoami
 
-Username and fullname of current user, also email address and GitHub username.
+Username and full-name of current user, also email address and GitHub username.
 
 [Link to package](https://cran.r-project.org/package=whoami)
 
@@ -221,14 +221,15 @@ So far this post has only word content and links, therefore I am adding a screen
 fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads,
 R version, published date, package version and a hexagon logo sticker.
 
-![]()
+![](/screenshots/GitHub1.png)
 
-![]()
+![](/screenshots/GitHub2.png)
+
 I hope this blog post is useful for anyone who has intentions to develop their R package or 
 in the process of development or version controlling. I developed fitODBOD as a research
 project for my final year and it included a thesis report as well. Over time I wrote a 
 Journal article as well and it is still under review. Also I have seen R package development
-as a Phd submission as well. Therefore it would be worthwhile developing an R package as a way 
+as a PhD submission as well. Therefore it would be worthwhile developing an R package as a way 
 to keep an active status regarding your field of interest in Statistics. 
 
 *Thank You*
