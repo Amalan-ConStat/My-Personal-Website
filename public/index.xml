@@ -28,8 +28,51 @@
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;mle&lt;/a&gt; and &lt;a href=&#34;&#34;&gt;mle2&lt;/a&gt; are my favourite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.&lt;/p&gt;
+&lt;p&gt;Even if I do Benchmark the analytical methods for the mle function it would be very similar to optim function tables but with additional time taken, because of the extra outputs. This would similarly occur when we benchamrk analytical methods from the mle2 function as well.&lt;/p&gt;
+&lt;p&gt;Therefore, I figure why do we need to benchmark them at all. So this blog post is to simply reiterate the initial things which I said in my earlier post on the blog post &lt;a href=&#34;&#34;&gt;Benchmarking optimization functions in R&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;mle&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;mle&lt;/h2&gt;
+&lt;p&gt;mle function is from the stats4 package. If we intend to use this function for the estimation of shape parameters a and b of the Beta-Binomial distribution when Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD package. This is not enough because for limitations in the mle we need to make changes in our EstMLEBetaBin function as mentioned below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stats4)
+library(fitODBOD)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Hello, This is Amalan. For more details refer --&amp;gt; https://amalan-constat.github.io/R-fitODBOD/index.html&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#new function to facilitate mle criteria 
+
+formle&amp;lt;-function(a,b)
+{
+  EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a,b)
+}
+
+# optimizing values for a,b using default analytial method
+mle_answer&amp;lt;-mle(minuslogl = formle,start = list(a=0.1,b=0.2))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We are going to use the Alcohol Consumption data of week 1. In the above code chunk we are using the mle function for our task of finding the optim shape parameter values for a and b while using the give Binomial Outcome data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mle2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;mle2&lt;/h2&gt;
