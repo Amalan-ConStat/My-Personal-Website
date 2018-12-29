@@ -23,7 +23,7 @@ image:
 # Introduction
 
 [mle]() and [mle2]() 
-are my favourite functions, because they provide extensive amount of outputs
+are my favorite functions, because they provide extensive amount of outputs
 for the optimization process. Even though there is no difference in analytial methods 
 used in both of these functions. Further, these analytical methods are the same ones used
 by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means
@@ -32,7 +32,7 @@ would generate extended outputs.
 
 Even if I do Benchmark the analytical methods for the mle function it would be very similar to
 optim function tables but with additional time taken, because of the extra outputs. This would 
-similarly occur when we benchamrk analytical methods from the mle2 function as well. 
+similarly occur when we benchmark analytical methods from the mle2 function as well. 
 
 Therefore, I figure why do we need to benchmark them at all. So this blog post is to 
 simply reiterate the initial things which I said in my earlier post on the blog post
@@ -40,13 +40,14 @@ simply reiterate the initial things which I said in my earlier post on the blog 
 
 ## mle
 
-mle function is from the stats4 package. If we intend to use this function for
+mle function is from the [stats4]() 
+package. If we intend to use this function for
 the estimation of shape parameters a and b of the Beta-Binomial distribution when
 Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD
 package. This is not enough because for limitations in the mle we need to make changes 
 in our EstMLEBetaBin function as mentioned below. 
 
-```{r using mle}
+```{r using mle,warning=FALSE,message=FALSE,results='hide'}
 library(stats4)
 library(fitODBOD)
 
@@ -62,9 +63,16 @@ mle_answer<-mle(minuslogl = formle,start = list(a=0.1,b=0.2))
 ```
 
 We are going to use the Alcohol Consumption data of week 1. In the above code
-chunk we are using the mle function for our task of finding the optim shape parameter
+chunk we are using the mle function for our task of finding the optimum shape parameter
 values for a and b while using the give Binomial Outcome data.
 
 ## mle2
+
+[bbmle]() 
+package holds the mle2 function. It is simply an updated version for mle function. 
+
+```{r using mle2 function}
+
+```
 
 # Conclusion

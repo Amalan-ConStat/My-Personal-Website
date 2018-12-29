@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="Introductionmlemle2ConclusionIntroductionmle and mle2 are my favourite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.">
+  <meta name="description" content="Introductionmlemle2ConclusionIntroductionmle and mle2 are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/mleand2/benchmarking-the-mle-and-mle2-function/">
@@ -110,7 +110,7 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/mleand2/benchmarking-the-mle-and-mle2-function/">
   <meta property="og:title" content="Benchmarking the mle and mle2 function  | Consulting Statistician">
-  <meta property="og:description" content="Introductionmlemle2ConclusionIntroductionmle and mle2 are my favourite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.">
+  <meta property="og:description" content="Introductionmlemle2ConclusionIntroductionmle and mle2 are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.">
   
   
     
@@ -447,16 +447,16 @@
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p><a href="">mle</a> and <a href="">mle2</a> are my favourite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.</p>
-<p>Even if I do Benchmark the analytical methods for the mle function it would be very similar to optim function tables but with additional time taken, because of the extra outputs. This would similarly occur when we benchamrk analytical methods from the mle2 function as well.</p>
+<p><a href="">mle</a> and <a href="">mle2</a> are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.</p>
+<p>Even if I do Benchmark the analytical methods for the mle function it would be very similar to optim function tables but with additional time taken, because of the extra outputs. This would similarly occur when we benchmark analytical methods from the mle2 function as well.</p>
 <p>Therefore, I figure why do we need to benchmark them at all. So this blog post is to simply reiterate the initial things which I said in my earlier post on the blog post <a href="">Benchmarking optimization functions in R</a>.</p>
 <div id="mle" class="section level2">
 <h2>mle</h2>
-<p>mle function is from the stats4 package. If we intend to use this function for the estimation of shape parameters a and b of the Beta-Binomial distribution when Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD package. This is not enough because for limitations in the mle we need to make changes in our EstMLEBetaBin function as mentioned below.</p>
+<p>mle function is from the <a href="">stats4</a> package. If we intend to use this function for the estimation of shape parameters a and b of the Beta-Binomial distribution when Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD package. This is not enough because for limitations in the mle we need to make changes in our EstMLEBetaBin function as mentioned below.</p>
 <pre class="r"><code>library(stats4)
-library(fitODBOD)</code></pre>
-<pre><code>## Hello, This is Amalan. For more details refer --&gt; https://amalan-constat.github.io/R-fitODBOD/index.html</code></pre>
-<pre class="r"><code>#new function to facilitate mle criteria 
+library(fitODBOD)
+
+#new function to facilitate mle criteria 
 
 formle&lt;-function(a,b)
 {
@@ -465,36 +465,11 @@ formle&lt;-function(a,b)
 
 # optimizing values for a,b using default analytial method
 mle_answer&lt;-mle(minuslogl = formle,start = list(a=0.1,b=0.2))</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a + data[i], n + b - data[i]): NaNs produced</code></pre>
-<pre><code>## Warning in beta(a, b): NaNs produced</code></pre>
-<p>We are going to use the Alcohol Consumption data of week 1. In the above code chunk we are using the mle function for our task of finding the optim shape parameter values for a and b while using the give Binomial Outcome data.</p>
+<p>We are going to use the Alcohol Consumption data of week 1. In the above code chunk we are using the mle function for our task of finding the optimum shape parameter values for a and b while using the give Binomial Outcome data.</p>
 </div>
 <div id="mle2" class="section level2">
 <h2>mle2</h2>
+<p><a href="">bbmle</a> package holds the mle2 function. It is simply an updated version for mle function.</p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
