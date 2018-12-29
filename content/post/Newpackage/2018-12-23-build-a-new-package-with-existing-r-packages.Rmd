@@ -163,30 +163,50 @@ promote this site to get more people interested in the package.
 
 #  Still I have not Used
 
+In this list I will explore packages which can be used to make package development
+more simple and elegant. Mostly using functions for the tasks of proper code spaces, indent
+and necessary R versions of dependency packages.
+
 ## packrat
 
-[](https://cran.r-project.org/package=packrat)
+Manage the R pacakges in an isolated, portable and reproducible way.
+
+[Link to package](https://cran.r-project.org/package=packrat)
 
 ## pkgconfig
 
-[](https://cran.r-project.org/package=pkgconfig)
+Set configuration options on a per-package basis. 
+
+[Link to package](https://cran.r-project.org/package=pkgconfig)
 
 ## pkginspector
 
-[](https://github.com/ropenscilabs/pkginspector)
+Understand internal structure of an R package.
+
+[Link to package](https://github.com/ropenscilabs/pkginspector)
 
 ## rvcheck
 
-[](https://cran.r-project.org/package=rvcheck)
+Check latest release version of R and R packages.
+
+[Link to package](https://cran.r-project.org/package=rvcheck)
 
 ## rversions
 
-[](https://cran.r-project.org/package=rversions)
+Focusing on R version 'r-release' and 'r-oldrel'. Further all previous R versions.
+
+[Link to package](https://cran.r-project.org/package=rversions)
 
 ## formatR
 
-[](https://cran.r-project.org/package=formatR)
+Spaces and Indent for the code automatically added
+
+[Link to package](https://cran.r-project.org/package=formatR)
 
 ## whoami
 
-[](https://cran.r-project.org/package=whoami)
+Username and fullname of current user, also email address and GitHub username.
+
+[Link to package](https://cran.r-project.org/package=whoami)
+
+
