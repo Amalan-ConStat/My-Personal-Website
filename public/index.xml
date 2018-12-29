@@ -28,17 +28,16 @@
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;&#34;&gt;mle&lt;/a&gt; and &lt;a href=&#34;&#34;&gt;mle2&lt;/a&gt; are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle&#34;&gt;mle&lt;/a&gt; and &lt;a href=&#34;https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2&#34;&gt;mle2&lt;/a&gt; are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.&lt;/p&gt;
 &lt;p&gt;Even if I do Benchmark the analytical methods for the mle function it would be very similar to optim function tables but with additional time taken, because of the extra outputs. This would similarly occur when we benchmark analytical methods from the mle2 function as well.&lt;/p&gt;
-&lt;p&gt;Therefore, I figure why do we need to benchmark them at all. So this blog post is to simply reiterate the initial things which I said in my earlier post on the blog post &lt;a href=&#34;&#34;&gt;Benchmarking optimization functions in R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Therefore, I figure why do we need to benchmark them at all. So this blog post is to simply reiterate the initial things which I said in my earlier post on the blog post &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/&#34;&gt;Benchmarking optimization functions in R&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;mle&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;mle&lt;/h2&gt;
-&lt;p&gt;mle function is from the &lt;a href=&#34;&#34;&gt;stats4&lt;/a&gt; package. If we intend to use this function for the estimation of shape parameters a and b of the Beta-Binomial distribution when Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD package. This is not enough because for limitations in the mle we need to make changes in our EstMLEBetaBin function as mentioned below.&lt;/p&gt;
+&lt;p&gt;mle function is from the &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html&#34;&gt;stats4&lt;/a&gt; package. If we intend to use this function for the estimation of shape parameters a and b of the Beta-Binomial distribution when Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD package. This is not enough because for limitations in the mle we need to make changes in our EstMLEBetaBin function as mentioned below.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stats4)
 library(fitODBOD)
 
 #new function to facilitate mle criteria 
-
 formle&amp;lt;-function(a,b)
 {
   EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a,b)
@@ -46,15 +45,49 @@ formle&amp;lt;-function(a,b)
 
 # optimizing values for a,b using default analytial method
 mle_answer&amp;lt;-mle(minuslogl = formle,start = list(a=0.1,b=0.2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We are going to use the Alcohol Consumption data of week 1. In the above code chunk we are using the mle function for our task of finding the optimum shape parameter values for a and b while using the give Binomial Outcome data.&lt;/p&gt;
+&lt;p&gt;We are going to use the Alcohol Consumption data of week 1. In the above code chunk we are using the mle function for our task of finding the optimum shape parameter values for a and b while using the give Binomial Outcome data. Also If you wish you study about the mle function refer &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle-function&#34;&gt;this link&lt;/a&gt; from my previous post.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mle2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;mle2&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;&#34;&gt;bbmle&lt;/a&gt; package holds the mle2 function. It is simply an updated version for mle function.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/bbmle/index.html&#34;&gt;bbmle&lt;/a&gt; package holds the mle2 function. It is simply an updated version for the mle function. Although there need to be no changes in the EstMLEBetaBin function to satisfy the mle2 function’s criteria. Now it will be possible to use it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(bbmle)
+
+# optimizing values for a,b using default analytical method
+mle2_answer&amp;lt;-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
+                  data = list(x=Alcohol_data$Days,freq=Alcohol_data$week1))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Still if someone needs a brief introduction to mle2 function they can refer my previous brief through &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle2-function&#34;&gt;this link&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;My personal opinion is to use the mle2 function, but moving towards what should be the analytical method. It would be wise to choose it based on your needs as these methods completely depend on the data, function that needs to be estimated, complexity of the function and finally the number estimators that needs to be estimated.&lt;/p&gt;
+&lt;p&gt;This is the link to the article which is for &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/&#34;&gt;Benchmarking optim function analytical methods&lt;/a&gt;. It might be useful while understanding the analytical methods.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

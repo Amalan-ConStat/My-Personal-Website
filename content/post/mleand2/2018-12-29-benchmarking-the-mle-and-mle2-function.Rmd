@@ -22,7 +22,7 @@ image:
 
 # Introduction
 
-[mle]() and [mle2]() 
+[mle](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle) and [mle2](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2) 
 are my favorite functions, because they provide extensive amount of outputs
 for the optimization process. Even though there is no difference in analytial methods 
 used in both of these functions. Further, these analytical methods are the same ones used
@@ -36,11 +36,11 @@ similarly occur when we benchmark analytical methods from the mle2 function as w
 
 Therefore, I figure why do we need to benchmark them at all. So this blog post is to 
 simply reiterate the initial things which I said in my earlier post on the blog post
-[Benchmarking optimization functions in R]().
+[Benchmarking optimization functions in R](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/).
 
 ## mle
 
-mle function is from the [stats4]() 
+mle function is from the [stats4](https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html) 
 package. If we intend to use this function for
 the estimation of shape parameters a and b of the Beta-Binomial distribution when
 Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD
@@ -52,7 +52,6 @@ library(stats4)
 library(fitODBOD)
 
 #new function to facilitate mle criteria 
-
 formle<-function(a,b)
 {
   EstMLEBetaBin(x=Alcohol_data$Days,freq = Alcohol_data$week1,a,b)
@@ -64,15 +63,36 @@ mle_answer<-mle(minuslogl = formle,start = list(a=0.1,b=0.2))
 
 We are going to use the Alcohol Consumption data of week 1. In the above code
 chunk we are using the mle function for our task of finding the optimum shape parameter
-values for a and b while using the give Binomial Outcome data.
+values for a and b while using the give Binomial Outcome data. Also If you wish you
+study about the mle function refer [this link](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle-function) 
+from my previous post.
 
 ## mle2
 
-[bbmle]() 
-package holds the mle2 function. It is simply an updated version for mle function. 
+[bbmle](https://cran.r-project.org/web/packages/bbmle/index.html) 
+package holds the mle2 function. It is simply an updated version for the mle function. 
+Although there need to be no changes in the EstMLEBetaBin function to satisfy the mle2 
+function's criteria. Now it will be possible to use it. 
 
 ```{r using mle2 function}
+library(bbmle)
 
+# optimizing values for a,b using default analytical method
+mle2_answer<-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
+                  data = list(x=Alcohol_data$Days,freq=Alcohol_data$week1))
 ```
 
+
+Still if someone needs a brief introduction to mle2 function they can refer my
+previous brief through [this link](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle2-function).
+
 # Conclusion
+
+My personal opinion is to use the mle2 function, but moving towards what should be the analytical
+method. It would be wise to choose it based on your needs as these methods completely depend on 
+the data, function that needs to be estimated, complexity of the function and finally the number
+estimators that needs to be estimated. 
+
+This is the link to the article which is for 
+[Benchmarking optim function analytical methods](https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/).
+It might be useful while understanding the analytical methods.
