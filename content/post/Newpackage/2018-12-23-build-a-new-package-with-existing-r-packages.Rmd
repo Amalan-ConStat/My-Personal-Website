@@ -15,6 +15,7 @@ image:
   caption: ''
   focal_point: ''
 ---
+# Introduction
 
 Package developement is a sense of accomplishment for any statistical programmer who needs self
 satisfaction. I developed the R package [fitODBOD]()
@@ -209,4 +210,25 @@ Username and fullname of current user, also email address and GitHub username.
 
 [Link to package](https://cran.r-project.org/package=whoami)
 
+# Conclusion
 
+Hopefully we would have more packages and awareness towards R package development
+with more simplicity in the coming years. Even though we have more than 15,000 packages 
+in CRAN it would still rapidly increase in the coming years, not only in CRAN but also in 
+GitHub as well. 
+
+So far this post has only word content and links, therefore I am adding a screenshot of my 
+fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads,
+R version, published date, package version and a hexagon logo sticker.
+
+![]()
+
+![]()
+I hope this blog post is useful for anyone who has intentions to develop their R package or 
+in the process of development or version controlling. I developed fitODBOD as a research
+project for my final year and it included a thesis report as well. Over time I wrote a 
+Journal article as well and it is still under review. Also I have seen R package development
+as a Phd submission as well. Therefore it would be worthwhile developing an R package as a way 
+to keep an active status regarding your field of interest in Statistics. 
+
+*Thank You*

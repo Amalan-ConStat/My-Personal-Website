@@ -18,6 +18,7 @@
       <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
       <description>&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#most-essential-packages&#34;&gt;Most Essential Packages&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#devtools&#34;&gt;devtools&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#pkgbuild&#34;&gt;pkgbuild&lt;/a&gt;&lt;/li&gt;
@@ -50,14 +51,18 @@
 &lt;li&gt;&lt;a href=&#34;#formatr&#34;&gt;formatR&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#whoami&#34;&gt;whoami&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Package developement is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package &lt;a href=&#34;&#34;&gt;fitODBOD&lt;/a&gt; for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions. It was a an amazing journey learning how to develop an R package, which took me around 6 months while understanding the theoretical aspects of my research project and doing my 4th year courses.&lt;/p&gt;
 &lt;p&gt;I am still learning new things related to R, which is helpful for this R package development. Making package version updates regularly is for the benefit of the user. I have learned new ways to express the theoretical concepts in the simplest form of functions, classes and methods. Currently, I am exploring the possibility of using Rshiny dashboard and GUI.&lt;/p&gt;
 &lt;p&gt;In the beginning, R package developers have used manual techniques (which mean difficult techniques)&lt;br /&gt;
 to develop R functions, documentation and examples for their packages. Over time it has changed rapidly, where currently we are using R pacakges to develop our own R package. In this post I shall briefly mention these packages which you can use. Using these packages it is possible to make package development stress free, time efficient and objective effective. Simultaneously we can make our R packages more attractive for the users, which would lead to lot of attention in the R community.&lt;/p&gt;
 &lt;p&gt;There are three types of packages in my perspective, first “Most Essential Packages” which cannot be ignored, second “Essential packages” it is your choice to ignore and finally, “Still I have not Used” packages.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;most-essential-packages&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Most Essential Packages&lt;/h1&gt;
 &lt;p&gt;There are three packages in my main interest list and they are &lt;a href=&#34;https://cran.r-project.org/package=devtools&#34;&gt;devtools&lt;/a&gt;, &lt;a href=&#34;https://cran.r-project.org/package=roxygen2&#34;&gt;roxygen2&lt;/a&gt; and &lt;a href=&#34;https://cran.r-project.org/package=testthat&#34;&gt;testhat&lt;/a&gt;.&lt;/p&gt;
@@ -189,6 +194,17 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;p&gt;Username and fullname of current user, also email address and GitHub username.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=whoami&#34;&gt;Link to package&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Hopefully we would have more packages and awareness towards R package development with more simplicity in the coming years. Even though we have more than 15,000 packages in CRAN it would still rapidly increase in the coming years, not only in CRAN but also in GitHub as well.&lt;/p&gt;
+&lt;p&gt;So far this post has only word content and links, therefore I am adding a screenshot of my fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads, R version, published date, package version and a hexagon logo sticker.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;&#34; /&gt; I hope this blog post is useful for anyone who has intentions to develop their R package or in the process of development or version controlling. I developed fitODBOD as a research project for my final year and it included a thesis report as well. Over time I wrote a Journal article as well and it is still under review. Also I have seen R package development as a Phd submission as well. Therefore it would be worthwhile developing an R package as a way to keep an active status regarding your field of interest in Statistics.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
