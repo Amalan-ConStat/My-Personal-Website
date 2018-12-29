@@ -28,7 +28,7 @@
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle&#34;&gt;mle&lt;/a&gt; and &lt;a href=&#34;https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2&#34;&gt;mle2&lt;/a&gt; are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytial methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle&#34;&gt;mle&lt;/a&gt; and &lt;a href=&#34;https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2&#34;&gt;mle2&lt;/a&gt; are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytical methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.&lt;/p&gt;
 &lt;p&gt;Even if I do Benchmark the analytical methods for the mle function it would be very similar to optim function tables but with additional time taken, because of the extra outputs. This would similarly occur when we benchmark analytical methods from the mle2 function as well.&lt;/p&gt;
 &lt;p&gt;Therefore, I figure why do we need to benchmark them at all. So this blog post is to simply reiterate the initial things which I said in my earlier post on the blog post &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/&#34;&gt;Benchmarking optimization functions in R&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;mle&#34; class=&#34;section level2&#34;&gt;
@@ -55,39 +55,14 @@ mle_answer&amp;lt;-mle(minuslogl = formle,start = list(a=0.1,b=0.2))&lt;/code&gt
 # optimizing values for a,b using default analytical method
 mle2_answer&amp;lt;-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
                   data = list(x=Alcohol_data$Days,freq=Alcohol_data$week1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a + data[i], n + b - data[i]): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in beta(a, b): NaNs produced&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Still if someone needs a brief introduction to mle2 function they can refer my previous brief through &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle2-function&#34;&gt;this link&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;My personal opinion is to use the mle2 function, but moving towards what should be the analytical method. It would be wise to choose it based on your needs as these methods completely depend on the data, function that needs to be estimated, complexity of the function and finally the number estimators that needs to be estimated.&lt;/p&gt;
-&lt;p&gt;This is the link to the article which is for &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/&#34;&gt;Benchmarking optim function analytical methods&lt;/a&gt;. It might be useful while understanding the analytical methods.&lt;/p&gt;
+&lt;p&gt;This is the link to the article which is for &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/&#34;&gt;Benchmarking optim function&lt;/a&gt;. It might be useful while understanding the analytical methods.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

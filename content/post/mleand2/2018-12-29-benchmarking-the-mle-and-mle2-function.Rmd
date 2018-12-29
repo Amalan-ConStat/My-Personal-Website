@@ -24,7 +24,7 @@ image:
 
 [mle](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle) and [mle2](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2) 
 are my favorite functions, because they provide extensive amount of outputs
-for the optimization process. Even though there is no difference in analytial methods 
+for the optimization process. Even though there is no difference in analytical methods 
 used in both of these functions. Further, these analytical methods are the same ones used
 by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means
 both mle and mle2 are using the optim function inside but with some additional inputs, which
@@ -74,7 +74,7 @@ package holds the mle2 function. It is simply an updated version for the mle fun
 Although there need to be no changes in the EstMLEBetaBin function to satisfy the mle2 
 function's criteria. Now it will be possible to use it. 
 
-```{r using mle2 function}
+```{r using mle2 function,warning=FALSE,message=FALSE,results='hide'}
 library(bbmle)
 
 # optimizing values for a,b using default analytical method
@@ -94,5 +94,7 @@ the data, function that needs to be estimated, complexity of the function and fi
 estimators that needs to be estimated. 
 
 This is the link to the article which is for 
-[Benchmarking optim function analytical methods](https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/).
+[Benchmarking optim function](https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/).
 It might be useful while understanding the analytical methods.
+
+*Thank You*
