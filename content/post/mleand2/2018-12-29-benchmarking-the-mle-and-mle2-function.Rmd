@@ -1,0 +1,22 @@
+---
+title: 'Benchmarking the mle and mle2 function '
+author: M.Amalan
+date: '2018-12-29'
+output: 
+  blogdown::html_page:
+    toc: true
+slug: benchmarking-the-mle-and-mle2-function
+categories:
+  - R
+tags:
+  - bbmle
+  - fitODBOD
+  - mle
+  - mle2
+  - R
+  - R package
+image:
+  caption: ''
+  focal_point: ''
+---
+

@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/mleand2/benchmarking-the-mle-and-mle2-function/</loc>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/newpackage/build-a-new-package-with-existing-r-packages/</loc>
       <lastmod>2018-12-23T00:00:00+00:00</lastmod>
     </url>
@@ -354,8 +362,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -363,8 +371,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -382,7 +390,7 @@
     <url>
     
       <loc>/tags/r-package/</loc>
-      <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -423,7 +431,7 @@
     
     <url>
     
-      <loc>/tags/tidytuesday/</loc>
+      <loc>/categories/tidytuesday/</loc>
       <lastmod>2018-12-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -432,7 +440,7 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
+      <loc>/tags/tidytuesday/</loc>
       <lastmod>2018-12-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -451,16 +459,7 @@
     <url>
     
       <loc>/tags/bbmle/</loc>
-      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tags/fitodbod/</loc>
-      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -470,6 +469,15 @@
     
       <loc>/categories/fitodbod/</loc>
       <lastmod>2018-12-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/fitodbod/</loc>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -487,7 +495,7 @@
     <url>
     
       <loc>/tags/mle/</loc>
-      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -496,7 +504,7 @@
     <url>
     
       <loc>/tags/mle2/</loc>
-      <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

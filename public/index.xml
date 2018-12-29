@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Benchmarking the mle and mle2 function </title>
+      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Build a New Package with Existing R packages</title>
       <link>/post/newpackage/build-a-new-package-with-existing-r-packages/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
@@ -9920,61 +9929,6 @@ is not my thing therefore these books are not divided into groups.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/014241381X/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i10&#34; target=&#34;_blank&#34;&gt;Boy by Roald Dohl&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0451526341/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i1&#34; target=&#34;_blank&#34;&gt;Animal Farm by George Orwell&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/081298160X/ref=dbs_a_def_rwt_bibl_vppi_i0&#34; target=&#34;_blank&#34;&gt;The power of Habit by Charles Duhigg&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Movies</title>
-      <link>/projects/movies/</link>
-      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/movies/</guid>
-      <description>&lt;p&gt;Watching movies for the last six years(from 2012) with much interest in plot, story line and characters. I have
-watched more than 300 movies but the below mentioned are in my mind. They are from different decades as well,
-therefore do not hesistate to watch. If you prefer go through the IMDB link so that the ratings and summary will
-give you more information. 36 Movies will be mentioned below.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0050083/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;12 Angry Men&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1345836/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Batman Trilogy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0034583/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Casablanca&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0382625/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Dan Brown Trilogy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0095016/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Die Hard Quadropolgy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1323594/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Despicable Me Collection&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0057012/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Dr. Strangelove&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Fight Club&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Forrest Gump&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Godfather&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1375666/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Inception&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0816692/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Interstellar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0338564/?ref_=tt_rec_tti&#34; target=&#34;_blank&#34;&gt;Internal Affairs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1220719/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Ip man&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0120735/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Lock, Stock and Two Smoking Barrels&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0167260/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Lord of The Rings Collection&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0209144/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Memento&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0356910/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Mr and Mrs Smith&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0073486/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;One flew over the cuckoos nest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Se7en&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0120815/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Saving Private Ryan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Shutter Island&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0108052/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Schindlers List&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0407887/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Departed&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Good The Bad and The Ugly&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0111161/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Shawshank Redemption&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0102926/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Silence of the Lambs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0070735/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Sting&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0362227/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;The Terminal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0120382/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Truman Show&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0133093/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Matrix Trilogy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt4196776/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Bourne Collection&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt2310332/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;The Hobbit Collection&lt;/a&gt;
-35  &lt;a href=&#34;https://www.imdb.com/title/tt2265171/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;The Raid&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0482571/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;The Prestige&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0434409/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;V for Vendetta&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Unbreakable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0105695/?ref_=nv_sr_2&#34; target=&#34;_blank&#34;&gt;Unforgiven&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.imdb.com/title/tt0910970/?ref_=nv_sr_1&#34; target=&#34;_blank&#34;&gt;Wall-E&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/mle2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Benchmarking the mle and mle2 function </title>
+      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Benchmarking optimization functions in R</title>
