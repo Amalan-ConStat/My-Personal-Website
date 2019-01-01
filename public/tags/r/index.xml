@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 1 : #TidyTuesday tweets </title>
+      <link>/post/tidytuesday2019/week1/week-1-tidytuesday-tweets/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week1/week-1-tidytuesday-tweets/</guid>
+      <description>#Tidytuesday TweetsEarliest TweetAny Verified Profiles ?Source of TweetsTweets Per MonthMost Tweets By Screen NameMost Tweets By Screen Name and their SourceMost Tweets By Screen Name with their Retweet CountsMost Tweets By Screen Name with their Favorite CountsRelationship between Favorite Counts vs Retweet Counts ?Relationship between Followers Count vs Friends Count ?ConclusionFurther Analysis# load the necessary packageslibrary(tidyverse)library(lubridate)library(kableExtra)library(ggthemr)#load the ggthemrggthemr(&amp;quot;flat dark&amp;quot;)# load the data settidytuesday_tweets&amp;lt;-readRDS(&amp;quot;tidytuesday_tweets.</description>
+    </item>
     
     <item>
       <title>Benchmarking the mle and mle2 function </title>
