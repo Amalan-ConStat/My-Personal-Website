@@ -27,7 +27,7 @@ publication_short = "*fitODBOD*"
 # Abstract and optional shortened version.
 abstract = " Using [pkgdown](https://pkgdown.r-lib.org/) a genuine website for fitODBOD was generated. There is no extra work to be done here, because pkgdown uses our exisiting man files and vignettes to create this website. It is quie easy and convenient for a user to use this website generated for fitODBOD. Rather than the CRAN or GitHub  versions, which only provides a manual in the website there are clear and concise examples of how functions can be used for researchers"
 
-abstract_short = " Every year when the package is updated, website will be updated as well with newest helpful documents to explain how the fitODBOD package works"
+abstract_short = " Every year when the package is updated, website will be updated as well with the newest helpful documents to explain how the fitODBOD package works."
 
 # Is this a selected publication? (true/false)
 selected = true
@@ -71,7 +71,7 @@ math = true
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
-  # caption = "From: ggplot and fitODBOD"
+   caption = "Outlook of Website."
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
