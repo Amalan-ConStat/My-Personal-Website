@@ -11,7 +11,7 @@ categories:
 tags:
   - R
   - R package
-image:
+image: 
   caption: ''
   focal_point: ''
 ---
