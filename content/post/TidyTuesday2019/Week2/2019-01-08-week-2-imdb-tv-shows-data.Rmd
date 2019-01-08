@@ -1,0 +1,21 @@
+---
+title: 'Week 2: IMDB TV Shows Data'
+author: M.Amalan
+date: '2019-01-08'
+slug: week-2-imdb-tv-shows-data
+output: 
+    blogdown::html_page:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - R
+  - R package
+  - tidyverse
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+---
+
