@@ -18,7 +18,7 @@
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/</guid>
-      <description></description>
+      <description>GenreGenre and SeasonGenre and YearGenre and MonthSeasonSeason and YearSeason and MonthTop 3 GenresCrime Drama MysteryComedy DramaDramaRating over the yearsTv Series with more than 14 Seasons# loading the packageslibrary(tidyverse)library(summarytools)library(magrittr)library(readr)library(lubridate)library(gganimate)library(stringr)# load the datasetRatings &amp;lt;- read_csv(&amp;quot;IMDb_Economist_tv_ratings.csv&amp;quot;, col_types = cols(date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;)))Ratings data-set is from the IMDB site.</description>
     </item>
     
     <item>
