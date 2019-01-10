@@ -16,7 +16,73 @@
       <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/yourownpackage/developing-an-r-package/</guid>
-      <description></description>
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#credit&#34;&gt;Credit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#coding-standards&#34;&gt;Coding Standards&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#coding-to-understand&#34;&gt;Coding to Understand&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#package-structure&#34;&gt;package structure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#description-file&#34;&gt;DESCRIPTION file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r-directory&#34;&gt;/R directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#man-directory&#34;&gt;/man directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-directory&#34;&gt;/data directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#namsespace-file&#34;&gt;NAMSESPACE file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#manual.pdf&#34;&gt;Manual.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#vignette.pdf&#34;&gt;Vignette.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#building-the-package&#34;&gt;Building the Package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#testing-and-checking-the-package&#34;&gt;Testing and checking the Package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#distributing-the-package&#34;&gt;Distributing the Package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;R package development is no longer as it was before 2010 because now most of the work can be done by just a simple mouse-click or with the use of a function. My intention of writing this blog post is not to give a thorough demonstration of how to develop your own R package. But it will briefly explain the process with the most important steps, and will include valueable blog posts and websites which helped me to develop my own R package &lt;a href=&#34;https://cran.r-project.org/package=fitODBOD&#34;&gt;fitODBOD.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;credit&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Credit&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;coding-standards&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Coding Standards&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;coding-to-understand&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Coding to Understand&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;package-structure&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;package structure&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;description-file&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;DESCRIPTION file&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-directory&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;/R directory&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;man-directory&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;/man directory&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-directory&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;/data directory&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;namsespace-file&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;NAMSESPACE file&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manual.pdf&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Manual.pdf&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vignette.pdf&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Vignette.pdf&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-the-package&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Building the Package&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;testing-and-checking-the-package&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Testing and checking the Package&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distributing-the-package&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Distributing the Package&lt;/h1&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>

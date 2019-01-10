@@ -18,3 +18,38 @@ image:
   focal_point: ''
 ---
 
+# Introduction
+
+R package development is no longer as it was before 2010 because now most of the work can be done by
+just a simple mouse-click or with the use of a function. My intention of writing this blog post is not to 
+give a thorough demonstration of how to develop your own R package. But it will briefly explain the 
+process with the most important steps, and will include valueable blog posts and websites which helped me
+to develop my own R package [fitODBOD.](https://cran.r-project.org/package=fitODBOD)
+
+# Credit
+
+# Coding Standards
+
+# Coding to Understand
+
+# package structure
+
+# DESCRIPTION file
+
+# /R directory
+
+# /man directory
+
+# /data directory
+
+# NAMSESPACE file
+
+# Manual.pdf
+
+# Vignette.pdf
+
+# Building the Package
+
+# Testing and checking the Package
+
+# Distributing the Package
