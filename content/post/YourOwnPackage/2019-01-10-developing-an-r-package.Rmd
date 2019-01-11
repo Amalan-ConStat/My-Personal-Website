@@ -27,6 +27,28 @@ process with the most important steps, and will include valueable blog posts and
 to develop my own R package [fitODBOD.](https://cran.r-project.org/package=fitODBOD)
 
 # Credit
+  
+  I would definitely recommend read all of these books and start your package developement. Or
+  at least make step by step progress in your work while reading them. If you have a basic knowledge 
+  regarding R, Rstudio, CRAN and writing programs, they are more than enough for you to start.
+  
+* [R packages by Hadley Wickam](http://r-pkgs.had.co.nz/)
+
+  This website contains everything that is in the book. The basic things related to an R
+  package development process are structed properly here. It is very useful to read this 
+  book/website. The package structure, the type of files necessary, how should the writing be
+  in these files and further, what kind of ways can we use to achieve the final outputs. 
+  The book is mainly focused on producing an R package which can be updated with the highest 
+  standards using reproducing ability. Such as CRAN standards and GitHub releases. 
+  
+* [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
+
+  Everything related to package development is included here with clear instructions.
+  This document is provided by the CRAN project to make package development more friendlier.
+  It includes the official standards for files and naming conventions related to R package 
+  development. 
+  
+*   
 
 # Coding Standards
 
