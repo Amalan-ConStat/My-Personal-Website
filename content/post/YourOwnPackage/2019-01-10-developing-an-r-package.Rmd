@@ -71,26 +71,57 @@ to develop my own R package [fitODBOD.](https://cran.r-project.org/package=fitOD
 
   Useful book related to object oriented programming, functions and data objects related to R. Very thorough and 
   scrutinized information with valuable explanation which makes things more clearer. 
+  
+```{r Drawng Diagramme,echo=FALSE}
+library(DiagrammeR)
 
-# Coding Standards
+DiagrammeR(
+           "graph TB;
+           A(Code with Standards and comment)-->C(Create R package);
+           C-->D(R package <br> Structure);
+           D-->E(DESCRIPTION file);
+           D-->F(README file);
+           D-->G(/R directory);
+           D-->H(/data directory);
+           D-->I(/tests directory);
+           D-->J(/man directory);
+           D-->K(NAMESPACE file);
+           D-->L(/vignettes <br> directory);
+           D-->M(NEWS.md file);
+           E-->O(Build <br> the package);
+           O-->N(Source,Bundle,Binary,Installed,In Memory);
+           F-->O;
+           G-->O;
+           H-->O; 
+           I-->O;
+           J-->O; 
+           K-->O; 
+           L-->O;
+           M-->O;
+           "
+          )
+```
+# 1) Coding Standards or Coding to Understand
 
-# Coding to Understand
+# 2) Package Structure
 
-# package structure
+# 3) DESCRIPTION file
 
-# DESCRIPTION file
+# 4) README file
 
-# /R directory
+# 5) /R directory
 
-# /man directory
+# 6) /data directory
 
-# /data directory
+# 7) /tests directory
 
-# NAMSESPACE file
+# 8) /man directory
+
+# 9) NAMSESPACE file
+
+# 10) Vignette.pdf
 
 # Manual.pdf
-
-# Vignette.pdf
 
 # Building the Package
 

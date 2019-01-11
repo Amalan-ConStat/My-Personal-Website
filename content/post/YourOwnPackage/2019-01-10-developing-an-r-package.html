@@ -18,21 +18,29 @@ image:
   focal_point: ''
 ---
 
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/dagre/dagre-d3.min.js"></script>
+<link href="/rmarkdown-libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/mermaid/dist/mermaid.slim.min.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/chromatography/chromatography.js"></script>
+<script src="/rmarkdown-libs/DiagrammeR-binding/DiagrammeR.js"></script>
 
 <div id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#credit">Credit</a></li>
-<li><a href="#coding-standards">Coding Standards</a></li>
-<li><a href="#coding-to-understand">Coding to Understand</a></li>
-<li><a href="#package-structure">package structure</a></li>
-<li><a href="#description-file">DESCRIPTION file</a></li>
-<li><a href="#r-directory">/R directory</a></li>
-<li><a href="#man-directory">/man directory</a></li>
-<li><a href="#data-directory">/data directory</a></li>
-<li><a href="#namsespace-file">NAMSESPACE file</a></li>
+<li><a href="#package-structure">2) Package Structure</a></li>
+<li><a href="#description-file">3) DESCRIPTION file</a></li>
+<li><a href="#readme-file">4) README file</a></li>
+<li><a href="#r-directory">5) /R directory</a></li>
+<li><a href="#data-directory">6) /data directory</a></li>
+<li><a href="#tests-directory">7) /tests directory</a></li>
+<li><a href="#man-directory">8) /man directory</a></li>
+<li><a href="#namsespace-file">9) NAMSESPACE file</a></li>
+<li><a href="#vignette.pdf">10) Vignette.pdf</a></li>
 <li><a href="#manual.pdf">Manual.pdf</a></li>
-<li><a href="#vignette.pdf">Vignette.pdf</a></li>
 <li><a href="#building-the-package">Building the Package</a></li>
 <li><a href="#testing-and-checking-the-package">Testing and checking the Package</a></li>
 <li><a href="#distributing-the-package">Distributing the Package</a></li>
@@ -70,36 +78,38 @@ image:
 <li><a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno by Patrick Burns</a></li>
 </ul>
 <p>Useful book related to object oriented programming, functions and data objects related to R. Very thorough and scrutinized information with valuable explanation which makes things more clearer.</p>
-</div>
-<div id="coding-standards" class="section level1">
-<h1>Coding Standards</h1>
-</div>
-<div id="coding-to-understand" class="section level1">
-<h1>Coding to Understand</h1>
+<p><div id="htmlwidget-1" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"graph TB;\n           A(Code with Standards and comment)-->C(Create R package);\n           C-->D(R package <br> Structure);\n           D-->E(DESCRIPTION file);\n           D-->F(README file);\n           D-->G(/R directory);\n           D-->H(/data directory);\n           D-->I(/tests directory);\n           D-->J(/man directory);\n           D-->K(NAMESPACE file);\n           D-->L(/vignettes <br> directory);\n           D-->M(NEWS.md file);\n           E-->O(Build <br> the package);\n           O-->N(Source,Bundle,Binary,Installed,In Memory);\n           F-->O;\n           G-->O;\n           H-->O; \n           I-->O;\n           J-->O; \n           K-->O; \n           L-->O;\n           M-->O;\n           "},"evals":[],"jsHooks":[]}</script> # 1) Coding Standards or Coding to Understand</p>
 </div>
 <div id="package-structure" class="section level1">
-<h1>package structure</h1>
+<h1>2) Package Structure</h1>
 </div>
 <div id="description-file" class="section level1">
-<h1>DESCRIPTION file</h1>
+<h1>3) DESCRIPTION file</h1>
+</div>
+<div id="readme-file" class="section level1">
+<h1>4) README file</h1>
 </div>
 <div id="r-directory" class="section level1">
-<h1>/R directory</h1>
-</div>
-<div id="man-directory" class="section level1">
-<h1>/man directory</h1>
+<h1>5) /R directory</h1>
 </div>
 <div id="data-directory" class="section level1">
-<h1>/data directory</h1>
+<h1>6) /data directory</h1>
+</div>
+<div id="tests-directory" class="section level1">
+<h1>7) /tests directory</h1>
+</div>
+<div id="man-directory" class="section level1">
+<h1>8) /man directory</h1>
 </div>
 <div id="namsespace-file" class="section level1">
-<h1>NAMSESPACE file</h1>
+<h1>9) NAMSESPACE file</h1>
+</div>
+<div id="vignette.pdf" class="section level1">
+<h1>10) Vignette.pdf</h1>
 </div>
 <div id="manual.pdf" class="section level1">
 <h1>Manual.pdf</h1>
-</div>
-<div id="vignette.pdf" class="section level1">
-<h1>Vignette.pdf</h1>
 </div>
 <div id="building-the-package" class="section level1">
 <h1>Building the Package</h1>
