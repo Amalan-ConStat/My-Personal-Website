@@ -90,18 +90,14 @@ DiagrammeR(
            D-->M(NEWS.md file);
            E-->O(Build <br> the package);
            O-->N(Source,Bundle,Binary,Installed,In Memory);
-           F-->O;
-           G-->O;
-           H-->O; 
-           I-->O;
-           J-->O; 
-           K-->O; 
-           L-->O;
-           M-->O;
-           "
+           F-->O; G-->O; H-->O; I-->O; J-->O; K-->O;  L-->O; M-->O;",
+           width=900
           )
 ```
+
 # 1) Coding Standards or Coding to Understand
+
+
 
 # 2) Package Structure
 
