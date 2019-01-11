@@ -95,27 +95,40 @@ DiagrammeR(
           )
 ```
 
-# 1) Coding Standards or Coding to Understand
+## 1) Coding Standards (Coding to Understand)
 
+Following coding standards is really the most basic of all the things related to programming
+in any language, this is considered in R package development as well. Simply speaking defining
+variables and functions, naming variables and functions, choosing input parameters and output 
+parameters, considering the type of inputs and outputs are in this list. This is highly encouraged
+so that in the future if someone other than the initial developer intends to improve or change a certain
+structure of the code. 
 
+These traits will be quite useful or if anyone wishes to understand the code 
+as well. In a CRAN or GitHub released package which is accessible by anyone a user 
+has the ability to view the code for the function therefore it is crucial to maintain
+coding standards. 
 
-# 2) Package Structure
+Also comment regularly in between functions to make it clearer about what is happening or
+what the code is expected to do.
 
-# 3) DESCRIPTION file
+## 2) Package Structure
 
-# 4) README file
+## 3) DESCRIPTION file
 
-# 5) /R directory
+## 4) README file
 
-# 6) /data directory
+## 5) /R directory
 
-# 7) /tests directory
+## 6) /data directory
 
-# 8) /man directory
+## 7) /tests directory
 
-# 9) NAMSESPACE file
+## 8) /man directory
 
-# 10) Vignette.pdf
+## 9) NAMSESPACE file
+
+## 10) Vignette.pdf
 
 # Manual.pdf
 
