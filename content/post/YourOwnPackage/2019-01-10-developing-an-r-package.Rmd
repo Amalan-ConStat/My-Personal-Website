@@ -100,7 +100,7 @@ DiagrammeR(
 * Focus on naming conventions.
 * Focus on input parameters and outputs.
 * Focus on indentation.
-* Comment regularly to make the functions sense.
+* Comment regularly to make sense of the functions.
 
 ![](/YourOwnPackage/codingstandards/figure1.PNG)
 
@@ -109,7 +109,7 @@ DiagrammeR(
 * Very Important. 
 * Initially few files be originated in the designated project folder.
 * Over time we might add folders or create files manually. 
-* Example - tests direcotyr, README.Rmd, ...
+* Example - tests directory, README.Rmd, ...
 
 ![](/YourOwnPackage/directory/figure1.PNG)
 
@@ -125,7 +125,7 @@ DiagrammeR(
 
 * Very much optional.
 * Only used in related to GitHub submission.
-* Using Rmarkdown generate an github output document.
+* Using Rmarkdown to generate a GitHub output document.
 
 Rmakrdown document
 ![](/YourOwnPackage/readme/figure1.PNG)
@@ -209,12 +209,13 @@ Html file which is generated with the help of Rd file for the dataset.
 NAMESPACE file and its components.
 ![](/YourOwnPackage/otherfiles/figure2.PNG)
 
-## 10) Vignette.pdf
+## 10) .Rbuildignore file
 
-# Manual.pdf
+## 11) .gitignore file
+
+## 12) Manual.pdf
 
 # Building the Package
 
-# Testing and checking the Package
 
 # Distributing the Package
