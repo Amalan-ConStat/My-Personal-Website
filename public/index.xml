@@ -108,6 +108,15 @@
 &lt;/div&gt;
 &lt;div id=&#34;description-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;3) DESCRIPTION file&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;File explaining basic things related to your package.&lt;/li&gt;
+&lt;li&gt;Example - package name, other packages needed, authors name, …&lt;/li&gt;
+&lt;li&gt;Can edit manually or use specific R package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/YourOwnPackage/otherfiles/figure1.PNG&#34; /&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;readme-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;4) README file&lt;/h2&gt;
