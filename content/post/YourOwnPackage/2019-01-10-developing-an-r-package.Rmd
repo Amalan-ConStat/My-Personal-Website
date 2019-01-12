@@ -123,6 +123,19 @@ DiagrammeR(
 
 ## 4) README file
 
+* Very much optional.
+* Only used in related to GitHub submission.
+* Using Rmarkdown generate an github output document.
+
+Rmakrdown document
+![](/YourOwnPackage/readme/figure1.PNG)
+
+GitHub document
+![](/YourOwnPackage/readme/figure2.PNG)
+
+Preview of GitHub document
+![](/YourOwnPackage/readme/figure3.PNG)
+
 ## 5) /R directory
 
 ## 6) /data directory
