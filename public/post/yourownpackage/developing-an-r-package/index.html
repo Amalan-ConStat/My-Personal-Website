@@ -503,9 +503,16 @@
 <script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"graph TB;\n           A(Code with Standards and comment)-->C(Create R package);\n           C-->D(R package <br> Structure);\n           D-->E(DESCRIPTION file);\n           D-->F(README file);\n           D-->G(/R directory);\n           D-->H(/data directory);\n           D-->I(/tests directory);\n           D-->J(/man directory);\n           D-->K(NAMESPACE file);\n           D-->L(/vignettes <br> directory);\n           D-->M(NEWS.md file);\n           E-->O(Build <br> the package);\n           O-->N(Source,Bundle,Binary,Installed,In Memory);\n           F-->O; G-->O; H-->O; I-->O; J-->O; K-->O;  L-->O; M-->O;"},"evals":[],"jsHooks":[]}</script>
 <div id="coding-standards-coding-to-understand" class="section level2">
 <h2>1) Coding Standards (Coding to Understand)</h2>
-<p>Following coding standards is really the most basic of all the things related to programming in any language, this is considered in R package development as well. Simply speaking defining variables and functions, naming variables and functions, choosing input parameters and output parameters, considering the type of inputs and outputs are in this list. This is highly encouraged so that in the future if someone other than the initial developer intends to improve or change a certain structure of the code.</p>
-<p>These traits will be quite useful or if anyone wishes to understand the code as well. In a CRAN or GitHub released package which is accessible by anyone a user has the ability to view the code for the function therefore it is crucial to maintain coding standards.</p>
-<p>Also comment regularly in between functions to make it clearer about what is happening or what the code is expected to do. Maintaining these standards will be very useful when your package has alot of grouped functions or a function with more than hundred lines of code.</p>
+<ul>
+<li>Focus on naming conventions.</li>
+<li>Focus on input parameters and outputs.</li>
+<li>Focus on indentation.</li>
+<li>Comment regularly to make the functions sense.</li>
+</ul>
+<div class="figure">
+<img src="/YourOwnPackage/codingstandards/figure1.PNG" />
+
+</div>
 </div>
 <div id="package-structure" class="section level2">
 <h2>2) Package Structure</h2>

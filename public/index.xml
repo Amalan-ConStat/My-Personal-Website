@@ -82,9 +82,16 @@
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n           A(Code with Standards and comment)--&gt;C(Create R package);\n           C--&gt;D(R package &lt;br&gt; Structure);\n           D--&gt;E(DESCRIPTION file);\n           D--&gt;F(README file);\n           D--&gt;G(/R directory);\n           D--&gt;H(/data directory);\n           D--&gt;I(/tests directory);\n           D--&gt;J(/man directory);\n           D--&gt;K(NAMESPACE file);\n           D--&gt;L(/vignettes &lt;br&gt; directory);\n           D--&gt;M(NEWS.md file);\n           E--&gt;O(Build &lt;br&gt; the package);\n           O--&gt;N(Source,Bundle,Binary,Installed,In Memory);\n           F--&gt;O; G--&gt;O; H--&gt;O; I--&gt;O; J--&gt;O; K--&gt;O;  L--&gt;O; M--&gt;O;&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;div id=&#34;coding-standards-coding-to-understand&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1) Coding Standards (Coding to Understand)&lt;/h2&gt;
-&lt;p&gt;Following coding standards is really the most basic of all the things related to programming in any language, this is considered in R package development as well. Simply speaking defining variables and functions, naming variables and functions, choosing input parameters and output parameters, considering the type of inputs and outputs are in this list. This is highly encouraged so that in the future if someone other than the initial developer intends to improve or change a certain structure of the code.&lt;/p&gt;
-&lt;p&gt;These traits will be quite useful or if anyone wishes to understand the code as well. In a CRAN or GitHub released package which is accessible by anyone a user has the ability to view the code for the function therefore it is crucial to maintain coding standards.&lt;/p&gt;
-&lt;p&gt;Also comment regularly in between functions to make it clearer about what is happening or what the code is expected to do. Maintaining these standards will be very useful when your package has alot of grouped functions or a function with more than hundred lines of code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Focus on naming conventions.&lt;/li&gt;
+&lt;li&gt;Focus on input parameters and outputs.&lt;/li&gt;
+&lt;li&gt;Focus on indentation.&lt;/li&gt;
+&lt;li&gt;Comment regularly to make the functions sense.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/YourOwnPackage/codingstandards/figure1.PNG&#34; /&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;package-structure&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2) Package Structure&lt;/h2&gt;
