@@ -146,6 +146,16 @@
 &lt;/div&gt;
 &lt;div id=&#34;data-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;6) /data directory&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Not compulsory.&lt;/li&gt;
+&lt;li&gt;Easy to use your own data therefore its worth it.&lt;/li&gt;
+&lt;li&gt;This directory will include the data-sets.&lt;/li&gt;
+&lt;li&gt;R directory can have an R script to generate Rd files for these datsets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;data directory which includes data-sets. &lt;img src=&#34;/YourOwnPackage/directory/figure3.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Rscript file which includes necessary roxygen tags to generate Rd files. &lt;img src=&#34;/YourOwnPackage/data/figure1.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Rd file of a data-set which is created with the help of data R script. &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Html file which is generated with the help of Rd file for the dataset. &lt;img src=&#34;/YourOwnPackage/data/figure2.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tests-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;7) /tests directory&lt;/h2&gt;

@@ -161,7 +161,26 @@ The Rdocumentation files can be processed into html outputs or into a pdf manual
 
 ## 6) /data directory
 
+* Not compulsory.
+* Easy to use your own data therefore its worth it.
+* This directory will include the data-sets.
+* R directory can have an R script to generate Rd files for these datsets.
+
+data directory which includes data-sets.
+![](/YourOwnPackage/directory/figure3.PNG)
+
+Rscript file which includes necessary roxygen tags to generate Rd files.
+![](/YourOwnPackage/data/figure1.PNG)
+
+Rd file of a data-set which is created with the help of data R script.
+![]()
+
+Html file which is generated with the help of Rd file for the dataset.
+![](/YourOwnPackage/data/figure2.PNG)
+
 ## 7) /tests directory
+
+
 
 ## 8) /man directory
 
