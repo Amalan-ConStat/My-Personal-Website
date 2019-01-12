@@ -150,15 +150,6 @@ R script file with necessary roxygen tags to develop RDocumentation files.
 ![](/YourOwnPackage/codingstandards/figure2.PNG)
 ![](/YourOwnPackage/codingstandards/figure3.PNG)
 
-With the help of R script files these RDocumentation files will be generated
-for each function and data sets will be in the man directory.
-![](/YourOwnPackage/codingstandards/figure6.PNG)
-![](/YourOwnPackage/codingstandards/figure7.PNG)
-
-The Rdocumentation files can be processed into html outputs or into a pdf manual.
-![](/YourOwnPackage/codingstandards/figure4.PNG)
-![](/YourOwnPackage/codingstandards/figure5.PNG)
-
 ## 6) /data directory
 
 * Not compulsory.
@@ -171,12 +162,6 @@ data directory which includes data-sets.
 
 Rscript file which includes necessary roxygen tags to generate Rd files.
 ![](/YourOwnPackage/data/figure1.PNG)
-
-Rd file of a data-set which is created with the help of data R script.
-![]()
-
-Html file which is generated with the help of Rd file for the dataset.
-![](/YourOwnPackage/data/figure2.PNG)
 
 ## 7) /tests directory
 
@@ -197,6 +182,24 @@ R script to test a data set.
 ![](/YourOwnPackage/checktest/figure2.PNG)
 
 ## 8) /man directory
+
+* This directory will include the Rd files for all functions and data sets.
+* If you use roxygen tags there is no need to manually type them.
+
+With the help of R script files these RDocumentation files will be generated
+for each function and will be in the man directory.
+![](/YourOwnPackage/codingstandards/figure6.PNG)
+![](/YourOwnPackage/codingstandards/figure7.PNG)
+
+The Rdocumentation files can be processed into html outputs or into a pdf manual.
+![](/YourOwnPackage/codingstandards/figure4.PNG)
+![](/YourOwnPackage/codingstandards/figure5.PNG)
+
+Rd file of a data-set which is created with the help of data R script.
+![]()
+
+Html file which is generated with the help of Rd file for the dataset.
+![](/YourOwnPackage/data/figure2.PNG)
 
 ## 9) NAMSESPACE file
 

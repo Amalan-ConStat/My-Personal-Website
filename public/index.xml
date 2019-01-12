@@ -141,8 +141,6 @@
 &lt;li&gt;Processed R script files will automatically generate Rd files in the man directory.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;R script file with necessary roxygen tags to develop RDocumentation files. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure2.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure3.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;With the help of R script files these RDocumentation files will be generated for each function and data sets will be in the man directory. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure6.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure7.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The Rdocumentation files can be processed into html outputs or into a pdf manual. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure4.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure5.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;6) /data directory&lt;/h2&gt;
@@ -154,8 +152,6 @@
 &lt;/ul&gt;
 &lt;p&gt;data directory which includes data-sets. &lt;img src=&#34;/YourOwnPackage/directory/figure3.PNG&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Rscript file which includes necessary roxygen tags to generate Rd files. &lt;img src=&#34;/YourOwnPackage/data/figure1.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Rd file of a data-set which is created with the help of data R script. &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Html file which is generated with the help of Rd file for the dataset. &lt;img src=&#34;/YourOwnPackage/data/figure2.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tests-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;7) /tests directory&lt;/h2&gt;
@@ -171,6 +167,14 @@
 &lt;/div&gt;
 &lt;div id=&#34;man-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;8) /man directory&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This directory will include the Rd files for all functions and data sets.&lt;/li&gt;
+&lt;li&gt;If you use roxygen tags there is no need to manually type them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the help of R script files these RDocumentation files will be generated for each function and will be in the man directory. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure6.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure7.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The Rdocumentation files can be processed into html outputs or into a pdf manual. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure4.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure5.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Rd file of a data-set which is created with the help of data R script. &lt;img src=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Html file which is generated with the help of Rd file for the dataset. &lt;img src=&#34;/YourOwnPackage/data/figure2.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;namsespace-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;9) NAMSESPACE file&lt;/h2&gt;
