@@ -110,9 +110,16 @@ has the ability to view the code for the function therefore it is crucial to mai
 coding standards. 
 
 Also comment regularly in between functions to make it clearer about what is happening or
-what the code is expected to do.
+what the code is expected to do. Maintaining these standards will be very useful when your
+package has alot of grouped functions or a function with more than hundred lines of code.
+
+```{r adding image to sample function}
+
+```
 
 ## 2) Package Structure
+
+
 
 ## 3) DESCRIPTION file
 
