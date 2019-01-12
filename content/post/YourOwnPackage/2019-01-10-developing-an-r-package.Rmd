@@ -102,12 +102,16 @@ DiagrammeR(
 * Focus on indentation.
 * Comment regularly to make the functions sense.
 
-
 ![](/YourOwnPackage/codingstandards/figure1.PNG)
 
 ## 2) Package Structure
 
+* Very Important. 
+* Initially few files be originated in the designated project folder.
+* Over time we might add folders or create files manually. 
+* Example - tests direcotyr, README.Rmd, ...
 
+![](/YourOwnPackage/directory/figure1.PNG)
 
 ## 3) DESCRIPTION file
 
