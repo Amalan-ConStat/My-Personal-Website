@@ -138,6 +138,27 @@ Preview of GitHub document
 
 ## 5) /R directory
 
+* Most important directory.
+* The place where all your R code is written by you.
+* Best to have separate R script files for each function.
+* Need to have a R script file for Data as well.
+* R scripts can be modified further in order to create RDocumentation files(Rd files).
+* These RDocumentation files will explain about the function.
+* Processed R script files will automatically generate Rd files in the man directory.
+
+R script file with necessary roxygen tags to develop RDocumentation files.
+![](/YourOwnPackage/codingstandards/figure2.PNG)
+![](/YourOwnPackage/codingstandards/figure3.PNG)
+
+With the help of R script files these RDocumentation files will be generated
+for each function and data sets will be in the man directory.
+![](/YourOwnPackage/codingstandards/figure6.PNG)
+![](/YourOwnPackage/codingstandards/figure7.PNG)
+
+The Rdocumentation files can be processed into html outputs or into a pdf manual.
+![](/YourOwnPackage/codingstandards/figure4.PNG)
+![](/YourOwnPackage/codingstandards/figure5.PNG)
+
 ## 6) /data directory
 
 ## 7) /tests directory

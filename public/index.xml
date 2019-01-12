@@ -131,6 +131,18 @@
 &lt;/div&gt;
 &lt;div id=&#34;r-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;5) /R directory&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Most important directory.&lt;/li&gt;
+&lt;li&gt;The place where all your R code is written by you.&lt;/li&gt;
+&lt;li&gt;Best to have separate R script files for each function.&lt;/li&gt;
+&lt;li&gt;Need to have a R script file for Data as well.&lt;/li&gt;
+&lt;li&gt;R scripts can be modified further in order to create RDocumentation files(Rd files).&lt;/li&gt;
+&lt;li&gt;These RDocumentation files will explain about the function.&lt;/li&gt;
+&lt;li&gt;Processed R script files will automatically generate Rd files in the man directory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;R script file with necessary roxygen tags to develop RDocumentation files. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure2.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure3.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;With the help of R script files these RDocumentation files will be generated for each function and data sets will be in the man directory. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure6.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure7.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The Rdocumentation files can be processed into html outputs or into a pdf manual. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure4.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure5.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;6) /data directory&lt;/h2&gt;
