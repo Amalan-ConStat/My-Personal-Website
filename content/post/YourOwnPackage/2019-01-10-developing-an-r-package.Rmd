@@ -180,7 +180,21 @@ Html file which is generated with the help of Rd file for the dataset.
 
 ## 7) /tests directory
 
+* If your package is going to be in CRAN or going to be in a platform with large range of users this would be useful.
+* Unit tests to check if functions are working properly. 
+* Testing if the data sets are in proper form.
 
+tests directory and files in side that directory.
+![](/YourOwnPackage/directory/figure4.PNG)
+
+sub directory testthat which includes test R scripts for all functions and data sets.
+![](/YourOwnPackage/directory/figure5.PNG)
+
+R script to test a function.
+![](/YourOwnPackage/checktest/figure1.PNG)
+
+R script to test a data set.
+![](/YourOwnPackage/checktest/figure2.PNG)
 
 ## 8) /man directory
 

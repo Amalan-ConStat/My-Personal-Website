@@ -159,6 +159,15 @@
 &lt;/div&gt;
 &lt;div id=&#34;tests-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;7) /tests directory&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If your package is going to be in CRAN or going to be in a platform with large range of users this would be useful.&lt;/li&gt;
+&lt;li&gt;Unit tests to check if functions are working properly.&lt;/li&gt;
+&lt;li&gt;Testing if the data sets are in proper form.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;tests directory and files in side that directory. &lt;img src=&#34;/YourOwnPackage/directory/figure4.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;sub directory testthat which includes test R scripts for all functions and data sets. &lt;img src=&#34;/YourOwnPackage/directory/figure5.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;R script to test a function. &lt;img src=&#34;/YourOwnPackage/checktest/figure1.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;R script to test a data set. &lt;img src=&#34;/YourOwnPackage/checktest/figure2.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;man-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;8) /man directory&lt;/h2&gt;
