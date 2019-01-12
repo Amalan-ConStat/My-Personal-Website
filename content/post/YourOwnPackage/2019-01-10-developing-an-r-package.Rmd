@@ -203,6 +203,12 @@ Html file which is generated with the help of Rd file for the dataset.
 
 ## 9) NAMSESPACE file
 
+* A file which will have all the functions that you created for your package.
+* If it is exported then it will be in this file.
+
+NAMESPACE file and its components.
+![](/YourOwnPackage/otherfiles/figure2.PNG)
+
 ## 10) Vignette.pdf
 
 # Manual.pdf

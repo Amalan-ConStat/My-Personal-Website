@@ -178,6 +178,11 @@
 &lt;/div&gt;
 &lt;div id=&#34;namsespace-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;9) NAMSESPACE file&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A file which will have all the functions that you created for your package.&lt;/li&gt;
+&lt;li&gt;If it is exported then it will be in this file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;NAMESPACE file and its components. &lt;img src=&#34;/YourOwnPackage/otherfiles/figure2.PNG&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;vignette.pdf&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;10) Vignette.pdf&lt;/h2&gt;
