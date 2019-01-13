@@ -159,7 +159,7 @@ R script file with necessary roxygen tags to develop RDocumentation files.
 * Not compulsory.
 * Easy to use your own data therefore its worth it.
 * This directory will include the data-sets.
-* R directory can have an R script to generate Rd files for these datsets.
+* R directory can have an R script to generate Rd files for these data-sets.
 
 ![](/YourOwnPackage/directory/figure3.PNG)
 data directory which includes data-sets.
@@ -197,13 +197,13 @@ for each function and will be in the man directory.
 
 ![](/YourOwnPackage/codingstandards/figure4.PNG)
 ![](/YourOwnPackage/codingstandards/figure5.PNG)
-The Rdocumentation files can be processed into html outputs or into a pdf manual.
+The RDocumentation files can be processed into html outputs or into a pdf manual.
 
 ![]()
 Rd file of a data-set which is created with the help of data R script.
 
 ![](/YourOwnPackage/data/figure2.PNG)
-Html file which is generated with the help of Rd file for the dataset.
+Html file which is generated with the help of Rd file for the data-set.
 
 ## 9) NAMSESPACE file
 
@@ -229,9 +229,37 @@ NAMESPACE file and its components.
 ![](/YourOwnPackage/otherfiles/figure4.PNG)
 .gitignore file of fitODBOD package.
 
-## 12) Manual.pdf
-
 # Building the Package
+
+All the files should be in their respective directories and names should not changed for files or folders
+manually if they are created automatically. After checking all of this we can proceed to building the package.
+This process has 9 steps and below is a diagram to show how it works. 
+
+```{r Building a package diagram,echo=FALSE,fig.align='center'}
+library(DiagrammeR)
+
+DiagrammeR(
+           "graph LR;
+           A(Document <br> generation)-->C(Clean and <br> Rebuild);
+           C-->D(Spellcheck <br> Rd files);
+           D-->B((Check for <br> issues));
+           B-->Z((Make Necessary <br> Changes));
+           Z-->A;
+           D-->E(Test <br> the Package);
+           E-->B;
+           E-->F(Check <br> for Errors);
+           F-->B;
+           F-->G(Build <br> Source Package);
+           G-->H(Build <br> Binary Package);
+           H-->I(Generate <br> Manaual pdf);
+           I-->J(Check Errors <br> on Source Package);
+           J-->B",
+           height=300,width=1000
+          )
+```
+
+This process is explained through a small presentation [here]().
+This presentation also can be used to when you need to update your package version.
 
 
 # Distributing the Package
