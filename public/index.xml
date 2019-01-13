@@ -88,10 +88,7 @@
 &lt;li&gt;Focus on indentation.&lt;/li&gt;
 &lt;li&gt;Comment regularly to make sense of the functions.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/YourOwnPackage/codingstandards/figure1.PNG&#34; /&gt;
-
-&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/codingstandards/figure1.PNG&#34; /&gt; Sample Code&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;package-structure&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2) Package Structure&lt;/h2&gt;
@@ -101,10 +98,7 @@
 &lt;li&gt;Over time we might add folders or create files manually.&lt;/li&gt;
 &lt;li&gt;Example - tests directory, README.Rmd, …&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/YourOwnPackage/directory/figure1.PNG&#34; /&gt;
-
-&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/directory/figure1.PNG&#34; /&gt; Package structure inside your project folder.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;description-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;3) DESCRIPTION file&lt;/h2&gt;
@@ -113,10 +107,7 @@
 &lt;li&gt;Example - package name, other packages needed, authors name, …&lt;/li&gt;
 &lt;li&gt;Can edit manually or use specific R package.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/YourOwnPackage/otherfiles/figure1.PNG&#34; /&gt;
-
-&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/otherfiles/figure1.PNG&#34; /&gt; After changes the DESCRIPTION file&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;readme-file&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;4) README file&lt;/h2&gt;
@@ -125,9 +116,9 @@
 &lt;li&gt;Only used in related to GitHub submission.&lt;/li&gt;
 &lt;li&gt;Using Rmarkdown to generate a GitHub output document.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Rmakrdown document &lt;img src=&#34;/YourOwnPackage/readme/figure1.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;GitHub document &lt;img src=&#34;/YourOwnPackage/readme/figure2.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Preview of GitHub document &lt;img src=&#34;/YourOwnPackage/readme/figure3.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure1.PNG&#34; /&gt; Rmakrdown document&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure2.PNG&#34; /&gt; GitHub document&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure3.PNG&#34; /&gt; Preview of GitHub document&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;r-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;5) /R directory&lt;/h2&gt;
@@ -140,7 +131,7 @@
 &lt;li&gt;These RDocumentation files will explain about the function.&lt;/li&gt;
 &lt;li&gt;Processed R script files will automatically generate Rd files in the man directory.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;R script file with necessary roxygen tags to develop RDocumentation files. &lt;img src=&#34;/YourOwnPackage/codingstandards/figure2.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure3.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/codingstandards/figure2.PNG&#34; /&gt; &lt;img src=&#34;/YourOwnPackage/codingstandards/figure3.PNG&#34; /&gt; R script file with necessary roxygen tags to develop RDocumentation files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;6) /data directory&lt;/h2&gt;
@@ -150,8 +141,8 @@
 &lt;li&gt;This directory will include the data-sets.&lt;/li&gt;
 &lt;li&gt;R directory can have an R script to generate Rd files for these datsets.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;data directory which includes data-sets. &lt;img src=&#34;/YourOwnPackage/directory/figure3.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Rscript file which includes necessary roxygen tags to generate Rd files. &lt;img src=&#34;/YourOwnPackage/data/figure1.PNG&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/directory/figure3.PNG&#34; /&gt; data directory which includes data-sets.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/data/figure1.PNG&#34; /&gt; Rscript file which includes necessary roxygen tags to generate Rd files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tests-directory&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;7) /tests directory&lt;/h2&gt;

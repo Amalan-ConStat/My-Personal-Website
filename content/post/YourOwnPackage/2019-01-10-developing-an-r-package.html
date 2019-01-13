@@ -5,6 +5,7 @@ date: '2019-01-10'
 output:
   blogdown::html_page:
     toc: true
+    fig_caption: true
 slug: developing-an-r-package
 categories:
   - fitODBOD
@@ -90,10 +91,7 @@ image:
 <li>Focus on indentation.</li>
 <li>Comment regularly to make sense of the functions.</li>
 </ul>
-<div class="figure">
-<img src="/YourOwnPackage/codingstandards/figure1.PNG" />
-
-</div>
+<p><img src="/YourOwnPackage/codingstandards/figure1.PNG" /> Sample Code</p>
 </div>
 <div id="package-structure" class="section level2">
 <h2>2) Package Structure</h2>
@@ -103,10 +101,7 @@ image:
 <li>Over time we might add folders or create files manually.</li>
 <li>Example - tests directory, README.Rmd, …</li>
 </ul>
-<div class="figure">
-<img src="/YourOwnPackage/directory/figure1.PNG" />
-
-</div>
+<p><img src="/YourOwnPackage/directory/figure1.PNG" /> Package structure inside your project folder.</p>
 </div>
 <div id="description-file" class="section level2">
 <h2>3) DESCRIPTION file</h2>
@@ -115,10 +110,7 @@ image:
 <li>Example - package name, other packages needed, authors name, …</li>
 <li>Can edit manually or use specific R package.</li>
 </ul>
-<div class="figure">
-<img src="/YourOwnPackage/otherfiles/figure1.PNG" />
-
-</div>
+<p><img src="/YourOwnPackage/otherfiles/figure1.PNG" /> After changes the DESCRIPTION file</p>
 </div>
 <div id="readme-file" class="section level2">
 <h2>4) README file</h2>
@@ -127,9 +119,9 @@ image:
 <li>Only used in related to GitHub submission.</li>
 <li>Using Rmarkdown to generate a GitHub output document.</li>
 </ul>
-<p>Rmakrdown document <img src="/YourOwnPackage/readme/figure1.PNG" /></p>
-<p>GitHub document <img src="/YourOwnPackage/readme/figure2.PNG" /></p>
-<p>Preview of GitHub document <img src="/YourOwnPackage/readme/figure3.PNG" /></p>
+<p><img src="/YourOwnPackage/readme/figure1.PNG" /> Rmakrdown document</p>
+<p><img src="/YourOwnPackage/readme/figure2.PNG" /> GitHub document</p>
+<p><img src="/YourOwnPackage/readme/figure3.PNG" /> Preview of GitHub document</p>
 </div>
 <div id="r-directory" class="section level2">
 <h2>5) /R directory</h2>
@@ -142,7 +134,7 @@ image:
 <li>These RDocumentation files will explain about the function.</li>
 <li>Processed R script files will automatically generate Rd files in the man directory.</li>
 </ul>
-<p>R script file with necessary roxygen tags to develop RDocumentation files. <img src="/YourOwnPackage/codingstandards/figure2.PNG" /> <img src="/YourOwnPackage/codingstandards/figure3.PNG" /></p>
+<p><img src="/YourOwnPackage/codingstandards/figure2.PNG" /> <img src="/YourOwnPackage/codingstandards/figure3.PNG" /> R script file with necessary roxygen tags to develop RDocumentation files.</p>
 </div>
 <div id="data-directory" class="section level2">
 <h2>6) /data directory</h2>
@@ -152,8 +144,8 @@ image:
 <li>This directory will include the data-sets.</li>
 <li>R directory can have an R script to generate Rd files for these datsets.</li>
 </ul>
-<p>data directory which includes data-sets. <img src="/YourOwnPackage/directory/figure3.PNG" /></p>
-<p>Rscript file which includes necessary roxygen tags to generate Rd files. <img src="/YourOwnPackage/data/figure1.PNG" /></p>
+<p><img src="/YourOwnPackage/directory/figure3.PNG" /> data directory which includes data-sets.</p>
+<p><img src="/YourOwnPackage/data/figure1.PNG" /> Rscript file which includes necessary roxygen tags to generate Rd files.</p>
 </div>
 <div id="tests-directory" class="section level2">
 <h2>7) /tests directory</h2>

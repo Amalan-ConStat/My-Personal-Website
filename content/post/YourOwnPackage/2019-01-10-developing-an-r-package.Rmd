@@ -5,6 +5,7 @@ date: '2019-01-10'
 output:
   blogdown::html_page:
     toc: true
+    fig_caption: true
 slug: developing-an-r-package
 categories:
   - fitODBOD
@@ -103,6 +104,7 @@ DiagrammeR(
 * Comment regularly to make sense of the functions.
 
 ![](/YourOwnPackage/codingstandards/figure1.PNG)
+Sample Code
 
 ## 2) Package Structure
 
@@ -112,6 +114,7 @@ DiagrammeR(
 * Example - tests directory, README.Rmd, ...
 
 ![](/YourOwnPackage/directory/figure1.PNG)
+Package structure inside your project folder.
 
 ## 3) DESCRIPTION file
 
@@ -120,6 +123,7 @@ DiagrammeR(
 * Can edit manually or use specific R package.
 
 ![](/YourOwnPackage/otherfiles/figure1.PNG)
+After changes the DESCRIPTION file
 
 ## 4) README file
 
@@ -127,14 +131,14 @@ DiagrammeR(
 * Only used in related to GitHub submission.
 * Using Rmarkdown to generate a GitHub output document.
 
-Rmakrdown document
 ![](/YourOwnPackage/readme/figure1.PNG)
+Rmakrdown document
 
-GitHub document
 ![](/YourOwnPackage/readme/figure2.PNG)
+GitHub document
 
-Preview of GitHub document
 ![](/YourOwnPackage/readme/figure3.PNG)
+Preview of GitHub document
 
 ## 5) /R directory
 
@@ -146,9 +150,9 @@ Preview of GitHub document
 * These RDocumentation files will explain about the function.
 * Processed R script files will automatically generate Rd files in the man directory.
 
-R script file with necessary roxygen tags to develop RDocumentation files.
 ![](/YourOwnPackage/codingstandards/figure2.PNG)
 ![](/YourOwnPackage/codingstandards/figure3.PNG)
+R script file with necessary roxygen tags to develop RDocumentation files.
 
 ## 6) /data directory
 
@@ -157,11 +161,11 @@ R script file with necessary roxygen tags to develop RDocumentation files.
 * This directory will include the data-sets.
 * R directory can have an R script to generate Rd files for these datsets.
 
-data directory which includes data-sets.
 ![](/YourOwnPackage/directory/figure3.PNG)
+data directory which includes data-sets.
 
-Rscript file which includes necessary roxygen tags to generate Rd files.
 ![](/YourOwnPackage/data/figure1.PNG)
+Rscript file which includes necessary roxygen tags to generate Rd files.
 
 ## 7) /tests directory
 
@@ -210,6 +214,8 @@ NAMESPACE file and its components.
 ![](/YourOwnPackage/otherfiles/figure2.PNG)
 
 ## 10) .Rbuildignore file
+
+
 
 ## 11) .gitignore file
 
