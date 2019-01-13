@@ -208,16 +208,26 @@ Html file which is generated with the help of Rd file for the dataset.
 ## 9) NAMSESPACE file
 
 * A file which will have all the functions that you created for your package.
-* If it is exported then it will be in this file.
+* If a function is exported then it will be in this file.
 
 ![](/YourOwnPackage/otherfiles/figure2.PNG)
 NAMESPACE file and its components.
 
 ## 10) .Rbuildignore file
 
+* A document which includes what kind of files should not be used when building the package.
+* Extensions of a file or partial or full name of the file can be added into this document.
 
+![](/YourOwnPackage/otherfiles/figure3.PNG)
+.Rbuildignore file of fitODBOD package.
 
 ## 11) .gitignore file
+
+* A document which includes what kind of files should not be pushed to the GitHub repository.
+* Extensions of a file or partial or full name of the file can be added into this document.
+
+![](/YourOwnPackage/otherfiles/figure4.PNG)
+.gitignore file of fitODBOD package.
 
 ## 12) Manual.pdf
 
