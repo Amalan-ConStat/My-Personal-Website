@@ -173,45 +173,45 @@ Rscript file which includes necessary roxygen tags to generate Rd files.
 * Unit tests to check if functions are working properly. 
 * Testing if the data sets are in proper form.
 
-tests directory and files in side that directory.
 ![](/YourOwnPackage/directory/figure4.PNG)
+tests directory and files in side that directory.
 
-sub directory testthat which includes test R scripts for all functions and data sets.
 ![](/YourOwnPackage/directory/figure5.PNG)
+sub directory testthat which includes test R scripts for all functions and data sets.
 
-R script to test a function.
 ![](/YourOwnPackage/checktest/figure1.PNG)
+R script to test a function.
 
-R script to test a data set.
 ![](/YourOwnPackage/checktest/figure2.PNG)
+R script to test a data set.
 
 ## 8) /man directory
 
 * This directory will include the Rd files for all functions and data sets.
 * If you use roxygen tags there is no need to manually type them.
 
-With the help of R script files these RDocumentation files will be generated
-for each function and will be in the man directory.
 ![](/YourOwnPackage/codingstandards/figure6.PNG)
 ![](/YourOwnPackage/codingstandards/figure7.PNG)
+With the help of R script files these RDocumentation files will be generated
+for each function and will be in the man directory.
 
-The Rdocumentation files can be processed into html outputs or into a pdf manual.
 ![](/YourOwnPackage/codingstandards/figure4.PNG)
 ![](/YourOwnPackage/codingstandards/figure5.PNG)
+The Rdocumentation files can be processed into html outputs or into a pdf manual.
 
-Rd file of a data-set which is created with the help of data R script.
 ![]()
+Rd file of a data-set which is created with the help of data R script.
 
-Html file which is generated with the help of Rd file for the dataset.
 ![](/YourOwnPackage/data/figure2.PNG)
+Html file which is generated with the help of Rd file for the dataset.
 
 ## 9) NAMSESPACE file
 
 * A file which will have all the functions that you created for your package.
 * If it is exported then it will be in this file.
 
-NAMESPACE file and its components.
 ![](/YourOwnPackage/otherfiles/figure2.PNG)
+NAMESPACE file and its components.
 
 ## 10) .Rbuildignore file
 
