@@ -240,7 +240,7 @@ library(DiagrammeR)
 
 DiagrammeR(
            "graph LR;
-           A(Document <br> generation)-->C(Clean and <br> Rebuild);
+           A(Document <br> Generation)-->C(Clean and <br> Rebuild);
            C-->D(Spellcheck <br> Rd files);
            D-->B((Check for <br> issues));
            B-->Z((Make Necessary <br> Changes));
@@ -251,14 +251,14 @@ DiagrammeR(
            F-->B;
            F-->G(Build <br> Source Package);
            G-->H(Build <br> Binary Package);
-           H-->I(Generate <br> Manaual pdf);
+           H-->I(Generate <br> Manual pdf);
            I-->J(Check Errors <br> on Source Package);
            J-->B",
            height=300,width=1000
           )
 ```
 
-This process is explained through a small presentation [here]().
+This process is explained through a small presentation [here](/YourOwnPackage/BuildYourOwnPackage.html).
 This presentation also can be used to when you need to update your package version.
 
 
