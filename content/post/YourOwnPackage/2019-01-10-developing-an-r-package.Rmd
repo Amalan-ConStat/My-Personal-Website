@@ -27,7 +27,7 @@ give a thorough demonstration of how to develop your own R package. But it will 
 process with the most important steps, and will include valuable blog posts and websites which helped me
 to develop my own R package [fitODBOD.](https://cran.r-project.org/package=fitODBOD)
 
-# Credit
+# Credit to People of R Community
   
   I would definitely recommend to read all of these books and start your package development. Or
   at least make step by step progress in your work while reading them. If you have a basic knowledge 
@@ -72,6 +72,20 @@ to develop my own R package [fitODBOD.](https://cran.r-project.org/package=fitOD
 
   Useful book related to object oriented programming, functions and data objects related to R. Very thorough and 
   scrutinized information with valuable explanation which makes things more clearer. 
+
+* [Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+
+  Easy implementation of packages mentioned in these cheatsheets. Very essential for someone who is interested in 
+  doing R related stuff efficient and eloquent.
+  
+* [R Markdown: The Definitive Guide by Yihui Xie, J. J. Allaire, Garrett Grolemund](https://bookdown.org/yihui/rmarkdown/)  
+
+  Notes related to RMarkdown, very useful for vignette building. 
+  
+* [Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, Jim Hester](https://happygitwithr.com/)
+
+  Using GitHub for package development is very useful, specially when it comes to sharing and version control.
+  This book explains it all with simplicity. 
   
 ```{r Drawng Diagramme,echo=FALSE}
 library(DiagrammeR)
