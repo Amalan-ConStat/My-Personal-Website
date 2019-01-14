@@ -243,17 +243,13 @@ DiagrammeR(
            A(Document <br> Generation)-->C(Clean and <br> Rebuild);
            C-->D(Spellcheck <br> Rd files);
            D-->B((Check for <br> issues));
-           B-->Z((Make Necessary <br> Changes));
-           Z-->A;
-           D-->E(Test <br> the Package);
-           E-->B;
-           E-->F(Check <br> for Errors);
-           F-->B;
+           B-->Z((Make Necessary <br> Changes)); Z-->A;
+           D-->E(Test <br> the Package); E-->B;
+           E-->F(Check <br> for Errors); F-->B;
            F-->G(Build <br> Source Package);
            G-->H(Build <br> Binary Package);
            H-->I(Generate <br> Manual pdf);
-           I-->J(Check Errors <br> on Source Package);
-           J-->B",
+           I-->J(Check Errors <br> on Source Package); J-->B",
            height=300,width=1000
           )
 ```
