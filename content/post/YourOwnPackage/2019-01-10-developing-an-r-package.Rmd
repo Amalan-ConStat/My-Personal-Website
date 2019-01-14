@@ -132,7 +132,7 @@ After changes the DESCRIPTION file
 * Using Rmarkdown to generate a GitHub output document.
 
 ![](/YourOwnPackage/readme/figure1.PNG)
-Rmakrdown document
+Rmarkdown document
 
 ![](/YourOwnPackage/readme/figure2.PNG)
 GitHub document
@@ -261,5 +261,20 @@ DiagrammeR(
 This process is explained through a small presentation [here](/YourOwnPackage/BuildYourOwnPackage.html).
 This presentation also can be used to when you need to update your package version.
 
-
 # Distributing the Package
+
+There are several ways of distributing your package. They are mainly
+
+1. tar.qz version.
+2. zip version.
+3. GitHub Repository.
+4. The project folder which includes the package.
+5. Submit to CRAN or Bioconductor.
+
+I have written two posts related to R packages as well. One is 
+[How to find your R package](https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/) 
+and Second is 
+[Using R packages to develop your own package](https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/).
+These two posts will be very useful. 
+
+*Thank You*

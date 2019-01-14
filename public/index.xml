@@ -115,7 +115,7 @@
 &lt;li&gt;Only used in related to GitHub submission.&lt;/li&gt;
 &lt;li&gt;Using Rmarkdown to generate a GitHub output document.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure1.PNG&#34; /&gt; Rmakrdown document&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure1.PNG&#34; /&gt; Rmarkdown document&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure2.PNG&#34; /&gt; GitHub document&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/YourOwnPackage/readme/figure3.PNG&#34; /&gt; Preview of GitHub document&lt;/p&gt;
 &lt;/div&gt;
@@ -200,6 +200,16 @@
 &lt;/div&gt;
 &lt;div id=&#34;distributing-the-package&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Distributing the Package&lt;/h1&gt;
+&lt;p&gt;There are several ways of distributing your package. They are mainly&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;tar.qz version.&lt;/li&gt;
+&lt;li&gt;zip version.&lt;/li&gt;
+&lt;li&gt;GitHub Repository.&lt;/li&gt;
+&lt;li&gt;The project folder which includes the package.&lt;/li&gt;
+&lt;li&gt;Submit to CRAN or Bioconductor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I have written two posts related to R packages as well. One is &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/&#34;&gt;How to find your R package&lt;/a&gt; and Second is &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/&#34;&gt;Using R packages to develop your own package&lt;/a&gt;. These two posts will be very useful.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
