@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 3: Space Agencies and Launches</title>
+      <link>/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/</link>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Week 2: IMDB TV Shows Data</title>
