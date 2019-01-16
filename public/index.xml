@@ -40,7 +40,6 @@
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readr)
 library(tidyverse)
-library(gridExtra)
 library(ggalt)
 library(magrittr)
 library(dplyr)

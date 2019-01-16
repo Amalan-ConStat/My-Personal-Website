@@ -25,7 +25,6 @@ knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.height = 1
 ```{r Load the data and packages}
 library(readr)
 library(tidyverse)
-library(gridExtra)
 library(ggalt)
 library(magrittr)
 library(dplyr)
