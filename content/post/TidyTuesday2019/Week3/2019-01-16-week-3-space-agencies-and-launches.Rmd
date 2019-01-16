@@ -51,6 +51,8 @@ the agencies in concern. In the agencies data set there are 19 variables and lau
 variables. You can find the data set and information regarded to it
 [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15)
 
+The tweet is [here.](https://twitter.com/Amalan_Con_Stat/status/1085387691393458179)
+
 ## Agency vs Count
 
 Most amount of launches are from Rakentiye Voiska Strategicheskogo Naznacheniye (RVSN) and it is 1528 and next is 
