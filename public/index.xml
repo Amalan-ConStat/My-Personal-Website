@@ -106,7 +106,7 @@ ggplot(.,aes(fct_inorder(class),count))+
 &lt;/div&gt;
 &lt;div id=&#34;agency-type-vs-count&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Agency Type vs Count&lt;/h2&gt;
-&lt;p&gt;In perspective of agency type there are 4765 state owned launches, but only 67 launches from startups.&lt;/p&gt;
+&lt;p&gt;In perspective of agency type there are 4765 state owned launches, but only 67 launches from start-ups.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;agencies[,c(&amp;#39;agency_type&amp;#39;,&amp;#39;count&amp;#39;)] %&amp;gt;% group_by(agency_type) %&amp;gt;% 
   summarise_each(funs(sum)) %&amp;gt;% arrange(count) %&amp;gt;%
 ggplot(.,aes(fct_inorder(agency_type),count))+
@@ -191,7 +191,7 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
 &lt;/div&gt;
 &lt;div id=&#34;success-or-failure-vs-agency-type&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Success or Failure vs Agency Type&lt;/h3&gt;
-&lt;p&gt;State owned agencies has more failures than private and startups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 yet they have an amount of less than 1000 counts for launches.&lt;/p&gt;
+&lt;p&gt;State owned agencies has more failures than private and start-ups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 yet they have an amount of less than 1000 counts for launches.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(launches,aes(x=fct_infreq(factor(agency_type)),fill=category))+
   geom_bar()+
   xlab(&amp;quot;Agency Type&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+

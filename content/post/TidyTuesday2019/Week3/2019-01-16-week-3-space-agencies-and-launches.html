@@ -109,7 +109,7 @@ ggplot(.,aes(fct_inorder(class),count))+
 </div>
 <div id="agency-type-vs-count" class="section level2">
 <h2>Agency Type vs Count</h2>
-<p>In perspective of agency type there are 4765 state owned launches, but only 67 launches from startups.</p>
+<p>In perspective of agency type there are 4765 state owned launches, but only 67 launches from start-ups.</p>
 <pre class="r"><code>agencies[,c(&#39;agency_type&#39;,&#39;count&#39;)] %&gt;% group_by(agency_type) %&gt;% 
   summarise_each(funs(sum)) %&gt;% arrange(count) %&gt;%
 ggplot(.,aes(fct_inorder(agency_type),count))+
@@ -194,7 +194,7 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
 </div>
 <div id="success-or-failure-vs-agency-type" class="section level3">
 <h3>Success or Failure vs Agency Type</h3>
-<p>State owned agencies has more failures than private and startups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 yet they have an amount of less than 1000 counts for launches.</p>
+<p>State owned agencies has more failures than private and start-ups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 yet they have an amount of less than 1000 counts for launches.</p>
 <pre class="r"><code>ggplot(launches,aes(x=fct_infreq(factor(agency_type)),fill=category))+
   geom_bar()+
   xlab(&quot;Agency Type&quot;)+ylab(&quot;Frequency&quot;)+

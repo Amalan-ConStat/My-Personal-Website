@@ -117,7 +117,7 @@ ggplot(.,aes(fct_inorder(class),count))+
 
 ## Agency Type vs Count
 
-In perspective of agency type there are 4765 state owned launches, but only 67 launches from startups.
+In perspective of agency type there are 4765 state owned launches, but only 67 launches from start-ups.
 
 ```{r Agency Type vs Count,fig.height=8}
 agencies[,c('agency_type','count')] %>% group_by(agency_type) %>% 
@@ -233,7 +233,7 @@ ggplot(launches,aes(x=factor(launch_year),fill=category))+
 
 ### Success or Failure vs Agency Type
 
-State owned agencies has more failures than private and startups because it would be
+State owned agencies has more failures than private and start-ups because it would be
 costly. More than 4750 launches are from state owned agencies but in them more than 500 
 launches are failures. Even though private owned agencies has a history from 1990 yet they
 have an amount of less than 1000 counts for launches.
