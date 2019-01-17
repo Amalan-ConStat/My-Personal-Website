@@ -24,6 +24,10 @@ Over the weeks I have only done blog posts for TidyTuesday. Today for week 38, I
 going to present my blog post in a presentation. This presentation does not include 
 plots, but the code only. Therefore, I am putting the plots here. 
 
+```{r my tweet,echo=FALSE}
+blogdown::shortcode("tweet","1074965237231697921")
+```
+
 ## IOS slide Presentation
 
 * [Presentation](/html/Seaslides.html)
