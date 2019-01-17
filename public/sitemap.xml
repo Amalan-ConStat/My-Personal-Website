@@ -394,8 +394,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2019-01-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -403,8 +403,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2019-01-10T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -463,7 +463,7 @@
     
     <url>
     
-      <loc>/tags/tidytuesday/</loc>
+      <loc>/categories/tidytuesday/</loc>
       <lastmod>2019-01-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -472,7 +472,7 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
+      <loc>/tags/tidytuesday/</loc>
       <lastmod>2019-01-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -499,7 +499,7 @@
     
     <url>
     
-      <loc>/tags/fitodbod/</loc>
+      <loc>/categories/fitodbod/</loc>
       <lastmod>2019-01-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -508,7 +508,7 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
+      <loc>/tags/fitodbod/</loc>
       <lastmod>2019-01-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>

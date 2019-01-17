@@ -43,6 +43,12 @@ r_downloads <- read_csv("r-downloads.csv",
                       time = col_time(format = "%H:%M:%S")))
 ```
 
+```{r My tweet,echo=FALSE}
+blogdown::shortcode('tweet',"1069506256761745409")
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week%2031%20-R%20downloads)
+
 # Introduction
 
 [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a very good move to improve R programming for anyone who is interested in statistics.

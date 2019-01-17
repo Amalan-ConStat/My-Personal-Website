@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &lt;- read_csv(&quot;r_downloads_year.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))r_downloads &lt;- read_csv(&quot;r-downloads.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))IntroductionTidy Tuesday is a very good move to improve R programming for anyone who is interested in statistics.">
+  <meta name="description" content="IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &lt;- read_csv(&quot;r_downloads_year.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))r_downloads &lt;- read_csv(&quot;r-downloads.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))Week 31 : R and Package Downloads #TidyTuesday https://t.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/week_31/week-31-r-and-package-downloads/">
@@ -110,7 +110,7 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/week_31/week-31-r-and-package-downloads/">
   <meta property="og:title" content="Week 31 : R and Package Downloads | Consulting Statistician">
-  <meta property="og:description" content="IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &lt;- read_csv(&quot;r_downloads_year.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))r_downloads &lt;- read_csv(&quot;r-downloads.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))IntroductionTidy Tuesday is a very good move to improve R programming for anyone who is interested in statistics.">
+  <meta property="og:description" content="IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &lt;- read_csv(&quot;r_downloads_year.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))r_downloads &lt;- read_csv(&quot;r-downloads.csv&quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), time = col_time(format = &quot;%H:%M:%S&quot;)))Week 31 : R and Package Downloads #TidyTuesday https://t.">
   
   
     
@@ -467,6 +467,10 @@ r_downloads_year &lt;- read_csv(&quot;r_downloads_year.csv&quot;,
 r_downloads &lt;- read_csv(&quot;r-downloads.csv&quot;, 
      col_types = cols(X1 = col_skip(), date = col_date(format = &quot;%Y-%m-%d&quot;), 
                       time = col_time(format = &quot;%H:%M:%S&quot;)))</code></pre>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Week 31 : R and Package Downloads <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> <a href="https://t.co/hALK5o4bGd">https://t.co/hALK5o4bGd</a></p>&mdash; Amalan Mahendran (@Amalan_Con_Stat) <a href="https://twitter.com/Amalan_Con_Stat/status/1069506256761745409?ref_src=twsrc%5Etfw">December 3, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week%2031%20-R%20downloads">GitHub Code</a></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p><a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday</a> is a very good move to improve R programming for anyone who is interested in statistics. Data-sets are uploaded every Tuesday, and plots are published under the <a href="https://twitter.com/hashtag/TidyTuesday?src=hash">#tidytuesday</a>. This is just me presenting a few accumulated plots for the data-set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r-downloads.csv">r-downloads.csv</a> and <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-10-30/r_downloads_year.csv">r_downloads_year.csv</a>.</p>
@@ -1082,9 +1086,9 @@ This is my Second post on the internet so please be kind to tolerate my mistakes
         
         <li><a href="/publication/fitodbod-github/">GitHub-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
-        
         <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
       </ul>
     </div>
