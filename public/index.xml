@@ -3471,7 +3471,10 @@ NYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;,
                        col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))
 attach(NYC)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.&lt;/p&gt;
-&lt;p&gt;That &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1073204074579968000&#34;&gt;tweet.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;So NYC Restaurants. Ha. My take on this topic. &lt;br&gt;The code in GitHub: &lt;a href=&#34;https://t.co/vbTREkq32Y&#34;&gt;https://t.co/vbTREkq32Y&lt;/a&gt;  &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://t.co/AFDjiOfk9o&#34;&gt;pic.twitter.com/AFDjiOfk9o&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1073204074579968000?ref_src=twsrc%5Etfw&#34;&gt;December 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_37&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;First see what type of inspections have occurred.&lt;/p&gt;
 &lt;div id=&#34;inspection-type&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Inspection Type&lt;/h1&gt;

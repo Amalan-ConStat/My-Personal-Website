@@ -44,7 +44,11 @@ Data set is completed with more than 300000 records and several important variab
 violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection 
 Type, boro, Inspection year, cuisine type and Critical Flag.
 
-That [tweet.](https://twitter.com/Amalan_Con_Stat/status/1073204074579968000)
+```{r my Tweet,echo=FALSE}
+blogdown::shortcode('tweet','1073204074579968000')
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_37)
 
 First see what type of inspections have occurred.
 
