@@ -42,7 +42,13 @@ attach(bridges)
 
 # Bridge Data and Baltimore 
 
-[Data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-27/baltimore_bridges.csv) for the analysis and [description](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-27) about the Baltimore bridges are hyper-linked. Further , my [tweet](https://twitter.com/Amalan_Con_Stat/status/1067650979129118720) is also in this hyperlink.
+[Data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-27/baltimore_bridges.csv) for the analysis and [description](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-27) about the Baltimore bridges are hyper-linked. 
+
+```{r My tweet,echo=FALSE}
+blogdown::shortcode('tweet','1067650979129118720')
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_35)
 
 Data on bridges is of week 35 from TidyTuesday. Trying to explain the data using maps is obvious, yet I
 will use animated jitter plots. There are 13 variables and 2079 observations. Brave choice of 
