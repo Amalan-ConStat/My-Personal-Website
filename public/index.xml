@@ -3843,7 +3843,10 @@ ggthemr(&amp;quot;fresh&amp;quot;)
 medium &amp;lt;- read_csv(&amp;quot;medium_datasci.csv&amp;quot;)
 attach(medium)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Focusing on Claps with Authors and publications, where does writing alot of posts will get you popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1071369742672429056&#34;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;my take medium posts on week 36  &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/FTAZh0vKI8&#34;&gt;https://t.co/FTAZh0vKI8&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1071369742672429056?ref_src=twsrc%5Etfw&#34;&gt;December 8, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_36&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;claps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Claps&lt;/h1&gt;
 &lt;p&gt;Table indicates that 25,729 posts have 0 claps, while 7,093 posts with only one clap, and finally 3044 posts with 2 claps. The only odd one is posts with 50 claps where the count is 970.&lt;/p&gt;
