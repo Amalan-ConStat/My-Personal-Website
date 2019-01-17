@@ -54,6 +54,7 @@ library(stringr)
 Ratings &lt;- read_csv(&quot;IMDb_Economist_tv_ratings.csv&quot;, 
                     col_types = cols(date = col_date(format = &quot;%Y-%m-%d&quot;)))</code></pre>
 <p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08">Ratings</a> data-set is from the IMDB site. I just found out that IMDb is active from 1990, that is a very long time and new information to me.</p>
+<p>{{% tweet "1082693109304168448" %}} <a href="&#39;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/week2">GitHub code</a></p>
 <p>TV shows from 1990 to 2018 with their ratings, genres, sharing and aired dates is in this data-set. I wanted a cool function to summarize the data-set at once, therefore scroll through the internet and found the package <a href="https://github.com/dcomtois/summarytools">summarytools</a>. There are quite a few functions in the mix, yet I choose dfSummary.</p>
 <p>Below is the code of using that function on the Ratings data-set.</p>
 <pre class="r"><code>#Basic summary of all variables

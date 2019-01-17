@@ -41,6 +41,11 @@ Ratings <- read_csv("IMDb_Economist_tv_ratings.csv",
 [Ratings](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08) data-set is from the IMDB site.
 I just found out that IMDb is active from 1990, that is a very long time and new information to me.
 
+```{r My Tweet,echo=FALSE}
+blogdown::shortcode('tweet','1082693109304168448')
+```
+[GitHub code]('https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/week2)
+
 TV shows from 1990 to 2018 with their ratings, genres, sharing and aired dates is in this data-set.
 I wanted a cool function to summarize the data-set at once, therefore scroll through the internet
 and found the package [summarytools](https://github.com/dcomtois/summarytools). 
