@@ -60,7 +60,10 @@ ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;agencies&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;AGENCIES&lt;/h1&gt;
 &lt;p&gt;Space related agencies of 74 are in the world from this data set. Another, data set is for launches from the agencies in concern. In the agencies data set there are 19 variables and launches data set has 11 variables. You can find the data set and information regarded to it &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The tweet is &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1085387691393458179&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Early years of space launches had more mistakes and they were owned by the state. After the cold war, there is short of enthusiasm, but now we have an increase in launches. Code: &lt;a href=&#34;https://t.co/R0BLjFOH4U&#34;&gt;https://t.co/R0BLjFOH4U&lt;/a&gt;    &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/6dX338hpPD&#34;&gt;pic.twitter.com/6dX338hpPD&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1085387691393458179?ref_src=twsrc%5Etfw&#34;&gt;January 16, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week3&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;agency-vs-count&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Agency vs Count&lt;/h2&gt;
 &lt;p&gt;Most amount of launches are from Rakentiye Voiska Strategicheskogo Naznacheniye (RVSN) and it is 1528 and next is Upravleniye Nachalnika Kosmicheskikh Sredstv (UNKS) with 904. Top 10 places considering the most launches it clear that class D agencies has the most amount of 5, 3 class C agencies and the rest with class B. NASA is in third place with 469 launches and it is a class C agency. My favorite agency Space X (SPX) has launched 65 times and it is a class B agency.&lt;/p&gt;

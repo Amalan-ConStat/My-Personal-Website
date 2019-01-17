@@ -51,7 +51,11 @@ the agencies in concern. In the agencies data set there are 19 variables and lau
 variables. You can find the data set and information regarded to it
 [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15)
 
-The tweet is [here.](https://twitter.com/Amalan_Con_Stat/status/1085387691393458179)
+```{r My tweet,echo=FALSE}
+blogdown::shortcode('tweet','1085387691393458179')
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week3)
 
 ## Agency vs Count
 
