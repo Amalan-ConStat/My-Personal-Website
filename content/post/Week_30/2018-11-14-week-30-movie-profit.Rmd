@@ -29,6 +29,8 @@ in question is [Movie profit](https://github.com/rfordatascience/tidytuesday/tre
 data-set. Even though the title of data says Movie profit I am going to focus on the movies which did not 
 generate any revenue domestic and suggest on gross in worldwide.
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week%2030%20-%20Movie%20profit)
+
 The packages that I have used here are magrittr, tidyverse, scales, ggthemr, knitr, kableExtra, ggthemr and 
 lubridate.  The theme I am using for plots is "flat dark".
 
