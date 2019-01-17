@@ -746,6 +746,10 @@ tidytuesday_tweets&amp;lt;-readRDS(&amp;quot;tidytuesday_tweets.rds&amp;quot;)&l
 &lt;div id=&#34;tidytuesday-tweets&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;#Tidytuesday Tweets&lt;/h1&gt;
 &lt;p&gt;Using plots and Tables to express the #TidyTuesday data-set. You can obtain the dataset from &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-01&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Favorite count vs Retweet count. Code: &lt;a href=&#34;https://t.co/QJwXxzrkFG&#34;&gt;https://t.co/QJwXxzrkFG&lt;/a&gt; &lt;br&gt; &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt;  &lt;a href=&#34;https://twitter.com/hashtag/tidyverse?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidyverse&lt;/a&gt; &lt;a href=&#34;https://t.co/l14pHDS3kq&#34;&gt;pic.twitter.com/l14pHDS3kq&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1080163707601195010?ref_src=twsrc%5Etfw&#34;&gt;January 1, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week1&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;earliest-tweet&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Earliest Tweet&lt;/h2&gt;
 &lt;p&gt;The first tweet is on April 2nd and it has 156 favorites and 64 retweets, where the tweet is from Thomas Mock and the next 3 tweets are also from him.&lt;/p&gt;

@@ -41,6 +41,12 @@ tidytuesday_tweets<-readRDS("tidytuesday_tweets.rds")
 Using plots and Tables to express the #TidyTuesday data-set. 
 You can obtain the dataset from [here.](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-01)
 
+```{r My tweet,echo=FALSE}
+blogdown::shortcode('tweet','1080163707601195010')
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week1)
+
 ## Earliest Tweet
 
 The first tweet is on April 2nd and it has 156 favorites and 
