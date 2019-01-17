@@ -6230,7 +6230,10 @@ Thanksgiving_Yes&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;Yes&amp;quot;)
 #subset the people who said no for celebrating thanksgiving
 Thanksgiving_No&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;No&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Data set was provided on week 34 for TidyTuesday analysis. As it is Thanksgiving week this is understandable. You can receive the data set &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2018-11-20/thanksgiving_meals.csv&#34;&gt;here&lt;/a&gt;. There are more than 65 variables and 1058 observations. The data was acquired buy a survey conducted online and information about them are &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is my &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1065462771817607168&#34;&gt;tweet&lt;/a&gt; on week 34&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My take on Thanksgiving, Praying and Celebrating based on US regions from this data set. &lt;a href=&#34;https://twitter.com/hashtag/Tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/dhCJEYWOlO&#34;&gt;https://t.co/dhCJEYWOlO&lt;/a&gt; &lt;a href=&#34;https://t.co/4Kij5PF4oV&#34;&gt;pic.twitter.com/4Kij5PF4oV&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1065462771817607168?ref_src=twsrc%5Etfw&#34;&gt;November 22, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week%2034%20-%20ThanksGiving&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;people-who-do-and-do-not-celebrate-thanksgiving&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;People who do and do not celebrate Thanksgiving&lt;/h1&gt;
 &lt;p&gt;In this ThanksGiving data set 980 are celebrating, and 78 are not celebrating Thanksgiving. I will use plots to understand their composition and tables to explain them further.&lt;/p&gt;

@@ -53,7 +53,11 @@ week this is understandable. You can receive the data set
 more than 65 variables and 1058 observations. The data was acquired buy a survey 
 conducted online and information about them are [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018-11-20).
 
-This is my [tweet](https://twitter.com/Amalan_Con_Stat/status/1065462771817607168) on week 34
+```{r My tweet, echo=FALSE}
+blogdown::shortcode('tweet','1065462771817607168')
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week%2034%20-%20ThanksGiving)
 
 # People who do and do not celebrate Thanksgiving
 
