@@ -48,6 +48,11 @@ TidyTuesday Week 4 of 2019 is focused on prison data. You can find the data
 There are 5 csv files, clearly 2 files are a summary of the main data, which are Prison Summary 
 and Pretrial Summary.
 
+```{r my tweet, echo=FALSE}
+blogdown::shortcode('tweet','1087702502240407552')
+```
+
+
 I have mainly focused on these two data-sets here. Further in order of curiosity I did take a 
 peak at a main data file, which is incarceration_trends.csv. 
 
