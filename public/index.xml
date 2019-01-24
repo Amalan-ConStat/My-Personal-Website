@@ -20,7 +20,10 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#material-useful-for-rsiny-development&#34;&gt;Material Useful for Rsiny Development&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-use-the-olympic-rshiny-app&#34;&gt;How To Use the Olympic Rshiny App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-use-the-olympic-rshiny-app&#34;&gt;How To Use The Olympic Rshiny App ?&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#step-1&#34;&gt;Step 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-2&#34;&gt;Step 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -28,7 +31,7 @@
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Rshiny is very popular in the rstats community. The glamourous interface and functionality has helped for this level of popularity. In perspective of using an Rshiny App anyone can use it with minimal amount of knowledge. Which is very useful in bringing statistical analysis to consumers or general public without any trouble.&lt;/p&gt;
-&lt;p&gt;I initially wanted to develop an Rshiny App for my fitODBOD, but it would be best for me to test the waters. That is what I have done here. Using the Olympic data from kaggle I have found a very convenient way to understand specific results for a choosen country from the Rshiny App.&lt;/p&gt;
+&lt;p&gt;I initially wanted to develop an Rshiny App for my fitODBOD package, but I thought it would be best to test the waters. That is what I have done here. Using the Olympic data from kaggle I have found a very convenient way to understand specific results for a choosen country from the Rshiny App.&lt;/p&gt;
 &lt;p&gt;At the beginning I wanted to compare between diferent countries or sports or seasons and come to a conclusion. Well, what kind of a conclusion would make sense bothered me, therefore I turned towards an Rshiny Approach.&lt;/p&gt;
 &lt;p&gt;This data-set includes information from 1896 to 2016. Analyzing the data-set would take tedious amount of time and in my opinion unnecessary amount of complications will arise when it comes to concluding. Information from the data-set includes about Medals, participants name, country, sports, events, season and year.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results/home&#34;&gt;Kaggle Olympic Data&lt;/a&gt;&lt;/p&gt;
@@ -36,15 +39,20 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/Olympic-Data-Rshiny-&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;material-useful-for-rsiny-development&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Material Useful for Rsiny Development&lt;/h2&gt;
-&lt;p&gt;Easiest way to build your own shiny app is to refer the official website. It provides extensive amount of information regarding Rshiny development. Already developed Rshiny Apps and Templates are also available, which would come in handy.&lt;/p&gt;
+&lt;p&gt;Easiest way to build your own shiny app is to refer the official website. It provides extensive amount of information regarding Rshiny development. Already developed Rshiny Apps and Templates are also available, which would come in handy. Further, when you do start an Rshiny App through Rstudio you will initially receive a sample App with its code. A few tweaks and changes would lead to necessary changes that you need.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;Official Rshiny Website&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;how-to-use-the-olympic-rshiny-app&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;How To Use the Olympic Rshiny App&lt;/h2&gt;
+&lt;h2&gt;How To Use The Olympic Rshiny App ?&lt;/h2&gt;
+&lt;p&gt;Instructions are also listed in the Rshiny App panel.&lt;/p&gt;
+&lt;div id=&#34;step-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;First Choose a country that you want to study and find the three letter NOC CODE from the “NOC CODE” tab.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

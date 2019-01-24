@@ -25,8 +25,8 @@ has helped for this level of popularity. In perspective of using an Rshiny App a
 use it with minimal amount of knowledge. Which is very useful in bringing statistical
 analysis to consumers or general public without any trouble. 
 
-I initially wanted to develop an Rshiny App for my fitODBOD, but it would be best
-for me to test the waters. That is what I have done here. Using the Olympic data 
+I initially wanted to develop an Rshiny App for my fitODBOD package, but I thought it would be best
+to test the waters. That is what I have done here. Using the Olympic data 
 from kaggle I have found a very convenient way to understand specific results
 for a choosen country from the Rshiny App.
 
@@ -49,13 +49,26 @@ participants name, country, sports, events, season and year.
 
 Easiest way to build your own shiny app is to refer the official website. It provides 
 extensive amount of information regarding Rshiny development. Already developed Rshiny 
-Apps and Templates are also available, which would come in handy. 
+Apps and Templates are also available, which would come in handy. Further, when you do
+start an Rshiny App through Rstudio you will initially receive a sample App with its code.
+A few tweaks and changes would lead to necessary changes that you need.
 
 [Official Rshiny Website](https://shiny.rstudio.com/)
 
-* 
+## How To Use The Olympic Rshiny App ?
 
-## How To Use the Olympic Rshiny App 
+Instructions are also listed in the Rshiny App panel.
+
+### Step 1 
+
+First Choose a country that you want to study and find the three letter NOC CODE
+from the "NOC CODE" tab. 
+
+### Step 2 
+
+
+
+
 
 
 *Thank You* 
