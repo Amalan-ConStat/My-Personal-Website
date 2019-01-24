@@ -1,0 +1,58 @@
+---
+title: 'Olympic : Rshiny Approach'
+author: M.Amalan
+date: '2019-01-24'
+output: 
+  blogdown::html_page:
+    toc: true
+slug: olympic-rshiny-approach
+categories:
+  - Rshiny
+  - R
+tags:
+  - R package
+  - Rshiny
+  - Kaggle
+image:
+  caption: ''
+  focal_point: ''
+---
+
+# Introduction 
+
+Rshiny is very popular in the rstats community. The glamourous interface and functionality
+has helped for this level of popularity. In perspective of using an Rshiny App anyone can
+use it with minimal amount of knowledge. Which is very useful in bringing statistical
+analysis to consumers or general public without any trouble. 
+
+I initially wanted to develop an Rshiny App for my fitODBOD, but it would be best
+for me to test the waters. That is what I have done here. Using the Olympic data 
+from kaggle I have found a very convenient way to understand specific results
+for a choosen country from the Rshiny App.
+
+At the beginning I wanted to compare between diferent countries or sports or seasons
+and come to a conclusion. Well, what kind of a conclusion would make sense bothered me,
+therefore I turned towards an Rshiny Approach. 
+
+This data-set includes information from 1896 to 2016. Analyzing the data-set would take 
+tedious amount of time and in my opinion unnecessary amount of complications will arise 
+when it comes to concluding. Information from the data-set includes about Medals, 
+participants name, country, sports, events, season and year. 
+
+[Kaggle Olympic Data](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results/home)
+
+[Olympic Rshiny App](https://amalan-con-stat.shinyapps.io/olympic/)
+
+## Material Useful for Rsiny Development
+
+## How To Use the Olympic Rshiny App 
+
+### 1. Choose a Country
+
+### 2. Keep NA or Remove NA
+
+### 3. Graph of Medals Over the Years
+
+### 4. Information of Country
+
+### 5. Summary of Country

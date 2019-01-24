@@ -49,6 +49,15 @@
     </item>
     
     <item>
+      <title>Kaggle</title>
+      <link>/tags/kaggle/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Medium</title>
       <link>/tags/medium/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
@@ -96,9 +105,18 @@
     <item>
       <title>R package</title>
       <link>/tags/r-package/</link>
-      <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rshiny</title>
+      <link>/tags/rshiny/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rshiny/</guid>
       <description></description>
     </item>
     
