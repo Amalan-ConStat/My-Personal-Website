@@ -82,10 +82,16 @@ of the chosen country.
 
 # Step 5 
 
+"G/Years" tab is there to explain the Gender representation over the years of the chosen
+country through a bar plot.
 
+# Step 6
 
+"S/Years" tab shows a bar plot which has the representation of the Gender of the Sports event 
+participants of the chosen country.
 
+# Step 7
 
-
+Repeat the Steps 1 to 6 and be amused. 
 
 *Thank You* 
