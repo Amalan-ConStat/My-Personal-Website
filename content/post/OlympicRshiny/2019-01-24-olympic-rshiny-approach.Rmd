@@ -66,6 +66,23 @@ from the "NOC CODE" tab.
 
 ### Step 2 
 
+Choose the "GRAPH" tab to understand how medals were won for a chosen country 
+over the years with respective to Gender.
+
+### Step 3
+
+Choose the "DATA" tab to look at the data for the chosen. Further you can scroll
+through this data and find specific attendee's Name, Sex, Age, Year, Season, City, 
+Sport, Event and Medal.
+
+# Step 4
+
+Using "DESCRIBE" tab you can simply study the descriptive statistics for the data 
+of the chosen country.
+
+# Step 5 
+
+
 
 
 
