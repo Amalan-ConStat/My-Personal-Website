@@ -75,22 +75,22 @@ Choose the "DATA" tab to look at the data for the chosen. Further you can scroll
 through this data and find specific attendee's Name, Sex, Age, Year, Season, City, 
 Sport, Event and Medal.
 
-# Step 4
+### Step 4
 
 Using "DESCRIBE" tab you can simply study the descriptive statistics for the data 
 of the chosen country.
 
-# Step 5 
+### Step 5 
 
 "G/Years" tab is there to explain the Gender representation over the years of the chosen
 country through a bar plot.
 
-# Step 6
+### Step 6
 
 "S/Years" tab shows a bar plot which has the representation of the Gender of the Sports event 
 participants of the chosen country.
 
-# Step 7
+### Step 7
 
 Repeat the Steps 1 to 6 and be amused of the results from different countries. 
 
