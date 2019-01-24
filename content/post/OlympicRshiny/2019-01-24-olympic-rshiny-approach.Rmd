@@ -43,16 +43,19 @@ participants name, country, sports, events, season and year.
 
 [Olympic Rshiny App](https://amalan-con-stat.shinyapps.io/olympic/)
 
+[GitHub Code](https://github.com/Amalan-ConStat/Olympic-Data-Rshiny-)
+
 ## Material Useful for Rsiny Development
+
+Easiest way to build your own shiny app is to refer the official website. It provides 
+extensive amount of information regarding Rshiny development. Already developed Rshiny 
+Apps and Templates are also available, which would come in handy. 
+
+[Official Rshiny Website](https://shiny.rstudio.com/)
+
+* 
 
 ## How To Use the Olympic Rshiny App 
 
-### 1. Choose a Country
 
-### 2. Keep NA or Remove NA
-
-### 3. Graph of Medals Over the Years
-
-### 4. Information of Country
-
-### 5. Summary of Country
+*Thank You* 
