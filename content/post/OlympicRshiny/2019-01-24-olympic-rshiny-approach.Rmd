@@ -92,6 +92,11 @@ participants of the chosen country.
 
 ### Step 7
 
-Repeat the Steps 1 to 6 and be amused of the results from different countries. 
+"H/W/Sport" tab explores how participants Height and Weight relationship for each Sporting event
+with respective to Gender for the chosen country.
+
+### Step 8
+
+Repeat the Steps 1 to 7 and be amused of the results from different countries. 
 
 *Thank You* 
