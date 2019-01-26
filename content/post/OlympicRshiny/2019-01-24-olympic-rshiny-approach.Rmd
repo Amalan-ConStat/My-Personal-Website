@@ -30,6 +30,7 @@ to test the waters. That is what I have done here. Using the Olympic data
 from kaggle I have found a very convenient way to understand specific results
 for a choosen country from the Rshiny App.
 
+![](/screenshots/olympicrshiny.PNG)
 At the beginning I wanted to compare between diferent countries or sports or seasons
 and come to a conclusion. Well, what kind of a conclusion would make sense bothered me,
 therefore I turned towards an Rshiny Approach. 
