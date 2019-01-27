@@ -13,8 +13,9 @@ tags:
   - R
   - R package
 image:
-  caption: 'TidyTuesday week 31, the data-set provided is R and package downloads. I was curious about Sri Lankan users therefore focus on them intensively.'
+  caption: ''
   focal_point: ''
+summary: "2018 Week 31 TidyTuesday: R and R package Downloads."  
 ---
 
 
