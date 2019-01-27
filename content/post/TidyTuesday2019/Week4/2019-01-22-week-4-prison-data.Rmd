@@ -16,6 +16,7 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: "2019 Week 4 TidyTuesday: Prisons and Incarceration."  
 ---
 
 ```{r setup, include=FALSE}
