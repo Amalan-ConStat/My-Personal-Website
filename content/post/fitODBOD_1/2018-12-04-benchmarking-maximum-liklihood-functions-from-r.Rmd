@@ -22,6 +22,7 @@ slug: benchmarking-maximum-liklihood-functions-from-r
 image: 
   caption: ''
   focal_point: ''
+summary: "Comparing optimization functions for the estimation of shape parameters from the Beta-Binomial distribution."  
 ---
 
 

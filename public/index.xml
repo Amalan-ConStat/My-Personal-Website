@@ -5487,13 +5487,13 @@ nlminb
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.64
+6.75
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.55
+6.75
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -5510,13 +5510,13 @@ ucminf
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.64
+8.17
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.151
+1.210
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-7.61
+8.15
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -5533,16 +5533,16 @@ nlm
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-9.28
+8.84
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.398
+1.310
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-9.14
+8.84
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -5556,13 +5556,13 @@ optim
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.18
+11.44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.533
+1.695
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.18
+11.42
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -5579,13 +5579,13 @@ mle
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-22.59
+24.16
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.402
+3.579
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-22.58
+24.08
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -5602,16 +5602,16 @@ maxLik
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-35.52
+38.23
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-5.349
+5.664
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-35.51
+38.17
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.01
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -5625,16 +5625,16 @@ mle2
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.59
+46.94
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-6.113
+6.954
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-40.58
+46.28
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.03
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
