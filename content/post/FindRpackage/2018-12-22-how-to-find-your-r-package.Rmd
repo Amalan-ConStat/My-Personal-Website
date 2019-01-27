@@ -14,6 +14,7 @@ tags:
 image: 
   caption: ''
   focal_point: ''
+summary: "summary snippet here"  
 ---
 
 How to find your R package is simply a blog post helping people to provide 

@@ -16,6 +16,7 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: "Rshiny application for Olympic data of 1896 to 2016 from Kaggle."    
 ---
 
 # Introduction 
