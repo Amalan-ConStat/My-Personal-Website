@@ -16,6 +16,7 @@ slug: week-30-movie-profit
 image:   
   caption: 'TidyTuesday week 30, Post regarding movies.'
   focal_point: ''
+summary: "2018 Week 30 TidyTuesday: Movie Profit."  
 ---
 
 ```{r setup, include=FALSE}
