@@ -17,6 +17,7 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: "Developing your own package in R with steps and helpful materials."  
 ---
 
 # Introduction
