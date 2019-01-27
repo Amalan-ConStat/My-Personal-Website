@@ -3261,16 +3261,16 @@ NelderMead
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.75
+10.95
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.72
+10.93
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3284,13 +3284,13 @@ L-BFGS-B
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.66
+11.96
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.085
+1.092
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.64
+11.91
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -3307,13 +3307,13 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.10
+19.50
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.777
+1.781
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.07
+19.41
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.02
@@ -3330,13 +3330,13 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.83
+38.55
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.519
+3.521
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-37.80
+38.50
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
@@ -3353,16 +3353,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1710.70
+1788.20
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-159.135
+163.306
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1684.05
+1754.00
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.59
+1.53
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

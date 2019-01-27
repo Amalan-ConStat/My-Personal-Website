@@ -16,6 +16,7 @@ slug: optim-estimating-the-shape-parameters-of-beta-binomial-distribution
 image:
   caption: ''
   focal_point: ''
+summary: "Opimizing using 'optim' function and comparing analytical methods."  
 ---
 
 ```{r setup, include=FALSE}
