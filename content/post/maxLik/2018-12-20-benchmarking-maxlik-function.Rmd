@@ -15,6 +15,7 @@ slug: benchmarking-maxlik-function
 image:
   caption: ''
   focal_point: ''
+summary: "Comparing the analytical methods of the maxLik optimizing function."  
 ---
 
 ```{r setup, include=FALSE}

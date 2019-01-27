@@ -2156,39 +2156,16 @@ NM
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-16.86
+16.72
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-16.81
+16.70
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
-2
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-BFGS
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-1000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-32.59
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-1.933
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-32.20
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.01
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2202,16 +2179,39 @@ NR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-39.59
+51.64
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-2.348
+3.089
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-39.08
+42.98
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.05
+0.11
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+BFGS
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+57.13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+3.417
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+43.06
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.11
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2225,16 +2225,16 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-65.11
+64.39
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.862
+3.851
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-65.02
+64.31
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.01
+0.00
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2248,16 +2248,16 @@ BFGSR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-700.44
+956.87
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-41.544
+57.229
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-681.86
+794.33
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.82
+0.94
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2271,16 +2271,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1741.50
+1816.81
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-103.292
+108.661
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1736.73
+1754.74
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.17
+0.22
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

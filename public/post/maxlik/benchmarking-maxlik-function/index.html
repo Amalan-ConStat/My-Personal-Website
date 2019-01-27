@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions.">
+  <meta name="description" content="Comparing the analytical methods of the maxLik optimizing function.">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/maxlik/benchmarking-maxlik-function/">
@@ -110,7 +110,7 @@
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/maxlik/benchmarking-maxlik-function/">
   <meta property="og:title" content="Benchmarking the maxLik function | Consulting Statistician">
-  <meta property="og:description" content="Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionEstimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote a small section regarding maxLik function by comparing it to other optimization functions.">
+  <meta property="og:description" content="Comparing the analytical methods of the maxLik optimizing function.">
   
   
     
@@ -858,39 +858,16 @@ NM
 1000
 </td>
 <td style="text-align:center;">
-16.86
+16.72
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-16.81
+16.70
 </td>
 <td style="text-align:center;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: red;">
-2
-</td>
-<td style="text-align:center;">
-BFGS
-</td>
-<td style="text-align:center;">
-1000
-</td>
-<td style="text-align:center;">
-32.59
-</td>
-<td style="text-align:center;">
-1.933
-</td>
-<td style="text-align:center;">
-32.20
-</td>
-<td style="text-align:center;">
-0.01
+0.00
 </td>
 </tr>
 <tr>
@@ -904,16 +881,39 @@ NR
 1000
 </td>
 <td style="text-align:center;">
-39.59
+51.64
 </td>
 <td style="text-align:center;">
-2.348
+3.089
 </td>
 <td style="text-align:center;">
-39.08
+42.98
 </td>
 <td style="text-align:center;">
-0.05
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+2
+</td>
+<td style="text-align:center;">
+BFGS
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+57.13
+</td>
+<td style="text-align:center;">
+3.417
+</td>
+<td style="text-align:center;">
+43.06
+</td>
+<td style="text-align:center;">
+0.11
 </td>
 </tr>
 <tr>
@@ -927,16 +927,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-65.11
+64.39
 </td>
 <td style="text-align:center;">
-3.862
+3.851
 </td>
 <td style="text-align:center;">
-65.02
+64.31
 </td>
 <td style="text-align:center;">
-0.01
+0.00
 </td>
 </tr>
 <tr>
@@ -950,16 +950,16 @@ BFGSR
 1000
 </td>
 <td style="text-align:center;">
-700.44
+956.87
 </td>
 <td style="text-align:center;">
-41.544
+57.229
 </td>
 <td style="text-align:center;">
-681.86
+794.33
 </td>
 <td style="text-align:center;">
-0.82
+0.94
 </td>
 </tr>
 <tr>
@@ -973,16 +973,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-1741.50
+1816.81
 </td>
 <td style="text-align:center;">
-103.292
+108.661
 </td>
 <td style="text-align:center;">
-1736.73
+1754.74
 </td>
 <td style="text-align:center;">
-0.17
+0.22
 </td>
 </tr>
 </tbody>
@@ -1397,9 +1397,9 @@ Over Dispersion
         
         <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
-        
         <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
+        
+        <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
         
       </ul>
     </div>
