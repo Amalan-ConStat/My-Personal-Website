@@ -11,11 +11,11 @@ primary_dark = "#36353e"
 
 # Menu
 menu_primary = "#0b3f89"
-menu_text = "##F8F7FB"
-menu_text_active = "#00828B"
-menu_title = "##F8F7FB"
+menu_text = "#F8F7FB"
+menu_text_active = "#adacaf"
+menu_title = "#F8F7FB"
 
 # Backgrounds
-background = "#EAE7D6"
-home_section_odd = "#EAE7D6"
-home_section_even = "#EAE7D6"
+background = "#E4ECF6"
+home_section_odd = "#d1dff0"
+home_section_even = "#f7f9fc"
