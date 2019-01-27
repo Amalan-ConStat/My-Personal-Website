@@ -1,0 +1,15 @@
+# Font style metadata
+name = "custom"
+
+# Optional Google font URL
+google_fonts = "Playfair+Display:400,700|EB+Garamond"
+
+# Font families
+heading_font = "Playfair Display"
+body_font = "EB Garamond"
+nav_font = "Cormorant Garamond"
+mono_font = "Cormorant Garamond"
+
+# Font size
+font_size = "18"
+font_size_small = "16"
