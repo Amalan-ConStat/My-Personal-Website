@@ -18,6 +18,7 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: "Using different analytical methods from the mle and mle2 optimizing function."  
 ---
 
 # Introduction
