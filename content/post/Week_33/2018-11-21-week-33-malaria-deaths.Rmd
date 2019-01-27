@@ -12,8 +12,9 @@ tags:
 slug: week-33-malaria-deaths
 categories: [TidyTuesday]
 image:
-  caption: 'Malaria deaths in Sri Lanka and special regions of the world. With scatter plots and labels for the malaria data given with different range of y axis values.'
+  caption: ''
   focal_point: ''
+summary: "2018 Week 33 TidyTuesday: Malaria Deaths."  
 ---
 
 ```{r setup, include=FALSE}
