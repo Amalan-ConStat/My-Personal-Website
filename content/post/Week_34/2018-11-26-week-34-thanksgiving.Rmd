@@ -12,8 +12,9 @@ tags:
   - R
   - R package
 image:
-  caption: 'Thanksgiving data from TidyTuesday week 34. Mostly focused on animated plots and tables.'
+  caption: ''
   focal_point: ''
+summary: "2018 Week 34 TidyTuesday: Thanksgiving Survey."  
 ---
 
 
