@@ -18,7 +18,8 @@
       <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</guid>
-      <description>IntroductionMaterialsMaking Websites with Rmarkdown and Blogdown.Alison Presmanes Hill ; Up and Running with Blogdown.Rmarkdown Websites.Robert MitchellNick StrayerEmily C ZaborGetting Started with BlogdownPeter’s BlogHappy Git and GitHub for the User.RMarkdown : The Definitive Guide.Blogdown: Creating Websites with R Markdown.My Personal Website / Blog</description>
+      <description>IntroductionR enthusiasts are focused on developing packages and websites to promote their profile and share their knowledge to the world. Recently released packages such as blogdown, Rmarkdown, bookdown has played a significant amount of role in this popularity for R statistical software among generals users and academics in every field of statistics.
+Due to this reason, I also wanted to develop my own R package to solve problem in hand and share it with the rstats community.</description>
     </item>
     
   </channel>
