@@ -110,17 +110,25 @@ give you certain specifics of my own website.
 * Descriptive amount of information about changing elements in the academic theme to make it more
   homely fo the user. 
 
-## "Happy Git and GitHub for the User."
+## *"Happy Git and GitHub for the User."
 
-[Link]
+[Link](https://happygitwithr.com/)
 
-## "RMarkdown : The Definitive Guide."
+* Git and GitHub with R with all the information that anyone needs to know.
 
-[Link]
+## *"RMarkdown : The Definitive Guide by Yihui Xie, J. J. Allaire, Garrett Grolemund."
 
-## "Blogdown: Creating Websites with R Markdown."
+[Link](https://bookdown.org/yihui/rmarkdown/)
 
-[Link]
+* Book with all the information related to Rmarkdown files.
+* No need to look anywhere for clarification regarding Rmarkdown.
+
+## *"blogdown: Creating Websites with R Markdown by Yihui Xie, Amber Thomas, Alison Presmanes Hill."
+
+[Link](https://bookdown.org/yihui/blogdown/)
+
+* Similar to the previous two books this is also the most useful for blogdown.
+* No need to look anywhere else for further understanding regarding blogdown.
 
 # My Personal Website / Blog
 
