@@ -2,6 +2,9 @@
 title: Build Your Own Website or Blog Using R, RStudio and R Packages.
 author: M.Amalan
 date: '2019-01-28'
+output: 
+  blogdown::html_page:
+    toc: true
 slug: build-your-own-website-or-blog-using-r-rstudio-and-r-packages
 categories:
   - R
@@ -32,27 +35,52 @@ very short period of time and have being maintaining regularly by posting articl
 
 # Materials
 
-## Making Websites with Rmarkdown and Blogdown.
+I could have written an extensive and long article describing how I developed this website with 
+screenshots and explanatory steps. As it should be a valuable experience I am only going
+to give you the materials which were used with important points with facts. Further, I shall
+give you certain specifics of my own website.
+ 
+## "Making Websites with Rmarkdown and Blogdown."
 
-## Alison Presmanes Hill ; Up and Running with Blogdown.
+[Link]
 
-## Rmarkdown Websites.
+## "Alison Presmanes Hill ; Up and Running with Blogdown."
 
-## Robert Mitchell
+[Link]
 
-## Nick Strayer
+## "Rmarkdown Websites."
 
-## Emily C Zabor
+[Link]
 
-## Getting Started with Blogdown
+## "Robert Mitchell."
 
-## Peter's Blog
+[Link]
 
-## Happy Git and GitHub for the User.
+## "Nick Strayer."
 
-## RMarkdown : The Definitive Guide.
+## "Emily C Zabor."
 
-## Blogdown: Creating Websites with R Markdown.
+[Link]
+
+## "Getting Started with Blogdown."
+
+[Link]
+
+## "Peter's Blog."
+
+[Link]
+
+## "Happy Git and GitHub for the User."
+
+[Link]
+
+## "RMarkdown : The Definitive Guide."
+
+[Link]
+
+## "Blogdown: Creating Websites with R Markdown."
+
+[Link]
 
 # My Personal Website / Blog
 
