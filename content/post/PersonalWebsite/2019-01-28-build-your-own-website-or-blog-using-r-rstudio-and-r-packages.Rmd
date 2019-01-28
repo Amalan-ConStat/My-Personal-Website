@@ -132,3 +132,17 @@ give you certain specifics of my own website.
 
 # My Personal Website / Blog
 
+Few minute information related to my website / blog will be discussed here.  Mostly encouraging
+other people to make necessary changes in the original template to satisfy their curiosity and interest. 
+
+* I also used the academic theme but made alot of changes.
+* These changes include with a new css, color changing, font changing and others.
+* In the Home page I explored adding icons, heading names and changing the header successfully. 
+* While writing blog posts I was able to learn inventive ways to make them interesting. 
+
+For now that is all I have done in related to developing my own website. It should be your own choice
+what you are going to develop, a website / blog. Mine is a website where articles are regularly posted.
+Further, it should be noted that the above materials were active when I was writing this post, therefore
+if it is not active do use google and try to find it. 
+
+*THANK YOU*

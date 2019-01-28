@@ -148,6 +148,15 @@
 &lt;/div&gt;
 &lt;div id=&#34;my-personal-website-blog&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;My Personal Website / Blog&lt;/h1&gt;
+&lt;p&gt;Few minute information related to my website / blog will be discussed here. Mostly encouraging other people to make necessary changes in the original template to satisfy their curiosity and interest.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I also used the academic theme but made alot of changes.&lt;/li&gt;
+&lt;li&gt;These changes include with a new css, color changing, font changing and others.&lt;/li&gt;
+&lt;li&gt;In the Home page I explored adding icons, heading names and changing the header successfully.&lt;/li&gt;
+&lt;li&gt;While writing blog posts I was able to learn inventive ways to make them interesting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For now that is all I have done in related to developing my own website. It should be your own choice what you are going to develop, a website / blog. Mine is a website where articles are regularly posted. Further, it should be noted that the above materials were active when I was writing this post, therefore if it is not active do use google and try to find it.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -852,7 +861,7 @@ animate(p,fps=2,duration = 60)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Submit to CRAN or Bioconductor.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I have written two posts related to R packages as well. One is &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/&#34;&gt;How to find your R package&lt;/a&gt; and Second is &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/&#34;&gt;Using R packages to develop your own package&lt;/a&gt;. These two posts will be very useful.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

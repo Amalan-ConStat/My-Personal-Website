@@ -288,4 +288,4 @@ and Second is
 [Using R packages to develop your own package](https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/).
 These two posts will be very useful. 
 
-*Thank You*
+*THANK YOU*
