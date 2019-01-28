@@ -291,4 +291,4 @@ ggplot(aes(x=seasonNumber,y=av_rating,color=title,size=share))+
 animate(p,fps=5,duration = 60)
 ```
 
-_Thank You_
+*THANK YOU*

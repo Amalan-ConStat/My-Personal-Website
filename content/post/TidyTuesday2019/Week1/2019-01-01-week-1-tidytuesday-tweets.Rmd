@@ -245,3 +245,5 @@ My conclusion of the above plots and tables in point form
 * We can focus on the text variable which could be used for a word cloud.
 
 * Further we can try to understand the hashtags with favorites and retweets.
+
+*THANK YOU*

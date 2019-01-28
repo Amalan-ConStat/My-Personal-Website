@@ -245,4 +245,4 @@ ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
 animate(p4,fps=1,duration=38)
 ```
 
-*THANK_YOU*
+*THANK YOU*
