@@ -233,4 +233,4 @@ Journal article as well and it is still under review. Also I have seen R package
 as a PhD submission as well. Therefore it would be worthwhile developing an R package as a way 
 to keep an active status regarding your field of interest in Statistics. 
 
-*Thank You*
+*THANK YOU*

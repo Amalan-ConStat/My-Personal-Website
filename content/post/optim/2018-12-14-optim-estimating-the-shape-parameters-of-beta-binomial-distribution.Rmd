@@ -330,4 +330,4 @@ to the final result of estimation as seen by our tables. And our situation force
 the Brent method. The only issue is time, therefore I would recommend choose the best analytical method 
 from the optim function based on your needs of output and research objective.
 
-*Thank You*
+*THANK YOU*

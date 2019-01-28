@@ -620,4 +620,4 @@ We had 7 functions to compare but choosing one over the other is completely harm
 to the final result of estimation as seen by our tables. The only issue is time, therefore
 I would recommend choose the best function based on your needs of output and research objective.
 
-*Thank You*
+*THANK YOU*

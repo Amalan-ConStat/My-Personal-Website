@@ -424,4 +424,4 @@ BFGSR and SANN methods as they take considerable amount of time. I would recomme
 the analytical method from maxLik function based on your needs of output and 
 research objective.
 
-*Thank you* 
+*THANK YOU* 

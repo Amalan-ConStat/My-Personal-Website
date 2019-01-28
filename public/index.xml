@@ -233,7 +233,7 @@
 &lt;div id=&#34;step-8&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 8&lt;/h3&gt;
 &lt;p&gt;Repeat the Steps 1 to 7 and be amused of the results from different countries.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1557,7 +1557,7 @@ mle2_answer&amp;lt;-mle2(minuslogl= EstMLEBetaBin,start = list(a=0.1,b=0.2),
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;My personal opinion is to use the mle2 function, but moving towards what should be the analytical method. It would be wise to choose it based on your needs as these methods completely depend on the data, function that needs to be estimated, complexity of the function and finally the number estimators that needs to be estimated.&lt;/p&gt;
 &lt;p&gt;This is the link to the article which is for &lt;a href=&#34;https://amalan-con-stat.netlify.com/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/&#34;&gt;Benchmarking optim function&lt;/a&gt;. It might be useful while understanding the analytical methods.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -1760,7 +1760,7 @@ to develop R functions, documentation and examples for their packages. Over time
 
 &lt;/div&gt;
 &lt;p&gt;I hope this blog post is useful for anyone who has intentions to develop their R package or in the process of development or version controlling. I developed fitODBOD as a research project for my final year and it included a thesis report as well. Over time I wrote a Journal article as well and it is still under review. Also I have seen R package development as a PhD submission as well. Therefore it would be worthwhile developing an R package as a way to keep an active status regarding your field of interest in Statistics.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -1874,7 +1874,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;p&gt;This is an email service which would alert us regarding specific packages accordance to our request. Whenever there is an update for a chosen package we would receive an email alert.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cranalerts.com/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/Cranalerts.PNG&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This is my list of places for reaching out to help with related to R packages and R programming. I use them constantly and they are very much helpful to me. Finally, I hope this post would be useful to anyone who wants to find or use R packages.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -2308,39 +2308,16 @@ NM
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-16.72
+25.50
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-16.70
+20.21
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 0.00
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
-1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-NR
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-1000
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-51.64
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-3.089
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-42.98
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-0.11
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2354,16 +2331,39 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-57.13
+38.19
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.417
+1.498
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-43.06
+33.25
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.11
+0.03
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;color: red;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+NR
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+56.19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+2.204
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+46.31
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center;&#34;&gt;
+0.10
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2377,16 +2377,16 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-64.39
+97.56
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.851
+3.826
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-64.31
+79.44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.06
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2400,16 +2400,16 @@ BFGSR
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-956.87
+842.00
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-57.229
+33.020
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-794.33
+716.00
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.94
+0.28
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2423,16 +2423,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1816.81
+2523.78
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-108.661
+98.972
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1754.74
+2072.40
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.22
+1.44
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2813,7 +2813,7 @@ Over Dispersion
 &lt;div id=&#34;final-conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Final Conclusion&lt;/h1&gt;
 &lt;p&gt;Now we can conclude the above findings using the tables provided, and it is clear that there is no strong change in expected frequencies, maximum Log Likelihood value or p-value if we use any one of the methods mentioned above. If time is crucial it is best to avoid BFGSR and SANN methods as they take considerable amount of time. I would recommend choose the analytical method from maxLik function based on your needs of output and research objective.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank you&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -3410,16 +3410,16 @@ NelderMead
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.95
+15.49
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
 1.000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-10.93
+12.44
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.07
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3433,16 +3433,16 @@ L-BFGS-B
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.96
+23.46
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.092
+1.515
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-11.91
+17.53
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.05
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3456,16 +3456,16 @@ BFGS
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.50
+42.87
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.781
+2.768
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-19.41
+30.25
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.02
+0.11
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3479,16 +3479,16 @@ CG
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-38.55
+93.99
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-3.521
+6.068
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-38.50
+63.95
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-0.00
+0.11
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3502,16 +3502,16 @@ SANN
 1000
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1788.20
+2526.70
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-163.306
+163.118
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1754.00
+2071.07
 &lt;/td&gt;
 &lt;td style=&#34;text-align:center;&#34;&gt;
-1.53
+2.44
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3849,7 +3849,7 @@ Over Dispersion
 &lt;div id=&#34;final-conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Final Conclusion&lt;/h1&gt;
 &lt;p&gt;We had 6 methods to compare but choosing one over the other is completely harmless to the final result of estimation as seen by our tables. And our situation forces us to not use the Brent method. The only issue is time, therefore I would recommend choose the best analytical method from the optim function based on your needs of output and research objective.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thank You&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

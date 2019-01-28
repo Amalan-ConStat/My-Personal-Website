@@ -160,4 +160,4 @@ This is my list of places for reaching out to help with related to R packages an
 I use them constantly and they are very much helpful to me. Finally, I hope this post would be 
 useful to anyone who wants to find or use R packages.  
 
-_Thank You_
+*THANK YOU*
