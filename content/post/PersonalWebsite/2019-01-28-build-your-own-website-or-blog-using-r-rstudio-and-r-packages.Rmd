@@ -63,21 +63,52 @@ give you certain specifics of my own website.
 * Briefest description about using Rmarkdown/Rmd files for website development.
 * There are few other links which could be considered useful.
 
-## "Nick Strayer."
+## "How to make an RMarkdown Website by Nick Strayer & Lucy D'Agostino McGowan."
 
-[Link]
+[Link](http://nickstrayer.me/RMarkdown_Sites_tutorial/)
 
-## "Emily C Zabor."
+* One example sample website developed and explained briefly by the authors.
+* Several links to spark curiosity about website development using Rmarkdown.
 
-[Link]
+## "Creating websites in R by Emily C Zabor."
 
-## "Getting Started with Blogdown."
+[Link](http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
 
-[Link]
+* Explanation on different type of websites which can be produced by R.
+* Deployment and additional requirements for website development.
 
-## "Peter's Blog."
+## "Getting Started with Blogdown by David Selby."
 
-[Link]
+[Link](https://selbydavid.com/wrugdown/2017/05/10/getting-started-with-blogdown/)
+
+* Limited amount of information regarding website development.
+* This was written for a talk for the "Warwick R User Group Talk" in 2017.
+
+## "Getting Started with Blogdown by Danielle Navarro."
+
+[Link](http://djnavarro.net/post/2018-04-27-starting-blogdown/)
+
+* Extensive amount of information about website development using blogdown.
+* More than enough information about the insides of the website.
+* Detailed steps of writing posts and changing elements of the website.
+
+## "Blogdown by Peter's Blog."
+
+[Link](https://notes.peter-baumgartner.net/tags/blogdown/)
+
+* 4 Tutorials explaining from scratch about how to develop your website using blogdown.
+* Tutorial 1 explains about website themes and setting up R and Rstudio.
+* Tutorial 2 is about hosting the website locally or sharing the work with others.
+* Tutorial 3 will be information about getting the site live.
+* Tutorial 4 describes how to bring the website online through Netlify or GitHub.
+
+## "Academic by George Cushen"
+
+[Link](https://sourcethemes.com/academic/)
+
+* All the information about the academic theme this is very popular among people in rstats community.
+* Descriptive amount of information about changing elements in the academic theme to make it more
+  homely fo the user. 
 
 ## "Happy Git and GitHub for the User."
 
