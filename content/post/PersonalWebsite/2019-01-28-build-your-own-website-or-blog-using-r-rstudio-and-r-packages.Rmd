@@ -23,12 +23,12 @@ summary: "Useful information on how to develop your own website or blog using R.
 # Introduction
 
 R enthusiasts are focused on developing packages and websites to promote their profile and share 
-their knowledge to the world. Recently released packages such as blogdown, Rmarkdown, bookdown 
+their knowledge to the world. Recently released packages such as hugo, blogdown, Rmarkdown, bookdown 
 has played a significant amount of role in this popularity for R statistical software among 
 generals users and academics in every field of statistics.
 
 Due to this reason, I also wanted to develop my own R package to solve problem in hand and share
-it with the rstats community. Even though Social Media is a strong way of sharing this amount of
+it with the #rstats community. Even though Social Media is a strong way of sharing this amount of
 information, it is not sturdy over time. To resolve this only I chose to develop my own website
 using R and supportive tools from R. Your reading this post on my website which I developed in a 
 very short period of time and have being maintaining regularly by posting articles. 
@@ -40,23 +40,32 @@ screenshots and explanatory steps. As it should be a valuable experience I am on
 to give you the materials which were used with important points with facts. Further, I shall
 give you certain specifics of my own website.
  
-## "Making Websites with Rmarkdown and Blogdown."
+## "Making Websites with Rmarkdown and Blogdown by Yihui Xie."
 
-[Link]
+[Link](https://slides.yihui.name/2017-rstudio-webinar-blogdown-Yihui-Xie.html#1)
 
-## "Alison Presmanes Hill ; Up and Running with Blogdown."
+* Presentation of 20 slides.
+* Most of the basic information for packages which are necessary for website development.
+* Brief introduction about the website structure and process.
 
-[Link]
+## "Up and Running with Blogdown by Alison Presmanes Hill."
+
+[Link](https://alison.rbind.io/post/up-and-running-with-blogdown/)
+
+* Brief information for blogdown and other development materials.
+* Described information Deployment and maintaining the website with 
+  other tools related to R and Rstudio.
 
 ## "Rmarkdown Websites."
 
-[Link]
+[Link](https://rmarkdown.rstudio.com/lesson-13.html)
 
-## "Robert Mitchell."
-
-[Link]
+* Briefest description about using Rmarkdown/Rmd files for website development.
+* There are few other links which could be considered useful.
 
 ## "Nick Strayer."
+
+[Link]
 
 ## "Emily C Zabor."
 
