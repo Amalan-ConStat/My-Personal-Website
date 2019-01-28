@@ -241,4 +241,4 @@ Plot6<-ggplot(SeaCreature,aes(x=status,y=acquisition,color=sex))+
 - Alot of unknown data points when it comes to Birth Year.
 
 
-## THANK YOU
+*THANK YOU*

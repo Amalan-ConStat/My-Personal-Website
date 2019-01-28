@@ -423,3 +423,5 @@ My conclusion of the above plots and a table in point form
 * It is possible to focus on violation codes. 
 
 * Further looking at the cuisines we can divide it based on the boros as well.
+
+*THANK YOU*

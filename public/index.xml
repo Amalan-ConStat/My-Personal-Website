@@ -2841,7 +2841,6 @@ Over Dispersion
 &lt;li&gt;&lt;a href=&#34;#acquisitioned-ones-and-thier-sex-with-status-code&#34;&gt;Acquisitioned ones and thier Sex with Status (code)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#acquisitioned-ones-and-thier-sex-with-status-plot&#34;&gt;Acquisitioned ones and thier Sex with Status (plot)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#thank-you&#34;&gt;THANK YOU&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -3069,9 +3068,7 @@ ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Bottle-nose species is holding a special place in this data-set.&lt;/li&gt;
 &lt;li&gt;Alot of unknown data points when it comes to Birth Year.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;thank-you&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;THANK YOU&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -4217,6 +4214,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
 &lt;li&gt;&lt;p&gt;It is possible to focus on violation codes.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Further looking at the cuisines we can divide it based on the boros as well.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -4778,6 +4776,7 @@ wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt;&lt;br /&gt;
 This is my sixth post on the internet so my mistakes in grammar and spellings should be very less than previous posts. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
