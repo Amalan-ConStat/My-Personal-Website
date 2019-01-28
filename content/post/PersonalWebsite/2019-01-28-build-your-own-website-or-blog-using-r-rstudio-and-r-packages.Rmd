@@ -14,5 +14,34 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: ""  
 ---
+
+# Introduction
+
+# Materials
+
+## Making Websites with Rmarkdown and Blogdown.
+
+## Alison Presmanes Hill ; Up and Running with Blogdown.
+
+## Rmarkdown Websites.
+
+## Robert Mitchell
+
+## Nick Strayer
+
+## Emily C Zabor
+
+## Getting Started with Blogdown
+
+## Peter's Blog
+
+## Happy Git and GitHub for the User.
+
+## RMarkdown : The Definitive Guide.
+
+## Blogdown: Creating Websites with R Markdown.
+
+# My Personal Website / Blog
 
