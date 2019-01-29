@@ -19,7 +19,7 @@ summary: "2019 Week 5 TidyTuesday: Dairy Products in USA."
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=TRUE,fig.height = 12,fig.width = 12)
+knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=FALSE,fig.height = 12,fig.width = 12)
 ```
 
 ```{r load the packages and data}
