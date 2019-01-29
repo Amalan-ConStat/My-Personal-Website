@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 22 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/tidytuesday/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 5: Dairy Products in USA</title>
+      <link>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</guid>
+      <description># load the packageslibrary(tidyverse)library(magrittr)library(ggthemr)library(readr)library(gganimate)library(usmap)# load the datafluid_milk_sales &amp;lt;- read_csv(&amp;quot;fluid_milk_sales.csv&amp;quot;)state_milk_production &amp;lt;- read_csv(&amp;quot;state_milk_production.csv&amp;quot;)clean_cheese &amp;lt;- read_csv(&amp;quot;clean_cheese.csv&amp;quot;)# load the themeggthemr(&amp;quot;flat dark&amp;quot;)## Warning: New theme missing the following elements: panel.grid, plot.tag,## plot.tag.positionIntroduction5 data-sets are given here, but I only will be discussing 3. They are Fluid Milk Sales, State Milk production and Clean Cheese. Clean Cheese has only few rows (48) and few columns (17).</description>
+    </item>
     
     <item>
       <title>Week 4: Prison Data</title>

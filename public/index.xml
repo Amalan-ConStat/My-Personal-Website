@@ -11,6 +11,282 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 5: Dairy Products in USA</title>
+      <link>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</guid>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
+library(tidyverse)
+library(magrittr)
+library(ggthemr)
+library(readr)
+library(gganimate)
+library(usmap)
+
+# load the data
+fluid_milk_sales &amp;lt;- read_csv(&amp;quot;fluid_milk_sales.csv&amp;quot;)
+state_milk_production &amp;lt;- read_csv(&amp;quot;state_milk_production.csv&amp;quot;)
+clean_cheese &amp;lt;- read_csv(&amp;quot;clean_cheese.csv&amp;quot;)
+
+# load the theme
+ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: New theme missing the following elements: panel.grid, plot.tag,
+## plot.tag.position&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;5 data-sets are given here, but I only will be discussing 3. They are Fluid Milk Sales, State Milk production and Clean Cheese. Clean Cheese has only few rows (48) and few columns (17). This is not the case in Fluid Milk Sales and State Milk production.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Code: &lt;a href=&#34;https://t.co/3bSXxttydA&#34;&gt;https://t.co/3bSXxttydA&lt;/a&gt; Wisconsin and California have a milk interest and it is very high. &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/Ide8jfalyd&#34;&gt;pic.twitter.com/Ide8jfalyd&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1090266660785729536?ref_src=twsrc%5Etfw&#34;&gt;January 29, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week5&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fluid-milk-sales&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Fluid Milk Sales&lt;/h1&gt;
+&lt;p&gt;Fluid Milk Sales has information for 9 different types of milk and how their Consumption in Pounds has changed over time from 1970 to 2017. We can see how Whole and Reduced Fat(2%) type milk are changing over the years with significant amount. Further, We can see how other types are changing from the initial order in 1970 of lower(Eggnog) amount to higher(Whole) amount in pounds over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(fluid_milk_sales)
+
+fluid_milk_sales$pounds&amp;lt;-fluid_milk_sales$pounds/(10^7)
+
+# how sales change over the years for 9 different types of milk
+p&amp;lt;-ggplot(fluid_milk_sales,aes(x=fct_inorder(milk_type) ,y=pounds,fill=year))+
+       geom_bar(stat=&amp;quot;identity&amp;quot;)+
+        transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       xlab(&amp;quot;Milk Type&amp;quot;)+ylab(&amp;quot;Pounds (in 10^7)&amp;quot;)+
+       coord_flip()+
+       ggtitle(&amp;quot;Milk Type vs Pounds in year: {round(frame_time)}&amp;quot;)
+
+animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Fluid%20milk%20Sales-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(fluid_milk_sales)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;state-milk-production&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;State Milk Production&lt;/h1&gt;
+&lt;p&gt;In the 48 years we are separating them by 24 years each for a plot. Using &lt;a href=&#34;&#34;&gt;usmap&lt;/a&gt; package I am going to plot it into their respective states in perspective of Milk Produced lbs in 10^6.&lt;/p&gt;
+&lt;div id=&#34;us-states-and-milk-production-over-the-years&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;US States and Milk Production Over the Years&lt;/h2&gt;
+&lt;p&gt;In the first half of 1970 to 1993 we can see how a few states are having steady increase over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(state_milk_production)
+
+# dividing the milk produced by 10^6
+#summary(state_milk_production$milk_produced)
+state_milk_production$milk_produced&amp;lt;-state_milk_production$milk_produced/(10^6)
+
+# plot in us map the milk produced by state for years 1970 to 1993
+plot_usmap(data=subset(state_milk_production,year &amp;lt;=&amp;quot;1993&amp;quot;),values = &amp;quot;milk_produced&amp;quot;)+
+          facet_wrap(~factor(year),ncol = 4)+
+          ggtitle(&amp;quot;Over the years Milk production changing in USA&amp;quot;)+
+          theme(legend.position = &amp;quot;left&amp;quot;)+
+          labs(fill=&amp;quot;lbs in 10^6&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20Us%20Map-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This is similar to the next half years which is from 1994 to 2017 as well. Similar increase occurs for the above same states as I see in the below plot. Well it is not very accurately described in the two plots for us to see.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot in us map the milk produced by state for years 1994 to 2017
+plot_usmap(data=subset(state_milk_production,year &amp;gt;&amp;quot;1993&amp;quot;),values = &amp;quot;milk_produced&amp;quot;)+
+          facet_wrap(~factor(year),ncol = 4)+
+          ggtitle(&amp;quot;Over the years Milk production changing in USA&amp;quot;)+
+          theme(legend.position = &amp;quot;left&amp;quot;)+
+          labs(fill=&amp;quot;lbs in 10^6&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20Us%20Map%201-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To understand the above same change over the years clearly I have created a bar plot how the increase occurs. This plot also indicates how much change has occurred over the 48 years for each state who produces milk. Clearly the states California and Wisconsin have higher increase over the years, which is very strong. There are some states which have not produced more amount each year their previous years.&lt;/p&gt;
+&lt;p&gt;The states Wyoming, Rhode island, Hawaii, Delaware and Alaska have very low amount of milk production over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# over the years how milk production has changed for each year in a bar plot
+p&amp;lt;-ggplot(state_milk_production,aes(x=state,y=milk_produced,
+                                    fill=year))+
+      geom_bar(stat=&amp;quot;identity&amp;quot;)+coord_flip()+
+      transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+shadow_mark()+
+      xlab(&amp;quot;State&amp;quot;)+ylab(&amp;quot;Milk Produced (in 10^6)&amp;quot;)+
+      ggtitle(&amp;quot;States vs Milk Produced in year: {round(frame_time)}&amp;quot;)
+
+animate(p,nframes = 48,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20over%20the%20years%20for%20states-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summing-states-of-same-regions-over-the-years&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summing States of Same Regions Over the Years&lt;/h2&gt;
+&lt;p&gt;There are 50 states but only 10 regions and not all regions have equal amount of states. Therefore I am going to sum up the milk production for all regions over the years and try to understand if there is any pattern.&lt;/p&gt;
+&lt;p&gt;In order to do this I have used the &lt;a href=&#34;&#34;&gt;dplyr&lt;/a&gt; package and created a function which would sum up the production for each region of each year. Similarly, this function has the ability to get the average production for each region of each year as well.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# manipulating the data by sum and mean
+by_region_sum&amp;lt;-function(i,ch_sum)
+{
+  if(ch_sum==TRUE)
+  {
+    # subsetting by summation over all years for each region
+    temp&amp;lt;-subset(state_milk_production,year==i,select=c(&amp;quot;region&amp;quot;,&amp;quot;milk_produced&amp;quot;)) %&amp;gt;%
+                  group_by(region) %&amp;gt;%
+                  summarise_each(funs(sum))
+  
+  output&amp;lt;-data.frame(year=rep(i,10), region=temp$region, milk_produced=temp$milk_produced)
+  }
+  else
+  {
+    # subsetting by Average over all years for each region    
+    temp&amp;lt;-subset(state_milk_production,year==i,select=c(&amp;quot;region&amp;quot;,&amp;quot;milk_produced&amp;quot;)) %&amp;gt;%
+                  group_by(region) %&amp;gt;%
+                  summarise_each(funs(mean))
+  
+    output&amp;lt;-data.frame(year=rep(i,10), region=temp$region, milk_produced=temp$milk_produced)
+  }
+  return(output)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using the by_region_sum function I am now finding the sum as below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subsetting by summation
+milk_region_data&amp;lt;-rbind.data.frame(by_region_sum(1970,T),by_region_sum(1971,T),
+                                   by_region_sum(1972,T),by_region_sum(1973,T),
+                                   by_region_sum(1974,T),by_region_sum(1975,T),
+                                   by_region_sum(1976,T),by_region_sum(1977,T),
+                                   by_region_sum(1978,T),by_region_sum(1979,T),
+                                   by_region_sum(1980,T),by_region_sum(1981,T),
+                                   by_region_sum(1982,T),by_region_sum(1983,T),                   
+                                   by_region_sum(1984,T),by_region_sum(1985,T),               
+                                   by_region_sum(1986,T),by_region_sum(1987,T),                 
+                                   by_region_sum(1988,T),by_region_sum(1989,T),
+                                   by_region_sum(1990,T),by_region_sum(1991,T), 
+                                   by_region_sum(1992,T),by_region_sum(1993,T), 
+                                   by_region_sum(1994,T),by_region_sum(1995,T), 
+                                   by_region_sum(1996,T),by_region_sum(1997,T), 
+                                   by_region_sum(1998,T),by_region_sum(1999,T), 
+                                   by_region_sum(2000,T),by_region_sum(2001,T),
+                                   by_region_sum(2002,T),by_region_sum(2003,T),   
+                                   by_region_sum(2004,T),by_region_sum(2005,T),                 
+                                   by_region_sum(2006,T),by_region_sum(2007,T), 
+                                   by_region_sum(2008,T),by_region_sum(2009,T),
+                                   by_region_sum(2010,T),by_region_sum(2011,T),
+                                   by_region_sum(2012,T),by_region_sum(2013,T),
+                                   by_region_sum(2014,T),by_region_sum(2015,T),
+                                   by_region_sum(2016,T),by_region_sum(2017,T)                  
+                                   )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we consider the summation we can see clearly how centered and very limited variation is there for some regions such as Southeast, Northern Plains, Delta States, Corn Belt and Appalachian. There is some variation in the Northeast region. Clear and highest variation is in for Pacific, Mountain and Lake States region.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Region wise total milk production changing  over the year 
+ggplot(milk_region_data,aes(x=region,y=milk_produced,color=year))+
+        geom_jitter()+ coord_flip()+
+        xlab(&amp;quot;Region&amp;quot;)+ylab(&amp;quot;Milk Produced (in 10^6)&amp;quot;)+
+        ggtitle(&amp;quot;Total Milk Produced by Year in All Regions&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Summation%20by%20region%20for%20jitter-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Below is the same graph with points animated by year.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Region wise total milk production changing  over the year animated
+p&amp;lt;-ggplot(milk_region_data,aes(x=region,y=milk_produced,color=year))+
+        geom_jitter()+ coord_flip()+
+        xlab(&amp;quot;Region&amp;quot;)+ylab(&amp;quot;Milk Produced (in 10^6)&amp;quot;)+
+        ggtitle(&amp;quot;Total Milk Produced for All Regions for Year: {frame_time}&amp;quot;)+
+        transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+shadow_mark()
+        
+animate(p,nframes=48,fps=1)        &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Summation%20by%20region%20for%20jitter%20by%20year%20animation-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;averaging-regions-considering-all-the-states-over-the-years&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Averaging Regions Considering All the States Over the Years&lt;/h2&gt;
+&lt;p&gt;If we consider the same approach but for the average of each region we can develop the same two plots. Here also we can see the same variation and centering for points for the same regions over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subsetting by average
+milk_region_data_new&amp;lt;-rbind.data.frame(by_region_sum(1970,F),by_region_sum(1971,F),
+                                   by_region_sum(1972,F),by_region_sum(1973,F),
+                                   by_region_sum(1974,F),by_region_sum(1975,F),
+                                   by_region_sum(1976,F),by_region_sum(1977,F),
+                                   by_region_sum(1978,F),by_region_sum(1979,F),
+                                   by_region_sum(1980,F),by_region_sum(1981,F),
+                                   by_region_sum(1982,F),by_region_sum(1983,F),                   
+                                   by_region_sum(1984,F),by_region_sum(1985,F),               
+                                   by_region_sum(1986,F),by_region_sum(1987,F),                 
+                                   by_region_sum(1988,F),by_region_sum(1989,F),
+                                   by_region_sum(1990,F),by_region_sum(1991,F), 
+                                   by_region_sum(1992,F),by_region_sum(1993,F), 
+                                   by_region_sum(1994,F),by_region_sum(1995,F), 
+                                   by_region_sum(1996,F),by_region_sum(1997,F), 
+                                   by_region_sum(1998,F),by_region_sum(1999,F), 
+                                   by_region_sum(2000,F),by_region_sum(2001,F),
+                                   by_region_sum(2002,F),by_region_sum(2003,F),   
+                                   by_region_sum(2004,F),by_region_sum(2005,F),                 
+                                   by_region_sum(2006,F),by_region_sum(2007,F), 
+                                   by_region_sum(2008,F),by_region_sum(2009,F),
+                                   by_region_sum(2010,F),by_region_sum(2011,F),
+                                   by_region_sum(2012,F),by_region_sum(2013,F),
+                                   by_region_sum(2014,F),by_region_sum(2015,F),
+                                   by_region_sum(2016,F),by_region_sum(2017,F)                  
+                                   )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Below is the plot for the average of regions over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Region wise average milk production changing  over the year 
+ggplot(milk_region_data_new,aes(x=region,y=milk_produced,color=year))+
+        geom_jitter()+ coord_flip()+ 
+        xlab(&amp;quot;Region&amp;quot;)+ylab(&amp;quot;Milk Produced (in 10^6)&amp;quot;)+
+        ggtitle(&amp;quot;Average Milk Produced by Year in All Regions&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/average%20by%20region%20for%20jitter-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The same plot is now animated for each year and all regions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Region wise average milk production changing  over the year animated
+p&amp;lt;-ggplot(milk_region_data_new,aes(x=region,y=milk_produced,color=year))+
+        geom_jitter()+ coord_flip()+
+        transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+ shadow_mark()+       
+        xlab(&amp;quot;Region&amp;quot;)+ylab(&amp;quot;Milk Produced (in 10^6)&amp;quot;)+
+        ggtitle(&amp;quot;Average Milk Produced for All Regions for Year: {frame_time}&amp;quot;)+
+        transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)
+        
+animate(p,nframes=48,fps=1)        &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/average%20by%20region%20for%20jitter%20by%20year%20animation-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detach(state_milk_production)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cheese&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Cheese&lt;/h1&gt;
+&lt;p&gt;16 types of cheese are provided in this clean cheese data-set. I will divide these types into 3 types and will not consider few types of cheese. The unit of measurement for the consumption is lbs per person.&lt;/p&gt;
+&lt;div id=&#34;cheese-with-other&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cheese with Other&lt;/h2&gt;
+&lt;p&gt;I am going to consider the types American Other, Italian Other and Swiss for this plot. Red color indicates to American Other, yellow color refers to Italian other and blue for Swiss. Alot of fluctuation for American other type, but this is not the case for Swiss type cheese. There is steady increase for the Italian other type cheese over the years. All of these are less than 4 lbs per person and it is animated.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 3 types of cheese change per person over the year in lbs
+p&amp;lt;-ggplot(clean_cheese,aes(x=factor(Year)))+ 
+          geom_point(aes(y=`American Other`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;red&amp;quot;)+
+          geom_point(aes(y=`Italian other`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;yellow&amp;quot;)+
+          geom_point(aes(y=Swiss),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;blue&amp;quot;)+
+          transition_time(Year)+
+          theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+          xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Consumption in lbs per person&amp;quot;)+
+          ggtitle(&amp;quot;Cheese Consumption Over the Years&amp;quot;)+
+          ease_aes(&amp;quot;linear&amp;quot;)+shadow_mark()
+
+animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20other-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cheese-with-total&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cheese with Total&lt;/h2&gt;
+&lt;p&gt;This is also an animated plot but for the cheese types which has the word Total. They are Total American Cheese, Total Italian Cheese, Total Natural Cheese and Total Processed Cheese Products with the colors respectively red, yellow, blue and green.&lt;/p&gt;
+&lt;p&gt;All the Consumption units are in between 0 to 40 lbs per person. Clearly Total Natural Cheese has a steady amount of increase from 1970(slightly above 10) to 2017(approximately less than 40). Considering the other three types we can see it is not the same order that it is in 1970 over the years.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 4 types of cheese change per person over the year in lbs
+p&amp;lt;-ggplot(clean_cheese,aes(x=factor(Year)))+ 
+          geom_point(aes(y=`Total American Chese`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;red&amp;quot;)+
+          geom_point(aes(y=`Total Italian Cheese`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;yellow&amp;quot;)+
+          geom_point(aes(y=`Total Natural Cheese`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;blue&amp;quot;)+
+          geom_point(aes(y=`Total Processed Cheese Products`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;green&amp;quot;)+
+          xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Consumption in lbs per person&amp;quot;)+
+          theme(axis.text.x =element_text(angle = 90, hjust = 1))+  
+          ggtitle(&amp;quot;Cheese Consumption Over the Years&amp;quot;)+
+          transition_time(Year)+ 
+          ease_aes(&amp;quot;linear&amp;quot;)+shadow_mark()
+
+animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20Total-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cheese-with-known-type-names&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cheese with known Type Names&lt;/h2&gt;
+&lt;p&gt;Next group of cheese types include Cheddar, Mozzarella, Brick, Processed Cheese and Foods &amp;amp; spreads for the colors respectively red, yellow, blue, green and white. Clearly Cheddar and mozzarella type cheese are are mostly consumed by 2017 above 10 lbs per person, but this is not the case in 1970 where consumption is less than 6 lbs per person.&lt;/p&gt;
+&lt;p&gt;Well Processed Cheese and Foods &amp;amp; Spreads have changed very small over the years. The consumption is always less than 6 lbs per person. This is not the case for Brick type cheese where the consumption is close to zero over the years from 1970 until 2017.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 5 types of cheese change per person over the year in lbs
+p&amp;lt;-ggplot(clean_cheese,aes(x=factor(Year)))+ 
+          geom_point(aes(y=Cheddar),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;red&amp;quot;)+
+          geom_point(aes(y=Mozzarella),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;yellow&amp;quot;)+
+          geom_point(aes(y=`Brick`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;blue&amp;quot;)+
+          geom_point(aes(y=`Processed Cheese`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;green&amp;quot;)+
+          geom_point(aes(y=`Foods and spreads`),stat=&amp;quot;identity&amp;quot;,color=&amp;quot;white&amp;quot;)+
+          xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Consumption in lbs per person&amp;quot;)+
+          theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+          ggtitle(&amp;quot;Cheese Consumption Over the Years&amp;quot;)+
+          transition_time(Year)+ 
+          ease_aes(&amp;quot;linear&amp;quot;)+shadow_mark()
+
+animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20known-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Build Your Own Website or Blog Using R, RStudio and R Packages.</title>
       <link>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
@@ -4215,568 +4491,6 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
 &lt;li&gt;&lt;p&gt;It is possible to focus on violation codes.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Further looking at the cuisines we can divide it based on the boros as well.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 36: Medium Posts</title>
-      <link>/post/week_36/week-36-medium-posts/</link>
-      <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_36/week-36-medium-posts/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#claps&#34;&gt;Claps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-10-authors-and-claps-for-their-posts&#34;&gt;Top 10 Authors and Claps for their posts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-10-authors-with-most-posts&#34;&gt;Top 10 Authors with most posts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-10-authors-who-have-posts-with-images&#34;&gt;Top 10 Authors who have posts with Images&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-10-authors-who-have-posts-without-images&#34;&gt;Top 10 Authors who have posts without Images&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-10-authors-and-reading-time-for-their-posts&#34;&gt;Top 10 Authors and Reading time for their posts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#top-5-publications-with-most-posts&#34;&gt;Top 5 Publications with most posts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#word-cloud-for-the-titles-from-top-10-authors&#34;&gt;Word Cloud for the Titles from Top 10 Authors&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#word-cloud-for-the-titles-from-top-5-publications&#34;&gt;Word Cloud for the Titles from Top 5 publications&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#further-analysis&#34;&gt;Further Analysis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#loading packages
-#load data
-library(readr)
-#manipulate data
-library(dplyr)
-library(magrittr)
-# format table with expense
-library(formattable)
-# knitting the document
-library(knitr)
-# another type of table
-library(kableExtra)
-# playing with strings
-library(stringr)
-# combining two plots
-library(grid)
-library(gridExtra)
-# that theme you wanted
-library(ggthemr)
-# text analysis
-library(tm)
-library(SnowballC)
-library(RColorBrewer)
-library(wordcloud)
-
-# adding theme called fresh for plots
-ggthemr(&amp;quot;fresh&amp;quot;)
-#loading the data
-medium &amp;lt;- read_csv(&amp;quot;medium_datasci.csv&amp;quot;)
-attach(medium)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Focusing on Claps with Authors and publications, where does writing alot of posts will get you popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;my take medium posts on week 36  &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/FTAZh0vKI8&#34;&gt;https://t.co/FTAZh0vKI8&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1071369742672429056?ref_src=twsrc%5Etfw&#34;&gt;December 8, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_36&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
-&lt;div id=&#34;claps&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Claps&lt;/h1&gt;
-&lt;p&gt;Table indicates that 25,729 posts have 0 claps, while 7,093 posts with only one clap, and finally 3044 posts with 2 claps. The only odd one is posts with 50 claps where the count is 970.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# extracting the top 15 with most claps
-claps_table&amp;lt;-table(claps) %&amp;gt;%
-                     sort() %&amp;gt;%
-                     tail(15)
-
-# table it up 
-kable(t(claps_table),&amp;quot;html&amp;quot;) %&amp;gt;%
-  kable_styling(bootstrap_options = &amp;quot;striped&amp;quot;,full_width = T) %&amp;gt;%
-  row_spec(0,bold = T,font_size = 13,color = &amp;quot;grey&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-13
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-12
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-9
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-8
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-11
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-7
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-50
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-10
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-6
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-5
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-4
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-3
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-2
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-1
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;font-weight: bold;color: grey;font-size: 13px;&#34;&gt;
-0
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-602
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-634
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-661
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-721
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-759
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-864
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-970
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-989
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-1124
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-1389
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-1402
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-2150
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-3044
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-7093
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-25729
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-10-authors-and-claps-for-their-posts&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 10 Authors and Claps for their posts&lt;/h1&gt;
-&lt;p&gt;There are only two posts which do not have Images in their content. The highest number of claps is 60,000, a post written by Sophia Ciocca under the title “How Does Spotify Know You So Well?”. Second Place is for the article “Blockchain is not only crappy technology but a bad vision for the future” which was written by Kai Stinchombe with 53,000 claps. De Xun is the only author who has two articles which are in this list on the places 8 and 9 with claps respectively 37,000 and 36,000.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# seperate medium with author, titles, claps and image
-claps_A_I&amp;lt;-medium[,c(&amp;quot;author&amp;quot;,&amp;quot;title&amp;quot;,&amp;quot;subtitle&amp;quot;,&amp;quot;claps&amp;quot;,&amp;quot;image&amp;quot;)] %&amp;gt;%
-              arrange(claps) %&amp;gt;%
-              tail(10)
-names(claps_A_I)&amp;lt;-c(&amp;quot;Author&amp;quot;,&amp;quot;Title&amp;quot;,&amp;quot;Subtitle&amp;quot;,&amp;quot;Claps&amp;quot;,&amp;quot;Image&amp;quot;)
-
-# table it
-formattable(claps_A_I[,-3],align=c(&amp;quot;l&amp;quot;,&amp;quot;l&amp;quot;,&amp;quot;r&amp;quot;,&amp;quot;c&amp;quot;),
-            list(
-              Claps=color_tile(&amp;quot;lightblue&amp;quot;,&amp;quot;blue&amp;quot;),
-              Image=color_tile(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;)
-            ))&lt;/code&gt;&lt;/pre&gt;
-&lt;table class=&#34;table table-condensed&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Author
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Title
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Claps
-&lt;/th&gt;
-&lt;th style=&#34;text-align:center;&#34;&gt;
-Image
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Vishal Maini
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-A Beginners Guide to AI/ML
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #add8e6&#34;&gt;36000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-De Xun
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-SWIPE Bi-Weekly Update, 16th-27th July
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #add8e6&#34;&gt;36000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-De Xun
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-[PARTNERSHIP] SWIPE-Bluzelle: Building SWIPEs decentralized database
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #a5cfe7&#34;&gt;37000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Andrej Karpathy
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Software 2.0
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #9ec6e8&#34;&gt;38000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #ff0000&#34;&gt;0&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Radu Raicea
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Want to know how Deep Learning works? Heres a quick guide for everyone.
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #97bde9&#34;&gt;39000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Anything App
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Fast-forward twenty years with Anything App.
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #81a2ec&#34;&gt;42000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #ff0000&#34;&gt;0&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Michael Jordan
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Artificial IntelligenceThe Revolution Hasnt Happened Yet
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #647ef0&#34;&gt;46000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Xiaohan Zeng
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-I interviewed at five top companies in Silicon Valley in five days, and luckily got five job offers
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #4f63f3&#34;&gt;49000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Kai Stinchcombe
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Blockchain is not only crappy technology but a bad vision for the future
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #323ff7&#34;&gt;53000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Sophia Ciocca
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-How Does Spotify Know You So Well?
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #0000ff&#34;&gt;60000&lt;/span&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:center;&#34;&gt;
-&lt;span style=&#34;display: block; padding: 0 4px; border-radius: 4px; background-color: #00ff00&#34;&gt;1&lt;/span&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-10-authors-with-most-posts&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 10 Authors with most posts&lt;/h1&gt;
-&lt;p&gt;Yves Mulkers has most amount of posts with 487 but only 3,779 claps. This is not the case for Corsairs publishing where for 156 posts the number of claps are 111,501. Even looking at other authors names we can see that writing alot of posts does not create claps.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# finding who are the top 10 authors with claps
-# summary.factor(medium$author) %&amp;gt;%
-#  sort() %&amp;gt;%
-#  tail(11)
-
-# extracting posts only from the top 10 authors with most posts
-Top10_author&amp;lt;-subset(medium,
-       author ==&amp;quot;C Gavilanes&amp;quot; | author == &amp;quot;Jae Duk Seo&amp;quot; |
-       author == &amp;quot;Corsair&amp;#39;s Publishing&amp;quot; | author==&amp;quot;Alibaba Cloud&amp;quot; |
-       author == &amp;quot;Ilexa Yardley&amp;quot; | author == &amp;quot;Peter Marshall&amp;quot; |
-       author == &amp;quot;AI Hawk&amp;quot; | author == &amp;quot;DEEP AERO DRONES&amp;quot; |
-       author == &amp;quot;Synced&amp;quot; | author == &amp;quot;Yves Mulkers&amp;quot;)
-
-# plotting the top 10 authors
-g1_Top10_a&amp;lt;-ggplot(Top10_author,aes(x=author))+
-            coord_flip()+ geom_bar()+
-            xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
-            ggtitle(&amp;quot;Top 10 Authors and number of posts they have written&amp;quot;)+
-            geom_text(stat = &amp;#39;count&amp;#39;,aes(label=..count..),hjust=0.5)
-
-# plotting the top 10 authors and their claps
-g2_Top10_a&amp;lt;-Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;claps&amp;quot;)] %&amp;gt;%
-            group_by(author) %&amp;gt;%
-            summarise_each(funs(sum)) %&amp;gt;%
-            ggplot(.,aes(x=author,y=claps))+ geom_bar(stat = &amp;quot;identity&amp;quot;)+
-            ggtitle(&amp;quot;Total number of Claps they got&amp;quot;)+
-            xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Claps&amp;quot;)+
-            coord_flip()+geom_text(aes(label=claps),hjust =0.5 )
-
-# plotting two plots at same grid
-grid.arrange(g1_Top10_a,g2_Top10_a,ncol=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20in%20a%20table-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-10-authors-who-have-posts-with-images&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 10 Authors who have posts with Images&lt;/h1&gt;
-&lt;p&gt;Extracting the top 10 authors with posts which have images it clear most of the posts do have Images and they do generate claps. This is true for Corsairs’s Publishing. With 154 posts it generates 109,906 claps. There are authors who have written more posts than totally received claps . It should be noted that two Authors did not add any Images for their post and they are Peter Marshall and C Gavilanes.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plotting top 10 authors with Image
-I1_g1_Top10_a&amp;lt;-subset(Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;image&amp;quot;)],image==1) %&amp;gt;%
-            ggplot(.,aes(x=author))+ geom_bar()+coord_flip()+
-            xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+  
-            ggtitle(&amp;quot;Top 10 Authors and posts which has Images&amp;quot;)+
-            geom_text(stat=&amp;#39;count&amp;#39;,aes(label=..count..),hjust =0.5 )
-
-# plotting the claps for top 10 authors with Image 
-I1_g2_Top10_a&amp;lt;-subset(Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;claps&amp;quot;,&amp;quot;image&amp;quot;)],image==1) %&amp;gt;%
-               group_by(author,image) %&amp;gt;%
-               summarise_each(funs(sum)) %&amp;gt;%
-               ggplot(.,aes(x=author,y=claps))+ geom_bar(stat = &amp;quot;identity&amp;quot;)+
-               coord_flip()+
-               xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Claps&amp;quot;)+
-               ggtitle( &amp;quot;Total number of Claps they got&amp;quot;)+
-               geom_text(aes(label=claps),hjust =0.5 )    
-
-# top plots one grid
-grid.arrange(I1_g1_Top10_a,I1_g2_Top10_a,ncol=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20when%20there%20is%20Image-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-10-authors-who-have-posts-without-images&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 10 Authors who have posts without Images&lt;/h1&gt;
-&lt;p&gt;Posts without images have very low amount of total claps. To be specific 14 posts by Jae Duk Seo have 1833 claps but 2 posts by Corsair’s publishing has 1595 claps. That is very Impressive. Further there are even posts which have claps less than 10 where the number of posts is less than 5.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plotting top 10 authors with No Image
-I0_g1_Top10_a&amp;lt;-subset(Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;image&amp;quot;)],image==0) %&amp;gt;%
-               ggplot(.,aes(x=author))+ geom_bar()+coord_flip()+
-               xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+  
-               ggtitle(&amp;quot;Top 10 Authors and posts without Images&amp;quot;)+
-               geom_text(stat=&amp;#39;count&amp;#39;,aes(label=..count..),hjust =0.5 )
-
-# plotting the claps for top 10 authors with No Image 
-I0_g2_Top10_a&amp;lt;-subset(Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;claps&amp;quot;,&amp;quot;image&amp;quot;)],image==0) %&amp;gt;%
-               group_by(author,image) %&amp;gt;%
-               summarise_each(funs(sum)) %&amp;gt;%
-               ggplot(.,aes(x=author,y=claps))+ geom_bar(stat = &amp;quot;identity&amp;quot;)+
-               coord_flip()+
-               xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Claps&amp;quot;)+               
-               ggtitle(&amp;quot;Total number of claps they got&amp;quot;)+
-               geom_text(aes(label=claps),hjust =0.5 )
-
-# top plots one grid
-grid.arrange(I0_g1_Top10_a,I0_g2_Top10_a,ncol=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20when%20there%20is%20No%20Image-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-10-authors-and-reading-time-for-their-posts&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 10 Authors and Reading time for their posts&lt;/h1&gt;
-&lt;p&gt;Reading in minutes, does it has anything to do with number of posts?. Looking at the plot it is clear that posts from Synced has more total reading time than Yves Mulkers with highest number posts. The difference between posts is close 150, while difference between reading times is above 150 for Yves Mulkers and Synced.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plotting top 10 authors with reading times
-RT_g1_Top10_a&amp;lt;-Top10_author[,c(&amp;quot;author&amp;quot;,&amp;quot;reading_time&amp;quot;)] %&amp;gt;%
-            group_by(author) %&amp;gt;%
-            summarise_each(funs(sum)) %&amp;gt;%
-            ggplot(.,aes(x=author,y=reading_time))+ geom_bar(stat = &amp;quot;identity&amp;quot;)+
-            ggtitle(&amp;quot;Reading Time&amp;quot;)+
-            xlab(&amp;quot;Author&amp;quot;)+ylab(&amp;quot;Reading Time in minutes&amp;quot;)+  
-            coord_flip()+geom_text(aes(label=reading_time),hjust =0.5 )
-
-# printing the above plot with number of posts 
-grid.arrange(g1_Top10_a,RT_g1_Top10_a,ncol=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20and%20reading%20time%20for%20their%20posts-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;top-5-publications-with-most-posts&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Top 5 Publications with most posts&lt;/h1&gt;
-&lt;p&gt;Publications with most number of posts has the highest number of claps and order achieved&lt;br /&gt;
-in the “Top 5 publications and number of posts they have written” plot is maintained in the “Total number of Claps they got” plot as well. This simply refers, when you write alot of posts under a publication you will receive alot of claps because of the foundation this specific publications holds in Medium.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# finding who are the top 5 publications with claps
-# summary.factor(medium$publication) %&amp;gt;%
-#  sort() %&amp;gt;%
-#  tail(11)
-
-# extracting posts only from the top 5 publications with most posts
-Top5_pub&amp;lt;-subset(medium,
-       publication ==&amp;quot;Towards Data Science&amp;quot; | 
-       publication == &amp;quot;Hacker Noon&amp;quot; |
-       publication == &amp;quot;Becoming Human: Artificial Intelligence Magazine&amp;quot; |
-       publication ==&amp;quot;Chatbots Life&amp;quot; |
-       publication == &amp;quot;Data Driven Investor&amp;quot; )
-
-# plotting the top 5 publications
-g1_Top5_p&amp;lt;-ggplot(Top5_pub,aes(x=str_wrap(publication,15)))+
-            coord_flip()+ geom_bar()+
-            xlab(&amp;quot;Publication&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+  
-            ggtitle(&amp;quot;Top 5 Publications and number of posts they have written&amp;quot;)+
-            geom_text(stat = &amp;#39;count&amp;#39;,aes(label=..count..),hjust=0.5)
-
-# plotting the top 5 publications and their claps
-g2_Top5_p&amp;lt;-Top5_pub[,c(&amp;quot;publication&amp;quot;,&amp;quot;claps&amp;quot;)] %&amp;gt;%
-            group_by(publication) %&amp;gt;%
-            summarise_each(funs(sum)) %&amp;gt;%
-            ggplot(.,aes(x=str_wrap(publication,15),y=claps))+
-            geom_bar(stat=&amp;quot;identity&amp;quot;)+
-            xlab(&amp;quot;Publication&amp;quot;)+ylab(&amp;quot;Claps&amp;quot;)+  
-            ggtitle(&amp;quot;Total number of Claps they got&amp;quot;)+
-            coord_flip()+geom_text(aes(label=claps),hjust =0.5 )
-
-# plotting two plots at same grid
-grid.arrange(g1_Top5_p,g2_Top5_p,ncol=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%205%20publications%20in%20a%20table-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;word-cloud-for-the-titles-from-top-10-authors&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Word Cloud for the Titles from Top 10 Authors&lt;/h1&gt;
-&lt;p&gt;Word cloud from the titles of the posts by Top 10 authors of most number of posts is below. The words thing, read, data, drone and new are with highest mentions. Where words such as big, telecom and tech are next in the line with higher amount of posts. In restrictions I have considered that this word cloud will have 1500 words and only if a word atleast holds the frequency of 10.&lt;/p&gt;
-&lt;p&gt;Well, I could clearly see that there cannot be 1500 words here.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#convert into data frame
-Top10_author&amp;lt;-data.frame(Top10_author)
-
-# Calculate Corpus
-Top10_author.Corpus&amp;lt;-Corpus(VectorSource(Top10_author$title))
-
-# clean the data
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Corpus,PlainTextDocument)
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Corpus,tolower)
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Clean,removeNumbers)
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Clean,removeWords,stopwords(&amp;quot;english&amp;quot;))
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Clean,removePunctuation)
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Clean,stripWhitespace)
-Top10_author.Clean&amp;lt;-tm_map(Top10_author.Clean,stemDocument)
-
-# save as png
-#png(filename = &amp;quot;wordcloud1.png&amp;quot;,width = 1024,height = 768)
-# plot the word cloud
-wordcloud(Top10_author.Clean,max.words = 1500,min.freq = 10,
-          colors = brewer.pal(11,&amp;quot;Spectral&amp;quot;),random.color = FALSE,
-          random.order = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%2010%20Authors-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;word-cloud-for-the-titles-from-top-5-publications&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Word Cloud for the Titles from Top 5 publications&lt;/h1&gt;
-&lt;p&gt;This word cloud also has similar restrictions for number of words and minimum frequency for a word. Words such as data, learn, use, machin, network, deep, scienc and artifici have most amount of frequency. Further, words such as neural, intellig, chatbot, part and python are also with significant amount of frequency. Here we can see clearly see there can be more than 1000 words.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#convert into data frame
-Top5_pub&amp;lt;-data.frame(Top5_pub)
-
-# Calculate Corpus
-Top5_pub.Corpus&amp;lt;-Corpus(VectorSource(Top5_pub$title))
-
-#clean the data
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Corpus,PlainTextDocument)
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Corpus,tolower)
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Clean,removeNumbers)
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Clean,removeWords,stopwords(&amp;quot;english&amp;quot;))
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Clean,removePunctuation)
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Clean,stripWhitespace)
-Top5_pub.Clean&amp;lt;-tm_map(Top5_pub.Clean,stemDocument)
-
-# save as png
-#png(filename = &amp;quot;wordcloud2.png&amp;quot;,width = 1024,height = 768)
-# plot the word cloud
-wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
-          colors = brewer.pal(11,&amp;quot;Spectral&amp;quot;),random.color = FALSE,
-          random.order = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%205%20publications-1.png&#34; width=&#34;552&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;My conclusion of the above plots and tables in point form&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Using dplyr to manipulate the datset was useful when there is complication.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;grid and gridExtra packages provide a safe way of combining multiple plots into one plot.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;formattable and kableExtra were crucial in generating tables which are informative.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Word cloud or analyzing text is very useful and flexible when we use the above packages.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;further-analysis&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Further Analysis&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Similarly we can do the above analysis for Top 5 publications and other variables.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Word clouds for subtitles also will be interesting to see, specially focusing on authors and publications.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Please see that&lt;/em&gt;&lt;br /&gt;
-This is my sixth post on the internet so my mistakes in grammar and spellings should be very less than previous posts. I intend to post more statistics related materials in the future and learn accordingly. Thank you for reading.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
