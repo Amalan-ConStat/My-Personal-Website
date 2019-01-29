@@ -16,7 +16,24 @@
       <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#fluid-milk-sales&#34;&gt;Fluid Milk Sales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#state-milk-production&#34;&gt;State Milk Production&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#us-states-and-milk-production-over-the-years&#34;&gt;US States and Milk Production Over the Years&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#summing-states-of-same-regions-over-the-years&#34;&gt;Summing States of Same Regions Over the Years&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#averaging-regions-considering-all-the-states-over-the-years&#34;&gt;Averaging Regions Considering All the States Over the Years&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cheese&#34;&gt;Cheese&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cheese-with-other&#34;&gt;Cheese with Other&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cheese-with-total&#34;&gt;Cheese with Total&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cheese-with-known-type-names&#34;&gt;Cheese with known Type Names&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
 library(tidyverse)
 library(magrittr)
 library(ggthemr)

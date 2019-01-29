@@ -4,7 +4,7 @@ author: m.amalan
 date: '2019-01-29'
 slug: week-5-dairy-products-in-usa
 output:
-  blogdown::html_output:
+  blogdown::html_page:
     toc: true
 categories:
   - TidyTuesday
@@ -19,6 +19,22 @@ summary: "2019 Week 5 TidyTuesday: Dairy Products in USA."
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#fluid-milk-sales">Fluid Milk Sales</a></li>
+<li><a href="#state-milk-production">State Milk Production</a><ul>
+<li><a href="#us-states-and-milk-production-over-the-years">US States and Milk Production Over the Years</a></li>
+<li><a href="#summing-states-of-same-regions-over-the-years">Summing States of Same Regions Over the Years</a></li>
+<li><a href="#averaging-regions-considering-all-the-states-over-the-years">Averaging Regions Considering All the States Over the Years</a></li>
+</ul></li>
+<li><a href="#cheese">Cheese</a><ul>
+<li><a href="#cheese-with-other">Cheese with Other</a></li>
+<li><a href="#cheese-with-total">Cheese with Total</a></li>
+<li><a href="#cheese-with-known-type-names">Cheese with known Type Names</a></li>
+</ul></li>
+</ul>
+</div>
 
 <pre class="r"><code># load the packages
 library(tidyverse)

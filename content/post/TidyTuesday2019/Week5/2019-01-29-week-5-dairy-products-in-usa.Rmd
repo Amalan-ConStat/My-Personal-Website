@@ -4,7 +4,7 @@ author: m.amalan
 date: '2019-01-29'
 slug: week-5-dairy-products-in-usa
 output:
-  blogdown::html_output:
+  blogdown::html_page:
     toc: true
 categories:
   - TidyTuesday
