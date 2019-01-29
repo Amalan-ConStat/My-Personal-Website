@@ -33,7 +33,7 @@ clean_cheese &amp;lt;- read_csv(&amp;quot;clean_cheese.csv&amp;quot;)
 ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;5 data-sets are given here, but I only will be discussing 3. They are Fluid Milk Sales, State Milk production and Clean Cheese. Clean Cheese has only few rows (48) and few columns (17). This is not the case in Fluid Milk Sales and State Milk production.&lt;/p&gt;
+&lt;p&gt;5 data-sets are given here, but I will be only discussing 3. They are Fluid Milk Sales, State Milk production and Clean Cheese. Clean Cheese has only few rows (48) and few columns (17). This is not the case in Fluid Milk Sales and State Milk production.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Code: &lt;a href=&#34;https://t.co/3bSXxttydA&#34;&gt;https://t.co/3bSXxttydA&lt;/a&gt; Wisconsin and California have a milk interest and it is very high. &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/Ide8jfalyd&#34;&gt;pic.twitter.com/Ide8jfalyd&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1090266660785729536?ref_src=twsrc%5Etfw&#34;&gt;January 29, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 

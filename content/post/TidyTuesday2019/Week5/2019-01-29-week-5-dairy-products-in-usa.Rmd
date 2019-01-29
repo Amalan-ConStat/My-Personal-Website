@@ -42,7 +42,7 @@ ggthemr("flat dark")
 
 # Introduction
 
-5 data-sets are given here, but I only will be discussing 3. They are Fluid Milk Sales, State Milk
+5 data-sets are given here, but I will be only discussing 3. They are Fluid Milk Sales, State Milk
 production and Clean Cheese. Clean Cheese has only few rows (48) and few columns (17). This is not 
 the case in Fluid Milk Sales and State Milk production. 
 
