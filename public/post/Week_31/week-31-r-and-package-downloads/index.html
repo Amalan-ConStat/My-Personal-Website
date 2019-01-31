@@ -332,18 +332,124 @@
 
 
 
+
+<div class="article-header d-xl-none">
+  <img src="/post/week_31/week-31-r-and-package-downloads/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 31 : R and Package Downloads</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-11-15 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Nov 15, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
   
 
   
   
   
-<div class="article-container pt-3">
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2031%20%3a%20R%20and%20Package%20Downloads&amp;url=%2fpost%2fweek_31%2fweek-31-r-and-package-downloads%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fweek_31%2fweek-31-r-and-package-downloads%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fweek_31%2fweek-31-r-and-package-downloads%2f&amp;title=Week%2031%20%3a%20R%20and%20Package%20Downloads"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fweek_31%2fweek-31-r-and-package-downloads%2f&amp;title=Week%2031%20%3a%20R%20and%20Package%20Downloads"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2031%20%3a%20R%20and%20Package%20Downloads&amp;body=%2fpost%2fweek_31%2fweek-31-r-and-package-downloads%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/week_31/week-31-r-and-package-downloads/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
   <h1 itemprop="name">Week 31 : R and Package Downloads</h1>
 
   
 
   
-    
 
 <div class="article-metadata">
 
@@ -429,7 +535,6 @@
 
 </div>
 
-  
 </div>
 
 
@@ -507,7 +612,7 @@ ggplot(r_downloads_year_LK,aes(x=os))+geom_bar()+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle(&quot;Operating system preference of Sri lankans for R&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Operating%20Systems-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/Operating%20Systems-1.png" width="864" /></p>
 <pre class="r"><code># frequency table for Operating system
 tab1&lt;-round(prop.table(table(r_downloads_year_LK$os)),4)
 tab1&lt;-as.data.frame(tab1)
@@ -572,7 +677,7 @@ ggplot(r_downloads_year_LK,aes(x=version))+geom_bar()+
     scale_y_continuous(breaks = seq(0,275,by=25))+
     ggtitle(&quot;R versions downloaded of Sri Lankans for R&quot;,
             subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions%20plot-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/R%20versions%20plot-1.png" width="864" /></p>
 <p>Table shows that version 3.5.1 represents a 36.52% followed by version 3.4.3 of 27.96% and in the third place version 3.5.0 with 15.98%. Further, all downloads are occurred for versions 3.0.0 or higher than it. People believed in 3.4.3 than 3.5.0, which could only mean that 3.4.3 was more stable for user and package requirements.</p>
 <pre class="r"><code># frequency table to R versions
 tab2&lt;-sort(round(prop.table(table(r_downloads_year_LK$version)),4))
@@ -693,7 +798,7 @@ ggplot(r_downloads_year_LK,aes(x=os,fill=version))+geom_bar()+
     scale_y_continuous(breaks=seq(0,675,by=25))+
     ggtitle(&quot;Operating system preference of Sri lankans for R&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/R%20versions%20with%20operating%20system-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/R%20versions%20with%20operating%20system-1.png" width="864" /></p>
 <pre class="r"><code>#Contingency table to R version versus operating System
 kable(round(prop.table(table(r_downloads_year_LK$os,
                              r_downloads_year_LK$version)),4)) %&gt;%
@@ -864,7 +969,7 @@ ggplot(r_downloads_year_LK,aes(x=month(date),fill=os))+
     scale_x_continuous(breaks=1:12) +
     ggtitle(&quot;Operating systems used in the months of R download&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Month-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/Date%20versus%20Operating%20system%20for%20Month-1.png" width="864" /></p>
 <p>So, the first sub part of time is months. Here, we are considering 12 months of an year and months August and April reflects no Operating System is better than Windows property. While, August holding the least amount of downloads with slightly above frequency 20. Highest frequency occurs to October with count higher than 130 and significantly osx and src types of files also have higher amount than any-other month. Except August only the month of December has counts higher than 100.</p>
 <pre class="r"><code>#checking which days the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
@@ -873,7 +978,7 @@ ggplot(r_downloads_year_LK,aes(x=day(date),fill=os))+
     scale_x_continuous(breaks=1:31)+
     ggtitle(&quot;Operating systems used in the days of R download&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Days-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/Date%20versus%20Operating%20system%20for%20Days-1.png" width="864" /></p>
 <p>Next, focusing on the days it is clear that 10th and 11th have most downloads respectively reaching more than 60 and 70 in counts, while in other days it is mostly less than 30. Further, clearly on the 31st it includes least frequency of 10 because 31st is not a common day of all 12 months. It would be very tiring to focus on operating systems individually, but to be fair there is clear sign of few days with only the use of windows, and a few days with combination of other operating systems with windows.</p>
 <pre class="r"><code>#checking which hour the downloads occured inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
@@ -882,7 +987,7 @@ ggplot(r_downloads_year_LK,aes(x=hour(time),fill=os))+
     scale_x_continuous(breaks=0:23)+
     ggtitle(&quot;Operating systems used in the Hours of the day of R download&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20Hours-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/Date%20versus%20Operating%20system%20for%20Hours-1.png" width="864" /></p>
 <p>I have been curious at this part because of wanting to know at which hour of the day did our Sri Lankan users download R and packages. Yet it should be noted that the hour of time could be local time of Sri Lanka or otherwise. Still according to the bar chart the hours 4th and 5th have most downloads with counts of above 80 and above 90 respectively. Where in the 21st hour it reaches the least amount of less than 5 counts. Most of the frequencies are in the range of 10 and 35.</p>
 <pre class="r"><code>#checking which minute the downloads occured  inrespecitive to operating system
 ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
@@ -892,7 +997,7 @@ ggplot(r_downloads_year_LK,aes(x=minute(time),fill=os))+
     ggtitle(&quot;Operating systems used in the minutes of the day of R download&quot;,
               subtitle = &quot;2017 October 20th - 2018 October 20th&quot;)+
     coord_flip()</code></pre>
-<p><img src="/post/Week_31/2018-11-14-week-31-r-and-package-downloads_files/figure-html/Date%20versus%20Operating%20system%20for%20minutes-1.png" width="864" /></p>
+<p><img src="/post/Week_31/index_files/figure-html/Date%20versus%20Operating%20system%20for%20minutes-1.png" width="864" /></p>
 <p>Looking at the minutes it is very spread out. Focusing on special occasions only four minutes which are 59th, 46th, 12th and 0th have counts more than 20. While 51st minute has a count of 2. Rather than this nothing more significant occurs here. I think considering these counts in perspective of specific operating systems is tedious amount of work and waste of time.</p>
 </div>
 <div id="download-size-and-ip-id" class="section level1">

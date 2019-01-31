@@ -332,18 +332,124 @@
 
 
 
+
+<div class="article-header d-xl-none">
+  <img src="/post/week_33/week-33-malaria-deaths/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 33 : Malaria Deaths</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-11-21 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Nov 21, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
   
 
   
   
   
-<div class="article-container pt-3">
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2033%20%3a%20Malaria%20Deaths&amp;url=%2fpost%2fweek_33%2fweek-33-malaria-deaths%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fweek_33%2fweek-33-malaria-deaths%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fweek_33%2fweek-33-malaria-deaths%2f&amp;title=Week%2033%20%3a%20Malaria%20Deaths"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fweek_33%2fweek-33-malaria-deaths%2f&amp;title=Week%2033%20%3a%20Malaria%20Deaths"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2033%20%3a%20Malaria%20Deaths&amp;body=%2fpost%2fweek_33%2fweek-33-malaria-deaths%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/week_33/week-33-malaria-deaths/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
   <h1 itemprop="name">Week 33 : Malaria Deaths</h1>
 
   
 
   
-    
 
 <div class="article-metadata">
 
@@ -429,7 +535,6 @@
 
 </div>
 
-  
 </div>
 
 
@@ -562,7 +667,7 @@ Malaria_deaths_plot&lt;-ggplot(subset.data.frame(malaria_deaths,Code==&quot;LKA&
 
 # print the plot
 print(Malaria_deaths_plot)</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Deaths-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Deaths-1.png" width="864" /></p>
 <pre class="r"><code># save the plot
 ggsave(Malaria_deaths_plot,width = 10,height = 10,dpi=300,
        filename = &quot;Malaria_Deaths_Sri Lanka.png&quot;)</code></pre>
@@ -587,7 +692,7 @@ Malaria_deaths_age_plot&lt;-ggplot(subset.data.frame(malaria_deaths_age,code==&q
 
 # print the plot
 print(Malaria_deaths_age_plot)</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Deaths%20age-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Deaths%20age-1.png" width="864" /></p>
 <pre class="r"><code># save the plot
 ggsave(Malaria_deaths_age_plot,width=10,height = 10,dpi = 300,
        filename = &quot;Malaria Deaths Sri Lanka by Age.png&quot;)</code></pre>
@@ -628,7 +733,7 @@ ggplot(subset(MD_CM_SDI,Entity == &quot;Low SDI&quot; | Entity == &quot;Low-midd
       geom_point()+geom_line()+scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       legend_bottom()+ theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(15,80,5),breaks =seq(15,80,5))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20Low%20and%20Low%20middle-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/SDI%20countries%20Low%20and%20Low%20middle-1.png" width="864" /></p>
 <p>SDI countries Middle and High-middle are performing better than the above two regions from 1990 itself. While Middle SDI countries have a very low death rate of close to 1 and periodically it decreases to 0.6 at 2016. To be exact in 1990 the death rate is 0.9274 and decrement occurs with small but unaffected fluctuations and reaches 0.6018 in 2016, which is the lowest point.</p>
 <p>For High middle SDI countries the death rate in 1990 is 0.1168 and in 1996 it reaches the highest point of 0.1281. After 1996 there is clear decrease of death rate which reaches its minimum value of 0.0454 in 2013.</p>
 <pre class="r"><code># scatter plot for High middle and Middle
@@ -643,7 +748,7 @@ ggplot(subset(MD_CM_SDI,Entity == &quot;Middle SDI&quot;| Entity == &quot;High-m
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,1,0.05),breaks =seq(0,1,0.05))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20Middle%20and%20High-middle-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/SDI%20countries%20Middle%20and%20High-middle-1.png" width="864" /></p>
 <p>High SDI countries are showing very strong decrease from 1990 it self. While in 1990 the death rate is 0.001387 and by polynomial decreasing by 2016 this reaches the least value of 0.000194.</p>
 <pre class="r"><code># scatter plot for High SDI
 ggplot(subset(MD_CM_SDI, Entity ==&quot;High SDI&quot; ),
@@ -656,7 +761,7 @@ ggplot(subset(MD_CM_SDI, Entity ==&quot;High SDI&quot; ),
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,0.0014,0.0002),breaks =seq(0,0.0014,0.0002))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/SDI%20countries%20High-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/SDI%20countries%20High-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_SDI)</code></pre>
 <p>If we do plot all these 5 sub parts of SDI countries on one plot we would not have seen these differences and even if we do use facet grid this is not possible. Therefore, first I did plot all 5 regions together and then sub setted them based on their death rate change in values.</p>
 <p>It is clear that High SDI values have the lowest death rate and Low, Low middle SDI have the highest death rates over the years 1990 to 2016.</p>
@@ -679,7 +784,7 @@ ggplot(MD_CM_Sahara,
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ geom_text_repel()+
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,140,10),breaks =seq(0,140,10))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Sahara-1.png" width="1344" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Sahara-1.png" width="1344" /></p>
 <pre class="r"><code>detach(MD_CM_Sahara)</code></pre>
 <p>Considering 1990 and 2016 the biggest decrease occurs for the region of Eastern Sub-Saharan Africa, while the lowest decrease is for Western Sub-Saharan Africa. While in the year gap of 1990 and 2016 only Southern Sub-Saharan Africa has an increase in death rate from 1.69 to 2.29.</p>
 </div>
@@ -698,7 +803,7 @@ ggplot(MD_CM_EU,
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+geom_text_repel()+
       scale_y_continuous(labels = seq(0,140,10),breaks =seq(0,140,10))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Europe-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Europe-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_EU)</code></pre>
 </div>
 <div id="great-britain-or-united-kingdom-with-malaria-death-count-rate" class="section level1">
@@ -717,7 +822,7 @@ ggplot(MD_CM_GB,
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,1,0.5),breaks =seq(0,1,0.5))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Great%20Britain-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Great%20Britain-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_GB)</code></pre>
 </div>
 <div id="american-region-with-malaria-death-count-rate" class="section level1">
@@ -739,7 +844,7 @@ ggplot(subset(MD_CM_LA,Entity == &quot;Andean Latin America&quot;| Entity == &qu
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,0.40,0.05),breaks =seq(0,0.40,0.05))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Andean,%20Central%20and%20Tropical%20Latin%20America-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Andean,%20Central%20and%20Tropical%20Latin%20America-1.png" width="864" /></p>
 <p>The second group has North American region and Southern Latin American region. Clearly North America with its cold weather condition and developed status does not hold any deaths for malaria from 1990 to 2016. It is even possible to consider before this time range also there was no deaths for malaria. Yet Southern Latin American has death rate of 0.0208 in 1990 but decreases gradually and reaches its least minimum point of 0.0035 in 2016.</p>
 <pre class="r"><code># scatter plot for North and Southern Latin America
 ggplot(subset(MD_CM_LA,Entity== &quot;North America&quot;| Entity ==&quot;Southern Latin America&quot;),
@@ -753,7 +858,7 @@ ggplot(subset(MD_CM_LA,Entity== &quot;North America&quot;| Entity ==&quot;Southe
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,0.021,0.001),breaks =seq(0,0.021,0.001))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/North%20and%20Southern%20Latin%20America-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/North%20and%20Southern%20Latin%20America-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_LA)</code></pre>
 <p>Comparing the American region only North American region is malaria free, while least amount progress has occurred in Central Latin American region. Tropical region has out performed Andean Latin American region. Next to North America, Southern Latin American has done more progress than other three regions.</p>
 </div>
@@ -774,7 +879,7 @@ ggplot(subset(MD_CM_A,Entity == &quot;South Asia&quot; | Entity == &quot;Southea
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(2.4,6.4,0.2),breaks =seq(2.4,6.4,0.2))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/South%20Asia%20and%20Southeast%20Asia-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/South%20Asia%20and%20Southeast%20Asia-1.png" width="864" /></p>
 <p>East Asia region begins with a death rate of 0.0269 in year 1990 and it decreases over the coming years which will reach the lowest death rate of 0.0121 in year 2015. Further in year 2016 it slightly increases to 0.0122.</p>
 <pre class="r"><code># scatter plot for East Asia
 ggplot(subset(MD_CM_A, Entity == &quot;East Asia&quot;),
@@ -787,7 +892,7 @@ ggplot(subset(MD_CM_A, Entity == &quot;East Asia&quot;),
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0.01,0.03,0.002),breaks =seq(0.01,0.03,0.002))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/East%20Asia-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/East%20Asia-1.png" width="864" /></p>
 <p>Central Asia region begins with a a death rate of 0.0304 in year 1990 and increases very slowly until year 1998 towards the death rate of 0.0314. After this the death rate decreases gradually until year 2013 where it becomes 0.0057. Until year 2016 this becomes the standard death rate for malaria in Central Asia Region.</p>
 <pre class="r"><code># scatter plot for Central Asia
 ggplot(subset(MD_CM_A,Entity == &quot;Central Asia&quot;),
@@ -800,7 +905,7 @@ ggplot(subset(MD_CM_A,Entity == &quot;Central Asia&quot;),
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0,0.05,0.005),breaks =seq(0,0.05,0.005))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Central%20Asia-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Central%20Asia-1.png" width="864" /></p>
 <p>High Income Asia Pacific countries have a lower death rate than previous Asian region countries where in 1990 the death rate is 0.0073 but over the years it decreases gradually and reaches the lowest death rate value of 0.0008 in year 2016.</p>
 <p>Australasia countries have no death rate over the year range of 1990 to 2016, which implicate that there is a possibility that before 1990 also there could have not been any deaths related to malaria</p>
 <pre class="r"><code># scatter plot for High Income Pacific and Australasia
@@ -814,7 +919,7 @@ ggplot(subset(MD_CM_A, Entity == &quot;Australasia&quot; | Entity == &quot;High-
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0.001,0.008,0.0005),breaks =seq(0.001,0.008,0.0005))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/High%20Income%20Pacific%20and%20Australasia-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/High%20Income%20Pacific%20and%20Australasia-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_A)</code></pre>
 <p>Australasia is the only region which does not have malaria over the years given in the data set. The lowest death rate occurs to High Income Asian Pacific region than other regions of Asia.</p>
 </div>
@@ -833,7 +938,7 @@ ggplot(subset(MD_CM_A, Entity == &quot;North Africa and Middle East&quot; ),
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0.5,1.5,0.05),breaks =seq(0.5,1.5,0.05))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/North%20Africa%20and%20Middle%20East-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/North%20Africa%20and%20Middle%20East-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_A)</code></pre>
 <p>Comparing all the other regions in this data set only North Africa and Middle East Region was very special with its odd fluctuations. At the end comparing the death rates of year 1990 and 2016 there is an increase close to 0.04, but it is far less than what was in year 2005 and 1990.</p>
 </div>
@@ -851,7 +956,7 @@ ggplot(subset(MD_CM_A,Entity == &quot;Oceania&quot;),
       geom_point()+geom_line()+ legend_bottom()+ geom_text_repel()+
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+scale_y_continuous(labels = seq(6,54,2),breaks =seq(6,54,2))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Oceania-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Oceania-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_A)</code></pre>
 <p>Oceania region behaves very differently than other regions. By the year 2015 lowest death rate of 8.64 occurs for Oceania region.</p>
 </div>
@@ -871,7 +976,7 @@ ggplot(MD_CM_C_LA,
       scale_x_continuous(breaks=seq(1990,2016),labels =seq(1990,2016))+ 
       theme(axis.text.x = element_text(angle = 90))+
       scale_y_continuous(labels = seq(0.0,0.35,0.05),breaks =seq(0.0,0.35,0.05))</code></pre>
-<p><img src="/post/Week_33/2018-11-21-week-33-malaria-deaths_files/figure-html/Caribbean%20and%20Latin%20America-1.png" width="864" /></p>
+<p><img src="/post/Week_33/index_files/figure-html/Caribbean%20and%20Latin%20America-1.png" width="864" /></p>
 <pre class="r"><code>detach(MD_CM_C_LA)</code></pre>
 <p>Clearly Latin American and Caribbean countries perform better than Caribbean countries after year 1999 until year 2016. At the beginning of 1990 the death rate gap between both these regions are clearly high.</p>
 </div>

@@ -1,0 +1,375 @@
+---
+title: 'Week 37: NYC Restaurants'
+author: M.Amalan
+date: '2018-12-13'
+output: 
+  blogdown::html_page:
+    toc: true
+categories:
+  - TidyTuesday
+tags:
+  - R
+  - TidyTuesday
+slug: week-37-nyc-restaurants
+image:
+  caption: ''
+  focal_point: ''
+summary: "2018 Week 37 TidyTuesday: New York Restaurants."  
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#inspection-type">Inspection Type</a></li>
+<li><a href="#critical-flag">Critical Flag</a></li>
+<li><a href="#inspection-type-and-critical-flag-over-the-years">Inspection Type and Critical Flag over the years</a><ul>
+<li><a href="#cycle-inspection">Cycle Inspection</a></li>
+<li><a href="#pre-permit-operational">Pre-permit Operational</a></li>
+<li><a href="#administrative-miscellaneous">Administrative Miscellaneous</a></li>
+</ul></li>
+<li><a href="#most-inspected-restaurants">Most Inspected Restaurants</a><ul>
+<li><a href="#dunkin-donuts">Dunkin Donuts</a></li>
+<li><a href="#subway">Subway</a></li>
+<li><a href="#mcdonalds">McDonalds</a></li>
+<li><a href="#starbucks">Starbucks</a></li>
+<li><a href="#kennedy-fried-chicken">Kennedy Fried Chicken</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-analysis">Further Analysis</a></li>
+</ul>
+</div>
+
+<pre class="r"><code># load the packages
+library(readr)
+library(tidyverse)
+library(magrittr)
+library(ggthemr)
+library(lubridate)
+library(stringr)
+library(kableExtra)
+
+#using theme
+ggthemr(&quot;fresh&quot;)
+
+#load data
+NYC&lt;-read_csv(&quot;nyc_restaurants.csv&quot;, 
+    col_types = cols(inspection_date = 
+                       col_date(format = &quot;%m/%d/%Y&quot;)))
+attach(NYC)</code></pre>
+<p>Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description. In this article I will mainly focus on Inspection Type, boro, Inspection year, cuisine type and Critical Flag.</p>
+{{% tweet "1073204074579968000" %}}
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/Week_37">GitHub Code</a></p>
+<p>First see what type of inspections have occurred.</p>
+<div id="inspection-type" class="section level1">
+<h1>Inspection Type</h1>
+<p>This ordered bar plot for inspection type clearly indicates that cycle inspection / initial inspection has the highest amount of counts with 171,657. while second place goes to cycle inspection/ re-inspection with 73207. Other types of inspection hold less than 21,000 counts, where there are more than 10 types of inspections which hold counts less than 1000.</p>
+<pre class="r"><code>#summary.factor(inspection_type)  %&gt;%
+#  sort()
+
+# Bar plot for Insepction type
+ggplot(NYC,aes(x=fct_infreq(str_wrap(inspection_type,35))))+
+  geom_bar()+coord_flip()+
+  scale_y_continuous(breaks = seq(0,200000,25000),labels = seq(0,200000,25000))+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.005)+
+  ylab(&quot;Frequency&quot;)+xlab(&quot;Type of Insepction&quot;)+
+  ggtitle(&quot;Types of Inspection&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Inspection%20Type-1.png" width="1248" /></p>
+</div>
+<div id="critical-flag" class="section level1">
+<h1>Critical Flag</h1>
+<p>Critical flag has three types of categories which are Critical, Not Critical and Not Applicable. It is represented as a pie chart where 54.9% are critical(164,623) and second place goes to Not Critical(129,348) with 43.1%. Finally, only 6029 inspections have lead to Not Applicable which is represented by 2.0%.</p>
+<pre class="r"><code>#summary for critical flag
+#NYC$critical_flag %&gt;%
+#      summary.factor() %&gt;%
+#      sum()
+value=c(164623,6029,129348)
+
+# creating data frame for Critical flag
+CF&lt;-data.frame(
+              group=c(&quot;Critical&quot;,&quot;Not Applicable&quot;,&quot;Not Critical&quot;),
+              value=c(164623,6029,129348),
+              per=round(value*100/300000,4)
+              )
+
+# pie chart for percentages
+P1&lt;-ggplot(CF,aes(x=&quot;&quot;,y=per,fill=group))+
+    geom_col()+ theme_void()+
+    geom_text(aes(label=scales::percent(per/100)),position=position_stack(vjust=0.5))+
+    labs(title = &quot;Critical Flag \nDistribution&quot;,fill=&quot;Type&quot;)+
+    coord_polar(theta = &quot;y&quot;,start = 0)
+
+# pie chart for counts
+P2&lt;-ggplot(CF,aes(x=&quot;&quot;,y=value,fill=group))+
+    geom_col()+theme_void()+
+    labs(title = &quot;Critical Flag\n Distribution&quot;,fill=&quot;Type&quot;)+ 
+    geom_text(aes(label = value), position = position_stack(vjust = 0.5)) +
+    coord_polar(theta = &quot;y&quot;,start = 0)
+
+gridExtra::grid.arrange(P1,P2,nrow=2)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Critical%20flag-1.png" width="864" /></p>
+</div>
+<div id="inspection-type-and-critical-flag-over-the-years" class="section level1">
+<h1>Inspection Type and Critical Flag over the years</h1>
+<p>Now facing the issue of inspection year, inspection type and critical flag, I have generated bar plots for identifying the behavior. Basically what we have is bar plots for years from 2012 to 2018 how the counts of Critical flag types have changed for different paired types of inspections.</p>
+<p>Inspection types considered</p>
+<ul>
+<li>Cycle Inspection / Initial Inspection and Cycle Inspection / Re-inspection.</li>
+<li>Pre-permit (Operational) / Initial Inspection and Pre-permit (Operational) / Re-inspection.</li>
+<li>Administrative Miscellaneous / Initial Inspection and Administrative Miscellaneous / Re-inspection.</li>
+</ul>
+<div id="cycle-inspection" class="section level2">
+<h2>Cycle Inspection</h2>
+<p>Initial Inspection is always high for all the years while assigning Critical. The years 2012, 2013 and 2014 has very low amount of counts while the succeeding years have increasing counts. Initial inspection over the years from 2015 is increasing for the gap between Critical and Not Critical. In 2015 the above gap is close to 4000 but by 2018 it has increased to 10000. If we consider Re-inspection the gap for Critical and Not Critical is close 1000 in year 2015 but by year 2018 it is 4000. Not applicable is increasing over the years for both initial inspection and re-inspection, even though the amounts are in hundreds.</p>
+<pre class="r"><code># subsetting data 
+# Specific insepction type, critical flag and year with bar plot 
+subset(NYC,inspection_type==&quot;Cycle Inspection / Initial Inspection&quot; |
+           inspection_type==&quot;Cycle Inspection / Re-inspection&quot;) %&gt;%
+ggplot(.,mapping=aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
+      geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+      facet_wrap(~year(inspection_date)) +
+      xlab(&quot;Cycle Inspection&quot;)+
+      ylab(&quot;Frequency&quot;)+
+      ggtitle(&quot;Cycle Inspection over the years for Critical Flag&quot;)+
+      labs(fill=&quot;Critical Flag&quot;)+
+       geom_text(stat = &quot;count&quot;,aes(label=..count..),
+                 position = position_dodge(width = 1), vjust = -0.05)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Cycle%20Inspection-1.png" width="864" /></p>
+</div>
+<div id="pre-permit-operational" class="section level2">
+<h2>Pre-permit Operational</h2>
+<p>Second most considered type of inspection is Pre-permit Operational, where it begins from 2014. Even though in year 2014 the amounts for initial inspection and re-inspection are less than 20 in all three critical flag categories. Considering the gap between Critical and Not Critical for initial inspection over the years there is a clear increase. Where as in year 2015 the gap is slightly less than 400, next year it is close to 1000, but by year 2018 this is gap is above than 2000.</p>
+<p>In re-inspection for the year 2015 the gap is almost 150, yet with more inspections by 2018 the gap increases to 600. For, Not Applicable the counts do not have a clear increasing or decreasing pattern over the years.</p>
+<pre class="r"><code># subsetting data 
+# Specific insepction type, critical flag and year with bar plot 
+subset(NYC,inspection_type==&quot;Pre-permit (Operational) / Initial Inspection&quot; |
+           inspection_type==&quot;Pre-permit (Operational) / Re-inspection&quot;) %&gt;%
+ggplot(.,aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
+       geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+      facet_wrap(~year(inspection_date)) +
+      xlab(&quot;Pre-permit (Operational)&quot;)+
+      ylab(&quot;Frequency&quot;)+
+      ggtitle(&quot;Pre-permit (Operational) over the years for Critical Flag&quot;)+
+      labs(fill=&quot;Critical Flag&quot;)+
+      facet_wrap(~year(inspection_date)) +
+       geom_text(stat = &quot;count&quot;,aes(label=..count..),
+                 position = position_dodge(width = 1), vjust = -0.05)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Pre-permit%20(operational)-1.png" width="864" /></p>
+</div>
+<div id="administrative-miscellaneous" class="section level2">
+<h2>Administrative Miscellaneous</h2>
+<p>Very odd bar plot here than previous two plots for inspection types. There is no Critical type restaurants in the Administrative Miscellaneous inspection type. The counts begin from year 2014 but the amounts are less than 10. Clearly for initial inspections over the years from 2015 to 2018 the count for Not Applicable are increasing, but this is not the case for Not Critical.</p>
+<p>In year 2015 the amount for the type Not Critical for initial inspection was 528, but in years 2016 and 2018 the amounts increased to respectively to 1038 and 1486. Even though the amount decreased to 1015 in year 2017. The same pattern of increase and decrease behavior occurs for Re-inspection type as well.</p>
+<pre class="r"><code># subsetting data 
+# Specific insepction type, critical flag and year with bar plot 
+subset(NYC,inspection_type==&quot;Administrative Miscellaneous / Initial Inspection&quot; |
+           inspection_type==&quot;Administrative Miscellaneous / Re-inspection&quot;) %&gt;%
+ggplot(.,aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
+     geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+   facet_wrap(~year(inspection_date)) +
+      xlab(&quot;Administrative Miscellaneous&quot;)+
+      ylab(&quot;Frequency&quot;)+
+      ggtitle(&quot;Administrative Miscellaneous over the years for Critical Flag&quot;)+
+      labs(fill=&quot;Critical Flag&quot;)+
+      facet_wrap(~year(inspection_date)) +
+       geom_text(stat = &quot;count&quot;,aes(label=..count..),
+                 position = position_dodge(width = 1), vjust = -0.05)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Administrative%20Miscellaneous-1.png" width="864" /></p>
+</div>
+</div>
+<div id="most-inspected-restaurants" class="section level1">
+<h1>Most Inspected Restaurants</h1>
+<p>First look at the top 5 restaurants which were inspected and clearly Dunkin’ Donuts has the highest amount with 3136, while second place goes to Subway with 2419 and third place goes to McDonald’s with 1783.</p>
+<pre class="r"><code># Most 5 restaurants which were inspected
+kable(summary.factor(dba) %&gt;%
+              sort() %&gt;%
+              tail(5)
+      ,col.names = c(&quot;Frequency&quot;),align = &#39;c&#39;) </code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Frequency
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+KENNEDY FRIED CHICKEN
+</td>
+<td style="text-align:center;">
+1031
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STARBUCKS
+</td>
+<td style="text-align:center;">
+1636
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MCDONALD’S
+</td>
+<td style="text-align:center;">
+1783
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SUBWAY
+</td>
+<td style="text-align:center;">
+2419
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DUNKIN’ DONUTS
+</td>
+<td style="text-align:center;">
+3136
+</td>
+</tr>
+</tbody>
+</table>
+<div id="dunkin-donuts" class="section level2">
+<h2>Dunkin Donuts</h2>
+<p>Queens has close to 1000 observations of Dunkin Donuts and lowest amount goes to Staten Island with 308. Other three boros have counts in between 550 and 710.</p>
+<pre class="r"><code># subsetting Dunkin Donuts with boro
+subset(NYC, dba==&quot;DUNKIN&#39; DONUTS&quot;) %&gt;%
+  ggplot(.,aes(x=boro))+
+  geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
+  ggtitle(&quot;How many Dunkin Donuts in Boro&quot;)+
+  xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Dunkin%20Donuts-1.png" width="70%" height="70%" /></p>
+<p>There are only 5 cuisine types and prominent ones are American, Donuts and drinks(Cafe/Coffee/Tea). Year 2014 is very low in amounts even for cuisine Donuts, but this is not the case over the next few years and the scores are mostly centered between 5 to 15. Bagels/Pretzels and Jewish/ Kosher have least amount of data where none of scores are above 25. It is safe to to say we have more Critical type data and they are mostly close to the score of 10.</p>
+<pre class="r"><code># Dunkin Donuts and scores with critical flag
+subset(NYC, dba==&quot;DUNKIN&#39; DONUTS&quot;) %&gt;%
+ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))))+
+      geom_jitter(alpha=0.3)+labs(color=&quot;Critical Flag&quot;)+    
+      ggtitle(&quot;Dunkin Donuts score changes with Critical Flag for Cuisines&quot;)+
+      xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
+      scale_y_continuous(breaks = seq(0,60,5),labels =seq(0,60,5))+
+      facet_wrap(~cuisine_description) </code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Dunkin%20Donuts,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+</div>
+<div id="subway" class="section level2">
+<h2>Subway</h2>
+<p>912 points from Manhattan with the highest count and lowest count goes to Staten Island with 141 counts. Bronx and Brooklyn has counts in between 320 and 365, but Queens boro has an amount of 683.</p>
+<pre class="r"><code># subsetting Subway with boro
+subset(NYC, dba==&quot;SUBWAY&quot;) %&gt;% 
+  ggplot(.,aes(x=boro))+
+  geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
+  ggtitle(&quot;How many Subways in Boro&quot;)+
+  xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Subway-1.png" width="70%" height="70%" /></p>
+<p>Subway has only 5 cuisines which are American, Other, Sandwiches, Sandwiches/Salads/Mixed Buffet and Soups &amp; Sandwiches. In these five categories only Sandwiches has significant amount of data points. Oddly, we can see the year 1900 in the x axis and which means error.</p>
+<p>In Sandwiches category there are more points which are centered in between 5 to 15 in scores, while most of them are Not Critical. Oddly in 2018 there are Critical data points with scores above 55 in Sandwiches cuisine type.</p>
+<p>For the Other category there are only 4 observations which are in 2018 and 75% of them are Not Critical. Considering American Cuisines there are points in all 4 years and most of them are less than 25% and Not Critical.</p>
+<pre class="r"><code># Subway and scores with critical flag
+subset(NYC, dba==&quot;SUBWAY&quot;) %&gt;%
+ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))))+
+      geom_jitter(alpha=0.3)+ labs(color=&quot;Critical Flag&quot;)+    
+      ggtitle(&quot;Subway score changes with Critical Flag for Cuisines&quot;)+
+      xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
+      scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
+      facet_wrap(~cuisine_description) </code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Subway,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+</div>
+<div id="mcdonalds" class="section level2">
+<h2>McDonalds</h2>
+<p>Close to 550 data points are from Manhattan boro, but Staten Island boro has points close to 75. Second place of 487 counts goes to Queens boro. Other two boros, which are Bronx and Brooklyn have counts in the range of 320 and 360.</p>
+<pre class="r"><code># subsetting McDonalds with boro
+subset(NYC, dba==&quot;MCDONALD&#39;S&quot;) %&gt;% 
+  ggplot(.,aes(x=boro))+
+  geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
+  ggtitle(&quot;How many McDonalds in Boro&quot;)+
+  xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/McDonalds-1.png" width="70%" height="70%" /></p>
+<p>Only the cuisines Other and Sandwiches/Salads/Mixed Buffet has data points in the years 2017 and 2018 and these points have an amount less than 15 in both cases. Considering the other two cuisines which are American and Hamburgers, there are more points in the latter than in the former. It should be noted that Hamburgers cuisine has mostly points centered close to the score range of 5 to 10, and these points are mostly Not Critical.</p>
+<p>In American cuisine for the year 2016 there are 5 points which have scores close to 70, even though in any other year this has not occurred. To be more precise, except those 5 points all the others have scores less than 45 for American Cuisine.</p>
+<pre class="r"><code># McDonalds and scores with critical flag
+subset(NYC, dba==&quot;MCDONALD&#39;S&quot;) %&gt;%
+ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))))+
+      geom_jitter(alpha=0.3)+      
+      labs(color=&quot;Critical Flag&quot;)+    
+      ggtitle(&quot;McDonalds score changes with Critical Flag for Cuisines&quot;)+
+      xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
+      scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
+      facet_wrap(~cuisine_description) </code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/McDonalds%20scores,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+</div>
+<div id="starbucks" class="section level2">
+<h2>Starbucks</h2>
+<p>There are more than 1100 Starbucks in Manhattan only while other boros have less than 220 and lowest amount goes to Bronx with 31. Second lowest goes to Staten Island with 41.</p>
+<pre class="r"><code>#subsetting Starbucks with boro
+subset(NYC, dba==&quot;STARBUCKS&quot;) %&gt;% 
+  ggplot(.,aes(x=boro))+
+  geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
+  ggtitle(&quot;How many Starbucks in Boro&quot;)+
+  xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Starbucks-1.png" width="70%" height="70%" /></p>
+<p>Starbucks is mainly focused on Cafe/Coffee/Tea rather than cuisines such as Pizza, Sandwiches, American and other. Clearly there are negligible amount of data points in those four categories, except American cuisine.</p>
+<p>If we focus on Drinks(Coffee/Cafe/Tea), evidently most of them are Not Critical and they are centered around the score of 0 to 10. Even though scores higher than 15 do occur they are spread out widely. This is a common occurrence for all four years, which is from 2015 to 2018.</p>
+<pre class="r"><code># Starbucks and scores with critical flag
+subset(NYC, dba==&quot;STARBUCKS&quot;) %&gt;%
+ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))))+
+      geom_jitter(alpha=0.3)+
+      labs(color=&quot;Critical Flag&quot;)+    
+      ggtitle(&quot;Starbucks score changes with Critical Flag for Cuisines&quot;)+
+      xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
+      scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
+      facet_wrap(~cuisine_description) </code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Starbucks,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+</div>
+<div id="kennedy-fried-chicken" class="section level2">
+<h2>Kennedy Fried Chicken</h2>
+<p>Bronx the has most amount observations to Kennedy Fried Chicken’s with 626 while lowest count of 5 is from Staten Island. Other three boros have counts in the range of 75 to 190.</p>
+<pre class="r"><code>#subsetting Kennedy Fried Chicken with boro
+subset(NYC, dba==&quot;KENNEDY FRIED CHICKEN&quot;) %&gt;% 
+  ggplot(.,aes(x=boro))+
+  geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
+  ggtitle(&quot;How many Kennedy Fried Chicken&#39;s in Boro&quot;)+
+  xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Kennedy%20Fried%20Chicken-1.png" width="70%" height="70%" /></p>
+<p>There are only four cuisines which are related to Kennedy Fried Chicken, and they are American, Chicken, Hamburgers and other. The categories Hamburgers and Other have very less amount of counts and the year 1900 is also mentioned. For Hamburgers cuisine only the year 2017 has significant amount of data points, where the year 2015 has only one and year 2018 has only two points.</p>
+<p>Further, the scores for these points are always less than 20 and mostly Critical. Cuisines of Chicken has more data points than American but in both types there is no clear centering of data around a certain score.</p>
+<pre class="r"><code># Kennedy Fried Chicken and scores with critical flag
+subset(NYC, dba==&quot;KENNEDY FRIED CHICKEN&quot;) %&gt;%
+ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))))+
+      geom_jitter(alpha=0.3)+     
+      labs(color=&quot;Critical Flag&quot;)+    
+      ggtitle(&quot;Kennedy Fried Chicken score changes with Critical Flag&quot;)+
+      xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
+      scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
+      facet_wrap(~cuisine_description) </code></pre>
+<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Kennedy%20Fried%20Chicken,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>My conclusion of the above plots and a table in point form</p>
+<ul>
+<li><p>facet wrap is very useful.</p></li>
+<li><p>Adding colors makes it more useful for the plots.</p></li>
+<li><p>pie chart using bar chart looks good.</p></li>
+</ul>
+</div>
+<div id="further-analysis" class="section level1">
+<h1>Further Analysis</h1>
+<ul>
+<li><p>It is possible to focus on violation codes.</p></li>
+<li><p>Further looking at the cuisines we can divide it based on the boros as well.</p></li>
+</ul>
+<p><em>THANK YOU</em></p>
+</div>
