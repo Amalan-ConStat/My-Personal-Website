@@ -1,0 +1,387 @@
+---
+title: '2019 Week 1 : #TidyTuesday Tweets '
+author: M.Amalan
+date: '2019-01-01'
+categories:
+  - TidyTuesday
+tags:
+  - R
+  - R package
+  - TidyTuesday
+output:
+  blogdown::html_page:
+    toc: yes
+slug: week-1-tidytuesday-tweets
+image:
+  caption: ''
+  focal_point: ''
+summary: "2019 Week 1 of TidyTuesday: #TidyTuesday and #rstats."  
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#tidytuesday-tweets">#Tidytuesday Tweets</a><ul>
+<li><a href="#earliest-tweet">Earliest Tweet</a></li>
+<li><a href="#any-verified-profiles">Any Verified Profiles ?</a></li>
+<li><a href="#source-of-tweets">Source of Tweets</a></li>
+<li><a href="#tweets-per-month">Tweets Per Month</a></li>
+<li><a href="#most-tweets-by-screen-name">Most Tweets By Screen Name</a><ul>
+<li><a href="#most-tweets-by-screen-name-and-their-source">Most Tweets By Screen Name and their Source</a></li>
+<li><a href="#most-tweets-by-screen-name-with-their-retweet-counts">Most Tweets By Screen Name with their Retweet Counts</a></li>
+<li><a href="#most-tweets-by-screen-name-with-their-favorite-counts">Most Tweets By Screen Name with their Favorite Counts</a></li>
+</ul></li>
+<li><a href="#relationship-between-favorite-counts-vs-retweet-counts">Relationship between Favorite Counts vs Retweet Counts ?</a></li>
+<li><a href="#relationship-between-followers-count-vs-friends-count">Relationship between Followers Count vs Friends Count ?</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#further-analysis">Further Analysis</a></li>
+</ul>
+</div>
+
+<pre class="r"><code># load the necessary packages
+library(tidyverse)
+library(lubridate)
+library(kableExtra)
+library(ggthemr)
+
+#load the ggthemr
+ggthemr(&quot;flat dark&quot;)
+
+# load the data set
+tidytuesday_tweets&lt;-readRDS(&quot;tidytuesday_tweets.rds&quot;)</code></pre>
+<div id="tidytuesday-tweets" class="section level1">
+<h1>#Tidytuesday Tweets</h1>
+<p>Using plots and Tables to express the #TidyTuesday data-set. You can obtain the dataset from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-01">here.</a></p>
+{{% tweet "1080163707601195010" %}}
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week1">GitHub Code</a></p>
+<div id="earliest-tweet" class="section level2">
+<h2>Earliest Tweet</h2>
+<p>The first tweet is on April 2nd and it has 156 favorites and 64 retweets, where the tweet is from Thomas Mock and the next 3 tweets are also from him.</p>
+<pre class="r"><code>tidytuesday_tweets[order(tidytuesday_tweets$created_at),c(3,4,13,14,71)] %&gt;%
+  head(5) %&gt;%
+  kable()  %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+created_at
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+<th style="text-align:left;">
+name
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2018-04-02 21:35:08
+</td>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:right;">
+156
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+Thomas Mock
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-04-02 21:35:10
+</td>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Thomas Mock
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-04-02 21:35:11
+</td>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Thomas Mock
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-04-02 23:31:11
+</td>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Thomas Mock
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-04-03 00:25:51
+</td>
+<td style="text-align:left;">
+umairdurrani87
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Umair Durrani
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="any-verified-profiles" class="section level2">
+<h2>Any Verified Profiles ?</h2>
+<p>There are only 3 verified profiles where Hadley Wickham has the highest amount of followers of 76469, where that tweet has 61 favorites but no retweets. Other profiles are Civis Analytics and grspur, but both of them have friends above 600 counts, but Hadley Wickham friends close to 290.</p>
+<pre class="r"><code>subset(tidytuesday_tweets[,c(4,13,14,76,77,82)],verified==TRUE) %&gt;%
+  kable() %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+<th style="text-align:right;">
+followers_count
+</th>
+<th style="text-align:right;">
+friends_count
+</th>
+<th style="text-align:left;">
+verified
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CivisAnalytics
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6880
+</td>
+<td style="text-align:right;">
+658
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hadleywickham
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+76469
+</td>
+<td style="text-align:right;">
+288
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grspur
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+857
+</td>
+<td style="text-align:right;">
+623
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="source-of-tweets" class="section level2">
+<h2>Source of Tweets</h2>
+<p>Close to 1050 tweets are done by the web client and other clients such as Android and Iphone have tweet counts of respectively 106 and 233. Other sources include oddly Instagram, Facebook, WordPress and LinkedIn, which I am naming because of their popularity.</p>
+<pre class="r"><code>ggplot(tidytuesday_tweets,aes(fct_infreq(source)))+
+  geom_bar()+coord_flip()+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.25)+
+  ylab(&quot;Frequency&quot;)+xlab(&quot;Types of Sources&quot;)+
+  ggtitle(&quot;Source of Tweets&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Source%20of%20Tweets-1.png" width="1152" /></p>
+</div>
+<div id="tweets-per-month" class="section level2">
+<h2>Tweets Per Month</h2>
+<p>Beginning of #TidyTuesday we have 293 tweets on the month of April. Even though over the next months the number of tweets are decreasing this is not the case in October. Lowest number of tweets are recorded in September with 115 tweets.</p>
+<pre class="r"><code>ggplot(tidytuesday_tweets,
+       aes(x=month(tidytuesday_tweets$created_at)))+
+  geom_bar()+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..),vjust=-0.15)+
+  scale_x_continuous(breaks = seq(1,12),labels = seq(1,12))+
+  ylab(&quot;Frequency&quot;)+ xlab(&quot;Months&quot;)+
+  ggtitle(&quot;Tweet Counts By Month&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Tweets%20Per%20Month-1.png" width="1152" /></p>
+</div>
+<div id="most-tweets-by-screen-name" class="section level2">
+<h2>Most Tweets By Screen Name</h2>
+<p>There are 30 twitter users if we consider the accounts that have tweeted more than or equal to 10 tweets under the hashtag “TidyTuesday”. Thomas Mock has tweeted most which is 172 including retweets, and the second place goes to R4DScommunity with 92 tweets. All the other users have individually less than 40 tweets.</p>
+<pre class="r"><code>tidytuesday_tweets %&gt;%
+  group_by(screen_name) %&gt;%
+  filter(n() &gt;= 10) %&gt;%
+ggplot(aes(x=fct_infreq(screen_name)))+
+  geom_bar()+ coord_flip()+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.15)+
+  ylab(&quot;Frequency&quot;)+ xlab(&quot;Screen Name&quot;)+
+  ggtitle(&quot;Screen Name with Most Tweets&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20screen%20name-1.png" width="1152" /></p>
+<div id="most-tweets-by-screen-name-and-their-source" class="section level3">
+<h3>Most Tweets By Screen Name and their Source</h3>
+<p>For the same plot if we consider the source for the tweets, it is clear that only seven sources were used. Mostly all of these users are using the web client, but some are using the iPhone as well. R4DS community does more tweeting through iPhone than TweetDeck. TweetDeck is a simple way of handling multiple twitter accounts at the same time. Tidyyourworld account only uses Android and WeAreRLadies uses only TweetDeck.</p>
+<pre class="r"><code>tidytuesday_tweets %&gt;%
+  group_by(screen_name) %&gt;%
+  filter(n() &gt;= 10) %&gt;%
+ggplot(aes(x=fct_infreq(screen_name),fill=source))+
+  geom_bar(position = &quot;stack&quot;,stat=&quot;count&quot;)+ 
+  coord_flip()+
+  geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=1,
+            position = position_stack())+
+  ylab(&quot;Frequency&quot;)+ xlab(&quot;Screen Name&quot;)+
+  ggtitle(&quot;Screen Name with Most Tweets and their Source&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20and%20their%20Source-1.png" width="1152" /></p>
+</div>
+<div id="most-tweets-by-screen-name-with-their-retweet-counts" class="section level3">
+<h3>Most Tweets By Screen Name with their Retweet Counts</h3>
+<p>Of the Top 30 users with most amount of tweets the highest amount of retweets is to a tweet from WeAreRLadies and it is 95. There are more outliers from Thomas Mock. and the highest range is to the user drob. Most from this top 30 users have the range between 0 and 10.</p>
+<pre class="r"><code>tidytuesday_tweets[,c(&quot;screen_name&quot;,&quot;retweet_count&quot;)] %&gt;%
+  group_by(screen_name) %&gt;%
+  filter(n() &gt;= 10) %&gt;%
+ggplot(.,aes(x=fct_infreq(screen_name),y=retweet_count))+
+  geom_boxplot()+ coord_flip()+
+  scale_y_continuous(breaks = seq(0,100,5),labels = seq(0,100,5))+
+  ylab(&quot;Retweets&quot;)+ xlab(&quot;Screen Name&quot;)+
+  ggtitle(&quot;Screen Name with Most Tweets and their Retweets Count&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Retweets-1.png" width="1152" /></p>
+</div>
+<div id="most-tweets-by-screen-name-with-their-favorite-counts" class="section level3">
+<h3>Most Tweets By Screen Name with their Favorite Counts</h3>
+<p>Similarly Thomas Mock has more outliers, and the highest range is to the user drob. Second place for outliers goes to R4DScommunity user. Close to 500 favorites are counted to a tweet by drob and second place is to a tweet by WeAreRladies with favorite counts slightly above 450.</p>
+<pre class="r"><code>tidytuesday_tweets[,c(&quot;screen_name&quot;,&quot;favorite_count&quot;)] %&gt;%
+  group_by(screen_name) %&gt;%
+  filter(n() &gt;= 10) %&gt;%
+ggplot(.,aes(x=fct_infreq(screen_name),y=favorite_count))+
+  geom_boxplot()+ coord_flip()+
+   scale_y_continuous(breaks = seq(0,500,25),labels = seq(0,500,25))+
+  ylab(&quot;Favourites Count&quot;)+ xlab(&quot;Screen Name&quot;)+
+  ggtitle(&quot;Screen Name with Most Tweets and their Favourties Count&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Favorite%20counts-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="relationship-between-favorite-counts-vs-retweet-counts" class="section level2">
+<h2>Relationship between Favorite Counts vs Retweet Counts ?</h2>
+<p>Very clear positive correlation. Y scale ranges from 0 to 500, where x scale range is from 0 to 100 and most of the data points are centered around the range of 0 to 12 retweets and 0 to 60 Favorite. a Few data data points are out of the above mentioned range.</p>
+<pre class="r"><code>ggplot(tidytuesday_tweets, 
+       aes(x=retweet_count,y=favorite_count))+
+  geom_point()+geom_smooth()+
+  scale_x_continuous(breaks =seq(0,100,2) ,labels =seq(0,100,2))+
+  scale_y_continuous(breaks =seq(0,500,10),labels =seq(0,500,10))+
+  xlab(&quot;Retweets&quot;)+ylab(&quot;Likes&quot;)+
+  ggtitle(&quot;Retweets Versus Likes&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Scatter%20plot%20between%20favourite%20count%20vs%20retweet%20count-1.png" width="1152" /></p>
+</div>
+<div id="relationship-between-followers-count-vs-friends-count" class="section level2">
+<h2>Relationship between Followers Count vs Friends Count ?</h2>
+<p>Here I have considers only twitter profiles which has followers count less than 5000 with friends count also less than 5000. The reason is to explain the relationship more clearly. Clearly most of the twitter profiles are has followers less than 2000 with Followers also less than 2000. Clearly there are some profiles with Followers count above 1000 but friends count less than 1000. Even though there are few profiles with less than 1000 followers but more than 1000 Friends</p>
+<pre class="r"><code>ggplot(subset(tidytuesday_tweets,
+       followers_count &lt; 5000 &amp; friends_count &lt; 5000), 
+       aes(x=followers_count,y=friends_count))+
+  geom_point()+geom_smooth()+
+  scale_x_continuous(breaks =seq(0,5000,250),labels =seq(0,5000,250))+
+  scale_y_continuous(breaks =seq(0,5000,250),labels =seq(0,5000,250))+
+  xlab(&quot;Followers Count&quot;)+ylab(&quot;Friends Count&quot;)+
+  ggtitle(&quot;Followers Count Versus Friends Count&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Scatter%20plot%20between%20Followers%20count%20vs%20Friends%20count-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>My conclusion of the above plots and tables in point form</p>
+<ul>
+<li><p>Using tidyverse as usual is fun.</p></li>
+<li><p>The Box plots for several variables in the same plot is easy for the use of comparison.</p></li>
+<li><p>The Scatter plots are nice to understand the relationship among two continuous variables.</p></li>
+<li><p>The geom_smooth function is also very useful in modelling the data.</p></li>
+</ul>
+</div>
+<div id="further-analysis" class="section level1">
+<h1>Further Analysis</h1>
+<ul>
+<li><p>We can focus on the text variable which could be used for a word cloud.</p></li>
+<li><p>Further we can try to understand the hashtags with favorites and retweets.</p></li>
+</ul>
+<p><em>THANK YOU</em></p>
+</div>
