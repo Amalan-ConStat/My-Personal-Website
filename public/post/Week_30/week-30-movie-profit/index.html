@@ -332,18 +332,124 @@
 
 
 
+
+<div class="article-header d-xl-none">
+  <img src="/post/week_30/week-30-movie-profit/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  <span class="article-header-caption">TidyTuesday week 30, Post regarding movies.</span>
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 30: Movie Profit</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-11-14 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Nov 14, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
   
 
   
   
   
-<div class="article-container pt-3">
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2030%3a%20Movie%20Profit&amp;url=%2fpost%2fweek_30%2fweek-30-movie-profit%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fweek_30%2fweek-30-movie-profit%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fweek_30%2fweek-30-movie-profit%2f&amp;title=Week%2030%3a%20Movie%20Profit"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fweek_30%2fweek-30-movie-profit%2f&amp;title=Week%2030%3a%20Movie%20Profit"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2030%3a%20Movie%20Profit&amp;body=%2fpost%2fweek_30%2fweek-30-movie-profit%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/week_30/week-30-movie-profit/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        <span class="article-header-caption">TidyTuesday week 30, Post regarding movies.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
   <h1 itemprop="name">Week 30: Movie Profit</h1>
 
   
 
   
-    
 
 <div class="article-metadata">
 
@@ -429,7 +535,6 @@
 
 </div>
 
-  
 </div>
 
 
@@ -487,7 +592,7 @@ ggplot(Movie,aes(genre))+
   geom_bar()+stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)+
   xlab(&quot;Genre&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;All movies in perspevtive of Genre &quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Genre%20bar%20plot-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Genre%20bar%20plot-1.png" width="768" /></p>
 <p>There are five types of ratings but around half of them are R rated, while 1094 are PG-13. While 573 are in category of PG and G rated movies are only 85. Finally, 137 movies do not have any ratings.</p>
 <pre class="r"><code># Bar plot to MPAA Ratings
 ggplot(Movie,aes(mpaa_rating))+
@@ -495,7 +600,7 @@ ggplot(Movie,aes(mpaa_rating))+
   stat_count(aes(y=..count.., label=..count..),geom=&quot;text&quot;, vjust=-.5)+
   xlab(&quot;Rating&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;All movies in persepvtie of MPAA Rating&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Ratings%20Bar%20plot-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Ratings%20Bar%20plot-1.png" width="768" /></p>
 <p>Comedy movies are mostly R rated(under 17 requires guardian) and PG-13 (some material is inappropriate to under 13). Where the frequencies are respectively 367 and 328. 309 movies of adventure genre could be watched by children with accompanying parents and 67 movies can be watched by all ages.</p>
 <p>Yet 645 Drama movies are R-rated.There is only one action movie for general audiences(for all) and obviously no horror film should be watched by children alone, yet there are 7 movies which you can watch with your parents.</p>
 <pre class="r"><code>#checking for bias in mpaa rating and genre
@@ -755,7 +860,7 @@ ggplot(Movie_domestic_zero,aes(x=reorder(movie,production_budget),
   scale_y_continuous(labels = dollar_format())+
   ylab(&quot;Production budget&quot;)+xlab(&quot;Movie names&quot;)+
   ggtitle(&quot;Domestic Gross Zero but how production budget varies in Movies&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="1056" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/graphical%20analysis%20for%20domestic%20gross%20zero%20movies-1.png" width="1056" /></p>
 </div>
 <div id="genre-and-mpaa-rating-point-of-view" class="section level1">
 <h1>Genre and MPAA Rating Point of View</h1>
@@ -766,14 +871,14 @@ Movie_domestic_zero %&gt;%
   geom_bar(position = &quot;stack&quot;)+ylab(&quot;Frequency&quot;)+xlab(&quot;MPAA Rating&quot;)+
   geom_text(aes(label=..count..),stat=&#39;count&#39;,position=position_stack(0.4))+
   ggtitle(&quot;MPAA Rating counts with Genre&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-1.png" width="768" /></p>
 <pre class="r"><code>#plotting worldwide gross with mpaa rating
 Movie_domestic_zero %&gt;% 
   ggplot(aes(fill=mpaa_rating,x=genre)) +
   geom_bar(position = &quot;stack&quot;)+ylab(&quot;Frequency&quot;)+xlab(&quot;Genre&quot;)+
   geom_text(aes(label=..count..),stat=&#39;count&#39;,position=position_stack(0.4))+
   ggtitle(&quot;Genre counts with MPAA Rating&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Domestic%20zero%20and%20genre%20with%20rating-2.png" width="768" /></p>
 </div>
 <div id="finding-outliers-in-perspective-of-genre-and-mpaa-rating" class="section level1">
 <h1>Finding Outliers in Perspective of Genre and MPAA Rating</h1>
@@ -787,7 +892,7 @@ Movie_domestic_zero %&gt;%
   scale_y_continuous(labels = dollar_format())+
   expand_limits(y=0)+coord_flip()+
   ggtitle(&quot;Boxplot for Production budget in perspective of Genre&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20genre-1.png" width="768" /></p>
 <p>Least amount budget is spent on movies of no rating mentioned while most is on PG-13 rated movies and it has one strong outlier. Previously with genre we had 7 outliers but according to MPAA rating there are only 6 outliers.</p>
 <pre class="r"><code>#plotting production budget with genre
 Movie_domestic_zero %&gt;% 
@@ -797,7 +902,7 @@ Movie_domestic_zero %&gt;%
   scale_y_continuous(labels = dollar_format())+
   expand_limits(y=0)+coord_flip()+
   ggtitle(&quot;Boxplot for Production budget in perspective of MPAA Rating&quot;)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Domestic%20zero%20Boxplot%20production%20budget%20with%20rating-1.png" width="768" /></p>
 </div>
 <div id="production-budget-and-worldwide-gross" class="section level1">
 <h1>Production Budget and Worldwide Gross</h1>
@@ -1054,21 +1159,21 @@ ggplot(Movie_domestic_zero,aes(x=year(release_date)))+
       scale_y_continuous(labels = 0:8,breaks = 0:8)+
       stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)+
       theme(axis.text.x = element_text(angle = 90,hjust = 2))</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Confirm%20possibility%20of%20information%20loss%20Year-1.png" width="768" /></p>
 <p>Considering the months there is no specialty most of the counts are in-between 3 and 8. In January there are only two movies.</p>
 <pre class="r"><code>ggplot(Movie_domestic_zero,aes(x=month(release_date)))+
       geom_bar()+ylab(&quot;Frequency&quot;)+xlab(&quot;Months&quot;)+
       scale_x_continuous(label=1:12,breaks=1:12)+
       scale_y_continuous(labels = 0:8,breaks = 0:8)+
       stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20month-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Confirm%20possibility%20of%20month-1.png" width="768" /></p>
 <p>Only the movies with release dates 19th and 25th have no domestic gross, while highest count of 6 occurs on 21st. Most of the days have the count of 1 movie.</p>
 <pre class="r"><code>ggplot(Movie_domestic_zero,aes(x=day(release_date)))+
       geom_bar()+ylab(&quot;Frequency&quot;)+xlab(&quot;Days&quot;)+
       scale_x_continuous(label=1:31,breaks=1:31)+
       scale_y_continuous(labels = 0:6,breaks = 0:6)+
       stat_count(aes(y=..count.., label=..count..), geom=&quot;text&quot;, vjust=-.5)</code></pre>
-<p><img src="/post/Week_30/2018-11-14-week-30-movie-profit_files/figure-html/Confirm%20possibility%20of%20day-1.png" width="768" /></p>
+<p><img src="/post/Week_30/index_files/figure-html/Confirm%20possibility%20of%20day-1.png" width="768" /></p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
@@ -1123,9 +1228,9 @@ ggplot(Movie_domestic_zero,aes(x=year(release_date)))+
         
         <li><a href="/publication/fitodbod-github/">GitHub-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
-        
         <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
       </ul>
     </div>
