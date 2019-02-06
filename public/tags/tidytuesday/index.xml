@@ -18,7 +18,7 @@
       <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week6/week6/</guid>
-      <description></description>
+      <description>MortgageFixed Rate 30 Years from 1971 to 2018Fixed Rate 15 Years from 1991 to 2018Fees and Points of 30 Years from 1971 to 2018Fees and Points of 15 Years from 1991 to 2018StatesNew England RegionMideast RegionGreat Lakes RegionPlains RegionSoutheast RegionSouthwest RegionRocky Mountain RegionFar West Region# load the packageslibrary(readr)library(tidyverse)library(bbplot)library(gganimate)library(magrittr)library(lubridate)# load the datamortgage &amp;lt;- read_csv(&amp;quot;mortgage.</description>
     </item>
     
     <item>

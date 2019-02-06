@@ -4,7 +4,7 @@ author: M.Amalan
 date: '2019-02-06'
 slug: Week6
 output: 
-    blogdown::html_output:
+    blogdown::html_page:
       toc: true
 categories:
   - TidyTuesday
@@ -18,5 +18,253 @@ image:
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#mortgage">Mortgage</a><ul>
+<li><a href="#fixed-rate-30-years-from-1971-to-2018">Fixed Rate 30 Years from 1971 to 2018</a></li>
+<li><a href="#fixed-rate-15-years-from-1991-to-2018">Fixed Rate 15 Years from 1991 to 2018</a></li>
+<li><a href="#fees-and-points-of-30-years-from-1971-to-2018">Fees and Points of 30 Years from 1971 to 2018</a></li>
+<li><a href="#fees-and-points-of-15-years-from-1991-to-2018">Fees and Points of 15 Years from 1991 to 2018</a></li>
+</ul></li>
+<li><a href="#states">States</a><ul>
+<li><a href="#new-england-region">New England Region</a></li>
+<li><a href="#mideast-region">Mideast Region</a></li>
+<li><a href="#great-lakes-region">Great Lakes Region</a></li>
+<li><a href="#plains-region">Plains Region</a></li>
+<li><a href="#southeast-region">Southeast Region</a></li>
+<li><a href="#southwest-region">Southwest Region</a></li>
+<li><a href="#rocky-mountain-region">Rocky Mountain Region</a></li>
+<li><a href="#far-west-region">Far West Region</a></li>
+</ul></li>
+</ul>
+</div>
 
+<pre class="r"><code># load the packages
+library(readr)
+library(tidyverse)
+library(bbplot)
+library(gganimate)
+library(magrittr)
+library(lubridate)
 
+# load the data
+mortgage &lt;- read_csv(&quot;mortgage.csv&quot;, 
+                     col_types = cols(adjustable_margin_5_1_hybrid = col_double(), 
+                     adjustable_rate_5_1_hybrid = col_double(), 
+                     fees_and_pts_15_yr = col_double(), fees_and_pts_30_yr = col_double(), 
+                     fees_and_pts_5_1_hybrid = col_double(), 
+                     fixed_rate_15_yr = col_double(), 
+                     spread_30_yr_fixed_and_5_1_adjustable = col_double())
+                     )
+recessions &lt;- read_csv(&quot;recessions.csv&quot;)
+state_hpi &lt;- read_csv(&quot;state_hpi.csv&quot;)</code></pre>
+<p>Week 6 has three data-sets, which are mortgage, recession and state_hpi. Number variables in each data-set is less than 10. You can acquire the data-set from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-05">here.</a></p>
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week6">GitHub Code</a></p>
+{{% tweet "1093047376879775744" %}}
+<p>According to the description there is not much of variation in the recession data-set, but this is not the case in other two data-sets.</p>
+<div id="mortgage" class="section level1">
+<h1>Mortgage</h1>
+<p>Mortgage data-set has 9 variables with 8 of them are related to the financial sector and one is refereed to date. So the below analysis or interpretation will be values changing over time. These values will be</p>
+<ol style="list-style-type: decimal">
+<li>Fixed Rate 30 Years</li>
+<li>Fixed Rate 15 Years</li>
+<li>Fees and Percentage Points (30 Years) of the loan amount.</li>
+<li>Fees and Percentage Points (15 Years) of the loan amount.</li>
+</ol>
+<div id="fixed-rate-30-years-from-1971-to-2018" class="section level2">
+<h2>Fixed Rate 30 Years from 1971 to 2018</h2>
+<p>Each week the Fixed Rate of 30 Years has been set and I am exploring how it changes in each year from 1971 to 2018. We can clearly see in the early Weeks of 1980 it has significantly increased higher than 17.5%, but in early 1970 it was only 7.5%.</p>
+<p>By 1990 it has dropped to 7.5% and this pattern continues further until year 2018 where in December the Fixed Rate of 30 Years is slightly less than 5%.</p>
+<p>Each year there can be on of the below patterns I mentioned if the year is divided into two half’s.</p>
+<ol style="list-style-type: decimal">
+<li>First and Second Half of the Year hold the same Percentage points.</li>
+<li>First Half of the Year has Higher percentage Points than the second half.</li>
+<li>Vice versa of 2.</li>
+</ol>
+<pre class="r"><code>p&lt;-ggplot(mortgage,aes(x=factor(year(date)),y=fixed_rate_30_yr,color=week(date)))+
+          geom_jitter()+transition_time(year(date))+ease_aes(&quot;linear&quot;)+
+          shadow_mark()+xlab(&quot;Year&quot;)+ylab(&quot;Fixed Rate 30 Year Mortgage (%)&quot;)+
+          ggtitle(&quot;Fixed Rate 30 Year Morgage Change by the Year: {round(frame_time)}&quot;)+
+          labs(color=&quot;Week of the Year&quot;)+
+          theme(legend.position = &quot;bottom&quot;,
+                axis.text.x =element_text(angle = 90, hjust = 1))
+    
+animate(p,nframes=48, fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/mortgage%20fixed%20rate%2030%20years-1.gif" /><!-- --></p>
+</div>
+<div id="fixed-rate-15-years-from-1991-to-2018" class="section level2">
+<h2>Fixed Rate 15 Years from 1991 to 2018</h2>
+<p>From 1991 only we have Fixed Rate for 15 Years and in the beginning we can see the percentage slightly above 8. and over the years it is decreasing while some fluctuations occur. This fluctuations happen in the years of 2000, 2006, 2007 and 2018, where they brake pattern of decreasing.</p>
+<p>In the year 2018 it reaches slightly less than 4% in the first 20 or so weeks, but the last 20 weeks the percentage is above 4%.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(mortgage,year(date)&gt;=1991),
+          aes(x=factor(year(date)),y=fixed_rate_15_yr,color=week(date)))+
+          geom_jitter()+transition_time(year(date))+ease_aes(&quot;linear&quot;)+
+          shadow_mark()+xlab(&quot;Year&quot;)+ylab(&quot;Fixed Rate 15 Year Mortgage (%)&quot;)+
+          ggtitle(&quot;Fixed Rate 15 Year Morgage Change by the Year: {round(frame_time)}&quot;)+
+          labs(color=&quot;Week of the Year&quot;)+
+          theme(legend.position = &quot;bottom&quot;,
+                axis.text.x =element_text(angle = 90, hjust = 1))
+    
+animate(p,nframes=28, fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/mortgage%20fixed%20rate%2015%20years-1.gif" /><!-- --></p>
+</div>
+<div id="fees-and-points-of-30-years-from-1971-to-2018" class="section level2">
+<h2>Fees and Points of 30 Years from 1971 to 2018</h2>
+<p>Highest peek occurs in 1983 which is 2.7 and it decreases over the years gradually. While in the year 1971 the points were close to 1. The gradual decrease is not in effect between the years 1995 and 1996 and it clear in the plot. Yet, we can see no other anomaly in the next few years after 1996, while in 2007 it reaches its lowest point of slightly less than 0.3 (Could be related to the Great recession)</p>
+<p>Anyway by year 2018 after this 2007 recession the points have increased but has not reached 1 and is always oscillating between 0.4 and 0.6 in the years of 2015 to 2018.</p>
+<pre class="r"><code>p1&lt;-ggplot(mortgage,aes(x=factor(year(date)),y=factor(fees_and_pts_30_yr),color=week(date)))+
+       geom_jitter()+ theme(legend.position = &quot;bottom&quot;,
+                            axis.text.x =element_text(angle = 90, hjust = 1))+
+       xlab(&quot;Year&quot;)+ylab(&quot;Fees and Percentage points of the Loan Amount&quot;)+
+       labs(color=&quot;Week of the Year&quot;)+
+       ggtitle(&quot;Fess and Percentage points (30 Years) of the Loan Amount \n 
+                by the Year : {round(frame_time)}&quot;)+
+       transition_time(year(date))+ease_aes(&quot;linear&quot;)+
+       shadow_mark()
+
+animate(p1,nframes=48, fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/mortgage%20fees%20and%20pts%20of%2030%20year-1.gif" /><!-- --></p>
+</div>
+<div id="fees-and-points-of-15-years-from-1991-to-2018" class="section level2">
+<h2>Fees and Points of 15 Years from 1991 to 2018</h2>
+<p>In 1991 the points are close to 1.9 and it wavers in between 1.6 and 1.8 until 1997. There is a significant drop from 1997 to 1998 where the points end up averaged around 1 and over the years it slowly decreases until year 2007. Where the lowest point of 0.3 occurs.</p>
+<p>After this new low it struggles to maintain any steady increase and rather holds below 0.8 over the next years until 2018.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(mortgage,year(date)&gt;=1991),
+          aes(x=factor(year(date)),y=factor(fees_and_pts_15_yr),color=week(date)))+
+       geom_jitter()+ theme(legend.position = &quot;bottom&quot;,
+                            axis.text.x =element_text(angle = 90, hjust = 1))+
+       xlab(&quot;Year&quot;)+ylab(&quot;Fees and Percentage points of the Loan Amount&quot;)+
+       labs(color=&quot;Week of the Year&quot;)+
+       ggtitle(&quot;Fees and Percentage points (15 Year)of the Loan Amount by the Year : {round(frame_time)}&quot;)+
+       transition_time(year(date))+ease_aes(&quot;linear&quot;)+
+       shadow_mark()
+
+animate(p,nframes=28, fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/mortgage%20fees%20and%20pts%20of%2015%20year-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="states" class="section level1">
+<h1>States</h1>
+<p>United States of America has 50 states and comparing all of them at the same time is a ludicrous idea. Therefore, I decided to combine few states and compare and them as regions. In order to do this clustering I chose the Wikipedia page which was helpful for me.</p>
+<p>There are multiple reasons to make different regions out of the 50 states of USA. But according to the Wikipedia page I figured it would be best to focus on the financial side or to be precise cluster states based on the “Bureau of Economic Analysis Regions”.</p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_regions_of_the_United_States">Wikipedia for US Regions</a></p>
+<p>So according to the above choice we have 8 regions clustering 50 states and they are</p>
+<ol style="list-style-type: decimal">
+<li>New England</li>
+<li>Mideast</li>
+<li>Great Lakes</li>
+<li>Plains</li>
+<li>Southeast</li>
+<li>Southwest</li>
+<li>Rocky Mountain</li>
+<li>Far West</li>
+</ol>
+<div id="new-england-region" class="section level2">
+<h2>New England Region</h2>
+<p>Clear visibility of 2007 recession where US Avg and Price Index declining until 2010 and then improving over the next few years. All states begin very closely but end up very differently in 2018 and in troubled times.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;CT&quot;|state==&quot;ME&quot;|state==&quot;MA&quot;|
+                           state==&quot;NH&quot;| state==&quot;RI&quot;|state==&quot;VT&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20New%20England-1.gif" /><!-- --></p>
+</div>
+<div id="mideast-region" class="section level2">
+<h2>Mideast Region</h2>
+<p>After the 2007 recession there is clear difference among DC and other states and the gap cannot be ignored at all.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;DE&quot;|state==&quot;DC&quot;|state==&quot;MD&quot;|
+                           state==&quot;NJ&quot;| state==&quot;NY&quot;|state==&quot;PA&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Mideast%20Region-1.gif" /><!-- --></p>
+</div>
+<div id="great-lakes-region" class="section level2">
+<h2>Great Lakes Region</h2>
+<p>After year 2000 there is clear difference among the 5 states and it becomes more complex with the 2007 recession and recovery periods. But this is not the case in year 2018 because all five states are now closely intact with the increase with both variables.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;IL&quot;|state==&quot;OH&quot;|state==&quot;WI&quot;|
+                           state==&quot;IN&quot;| state==&quot;MI&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Great%20Lakes-1.gif" /><!-- --></p>
+</div>
+<div id="plains-region" class="section level2">
+<h2>Plains Region</h2>
+<p>Before the 2007 recession all states behaved very similarly, but this is not the case after year 2011 where North Dakota has a higher Price index and US Average than other states which is clearly seen in the plot.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;IO&quot;|state==&quot;MN&quot;|state==&quot;NE&quot;|
+                           state==&quot;KS&quot;| state==&quot;MS&quot;|state==&quot;ND&quot;|state==&quot;SD&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Plains-1.gif" /><!-- --></p>
+</div>
+<div id="southeast-region" class="section level2">
+<h2>Southeast Region</h2>
+<p>Southeast region has alot of states therefore it would be time consuming to compare. Clearly the 2007 recession has a toll on both variables, but not as the effect from year 2000.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;AL&quot;|state==&quot;FL&quot;|state==&quot;KY&quot;|
+                           state==&quot;AR&quot;|state==&quot;GA&quot;|state==&quot;MS&quot;|
+                           state==&quot;LA&quot;|state==&quot;NC&quot;|state==&quot;SC&quot;|
+                           state==&quot;TN&quot;|state==&quot;VA&quot;|state==&quot;WV&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Southeast-1.gif" /><!-- --></p>
+</div>
+<div id="southwest-region" class="section level2">
+<h2>Southwest Region</h2>
+<p>Before the 2007 recession and after also we can see the clear changes. Before that in year 2000 also we can see rapid changes which lead up-to the recession. The damage done by the recession have not been recovered in some states even by 2018 according to the gap in Price index.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;AZ&quot;|state==&quot;OK&quot;|
+                           state==&quot;TX&quot;|state==&quot;NM&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Southwest-1.gif" /><!-- --></p>
+</div>
+<div id="rocky-mountain-region" class="section level2">
+<h2>Rocky Mountain Region</h2>
+<p>Changes after 2000 are very different for the 5 states in this region and after the 2007 recession also we can see the rapid set back in Us avg and price index. But this is not the case after 2013 even though it has already made significant amount of divide between the state of MO and other states, which is clearly seen at the end of year 2018.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;CO&quot;|state==&quot;MO&quot;|state==&quot;WY&quot;|
+                           state==&quot;ID&quot;| state==&quot;UT&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Rocky%20Mountain-1.gif" /><!-- --></p>
+</div>
+<div id="far-west-region" class="section level2">
+<h2>Far West Region</h2>
+<p>Early 1990 has a sudden raise and it quickly settles down close to year 1998. Where by 2000 all six states share the same price index value, but this changes over time with clear difference among two groups. Each group containing 3 states, but this progress entirely changes by the 2007 recession and its recovery. Because clearly after 2013 there is no more 2 groups, it is now 3 groups. Where state of Hawaii has the highest pricing index and lowest goes to Alaska, this is by the end of year 2018.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(state_hpi,state==&quot;AL&quot;|state==&quot;NV&quot;|state==&quot;OR&quot;|
+                           state==&quot;CA&quot;| state==&quot;HI&quot;|state==&quot;WA&quot;),
+       aes(x=us_avg,y=price_index,color=state))+
+       geom_point()+xlab(&quot;US Average&quot;)+ylab(&quot;Price Index&quot;)+
+       ggtitle(&quot;Price Index vs Us Avg change over Year: {round(frame_time)}&quot;)+
+       shadow_mark()+
+       transition_time(year)+ease_aes(&quot;linear&quot;)
+animate(p,nframes = 44,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Far%20West-1.gif" /><!-- --></p>
+<p>It might look that I have not enough justice for the changes which occurred before the year 2000, and I do agree with you. But if I do add them into my consideration this article would be very long. Hopefully, the animate plots clearly indicate the strong changes which occurred in the pre-y2k era.</p>
+<p><em>THANK YOU</em></p>
+</div>
+</div>
