@@ -1,0 +1,16 @@
+---
+title: 'Week 6 : Mortgage, Recession and States'
+author: M.Amalan
+date: '2019-02-06'
+slug: Week6
+categories:
+  - TidyTuesday
+tags:
+  - tidyverse
+  - TidyTuesday
+  - R package
+image:
+  caption: ''
+  focal_point: ''
+---
+
