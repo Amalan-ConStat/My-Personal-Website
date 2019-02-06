@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 29 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidytuesday/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 6 : Mortgage, Recession and States</title>
+      <link>/post/tidytuesday2019/week6/week6/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week6/week6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Week 5: Dairy Products in USA</title>
