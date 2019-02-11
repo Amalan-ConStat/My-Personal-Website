@@ -250,7 +250,7 @@ enableGitInfo = false
   [[params.social]]
     icon = "envelope"
     icon_pack = "fas"
-    link = "mailto:amalan0595@gmail.com"
+    link = "mailto:amalan0595[at]gmail[dot]com"
 
   [[params.social]]
     icon = "twitter"
@@ -276,6 +276,11 @@ enableGitInfo = false
     icon = "r-project"
     icon_pack = "fab"
     link = "https://cran.r-project.org/package=fitODBOD"
+
+  [[params.social]]
+    icon = "globe"
+    icon_pack = "fas"
+    link = "https://amalan-con-stat.shinyapps.io/olympic/"
     
   # Link to a PDF of your resume/CV from the About widget.
   # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
