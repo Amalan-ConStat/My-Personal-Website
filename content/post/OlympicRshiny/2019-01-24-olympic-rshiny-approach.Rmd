@@ -101,4 +101,10 @@ with respective to Gender for the chosen country.
 
 Repeat the Steps 1 to 7 and be amused of the results from different countries. 
 
+
+*PLEASE NOTE* - You should remember that as a user of this Rshiny Application 
+not all countries have won atleast one medal at the Olympics. At these occurences 
+"MEDAL GRAPH" tab does not show any graph but only an error. This can be confirmed
+by the "DESCRIBE" tab which will produce the summary for that chosen country. 
+
 *THANK YOU* 

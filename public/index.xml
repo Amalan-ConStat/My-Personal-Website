@@ -885,6 +885,7 @@ animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;step-8&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Step 8&lt;/h3&gt;
 &lt;p&gt;Repeat the Steps 1 to 7 and be amused of the results from different countries.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;PLEASE NOTE&lt;/em&gt; - You should remember that as a user of this Rshiny Application not all countries have won atleast one medal at the Olympics. At these occurences “MEDAL GRAPH” tab does not show any graph but only an error. This can be confirmed by the “DESCRIBE” tab which will produce the summary for that chosen country.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
