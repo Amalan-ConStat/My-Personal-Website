@@ -18,7 +18,7 @@
       <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week7/week7/</guid>
-      <description></description>
+      <description>Climate Change ResearchEnergyFederal# load the packages library(readr)library(tidyverse)library(gganimate)library(dplyr)library(magrittr)# load the dataclimate &amp;lt;- read_csv(&amp;quot;climate_spending.csv&amp;quot;)energy &amp;lt;- read_csv(&amp;quot;energy_spending.csv&amp;quot;, col_types = cols(year = col_integer()))federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)Even though I can go further and do an investigative plotting from the rest data it is not done here. I was more focused on the scientific notation values in the plotting and scales, which were bothering me a lot.</description>
     </item>
     
     <item>
