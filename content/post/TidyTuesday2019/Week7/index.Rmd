@@ -61,6 +61,12 @@ with their full names, so below is a screen shot which would come in handy.
 
 ![Department Full Names with Abbreviations](department.jpg)
 
+```{r add tweet,echo=FALSE}
+blogdown::shortcode("tweet","1095152521507733505")
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week7)
+
 # Climate Change Research 
 
 As I mentioned earlier for the climate data there are no values in the year column, but according to 
