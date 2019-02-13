@@ -42,3 +42,8 @@ is not my thing therefore these books are not divided into groups.
 9. [Boy by Roald Dohl](https://www.amazon.com/gp/product/014241381X/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i10)
 10. [Animal Farm by George Orwell](https://www.amazon.com/gp/product/0451526341/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i1)
 11. [The power of Habit by Charles Duhigg](https://www.amazon.com/gp/product/081298160X/ref=dbs_a_def_rwt_bibl_vppi_i0)
+
+Books Related to R, Data Science and Statistics
+
+1. [Text Mining with R : A Tidy Approach by Julia Silge and David Robinson](https://www.tidytextmining.com/)
+2. [R for Journalists by Andrew Ba Tran](http://learn.r-journalism.com/en/)
