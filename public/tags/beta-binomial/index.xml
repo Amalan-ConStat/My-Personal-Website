@@ -22,7 +22,7 @@
 \[ (q+p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
 as the distribution of a randm variable X for which
 \[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]
-\(x=0,1,2,...,n.\) where \(q+p=1\), \(p,q&amp;gt;0\) and \(n\) is a positive integer. When \(n=1\), the distribution is known as the Bernoulli distribution. The mean and variance are</description>
+\(x=0,1,2,...,n.\) where \(q+p=1\), \(p,q&amp;gt;0\) and \(n\) is a positive integer. When \(n=1\), the distribution is known as the Bernoulli distribution. The mean and variance are \(\mu=np\) and \(\mu_2 = npq\).</description>
     </item>
     
     <item>
