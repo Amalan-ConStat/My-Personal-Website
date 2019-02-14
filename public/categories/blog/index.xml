@@ -18,7 +18,7 @@
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/binomialdistribution/binomialdistribution/</guid>
-      <description>Binomial DistributionApplicationsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
+      <description>Binomial DistributionApplicationsBinomial Mixture DistributionsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
 \[ (q+p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
 as the distribution of a randm variable X for which
 \[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]

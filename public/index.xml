@@ -20,6 +20,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#binomial-distribution&#34;&gt;Binomial Distribution&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binomial-mixture-distributions&#34;&gt;Binomial Mixture Distributions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -41,12 +42,19 @@
 &lt;h1&gt;Applications&lt;/h1&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;The binomial distribution arises whenever underlying events have two possible outcomes, the chances of which remain constant. The importance of the distribution has extended from its original application in gaming to many other areas.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Mather’s (1936) analysis of data on straight versus wavy hair in mice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Matheras (1936) analysis of data on straight versus wavy hair in mice.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;More recent application in genetics is the study of the number of nucleotides that are in the same state in two DNA sequences (Kaplan and Risko, 1982).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The number of defectives found in random samples of size n from a stable productionprocessisa binomial variable;acceptancesampling isa veryimportant application of the test for the mean of a binomial sample against a hypothetical value.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Seber (1982b) has given a number of instances of the use of the binomial distribution in animal ecology, for example, in mark-recapture estimation of the size of an animal population. Boswell, Ord, and Patil (1979) gave applications in plant ecology.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisﬁed. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.&lt;/p&gt;
+&lt;p&gt;Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisfied. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;binomial-mixture-distributions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Binomial Mixture Distributions&lt;/h1&gt;
+&lt;p&gt;The binomial distribution hastwoparameters, &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; vary, though it is easy to construct such examples.&lt;/p&gt;
+&lt;p&gt;In most cases discussed in the statistical literature, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; has a continuous distribution, while &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is discrete. The latter restriction is necessary, but the former is not.&lt;/p&gt;
+&lt;p&gt;However, discrete distributions for &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; have not been found to be useful and have not attracted much attention from a theoretical point of view.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -60,7 +60,7 @@ useful approximations for sums of this kind.
 constant. The importance of the distribution has extended from its original application in gaming to many other areas. 
 
 2. Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs;
-see, for example, Fisher and Mather’s (1936) analysis of data on straight versus wavy hair in mice.
+see, for example, Fisher and Matheras (1936) analysis of data on straight versus wavy hair in mice.
 
 3. More recent application in genetics is the study of the number of nucleotides that are in the same state in two 
 DNA sequences (Kaplan and Risko, 1982). 
@@ -74,5 +74,23 @@ in mark-recapture estimation of the size of an animal population. Boswell, Ord, 
 plant ecology. 
 
 Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial
-distribution are not often precisely satisﬁed. Published critical appraisals of the extent of departure from these
+distribution are not often precisely satisfied. Published critical appraisals of the extent of departure from these
 assumptions in actual situations are rather rare.
+
+# Binomial Mixture Distributions
+
+The binomial distribution hastwoparameters, $n$ and $p$, and either or both of these may be supposed to have a probability
+distribution. We will not discuss cases in which both $n$ and $p$ vary, though it is easy to construct such examples. 
+
+In most cases discussed in the statistical literature, $p$ has a continuous distribution, while $n$ is discrete. The 
+latter restriction is necessary, but the former is not.
+
+However, discrete distributions for $p$ have not been found to be useful and have not attracted much attention from a
+theoretical point of view. 
+
+```{r Diagramme}
+library(DiagrammeR)
+
+
+```
+

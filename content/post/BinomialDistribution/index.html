@@ -24,6 +24,7 @@ image:
 <ul>
 <li><a href="#binomial-distribution">Binomial Distribution</a></li>
 <li><a href="#applications">Applications</a></li>
+<li><a href="#binomial-mixture-distributions">Binomial Mixture Distributions</a></li>
 </ul>
 </div>
 
@@ -45,10 +46,17 @@ image:
 <h1>Applications</h1>
 <ol style="list-style-type: decimal">
 <li><p>The binomial distribution arises whenever underlying events have two possible outcomes, the chances of which remain constant. The importance of the distribution has extended from its original application in gaming to many other areas.</p></li>
-<li><p>Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Mather’s (1936) analysis of data on straight versus wavy hair in mice.</p></li>
+<li><p>Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Matheras (1936) analysis of data on straight versus wavy hair in mice.</p></li>
 <li><p>More recent application in genetics is the study of the number of nucleotides that are in the same state in two DNA sequences (Kaplan and Risko, 1982).</p></li>
 <li><p>The number of defectives found in random samples of size n from a stable productionprocessisa binomial variable;acceptancesampling isa veryimportant application of the test for the mean of a binomial sample against a hypothetical value.</p></li>
 <li><p>Seber (1982b) has given a number of instances of the use of the binomial distribution in animal ecology, for example, in mark-recapture estimation of the size of an animal population. Boswell, Ord, and Patil (1979) gave applications in plant ecology.</p></li>
 </ol>
-<p>Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisﬁed. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.</p>
+<p>Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisfied. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.</p>
+</div>
+<div id="binomial-mixture-distributions" class="section level1">
+<h1>Binomial Mixture Distributions</h1>
+<p>The binomial distribution hastwoparameters, <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> vary, though it is easy to construct such examples.</p>
+<p>In most cases discussed in the statistical literature, <span class="math inline">\(p\)</span> has a continuous distribution, while <span class="math inline">\(n\)</span> is discrete. The latter restriction is necessary, but the former is not.</p>
+<p>However, discrete distributions for <span class="math inline">\(p\)</span> have not been found to be useful and have not attracted much attention from a theoretical point of view.</p>
+<pre class="r"><code>library(DiagrammeR)</code></pre>
 </div>
