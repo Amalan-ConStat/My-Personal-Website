@@ -23,6 +23,7 @@ image:
 <div id="TOC">
 <ul>
 <li><a href="#binomial-distribution">Binomial Distribution</a></li>
+<li><a href="#applications">Applications</a></li>
 </ul>
 </div>
 
@@ -36,4 +37,18 @@ image:
 <p>If <span class="math inline">\(n\)</span> independent trials are made and in each there is probability <span class="math inline">\(p\)</span> that the outcome <span class="math inline">\(E\)</span> will occur, then the number of trials in which <span class="math inline">\(E\)</span> occurs can be represented by a random variable <span class="math inline">\(X\)</span> having the binomial distribution with parameters <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>.</p>
 <p>This situation occurs when a sample of ﬁxed size <span class="math inline">\(n\)</span> is taken from an inﬁnite population where each element in the population has an <strong>“equal”</strong> and <strong>“independent”</strong> probability <span class="math inline">\(p\)</span> of possession of a speciﬁed attribute. The situation also arises when a sample of ﬁxed size <span class="math inline">\(n\)</span> is taken from a ﬁnite population where each element in the population has an <strong>“equal”</strong> and <strong>“independent”</strong> probability <span class="math inline">\(p\)</span> of having a speciﬁed attribute and elements are sampled independently and sequentially with replacement.</p>
 <p>The distribution was derived by James Bernoulli (in his treatise Ars Conjectandi, published in 1713), for the case <span class="math inline">\(p = r/(r+s)\)</span>, where <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are positive integers.</p>
+<p>The binomial distribution is of such importance in applied probability and statistics that it is frequently necessary to calculate probabilities based on this distribution. Although the calculation of sums of the form</p>
+<p><span class="math display">\[ \sum_{x} {n \choose x} p^x q^{(n-x)}\]</span></p>
+<p>is straightforward, it can be tedious, especially when n and x are large and when there are a large number of terms in the summation. It is not surprising that a great deal of attention and ingenuity have been applied to constructing useful approximations for sums of this kind.</p>
+</div>
+<div id="applications" class="section level1">
+<h1>Applications</h1>
+<ol style="list-style-type: decimal">
+<li><p>The binomial distribution arises whenever underlying events have two possible outcomes, the chances of which remain constant. The importance of the distribution has extended from its original application in gaming to many other areas.</p></li>
+<li><p>Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Mather’s (1936) analysis of data on straight versus wavy hair in mice.</p></li>
+<li><p>More recent application in genetics is the study of the number of nucleotides that are in the same state in two DNA sequences (Kaplan and Risko, 1982).</p></li>
+<li><p>The number of defectives found in random samples of size n from a stable productionprocessisa binomial variable;acceptancesampling isa veryimportant application of the test for the mean of a binomial sample against a hypothetical value.</p></li>
+<li><p>Seber (1982b) has given a number of instances of the use of the binomial distribution in animal ecology, for example, in mark-recapture estimation of the size of an animal population. Boswell, Ord, and Patil (1979) gave applications in plant ecology.</p></li>
+</ol>
+<p>Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisﬁed. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.</p>
 </div>
