@@ -19,3 +19,28 @@ image:
   focal_point: ''
 ---
 
+# Binomial Distribution
+
+The binomial distribution can be defined, using the binomial expansion 
+
+$$ (q+p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}$$
+
+as the distribution of a randm variable X for which 
+
+$$Pr[X=x] = {n \choose k} p^k q^{(n-k)}$$ 
+
+$x=0,1,2,...,n.$ where $q+p=1$, $p,q>0$ and $n$ is a positive integer. When $n=1$, the distribution is known as the 
+Bernoulli distribution. The mean and variance are 
+
+$ \mu=np $ and  $\mu_2 = npq$.
+
+If $n$ independent trials are made and in each there is probability $p$ that the outcome $E$ will occur, 
+then the number of trials in which $E$ occurs can be represented by a rv $X$ having the binomial distribution 
+with parameters $n$, $p$. 
+
+This situation occurs when a sample of ﬁxed size $n$ is taken from an inﬁnite population 
+where each element in the population has an _"equal"_ and _"independent"_ probability $p$ of possession of a speciﬁed 
+attribute. The situation also arises when a sample of ﬁxed size $n$ is taken from a ﬁnite population where each 
+element in the population has an _"equal"_ and _"independent"_ probability $p$ of having a speciﬁed attribute 
+and elements are sampled independently and sequentially with replacement. 
+
