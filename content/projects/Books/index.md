@@ -47,3 +47,10 @@ Books Related to R, Data Science and Statistics
 
 1. [Text Mining with R : A Tidy Approach by Julia Silge and David Robinson](https://www.tidytextmining.com/)
 2. [R for Journalists by Andrew Ba Tran](http://learn.r-journalism.com/en/)
+3. [Interpretable Machine Learning by Christoph Molnar](https://christophm.github.io/interpretable-ml-book/)
+4. [Advanced R by Hadley Wickham](https://adv-r.hadley.nz/)
+5. [Modern R with the tidyverse by Bruno Rodrigues](https://b-rodrigues.github.io/modern_R/)
+6. [What They Forgot to Teach You About R by Jennifer Bryan, Jim Hester](https://whattheyforgot.org/)
+7. [bookdown: Authoring Books and Technical Documents with R Markdown by Yihui Xie](https://bookdown.org/yihui/bookdown/)
+8. [blogdown: Creating Websites with R Markdown by Yihui Xie, Amber Thomas, Alison Presmanes Hill](https://bookdown.org/yihui/blogdown/)
+9. [Happy Git and GitHub for the UseR by Jenny Bryan, the STAT 545 TAs, Jim Hester](https://happygitwithr.com/)
