@@ -19,6 +19,10 @@ image:
   focal_point: ''
 ---
 
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
 
 <div id="TOC">
 <ul>
@@ -58,5 +62,36 @@ image:
 <p>The binomial distribution hastwoparameters, <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> vary, though it is easy to construct such examples.</p>
 <p>In most cases discussed in the statistical literature, <span class="math inline">\(p\)</span> has a continuous distribution, while <span class="math inline">\(n\)</span> is discrete. The latter restriction is necessary, but the former is not.</p>
 <p>However, discrete distributions for <span class="math inline">\(p\)</span> have not been found to be useful and have not attracted much attention from a theoretical point of view.</p>
-<pre class="r"><code>library(DiagrammeR)</code></pre>
+<pre class="r"><code>library(DiagrammeR)
+
+grViz(&quot;
+      digraph neato{
+      
+      graph[layout = neato]
+      
+      node[ style = filled,
+            color = black]
+
+      node[ shape = circle,
+            fillcolor = blue ]
+      a 
+
+      node[ shape = box,
+            fillcolor = green]
+      b c d e f g h i j k l m n 
+
+      node[ shape = box,
+            fillcolor = orange]
+      o
+
+      node[ shape = box,
+            fillcolor = yellow]
+      p q r s t u
+
+      node[ shape = box,
+            fillcolor = red]
+      v w x y z aa ab ac
+      }&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\n      digraph neato{\n      \n      graph[layout = neato]\n      \n      node[ style = filled,\n            color = black]\n\n      node[ shape = circle,\n            fillcolor = blue ]\n      a \n\n      node[ shape = box,\n            fillcolor = green]\n      b c d e f g h i j k l m n \n\n      node[ shape = box,\n            fillcolor = orange]\n      o\n\n      node[ shape = box,\n            fillcolor = yellow]\n      p q r s t u\n\n      node[ shape = box,\n            fillcolor = red]\n      v w x y z aa ab ac\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>

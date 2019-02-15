@@ -91,6 +91,33 @@ theoretical point of view.
 ```{r Diagramme}
 library(DiagrammeR)
 
+grViz("
+      digraph neato{
+      
+      graph[layout = neato]
+      
+      node[ style = filled,
+            color = black]
 
+      node[ shape = circle,
+            fillcolor = blue ]
+      a 
+
+      node[ shape = box,
+            fillcolor = green]
+      b c d e f g h i j k l m n 
+
+      node[ shape = box,
+            fillcolor = orange]
+      o
+
+      node[ shape = box,
+            fillcolor = yellow]
+      p q r s t u
+
+      node[ shape = box,
+            fillcolor = red]
+      v w x y z aa ab ac
+      }")
 ```
 

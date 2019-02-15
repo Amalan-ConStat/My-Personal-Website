@@ -16,7 +16,12 @@
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/binomialdistribution/binomialdistribution/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#binomial-distribution&#34;&gt;Binomial Distribution&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
@@ -54,7 +59,38 @@
 &lt;p&gt;The binomial distribution hastwoparameters, &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; vary, though it is easy to construct such examples.&lt;/p&gt;
 &lt;p&gt;In most cases discussed in the statistical literature, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; has a continuous distribution, while &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is discrete. The latter restriction is necessary, but the former is not.&lt;/p&gt;
 &lt;p&gt;However, discrete distributions for &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; have not been found to be useful and have not attracted much attention from a theoretical point of view.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)
+
+grViz(&amp;quot;
+      digraph neato{
+      
+      graph[layout = neato]
+      
+      node[ style = filled,
+            color = black]
+
+      node[ shape = circle,
+            fillcolor = blue ]
+      a 
+
+      node[ shape = box,
+            fillcolor = green]
+      b c d e f g h i j k l m n 
+
+      node[ shape = box,
+            fillcolor = orange]
+      o
+
+      node[ shape = box,
+            fillcolor = yellow]
+      p q r s t u
+
+      node[ shape = box,
+            fillcolor = red]
+      v w x y z aa ab ac
+      }&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;grViz html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n      digraph neato{\n      \n      graph[layout = neato]\n      \n      node[ style = filled,\n            color = black]\n\n      node[ shape = circle,\n            fillcolor = blue ]\n      a \n\n      node[ shape = box,\n            fillcolor = green]\n      b c d e f g h i j k l m n \n\n      node[ shape = box,\n            fillcolor = orange]\n      o\n\n      node[ shape = box,\n            fillcolor = yellow]\n      p q r s t u\n\n      node[ shape = box,\n            fillcolor = red]\n      v w x y z aa ab ac\n      }&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 </description>
     </item>
