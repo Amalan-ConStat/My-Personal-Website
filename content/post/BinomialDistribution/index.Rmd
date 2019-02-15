@@ -91,33 +91,37 @@ theoretical point of view.
 ```{r Diagramme}
 library(DiagrammeR)
 
-grViz("
-      digraph neato{
-      
-      graph[layout = neato]
-      
-      node[ style = filled,
-            color = black]
+DiagrammeR(
+           "graph TB;
+            A[Binomial <br> Distribution]-->B[Binomial <br> Not Parent];
+            A-->D[Other with <br> no sub groups];
+            A-->C[Binomial <br> Parent];
+            A-->M[Alternate Binomial <br> Distribution];
+            A-->N[Neyman Type A <br> Distribution];
+            A-->O[Hermite Distribution];
+            C-->CA[Mixing Parameter];
+            CA-->CAA[N/n <br> Binomial];
+            CA-->CAB[K <br> Binomial];
+            CA-->CAC[Y <br> Binomial];
+            CA-->CAE[p transformed <br> Binomial];
+            CA-->CAF[Cumulative Distribution <br> Function];
+            CA-->CAD[p <br> Binomial];
+           ",width=1500,height=1500)
 
-      node[ shape = circle,
-            fillcolor = blue ]
-      a 
+DiagrammeR(
+           "graph LR;
+            B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];
+            A-->D[Grassia Binomial <br> Distribution];
+            A-->E[Zero Modified <br> Binomial Distribution];
+            A-->F[Dandekar's Modified <br> Binomial Distribution];
+            A-->G[Simplex Binomial <br> Mixture Model];
+            A-->H[Double Binomial <br> Distribution];
+            A-->I[Finite Binomial <br> Mixtures];
+            A-->J[Binomial Distribution <br> of order K];
+            A-->K[Truncated Binomial <br> Distribution];
+            A-->L[Weighted Binomial <br> Distribution];
+            ",width=1500,height=1500)
 
-      node[ shape = box,
-            fillcolor = green]
-      b c d e f g h i j k l m n 
 
-      node[ shape = box,
-            fillcolor = orange]
-      o
-
-      node[ shape = box,
-            fillcolor = yellow]
-      p q r s t u
-
-      node[ shape = box,
-            fillcolor = red]
-      v w x y z aa ab ac
-      }")
 ```
 

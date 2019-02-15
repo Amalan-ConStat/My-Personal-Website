@@ -17,9 +17,13 @@
       
       <guid>/post/binomialdistribution/binomialdistribution/</guid>
       <description>&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/d3/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dagre/dagre-d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/mermaid/dist/mermaid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/mermaid/dist/mermaid.slim.min.js&#34;&gt;&lt;/script&gt;
 &lt;link href=&#34;/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/chromatography/chromatography.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/DiagrammeR-binding/DiagrammeR.js&#34;&gt;&lt;/script&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -61,36 +65,39 @@
 &lt;p&gt;However, discrete distributions for &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; have not been found to be useful and have not attracted much attention from a theoretical point of view.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)
 
-grViz(&amp;quot;
-      digraph neato{
-      
-      graph[layout = neato]
-      
-      node[ style = filled,
-            color = black]
-
-      node[ shape = circle,
-            fillcolor = blue ]
-      a 
-
-      node[ shape = box,
-            fillcolor = green]
-      b c d e f g h i j k l m n 
-
-      node[ shape = box,
-            fillcolor = orange]
-      o
-
-      node[ shape = box,
-            fillcolor = yellow]
-      p q r s t u
-
-      node[ shape = box,
-            fillcolor = red]
-      v w x y z aa ab ac
-      }&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;grViz html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n      digraph neato{\n      \n      graph[layout = neato]\n      \n      node[ style = filled,\n            color = black]\n\n      node[ shape = circle,\n            fillcolor = blue ]\n      a \n\n      node[ shape = box,\n            fillcolor = green]\n      b c d e f g h i j k l m n \n\n      node[ shape = box,\n            fillcolor = orange]\n      o\n\n      node[ shape = box,\n            fillcolor = yellow]\n      p q r s t u\n\n      node[ shape = box,\n            fillcolor = red]\n      v w x y z aa ab ac\n      }&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+DiagrammeR(
+           &amp;quot;graph TB;
+            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Not Parent];
+            A--&amp;gt;D[Other with &amp;lt;br&amp;gt; no sub groups];
+            A--&amp;gt;C[Binomial &amp;lt;br&amp;gt; Parent];
+            A--&amp;gt;M[Alternate Binomial &amp;lt;br&amp;gt; Distribution];
+            A--&amp;gt;N[Neyman Type A &amp;lt;br&amp;gt; Distribution];
+            A--&amp;gt;O[Hermite Distribution];
+            C--&amp;gt;CA[Mixing Parameter];
+            CA--&amp;gt;CAA[N/n &amp;lt;br&amp;gt; Binomial];
+            CA--&amp;gt;CAB[K &amp;lt;br&amp;gt; Binomial];
+            CA--&amp;gt;CAC[Y &amp;lt;br&amp;gt; Binomial];
+            CA--&amp;gt;CAE[p transformed &amp;lt;br&amp;gt; Binomial];
+            CA--&amp;gt;CAF[Cumulative Distribution &amp;lt;br&amp;gt; Function];
+            CA--&amp;gt;CAD[p &amp;lt;br&amp;gt; Binomial];
+           &amp;quot;,width=1500,height=1500)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:1500px;height:1500px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Not Parent];\n            A--&gt;D[Other with &lt;br&gt; no sub groups];\n            A--&gt;C[Binomial &lt;br&gt; Parent];\n            A--&gt;M[Alternate Binomial &lt;br&gt; Distribution];\n            A--&gt;N[Neyman Type A &lt;br&gt; Distribution];\n            A--&gt;O[Hermite Distribution];\n            C--&gt;CA[Mixing Parameter];\n            CA--&gt;CAA[N/n &lt;br&gt; Binomial];\n            CA--&gt;CAB[K &lt;br&gt; Binomial];\n            CA--&gt;CAC[Y &lt;br&gt; Binomial];\n            CA--&gt;CAE[p transformed &lt;br&gt; Binomial];\n            CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];\n            CA--&gt;CAD[p &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;graph LR;
+            B[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;A[Other with &amp;lt;br&amp;gt; no sub groups];
+            A--&amp;gt;D[Grassia Binomial &amp;lt;br&amp;gt; Distribution];
+            A--&amp;gt;E[Zero Modified &amp;lt;br&amp;gt; Binomial Distribution];
+            A--&amp;gt;F[Dandekar&amp;#39;s Modified &amp;lt;br&amp;gt; Binomial Distribution];
+            A--&amp;gt;G[Simplex Binomial &amp;lt;br&amp;gt; Mixture Model];
+            A--&amp;gt;H[Double Binomial &amp;lt;br&amp;gt; Distribution];
+            A--&amp;gt;I[Finite Binomial &amp;lt;br&amp;gt; Mixtures];
+            A--&amp;gt;J[Binomial Distribution &amp;lt;br&amp;gt; of order K];
+            A--&amp;gt;K[Truncated Binomial &amp;lt;br&amp;gt; Distribution];
+            A--&amp;gt;L[Weighted Binomial &amp;lt;br&amp;gt; Distribution];
+            &amp;quot;,width=1500,height=1500)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:1500px;height:1500px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph LR;\n            B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];\n            A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];\n            A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;F[Dandekar&#39;s Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;G[Simplex Binomial &lt;br&gt; Mixture Model];\n            A--&gt;H[Double Binomial &lt;br&gt; Distribution];\n            A--&gt;I[Finite Binomial &lt;br&gt; Mixtures];\n            A--&gt;J[Binomial Distribution &lt;br&gt; of order K];\n            A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];\n            A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 </description>
     </item>
