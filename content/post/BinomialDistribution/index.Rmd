@@ -200,8 +200,14 @@ DiagrammeR(
            A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
            B-->C[Mixing Parameter];
            C-->D[N/n <br> Binomial];
+           D-->DA[Poisson];
+           D-->DB[Binomial];
+           D-->DC[Negative Binomial];
+           D-->DD[Logarithmic];
            C-->E[K <br> Binomial];
+           E-->EA[Poisson];
            C-->F[Y <br> Binomial];
+           F-->FA[Hypergeometric];
            ",width=800,height=400
 )
 ```
@@ -215,10 +221,23 @@ DiagrammeR(
            graph TB;
            A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
            B-->C[Mixing Parameter];
-           C-->D[N/n <br> Binomial];
-           C-->E[K <br> Binomial];
-           C-->F[Y <br> Binomial];
-           ",width=800,height=400
+           C-->D[p transformed <br> Binomial];
+           D-->E[p = 1 - exp_-t_ ];
+           E-->EA[Binomial Exponential <br> Distribution];
+           E-->EB[Binomial Gamma 1 <br> Distribution];
+           E-->EC[Binomial Gamma 2 <br> Distribution];
+           E-->ED[Binomial Generalized <br> Exponential 1 Distribution];
+           E-->EE[Binomial Generalized <br> Exponential 2 Distribution];
+           D-->F[p = exp_-t_ ];
+           F-->FA[Binomial Exponential <br> Distribution];
+           F-->FB[Binomial Gamma 1 <br> Distribution];
+           F-->FC[Binomial Gamma 2 <br> Distribution];
+           F-->FD[Binomial Generalized <br> Exponential 1 Distribution];
+           F-->FE[Binomial Generalized <br> Exponential 2 Distribution];
+           F-->FF[Binomial Variated <br> Exponential Distribution];
+           F-->FG[Binomial Variated <br> Gamma 2,alpha Distribution];
+           F-->FH[Binomial Inverse <br> Gaussian Distribution];
+           ",width=1800,height=400
 )
 ```
 

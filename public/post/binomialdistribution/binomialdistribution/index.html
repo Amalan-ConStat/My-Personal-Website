@@ -611,12 +611,18 @@ DiagrammeR(
            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];
            B--&gt;C[Mixing Parameter];
            C--&gt;D[N/n &lt;br&gt; Binomial];
+           D--&gt;DA[Poisson];
+           D--&gt;DB[Binomial];
+           D--&gt;DC[Negative Binomial];
+           D--&gt;DD[Logarithmic];
            C--&gt;E[K &lt;br&gt; Binomial];
+           E--&gt;EA[Poisson];
            C--&gt;F[Y &lt;br&gt; Binomial];
+           F--&gt;FA[Hypergeometric];
            &quot;,width=800,height=400
 )</code></pre>
 <div id="htmlwidget-7" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[N/n <br> Binomial];\n           C-->E[K <br> Binomial];\n           C-->F[Y <br> Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[N/n <br> Binomial];\n           D-->DA[Poisson];\n           D-->DB[Binomial];\n           D-->DC[Negative Binomial];\n           D-->DD[Logarithmic];\n           C-->E[K <br> Binomial];\n           E-->EA[Poisson];\n           C-->F[Y <br> Binomial];\n           F-->FA[Hypergeometric];\n           "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="p-transformed-binomial" class="section level3">
 <h3>p Transformed Binomial</h3>
@@ -625,13 +631,26 @@ DiagrammeR(
            graph TB;
            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];
            B--&gt;C[Mixing Parameter];
-           C--&gt;D[N/n &lt;br&gt; Binomial];
-           C--&gt;E[K &lt;br&gt; Binomial];
-           C--&gt;F[Y &lt;br&gt; Binomial];
-           &quot;,width=800,height=400
+           C--&gt;D[p transformed &lt;br&gt; Binomial];
+           D--&gt;E[p = 1 - exp_-t_ ];
+           E--&gt;EA[Binomial Exponential &lt;br&gt; Distribution];
+           E--&gt;EB[Binomial Gamma 1 &lt;br&gt; Distribution];
+           E--&gt;EC[Binomial Gamma 2 &lt;br&gt; Distribution];
+           E--&gt;ED[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];
+           E--&gt;EE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];
+           D--&gt;F[p = exp_-t_ ];
+           F--&gt;FA[Binomial Exponential &lt;br&gt; Distribution];
+           F--&gt;FB[Binomial Gamma 1 &lt;br&gt; Distribution];
+           F--&gt;FC[Binomial Gamma 2 &lt;br&gt; Distribution];
+           F--&gt;FD[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];
+           F--&gt;FE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];
+           F--&gt;FF[Binomial Variated &lt;br&gt; Exponential Distribution];
+           F--&gt;FG[Binomial Variated &lt;br&gt; Gamma 2,alpha Distribution];
+           F--&gt;FH[Binomial Inverse &lt;br&gt; Gaussian Distribution];
+           &quot;,width=1800,height=400
 )</code></pre>
-<div id="htmlwidget-8" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[N/n <br> Binomial];\n           C-->E[K <br> Binomial];\n           C-->F[Y <br> Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8" style="width:1800px;height:400px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[p transformed <br> Binomial];\n           D-->E[p = 1 - exp_-t_ ];\n           E-->EA[Binomial Exponential <br> Distribution];\n           E-->EB[Binomial Gamma 1 <br> Distribution];\n           E-->EC[Binomial Gamma 2 <br> Distribution];\n           E-->ED[Binomial Generalized <br> Exponential 1 Distribution];\n           E-->EE[Binomial Generalized <br> Exponential 2 Distribution];\n           D-->F[p = exp_-t_ ];\n           F-->FA[Binomial Exponential <br> Distribution];\n           F-->FB[Binomial Gamma 1 <br> Distribution];\n           F-->FC[Binomial Gamma 2 <br> Distribution];\n           F-->FD[Binomial Generalized <br> Exponential 1 Distribution];\n           F-->FE[Binomial Generalized <br> Exponential 2 Distribution];\n           F-->FF[Binomial Variated <br> Exponential Distribution];\n           F-->FG[Binomial Variated <br> Gamma 2,alpha Distribution];\n           F-->FH[Binomial Inverse <br> Gaussian Distribution];\n           "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="cumulative-distribution-function" class="section level3">
 <h3>Cumulative Distribution Function</h3>

@@ -184,12 +184,18 @@ DiagrammeR(
            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
            B--&amp;gt;C[Mixing Parameter];
            C--&amp;gt;D[N/n &amp;lt;br&amp;gt; Binomial];
+           D--&amp;gt;DA[Poisson];
+           D--&amp;gt;DB[Binomial];
+           D--&amp;gt;DC[Negative Binomial];
+           D--&amp;gt;DD[Logarithmic];
            C--&amp;gt;E[K &amp;lt;br&amp;gt; Binomial];
+           E--&amp;gt;EA[Poisson];
            C--&amp;gt;F[Y &amp;lt;br&amp;gt; Binomial];
+           F--&amp;gt;FA[Hypergeometric];
            &amp;quot;,width=800,height=400
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[N/n &lt;br&gt; Binomial];\n           C--&gt;E[K &lt;br&gt; Binomial];\n           C--&gt;F[Y &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[N/n &lt;br&gt; Binomial];\n           D--&gt;DA[Poisson];\n           D--&gt;DB[Binomial];\n           D--&gt;DC[Negative Binomial];\n           D--&gt;DD[Logarithmic];\n           C--&gt;E[K &lt;br&gt; Binomial];\n           E--&gt;EA[Poisson];\n           C--&gt;F[Y &lt;br&gt; Binomial];\n           F--&gt;FA[Hypergeometric];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;p-transformed-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Transformed Binomial&lt;/h3&gt;
@@ -198,13 +204,26 @@ DiagrammeR(
            graph TB;
            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
            B--&amp;gt;C[Mixing Parameter];
-           C--&amp;gt;D[N/n &amp;lt;br&amp;gt; Binomial];
-           C--&amp;gt;E[K &amp;lt;br&amp;gt; Binomial];
-           C--&amp;gt;F[Y &amp;lt;br&amp;gt; Binomial];
-           &amp;quot;,width=800,height=400
+           C--&amp;gt;D[p transformed &amp;lt;br&amp;gt; Binomial];
+           D--&amp;gt;E[p = 1 - exp_-t_ ];
+           E--&amp;gt;EA[Binomial Exponential &amp;lt;br&amp;gt; Distribution];
+           E--&amp;gt;EB[Binomial Gamma 1 &amp;lt;br&amp;gt; Distribution];
+           E--&amp;gt;EC[Binomial Gamma 2 &amp;lt;br&amp;gt; Distribution];
+           E--&amp;gt;ED[Binomial Generalized &amp;lt;br&amp;gt; Exponential 1 Distribution];
+           E--&amp;gt;EE[Binomial Generalized &amp;lt;br&amp;gt; Exponential 2 Distribution];
+           D--&amp;gt;F[p = exp_-t_ ];
+           F--&amp;gt;FA[Binomial Exponential &amp;lt;br&amp;gt; Distribution];
+           F--&amp;gt;FB[Binomial Gamma 1 &amp;lt;br&amp;gt; Distribution];
+           F--&amp;gt;FC[Binomial Gamma 2 &amp;lt;br&amp;gt; Distribution];
+           F--&amp;gt;FD[Binomial Generalized &amp;lt;br&amp;gt; Exponential 1 Distribution];
+           F--&amp;gt;FE[Binomial Generalized &amp;lt;br&amp;gt; Exponential 2 Distribution];
+           F--&amp;gt;FF[Binomial Variated &amp;lt;br&amp;gt; Exponential Distribution];
+           F--&amp;gt;FG[Binomial Variated &amp;lt;br&amp;gt; Gamma 2,alpha Distribution];
+           F--&amp;gt;FH[Binomial Inverse &amp;lt;br&amp;gt; Gaussian Distribution];
+           &amp;quot;,width=1800,height=400
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[N/n &lt;br&gt; Binomial];\n           C--&gt;E[K &lt;br&gt; Binomial];\n           C--&gt;F[Y &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:1800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[p transformed &lt;br&gt; Binomial];\n           D--&gt;E[p = 1 - exp_-t_ ];\n           E--&gt;EA[Binomial Exponential &lt;br&gt; Distribution];\n           E--&gt;EB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           E--&gt;EC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           E--&gt;ED[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           E--&gt;EE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           D--&gt;F[p = exp_-t_ ];\n           F--&gt;FA[Binomial Exponential &lt;br&gt; Distribution];\n           F--&gt;FB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           F--&gt;FC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           F--&gt;FD[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           F--&gt;FE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           F--&gt;FF[Binomial Variated &lt;br&gt; Exponential Distribution];\n           F--&gt;FG[Binomial Variated &lt;br&gt; Gamma 2,alpha Distribution];\n           F--&gt;FH[Binomial Inverse &lt;br&gt; Gaussian Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
