@@ -15,11 +15,10 @@
   
     
   
-  <meta name="description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
+  <meta name="description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
 \[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
 as the distribution of a randm variable X for which
-\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]
-\(x=0,1,2,...,n.\) where \(q&#43;p=1\), \(p,q&gt;0\) and \(n\) is a positive integer. When \(n=1\), the distribution is known as the Bernoulli distribution.">
+\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/binomialdistribution/binomialdistribution/">
@@ -116,11 +115,10 @@ as the distribution of a randm variable X for which
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/binomialdistribution/binomialdistribution/">
   <meta property="og:title" content="Tree of Binomial Distribution | Consulting Statistician">
-  <meta property="og:description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
+  <meta property="og:description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
 \[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
 as the distribution of a randm variable X for which
-\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]
-\(x=0,1,2,...,n.\) where \(q&#43;p=1\), \(p,q&gt;0\) and \(n\) is a positive integer. When \(n=1\), the distribution is known as the Bernoulli distribution.">
+\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]">
   
   
     
@@ -463,6 +461,9 @@ as the distribution of a randm variable X for which
 <li><a href="#binomial-distribution">Binomial Distribution</a></li>
 <li><a href="#applications">Applications</a></li>
 <li><a href="#binomial-mixture-distributions">Binomial Mixture Distributions</a></li>
+<li><a href="#main-groups-for-binomial-distribution">Main Groups for Binomial Distribution</a><ul>
+<li><a href="#other-with-no-sub-groups">Other With No Sub-Groups</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -496,6 +497,9 @@ as the distribution of a randm variable X for which
 <p>The binomial distribution hastwoparameters, <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> vary, though it is easy to construct such examples.</p>
 <p>In most cases discussed in the statistical literature, <span class="math inline">\(p\)</span> has a continuous distribution, while <span class="math inline">\(n\)</span> is discrete. The latter restriction is necessary, but the former is not.</p>
 <p>However, discrete distributions for <span class="math inline">\(p\)</span> have not been found to be useful and have not attracted much attention from a theoretical point of view.</p>
+</div>
+<div id="main-groups-for-binomial-distribution" class="section level1">
+<h1>Main Groups for Binomial Distribution</h1>
 <pre class="r"><code>library(DiagrammeR)
 
 DiagrammeR(
@@ -513,11 +517,13 @@ DiagrammeR(
             CA--&gt;CAE[p transformed &lt;br&gt; Binomial];
             CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];
             CA--&gt;CAD[p &lt;br&gt; Binomial];
-           &quot;,width=1500,height=1500)</code></pre>
-<div id="htmlwidget-1" style="width:1500px;height:1500px;" class="DiagrammeR html-widget"></div>
+           &quot;,width=1000,height=400)</code></pre>
+<div id="htmlwidget-1" style="width:1000px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"graph TB;\n            A[Binomial <br> Distribution]-->B[Binomial <br> Not Parent];\n            A-->D[Other with <br> no sub groups];\n            A-->C[Binomial <br> Parent];\n            A-->M[Alternate Binomial <br> Distribution];\n            A-->N[Neyman Type A <br> Distribution];\n            A-->O[Hermite Distribution];\n            C-->CA[Mixing Parameter];\n            CA-->CAA[N/n <br> Binomial];\n            CA-->CAB[K <br> Binomial];\n            CA-->CAC[Y <br> Binomial];\n            CA-->CAE[p transformed <br> Binomial];\n            CA-->CAF[Cumulative Distribution <br> Function];\n            CA-->CAD[p <br> Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
+<div id="other-with-no-sub-groups" class="section level2">
+<h2>Other With No Sub-Groups</h2>
 <pre class="r"><code>DiagrammeR(
-           &quot;graph LR;
+           &quot;graph TB;
             B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];
             A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];
             A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];
@@ -528,9 +534,10 @@ DiagrammeR(
             A--&gt;J[Binomial Distribution &lt;br&gt; of order K];
             A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];
             A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];
-            &quot;,width=1500,height=1500)</code></pre>
-<div id="htmlwidget-2" style="width:1500px;height:1500px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph LR;\n            B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];\n            A-->D[Grassia Binomial <br> Distribution];\n            A-->E[Zero Modified <br> Binomial Distribution];\n            A-->F[Dandekar's Modified <br> Binomial Distribution];\n            A-->G[Simplex Binomial <br> Mixture Model];\n            A-->H[Double Binomial <br> Distribution];\n            A-->I[Finite Binomial <br> Mixtures];\n            A-->J[Binomial Distribution <br> of order K];\n            A-->K[Truncated Binomial <br> Distribution];\n            A-->L[Weighted Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
+            &quot;,width=1000,height=400)</code></pre>
+<div id="htmlwidget-2" style="width:1000px;height:400px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph TB;\n            B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];\n            A-->D[Grassia Binomial <br> Distribution];\n            A-->E[Zero Modified <br> Binomial Distribution];\n            A-->F[Dandekar's Modified <br> Binomial Distribution];\n            A-->G[Simplex Binomial <br> Mixture Model];\n            A-->H[Double Binomial <br> Distribution];\n            A-->I[Finite Binomial <br> Mixtures];\n            A-->J[Binomial Distribution <br> of order K];\n            A-->K[Truncated Binomial <br> Distribution];\n            A-->L[Weighted Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 
     </div>

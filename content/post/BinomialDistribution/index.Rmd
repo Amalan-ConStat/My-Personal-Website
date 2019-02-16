@@ -88,6 +88,8 @@ latter restriction is necessary, but the former is not.
 However, discrete distributions for $p$ have not been found to be useful and have not attracted much attention from a
 theoretical point of view. 
 
+# Main Groups for Binomial Distribution
+
 ```{r Diagramme}
 library(DiagrammeR)
 
@@ -106,10 +108,14 @@ DiagrammeR(
             CA-->CAE[p transformed <br> Binomial];
             CA-->CAF[Cumulative Distribution <br> Function];
             CA-->CAD[p <br> Binomial];
-           ",width=1500,height=1500)
+           ",width=1000,height=400)
+```
 
+## Other With No Sub-Groups
+
+```{r }
 DiagrammeR(
-           "graph LR;
+           "graph TB;
             B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];
             A-->D[Grassia Binomial <br> Distribution];
             A-->E[Zero Modified <br> Binomial Distribution];
@@ -120,8 +126,7 @@ DiagrammeR(
             A-->J[Binomial Distribution <br> of order K];
             A-->K[Truncated Binomial <br> Distribution];
             A-->L[Weighted Binomial <br> Distribution];
-            ",width=1500,height=1500)
-
+            ",width=1000,height=400)
 
 ```
 

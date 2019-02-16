@@ -30,6 +30,9 @@
 &lt;li&gt;&lt;a href=&#34;#binomial-distribution&#34;&gt;Binomial Distribution&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#binomial-mixture-distributions&#34;&gt;Binomial Mixture Distributions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#main-groups-for-binomial-distribution&#34;&gt;Main Groups for Binomial Distribution&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#other-with-no-sub-groups&#34;&gt;Other With No Sub-Groups&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -63,6 +66,9 @@
 &lt;p&gt;The binomial distribution hastwoparameters, &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; vary, though it is easy to construct such examples.&lt;/p&gt;
 &lt;p&gt;In most cases discussed in the statistical literature, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; has a continuous distribution, while &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is discrete. The latter restriction is necessary, but the former is not.&lt;/p&gt;
 &lt;p&gt;However, discrete distributions for &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; have not been found to be useful and have not attracted much attention from a theoretical point of view.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;main-groups-for-binomial-distribution&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Main Groups for Binomial Distribution&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)
 
 DiagrammeR(
@@ -80,11 +86,13 @@ DiagrammeR(
             CA--&amp;gt;CAE[p transformed &amp;lt;br&amp;gt; Binomial];
             CA--&amp;gt;CAF[Cumulative Distribution &amp;lt;br&amp;gt; Function];
             CA--&amp;gt;CAD[p &amp;lt;br&amp;gt; Binomial];
-           &amp;quot;,width=1500,height=1500)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:1500px;height:1500px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+           &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Not Parent];\n            A--&gt;D[Other with &lt;br&gt; no sub groups];\n            A--&gt;C[Binomial &lt;br&gt; Parent];\n            A--&gt;M[Alternate Binomial &lt;br&gt; Distribution];\n            A--&gt;N[Neyman Type A &lt;br&gt; Distribution];\n            A--&gt;O[Hermite Distribution];\n            C--&gt;CA[Mixing Parameter];\n            CA--&gt;CAA[N/n &lt;br&gt; Binomial];\n            CA--&gt;CAB[K &lt;br&gt; Binomial];\n            CA--&gt;CAC[Y &lt;br&gt; Binomial];\n            CA--&gt;CAE[p transformed &lt;br&gt; Binomial];\n            CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];\n            CA--&gt;CAD[p &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;div id=&#34;other-with-no-sub-groups&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other With No Sub-Groups&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;graph LR;
+           &amp;quot;graph TB;
             B[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;A[Other with &amp;lt;br&amp;gt; no sub groups];
             A--&amp;gt;D[Grassia Binomial &amp;lt;br&amp;gt; Distribution];
             A--&amp;gt;E[Zero Modified &amp;lt;br&amp;gt; Binomial Distribution];
@@ -95,9 +103,10 @@ DiagrammeR(
             A--&amp;gt;J[Binomial Distribution &amp;lt;br&amp;gt; of order K];
             A--&amp;gt;K[Truncated Binomial &amp;lt;br&amp;gt; Distribution];
             A--&amp;gt;L[Weighted Binomial &amp;lt;br&amp;gt; Distribution];
-            &amp;quot;,width=1500,height=1500)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:1500px;height:1500px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph LR;\n            B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];\n            A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];\n            A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;F[Dandekar&#39;s Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;G[Simplex Binomial &lt;br&gt; Mixture Model];\n            A--&gt;H[Double Binomial &lt;br&gt; Distribution];\n            A--&gt;I[Finite Binomial &lt;br&gt; Mixtures];\n            A--&gt;J[Binomial Distribution &lt;br&gt; of order K];\n            A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];\n            A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+            &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];\n            A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];\n            A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;F[Dandekar&#39;s Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;G[Simplex Binomial &lt;br&gt; Mixture Model];\n            A--&gt;H[Double Binomial &lt;br&gt; Distribution];\n            A--&gt;I[Finite Binomial &lt;br&gt; Mixtures];\n            A--&gt;J[Binomial Distribution &lt;br&gt; of order K];\n            A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];\n            A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
