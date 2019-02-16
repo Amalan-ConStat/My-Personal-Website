@@ -190,9 +190,38 @@ DiagrammeR(
 
 ## Binomial Parent 
 
+
 ### N/n , K and Y Mixtures
 
+```{r other Mixtures}
+DiagrammeR(
+           "
+           graph TB;
+           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
+           B-->C[Mixing Parameter];
+           C-->D[N/n <br> Binomial];
+           C-->E[K <br> Binomial];
+           C-->F[Y <br> Binomial];
+           ",width=800,height=400
+)
+```
+
+
 ### p Transformed Binomial
+
+```{r Transformed Binomial}
+DiagrammeR(
+           "
+           graph TB;
+           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
+           B-->C[Mixing Parameter];
+           C-->D[N/n <br> Binomial];
+           C-->E[K <br> Binomial];
+           C-->F[Y <br> Binomial];
+           ",width=800,height=400
+)
+```
+
 
 ### Cumulative Distribution Function
 
