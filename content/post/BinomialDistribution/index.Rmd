@@ -292,7 +292,34 @@ DiagrammeR(
 
 ### p Binomial 
 
-```{r}
-
+```{r p Binomial}
+DiagrammeR(
+           "
+           graph LR;
+           A[Binomial <br> Distribution]-->B[ Binomial <br> Parent];
+           B-->C[Mixing Parameter];
+           C-->D[p <br> Binomial];
+           D-->DA[Beyond Beta <br> Distribution];
+           DA-->DAA[Binomial Triangular <br> Distribution];
+           DA-->DAB[Binomial Kumaraswamy 2 <br> Distribution];
+           DA-->DAC[Binomial Kumaraswamy 1 <br> Distribution];
+           DA-->DAD[Binomial Truncated <br> Exponential Distribution];
+           DA-->DAE[Binomial Truncated <br> Gamma Distribution];
+           DA-->DAF[Binomial - MinusLog <br> Distribution];
+           DA-->DAG[Binomial Standard <br> Two Sied Power <br> Distribution];
+           DA-->DAH[Binomial Ogive <br> Distribution];
+           DA-->DAI[Binomial - Two Sided <br> Ogive Distribution];
+           D-->DB[Beta Distribution];
+           DB-->DBA[Beta - Binomial <br> Distribution];
+           DB-->DBB[McDonald Generalized <br> Beta - Binomial <br> Distribution];
+           DB-->DBC[Libby and Novick <br> Generalized Beta - Binomial <br> Distribution];
+           DB-->DBD[Gauss Hypergeometric <br> Binomial Distribution];
+           DB-->DBE[Confluent Hypergeometric <br> Binomial Distribution];
+           DB-->DBF[Binomial Uniform <br> Distribution];
+           DB-->DBG[Binomial Power <br> Function Distribution];
+           DB-->DBH[Binomial Truncated <br> Beta Distribution];
+           DB-->DBI[Binomial Arcsine <br> Distribution];
+           ",width=700,height=1200
+)
 ```
 

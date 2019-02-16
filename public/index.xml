@@ -275,6 +275,36 @@ DiagrammeR(
 &lt;/div&gt;
 &lt;div id=&#34;p-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Binomial&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+           graph LR;
+           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[ Binomial &amp;lt;br&amp;gt; Parent];
+           B--&amp;gt;C[Mixing Parameter];
+           C--&amp;gt;D[p &amp;lt;br&amp;gt; Binomial];
+           D--&amp;gt;DA[Beyond Beta &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAA[Binomial Triangular &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAB[Binomial Kumaraswamy 2 &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAC[Binomial Kumaraswamy 1 &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAD[Binomial Truncated &amp;lt;br&amp;gt; Exponential Distribution];
+           DA--&amp;gt;DAE[Binomial Truncated &amp;lt;br&amp;gt; Gamma Distribution];
+           DA--&amp;gt;DAF[Binomial - MinusLog &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAG[Binomial Standard &amp;lt;br&amp;gt; Two Sied Power &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAH[Binomial Ogive &amp;lt;br&amp;gt; Distribution];
+           DA--&amp;gt;DAI[Binomial - Two Sided &amp;lt;br&amp;gt; Ogive Distribution];
+           D--&amp;gt;DB[Beta Distribution];
+           DB--&amp;gt;DBA[Beta - Binomial &amp;lt;br&amp;gt; Distribution];
+           DB--&amp;gt;DBB[McDonald Generalized &amp;lt;br&amp;gt; Beta - Binomial &amp;lt;br&amp;gt; Distribution];
+           DB--&amp;gt;DBC[Libby and Novick &amp;lt;br&amp;gt; Generalized Beta - Binomial &amp;lt;br&amp;gt; Distribution];
+           DB--&amp;gt;DBD[Gauss Hypergeometric &amp;lt;br&amp;gt; Binomial Distribution];
+           DB--&amp;gt;DBE[Confluent Hypergeometric &amp;lt;br&amp;gt; Binomial Distribution];
+           DB--&amp;gt;DBF[Binomial Uniform &amp;lt;br&amp;gt; Distribution];
+           DB--&amp;gt;DBG[Binomial Power &amp;lt;br&amp;gt; Function Distribution];
+           DB--&amp;gt;DBH[Binomial Truncated &amp;lt;br&amp;gt; Beta Distribution];
+           DB--&amp;gt;DBI[Binomial Arcsine &amp;lt;br&amp;gt; Distribution];
+           &amp;quot;,width=700,height=1200
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:700px;height:1200px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[ Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[p &lt;br&gt; Binomial];\n           D--&gt;DA[Beyond Beta &lt;br&gt; Distribution];\n           DA--&gt;DAA[Binomial Triangular &lt;br&gt; Distribution];\n           DA--&gt;DAB[Binomial Kumaraswamy 2 &lt;br&gt; Distribution];\n           DA--&gt;DAC[Binomial Kumaraswamy 1 &lt;br&gt; Distribution];\n           DA--&gt;DAD[Binomial Truncated &lt;br&gt; Exponential Distribution];\n           DA--&gt;DAE[Binomial Truncated &lt;br&gt; Gamma Distribution];\n           DA--&gt;DAF[Binomial - MinusLog &lt;br&gt; Distribution];\n           DA--&gt;DAG[Binomial Standard &lt;br&gt; Two Sied Power &lt;br&gt; Distribution];\n           DA--&gt;DAH[Binomial Ogive &lt;br&gt; Distribution];\n           DA--&gt;DAI[Binomial - Two Sided &lt;br&gt; Ogive Distribution];\n           D--&gt;DB[Beta Distribution];\n           DB--&gt;DBA[Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBB[McDonald Generalized &lt;br&gt; Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBC[Libby and Novick &lt;br&gt; Generalized Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBD[Gauss Hypergeometric &lt;br&gt; Binomial Distribution];\n           DB--&gt;DBE[Confluent Hypergeometric &lt;br&gt; Binomial Distribution];\n           DB--&gt;DBF[Binomial Uniform &lt;br&gt; Distribution];\n           DB--&gt;DBG[Binomial Power &lt;br&gt; Function Distribution];\n           DB--&gt;DBH[Binomial Truncated &lt;br&gt; Beta Distribution];\n           DB--&gt;DBI[Binomial Arcsine &lt;br&gt; Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
