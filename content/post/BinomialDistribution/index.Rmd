@@ -162,6 +162,18 @@ DiagrammeR(
 
 ## Neyman Type A Distribution 
 
+```{r Neyman Type A Distribution}
+DiagrammeR(
+           "
+            graph TB;
+            A[Binomial <br> Distribution]-->B[ Neyman Type A <br> Distribution];
+            B-->C[Poisson + Binomial + Binomial + Beta];
+            B-->D[Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta];
+            B-->E[Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta];
+           ",width=800,height=400
+)
+```
+
 
 ## Hermite Distribution
 

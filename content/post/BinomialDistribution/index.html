@@ -152,6 +152,17 @@ DiagrammeR(
 </div>
 <div id="neyman-type-a-distribution" class="section level2">
 <h2>Neyman Type A Distribution</h2>
+<pre class="r"><code>DiagrammeR(
+           &quot;
+            graph TB;
+            A[Binomial &lt;br&gt; Distribution]--&gt;B[ Neyman Type A &lt;br&gt; Distribution];
+            B--&gt;C[Poisson + Binomial + Binomial + Beta];
+            B--&gt;D[Poisson + Poisson + Binomial + Beta &lt;br&gt; or Poisson + Binomial + Poisson + Beta];
+            B--&gt;E[Poisson + Binomial + Poisson + Beta &lt;br&gt; or Binomial + Poisson + Poisson + Beta];
+           &quot;,width=800,height=400
+)</code></pre>
+<div id="htmlwidget-5" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[ Neyman Type A <br> Distribution];\n            B-->C[Poisson + Binomial + Binomial + Beta];\n            B-->D[Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta];\n            B-->E[Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta];\n           "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="hermite-distribution" class="section level2">
 <h2>Hermite Distribution</h2>
