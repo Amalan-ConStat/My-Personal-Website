@@ -163,6 +163,16 @@ DiagrammeR(
 &lt;/div&gt;
 &lt;div id=&#34;hermite-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Hermite Distribution&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+           graph TB;
+           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Hermite &amp;lt;br&amp;gt; Distribution];
+           B--&amp;gt;C[Binomial + Poisson];
+           B--&amp;gt;D[Poisson + Binomial];
+           &amp;quot;,width=800,height=400
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Hermite &lt;br&gt; Distribution];\n           B--&gt;C[Binomial + Poisson];\n           B--&gt;D[Poisson + Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;binomial-parent&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Binomial Parent&lt;/h2&gt;
