@@ -113,7 +113,7 @@ DiagrammeR(
 
 ## Other With No Sub-Groups
 
-```{r }
+```{r Other with No Sub-Groups}
 DiagrammeR(
            "graph TB;
             B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];
@@ -127,6 +127,51 @@ DiagrammeR(
             A-->K[Truncated Binomial <br> Distribution];
             A-->L[Weighted Binomial <br> Distribution];
             ",width=1000,height=400)
-
 ```
 
+## Binomial Not Parent
+
+```{r Binomial not parent}
+DiagrammeR(
+           "
+            graph TB;
+            A[Binomial <br> Distribution]-->B[Binomial Not Parent];
+            B-->BA[Hypergeometric <br> + Binomial];
+            B-->BB[Negative Binomial <br> + Binomial];
+            B-->BC[Poisson + <br> Binomial];
+           ",width=800,height=400
+)
+```
+
+## Alternate Binomial Distributions
+
+```{r Alternate Binomial Distributions}
+DiagrammeR(
+           "
+            graph TB;
+            A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];
+            B-->C[Additive Binomial <br> Distribution];
+            B-->D[Beta-Correlated <br> Distribution];
+            B-->E[COM-Poisson Binomial <br> Distribution];
+            B-->F[Correlated Binomial <br> Distribution];
+            B-->G[Multiplicative Binomial <br> Distribution];
+            ",width=800,height=400
+)
+```
+
+
+## Neyman Type A Distribution 
+
+
+## Hermite Distribution
+
+
+## Binomial Parent 
+
+### N/n , K and Y Mixtures
+
+### p Transformed Binomial
+
+### Cumulative Distribution Function
+
+### p Binomial 

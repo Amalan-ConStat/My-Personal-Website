@@ -15,10 +15,8 @@
   
     
   
-  <meta name="description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
-\[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
-as the distribution of a randm variable X for which
-\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]">
+  <meta name="description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial Not ParentAlternate Binomial DistributionsNeyman Type A DistributionHermite DistributionBinomial ParentN/n , K and Y Mixturesp Transformed BinomialCumulative Distribution Functionp BinomialBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
+\[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!">
 
   
   <link rel="alternate" hreflang="en-gb" href="/post/binomialdistribution/binomialdistribution/">
@@ -115,10 +113,8 @@ as the distribution of a randm variable X for which
   <meta property="og:site_name" content="Consulting Statistician">
   <meta property="og:url" content="/post/binomialdistribution/binomialdistribution/">
   <meta property="og:title" content="Tree of Binomial Distribution | Consulting Statistician">
-  <meta property="og:description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
-\[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]
-as the distribution of a randm variable X for which
-\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]">
+  <meta property="og:description" content="Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsBinomial Not ParentAlternate Binomial DistributionsNeyman Type A DistributionHermite DistributionBinomial ParentN/n , K and Y Mixturesp Transformed BinomialCumulative Distribution Functionp BinomialBinomial DistributionThe binomial distribution can be defined, using the binomial expansion
+\[ (q&#43;p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!">
   
   
     
@@ -463,6 +459,16 @@ as the distribution of a randm variable X for which
 <li><a href="#binomial-mixture-distributions">Binomial Mixture Distributions</a></li>
 <li><a href="#main-groups-for-binomial-distribution">Main Groups for Binomial Distribution</a><ul>
 <li><a href="#other-with-no-sub-groups">Other With No Sub-Groups</a></li>
+<li><a href="#binomial-not-parent">Binomial Not Parent</a></li>
+<li><a href="#alternate-binomial-distributions">Alternate Binomial Distributions</a></li>
+<li><a href="#neyman-type-a-distribution">Neyman Type A Distribution</a></li>
+<li><a href="#hermite-distribution">Hermite Distribution</a></li>
+<li><a href="#binomial-parent">Binomial Parent</a><ul>
+<li><a href="#nn-k-and-y-mixtures">N/n , K and Y Mixtures</a></li>
+<li><a href="#p-transformed-binomial">p Transformed Binomial</a></li>
+<li><a href="#cumulative-distribution-function">Cumulative Distribution Function</a></li>
+<li><a href="#p-binomial">p Binomial</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -537,6 +543,57 @@ DiagrammeR(
             &quot;,width=1000,height=400)</code></pre>
 <div id="htmlwidget-2" style="width:1000px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph TB;\n            B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];\n            A-->D[Grassia Binomial <br> Distribution];\n            A-->E[Zero Modified <br> Binomial Distribution];\n            A-->F[Dandekar's Modified <br> Binomial Distribution];\n            A-->G[Simplex Binomial <br> Mixture Model];\n            A-->H[Double Binomial <br> Distribution];\n            A-->I[Finite Binomial <br> Mixtures];\n            A-->J[Binomial Distribution <br> of order K];\n            A-->K[Truncated Binomial <br> Distribution];\n            A-->L[Weighted Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="binomial-not-parent" class="section level2">
+<h2>Binomial Not Parent</h2>
+<pre class="r"><code>DiagrammeR(
+           &quot;
+            graph TB;
+            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Not Parent];
+            B--&gt;BA[Hypergeometric &lt;br&gt; + Binomial];
+            B--&gt;BB[Negative Binomial &lt;br&gt; + Binomial];
+            B--&gt;BC[Poisson + &lt;br&gt; Binomial];
+           &quot;,width=800,height=400
+)</code></pre>
+<div id="htmlwidget-3" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Binomial Not Parent];\n            B-->BA[Hypergeometric <br> + Binomial];\n            B-->BB[Negative Binomial <br> + Binomial];\n            B-->BC[Poisson + <br> Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="alternate-binomial-distributions" class="section level2">
+<h2>Alternate Binomial Distributions</h2>
+<pre class="r"><code>DiagrammeR(
+           &quot;
+            graph TB;
+            A[Binomial &lt;br&gt; Distribution]--&gt;B[Alternate Binomial &lt;br&gt; Distribution];
+            B--&gt;C[Additive Binomial &lt;br&gt; Distribution];
+            B--&gt;D[Beta-Correlated &lt;br&gt; Distribution];
+            B--&gt;E[COM-Poisson Binomial &lt;br&gt; Distribution];
+            B--&gt;F[Correlated Binomial &lt;br&gt; Distribution];
+            B--&gt;G[Multiplicative Binomial &lt;br&gt; Distribution];
+            &quot;,width=800,height=400
+)</code></pre>
+<div id="htmlwidget-4" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];\n            B-->C[Additive Binomial <br> Distribution];\n            B-->D[Beta-Correlated <br> Distribution];\n            B-->E[COM-Poisson Binomial <br> Distribution];\n            B-->F[Correlated Binomial <br> Distribution];\n            B-->G[Multiplicative Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="neyman-type-a-distribution" class="section level2">
+<h2>Neyman Type A Distribution</h2>
+</div>
+<div id="hermite-distribution" class="section level2">
+<h2>Hermite Distribution</h2>
+</div>
+<div id="binomial-parent" class="section level2">
+<h2>Binomial Parent</h2>
+<div id="nn-k-and-y-mixtures" class="section level3">
+<h3>N/n , K and Y Mixtures</h3>
+</div>
+<div id="p-transformed-binomial" class="section level3">
+<h3>p Transformed Binomial</h3>
+</div>
+<div id="cumulative-distribution-function" class="section level3">
+<h3>Cumulative Distribution Function</h3>
+</div>
+<div id="p-binomial" class="section level3">
+<h3>p Binomial</h3>
+</div>
 </div>
 </div>
 

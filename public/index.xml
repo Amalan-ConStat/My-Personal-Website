@@ -32,6 +32,16 @@
 &lt;li&gt;&lt;a href=&#34;#binomial-mixture-distributions&#34;&gt;Binomial Mixture Distributions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#main-groups-for-binomial-distribution&#34;&gt;Main Groups for Binomial Distribution&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#other-with-no-sub-groups&#34;&gt;Other With No Sub-Groups&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binomial-not-parent&#34;&gt;Binomial Not Parent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#alternate-binomial-distributions&#34;&gt;Alternate Binomial Distributions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#neyman-type-a-distribution&#34;&gt;Neyman Type A Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hermite-distribution&#34;&gt;Hermite Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binomial-parent&#34;&gt;Binomial Parent&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#nn-k-and-y-mixtures&#34;&gt;N/n , K and Y Mixtures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#p-transformed-binomial&#34;&gt;p Transformed Binomial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cumulative-distribution-function&#34;&gt;Cumulative Distribution Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#p-binomial&#34;&gt;p Binomial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -106,6 +116,57 @@ DiagrammeR(
             &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];\n            A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];\n            A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;F[Dandekar&#39;s Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;G[Simplex Binomial &lt;br&gt; Mixture Model];\n            A--&gt;H[Double Binomial &lt;br&gt; Distribution];\n            A--&gt;I[Finite Binomial &lt;br&gt; Mixtures];\n            A--&gt;J[Binomial Distribution &lt;br&gt; of order K];\n            A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];\n            A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;binomial-not-parent&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Binomial Not Parent&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+            graph TB;
+            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial Not Parent];
+            B--&amp;gt;BA[Hypergeometric &amp;lt;br&amp;gt; + Binomial];
+            B--&amp;gt;BB[Negative Binomial &amp;lt;br&amp;gt; + Binomial];
+            B--&amp;gt;BC[Poisson + &amp;lt;br&amp;gt; Binomial];
+           &amp;quot;,width=800,height=400
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Not Parent];\n            B--&gt;BA[Hypergeometric &lt;br&gt; + Binomial];\n            B--&gt;BB[Negative Binomial &lt;br&gt; + Binomial];\n            B--&gt;BC[Poisson + &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;alternate-binomial-distributions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Alternate Binomial Distributions&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+            graph TB;
+            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Alternate Binomial &amp;lt;br&amp;gt; Distribution];
+            B--&amp;gt;C[Additive Binomial &amp;lt;br&amp;gt; Distribution];
+            B--&amp;gt;D[Beta-Correlated &amp;lt;br&amp;gt; Distribution];
+            B--&amp;gt;E[COM-Poisson Binomial &amp;lt;br&amp;gt; Distribution];
+            B--&amp;gt;F[Correlated Binomial &amp;lt;br&amp;gt; Distribution];
+            B--&amp;gt;G[Multiplicative Binomial &amp;lt;br&amp;gt; Distribution];
+            &amp;quot;,width=800,height=400
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Alternate Binomial &lt;br&gt; Distribution];\n            B--&gt;C[Additive Binomial &lt;br&gt; Distribution];\n            B--&gt;D[Beta-Correlated &lt;br&gt; Distribution];\n            B--&gt;E[COM-Poisson Binomial &lt;br&gt; Distribution];\n            B--&gt;F[Correlated Binomial &lt;br&gt; Distribution];\n            B--&gt;G[Multiplicative Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;neyman-type-a-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Neyman Type A Distribution&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hermite-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hermite Distribution&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;binomial-parent&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Binomial Parent&lt;/h2&gt;
+&lt;div id=&#34;nn-k-and-y-mixtures&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;N/n , K and Y Mixtures&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;p-transformed-binomial&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;p Transformed Binomial&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;p-binomial&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;p Binomial&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
