@@ -680,6 +680,23 @@ DiagrammeR(
 </div>
 <div id="cumulative-distribution-function" class="section level3">
 <h3>Cumulative Distribution Function</h3>
+<pre class="r"><code>DiagrammeR(
+           &quot;
+            graph TB;
+            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Parent];
+            B--&gt;C[Mixing Parameter];
+            C--&gt;D[Cumulative Distribution];
+            D--&gt;DA[Beta Generated &lt;br&gt; Distribution];
+            DA--&gt;DAA[Binomial &lt;br&gt; Beta Exponential &lt;br&gt; Distribution];
+            DA--&gt;DAB[Binomial &lt;br&gt; Beta Generalized &lt;br&gt; Exponential Distribution];
+            DA--&gt;DAC[Binomial &lt;br&gt; Beta Power &lt;br&gt; Distribution];
+            D--&gt;DB[Kumaraswamy &lt;br&gt; Generated &lt;br&gt; Distribution];
+            DB--&gt;DBA[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Power Distribution];
+            DB--&gt;DBB[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Exponential &lt;br&gt; Distribution];        
+           &quot;,width=1000,height=750
+)</code></pre>
+<div id="htmlwidget-10" style="width:1000px;height:750px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Binomial Parent];\n            B-->C[Mixing Parameter];\n            C-->D[Cumulative Distribution];\n            D-->DA[Beta Generated <br> Distribution];\n            DA-->DAA[Binomial <br> Beta Exponential <br> Distribution];\n            DA-->DAB[Binomial <br> Beta Generalized <br> Exponential Distribution];\n            DA-->DAC[Binomial <br> Beta Power <br> Distribution];\n            D-->DB[Kumaraswamy <br> Generated <br> Distribution];\n            DB-->DBA[Binomial <br> Kumaraswamy <br> Power Distribution];\n            DB-->DBB[Binomial <br> Kumaraswamy <br> Exponential <br> Distribution];        \n           "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="p-binomial" class="section level3">
 <h3>p Binomial</h3>

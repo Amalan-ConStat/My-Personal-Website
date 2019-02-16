@@ -255,6 +255,23 @@ DiagrammeR(
 &lt;/div&gt;
 &lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+            graph TB;
+            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial Parent];
+            B--&amp;gt;C[Mixing Parameter];
+            C--&amp;gt;D[Cumulative Distribution];
+            D--&amp;gt;DA[Beta Generated &amp;lt;br&amp;gt; Distribution];
+            DA--&amp;gt;DAA[Binomial &amp;lt;br&amp;gt; Beta Exponential &amp;lt;br&amp;gt; Distribution];
+            DA--&amp;gt;DAB[Binomial &amp;lt;br&amp;gt; Beta Generalized &amp;lt;br&amp;gt; Exponential Distribution];
+            DA--&amp;gt;DAC[Binomial &amp;lt;br&amp;gt; Beta Power &amp;lt;br&amp;gt; Distribution];
+            D--&amp;gt;DB[Kumaraswamy &amp;lt;br&amp;gt; Generated &amp;lt;br&amp;gt; Distribution];
+            DB--&amp;gt;DBA[Binomial &amp;lt;br&amp;gt; Kumaraswamy &amp;lt;br&amp;gt; Power Distribution];
+            DB--&amp;gt;DBB[Binomial &amp;lt;br&amp;gt; Kumaraswamy &amp;lt;br&amp;gt; Exponential &amp;lt;br&amp;gt; Distribution];        
+           &amp;quot;,width=1000,height=750
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:1000px;height:750px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Parent];\n            B--&gt;C[Mixing Parameter];\n            C--&gt;D[Cumulative Distribution];\n            D--&gt;DA[Beta Generated &lt;br&gt; Distribution];\n            DA--&gt;DAA[Binomial &lt;br&gt; Beta Exponential &lt;br&gt; Distribution];\n            DA--&gt;DAB[Binomial &lt;br&gt; Beta Generalized &lt;br&gt; Exponential Distribution];\n            DA--&gt;DAC[Binomial &lt;br&gt; Beta Power &lt;br&gt; Distribution];\n            D--&gt;DB[Kumaraswamy &lt;br&gt; Generated &lt;br&gt; Distribution];\n            DB--&gt;DBA[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Power Distribution];\n            DB--&gt;DBB[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Exponential &lt;br&gt; Distribution];        \n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;p-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Binomial&lt;/h3&gt;

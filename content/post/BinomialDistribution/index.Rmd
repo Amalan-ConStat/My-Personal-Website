@@ -272,8 +272,22 @@ DiagrammeR(
 
 ### Cumulative Distribution Function
 
-```{r}
-
+```{r Cumulative Distribution Function}
+DiagrammeR(
+           "
+            graph TB;
+            A[Binomial <br> Distribution]-->B[Binomial Parent];
+            B-->C[Mixing Parameter];
+            C-->D[Cumulative Distribution];
+            D-->DA[Beta Generated <br> Distribution];
+            DA-->DAA[Binomial <br> Beta Exponential <br> Distribution];
+            DA-->DAB[Binomial <br> Beta Generalized <br> Exponential Distribution];
+            DA-->DAC[Binomial <br> Beta Power <br> Distribution];
+            D-->DB[Kumaraswamy <br> Generated <br> Distribution];
+            DB-->DBA[Binomial <br> Kumaraswamy <br> Power Distribution];
+            DB-->DBB[Binomial <br> Kumaraswamy <br> Exponential <br> Distribution];        
+           ",width=1000,height=750
+)
 ```
 
 ### p Binomial 
