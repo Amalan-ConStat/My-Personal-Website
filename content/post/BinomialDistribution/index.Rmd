@@ -108,6 +108,7 @@ DiagrammeR(
             CA-->CAE[p transformed <br> Binomial];
             CA-->CAF[Cumulative Distribution <br> Function];
             CA-->CAD[p <br> Binomial];
+            CA-->CAG[Log Inverse <br> Distribution <br> 0,1 Domain]
            ",width=1000,height=400)
 ```
 
@@ -244,12 +245,40 @@ DiagrammeR(
 ```
 
 
-### Cumulative Distribution Function
-
-
 ### Log Inverse Distribution [0,1] Domain
 
+```{r Log Inverse Distribution 0,1 Domain}
+DiagrammeR(
+           "
+           graph LR;
+           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
+           B-->C[Mixing Parameter];
+           C-->D[Log Inverse <br> Distribution <br> 0,1 Domain];
+           D-->DA[Binomial Type 1 <br> Log Inverse <br> Exponential Distribution];
+           D-->DB[Binomial Type 2 <br> Log Inverse <br> Exponential Distribution];
+           D-->DC[Binomial Type 1 <br> Log Inverse <br> Gamma 1 Distribution];
+           D-->DD[Binomial Type 2 <br> Log Inverse <br> Gamma 1 Distribution];
+           D-->DE[Binomial Type 1 <br> Log Inverse <br> Gamma 2 Distribution];
+           D-->DF[Binomial Type 2 <br> Log Inverse <br> Gamma 2 Distribution];
+           D-->DG[Binomial Type 1 <br> Log Inverse <br> Generalized <br> Exponential 1 <br> Distribution];
+           D-->DH[Binomial Type 2 <br> Log Inverse <br> Generalized <br> Exponential 1 <br> Distribution];
+           D-->DJ[Binomial Type 1 <br> Log Inverse <br> Generalized <br> Exponential 2 <br> Distribution];
+           D-->DK[Binomial Type 2 <br> Log Inverse <br> Generalized <br> Exponential 2 <br> Distribution];
+           D-->DL[Binomial Type 1 <br> Log Inverse <br> Gamma 3 <br> Distribution];
+           ",width=800,height=1000
+)
+```
 
+
+### Cumulative Distribution Function
+
+```{r}
+
+```
 
 ### p Binomial 
+
+```{r}
+
+```
 

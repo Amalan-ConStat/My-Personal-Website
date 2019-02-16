@@ -39,8 +39,8 @@
 &lt;li&gt;&lt;a href=&#34;#binomial-parent&#34;&gt;Binomial Parent&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#nn-k-and-y-mixtures&#34;&gt;N/n , K and Y Mixtures&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#p-transformed-binomial&#34;&gt;p Transformed Binomial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#cumulative-distribution-function&#34;&gt;Cumulative Distribution Function&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#log-inverse-distribution-01-domain&#34;&gt;Log Inverse Distribution [0,1] Domain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cumulative-distribution-function&#34;&gt;Cumulative Distribution Function&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#p-binomial&#34;&gt;p Binomial&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -97,9 +97,10 @@ DiagrammeR(
             CA--&amp;gt;CAE[p transformed &amp;lt;br&amp;gt; Binomial];
             CA--&amp;gt;CAF[Cumulative Distribution &amp;lt;br&amp;gt; Function];
             CA--&amp;gt;CAD[p &amp;lt;br&amp;gt; Binomial];
+            CA--&amp;gt;CAG[Log Inverse &amp;lt;br&amp;gt; Distribution &amp;lt;br&amp;gt; 0,1 Domain]
            &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Not Parent];\n            A--&gt;D[Other with &lt;br&gt; no sub groups];\n            A--&gt;C[Binomial &lt;br&gt; Parent];\n            A--&gt;M[Alternate Binomial &lt;br&gt; Distribution];\n            A--&gt;N[Neyman Type A &lt;br&gt; Distribution];\n            A--&gt;O[Hermite Distribution];\n            C--&gt;CA[Mixing Parameter];\n            CA--&gt;CAA[N/n &lt;br&gt; Binomial];\n            CA--&gt;CAB[K &lt;br&gt; Binomial];\n            CA--&gt;CAC[Y &lt;br&gt; Binomial];\n            CA--&gt;CAE[p transformed &lt;br&gt; Binomial];\n            CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];\n            CA--&gt;CAD[p &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Not Parent];\n            A--&gt;D[Other with &lt;br&gt; no sub groups];\n            A--&gt;C[Binomial &lt;br&gt; Parent];\n            A--&gt;M[Alternate Binomial &lt;br&gt; Distribution];\n            A--&gt;N[Neyman Type A &lt;br&gt; Distribution];\n            A--&gt;O[Hermite Distribution];\n            C--&gt;CA[Mixing Parameter];\n            CA--&gt;CAA[N/n &lt;br&gt; Binomial];\n            CA--&gt;CAB[K &lt;br&gt; Binomial];\n            CA--&gt;CAC[Y &lt;br&gt; Binomial];\n            CA--&gt;CAE[p transformed &lt;br&gt; Binomial];\n            CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];\n            CA--&gt;CAD[p &lt;br&gt; Binomial];\n            CA--&gt;CAG[Log Inverse &lt;br&gt; Distribution &lt;br&gt; 0,1 Domain]\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;div id=&#34;other-with-no-sub-groups&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Other With No Sub-Groups&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
@@ -228,11 +229,32 @@ DiagrammeR(
 &lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:800px;height:1000px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[p transformed &lt;br&gt; Binomial];\n           D--&gt;E[p = 1 - exp_-t_ ];\n           E--&gt;EA[Binomial Exponential &lt;br&gt; Distribution];\n           E--&gt;EB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           E--&gt;EC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           E--&gt;ED[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           E--&gt;EE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           D--&gt;F[p = exp_-t_ ];\n           F--&gt;FA[Binomial Exponential &lt;br&gt; Distribution];\n           F--&gt;FB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           F--&gt;FC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           F--&gt;FD[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           F--&gt;FE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           F--&gt;FF[Binomial Variated &lt;br&gt; Exponential Distribution];\n           F--&gt;FG[Binomial Variated &lt;br&gt; Gamma 2,alpha Distribution];\n           F--&gt;FH[Binomial Inverse &lt;br&gt; Gaussian Distribution];\n           D--&gt;G[p = cy];\n           G--&gt;GA[Binomial Generalized Beta 4 Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
-&lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
-&lt;/div&gt;
 &lt;div id=&#34;log-inverse-distribution-01-domain&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Log Inverse Distribution [0,1] Domain&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
+           &amp;quot;
+           graph LR;
+           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
+           B--&amp;gt;C[Mixing Parameter];
+           C--&amp;gt;D[Log Inverse &amp;lt;br&amp;gt; Distribution &amp;lt;br&amp;gt; 0,1 Domain];
+           D--&amp;gt;DA[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Exponential Distribution];
+           D--&amp;gt;DB[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Exponential Distribution];
+           D--&amp;gt;DC[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 1 Distribution];
+           D--&amp;gt;DD[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 1 Distribution];
+           D--&amp;gt;DE[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 2 Distribution];
+           D--&amp;gt;DF[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 2 Distribution];
+           D--&amp;gt;DG[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 1 &amp;lt;br&amp;gt; Distribution];
+           D--&amp;gt;DH[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 1 &amp;lt;br&amp;gt; Distribution];
+           D--&amp;gt;DJ[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 2 &amp;lt;br&amp;gt; Distribution];
+           D--&amp;gt;DK[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 2 &amp;lt;br&amp;gt; Distribution];
+           D--&amp;gt;DL[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 3 &amp;lt;br&amp;gt; Distribution];
+           &amp;quot;,width=800,height=1000
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:800px;height:1000px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[Log Inverse &lt;br&gt; Distribution &lt;br&gt; 0,1 Domain];\n           D--&gt;DA[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Exponential Distribution];\n           D--&gt;DB[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Exponential Distribution];\n           D--&gt;DC[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 1 Distribution];\n           D--&gt;DD[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 1 Distribution];\n           D--&gt;DE[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 2 Distribution];\n           D--&gt;DF[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 2 Distribution];\n           D--&gt;DG[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 1 &lt;br&gt; Distribution];\n           D--&gt;DH[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 1 &lt;br&gt; Distribution];\n           D--&gt;DJ[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 2 &lt;br&gt; Distribution];\n           D--&gt;DK[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 2 &lt;br&gt; Distribution];\n           D--&gt;DL[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 3 &lt;br&gt; Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
 &lt;/div&gt;
 &lt;div id=&#34;p-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Binomial&lt;/h3&gt;
