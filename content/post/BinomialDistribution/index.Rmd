@@ -218,7 +218,7 @@ DiagrammeR(
 ```{r Transformed Binomial}
 DiagrammeR(
            "
-           graph TB;
+           graph LR;
            A[Binomial <br> Distribution]-->B[Binomial <br> Parent];
            B-->C[Mixing Parameter];
            C-->D[p transformed <br> Binomial];
@@ -237,11 +237,19 @@ DiagrammeR(
            F-->FF[Binomial Variated <br> Exponential Distribution];
            F-->FG[Binomial Variated <br> Gamma 2,alpha Distribution];
            F-->FH[Binomial Inverse <br> Gaussian Distribution];
-           ",width=1800,height=400
+           D-->G[p = cy];
+           G-->GA[Binomial Generalized Beta 4 Distribution];
+           ",width=800,height=1000
 )
 ```
 
 
 ### Cumulative Distribution Function
 
+
+### Log Inverse Distribution [0,1] Domain
+
+
+
 ### p Binomial 
+
