@@ -138,7 +138,17 @@
 &lt;p&gt;Hasselblad, V. (1969). Estimation of finite mixtures of distributions from the exponential family, Journal of the American Statistical Association, 64, 1459-1471.&lt;/p&gt;
 &lt;p&gt;Rider, P. R. (1962a). Estimating the parameters of mixed Poisson, binomial and Weibull distributions, Bulletin of the International Statistical Institute, 39(2), 225-232.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Binomial Distribution of order K&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Binomial Distribution of order K&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ling, K. D. (1988). On binomial distributions of order k, Statistics and Probability Letters, 6, 371-376.&lt;/p&gt;
+&lt;p&gt;Shanthikumar, J. G. (1985). Discrete random variate generation using uniformization, European Journal of Operational Research, 21, 387-398.&lt;/p&gt;
+&lt;p&gt;Chiang, D., and Niu, S. C. (1981). Reliability of consecutive-k-out-of-n:F systems, IEEE Transactions on Reliability, R-30, 87-89.&lt;/p&gt;
+&lt;p&gt;Bollinger, R. C., and Salvia, A. A. (1982). Consecutive-k-out-of-n: F networks, IEEE Transactions on Reliability, R-31, 53-55.&lt;/p&gt;
+&lt;p&gt;Hirano, K. (1986). Some properties of the distributions of order k, Fibonacci Numbers and Their Applications, A. N. Philippou, G. E. Bergum, and A. F. Horadam (editors), 43-53. Dordrecht: Reidel.&lt;/p&gt;
+&lt;p&gt;Philippou, A. N., and Makri, F. S. (1986). Success runs and longest runs, Statistics and Probability Letters, 4, 101-105 (corrected version 211-215).&lt;/p&gt;
+&lt;p&gt;Feller, W. (1957). An Introduction to Probability Theory and Its Applications (second edition), Vol. 1, New York: Wiley.&lt;/p&gt;
+&lt;p&gt;Aki, S., and Hirano, K. (1988). Some characteristics of the binomial distribution of order k and related distributions, Statistical Theory and Data Analysis, Vol. 2, K. Matusita (editor), 211-222. Amsterdam: Elsevier.&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Truncated Binomial Distribution&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Weighted Binomial Distribution&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
