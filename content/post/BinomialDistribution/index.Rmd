@@ -411,6 +411,19 @@ or
 
 $$[\{ Binomial(N,P) \bigvee Poisson(\phi)\} \bigwedge_N Poisson(\lambda)] \bigwedge_P Beta(a,b)$$
 
+Gurland, J. (1958). A generalized class of contagious distributions, Biometrics, 14, 229-249.
+
+Feller, W. (1943). On a general class of "contagious" distributions, Annals of Mathematical Statistics, 14, 389-400.
+
+Neyman, J. (1939). On a new class of "contagious" distributions applicable in entomology and bacteriology, Annals of
+Mathematical Statistics, 10, 35-57. 
+
+Subrahmaniam, Kocherlakota (1966). On a general class of contagious distributions: The Pascal-Poisson distribution, Trabajos
+de Estadistica, 17, 109-127. 
+
+Subrahmaniam, Kathleen (1978). The Pascal-Poisson distribution revisited: Estimation and efficiency, Communications in
+Statistics-Theory and Methods, A7, 673-683.
+
 ## Hermite Distribution
 
 ```{r Hermite Distribution,echo=FALSE}
