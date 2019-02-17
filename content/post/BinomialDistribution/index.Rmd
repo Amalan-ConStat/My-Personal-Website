@@ -91,6 +91,19 @@ theoretical point of view.
 
 # Main Groups for Binomial Distribution
 
+More than 50 distributions are in this blog post but I shall not explain 
+them even briefly. This blog post is to introduce them and let you know the 
+reader about these distributions with article references.
+
+In this section I introduce the main groups, where the number of groups are 6. Further,
+the Binomial Parent group has a very broad approach. "Binomial Parent" means, 
+Where Binomial Distribution is the Parent distribution and by mixing them with other distributions
+we can produce a new distribution which would satisfy real data but not fully satisfy the condition 
+of Binomial Distribution.
+
+Clearly with the vast number of distributions and sub groups it is not possible to draw them in one
+diagram, therefore I have divided them in sub groups and sub topics in the following sections.
+
 ```{r Diagramme,echo=FALSE}
 library(DiagrammeR)
 
