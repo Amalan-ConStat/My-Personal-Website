@@ -149,7 +149,7 @@ DiagrammeR(
 
 Below is the list of Distributions in this sub group with article references.
 
-* Grassia Binomial Distribution
+### Grassia Binomial Distribution
 
 Kemp, A. W., and Kemp, C. D (2004). Factorial moment characterizations for certain binomial-type
 distributions, Communications in Statistics-Theory and Methods, 33, 3059-3068. 
@@ -178,7 +178,7 @@ Chatfield, C., and Goodhardt, G. J. (1970). The beta-binomial model for consumer
 
 Consul, P. C., and Jain, G. C. (1971). On the log-gamma distribution and its properties, Statistische Hefte, 12, 100-106.
 
-* Zero Modified Binomial Distribution
+### Zero Modified Binomial Distribution
 
 Dowling, M. M., and Nakamura, M. (1997). Estimating parameters for discrete distributions via the empirical probability
 generating function, Communications in Statistics-Simulation and Computation, 26, 301-313. 
@@ -186,28 +186,28 @@ generating function, Communications in Statistics-Simulation and Computation, 26
 Khatri, C. G. (1961). On the distributions obtained by varying the number of trials in a binomial distribution, Annals of 
 the Institute of Statistical Mathematics, Tokyo, 13, 47-51.
 
-* Dandekar's Modified Binomial Distribution
+### Dandekar's Modified Binomial Distribution
 
 Patil, G. P., Boswell, M. T., Joshi, S. W., and Ratnaparkhi, M. V. (1984). Dictionary and Bibliography of Statistical 
 Distributions in Scientific Work, Vol. 1: Discrete Models, Fairland, MD: International Co-operative Publishing House. 
 
 Dandekar, V. M. (1955). Certain modified forms of binomial and Poisson distributions, Sankhya, 15, 237-250. 
 
-* Simplex Binomial Mixture Model
+### Simplex Binomial Mixture Model
 
 Barndorff-Neilsen, O. E., and Jorgensen, B. (1991). Some parametric models on the simplex, Journal of 
 Multivariate Analysis, 39, 106-116. 
 
 Jorgensen, B. (1997). The Theory of Regression Models, London: Chapman & Hall/CRC. 
 
-* Double Binomial Distribution
+### Double Binomial Distribution
 
 Lindsey, J. K. (1995). Modelling Frequency and Count Data, Oxford: Oxford University Press.
 
 Efron, B. (1986). Double exponential families and their use in generalized linear regression, Journal of the 
 American Statistical Association, 81, 709-721. 
 
-* Finite Biomial Mixtures
+### Finite Biomial Mixtures
 
 Teicher, H. (1961). Identifiability of mixtures, Annals of Mathematical Statistics, 32, 244-248.
 
@@ -234,7 +234,7 @@ American Statistical Association, 64, 1459-1471.
 Rider, P. R. (1962a). Estimating the parameters of mixed Poisson, binomial and Weibull distributions, Bulletin of the
 International Statistical Institute, 39(2), 225-232. 
 
-* Binomial Distribution of order K
+### Binomial Distribution of order K
 
 Ling, K. D. (1988). On binomial distributions of order k, Statistics and Probability Letters, 6, 371-376.
 
@@ -258,7 +258,7 @@ Feller, W. (1957). An Introduction to Probability Theory and Its Applications (s
 Aki, S., and Hirano, K. (1988). Some characteristics of the binomial distribution of order k and related distributions,
 Statistical Theory and Data Analysis, Vol. 2, K. Matusita (editor), 211-222. Amsterdam: Elsevier.
 
-* Truncated Binomial Distribution
+### Truncated Binomial Distribution
 
 Stephan, F. F. (1945). The expected value and variance of the reciprocal and other negative powers of a positive Bernoullian 
 variate, Annals of Mathematical Statistics, 16, 50-61.
@@ -273,7 +273,7 @@ Journal of the American Statistical Association, 49, 169-177.
 
 Finney, D. J. (1949). The truncated binomial distribution, Annals of Eugenics, London, 14, 319-328. 
 
-* Weighted Binomial Distribution
+### Weighted Binomial Distribution
 
 Patil, G. P., Rao, C. R., and Zelen, M. (1986). A Computerized Bibliography of Weighted Distributions and Related Weighted
 Methods for Statistical Analysis and Interpretations of Encountered Data, Observational Studies, Representativeness Issues,
@@ -308,15 +308,15 @@ DiagrammeR(
 )
 ```
 
-* Hypergeometric + Binomial
+### Hypergeometric + Binomial
 
 $$Hypergeometric (n,Y,N) \bigwedge_Y Binomial(N,p)$$
 
-* Negative Binomial + Binomial
+### Negative Binomial + Binomial
 
 $$Negative Binomial (kY,P) \bigwedge_Y Binomial(n,p)$$
 
-* Poisson + Binomial
+### Poisson + Binomial
 
 $$ Poisson (\theta) \bigwedge_{\theta/\phi} Binomial(n,p)$$
 
@@ -339,7 +339,7 @@ DiagrammeR(
 )
 ```
 
-* Additive Binomial Distribution
+### Additive Binomial Distribution
 
 Johnson, N. L., Kemp, A. W., & Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.
 
@@ -349,17 +349,17 @@ Biometrics, 34(1), pp.69-76.
 Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and
 Methods, 14(6), pp.1497-1506.
 
-* Beta-Correlated Binomial Distribution
+### Beta-Correlated Binomial Distribution
 
 Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory 
 and Methods, 14(6), pp.1497-1506.
 
-* COM-Poisson Binomial Distribution
+### COM-Poisson Binomial Distribution
 
 Borges, P., Rodrigues, J., Balakrishnan, N. and Bazan, J., 2014. A COM-Poisson type generalization of the binomial 
 distribution and its properties and applications. Statistics & Probability Letters, 87, pp.158-166.
 
-* Correlated Binomial Distribution
+### Correlated Binomial Distribution
 
 Johnson, N. L., Kemp, A. W., & Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.
 
@@ -371,7 +371,7 @@ and Methods, 14(6), pp.1497-1506.
 
 Jorge G. Morel and Nagaraj K. Neerchal. Overdispersion Models in SAS. SAS Institute, 2012.
 
-* Multiplicative Binomial Distribution
+### Multiplicative Binomial Distribution
 
 Johnson, N. L., Kemp, A. W., & Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.
 
@@ -395,16 +395,16 @@ DiagrammeR(
 )
 ```
 
-* Poisson + Binomial + Beta
+### Poisson + Binomial + Beta
 
 $$Poisson(\phi) \bigvee Binomial(1,P) \bigwedge_P Beta(\alpha,\beta)$$
 
-* Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta
+### Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta
 
 $$ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]$$
 or
 $$ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]$$
-* Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta
+### Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta
 
 $$[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)$$
 or
@@ -437,11 +437,11 @@ DiagrammeR(
 )
 ```
 
-* Binomial + Poisson
+### Binomial + Poisson
 
 $$Binomial(N,p) \bigwedge_{N/2} Poisson(\lambda)$$
 
-* Poisson + Binomial
+### Poisson + Binomial
 
 $$Poisson(\lambda) \bigvee Binomial(2,p)$$
 
@@ -474,9 +474,7 @@ DiagrammeR(
 )
 ```
 
-* 
-
-* 
+ 
 ### p Transformed Binomial
 
 ```{r Transformed Binomial,echo=FALSE}

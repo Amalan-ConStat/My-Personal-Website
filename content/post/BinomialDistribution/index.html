@@ -36,13 +36,40 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 </ul></li>
 <li><a href="#binomial-mixture-distributions">Binomial Mixture Distributions</a></li>
 <li><a href="#main-groups-for-binomial-distribution">Main Groups for Binomial Distribution</a><ul>
-<li><a href="#other-with-no-sub-groups">Other With No Sub-Groups</a></li>
-<li><a href="#binomial-not-parent">Binomial Not Parent</a></li>
-<li><a href="#alternate-binomial-distributions">Alternate Binomial Distributions</a></li>
-<li><a href="#neyman-type-a-distribution">Neyman Type A Distribution</a></li>
-<li><a href="#hermite-distribution">Hermite Distribution</a></li>
+<li><a href="#other-with-no-sub-groups">Other With No Sub-Groups</a><ul>
+<li><a href="#grassia-binomial-distribution">Grassia Binomial Distribution</a></li>
+<li><a href="#zero-modified-binomial-distribution">Zero Modified Binomial Distribution</a></li>
+<li><a href="#dandekars-modified-binomial-distribution">Dandekar’s Modified Binomial Distribution</a></li>
+<li><a href="#simplex-binomial-mixture-model">Simplex Binomial Mixture Model</a></li>
+<li><a href="#double-binomial-distribution">Double Binomial Distribution</a></li>
+<li><a href="#finite-biomial-mixtures">Finite Biomial Mixtures</a></li>
+<li><a href="#binomial-distribution-of-order-k">Binomial Distribution of order K</a></li>
+<li><a href="#truncated-binomial-distribution">Truncated Binomial Distribution</a></li>
+<li><a href="#weighted-binomial-distribution">Weighted Binomial Distribution</a></li>
+</ul></li>
+<li><a href="#binomial-not-parent">Binomial Not Parent</a><ul>
+<li><a href="#hypergeometric-binomial">Hypergeometric + Binomial</a></li>
+<li><a href="#negative-binomial-binomial">Negative Binomial + Binomial</a></li>
+<li><a href="#poisson-binomial">Poisson + Binomial</a></li>
+</ul></li>
+<li><a href="#alternate-binomial-distributions">Alternate Binomial Distributions</a><ul>
+<li><a href="#additive-binomial-distribution">Additive Binomial Distribution</a></li>
+<li><a href="#beta-correlated-binomial-distribution">Beta-Correlated Binomial Distribution</a></li>
+<li><a href="#com-poisson-binomial-distribution">COM-Poisson Binomial Distribution</a></li>
+<li><a href="#correlated-binomial-distribution">Correlated Binomial Distribution</a></li>
+<li><a href="#multiplicative-binomial-distribution">Multiplicative Binomial Distribution</a></li>
+</ul></li>
+<li><a href="#neyman-type-a-distribution">Neyman Type A Distribution</a><ul>
+<li><a href="#poisson-binomial-beta">Poisson + Binomial + Beta</a></li>
+<li><a href="#poisson-poisson-binomial-beta-or-poisson-binomial-poisson-beta">Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta</a></li>
+</ul></li>
+<li><a href="#hermite-distribution">Hermite Distribution</a><ul>
+<li><a href="#binomial-poisson">Binomial + Poisson</a></li>
+<li><a href="#poisson-binomial-1">Poisson + Binomial</a></li>
+</ul></li>
 <li><a href="#binomial-parent">Binomial Parent</a><ul>
 <li><a href="#nn-k-and-y-mixtures">N/n , K and Y Mixtures</a></li>
+<li><a href="#p-transformed-binomial">p Transformed Binomial</a></li>
 <li><a href="#log-inverse-distribution-01-domain">Log Inverse Distribution [0,1] Domain</a></li>
 <li><a href="#cumulative-distribution-function">Cumulative Distribution Function</a></li>
 <li><a href="#p-binomial">p Binomial</a></li>
@@ -96,9 +123,8 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <div id="htmlwidget-2" style="width:1000px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph TB;\n            B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];\n            A-->D[Grassia Binomial <br> Distribution];\n            A-->E[Zero Modified <br> Binomial Distribution];\n            A-->F[Dandekar's Modified <br> Binomial Distribution];\n            A-->G[Simplex Binomial <br> Mixture Model];\n            A-->H[Double Binomial <br> Distribution];\n            A-->I[Finite Binomial <br> Mixtures];\n            A-->J[Binomial Distribution <br> of order K];\n            A-->K[Truncated Binomial <br> Distribution];\n            A-->L[Weighted Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
 <p>Below is the list of Distributions in this sub group with article references.</p>
-<ul>
-<li>Grassia Binomial Distribution</li>
-</ul>
+<div id="grassia-binomial-distribution" class="section level3">
+<h3>Grassia Binomial Distribution</h3>
 <p>Kemp, A. W., and Kemp, C. D (2004). Factorial moment characterizations for certain binomial-type distributions, Communications in Statistics-Theory and Methods, 33, 3059-3068.</p>
 <p>Harkness, W. L. (1970). The classical occupancy problem revisited, Random Counts in Scientific Work, Vol. 3:Random Counts in Physical Science, Geo Science, and Business, G. P. Patil (editor), 107-126. University Park: Pennsylvania State University Press.</p>
 <p>Weiss, G. H. (1965). A model for the spread of epidemics by carriers, Biometrics, 21, 481-490.</p>
@@ -109,29 +135,29 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>Alanko, T., and Duffy, J. C. (1996). Compound binomial distributions for modelling consumption data, The Statistician, 45, 269-286.</p>
 <p>Chatfield, C., and Goodhardt, G. J. (1970). The beta-binomial model for consumer purchasing behaviour, Applied Statistics, 19, 240-250.</p>
 <p>Consul, P. C., and Jain, G. C. (1971). On the log-gamma distribution and its properties, Statistische Hefte, 12, 100-106.</p>
-<ul>
-<li>Zero Modified Binomial Distribution</li>
-</ul>
+</div>
+<div id="zero-modified-binomial-distribution" class="section level3">
+<h3>Zero Modified Binomial Distribution</h3>
 <p>Dowling, M. M., and Nakamura, M. (1997). Estimating parameters for discrete distributions via the empirical probability generating function, Communications in Statistics-Simulation and Computation, 26, 301-313.</p>
 <p>Khatri, C. G. (1961). On the distributions obtained by varying the number of trials in a binomial distribution, Annals of the Institute of Statistical Mathematics, Tokyo, 13, 47-51.</p>
-<ul>
-<li>Dandekar’s Modified Binomial Distribution</li>
-</ul>
+</div>
+<div id="dandekars-modified-binomial-distribution" class="section level3">
+<h3>Dandekar’s Modified Binomial Distribution</h3>
 <p>Patil, G. P., Boswell, M. T., Joshi, S. W., and Ratnaparkhi, M. V. (1984). Dictionary and Bibliography of Statistical Distributions in Scientific Work, Vol. 1: Discrete Models, Fairland, MD: International Co-operative Publishing House.</p>
 <p>Dandekar, V. M. (1955). Certain modified forms of binomial and Poisson distributions, Sankhya, 15, 237-250.</p>
-<ul>
-<li>Simplex Binomial Mixture Model</li>
-</ul>
+</div>
+<div id="simplex-binomial-mixture-model" class="section level3">
+<h3>Simplex Binomial Mixture Model</h3>
 <p>Barndorff-Neilsen, O. E., and Jorgensen, B. (1991). Some parametric models on the simplex, Journal of Multivariate Analysis, 39, 106-116.</p>
 <p>Jorgensen, B. (1997). The Theory of Regression Models, London: Chapman &amp; Hall/CRC.</p>
-<ul>
-<li>Double Binomial Distribution</li>
-</ul>
+</div>
+<div id="double-binomial-distribution" class="section level3">
+<h3>Double Binomial Distribution</h3>
 <p>Lindsey, J. K. (1995). Modelling Frequency and Count Data, Oxford: Oxford University Press.</p>
 <p>Efron, B. (1986). Double exponential families and their use in generalized linear regression, Journal of the American Statistical Association, 81, 709-721.</p>
-<ul>
-<li>Finite Biomial Mixtures</li>
-</ul>
+</div>
+<div id="finite-biomial-mixtures" class="section level3">
+<h3>Finite Biomial Mixtures</h3>
 <p>Teicher, H. (1961). Identifiability of mixtures, Annals of Mathematical Statistics, 32, 244-248.</p>
 <p>Blischke, W. R. (1962). Moment estimation for the parameters of a mixture of two binomial distributions, Annals of Mathematical Statistics, 33, 444-454.</p>
 <p>Blischke, W. R. (1964). Estimating the parameters of mixtures of binomial distributions, Journal of the American Statistical Association, 59, 510-528.</p>
@@ -141,9 +167,9 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>Gelfand, A. E., and Soloman, H. (1975). Analysing the decision making process of the American jury, Journal of the American Statistical Association, 70, 305-310.</p>
 <p>Hasselblad, V. (1969). Estimation of finite mixtures of distributions from the exponential family, Journal of the American Statistical Association, 64, 1459-1471.</p>
 <p>Rider, P. R. (1962a). Estimating the parameters of mixed Poisson, binomial and Weibull distributions, Bulletin of the International Statistical Institute, 39(2), 225-232.</p>
-<ul>
-<li>Binomial Distribution of order K</li>
-</ul>
+</div>
+<div id="binomial-distribution-of-order-k" class="section level3">
+<h3>Binomial Distribution of order K</h3>
 <p>Ling, K. D. (1988). On binomial distributions of order k, Statistics and Probability Letters, 6, 371-376.</p>
 <p>Shanthikumar, J. G. (1985). Discrete random variate generation using uniformization, European Journal of Operational Research, 21, 387-398.</p>
 <p>Chiang, D., and Niu, S. C. (1981). Reliability of consecutive-k-out-of-n:F systems, IEEE Transactions on Reliability, R-30, 87-89.</p>
@@ -152,85 +178,85 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>Philippou, A. N., and Makri, F. S. (1986). Success runs and longest runs, Statistics and Probability Letters, 4, 101-105 (corrected version 211-215).</p>
 <p>Feller, W. (1957). An Introduction to Probability Theory and Its Applications (second edition), Vol. 1, New York: Wiley.</p>
 <p>Aki, S., and Hirano, K. (1988). Some characteristics of the binomial distribution of order k and related distributions, Statistical Theory and Data Analysis, Vol. 2, K. Matusita (editor), 211-222. Amsterdam: Elsevier.</p>
-<ul>
-<li>Truncated Binomial Distribution</li>
-</ul>
+</div>
+<div id="truncated-binomial-distribution" class="section level3">
+<h3>Truncated Binomial Distribution</h3>
 <p>Stephan, F. F. (1945). The expected value and variance of the reciprocal and other negative powers of a positive Bernoullian variate, Annals of Mathematical Statistics, 16, 50-61.</p>
 <p>Shah, S. M. (1966). On estimating the parameter of a doubly truncated binomial distribution, Journal of the American Statistical Association, 61, 259-263.</p>
 <p>Newell, D. J. (1965). Unusual frequency distributions, Biometrics, 21, 159-168.</p>
 <p>Grab, E. L., and Savage, I. R. (1954). Tables of the expected value of 1/x for positive Bernoulli and Poisson variables, Journal of the American Statistical Association, 49, 169-177.</p>
 <p>Finney, D. J. (1949). The truncated binomial distribution, Annals of Eugenics, London, 14, 319-328.</p>
-<ul>
-<li>Weighted Binomial Distribution</li>
-</ul>
+</div>
+<div id="weighted-binomial-distribution" class="section level3">
+<h3>Weighted Binomial Distribution</h3>
 <p>Patil, G. P., Rao, C. R., and Zelen, M. (1986). A Computerized Bibliography of Weighted Distributions and Related Weighted Methods for Statistical Analysis and Interpretations of Encountered Data, Observational Studies, Representativeness Issues, and Resulting Inferences, University Park, PA: Centre for Statistical Ecology and Environmental Statistics, Pennsylvania State University.</p>
 <p>Patil, G. P., Rao, C. R., and Ratnaparkhi, M. V. (1986). On discrete weighted distributions and their use in model choice for observed data, Communications in Statistics-Theory and Methods, 15, 907-918.</p>
 <p>Rao, C. R. (1965). On discrete distributions arising out of methods of ascertainment, Classical and Contagious Discrete Distributions,G. P Patil (editor), 320-332. Calcutta: Statistical Publishing Society; Oxford: Pergamon. (Republished Sankhya, A27, 1965, 311-324.)</p>
 <p>Rao, C. R. (1985). Weighted distributions arising out of methods of ascertainment: What populations does a sample represent?, A Celebration of Statistics: ISI Centenary Volume, A. C. Atkinson and S. E. Fienberg (editors), 543-569. New York: SpringerVerlag.</p>
+</div>
 </div>
 <div id="binomial-not-parent" class="section level2">
 <h2>Binomial Not Parent</h2>
 <p>This is the sub group where Binomial Distribution is not the parent but rather some other different distribution like Hypergeometric or Negative Binomial or Poisson.</p>
 <div id="htmlwidget-3" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-3">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Binomial Not Parent];\n            B-->BA[Hypergeometric <br> + Binomial];\n            B-->BB[Negative Binomial <br> + Binomial];\n            B-->BC[Poisson + <br> Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
-<ul>
-<li>Hypergeometric + Binomial</li>
-</ul>
+<div id="hypergeometric-binomial" class="section level3">
+<h3>Hypergeometric + Binomial</h3>
 <p><span class="math display">\[Hypergeometric (n,Y,N) \bigwedge_Y Binomial(N,p)\]</span></p>
-<ul>
-<li>Negative Binomial + Binomial</li>
-</ul>
+</div>
+<div id="negative-binomial-binomial" class="section level3">
+<h3>Negative Binomial + Binomial</h3>
 <p><span class="math display">\[Negative Binomial (kY,P) \bigwedge_Y Binomial(n,p)\]</span></p>
-<ul>
-<li>Poisson + Binomial</li>
-</ul>
+</div>
+<div id="poisson-binomial" class="section level3">
+<h3>Poisson + Binomial</h3>
 <p><span class="math display">\[ Poisson (\theta) \bigwedge_{\theta/\phi} Binomial(n,p)\]</span></p>
+</div>
 </div>
 <div id="alternate-binomial-distributions" class="section level2">
 <h2>Alternate Binomial Distributions</h2>
 <p>This is a sub group of distributions which can be used as an alternative to Binomial Distribution.</p>
 <div id="htmlwidget-4" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-4">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];\n            B-->C[Additive Binomial <br> Distribution];\n            B-->D[Beta-Correlated <br> Binomial Distribution];\n            B-->E[COM-Poisson Binomial <br> Distribution];\n            B-->F[Correlated Binomial <br> Distribution];\n            B-->G[Multiplicative Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
-<ul>
-<li>Additive Binomial Distribution</li>
-</ul>
+<div id="additive-binomial-distribution" class="section level3">
+<h3>Additive Binomial Distribution</h3>
 <p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
 <p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
 <p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
-<ul>
-<li>Beta-Correlated Binomial Distribution</li>
-</ul>
+</div>
+<div id="beta-correlated-binomial-distribution" class="section level3">
+<h3>Beta-Correlated Binomial Distribution</h3>
 <p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
-<ul>
-<li>COM-Poisson Binomial Distribution</li>
-</ul>
+</div>
+<div id="com-poisson-binomial-distribution" class="section level3">
+<h3>COM-Poisson Binomial Distribution</h3>
 <p>Borges, P., Rodrigues, J., Balakrishnan, N. and Bazan, J., 2014. A COM-Poisson type generalization of the binomial distribution and its properties and applications. Statistics &amp; Probability Letters, 87, pp.158-166.</p>
-<ul>
-<li>Correlated Binomial Distribution</li>
-</ul>
+</div>
+<div id="correlated-binomial-distribution" class="section level3">
+<h3>Correlated Binomial Distribution</h3>
 <p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
 <p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
 <p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
 <p>Jorge G. Morel and Nagaraj K. Neerchal. Overdispersion Models in SAS. SAS Institute, 2012.</p>
-<ul>
-<li>Multiplicative Binomial Distribution</li>
-</ul>
+</div>
+<div id="multiplicative-binomial-distribution" class="section level3">
+<h3>Multiplicative Binomial Distribution</h3>
 <p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
 <p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
 <p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
+</div>
 </div>
 <div id="neyman-type-a-distribution" class="section level2">
 <h2>Neyman Type A Distribution</h2>
 <div id="htmlwidget-5" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-5">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[ Neyman Type A <br> Distribution];\n            B-->C[Poisson + Binomial +  Beta];\n            B-->D[Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta];\n            B-->E[Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta];\n           "},"evals":[],"jsHooks":[]}</script>
-<ul>
-<li>Poisson + Binomial + Beta</li>
-</ul>
+<div id="poisson-binomial-beta" class="section level3">
+<h3>Poisson + Binomial + Beta</h3>
 <p><span class="math display">\[Poisson(\phi) \bigvee Binomial(1,P) \bigwedge_P Beta(\alpha,\beta)\]</span></p>
-<ul>
-<li>Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta</li>
-</ul>
-<p><span class="math display">\[ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> or <span class="math display">\[ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> * Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta</p>
+</div>
+<div id="poisson-poisson-binomial-beta-or-poisson-binomial-poisson-beta" class="section level3">
+<h3>Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta</h3>
+<p><span class="math display">\[ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> or <span class="math display">\[ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> ### Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta</p>
 <p><span class="math display">\[[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)\]</span> or</p>
 <p><span class="math display">\[[\{ Binomial(N,P) \bigvee Poisson(\phi)\} \bigwedge_N Poisson(\lambda)] \bigwedge_P Beta(a,b)\]</span></p>
 <p>Gurland, J. (1958). A generalized class of contagious distributions, Biometrics, 14, 229-249.</p>
@@ -239,18 +265,19 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>Subrahmaniam, Kocherlakota (1966). On a general class of contagious distributions: The Pascal-Poisson distribution, Trabajos de Estadistica, 17, 109-127.</p>
 <p>Subrahmaniam, Kathleen (1978). The Pascal-Poisson distribution revisited: Estimation and efficiency, Communications in Statistics-Theory and Methods, A7, 673-683.</p>
 </div>
+</div>
 <div id="hermite-distribution" class="section level2">
 <h2>Hermite Distribution</h2>
 <div id="htmlwidget-6" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-6">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Hermite <br> Distribution];\n           B-->C[Binomial + Poisson];\n           B-->D[Poisson + Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
-<ul>
-<li>Binomial + Poisson</li>
-</ul>
+<div id="binomial-poisson" class="section level3">
+<h3>Binomial + Poisson</h3>
 <p><span class="math display">\[Binomial(N,p) \bigwedge_{N/2} Poisson(\lambda)\]</span></p>
-<ul>
-<li>Poisson + Binomial</li>
-</ul>
+</div>
+<div id="poisson-binomial-1" class="section level3">
+<h3>Poisson + Binomial</h3>
 <p><span class="math display">\[Poisson(\lambda) \bigvee Binomial(2,p)\]</span></p>
+</div>
 </div>
 <div id="binomial-parent" class="section level2">
 <h2>Binomial Parent</h2>
@@ -260,10 +287,9 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>The first mixtures with few distributions are mentioned below.</p>
 <div id="htmlwidget-7" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-7">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[N/n <br> Binomial];\n           D-->DA[Poisson];\n           D-->DB[Binomial];\n           D-->DC[Negative Binomial];\n           D-->DD[Logarithmic];\n           C-->E[K <br> Binomial];\n           E-->EA[Poisson];\n           C-->F[Y <br> Binomial];\n           F-->FA[Hypergeometric];\n           "},"evals":[],"jsHooks":[]}</script>
-<ul>
-<li></li>
-<li><h3 id="p-transformed-binomial">p Transformed Binomial</h3></li>
-</ul>
+</div>
+<div id="p-transformed-binomial" class="section level3">
+<h3>p Transformed Binomial</h3>
 <div id="htmlwidget-8" style="width:800px;height:1000px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-8">{"x":{"diagram":"\n           graph LR;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[p transformed <br> Binomial];\n           D-->E[p = 1 - exp_-t_ ];\n           E-->EA[Binomial Exponential <br> Distribution];\n           E-->EB[Binomial Gamma 1 <br> Distribution];\n           E-->EC[Binomial Gamma 2 <br> Distribution];\n           E-->ED[Binomial Generalized <br> Exponential 1 Distribution];\n           E-->EE[Binomial Generalized <br> Exponential 2 Distribution];\n           D-->F[p = exp_-t_ ];\n           F-->FA[Binomial Exponential <br> Distribution];\n           F-->FB[Binomial Gamma 1 <br> Distribution];\n           F-->FC[Binomial Gamma 2 <br> Distribution];\n           F-->FD[Binomial Generalized <br> Exponential 1 Distribution];\n           F-->FE[Binomial Generalized <br> Exponential 2 Distribution];\n           F-->FF[Binomial Variated <br> Exponential Distribution];\n           F-->FG[Binomial Variated <br> Gamma 2,alpha Distribution];\n           F-->FH[Binomial Inverse <br> Gaussian Distribution];\n           D-->G[p = cy];\n           G-->GA[Binomial Generalized Beta 4 Distribution];\n           "},"evals":[],"jsHooks":[]}</script>
 </div>
