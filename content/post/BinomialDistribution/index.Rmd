@@ -209,7 +209,30 @@ American Statistical Association, 81, 709-721.
 
 * Finite Biomial Mixtures
 
+Teicher, H. (1961). Identifiability of mixtures, Annals of Mathematical Statistics, 32, 244-248.
 
+Blischke, W. R. (1962). Moment estimation for the parameters of a mixture of two binomial distributions, Annals of 
+Mathematical Statistics, 33, 444-454. 
+
+Blischke, W. R. (1964). Estimating the parameters of mixtures of binomial distributions, Journal of the American Statistical 
+Association, 59, 510-528. 
+
+Blischke, W. R. (1965). Mixtures of discrete distributions, Classical and Contagious Discrete Distributions, G. P. Patil
+(editor), 351-372. Calcutta: Statistical Publishing Society; Oxford: Pergamon.
+
+Everitt, B. S., and Hand, D. J. (1981). Finite Mixture Distributions, London: Chapman & Hall.
+
+Bondesson, L. (1988). On the gain by spreading seeds: A statistical analysis of sowing experiments, Scandinavian 
+Journal of Forest Research, 305-314.
+
+Gelfand, A. E., and Soloman, H. (1975). Analysing the decision making process of the American jury, Journal of the 
+American Statistical Association, 70, 305-310. 
+
+Hasselblad, V. (1969). Estimation of finite mixtures of distributions from the exponential family, Journal of the 
+American Statistical Association, 64, 1459-1471. 
+
+Rider, P. R. (1962a). Estimating the parameters of mixed Poisson, binomial and Weibull distributions, Bulletin of the
+International Statistical Institute, 39(2), 225-232. 
 
 * Binomial Distribution of order K
 
