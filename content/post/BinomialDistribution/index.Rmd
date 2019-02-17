@@ -26,7 +26,7 @@ The binomial distribution can be defined, using the binomial expansion
 
 $$ (q+p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}$$
 
-as the distribution of a randm variable X for which 
+as the distribution of a random variable X for which 
 
 $$Pr[X=x] = {n \choose k} p^k q^{(n-k)}$$ 
 
@@ -37,10 +37,10 @@ If $n$ independent trials are made and in each there is probability $p$ that the
 then the number of trials in which $E$ occurs can be represented by a random variable $X$ having the binomial distribution 
 with parameters $n$, $p$. 
 
-This situation occurs when a sample of ﬁxed size $n$ is taken from an inﬁnite population 
-where each element in the population has an **"equal"** and **"independent"** probability $p$ of possession of a speciﬁed 
-attribute. The situation also arises when a sample of ﬁxed size $n$ is taken from a ﬁnite population where each 
-element in the population has an **"equal"** and **"independent"** probability $p$ of having a speciﬁed attribute 
+This situation occurs when a sample of fixed size $n$ is taken from an infinite population 
+where each element in the population has an **"equal"** and **"independent"** probability $p$ of possession of a specified 
+attribute. The situation also arises when a sample of fixed size $n$ is taken from a infinite population where each 
+element in the population has an **"equal"** and **"independent"** probability $p$ of having a specified attribute 
 and elements are sampled independently and sequentially with replacement. 
 
 The distribution was derived by James Bernoulli (in his treatise Ars Conjectandi, published in 1713), 
@@ -55,7 +55,7 @@ is straightforward, it can be tedious, especially when n and x are large and whe
 the summation. It is not surprising that a great deal of attention and ingenuity have been applied to constructing 
 useful approximations for sums of this kind. 
 
-# Applications 
+## Applications 
 
 1. The binomial distribution arises whenever underlying events have two possible outcomes, the chances of which remain
 constant. The importance of the distribution has extended from its original application in gaming to many other areas. 
@@ -66,8 +66,8 @@ see, for example, Fisher and Matheras (1936) analysis of data on straight versus
 3. More recent application in genetics is the study of the number of nucleotides that are in the same state in two 
 DNA sequences (Kaplan and Risko, 1982). 
 
-4. The number of defectives found in random samples of size n from a stable productionprocessisa binomial
-variable;acceptancesampling isa veryimportant application of the test for the mean of a binomial sample against a
+4. The number of defectives found in random samples of size n from a stable production process is a binomial
+variable; acceptance sampling is a very important application of the test for the mean of a binomial sample against a
 hypothetical value. 
 
 5. Seber (1982b) has given a number of instances of the use of the binomial distribution in animal ecology, for example, 
@@ -80,7 +80,7 @@ assumptions in actual situations are rather rare.
 
 # Binomial Mixture Distributions
 
-The binomial distribution hastwoparameters, $n$ and $p$, and either or both of these may be supposed to have a probability
+The binomial distribution has two parameters, $n$ and $p$, and either or both of these may be supposed to have a probability
 distribution. We will not discuss cases in which both $n$ and $p$ vary, though it is easy to construct such examples. 
 
 In most cases discussed in the statistical literature, $p$ has a continuous distribution, while $n$ is discrete. The 
@@ -91,7 +91,7 @@ theoretical point of view.
 
 # Main Groups for Binomial Distribution
 
-```{r Diagramme}
+```{r Diagramme,echo=FALSE}
 library(DiagrammeR)
 
 DiagrammeR(
@@ -115,7 +115,7 @@ DiagrammeR(
 
 ## Other With No Sub-Groups
 
-```{r Other with No Sub-Groups}
+```{r Other with No Sub-Groups,echo=FALSE}
 DiagrammeR(
            "graph TB;
             B[Binomial <br> Distribution]-->A[Other with <br> no sub groups];
@@ -133,7 +133,7 @@ DiagrammeR(
 
 ## Binomial Not Parent
 
-```{r Binomial not parent}
+```{r Binomial not parent,echo=FALSE}
 DiagrammeR(
            "
             graph TB;
@@ -147,7 +147,7 @@ DiagrammeR(
 
 ## Alternate Binomial Distributions
 
-```{r Alternate Binomial Distributions}
+```{r Alternate Binomial Distributions,echo=FALSE}
 DiagrammeR(
            "
             graph TB;
@@ -164,7 +164,7 @@ DiagrammeR(
 
 ## Neyman Type A Distribution 
 
-```{r Neyman Type A Distribution}
+```{r Neyman Type A Distribution,echo=FALSE}
 DiagrammeR(
            "
             graph TB;
@@ -178,7 +178,7 @@ DiagrammeR(
 
 ## Hermite Distribution
 
-```{r Hermite Distribution}
+```{r Hermite Distribution,echo=FALSE}
 DiagrammeR(
            "
            graph TB;
@@ -195,7 +195,7 @@ DiagrammeR(
 
 ### N/n , K and Y Mixtures
 
-```{r other Mixtures}
+```{r other Mixtures,echo=FALSE}
 DiagrammeR(
            "
            graph TB;
@@ -217,7 +217,7 @@ DiagrammeR(
 
 ### p Transformed Binomial
 
-```{r Transformed Binomial}
+```{r Transformed Binomial,echo=FALSE}
 DiagrammeR(
            "
            graph LR;
@@ -248,7 +248,7 @@ DiagrammeR(
 
 ### Log Inverse Distribution [0,1] Domain
 
-```{r Log Inverse Distribution 0,1 Domain}
+```{r Log Inverse Distribution 0,1 Domain,echo=FALSE}
 DiagrammeR(
            "
            graph LR;
@@ -273,7 +273,7 @@ DiagrammeR(
 
 ### Cumulative Distribution Function
 
-```{r Cumulative Distribution Function}
+```{r Cumulative Distribution Function,echo=FALSE}
 DiagrammeR(
            "
             graph TB;
@@ -293,7 +293,7 @@ DiagrammeR(
 
 ### p Binomial 
 
-```{r p Binomial}
+```{r p Binomial,echo=FALSE}
 DiagrammeR(
            "
            graph LR;
@@ -324,3 +324,4 @@ DiagrammeR(
 )
 ```
 
+# References 

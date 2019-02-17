@@ -27,8 +27,9 @@
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#binomial-distribution&#34;&gt;Binomial Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#binomial-distribution&#34;&gt;Binomial Distribution&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#binomial-mixture-distributions&#34;&gt;Binomial Mixture Distributions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#main-groups-for-binomial-distribution&#34;&gt;Main Groups for Binomial Distribution&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#other-with-no-sub-groups&#34;&gt;Other With No Sub-Groups&lt;/a&gt;&lt;/li&gt;
@@ -44,6 +45,7 @@
 &lt;li&gt;&lt;a href=&#34;#p-binomial&#34;&gt;p Binomial&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -51,128 +53,59 @@
 &lt;h1&gt;Binomial Distribution&lt;/h1&gt;
 &lt;p&gt;The binomial distribution can be defined, using the binomial expansion&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ (q+p)^n = \sum_{x=0}^{n} {n \choose k} p^k q^{(n-k)} = \sum_{x=0}^{n} \frac{n!} {k! (n-k)!} p^k q^{(n-k)}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;as the distribution of a randm variable X for which&lt;/p&gt;
+&lt;p&gt;as the distribution of a random variable X for which&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Pr[X=x] = {n \choose k} p^k q^{(n-k)}\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=0,1,2,...,n.\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(q+p=1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(p,q&amp;gt;0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is a positive integer. When &lt;span class=&#34;math inline&#34;&gt;\(n=1\)&lt;/span&gt;, the distribution is known as the Bernoulli distribution. The mean and variance are &lt;span class=&#34;math inline&#34;&gt;\(\mu=np\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu_2 = npq\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; independent trials are made and in each there is probability &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; that the outcome &lt;span class=&#34;math inline&#34;&gt;\(E\)&lt;/span&gt; will occur, then the number of trials in which &lt;span class=&#34;math inline&#34;&gt;\(E\)&lt;/span&gt; occurs can be represented by a random variable &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; having the binomial distribution with parameters &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;This situation occurs when a sample of ﬁxed size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is taken from an inﬁnite population where each element in the population has an &lt;strong&gt;“equal”&lt;/strong&gt; and &lt;strong&gt;“independent”&lt;/strong&gt; probability &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; of possession of a speciﬁed attribute. The situation also arises when a sample of ﬁxed size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is taken from a ﬁnite population where each element in the population has an &lt;strong&gt;“equal”&lt;/strong&gt; and &lt;strong&gt;“independent”&lt;/strong&gt; probability &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; of having a speciﬁed attribute and elements are sampled independently and sequentially with replacement.&lt;/p&gt;
+&lt;p&gt;This situation occurs when a sample of fixed size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is taken from an infinite population where each element in the population has an &lt;strong&gt;“equal”&lt;/strong&gt; and &lt;strong&gt;“independent”&lt;/strong&gt; probability &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; of possession of a specified attribute. The situation also arises when a sample of fixed size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is taken from a infinite population where each element in the population has an &lt;strong&gt;“equal”&lt;/strong&gt; and &lt;strong&gt;“independent”&lt;/strong&gt; probability &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; of having a specified attribute and elements are sampled independently and sequentially with replacement.&lt;/p&gt;
 &lt;p&gt;The distribution was derived by James Bernoulli (in his treatise Ars Conjectandi, published in 1713), for the case &lt;span class=&#34;math inline&#34;&gt;\(p = r/(r+s)\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; are positive integers.&lt;/p&gt;
 &lt;p&gt;The binomial distribution is of such importance in applied probability and statistics that it is frequently necessary to calculate probabilities based on this distribution. Although the calculation of sums of the form&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \sum_{x} {n \choose x} p^x q^{(n-x)}\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;is straightforward, it can be tedious, especially when n and x are large and when there are a large number of terms in the summation. It is not surprising that a great deal of attention and ingenuity have been applied to constructing useful approximations for sums of this kind.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;applications&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Applications&lt;/h1&gt;
+&lt;div id=&#34;applications&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Applications&lt;/h2&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;The binomial distribution arises whenever underlying events have two possible outcomes, the chances of which remain constant. The importance of the distribution has extended from its original application in gaming to many other areas.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Its use in genetics arises because the inheritance of biological characteristics depends on genes that occur in pairs; see, for example, Fisher and Matheras (1936) analysis of data on straight versus wavy hair in mice.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;More recent application in genetics is the study of the number of nucleotides that are in the same state in two DNA sequences (Kaplan and Risko, 1982).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The number of defectives found in random samples of size n from a stable productionprocessisa binomial variable;acceptancesampling isa veryimportant application of the test for the mean of a binomial sample against a hypothetical value.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The number of defectives found in random samples of size n from a stable production process is a binomial variable; acceptance sampling is a very important application of the test for the mean of a binomial sample against a hypothetical value.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Seber (1982b) has given a number of instances of the use of the binomial distribution in animal ecology, for example, in mark-recapture estimation of the size of an animal population. Boswell, Ord, and Patil (1979) gave applications in plant ecology.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Although appealing in their simplicity, the assumptions of independence and constant probability for the binomial distribution are not often precisely satisfied. Published critical appraisals of the extent of departure from these assumptions in actual situations are rather rare.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
 &lt;div id=&#34;binomial-mixture-distributions&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Binomial Mixture Distributions&lt;/h1&gt;
-&lt;p&gt;The binomial distribution hastwoparameters, &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; vary, though it is easy to construct such examples.&lt;/p&gt;
+&lt;p&gt;The binomial distribution has two parameters, &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, and either or both of these may be supposed to have a probability distribution. We will not discuss cases in which both &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; vary, though it is easy to construct such examples.&lt;/p&gt;
 &lt;p&gt;In most cases discussed in the statistical literature, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; has a continuous distribution, while &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is discrete. The latter restriction is necessary, but the former is not.&lt;/p&gt;
 &lt;p&gt;However, discrete distributions for &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; have not been found to be useful and have not attracted much attention from a theoretical point of view.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;main-groups-for-binomial-distribution&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Main Groups for Binomial Distribution&lt;/h1&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DiagrammeR)
-
-DiagrammeR(
-           &amp;quot;graph TB;
-            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Not Parent];
-            A--&amp;gt;D[Other with &amp;lt;br&amp;gt; no sub groups];
-            A--&amp;gt;C[Binomial &amp;lt;br&amp;gt; Parent];
-            A--&amp;gt;M[Alternate Binomial &amp;lt;br&amp;gt; Distribution];
-            A--&amp;gt;N[Neyman Type A &amp;lt;br&amp;gt; Distribution];
-            A--&amp;gt;O[Hermite Distribution];
-            C--&amp;gt;CA[Mixing Parameter];
-            CA--&amp;gt;CAA[N/n &amp;lt;br&amp;gt; Binomial];
-            CA--&amp;gt;CAB[K &amp;lt;br&amp;gt; Binomial];
-            CA--&amp;gt;CAC[Y &amp;lt;br&amp;gt; Binomial];
-            CA--&amp;gt;CAE[p transformed &amp;lt;br&amp;gt; Binomial];
-            CA--&amp;gt;CAF[Cumulative Distribution &amp;lt;br&amp;gt; Function];
-            CA--&amp;gt;CAD[p &amp;lt;br&amp;gt; Binomial];
-            CA--&amp;gt;CAG[Log Inverse &amp;lt;br&amp;gt; Distribution &amp;lt;br&amp;gt; 0,1 Domain]
-           &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Not Parent];\n            A--&gt;D[Other with &lt;br&gt; no sub groups];\n            A--&gt;C[Binomial &lt;br&gt; Parent];\n            A--&gt;M[Alternate Binomial &lt;br&gt; Distribution];\n            A--&gt;N[Neyman Type A &lt;br&gt; Distribution];\n            A--&gt;O[Hermite Distribution];\n            C--&gt;CA[Mixing Parameter];\n            CA--&gt;CAA[N/n &lt;br&gt; Binomial];\n            CA--&gt;CAB[K &lt;br&gt; Binomial];\n            CA--&gt;CAC[Y &lt;br&gt; Binomial];\n            CA--&gt;CAE[p transformed &lt;br&gt; Binomial];\n            CA--&gt;CAF[Cumulative Distribution &lt;br&gt; Function];\n            CA--&gt;CAD[p &lt;br&gt; Binomial];\n            CA--&gt;CAG[Log Inverse &lt;br&gt; Distribution &lt;br&gt; 0,1 Domain]\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;div id=&#34;other-with-no-sub-groups&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Other With No Sub-Groups&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;graph TB;
-            B[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;A[Other with &amp;lt;br&amp;gt; no sub groups];
-            A--&amp;gt;D[Grassia Binomial &amp;lt;br&amp;gt; Distribution];
-            A--&amp;gt;E[Zero Modified &amp;lt;br&amp;gt; Binomial Distribution];
-            A--&amp;gt;F[Dandekar&amp;#39;s Modified &amp;lt;br&amp;gt; Binomial Distribution];
-            A--&amp;gt;G[Simplex Binomial &amp;lt;br&amp;gt; Mixture Model];
-            A--&amp;gt;H[Double Binomial &amp;lt;br&amp;gt; Distribution];
-            A--&amp;gt;I[Finite Binomial &amp;lt;br&amp;gt; Mixtures];
-            A--&amp;gt;J[Binomial Distribution &amp;lt;br&amp;gt; of order K];
-            A--&amp;gt;K[Truncated Binomial &amp;lt;br&amp;gt; Distribution];
-            A--&amp;gt;L[Weighted Binomial &amp;lt;br&amp;gt; Distribution];
-            &amp;quot;,width=1000,height=400)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:1000px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;graph TB;\n            B[Binomial &lt;br&gt; Distribution]--&gt;A[Other with &lt;br&gt; no sub groups];\n            A--&gt;D[Grassia Binomial &lt;br&gt; Distribution];\n            A--&gt;E[Zero Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;F[Dandekar&#39;s Modified &lt;br&gt; Binomial Distribution];\n            A--&gt;G[Simplex Binomial &lt;br&gt; Mixture Model];\n            A--&gt;H[Double Binomial &lt;br&gt; Distribution];\n            A--&gt;I[Finite Binomial &lt;br&gt; Mixtures];\n            A--&gt;J[Binomial Distribution &lt;br&gt; of order K];\n            A--&gt;K[Truncated Binomial &lt;br&gt; Distribution];\n            A--&gt;L[Weighted Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;binomial-not-parent&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Binomial Not Parent&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-            graph TB;
-            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial Not Parent];
-            B--&amp;gt;BA[Hypergeometric &amp;lt;br&amp;gt; + Binomial];
-            B--&amp;gt;BB[Negative Binomial &amp;lt;br&amp;gt; + Binomial];
-            B--&amp;gt;BC[Poisson + &amp;lt;br&amp;gt; Binomial];
-           &amp;quot;,width=800,height=400
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Not Parent];\n            B--&gt;BA[Hypergeometric &lt;br&gt; + Binomial];\n            B--&gt;BB[Negative Binomial &lt;br&gt; + Binomial];\n            B--&gt;BC[Poisson + &lt;br&gt; Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;alternate-binomial-distributions&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Alternate Binomial Distributions&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-            graph TB;
-            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Alternate Binomial &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;C[Additive Binomial &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;D[Beta-Correlated &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;E[COM-Poisson Binomial &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;F[Correlated Binomial &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;G[Multiplicative Binomial &amp;lt;br&amp;gt; Distribution];
-            &amp;quot;,width=800,height=400
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Alternate Binomial &lt;br&gt; Distribution];\n            B--&gt;C[Additive Binomial &lt;br&gt; Distribution];\n            B--&gt;D[Beta-Correlated &lt;br&gt; Distribution];\n            B--&gt;E[COM-Poisson Binomial &lt;br&gt; Distribution];\n            B--&gt;F[Correlated Binomial &lt;br&gt; Distribution];\n            B--&gt;G[Multiplicative Binomial &lt;br&gt; Distribution];\n            &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;neyman-type-a-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Neyman Type A Distribution&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-            graph TB;
-            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[ Neyman Type A &amp;lt;br&amp;gt; Distribution];
-            B--&amp;gt;C[Poisson + Binomial + Binomial + Beta];
-            B--&amp;gt;D[Poisson + Poisson + Binomial + Beta &amp;lt;br&amp;gt; or Poisson + Binomial + Poisson + Beta];
-            B--&amp;gt;E[Poisson + Binomial + Poisson + Beta &amp;lt;br&amp;gt; or Binomial + Poisson + Poisson + Beta];
-           &amp;quot;,width=800,height=400
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[ Neyman Type A &lt;br&gt; Distribution];\n            B--&gt;C[Poisson + Binomial + Binomial + Beta];\n            B--&gt;D[Poisson + Poisson + Binomial + Beta &lt;br&gt; or Poisson + Binomial + Poisson + Beta];\n            B--&gt;E[Poisson + Binomial + Poisson + Beta &lt;br&gt; or Binomial + Poisson + Poisson + Beta];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hermite-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Hermite Distribution&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-           graph TB;
-           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Hermite &amp;lt;br&amp;gt; Distribution];
-           B--&amp;gt;C[Binomial + Poisson];
-           B--&amp;gt;D[Poisson + Binomial];
-           &amp;quot;,width=800,height=400
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Hermite &lt;br&gt; Distribution];\n           B--&gt;C[Binomial + Poisson];\n           B--&gt;D[Poisson + Binomial];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
@@ -180,133 +113,33 @@ DiagrammeR(
 &lt;h2&gt;Binomial Parent&lt;/h2&gt;
 &lt;div id=&#34;nn-k-and-y-mixtures&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;N/n , K and Y Mixtures&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-           graph TB;
-           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
-           B--&amp;gt;C[Mixing Parameter];
-           C--&amp;gt;D[N/n &amp;lt;br&amp;gt; Binomial];
-           D--&amp;gt;DA[Poisson];
-           D--&amp;gt;DB[Binomial];
-           D--&amp;gt;DC[Negative Binomial];
-           D--&amp;gt;DD[Logarithmic];
-           C--&amp;gt;E[K &amp;lt;br&amp;gt; Binomial];
-           E--&amp;gt;EA[Poisson];
-           C--&amp;gt;F[Y &amp;lt;br&amp;gt; Binomial];
-           F--&amp;gt;FA[Hypergeometric];
-           &amp;quot;,width=800,height=400
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:800px;height:400px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph TB;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[N/n &lt;br&gt; Binomial];\n           D--&gt;DA[Poisson];\n           D--&gt;DB[Binomial];\n           D--&gt;DC[Negative Binomial];\n           D--&gt;DD[Logarithmic];\n           C--&gt;E[K &lt;br&gt; Binomial];\n           E--&gt;EA[Poisson];\n           C--&gt;F[Y &lt;br&gt; Binomial];\n           F--&gt;FA[Hypergeometric];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;p-transformed-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Transformed Binomial&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-           graph LR;
-           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
-           B--&amp;gt;C[Mixing Parameter];
-           C--&amp;gt;D[p transformed &amp;lt;br&amp;gt; Binomial];
-           D--&amp;gt;E[p = 1 - exp_-t_ ];
-           E--&amp;gt;EA[Binomial Exponential &amp;lt;br&amp;gt; Distribution];
-           E--&amp;gt;EB[Binomial Gamma 1 &amp;lt;br&amp;gt; Distribution];
-           E--&amp;gt;EC[Binomial Gamma 2 &amp;lt;br&amp;gt; Distribution];
-           E--&amp;gt;ED[Binomial Generalized &amp;lt;br&amp;gt; Exponential 1 Distribution];
-           E--&amp;gt;EE[Binomial Generalized &amp;lt;br&amp;gt; Exponential 2 Distribution];
-           D--&amp;gt;F[p = exp_-t_ ];
-           F--&amp;gt;FA[Binomial Exponential &amp;lt;br&amp;gt; Distribution];
-           F--&amp;gt;FB[Binomial Gamma 1 &amp;lt;br&amp;gt; Distribution];
-           F--&amp;gt;FC[Binomial Gamma 2 &amp;lt;br&amp;gt; Distribution];
-           F--&amp;gt;FD[Binomial Generalized &amp;lt;br&amp;gt; Exponential 1 Distribution];
-           F--&amp;gt;FE[Binomial Generalized &amp;lt;br&amp;gt; Exponential 2 Distribution];
-           F--&amp;gt;FF[Binomial Variated &amp;lt;br&amp;gt; Exponential Distribution];
-           F--&amp;gt;FG[Binomial Variated &amp;lt;br&amp;gt; Gamma 2,alpha Distribution];
-           F--&amp;gt;FH[Binomial Inverse &amp;lt;br&amp;gt; Gaussian Distribution];
-           D--&amp;gt;G[p = cy];
-           G--&amp;gt;GA[Binomial Generalized Beta 4 Distribution];
-           &amp;quot;,width=800,height=1000
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:800px;height:1000px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[p transformed &lt;br&gt; Binomial];\n           D--&gt;E[p = 1 - exp_-t_ ];\n           E--&gt;EA[Binomial Exponential &lt;br&gt; Distribution];\n           E--&gt;EB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           E--&gt;EC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           E--&gt;ED[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           E--&gt;EE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           D--&gt;F[p = exp_-t_ ];\n           F--&gt;FA[Binomial Exponential &lt;br&gt; Distribution];\n           F--&gt;FB[Binomial Gamma 1 &lt;br&gt; Distribution];\n           F--&gt;FC[Binomial Gamma 2 &lt;br&gt; Distribution];\n           F--&gt;FD[Binomial Generalized &lt;br&gt; Exponential 1 Distribution];\n           F--&gt;FE[Binomial Generalized &lt;br&gt; Exponential 2 Distribution];\n           F--&gt;FF[Binomial Variated &lt;br&gt; Exponential Distribution];\n           F--&gt;FG[Binomial Variated &lt;br&gt; Gamma 2,alpha Distribution];\n           F--&gt;FH[Binomial Inverse &lt;br&gt; Gaussian Distribution];\n           D--&gt;G[p = cy];\n           G--&gt;GA[Binomial Generalized Beta 4 Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;log-inverse-distribution-01-domain&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Log Inverse Distribution [0,1] Domain&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-           graph LR;
-           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial &amp;lt;br&amp;gt; Parent];
-           B--&amp;gt;C[Mixing Parameter];
-           C--&amp;gt;D[Log Inverse &amp;lt;br&amp;gt; Distribution &amp;lt;br&amp;gt; 0,1 Domain];
-           D--&amp;gt;DA[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Exponential Distribution];
-           D--&amp;gt;DB[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Exponential Distribution];
-           D--&amp;gt;DC[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 1 Distribution];
-           D--&amp;gt;DD[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 1 Distribution];
-           D--&amp;gt;DE[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 2 Distribution];
-           D--&amp;gt;DF[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 2 Distribution];
-           D--&amp;gt;DG[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 1 &amp;lt;br&amp;gt; Distribution];
-           D--&amp;gt;DH[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 1 &amp;lt;br&amp;gt; Distribution];
-           D--&amp;gt;DJ[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 2 &amp;lt;br&amp;gt; Distribution];
-           D--&amp;gt;DK[Binomial Type 2 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Generalized &amp;lt;br&amp;gt; Exponential 2 &amp;lt;br&amp;gt; Distribution];
-           D--&amp;gt;DL[Binomial Type 1 &amp;lt;br&amp;gt; Log Inverse &amp;lt;br&amp;gt; Gamma 3 &amp;lt;br&amp;gt; Distribution];
-           &amp;quot;,width=800,height=1000
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:800px;height:1000px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[Log Inverse &lt;br&gt; Distribution &lt;br&gt; 0,1 Domain];\n           D--&gt;DA[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Exponential Distribution];\n           D--&gt;DB[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Exponential Distribution];\n           D--&gt;DC[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 1 Distribution];\n           D--&gt;DD[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 1 Distribution];\n           D--&gt;DE[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 2 Distribution];\n           D--&gt;DF[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 2 Distribution];\n           D--&gt;DG[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 1 &lt;br&gt; Distribution];\n           D--&gt;DH[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 1 &lt;br&gt; Distribution];\n           D--&gt;DJ[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 2 &lt;br&gt; Distribution];\n           D--&gt;DK[Binomial Type 2 &lt;br&gt; Log Inverse &lt;br&gt; Generalized &lt;br&gt; Exponential 2 &lt;br&gt; Distribution];\n           D--&gt;DL[Binomial Type 1 &lt;br&gt; Log Inverse &lt;br&gt; Gamma 3 &lt;br&gt; Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;cumulative-distribution-function&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Cumulative Distribution Function&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-            graph TB;
-            A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[Binomial Parent];
-            B--&amp;gt;C[Mixing Parameter];
-            C--&amp;gt;D[Cumulative Distribution];
-            D--&amp;gt;DA[Beta Generated &amp;lt;br&amp;gt; Distribution];
-            DA--&amp;gt;DAA[Binomial &amp;lt;br&amp;gt; Beta Exponential &amp;lt;br&amp;gt; Distribution];
-            DA--&amp;gt;DAB[Binomial &amp;lt;br&amp;gt; Beta Generalized &amp;lt;br&amp;gt; Exponential Distribution];
-            DA--&amp;gt;DAC[Binomial &amp;lt;br&amp;gt; Beta Power &amp;lt;br&amp;gt; Distribution];
-            D--&amp;gt;DB[Kumaraswamy &amp;lt;br&amp;gt; Generated &amp;lt;br&amp;gt; Distribution];
-            DB--&amp;gt;DBA[Binomial &amp;lt;br&amp;gt; Kumaraswamy &amp;lt;br&amp;gt; Power Distribution];
-            DB--&amp;gt;DBB[Binomial &amp;lt;br&amp;gt; Kumaraswamy &amp;lt;br&amp;gt; Exponential &amp;lt;br&amp;gt; Distribution];        
-           &amp;quot;,width=1000,height=750
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:1000px;height:750px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n            graph TB;\n            A[Binomial &lt;br&gt; Distribution]--&gt;B[Binomial Parent];\n            B--&gt;C[Mixing Parameter];\n            C--&gt;D[Cumulative Distribution];\n            D--&gt;DA[Beta Generated &lt;br&gt; Distribution];\n            DA--&gt;DAA[Binomial &lt;br&gt; Beta Exponential &lt;br&gt; Distribution];\n            DA--&gt;DAB[Binomial &lt;br&gt; Beta Generalized &lt;br&gt; Exponential Distribution];\n            DA--&gt;DAC[Binomial &lt;br&gt; Beta Power &lt;br&gt; Distribution];\n            D--&gt;DB[Kumaraswamy &lt;br&gt; Generated &lt;br&gt; Distribution];\n            DB--&gt;DBA[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Power Distribution];\n            DB--&gt;DBB[Binomial &lt;br&gt; Kumaraswamy &lt;br&gt; Exponential &lt;br&gt; Distribution];        \n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;p-binomial&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;p Binomial&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DiagrammeR(
-           &amp;quot;
-           graph LR;
-           A[Binomial &amp;lt;br&amp;gt; Distribution]--&amp;gt;B[ Binomial &amp;lt;br&amp;gt; Parent];
-           B--&amp;gt;C[Mixing Parameter];
-           C--&amp;gt;D[p &amp;lt;br&amp;gt; Binomial];
-           D--&amp;gt;DA[Beyond Beta &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAA[Binomial Triangular &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAB[Binomial Kumaraswamy 2 &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAC[Binomial Kumaraswamy 1 &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAD[Binomial Truncated &amp;lt;br&amp;gt; Exponential Distribution];
-           DA--&amp;gt;DAE[Binomial Truncated &amp;lt;br&amp;gt; Gamma Distribution];
-           DA--&amp;gt;DAF[Binomial - MinusLog &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAG[Binomial Standard &amp;lt;br&amp;gt; Two Sied Power &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAH[Binomial Ogive &amp;lt;br&amp;gt; Distribution];
-           DA--&amp;gt;DAI[Binomial - Two Sided &amp;lt;br&amp;gt; Ogive Distribution];
-           D--&amp;gt;DB[Beta Distribution];
-           DB--&amp;gt;DBA[Beta - Binomial &amp;lt;br&amp;gt; Distribution];
-           DB--&amp;gt;DBB[McDonald Generalized &amp;lt;br&amp;gt; Beta - Binomial &amp;lt;br&amp;gt; Distribution];
-           DB--&amp;gt;DBC[Libby and Novick &amp;lt;br&amp;gt; Generalized Beta - Binomial &amp;lt;br&amp;gt; Distribution];
-           DB--&amp;gt;DBD[Gauss Hypergeometric &amp;lt;br&amp;gt; Binomial Distribution];
-           DB--&amp;gt;DBE[Confluent Hypergeometric &amp;lt;br&amp;gt; Binomial Distribution];
-           DB--&amp;gt;DBF[Binomial Uniform &amp;lt;br&amp;gt; Distribution];
-           DB--&amp;gt;DBG[Binomial Power &amp;lt;br&amp;gt; Function Distribution];
-           DB--&amp;gt;DBH[Binomial Truncated &amp;lt;br&amp;gt; Beta Distribution];
-           DB--&amp;gt;DBI[Binomial Arcsine &amp;lt;br&amp;gt; Distribution];
-           &amp;quot;,width=700,height=1200
-)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:700px;height:1200px;&#34; class=&#34;DiagrammeR html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;\n           graph LR;\n           A[Binomial &lt;br&gt; Distribution]--&gt;B[ Binomial &lt;br&gt; Parent];\n           B--&gt;C[Mixing Parameter];\n           C--&gt;D[p &lt;br&gt; Binomial];\n           D--&gt;DA[Beyond Beta &lt;br&gt; Distribution];\n           DA--&gt;DAA[Binomial Triangular &lt;br&gt; Distribution];\n           DA--&gt;DAB[Binomial Kumaraswamy 2 &lt;br&gt; Distribution];\n           DA--&gt;DAC[Binomial Kumaraswamy 1 &lt;br&gt; Distribution];\n           DA--&gt;DAD[Binomial Truncated &lt;br&gt; Exponential Distribution];\n           DA--&gt;DAE[Binomial Truncated &lt;br&gt; Gamma Distribution];\n           DA--&gt;DAF[Binomial - MinusLog &lt;br&gt; Distribution];\n           DA--&gt;DAG[Binomial Standard &lt;br&gt; Two Sied Power &lt;br&gt; Distribution];\n           DA--&gt;DAH[Binomial Ogive &lt;br&gt; Distribution];\n           DA--&gt;DAI[Binomial - Two Sided &lt;br&gt; Ogive Distribution];\n           D--&gt;DB[Beta Distribution];\n           DB--&gt;DBA[Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBB[McDonald Generalized &lt;br&gt; Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBC[Libby and Novick &lt;br&gt; Generalized Beta - Binomial &lt;br&gt; Distribution];\n           DB--&gt;DBD[Gauss Hypergeometric &lt;br&gt; Binomial Distribution];\n           DB--&gt;DBE[Confluent Hypergeometric &lt;br&gt; Binomial Distribution];\n           DB--&gt;DBF[Binomial Uniform &lt;br&gt; Distribution];\n           DB--&gt;DBG[Binomial Power &lt;br&gt; Function Distribution];\n           DB--&gt;DBH[Binomial Truncated &lt;br&gt; Beta Distribution];\n           DB--&gt;DBI[Binomial Arcsine &lt;br&gt; Distribution];\n           &#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
 &lt;/div&gt;
 </description>
     </item>
