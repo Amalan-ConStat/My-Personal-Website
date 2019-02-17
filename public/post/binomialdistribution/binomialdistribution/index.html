@@ -553,22 +553,47 @@
 <div id="htmlwidget-4" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-4">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];\n            B-->C[Additive Binomial <br> Distribution];\n            B-->D[Beta-Correlated <br> Binomial Distribution];\n            B-->E[COM-Poisson Binomial <br> Distribution];\n            B-->F[Correlated Binomial <br> Distribution];\n            B-->G[Multiplicative Binomial <br> Distribution];\n            "},"evals":[],"jsHooks":[]}</script>
 <ul>
-<li><p>Additive Binomial Distribution</p></li>
-<li><p>Beta-Correlated Binomial Distribution</p></li>
-<li><p>COM-Poisson Binomial Distribution</p></li>
-<li><p>Correlated Binomial Distribution</p></li>
-<li><p>Multiplicative Binomial Distribution</p></li>
+<li>Additive Binomial Distribution</li>
 </ul>
+<p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
+<p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
+<p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
+<ul>
+<li>Beta-Correlated Binomial Distribution</li>
+</ul>
+<p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
+<ul>
+<li>COM-Poisson Binomial Distribution</li>
+</ul>
+<p>Borges, P., Rodrigues, J., Balakrishnan, N. and Bazan, J., 2014. A COM-Poisson type generalization of the binomial distribution and its properties and applications. Statistics &amp; Probability Letters, 87, pp.158-166.</p>
+<ul>
+<li>Correlated Binomial Distribution</li>
+</ul>
+<p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
+<p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
+<p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
+<p>Jorge G. Morel and Nagaraj K. Neerchal. Overdispersion Models in SAS. SAS Institute, 2012.</p>
+<ul>
+<li>Multiplicative Binomial Distribution</li>
+</ul>
+<p>Johnson, N. L., Kemp, A. W., &amp; Kotz, S. (2005). Univariate discrete distributions (Vol. 444). Hoboken, NJ: Wiley-Interscience.</p>
+<p>L. L. Kupper, J.K.H., 1978. The Use of a Correlated Binomial Model for the Analysis of Certain Toxicological Experiments. Biometrics, 34(1), pp.69-76.</p>
+<p>Paul, S.R., 1985. A three-parameter generalization of the binomial distribution. Communications in Statistics - Theory and Methods, 14(6), pp.1497-1506.</p>
 </div>
 <div id="neyman-type-a-distribution" class="section level2">
 <h2>Neyman Type A Distribution</h2>
 <div id="htmlwidget-5" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[ Neyman Type A <br> Distribution];\n            B-->C[Poisson + Binomial + Binomial + Beta];\n            B-->D[Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta];\n            B-->E[Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta];\n           "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"diagram":"\n            graph TB;\n            A[Binomial <br> Distribution]-->B[ Neyman Type A <br> Distribution];\n            B-->C[Poisson + Binomial +  Beta];\n            B-->D[Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta];\n            B-->E[Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta];\n           "},"evals":[],"jsHooks":[]}</script>
 <ul>
-<li><p>Poisson + Binomial + Binomial + Beta</p></li>
-<li><p>Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta</p></li>
-<li><p>Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta</p></li>
+<li>Poisson + Binomial + Beta</li>
 </ul>
+<p><span class="math display">\[Poisson(\phi) \bigvee Binomial(1,P) \bigwedge_P Beta(\alpha,\beta)\]</span></p>
+<ul>
+<li>Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta</li>
+</ul>
+<p><span class="math display">\[ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> or <span class="math display">\[ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> * Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta</p>
+<p><span class="math display">\[[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)\]</span> or</p>
+<p><span class="math display">\[[\{ Binomial(N,P) \bigvee Poisson(\phi)\} \bigwedge_N Poisson(\lambda)] \bigwedge_P Beta(a,b)\]</span></p>
 </div>
 <div id="hermite-distribution" class="section level2">
 <h2>Hermite Distribution</h2>
