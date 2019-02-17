@@ -589,9 +589,9 @@
 </ul>
 <p><span class="math display">\[Poisson(\phi) \bigvee Binomial(1,P) \bigwedge_P Beta(\alpha,\beta)\]</span></p>
 <ul>
-<li>Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta</li>
+<li>Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta</li>
 </ul>
-<p><span class="math display">\[ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> or <span class="math display">\[ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> * Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta</p>
+<p><span class="math display">\[ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> or <span class="math display">\[ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]\]</span> * Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta</p>
 <p><span class="math display">\[[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)\]</span> or</p>
 <p><span class="math display">\[[\{ Binomial(N,P) \bigvee Poisson(\phi)\} \bigwedge_N Poisson(\lambda)] \bigwedge_P Beta(a,b)\]</span></p>
 </div>
@@ -600,9 +600,13 @@
 <div id="htmlwidget-6" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-6">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Hermite <br> Distribution];\n           B-->C[Binomial + Poisson];\n           B-->D[Poisson + Binomial];\n           "},"evals":[],"jsHooks":[]}</script>
 <ul>
-<li><p>Binomial + Poisson</p></li>
-<li><p>Poisson + Binomial</p></li>
+<li>Binomial + Poisson</li>
 </ul>
+<p><span class="math display">\[Binomial(N,p) \bigwedge_{N/2} Poisson(\lambda)\]</span></p>
+<ul>
+<li>Poisson + Binomial</li>
+</ul>
+<p><span class="math display">\[Poisson(\lambda) \bigvee Binomial(2,p)\]</span></p>
 </div>
 <div id="binomial-parent" class="section level2">
 <h2>Binomial Parent</h2>

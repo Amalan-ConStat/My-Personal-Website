@@ -275,12 +275,12 @@ DiagrammeR(
 
 $$Poisson(\phi) \bigvee Binomial(1,P) \bigwedge_P Beta(\alpha,\beta)$$
 
-* Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta
+* Poisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + Beta
 
 $$ Poisson(\lambda) \bigvee [\{Poisson(\phi) \vee Binomial(1,P) \} \bigwedge_P Beta(\alpha,\beta)]$$
 or
 $$ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedge_P Beta(\alpha,\beta)]$$
-* Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta
+* Poisson + Binomial + Poisson + Beta or Binomial + Poisson + Poisson + Beta
 
 $$[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)$$
 or
@@ -302,8 +302,11 @@ DiagrammeR(
 
 * Binomial + Poisson
 
+$$Binomial(N,p) \bigwedge_{N/2} Poisson(\lambda)$$
+
 * Poisson + Binomial
 
+$$Poisson(\lambda) \bigvee Binomial(2,p)$$
 
 ## Binomial Parent 
 
