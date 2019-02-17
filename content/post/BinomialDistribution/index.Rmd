@@ -186,9 +186,15 @@ DiagrammeR(
 
 * Hypergeometric + Binomial
 
+$$Hypergeometric (n,Y,N) \bigwedge_Y Binomial(N,p)$$
+
 * Negative Binomial + Binomial
 
+$$Negative Binomial (kY,P) \bigwedge_Y Binomial(n,p)$$
+
 * Poisson + Binomial
+
+$$ Poisson (\theta) \bigwedge_{\theta/\phi} Binomial(n,p)$$
 
 ## Alternate Binomial Distributions
 
@@ -259,8 +265,13 @@ DiagrammeR(
 
 ## Binomial Parent 
 
+This is the sub group where Binomial distribution is the parent distribution. 
+By considering the distribution and its parameters we can use possible different 
+mixing distributions and generate new Binomial Mixture Distributions.
 
 ### N/n , K and Y Mixtures
+
+The first mixtures with few distributions are mentioned below.
 
 ```{r other Mixtures,echo=FALSE}
 DiagrammeR(
@@ -281,7 +292,9 @@ DiagrammeR(
 )
 ```
 
+* 
 
+* 
 ### p Transformed Binomial
 
 ```{r Transformed Binomial,echo=FALSE}
