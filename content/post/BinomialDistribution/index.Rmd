@@ -154,7 +154,7 @@ Below is the list of Distributions in this sub group with article references.
 Kemp, A. W., and Kemp, C. D (2004). Factorial moment characterizations for certain binomial-type
 distributions, Communications in Statistics-Theory and Methods, 33, 3059-3068. 
 
-Harkness, W. L. (1970). The classical occupancy problem revisited, Random Counts in Scienti???c Work, Vol. 3:Random Counts in
+Harkness, W. L. (1970). The classical occupancy problem revisited, Random Counts in Scientific Work, Vol. 3:Random Counts in
 Physical Science, Geo Science, and Business, G. P. Patil (editor), 107-126. University Park: Pennsylvania State University 
 Press. 
 
@@ -173,14 +173,25 @@ and derived compound distributions, Australian Journal of Statistics, 19, 108-11
 Alanko, T., and Duffy, J. C. (1996). Compound binomial distributions for modelling consumption data, The Statistician, 
 45, 269-286. 
 
-Chat???eld, C., and Goodhardt, G. J. (1970). The beta-binomial model for consumer purchasing behaviour, Applied Statistics, 
+Chatfield, C., and Goodhardt, G. J. (1970). The beta-binomial model for consumer purchasing behaviour, Applied Statistics, 
 19, 240-250.
 
 Consul, P. C., and Jain, G. C. (1971). On the log-gamma distribution and its properties, Statistische Hefte, 12, 100-106.
 
 * Zero Modified Binomial Distribution
 
+Dowling, M. M., and Nakamura, M. (1997). Estimating parameters for discrete distributions via the empirical probability
+generating function, Communications in Statistics-Simulation and Computation, 26, 301-313. 
+
+Khatri, C. G. (1961). On the distributions obtained by varying the number of trials in a binomial distribution, Annals of 
+the Institute of Statistical Mathematics, Tokyo, 13, 47-51.
+
 * Dandekar's Modified Binomial Distribution
+
+Patil, G. P., Boswell, M. T., Joshi, S. W., and Ratnaparkhi, M. V. (1984). Dictionary and Bibliography of Statistical 
+Distributions in Scientific Work, Vol. 1: Discrete Models, Fairland, MD: International Co-operative Publishing House. 
+
+Dandekar, V. M. (1955). Certain modified forms of binomial and Poisson distributions, Sankhya, 15, 237-250. 
 
 * Simplex Binomial Mixture Model
 
