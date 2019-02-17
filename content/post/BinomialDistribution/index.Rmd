@@ -195,9 +195,21 @@ Dandekar, V. M. (1955). Certain modified forms of binomial and Poisson distribut
 
 * Simplex Binomial Mixture Model
 
+Barndorff-Neilsen, O. E., and Jorgensen, B. (1991). Some parametric models on the simplex, Journal of 
+Multivariate Analysis, 39, 106-116. 
+
+Jorgensen, B. (1997). The Theory of Regression Models, London: Chapman & Hall/CRC. 
+
 * Double Binomial Distribution
 
+Lindsey, J. K. (1995). Modelling Frequency and Count Data, Oxford: Oxford University Press.
+
+Efron, B. (1986). Double exponential families and their use in generalized linear regression, Journal of the 
+American Statistical Association, 81, 709-721. 
+
 * Finite Biomial Mixtures
+
+
 
 * Binomial Distribution of order K
 
