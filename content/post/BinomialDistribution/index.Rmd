@@ -151,6 +151,33 @@ Below is the list of Distributions in this sub group with article references.
 
 * Grassia Binomial Distribution
 
+Kemp, A. W., and Kemp, C. D (2004). Factorial moment characterizations for certain binomial-type
+distributions, Communications in Statistics-Theory and Methods, 33, 3059-3068. 
+
+Harkness, W. L. (1970). The classical occupancy problem revisited, Random Counts in Scienti???c Work, Vol. 3:Random Counts in
+Physical Science, Geo Science, and Business, G. P. Patil (editor), 107-126. University Park: Pennsylvania State University 
+Press. 
+
+Weiss, G. H. (1965). A model for the spread of epidemics by carriers, Biometrics, 21, 481-490. 
+
+Dietz, K. (1966). On the model of Weiss for the spread of epidemics by carriers, Journal of Applied Probability, 3, 
+375-382. 
+
+Downton, F. (1967). Epidemics with carriers: A note on a paper by Dietz, Journal of Applied Probability, 4, 264-270. 
+
+Daley, D. J., and Gani, J. (1999). Epidemic Modelling:An Introduction,Cambridge: Cambridge University Press.  
+
+Grassia, A. (1977). On a family of distributions with argument between 0 and 1 obtained by transformation of the gamma 
+and derived compound distributions, Australian Journal of Statistics, 19, 108-114.
+
+Alanko, T., and Duffy, J. C. (1996). Compound binomial distributions for modelling consumption data, The Statistician, 
+45, 269-286. 
+
+Chat???eld, C., and Goodhardt, G. J. (1970). The beta-binomial model for consumer purchasing behaviour, Applied Statistics, 
+19, 240-250.
+
+Consul, P. C., and Jain, G. C. (1971). On the log-gamma distribution and its properties, Statistische Hefte, 12, 100-106.
+
 * Zero Modified Binomial Distribution
 
 * Dandekar's Modified Binomial Distribution
