@@ -192,13 +192,16 @@ DiagrammeR(
 
 ## Alternate Binomial Distributions
 
+This is a sub group of distributions which can be used as an alternative to
+Binomial Distribution.
+
 ```{r Alternate Binomial Distributions,echo=FALSE}
 DiagrammeR(
            "
             graph TB;
             A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];
             B-->C[Additive Binomial <br> Distribution];
-            B-->D[Beta-Correlated <br> Distribution];
+            B-->D[Beta-Correlated <br> Binomial Distribution];
             B-->E[COM-Poisson Binomial <br> Distribution];
             B-->F[Correlated Binomial <br> Distribution];
             B-->G[Multiplicative Binomial <br> Distribution];
@@ -206,6 +209,15 @@ DiagrammeR(
 )
 ```
 
+* Additive Binomial Distribution
+
+* Beta-Correlated Binomial Distribution
+
+* COM-Poisson Binomial Distribution
+
+* Correlated Binomial Distribution
+
+* Multiplicative Binomial Distribution
 
 ## Neyman Type A Distribution 
 
@@ -221,6 +233,12 @@ DiagrammeR(
 )
 ```
 
+* Poisson + Binomial + Binomial + Beta
+
+* Poisson + Poisson + Binomial + Beta <br> or Poisson + Binomial + Poisson + Beta
+
+* Poisson + Binomial + Poisson + Beta <br> or Binomial + Poisson + Poisson + Beta
+
 ## Hermite Distribution
 
 ```{r Hermite Distribution,echo=FALSE}
@@ -233,6 +251,10 @@ DiagrammeR(
            ",width=800,height=400
 )
 ```
+
+* Binomial + Poisson
+
+* Poisson + Binomial
 
 
 ## Binomial Parent 
