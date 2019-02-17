@@ -128,6 +128,9 @@ DiagrammeR(
 
 ## Other With No Sub-Groups
 
+First sub group in discussion is "Other With No Sub-Groups", which is an abbreviation for Binomial distributions
+which were direcly created for the purpose of satisfying specific real world situations and theoretical concepts.
+
 ```{r Other with No Sub-Groups,echo=FALSE}
 DiagrammeR(
            "graph TB;
@@ -144,7 +147,30 @@ DiagrammeR(
             ",width=1000,height=400)
 ```
 
+Below is the list of Distributions in this sub group with article references.
+
+* Grassia Binomial Distribution
+
+* Zero Modified Binomial Distribution
+
+* Dandekar's Modified Binomial Distribution
+
+* Simplex Binomial Mixture Model
+
+* Double Binomial Distribution
+
+* Finite Biomial Mixtures
+
+* Binomial Distribution of order K
+
+* Truncated Binomial Distribution
+
+* Weighted Binomial Distribution
+
 ## Binomial Not Parent
+
+This is the sub group where Binomial Distribution is not the parent but
+rather some other different distribution like Hypergeometric or Negative Binomial or Poisson.
 
 ```{r Binomial not parent,echo=FALSE}
 DiagrammeR(
@@ -157,6 +183,12 @@ DiagrammeR(
            ",width=800,height=400
 )
 ```
+
+* Hypergeometric + Binomial
+
+* Negative Binomial + Binomial
+
+* Poisson + Binomial
 
 ## Alternate Binomial Distributions
 
