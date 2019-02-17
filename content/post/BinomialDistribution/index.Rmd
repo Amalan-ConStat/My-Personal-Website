@@ -445,6 +445,16 @@ $$Binomial(N,p) \bigwedge_{N/2} Poisson(\lambda)$$
 
 $$Poisson(\lambda) \bigvee Binomial(2,p)$$
 
+Skellam, J. G. (1952). Studies in statistical ecology I: Spatial pattern, Biometrika, 39, 346-362.
+
+McGuire, J. U., Brindley, T. A., and Bancroft, T. A. (1957). The distribution of European corn borer Pyrausta Nubilalis 
+(Hbn.) in field corn, Biometrics, 13, 65-78 [errata and extensions (1958) 14, 432-434]. 
+
+Kemp, C. D., and Kemp, A. W. (1965). Some properties of the "Hermite" distribution, Biometrika, 52, 381-394. 
+
+Fisher, R. A. (1951). Properties of the functions, (Part of introduction to) British Association Mathematical Tables 
+(third edition), Vol. 1, London: British Association. 
+
 ## Binomial Parent 
 
 This is the sub group where Binomial distribution is the parent distribution. 
