@@ -149,8 +149,15 @@
 &lt;p&gt;Feller, W. (1957). An Introduction to Probability Theory and Its Applications (second edition), Vol. 1, New York: Wiley.&lt;/p&gt;
 &lt;p&gt;Aki, S., and Hirano, K. (1988). Some characteristics of the binomial distribution of order k and related distributions, Statistical Theory and Data Analysis, Vol. 2, K. Matusita (editor), 211-222. Amsterdam: Elsevier.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Truncated Binomial Distribution&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Weighted Binomial Distribution&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Truncated Binomial Distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Stephan, F. F. (1945). The expected value and variance of the reciprocal and other negative powers of a positive Bernoullian variate, Annals of Mathematical Statistics, 16, 50-61.&lt;/p&gt;
+&lt;p&gt;Shah, S. M. (1966). On estimating the parameter of a doubly truncated binomial distribution, Journal of the American Statistical Association, 61, 259-263.&lt;/p&gt;
+&lt;p&gt;Newell, D. J. (1965). Unusual frequency distributions, Biometrics, 21, 159-168.&lt;/p&gt;
+&lt;p&gt;Grab, E. L., and Savage, I. R. (1954). Tables of the expected value of 1/x for positive Bernoulli and Poisson variables, Journal of the American Statistical Association, 49, 169-177.&lt;/p&gt;
+&lt;p&gt;Finney, D. J. (1949). The truncated binomial distribution, Annals of Eugenics, London, 14, 319-328.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Weighted Binomial Distribution&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;binomial-not-parent&#34; class=&#34;section level2&#34;&gt;
