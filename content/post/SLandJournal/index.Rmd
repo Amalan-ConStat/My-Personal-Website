@@ -47,7 +47,9 @@ library(ggthemr)
 ggthemr("flat dark")
 ```
 
-# Ranking of Sri Lanka from 1996 to 2017
+# Country Information
+
+## Ranking of Sri Lanka from 1996 to 2017
 
 ```{r sjr Sri Lanka and rank}
 subset(sjr_countries,country=="Sri Lanka") %>%
@@ -60,7 +62,7 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))
 ```
 
-# Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017
+## Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017
 
 ```{r sjr Sri Lanka and documents citable documents self citations}
 sjr_countries%>%
@@ -77,7 +79,7 @@ ggplot(.,aes(x=year,y=values,label=values,color=citing,shape=citing))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))
 ```
 
-# Citations per Document from Sri Lankan Journals
+## Citations per Document from Sri Lankan Journals
 
 ```{r sjr citations per document}
 sjr_countries %>%
@@ -92,5 +94,23 @@ ggplot(.,aes(x=year,y=citations_per_document,
   scale_y_continuous(breaks=seq(0,30),labels=seq(0,30))+
   ggtitle("Citations Per Document from 1996 to 2017 for Sri Lanka")+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))
+```
+
+# Journals from Sri Lanka
+
+##
+
+```{r}
+p<-subset(sjr_journals,country=="Sri Lanka") %>%
+   mutate(year=year(as.Date(year,"%Y"))) %>%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=rank,color=year))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes("linear")+
+         xlab("Title of Journals")+ylab("Rank")+
+         ggtitle("Ranks Changing over time for Sri Lankan Journals from 1996 to 2017",
+                 subtitle = "Year : {round(frame_time)}")
+
+animate(p,fps=1,nframes=21)  
 ```
 

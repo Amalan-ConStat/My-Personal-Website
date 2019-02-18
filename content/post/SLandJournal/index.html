@@ -28,9 +28,14 @@ summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#packages-and-ideas">Packages and Ideas</a></li>
+<li><a href="#country-information">Country Information</a><ul>
 <li><a href="#ranking-of-sri-lanka-from-1996-to-2017">Ranking of Sri Lanka from 1996 to 2017</a></li>
 <li><a href="#documents-citable-documents-and-self-citations-from-sri-lanka-journals-from-1996-to-2017">Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017</a></li>
 <li><a href="#citations-per-document-from-sri-lankan-journals">Citations per Document from Sri Lankan Journals</a></li>
+</ul></li>
+<li><a href="#journals-from-sri-lanka">Journals from Sri Lanka</a><ul>
+<li><a href="#section"></a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -51,8 +56,10 @@ library(lubridate)
 library(ggthemr)
 ggthemr(&quot;flat dark&quot;)</code></pre>
 </div>
-<div id="ranking-of-sri-lanka-from-1996-to-2017" class="section level1">
-<h1>Ranking of Sri Lanka from 1996 to 2017</h1>
+<div id="country-information" class="section level1">
+<h1>Country Information</h1>
+<div id="ranking-of-sri-lanka-from-1996-to-2017" class="section level2">
+<h2>Ranking of Sri Lanka from 1996 to 2017</h2>
 <pre class="r"><code>subset(sjr_countries,country==&quot;Sri Lanka&quot;) %&gt;%
   mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
 ggplot(.,aes(x=year,y=rank,label=rank))+
@@ -63,8 +70,8 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20rank-1.png" width="960" /></p>
 </div>
-<div id="documents-citable-documents-and-self-citations-from-sri-lanka-journals-from-1996-to-2017" class="section level1">
-<h1>Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017</h1>
+<div id="documents-citable-documents-and-self-citations-from-sri-lanka-journals-from-1996-to-2017" class="section level2">
+<h2>Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017</h2>
 <pre class="r"><code>sjr_countries%&gt;%
   gather(citing,values,&quot;documents&quot;,&quot;citable_documents&quot;,&quot;self_citations&quot;) %&gt;%
   subset(country==&quot;Sri Lanka&quot;,select=c(citing,values,year)) %&gt;%
@@ -79,8 +86,8 @@ ggplot(.,aes(x=year,y=values,label=values,color=citing,shape=citing))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20documents%20citable%20documents%20self%20citations-1.png" width="960" /></p>
 </div>
-<div id="citations-per-document-from-sri-lankan-journals" class="section level1">
-<h1>Citations per Document from Sri Lankan Journals</h1>
+<div id="citations-per-document-from-sri-lankan-journals" class="section level2">
+<h2>Citations per Document from Sri Lankan Journals</h2>
 <pre class="r"><code>sjr_countries %&gt;%
    subset(country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
@@ -94,4 +101,23 @@ ggplot(.,aes(x=year,y=citations_per_document,
   ggtitle(&quot;Citations Per Document from 1996 to 2017 for Sri Lanka&quot;)+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20citations%20per%20document-1.png" width="960" /></p>
+</div>
+</div>
+<div id="journals-from-sri-lanka" class="section level1">
+<h1>Journals from Sri Lanka</h1>
+<div id="section" class="section level2">
+<h2></h2>
+<pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
+   mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=rank,color=year))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes(&quot;linear&quot;)+
+         xlab(&quot;Title of Journals&quot;)+ylab(&quot;Rank&quot;)+
+         ggtitle(&quot;Ranks Changing over time for Sri Lankan Journals from 1996 to 2017&quot;,
+                 subtitle = &quot;Year : {round(frame_time)}&quot;)
+
+animate(p,fps=1,nframes=21)  </code></pre>
+<p><img src="/post/SLandJournal/index_files/figure-html/unnamed-chunk-1-1.gif" /><!-- --></p>
+</div>
 </div>

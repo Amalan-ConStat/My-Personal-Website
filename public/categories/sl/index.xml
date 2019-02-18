@@ -18,7 +18,7 @@
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/slandjournal/slandjournal/</guid>
-      <description>IntroductionPackages and IdeasRanking of Sri Lanka from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017Citations per Document from Sri Lankan JournalsIntroductionPackages and Ideas# Datalibrary(sjrdata)# Packageslibrary(tidyverse)library(gganimate)library(ggrepel)library(magrittr)library(lubridate)library(ggthemr)ggthemr(&amp;quot;flat dark&amp;quot;)Ranking of Sri Lanka from 1996 to 2017subset(sjr_countries,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%ggplot(.,aes(x=year,y=rank,label=rank))+geom_point()+geom_line()+geom_text_repel()+xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rank&amp;quot;)+ggtitle(&amp;quot;Rank of Sri Lanka Changing from 1996 to 2017&amp;quot;)+theme(axis.</description>
+      <description>IntroductionPackages and IdeasCountry InformationRanking of Sri Lanka from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017Citations per Document from Sri Lankan JournalsJournals from Sri LankaIntroductionPackages and Ideas# Datalibrary(sjrdata)# Packageslibrary(tidyverse)library(gganimate)library(ggrepel)library(magrittr)library(lubridate)library(ggthemr)ggthemr(&amp;quot;flat dark&amp;quot;)Country InformationRanking of Sri Lanka from 1996 to 2017subset(sjr_countries,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%mutate(year=year(as.</description>
     </item>
     
   </channel>
