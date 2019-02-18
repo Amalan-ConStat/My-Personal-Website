@@ -538,6 +538,14 @@ DiagrammeR(
 )
 ```
 
+Bowman, K. O., Shenton, L. R., Kastenbaum, M. A., & Broman, K. (1992). Overdispersion: Notes on Discrete
+distributions. Oak Ridge Tennessee : Oak Ridge National Laboratory.
+
+Alanko, T., & Duffy, J. C. (1996). Compound Binomial distributions for modeling consumption data. Journal of the 
+Royal Statistical society, series D (The Statistician) Vol. 45, No. 3 ,269-286.
+
+Gerstenkorn, T. (2004). A compound of the Generalized Negative Binomial distribution with the Generalized 
+Beta distribution. Central European Science journals, CEJM 2 (4), 527-537. 
 
 ### Log Inverse Distribution [0,1] Domain
 
