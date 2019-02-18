@@ -640,3 +640,14 @@ DiagrammeR(
 ```
 
 # References 
+
+Fisher, R. A., and Mather, K. (1936). A linkage test with mice, Annals of Eugenics, London, 7, 265-280.
+
+Boswell, M. T., Ord, J. K., and Patil, G. P. (1979). Chance mechanisms underlying univariate distributions, Statistical
+Ecology, Vol. 4:Statistical Distributions in Ecological Work, J. K. Ord, G. P. Patil, and C. Taillie (editors), 1-156.
+Fairland, MD: International Co-operative Publishing House. 
+
+Kaplan, N., and Risko, K. (1982). A method for estimating rates of nucleotide substitution using DNA sequence data, 
+Theoretical Population Biology, 21, 318-328.
+
+Seber, G. A. F. (1982b). The Estimation of Animal Abundance (second edition), London: Griffin.
