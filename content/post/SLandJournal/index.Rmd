@@ -28,5 +28,45 @@ summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 
 # Packages and Ideas
 
+```{r Packages and data}
+# Data
+library(sjrdata)
 
+# Packages
+library(tidyverse)
+library(gganimate)
+library(ggrepel)
+library(magrittr)
+library(lubridate)
+library(ggthemr)
+ggthemr("flat dark")
+```
+
+```{r sjr Sri Lanka and rank}
+subset(sjr_countries,country=="Sri Lanka") %>%
+  mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=year,y=rank,label=rank))+
+  geom_point()+geom_line()+
+  geom_text_repel()+
+  xlab("Year")+ylab("Rank")+
+  ggtitle("Rank of Sri Lanka Changing from 1996 to 2017")+
+  theme(axis.text.x =element_text(angle = 90, hjust = 1))
+```
+
+```{r sjr Sri Lanka and documents citable documents self citations}
+sjr_countries%>%
+  gather(citing,values,"documents","citable_documents","self_citations") %>%
+  subset(country=="Sri Lanka",select=c(citing,values,year)) %>%
+  mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=factor(year),y=values,label=values,color=citing))+
+  geom_point()+geom_line()+
+  geom_text_repel()+
+  xlab("Year")+ylab("Counts")+
+  ggtitle("Document Counts Changing from 1996 to 2017 for Sri Lanka")+
+  theme(axis.text.x =element_text(angle = 90, hjust = 1))
+```
+
+```{r sjr citations}
+
+```
 
