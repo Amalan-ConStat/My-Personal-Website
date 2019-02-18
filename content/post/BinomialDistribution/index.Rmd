@@ -563,6 +563,11 @@ DiagrammeR(
 )
 ```
 
+Grassia, A. (1977). On a family of distributions with argument between 0 and 1 obtained by transformations of 
+the Gamma and derived compound distributions. Australian journal of Statistics, 19 (2) 108-114.
+
+McDonald, J. B., & Yexiao, J. X. (1995). A generalization of the Beta distribution with applications. 
+Journal of Econometrics 66,133-152.
 
 ### Cumulative Distribution Function
 
@@ -583,6 +588,15 @@ DiagrammeR(
            ",width=1000,height=750
 )
 ```
+
+Eugene, N., Lee, C., & Famoye, F. (2002). Beta-normal distributions and its applications. Communications in 
+Statistics-Theory and Methods 31, 4 ,497-512.
+
+Nadarajah, S., & Kotz, S. (2006). The Beta Exponential distribution. Reliability engineering and system safety, 
+Vol. 91, Issue 6 ,689-697
+
+Barreto-Souza, W., Santos, A., & Cordeiro, G. M. (2009). The Beta Generalized Exponential distribution. 
+Journal of Statistical Computation and Simulation , 1-14.
 
 ### p Binomial 
 
