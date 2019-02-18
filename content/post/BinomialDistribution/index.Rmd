@@ -645,7 +645,7 @@ modeling in honnor of Enrique Castillo. University of Castilla-La Mancha.
 Jones, M. C. (2009). Kumaraswamy's distribution: a beta-type distibution with some tractability advantages. Statistical Methodology Vol. 6, Issue 1 ,70-81.
 
 Jones, M. C. (2007). The Minimax distribution: A Beta type distribution with some tractability advantages. Retrieved from The 
-Open University: http://stats- www.open.ac.uk/TechnicalReports/minimax.pdf
+Open University: http://stats-www.open.ac.uk/TechnicalReports/minimax.pdf
 
 Kumaraswamy, P. (1980). Genralized probability density functions for double-bounded random processes. Journal of 
 hydrology, 79-88.
