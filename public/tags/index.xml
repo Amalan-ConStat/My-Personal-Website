@@ -96,7 +96,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -114,7 +114,7 @@
     <item>
       <title>R package</title>
       <link>/tags/r-package/</link>
-      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-package/</guid>
       <description></description>
@@ -126,6 +126,15 @@
       <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/rshiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SL</title>
+      <link>/tags/sl/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sl/</guid>
       <description></description>
     </item>
     
@@ -177,7 +186,7 @@
     <item>
       <title>gganimate</title>
       <link>/tags/gganimate/</link>
-      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/gganimate/</guid>
       <description></description>
@@ -249,7 +258,7 @@
     <item>
       <title>tidyverse</title>
       <link>/tags/tidyverse/</link>
-      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/tidyverse/</guid>
       <description></description>

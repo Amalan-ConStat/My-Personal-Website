@@ -1,0 +1,32 @@
+---
+title: 'Sri Lanka and its affect on/in Journal Articles '
+author: M.Amalan
+date: '2019-02-18'
+slug: SLandJournal
+output:
+    blogdown::html_page:
+      toc : true
+categories:
+  - Blog
+  - R
+  - SL
+  - Journal
+tags:
+  - gganimate
+  - tidyverse
+  - R package
+  - R
+  - SL
+image:
+  caption: ''
+  focal_point: ''
+summary: "Exploring How has Sri Lanka done in related to Academic Journals."
+---
+
+# Introduction
+
+
+# Packages and Ideas
+
+
+

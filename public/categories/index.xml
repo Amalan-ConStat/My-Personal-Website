@@ -24,16 +24,25 @@
     <item>
       <title>Blog</title>
       <link>/categories/blog/</link>
-      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/blog/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Journal</title>
+      <link>/categories/journal/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/journal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -45,6 +54,15 @@
       <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/rshiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SL</title>
+      <link>/categories/sl/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/sl/</guid>
       <description></description>
     </item>
     
