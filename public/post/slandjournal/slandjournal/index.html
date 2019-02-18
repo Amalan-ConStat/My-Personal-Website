@@ -453,7 +453,9 @@
 <li><a href="#citations-per-document-from-sri-lankan-journals">Citations per Document from Sri Lankan Journals</a></li>
 </ul></li>
 <li><a href="#journals-from-sri-lanka">Journals from Sri Lanka</a><ul>
-<li><a href="#section"></a></li>
+<li><a href="#rank-changes-for-sri-lankan-journals">Rank changes for Sri Lankan Journals</a></li>
+<li><a href="#sjr-values-changing-for-sri-lankan-journals">SJR values changing for Sri Lankan Journals</a></li>
+<li><a href="#references-per-document-changing-for-sri-lankan-journals">References per Document changing for Sri Lankan Journals</a></li>
 </ul></li>
 </ul>
 </div>
@@ -524,8 +526,8 @@ ggplot(.,aes(x=year,y=citations_per_document,
 </div>
 <div id="journals-from-sri-lanka" class="section level1">
 <h1>Journals from Sri Lanka</h1>
-<div id="section" class="section level2">
-<h2></h2>
+<div id="rank-changes-for-sri-lankan-journals" class="section level2">
+<h2>Rank changes for Sri Lankan Journals</h2>
 <pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=rank,color=year))+
@@ -537,7 +539,38 @@ ggplot(.,aes(x=year,y=citations_per_document,
                  subtitle = &quot;Year : {round(frame_time)}&quot;)
 
 animate(p,fps=1,nframes=21)  </code></pre>
-<p><img src="/post/SLandJournal/index_files/figure-html/unnamed-chunk-1-1.gif" /><!-- --></p>
+<p><img src="/post/SLandJournal/index_files/figure-html/rank%20changes-1.gif" /><!-- --></p>
+</div>
+<div id="sjr-values-changing-for-sri-lankan-journals" class="section level2">
+<h2>SJR values changing for Sri Lankan Journals</h2>
+<pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
+   mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=sjr,color=year,shape=sjr_best_quartile))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes(&quot;linear&quot;)+
+         xlab(&quot;Title of Journals&quot;)+ylab(&quot;SJR values&quot;)+
+         ggtitle(&quot;SJR values Changing over time for Sri Lankan Journals from 1996 to 2017&quot;,
+                 subtitle = &quot;Year : {round(frame_time)}&quot;)+
+         theme(legend.position = &quot;bottom&quot;)
+
+animate(p,fps=1,nframes=21)  </code></pre>
+<p><img src="/post/SLandJournal/index_files/figure-html/sjr%20changes-1.gif" /><!-- --></p>
+</div>
+<div id="references-per-document-changing-for-sri-lankan-journals" class="section level2">
+<h2>References per Document changing for Sri Lankan Journals</h2>
+<pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
+   mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=ref_doc,color=year))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes(&quot;linear&quot;)+
+         xlab(&quot;Title of Journals&quot;)+ylab(&quot;References per Document&quot;)+
+         ggtitle(&quot;References per Document Changing over time for Sri Lankan Journals from 1996 to 2017&quot;,
+                 subtitle = &quot;Year : {round(frame_time)}&quot;)
+
+animate(p,fps=1,nframes=21)  </code></pre>
+<p><img src="/post/SLandJournal/index_files/figure-html/ref%20per%20doc%20changes-1.gif" /><!-- --></p>
 </div>
 </div>
 

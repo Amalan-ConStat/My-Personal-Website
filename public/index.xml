@@ -26,7 +26,9 @@
 &lt;li&gt;&lt;a href=&#34;#citations-per-document-from-sri-lankan-journals&#34;&gt;Citations per Document from Sri Lankan Journals&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#journals-from-sri-lanka&#34;&gt;Journals from Sri Lanka&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#section&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rank-changes-for-sri-lankan-journals&#34;&gt;Rank changes for Sri Lankan Journals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sjr-values-changing-for-sri-lankan-journals&#34;&gt;SJR values changing for Sri Lankan Journals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#references-per-document-changing-for-sri-lankan-journals&#34;&gt;References per Document changing for Sri Lankan Journals&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -97,8 +99,8 @@ ggplot(.,aes(x=year,y=citations_per_document,
 &lt;/div&gt;
 &lt;div id=&#34;journals-from-sri-lanka&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Journals from Sri Lanka&lt;/h1&gt;
-&lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;/h2&gt;
+&lt;div id=&#34;rank-changes-for-sri-lankan-journals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Rank changes for Sri Lankan Journals&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-subset(sjr_journals,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%
    mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=rank,color=year))+
@@ -110,7 +112,38 @@ ggplot(.,aes(x=year,y=citations_per_document,
                  subtitle = &amp;quot;Year : {round(frame_time)}&amp;quot;)
 
 animate(p,fps=1,nframes=21)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/unnamed-chunk-1-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/rank%20changes-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sjr-values-changing-for-sri-lankan-journals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;SJR values changing for Sri Lankan Journals&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-subset(sjr_journals,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%
+   mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=sjr,color=year,shape=sjr_best_quartile))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+         xlab(&amp;quot;Title of Journals&amp;quot;)+ylab(&amp;quot;SJR values&amp;quot;)+
+         ggtitle(&amp;quot;SJR values Changing over time for Sri Lankan Journals from 1996 to 2017&amp;quot;,
+                 subtitle = &amp;quot;Year : {round(frame_time)}&amp;quot;)+
+         theme(legend.position = &amp;quot;bottom&amp;quot;)
+
+animate(p,fps=1,nframes=21)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/sjr%20changes-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references-per-document-changing-for-sri-lankan-journals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;References per Document changing for Sri Lankan Journals&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-subset(sjr_journals,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%
+   mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=ref_doc,color=year))+
+         geom_jitter()+coord_flip()+
+         shadow_mark()+
+         transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+         xlab(&amp;quot;Title of Journals&amp;quot;)+ylab(&amp;quot;References per Document&amp;quot;)+
+         ggtitle(&amp;quot;References per Document Changing over time for Sri Lankan Journals from 1996 to 2017&amp;quot;,
+                 subtitle = &amp;quot;Year : {round(frame_time)}&amp;quot;)
+
+animate(p,fps=1,nframes=21)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/ref%20per%20doc%20changes-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
