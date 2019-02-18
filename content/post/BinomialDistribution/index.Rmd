@@ -484,7 +484,30 @@ DiagrammeR(
 )
 ```
 
- 
+#### Poisson Mix for N/n of Binomial distributon
+
+$$Binomial(N,p) \bigwedge_{N/n} Poisson(\lambda)$$
+
+#### Negative Binomial Mix for N/n of Binomial distributon
+
+$$Binomial(N,p) \bigwedge_{N/n} Negative Binomial(k,P`)$$
+
+#### Binomial Mix for N/n of Binomial distributon
+
+$$Binomial(N,p) \bigwedge_{N/n} Binomial(N`,p`)$$
+
+#### Logarithmic Mix for N/n of Binomial distribution
+
+$$Binomial(N,p) \bigwedge_{N/n} Logarithmic(\theta)$$
+
+#### Poisson Mix for K of Poisson distributon
+
+$$Binomial(nK,p) \bigwedge_K Poisson(\theta)$$
+
+#### Hypergeometric Mix for Y of Binomial distributon
+
+$$Binomial(m,\frac{Y}{n}) \bigwedge_{Y} Hypergeometric(n,Np,N)$$
+
 ### p Transformed Binomial
 
 ```{r Transformed Binomial,echo=FALSE}

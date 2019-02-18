@@ -291,6 +291,30 @@ summary: 'Brief introduction on Binomial Distribution and its expansion based on
 <p>The first mixtures with few distributions are mentioned below.</p>
 <div id="htmlwidget-7" style="width:800px;height:400px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-7">{"x":{"diagram":"\n           graph TB;\n           A[Binomial <br> Distribution]-->B[Binomial <br> Parent];\n           B-->C[Mixing Parameter];\n           C-->D[N/n <br> Binomial];\n           D-->DA[Poisson];\n           D-->DB[Binomial];\n           D-->DC[Negative Binomial];\n           D-->DD[Logarithmic];\n           C-->E[K <br> Binomial];\n           E-->EA[Poisson];\n           C-->F[Y <br> Binomial];\n           F-->FA[Hypergeometric];\n           "},"evals":[],"jsHooks":[]}</script>
+<div id="poisson-mix-for-nn-of-binomial-distributon" class="section level4">
+<h4>Poisson Mix for N/n of Binomial distributon</h4>
+<p><span class="math display">\[Binomial(N,p) \bigwedge_{N/n} Poisson(\lambda)\]</span></p>
+</div>
+<div id="negative-binomial-mix-for-nn-of-binomial-distributon" class="section level4">
+<h4>Negative Binomial Mix for N/n of Binomial distributon</h4>
+<p><span class="math display">\[Binomial(N,p) \bigwedge_{N/n} Negative Binomial(k,P`)\]</span></p>
+</div>
+<div id="binomial-mix-for-nn-of-binomial-distributon" class="section level4">
+<h4>Binomial Mix for N/n of Binomial distributon</h4>
+<p><span class="math display">\[Binomial(N,p) \bigwedge_{N/n} Binomial(N`,p`)\]</span></p>
+</div>
+<div id="logarithmic-mix-for-nn-of-binomial-distribution" class="section level4">
+<h4>Logarithmic Mix for N/n of Binomial distribution</h4>
+<p><span class="math display">\[Binomial(N,p) \bigwedge_{N/n} Logarithmic(\theta)\]</span></p>
+</div>
+<div id="poisson-mix-for-k-of-poisson-distributon" class="section level4">
+<h4>Poisson Mix for K of Poisson distributon</h4>
+<p><span class="math display">\[Binomial(nK,p) \bigwedge_K Poisson(\theta)\]</span></p>
+</div>
+<div id="hypergeometric-mix-for-y-of-binomial-distributon" class="section level4">
+<h4>Hypergeometric Mix for Y of Binomial distributon</h4>
+<p><span class="math display">\[Binomial(m,\frac{Y}{n}) \bigwedge_{Y} Hypergeometric(n,Np,N)\]</span></p>
+</div>
 </div>
 <div id="p-transformed-binomial" class="section level3">
 <h3>p Transformed Binomial</h3>
