@@ -23,6 +23,11 @@ image:
 summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.width = 10,fig.height = 10)
+```
+
 # Introduction
 
 
@@ -58,10 +63,12 @@ sjr_countries%>%
   gather(citing,values,"documents","citable_documents","self_citations") %>%
   subset(country=="Sri Lanka",select=c(citing,values,year)) %>%
   mutate(year=year(as.Date(year,"%Y"))) %>%
-ggplot(.,aes(x=factor(year),y=values,label=values,color=citing))+
+ggplot(.,aes(x=year,y=values,label=values,color=citing,shape=citing))+
   geom_point()+geom_line()+
   geom_text_repel()+
   xlab("Year")+ylab("Counts")+
+  scale_x_continuous(breaks=seq(1996,2017),labels=seq(1996,2017))+
+  scale_y_continuous(breaks=seq(0,2000,100),labels=seq(0,2000,100))+
   ggtitle("Document Counts Changing from 1996 to 2017 for Sri Lanka")+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))
 ```

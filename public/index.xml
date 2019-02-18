@@ -32,36 +32,13 @@
 library(sjrdata)
 
 # Packages
-library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Attaching packages ------------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## v ggplot2 3.1.0       v purrr   0.3.0  
-## v tibble  2.0.1       v dplyr   0.8.0.1
-## v tidyr   0.8.2       v stringr 1.4.0  
-## v readr   1.3.1       v forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Conflicts ---------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gganimate)
+library(tidyverse)
+library(gganimate)
 library(ggrepel)
-library(magrittr)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &amp;#39;magrittr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:purrr&amp;#39;:
-## 
-##     set_names&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:tidyr&amp;#39;:
-## 
-##     extract&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(lubridate)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &amp;#39;lubridate&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:base&amp;#39;:
-## 
-##     date&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggthemr)
+library(magrittr)
+library(lubridate)
+library(ggthemr)
 ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: New theme missing the following elements: panel.grid, plot.tag,
-## plot.tag.position&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(sjr_countries,country==&amp;quot;Sri Lanka&amp;quot;) %&amp;gt;%
   mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
 ggplot(.,aes(x=year,y=rank,label=rank))+
@@ -70,20 +47,20 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rank&amp;quot;)+
   ggtitle(&amp;quot;Rank of Sri Lanka Changing from 1996 to 2017&amp;quot;)+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20rank-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20rank-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sjr_countries%&amp;gt;%
   gather(citing,values,&amp;quot;documents&amp;quot;,&amp;quot;citable_documents&amp;quot;,&amp;quot;self_citations&amp;quot;) %&amp;gt;%
   subset(country==&amp;quot;Sri Lanka&amp;quot;,select=c(citing,values,year)) %&amp;gt;%
   mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
-ggplot(.,aes(x=factor(year),y=values,label=values,color=citing))+
+ggplot(.,aes(x=year,y=values,label=values,color=citing,shape=citing))+
   geom_point()+geom_line()+
   geom_text_repel()+
   xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Counts&amp;quot;)+
+  scale_x_continuous(breaks=seq(1996,2017),labels=seq(1996,2017))+
+  scale_y_continuous(breaks=seq(0,2000,100),labels=seq(0,2000,100))+
   ggtitle(&amp;quot;Document Counts Changing from 1996 to 2017 for Sri Lanka&amp;quot;)+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## geom_path: Each group consists of only one observation. Do you need to
-## adjust the group aesthetic?&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20documents%20citable%20documents%20self%20citations-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20documents%20citable%20documents%20self%20citations-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
