@@ -40,6 +40,7 @@ summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 <li><a href="#publishers-and-journals-from-sri-lanka">Publishers and Journals from Sri Lanka</a></li>
 <li><a href="#total-documents-and-references-for-journals-from-sri-lanka">Total Documents and References for Journals from Sri Lanka</a></li>
 <li><a href="#three-year-time-period-for-journals-from-sri-lanka">Three year time period for Journals from Sri Lanka</a></li>
+<li><a href="#journals-and-categories">Journals and categories</a></li>
 </ul></li>
 </ul>
 </div>
@@ -58,6 +59,8 @@ library(gganimate)
 library(ggrepel)
 library(magrittr)
 library(lubridate)
+library(splitstackshape)
+library(qdap)
 library(ggthemr)
 ggthemr(&quot;flat dark&quot;)</code></pre>
 </div>
@@ -122,7 +125,7 @@ ggplot(.,aes(x=year,y=citations_per_document,
          ggtitle(&quot;Ranks Changing over time for Sri Lankan Journals from 1999 to 2017&quot;,
                  subtitle = &quot;Year : {round(frame_time)}&quot;)
 
-animate(p,fps=1,nframes=21)  </code></pre>
+animate(p,fps=1,nframes=18)  </code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/rank%20changes-1.gif" /><!-- --></p>
 </div>
 <div id="sjr-values-changing-for-sri-lankan-journals" class="section level2">
@@ -138,7 +141,7 @@ animate(p,fps=1,nframes=21)  </code></pre>
                  subtitle = &quot;Year : {round(frame_time)}&quot;)+
          theme(legend.position = &quot;bottom&quot;)
 
-animate(p,fps=1,nframes=21)  </code></pre>
+animate(p,fps=1,nframes=18)  </code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20changes-1.gif" /><!-- --></p>
 </div>
 <div id="references-per-document-changing-for-sri-lankan-journals" class="section level2">
@@ -153,7 +156,7 @@ animate(p,fps=1,nframes=21)  </code></pre>
          ggtitle(&quot;References per Document Changing over time for Sri Lankan Journals from 1999 to 2017&quot;,
                  subtitle = &quot;Year : {round(frame_time)}&quot;)
 
-animate(p,fps=1,nframes=21)  </code></pre>
+animate(p,fps=1,nframes=18)  </code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/ref%20per%20doc%20changes-1.gif" /><!-- --></p>
 </div>
 <div id="publishers-and-journals-from-sri-lanka" class="section level2">
@@ -169,15 +172,15 @@ animate(p,fps=1,nframes=21)  </code></pre>
    ggtitle(&quot;Title and Publishers changing over time for Sri Lankan Journals from 1999 to 2017&quot;,
            subtitle = &quot;Year : {round(frame_time)}&quot;)
 
-animate(p,fps=1,nframes=21) </code></pre>
+animate(p,fps=1,nframes=18) </code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/publisher%20and%20Journals-1.gif" /><!-- --></p>
 </div>
 <div id="total-documents-and-references-for-journals-from-sri-lanka" class="section level2">
 <h2>Total Documents and References for Journals from Sri Lanka</h2>
-<pre class="r"><code>sjr_journals %&gt;%
-  gather(Group,values,&quot;total_docs_year&quot;,&quot;total_refs&quot;) %&gt;%
-  subset(country==&quot;Sri Lanka&quot;,select=c(Group,values,year,title)) %&gt;%
-  mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+<pre class="r"><code>p&lt;-sjr_journals %&gt;%
+    gather(Group,values,&quot;total_docs_year&quot;,&quot;total_refs&quot;) %&gt;%
+    subset(country==&quot;Sri Lanka&quot;,select=c(Group,values,year,title)) %&gt;%
+    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       geom_jitter()+coord_flip()+
       xlab(&quot;Title&quot;)+ylab(&quot;Count&quot;)+
@@ -185,15 +188,17 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       shadow_mark()+
       ggtitle(&quot;Counts changing for Sri Lankan Journals from 1999 to 2017&quot;,
               subtitle = &quot;Year : {round(frame_time)}&quot;)+
-      theme(legend.position=&quot;bottom&quot;)</code></pre>
+      theme(legend.position=&quot;bottom&quot;)
+
+animate(p,nframes=18,fps=1)</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/tot%20doc%20and%20ref-1.gif" /><!-- --></p>
 </div>
 <div id="three-year-time-period-for-journals-from-sri-lanka" class="section level2">
 <h2>Three year time period for Journals from Sri Lanka</h2>
-<pre class="r"><code>sjr_journals %&gt;%
-  gather(Group,values,&quot;total_docs_3years&quot;,&quot;total_cites_3years&quot;,&quot;citable_docs_3years&quot;) %&gt;%
-  subset(country==&quot;Sri Lanka&quot;,select=c(Group,values,year,title)) %&gt;%
-  mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+<pre class="r"><code>p&lt;-sjr_journals %&gt;%
+    gather(Group,values,&quot;total_docs_3years&quot;,&quot;total_cites_3years&quot;,&quot;citable_docs_3years&quot;) %&gt;%
+    subset(country==&quot;Sri Lanka&quot;,select=c(Group,values,year,title)) %&gt;%
+    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       geom_jitter()+coord_flip()+
       xlab(&quot;Title&quot;)+ylab(&quot;Count for 3 years&quot;)+
@@ -201,7 +206,31 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       shadow_mark()+
       ggtitle(&quot;Counts changing for Sri Lankan Journals from 1999 to 2017&quot;,
               subtitle = &quot;Year : {round(frame_time)}&quot;)+
-      theme(legend.position=&quot;bottom&quot;)</code></pre>
+      theme(legend.position=&quot;bottom&quot;)
+
+animate(p,nframes=18,fps=1)</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/3%20doc%20cite%20citable%20year-1.gif" /><!-- --></p>
+</div>
+<div id="journals-and-categories" class="section level2">
+<h2>Journals and categories</h2>
+<pre class="r"><code>p&lt;-sjr_journals %&gt;%
+      subset(country==&quot;Sri Lanka&quot;) %&gt;%
+      select(year,title,categories) %&gt;%
+      cSplit(&quot;categories&quot;,sep=&quot;;&quot;) %&gt;%
+      gather(Groups,Categories,&quot;categories_1&quot;,&quot;categories_2&quot;,&quot;categories_3&quot;,&quot;categories_4&quot;) %&gt;%
+      mutate(Categories=genX(Categories,&quot;(Q&quot;,&quot;)&quot;)) %&gt;%
+      mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(Categories,30),shape=Groups,color=year)) +
+      geom_jitter()+ 
+      theme(axis.text.x =element_text(angle = 90, hjust = 1),
+            legend.position=&quot;bottom&quot;)+
+      transition_time(year)+ease_aes(&quot;linear&quot;)+
+      xlab(&quot;Title&quot;)+ ylab(&quot;Categories&quot;)+
+      ggtitle(&quot;Title and Categories between the years 1999 to 2017&quot;,
+              subtitle=&quot;Year :{round(frame_time)}&quot;)
+
+animate(p,nframes=18,fps=1)             </code></pre>
+<p><img src="/post/SLandJournal/index_files/figure-html/journals%20and%20categories-1.gif" /><!-- --></p>
+<p><em>THANK YOU</em></p>
 </div>
 </div>

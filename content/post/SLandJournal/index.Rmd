@@ -43,6 +43,8 @@ library(gganimate)
 library(ggrepel)
 library(magrittr)
 library(lubridate)
+library(splitstackshape)
+library(qdap)
 library(ggthemr)
 ggthemr("flat dark")
 ```
@@ -111,7 +113,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
          ggtitle("Ranks Changing over time for Sri Lankan Journals from 1999 to 2017",
                  subtitle = "Year : {round(frame_time)}")
 
-animate(p,fps=1,nframes=21)  
+animate(p,fps=1,nframes=18)  
 ```
 
 ## SJR values changing for Sri Lankan Journals
@@ -128,7 +130,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
                  subtitle = "Year : {round(frame_time)}")+
          theme(legend.position = "bottom")
 
-animate(p,fps=1,nframes=21)  
+animate(p,fps=1,nframes=18)  
 ```
 
 ## References per Document changing for Sri Lankan Journals
@@ -144,7 +146,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
          ggtitle("References per Document Changing over time for Sri Lankan Journals from 1999 to 2017",
                  subtitle = "Year : {round(frame_time)}")
 
-animate(p,fps=1,nframes=21)  
+animate(p,fps=1,nframes=18)  
 ```
 
 ## Publishers and Journals from Sri Lanka
@@ -161,16 +163,16 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
    ggtitle("Title and Publishers changing over time for Sri Lankan Journals from 1999 to 2017",
            subtitle = "Year : {round(frame_time)}")
 
-animate(p,fps=1,nframes=21) 
+animate(p,fps=1,nframes=18) 
 ```
  
 ## Total Documents and References for Journals from Sri Lanka
 
 ```{r tot doc and ref}
-sjr_journals %>%
-  gather(Group,values,"total_docs_year","total_refs") %>%
-  subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
-  mutate(year=year(as.Date(year,"%Y"))) %>%
+p<-sjr_journals %>%
+    gather(Group,values,"total_docs_year","total_refs") %>%
+    subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
+    mutate(year=year(as.Date(year,"%Y"))) %>%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       geom_jitter()+coord_flip()+
       xlab("Title")+ylab("Count")+
@@ -179,15 +181,17 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
               subtitle = "Year : {round(frame_time)}")+
       theme(legend.position="bottom")
+
+animate(p,nframes=18,fps=1)
 ```
 
 ## Three year time period for Journals from Sri Lanka
 
 ```{r 3 doc cite citable year}
-sjr_journals %>%
-  gather(Group,values,"total_docs_3years","total_cites_3years","citable_docs_3years") %>%
-  subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
-  mutate(year=year(as.Date(year,"%Y"))) %>%
+p<-sjr_journals %>%
+    gather(Group,values,"total_docs_3years","total_cites_3years","citable_docs_3years") %>%
+    subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
+    mutate(year=year(as.Date(year,"%Y"))) %>%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       geom_jitter()+coord_flip()+
       xlab("Title")+ylab("Count for 3 years")+
@@ -196,5 +200,31 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
       ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
               subtitle = "Year : {round(frame_time)}")+
       theme(legend.position="bottom")
+
+animate(p,nframes=18,fps=1)
 ```
 
+## Journals and categories
+
+
+```{r journals and categories}
+p<-sjr_journals %>%
+      subset(country=="Sri Lanka") %>%
+      select(year,title,categories) %>%
+      cSplit("categories",sep=";") %>%
+      gather(Groups,Categories,"categories_1","categories_2","categories_3","categories_4") %>%
+      mutate(Categories=genX(Categories,"(Q",")")) %>%
+      mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(Categories,30),shape=Groups,color=year)) +
+      geom_jitter()+ 
+      theme(axis.text.x =element_text(angle = 90, hjust = 1),
+            legend.position="bottom")+
+      transition_time(year)+ease_aes("linear")+
+      xlab("Title")+ ylab("Categories")+
+      ggtitle("Title and Categories between the years 1999 to 2017",
+              subtitle="Year :{round(frame_time)}")
+
+animate(p,nframes=18,fps=1)             
+```
+
+*THANK YOU*
