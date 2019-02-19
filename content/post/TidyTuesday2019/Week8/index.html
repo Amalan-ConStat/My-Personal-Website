@@ -19,5 +19,199 @@ summary: "2019 Week 8 TidyTuesday: Phds Awarded in USA between 2008 and 2017"
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#broad-field">Broad Field</a><ul>
+<li><a href="#all-fields">All fields</a></li>
+<li><a href="#dropping-psychology-and-social-sciences">Dropping Psychology and Social Sciences</a></li>
+</ul></li>
+<li><a href="#major-field">Major Field</a><ul>
+<li><a href="#major-fields-with-box-plot">Major Fields with Box plot</a></li>
+<li><a href="#major-fields-without-psychology">Major Fields without Psychology</a></li>
+</ul></li>
+<li><a href="#mathematics-and-computer-sciences">Mathematics and Computer Sciences</a><ul>
+<li><a href="#mathematics-and-computer-science-as-a-broad-field">Mathematics and Computer Science as a Broad field</a></li>
+<li><a href="#major-field-for-mathematics-and-computer-science">Major Field for Mathematics and Computer Science</a></li>
+<li><a href="#fields-for-major-field-mathematics-and-computer-science">Fields for Major Field Mathematics and Computer Science</a></li>
+</ul></li>
+<li><a href="#major-field-field-for-mathematics-and-computer-sciences">Major Field, Field For Mathematics and Computer Sciences</a></li>
+</ul>
+</div>
 
+<pre class="r"><code># load the packages
+library(tidyverse)
+library(ggthemr)
+library(readr)
+library(gganimate)
+library(ggridges)
+library(ggalluvial)
+
+ggthemr(&quot;flat&quot;)
+
+#load the data
+phdlist &lt;- read_csv(&quot;phd_by_field.csv&quot;)</code></pre>
+<p>Five variables are representing this entire data-set and three of them are factors while one column represents the year and the final column is for counts. There are few missing values. We can focus on Phds awarded from 2008 to 2017 in perspective of Broad Field, Major Field and Field.</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-19">Dataset</a></p>
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week8">GitHub Code</a></p>
 {{% tweet "1097868689385418752" %}}
+<p>Broad Field and Major Field are considered specially but not the column Field as it would be difficult to plot based on the amount of categories.</p>
+<div id="broad-field" class="section level1">
+<h1>Broad Field</h1>
+<p>Broad field has 7 categories and clearly Psychology and social sciences has produced more than 4000 Phds each and every year. Which is twice comparing to other categories. If we drop Psychology and Social sciences, now the changes over the years for other categories are clear.</p>
+<p>There are more outliers in the field of Life sciences where some programs produce more than 1000 Phds each year comparatively to the rest categories. Except Life sciences other categories tend to behave rarely as above producing more than 1000 Phds.</p>
+<p>Engineering field has the lowest distribution with relative to other categories according to the box plot in every year.</p>
+<div id="all-fields" class="section level2">
+<h2>All fields</h2>
+<pre class="r"><code>p&lt;-ggplot(phdlist,aes(x=str_wrap(broad_field,20),y=n_phds))+
+          geom_boxplot()+
+          xlab(&quot;Broad Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Broad Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)+
+          theme(axis.text.x = element_text(hjust=1,angle = 90))
+
+animate(p,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/Broad%20field%20boxplot-1.gif" /><!-- --></p>
+</div>
+<div id="dropping-psychology-and-social-sciences" class="section level2">
+<h2>Dropping Psychology and Social Sciences</h2>
+<pre class="r"><code>p&lt;-ggplot(subset(phdlist,broad_field != &quot;Psychology and social sciences&quot;),
+          aes(x=str_wrap(broad_field,20),y=n_phds))+
+          geom_boxplot()+
+          xlab(&quot;Broad Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Broad Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)+
+          theme(axis.text.x = element_text(hjust=1,angle = 90))
+
+animate(p,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/Broad%20field%20boxplot%20without%20psy%20and%20soc%20sciences-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="major-field" class="section level1">
+<h1>Major Field</h1>
+<p>Focus now solely switch towards the Major Field column and here also we can see the strong outlier in Psychology over the years. Further, Physics and Astronomy field also has a very strong outlier where over the years it reaches 2000 Phds.</p>
+<p>Without dropping Psychology we can see the odd behavior from the fields “Education Research”, “Economics” and “Computer and Information Sciences”. Specially the gradual decrease of “Education Research” from 2008 to 2017.</p>
+<p>Also in “Computer and Information Sciences” field there is an odd increase in 2012.</p>
+<p>After dropping the “Psychology” field we can now clearly see how other Major fields behave over the years.</p>
+<div id="major-fields-with-box-plot" class="section level2">
+<h2>Major Fields with Box plot</h2>
+<pre class="r"><code>p&lt;-ggplot(phdlist,aes(x=str_wrap(major_field,20),y=n_phds,fill=broad_field))+
+          geom_boxplot()+coord_flip()+
+          xlab(&quot;Major Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Major Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)+
+          theme(axis.text.x = element_text(hjust=1,angle = 90),
+                legend.position = &quot;bottom&quot;)+
+          labs(fill=&quot;Broad Field&quot;)
+
+animate(p,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/major%20field%20boxplot-1.gif" /><!-- --></p>
+</div>
+<div id="major-fields-without-psychology" class="section level2">
+<h2>Major Fields without Psychology</h2>
+<pre class="r"><code>q&lt;-ggplot(subset(phdlist,major_field != &quot;Psychology&quot;),
+          aes(x=str_wrap(major_field,20),y=n_phds,fill=broad_field))+
+          geom_boxplot()+coord_flip()+
+          xlab(&quot;Major Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Major Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)+
+          theme(axis.text.x = element_text(hjust=1,angle = 90),
+                legend.position = &quot;bottom&quot;)+
+          labs(fill=&quot;Broad Field&quot;)
+
+animate(q,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/Major%20field%20without%20psy-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="mathematics-and-computer-sciences" class="section level1">
+<h1>Mathematics and Computer Sciences</h1>
+<p>I am a Statistics student with a glimpse of Computer science background, therefore my next intention is to focus on the Broad Field “Mathematics and Compute Sciences”.</p>
+<div id="mathematics-and-computer-science-as-a-broad-field" class="section level2">
+<h2>Mathematics and Computer Science as a Broad field</h2>
+<p>Mathematics and Statistics has a gradual increase until 2012, but wavers higher and lower in the next years, but in 2016 there is a sudden increase of which would lead to around 700 Phds awarded. Next year this decreases to 500 Phds.</p>
+<p>Comparing the 2 major fields “Computer and Information Sciences” with “Mathematics and Statistics” indicate the strong gap between them awarding Phds. “Computer and Information Sciences” award more than twice the amount of Phds what “Mathematics and Statistics” award each year.</p>
+<p>“Computer and Information Sciences” also hold a clear pattern with the Phds awarded.</p>
+<pre class="r"><code>subset(phdlist,broad_field == &quot;Mathematics and computer sciences&quot;) %&gt;%
+      
+ggplot(.,aes(x=factor(year),y=n_phds,fill=major_field))+
+       geom_bar(stat=&quot;identity&quot;,position = &quot;dodge&quot;)+
+       theme(legend.position = &quot;bottom&quot;)+
+       xlab(&quot;Major Field&quot;)+ylab(&quot;Number of Phds&quot;)+
+       ggtitle(&quot;Number of Phds awarded under Mathematics and CS&quot;,
+               subtitle = &quot;Year : 2008 to 2017&quot;)+
+      scale_y_continuous(breaks=seq(0,1700,100),labels=seq(0,1700,100))+
+          labs(fill=&quot;Major Field&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/mathematics%20and%20cs%20bar%20chart-1.png" width="1152" /></p>
+</div>
+<div id="major-field-for-mathematics-and-computer-science" class="section level2">
+<h2>Major Field for Mathematics and Computer Science</h2>
+<p>Box plot indicates the clear variation among these two major fields over years which could be used for comparison. The sudden peak in year 2012 for “Computer and Information Sciences” interests me alot. It should be noted that “Mathematics and Statistics” has more outliers than “Computer and Information Sciences”.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(phdlist,broad_field == &quot;Mathematics and computer sciences&quot;),
+          aes(x=str_wrap(major_field,20),y=n_phds))+
+          geom_boxplot()+
+          xlab(&quot;Major Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Major Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)
+
+animate(p,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/major%20field%20boxplot%20with%20maths%20and%20cs-1.gif" /><!-- --></p>
+<p>Below is a ridge plot to describe the same thing which would clearly indicate the data spread.</p>
+<pre class="r"><code>ggplot(subset(phdlist,broad_field == &quot;Mathematics and computer sciences&quot;),
+          aes(y=str_wrap(major_field,20),x=n_phds))+
+          geom_density_ridges()+
+          xlab(&quot;No of Phds&quot;)+ ylab(&quot;Major Field&quot;)+
+          theme(legend.position = &quot;bottom&quot;)+
+          ggtitle(&quot;Ridge plot for Major Fields in Mathematics and Computer Sciences&quot;,
+                  subtitle = &quot;Year : 2008 to 2017&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/ridge%20major%20fields-1.png" width="1152" /></p>
+</div>
+<div id="fields-for-major-field-mathematics-and-computer-science" class="section level2">
+<h2>Fields for Major Field Mathematics and Computer Science</h2>
+<p>considering the sub categories of the chosen broad field in a box plot did not work quite well, but Computer Science phds being awarded with highest amount would indicate the boom of Artificial Intelligence.</p>
+<pre class="r"><code>p&lt;-ggplot(subset(phdlist,broad_field == &quot;Mathematics and computer sciences&quot;),
+          aes(x=str_wrap(field,20),y=n_phds,fill=major_field))+
+          geom_boxplot()+coord_flip()+
+          xlab(&quot;Field&quot;)+ylab(&quot;No of Phds&quot;)+
+          transition_time(year)+ease_aes(&quot;linear&quot;)+
+          ggtitle(&quot;Boxplot to Number of Phds in Field&quot;,
+              subtitle = &quot;Year : {round(frame_time)}&quot;)+
+          theme(legend.position = &quot;bottom&quot;)+
+          labs(fill=&quot;Major Field&quot;)
+
+animate(p,nframes=9,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/field%20boxplot%20with%20maths%20and%20cs-1.gif" /><!-- --></p>
+<p>To get a clear view here is the ridge plot, where Computer Science is very strong for “Computer and Information Sciences”. It should be noted though there is only three other fields in this major field which are “Information Science systems”, “Computer and Information Sciences, other” and “Computer and Information sciences, general”.</p>
+<p>More than 10 fields for the Major field “Mathematics and Statistics”, where higher counts occur to “Statistics(Mathematics)”, “Applied mathematics” and “Mathematics and Statistics,general”. Still non of these fields have passed the 1000 Phds awarded mark.</p>
+<pre class="r"><code>ggplot(subset(phdlist,broad_field == &quot;Mathematics and computer sciences&quot;),
+          aes(y=str_wrap(field,20),x=n_phds,fill=major_field))+
+          geom_density_ridges()+
+          xlab(&quot;No of Phds&quot;)+ ylab(&quot;Field&quot;)+
+          theme(legend.position = &quot;bottom&quot;)+
+          ggtitle(&quot;Ridge plot for Fields in Mathematics and Computer Sciences&quot;,
+                  subtitle = &quot;Year : 2008 to 2017&quot;)+
+          labs(fill=&quot;Major Field&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/ridge%20plot%20fields-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="major-field-field-for-mathematics-and-computer-sciences" class="section level1">
+<h1>Major Field, Field For Mathematics and Computer Sciences</h1>
+<p>Finally an alluvial diagram just to look at the impact of Computer science field with respective to each year and major field.</p>
+<pre class="r"><code>data.frame(subset(phdlist,broad_field==&quot;Mathematics and computer sciences&quot;)) %&gt;%
+           na.omit() %&gt;%
+ggplot(.,aes(axis2=factor(str_wrap(year,10)), axis1= factor(str_wrap(major_field,10)), 
+             axis3= factor(field), y=as.numeric(n_phds)))+
+       scale_x_discrete(limits=c(&quot;Major Field&quot;,&quot;Year&quot;,&quot;Field&quot;),expand = c(.05, .05))+
+       geom_alluvium(aes(fill=factor(major_field)),width = 1/2)+
+       geom_stratum(width=1/2,fill=&quot;white&quot;,color=&quot;grey&quot;)+
+       geom_text(stat = &quot;stratum&quot;, label.strata = TRUE)+
+       theme(legend.position = &quot;bottom&quot;)+ylab(&quot;No of Phds&quot;)+
+       ggtitle(&quot;Major Field and Fields For Years 2008 to 2017&quot;,
+               subtitle=&quot;Mathematics and Computer Science&quot;)+
+          labs(fill=&quot;Major Field&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week8/index_files/figure-html/broad%20and%20major%20and%20field-1.png" width="1152" /></p>
+<p><em>THANK YOU</em></p>
+</div>
