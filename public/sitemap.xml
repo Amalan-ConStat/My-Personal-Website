@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/tidytuesday2019/week8/week8/</loc>
+      <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/slandjournal/slandjournal/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
     </url>
@@ -369,7 +377,7 @@
     
     <url>
     
-      <loc>/categories/binomial/</loc>
+      <loc>/tags/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -378,7 +386,7 @@
     
     <url>
     
-      <loc>/tags/binomial/</loc>
+      <loc>/categories/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -504,7 +512,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -513,7 +521,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -540,15 +548,6 @@
     
     <url>
     
-      <loc>/categories/rshiny/</loc>
-      <lastmod>2019-01-24T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/rshiny/</loc>
       <lastmod>2019-01-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -558,8 +557,8 @@
     
     <url>
     
-      <loc>/categories/sl/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <loc>/categories/rshiny/</loc>
+      <lastmod>2019-01-24T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -568,6 +567,15 @@
     <url>
     
       <loc>/tags/sl/</loc>
+      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/sl/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -609,17 +617,8 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
-      <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/tidytuesday/</loc>
-      <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-19T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -627,8 +626,8 @@
     
     <url>
     
-      <loc>/categories/website/</loc>
-      <lastmod>2019-01-28T00:00:00+00:00</lastmod>
+      <loc>/categories/tidytuesday/</loc>
+      <lastmod>2019-02-19T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -637,6 +636,15 @@
     <url>
     
       <loc>/tags/website/</loc>
+      <lastmod>2019-01-28T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/website/</loc>
       <lastmod>2019-01-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -654,15 +662,6 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
-      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/fitodbod/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -672,8 +671,17 @@
     
     <url>
     
+      <loc>/categories/fitodbod/</loc>
+      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/gganimate/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-19T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -745,7 +753,7 @@
     <url>
     
       <loc>/tags/tidyverse/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-02-19T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

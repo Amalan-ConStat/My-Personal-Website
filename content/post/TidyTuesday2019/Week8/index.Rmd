@@ -1,0 +1,24 @@
+---
+title: 'Week 8 : Phds Awarded in USA between 2008 and 2017'
+author: M.Amalan
+date: '2019-02-19'
+slug: Week8
+output:
+   blogdown::html_page:
+     toc: true
+categories:
+  - TidyTuesday
+tags:
+  - tidyverse
+  - TidyTuesday
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: "2019 Week 8 TidyTuesday: Phds Awarded in USA between 2008 and 2017"   
+---
+
+```{r tweet, echo=FALSE}
+blogdown::shortcode("tweet","1097868689385418752")
+```
+

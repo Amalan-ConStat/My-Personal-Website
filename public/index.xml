@@ -11,6 +11,18 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 8 : Phds Awarded in USA between 2008 and 2017</title>
+      <link>/post/tidytuesday2019/week8/week8/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week8/week8/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Computer science PhDs more than others is that the boom of AI. beginning from 2008 itself !!!!!. My first ridge plot and alluvial diagram.&lt;br&gt;Code: &lt;a href=&#34;https://t.co/TtWLzNk1ga&#34;&gt;https://t.co/TtWLzNk1ga&lt;/a&gt;     &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/AhB01IPuv6&#34;&gt;pic.twitter.com/AhB01IPuv6&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1097868689385418752?ref_src=twsrc%5Etfw&#34;&gt;February 19, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>Sri Lanka and its affect on/in Journal Articles </title>
       <link>/post/slandjournal/slandjournal/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
@@ -2989,120 +3001,6 @@ to develop R functions, documentation and examples for their packages. Over time
 
 &lt;/div&gt;
 &lt;p&gt;I hope this blog post is useful for anyone who has intentions to develop their R package or in the process of development or version controlling. I developed fitODBOD as a research project for my final year and it included a thesis report as well. Over time I wrote a Journal article as well and it is still under review. Also I have seen R package development as a PhD submission as well. Therefore it would be worthwhile developing an R package as a way to keep an active status regarding your field of interest in Statistics.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How To Find Your R package ?</title>
-      <link>/post/findrpackage/how-to-find-your-r-package/</link>
-      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#google&#34;&gt;1. Google&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#cran&#34;&gt;2. CRAN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#bio---conductor&#34;&gt;3. Bio - Conductor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#github-pages&#34;&gt;4. GitHub pages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rdocumentation&#34;&gt;5. Rdocumentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#crantastic&#34;&gt;6. Crantastic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rpackages&#34;&gt;7. rpackages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#r---opensci&#34;&gt;8. R - Opensci&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rseek&#34;&gt;9. Rseek&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#r-site-search&#34;&gt;10. R Site Search&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#r-forge&#34;&gt;11. R-forge&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#awesomer&#34;&gt;12. AwesomeR&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#cran-task-view&#34;&gt;13. CRAN Task View&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rstudio---rpackages&#34;&gt;14. Rstudio - Rpackages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#stack-overflow---r&#34;&gt;15. stack overflow - r&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#cranalerts&#34;&gt;16. CRANalerts&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;p&gt;How to find your R package is simply a blog post helping people to provide a list of websites where they can find R packages. These websites were useful for me while developing my own R package &lt;a href=&#34;https://cran.r-project.org/package=fitODBOD&#34;&gt;fitODBOD&lt;/a&gt;. So that I would be sure that fitODBOD is a unique package and what its functions should be able to do.&lt;/p&gt;
-&lt;p&gt;This is a list with 16 items&lt;/p&gt;
-&lt;div id=&#34;google&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;1. Google&lt;/h1&gt;
-&lt;p&gt;When you have no idea to find a package first thing is to “Google”.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.google.com/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/Google.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;cran&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;2. CRAN&lt;/h1&gt;
-&lt;p&gt;Official website to find standard packages. The packages downloaded here will have documentation manuals, vignettes and sometimes journal articles which would simplify work for people who use them.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/CRAN.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;bio---conductor&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;3. Bio - Conductor&lt;/h1&gt;
-&lt;p&gt;Another standard location to publish your R package, but only related to the field of Biology.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.bioconductor.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/Bioconductor.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;github-pages&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;4. GitHub pages&lt;/h1&gt;
-&lt;p&gt;If CRAN or Bio - Conductor is with high standards or too much work for your package you can still publish it and the ideal place for this is GitHub.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/GitHub.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rdocumentation&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;5. Rdocumentation&lt;/h1&gt;
-&lt;p&gt;A place to find interactive documentation for the packages in CRAN, Bio - Conductor and GitHub. They simply include everything in the manual of a package but in html format.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.rdocumentation.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rdocumentation.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;crantastic&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;6. Crantastic&lt;/h1&gt;
-&lt;p&gt;All packages which are a part of CRAN is in this website. We can search packages based on Authors, package name, reviews and tags.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.crantastic.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/crantastic.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rpackages&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;7. rpackages&lt;/h1&gt;
-&lt;p&gt;Similar to crantastic this website also provides information to CRAN packages, but it is better because package related statistics is also shown here.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.rpackages.io/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rpackages.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;r---opensci&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;8. R - Opensci&lt;/h1&gt;
-&lt;p&gt;Search range for R packages in this website has more categories which is informative. I would say better than above mentioned ones.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://ropensci.org/packages/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/ropensci.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rseek&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;9. Rseek&lt;/h1&gt;
-&lt;p&gt;This is like a google search engine for R packages.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://rseek.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rseek.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;r-site-search&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;10. R Site Search&lt;/h1&gt;
-&lt;p&gt;Website dedicated to search R functions, package vignettes and task views.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://finzi.psych.upenn.edu/search.html&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rsitesearch.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;r-forge&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;11. R-forge&lt;/h1&gt;
-&lt;p&gt;Projects related to R are mentioned in this website and how progress has been made on them is also here. Most of these projects will be published as packages later with significant importance.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://r-forge.r-project.org/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rforge.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;awesomer&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;12. AwesomeR&lt;/h1&gt;
-&lt;p&gt;This is a website which has R packages based on topics related to statistics. Some of these topics are Machine Learning, Bayesian, Optimization, Bio statistics and much more.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://awesome-r.com/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/AwesomeR.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;cran-task-view&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;13. CRAN Task View&lt;/h1&gt;
-&lt;p&gt;Topic related R packages are bundled together in this website. Further, the topics give a brief explanation, but the webpages give an extensive amount of information about what is unique is these packages. Also you do not need internet to use this because it is part of Rstudio help.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/views/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/Crantaskview.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rstudio---rpackages&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;14. Rstudio - Rpackages&lt;/h1&gt;
-&lt;p&gt;Several crucial packages which would be very useful are considered here. All of these packages are projects. Further they are very popular in the R community.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.rstudio.com/products/rpackages/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/rstudio-rpackages.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stack-overflow---r&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;15. stack overflow - r&lt;/h1&gt;
-&lt;p&gt;If you cannot achieve something very specific related to R coding it is possible to use the website. It provides answers from other R users, sometimes even blogs related to the issues with solutions.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/tagged/r&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/stackoverflow.PNG&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;cranalerts&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;16. CRANalerts&lt;/h1&gt;
-&lt;p&gt;This is an email service which would alert us regarding specific packages accordance to our request. Whenever there is an update for a chosen package we would receive an email alert.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://cranalerts.com/&#34;&gt;Link&lt;/a&gt; &lt;img src=&#34;/screenshots/Cranalerts.PNG&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This is my list of places for reaching out to help with related to R packages and R programming. I use them constantly and they are very much helpful to me. Finally, I hope this post would be useful to anyone who wants to find or use R packages.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
