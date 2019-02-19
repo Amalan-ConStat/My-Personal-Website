@@ -25,7 +25,7 @@ summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.width = 10,fig.height = 10)
+knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.width = 12,fig.height = 12)
 ```
 
 # Introduction
@@ -108,7 +108,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
          shadow_mark()+
          transition_time(year)+ease_aes("linear")+
          xlab("Title of Journals")+ylab("Rank")+
-         ggtitle("Ranks Changing over time for Sri Lankan Journals from 1996 to 2017",
+         ggtitle("Ranks Changing over time for Sri Lankan Journals from 1999 to 2017",
                  subtitle = "Year : {round(frame_time)}")
 
 animate(p,fps=1,nframes=21)  
@@ -124,7 +124,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
          shadow_mark()+
          transition_time(year)+ease_aes("linear")+
          xlab("Title of Journals")+ylab("SJR values")+
-         ggtitle("SJR values Changing over time for Sri Lankan Journals from 1996 to 2017",
+         ggtitle("SJR values Changing over time for Sri Lankan Journals from 1999 to 2017",
                  subtitle = "Year : {round(frame_time)}")+
          theme(legend.position = "bottom")
 
@@ -141,8 +141,60 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
          shadow_mark()+
          transition_time(year)+ease_aes("linear")+
          xlab("Title of Journals")+ylab("References per Document")+
-         ggtitle("References per Document Changing over time for Sri Lankan Journals from 1996 to 2017",
+         ggtitle("References per Document Changing over time for Sri Lankan Journals from 1999 to 2017",
                  subtitle = "Year : {round(frame_time)}")
 
 animate(p,fps=1,nframes=21)  
 ```
+
+## Publishers and Journals from Sri Lanka
+ 
+```{r publisher and Journals}
+p<-subset(sjr_journals,country=="Sri Lanka") %>%
+   mutate(year=year(as.Date(year,"%Y"))) %>%
+   ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(factor(publisher),30),color=year))+
+   geom_jitter()+
+   transition_time(year)+ease_aes("linear")+
+   shadow_mark()+
+   xlab("Title")+ylab("Publisher")+
+   theme(axis.text.x =element_text(angle = 90, hjust = 1))+
+   ggtitle("Title and Publishers changing over time for Sri Lankan Journals from 1999 to 2017",
+           subtitle = "Year : {round(frame_time)}")
+
+animate(p,fps=1,nframes=21) 
+```
+ 
+## Total Documents and References for Journals from Sri Lanka
+
+```{r tot doc and ref}
+sjr_journals %>%
+  gather(Group,values,"total_docs_year","total_refs") %>%
+  subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
+  mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
+      geom_jitter()+coord_flip()+
+      xlab("Title")+ylab("Count")+
+      transition_time(year)+ease_aes("linear")+
+      shadow_mark()+
+      ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
+              subtitle = "Year : {round(frame_time)}")+
+      theme(legend.position="bottom")
+```
+
+## Three year time period for Journals from Sri Lanka
+
+```{r 3 doc cite citable year}
+sjr_journals %>%
+  gather(Group,values,"total_docs_3years","total_cites_3years","citable_docs_3years") %>%
+  subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
+  mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
+      geom_jitter()+coord_flip()+
+      xlab("Title")+ylab("Count for 3 years")+
+      transition_time(year)+ease_aes("linear")+
+      shadow_mark()+
+      ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
+              subtitle = "Year : {round(frame_time)}")+
+      theme(legend.position="bottom")
+```
+
