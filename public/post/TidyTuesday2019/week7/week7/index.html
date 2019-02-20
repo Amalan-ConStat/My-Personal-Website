@@ -571,7 +571,7 @@ federal &lt;- read_csv(&quot;fed_r_d_spending.csv&quot;)</code></pre>
 <li>Energy Departments Data. - energy</li>
 <li>Total Federal R &amp; D Spending by Department. - federal</li>
 </ol>
-<p>Oddly though climate data-set did not have year values, I checked the downloaded csv file and the GitHub upload as well. Well, That did not stop me from doing some tidy plotting.</p>
+<p>Oddly though climate data-set did not have year values, I checked the downloaded csv file and the GitHub upload as well. Well, that did not stop me from doing some tidy plotting.</p>
 <p>You can obtain the data from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-12">here.</a> It should be noted that I am not going to rename the abbreviation of departments with their full names, so below is a screen shot which would come in handy.</p>
 <div class="figure">
 <img src="department.jpg" alt="Department Full Names with Abbreviations" />
@@ -584,7 +584,7 @@ federal &lt;- read_csv(&quot;fed_r_d_spending.csv&quot;)</code></pre>
 <div id="climate-change-research" class="section level1">
 <h1>Climate Change Research</h1>
 <p>As I mentioned earlier for the climate data there are no values in the year column, but according to summary I was able to deduce that we have 18 years of information. When we do plot it is going to be the summation for each department in a bar.</p>
-<p>Clearly NASA has the most amount ( above than 2.5 x 10^10) of spending because rockets are expensive, second place goes to NSF (5 x 10^9) and third place to NOAA. Lowest amount of spending is to the department of interior (8.47 x 10^8).</p>
+<p>Clearly NASA has the most amount ( above than 2.5 x 10^10 USD) of spending because rockets are expensive, second place goes to NSF (5 x 10^9 USD) and third place to NOAA. Lowest amount of spending is to the Department of Interior (8.47 x 10^8 USD).</p>
 <pre class="r"><code>ggplot(climate,aes(x=fct_inorder(department),y=gcc_spending,fill=department))+
   geom_bar(stat=&quot;identity&quot;,show.legend = FALSE)+
   ggtitle(&quot;Total GCC Spending for 18 Years&quot;)+
@@ -594,7 +594,7 @@ federal &lt;- read_csv(&quot;fed_r_d_spending.csv&quot;)</code></pre>
 </div>
 <div id="energy" class="section level1">
 <h1>Energy</h1>
-<p>Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department. Office of Science R &amp; D and Atomic Energy Defense are competitive over the years and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.</p>
+<p>Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department is the purpose of the below bar plot. Office of Science R &amp; D and Atomic Energy Defense are competitive over the years and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.</p>
 <p>Other agencies oscillates over the years while reaching new highs and lows.</p>
 <pre class="r"><code>p&lt;-ggplot(energy,aes(x=department,y=energy_spending,fill=year))+
           geom_bar(stat=&quot;identity&quot;,position =&quot;identity&quot;)+
@@ -619,7 +619,7 @@ animate(p,fps=1,nframes=22)</code></pre>
 <img src="description.jpg" />
 
 </div>
-<p>Except rd_budget other have a very clear increasing amount between 1976 to 2018. Further, all four plots have different scales and the limits are widely different for each plot.</p>
+<p>Except rd_budget others have a very clear increase in amount between 1976 to 2018. Further, all four plots have different scales and the limits are widely different for each plot.</p>
 <pre class="r"><code>p&lt;-federal %&gt;%
     gather(funding,amount,c(rd_budget,total_outlays,discretionary_outlays,gdp)) %&gt;%
     ggplot(.,aes(x=factor(department),y=amount,color=year))+

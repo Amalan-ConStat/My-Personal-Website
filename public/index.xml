@@ -824,7 +824,7 @@ federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)&lt;/code&gt
 &lt;li&gt;Energy Departments Data. - energy&lt;/li&gt;
 &lt;li&gt;Total Federal R &amp;amp; D Spending by Department. - federal&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Oddly though climate data-set did not have year values, I checked the downloaded csv file and the GitHub upload as well. Well, That did not stop me from doing some tidy plotting.&lt;/p&gt;
+&lt;p&gt;Oddly though climate data-set did not have year values, I checked the downloaded csv file and the GitHub upload as well. Well, that did not stop me from doing some tidy plotting.&lt;/p&gt;
 &lt;p&gt;You can obtain the data from &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-12&#34;&gt;here.&lt;/a&gt; It should be noted that I am not going to rename the abbreviation of departments with their full names, so below is a screen shot which would come in handy.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;department.jpg&#34; alt=&#34;Department Full Names with Abbreviations&#34; /&gt;
@@ -837,7 +837,7 @@ federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)&lt;/code&gt
 &lt;div id=&#34;climate-change-research&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Climate Change Research&lt;/h1&gt;
 &lt;p&gt;As I mentioned earlier for the climate data there are no values in the year column, but according to summary I was able to deduce that we have 18 years of information. When we do plot it is going to be the summation for each department in a bar.&lt;/p&gt;
-&lt;p&gt;Clearly NASA has the most amount ( above than 2.5 x 10^10) of spending because rockets are expensive, second place goes to NSF (5 x 10^9) and third place to NOAA. Lowest amount of spending is to the department of interior (8.47 x 10^8).&lt;/p&gt;
+&lt;p&gt;Clearly NASA has the most amount ( above than 2.5 x 10^10 USD) of spending because rockets are expensive, second place goes to NSF (5 x 10^9 USD) and third place to NOAA. Lowest amount of spending is to the Department of Interior (8.47 x 10^8 USD).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(climate,aes(x=fct_inorder(department),y=gcc_spending,fill=department))+
   geom_bar(stat=&amp;quot;identity&amp;quot;,show.legend = FALSE)+
   ggtitle(&amp;quot;Total GCC Spending for 18 Years&amp;quot;)+
@@ -847,7 +847,7 @@ federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)&lt;/code&gt
 &lt;/div&gt;
 &lt;div id=&#34;energy&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Energy&lt;/h1&gt;
-&lt;p&gt;Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department. Office of Science R &amp;amp; D and Atomic Energy Defense are competitive over the years and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.&lt;/p&gt;
+&lt;p&gt;Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department is the purpose of the below bar plot. Office of Science R &amp;amp; D and Atomic Energy Defense are competitive over the years and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.&lt;/p&gt;
 &lt;p&gt;Other agencies oscillates over the years while reaching new highs and lows.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(energy,aes(x=department,y=energy_spending,fill=year))+
           geom_bar(stat=&amp;quot;identity&amp;quot;,position =&amp;quot;identity&amp;quot;)+
@@ -872,7 +872,7 @@ animate(p,fps=1,nframes=22)&lt;/code&gt;&lt;/pre&gt;
 &lt;img src=&#34;description.jpg&#34; /&gt;
 
 &lt;/div&gt;
-&lt;p&gt;Except rd_budget other have a very clear increasing amount between 1976 to 2018. Further, all four plots have different scales and the limits are widely different for each plot.&lt;/p&gt;
+&lt;p&gt;Except rd_budget others have a very clear increase in amount between 1976 to 2018. Further, all four plots have different scales and the limits are widely different for each plot.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-federal %&amp;gt;%
     gather(funding,amount,c(rd_budget,total_outlays,discretionary_outlays,gdp)) %&amp;gt;%
     ggplot(.,aes(x=factor(department),y=amount,color=year))+

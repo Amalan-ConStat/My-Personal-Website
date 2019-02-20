@@ -52,7 +52,7 @@ a lot.
 3. Total Federal R & D Spending by Department. - federal
 
 Oddly though climate data-set did not have year values, I checked the downloaded
-csv file and the GitHub upload as well. Well, That did not stop me from doing 
+csv file and the GitHub upload as well. Well, that did not stop me from doing 
 some tidy plotting.
 
 You can obtain the data from [here.](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-12)
@@ -73,9 +73,9 @@ As I mentioned earlier for the climate data there are no values in the year colu
 summary I was able to deduce that we have 18 years of information. When we do plot it is going
 to be the summation for each department in a bar. 
 
-Clearly NASA has the most amount ( above than 2.5 x 10^10) of spending because rockets are expensive, 
-second place goes to NSF (5 x 10^9) and third place to NOAA. Lowest amount of spending is to the 
-department of interior (8.47 x 10^8).
+Clearly NASA has the most amount ( above than 2.5 x 10^10 USD) of spending because rockets are expensive, 
+second place goes to NSF (5 x 10^9 USD) and third place to NOAA. Lowest amount of spending is to the 
+Department of Interior (8.47 x 10^8 USD).
 
 ```{r Global Climate change Research}
 ggplot(climate,aes(x=fct_inorder(department),y=gcc_spending,fill=department))+
@@ -87,9 +87,9 @@ ggplot(climate,aes(x=fct_inorder(department),y=gcc_spending,fill=department))+
 
 # Energy 
 
-Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department. 
-Office of Science R & D and Atomic Energy Defense are competitive over the years and for 
-a short period of time the latter has less funding than the former, this was between 2006 to 2010.
+Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department is the purpose
+of the below bar plot. Office of Science R & D and Atomic Energy Defense are competitive over the years 
+and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.
 
 Other agencies oscillates over the years while reaching new highs and lows. 
 
@@ -115,11 +115,10 @@ animate(p,fps=1,nframes=22)
 Data of Federal funding has four different types to be compared and they are mentioned below
 in the description image which would make explanation more easier.
 
-
 ![](description.jpg)
 
 
-Except rd_budget other have a very clear increasing amount between 1976 to 2018. Further,
+Except rd_budget others have a very clear increase in amount between 1976 to 2018. Further,
 all four plots have different scales and the limits are widely different for each plot.
 
 ```{r Federal Funding}
