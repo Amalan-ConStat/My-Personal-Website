@@ -59,7 +59,7 @@ mortgage &lt;- read_csv(&quot;mortgage.csv&quot;,
                      )
 recessions &lt;- read_csv(&quot;recessions.csv&quot;)
 state_hpi &lt;- read_csv(&quot;state_hpi.csv&quot;)</code></pre>
-<p>Week 6 has three data-sets, which are mortgage, recession and state_hpi. Number variables in each data-set is less than 10. You can acquire the data-set from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-05">here.</a></p>
+<p>Week 6 has three data-sets, which are mortgage, recession and state_hpi. Number of variables in each data-set is less than 10. You can acquire the data-set from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-05">here.</a></p>
 <p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week6">GitHub Code</a></p>
 {{% tweet "1093047376879775744" %}}
 <p>According to the description there is not much of variation in the recession data-set, but this is not the case in other two data-sets.</p>
@@ -76,7 +76,7 @@ state_hpi &lt;- read_csv(&quot;state_hpi.csv&quot;)</code></pre>
 <h2>Fixed Rate 30 Years from 1971 to 2018</h2>
 <p>Each week the Fixed Rate of 30 Years has been set and I am exploring how it changes in each year from 1971 to 2018. We can clearly see in the early Weeks of 1980 it has significantly increased higher than 17.5%, but in early 1970 it was only 7.5%.</p>
 <p>By 1990 it has dropped to 7.5% and this pattern continues further until year 2018 where in December the Fixed Rate of 30 Years is slightly less than 5%.</p>
-<p>Each year there can be on of the below patterns I mentioned if the year is divided into two half’s.</p>
+<p>Each year there can be one of the below patterns I mentioned if the year is divided into two half’s.</p>
 <ol style="list-style-type: decimal">
 <li>First and Second Half of the Year hold the same Percentage points.</li>
 <li>First Half of the Year has Higher percentage Points than the second half.</li>
@@ -111,7 +111,7 @@ animate(p,nframes=28, fps=1)</code></pre>
 </div>
 <div id="fees-and-points-of-30-years-from-1971-to-2018" class="section level2">
 <h2>Fees and Points of 30 Years from 1971 to 2018</h2>
-<p>Highest peek occurs in 1983 which is 2.7 and it decreases over the years gradually. While in the year 1971 the points were close to 1. The gradual decrease is not in effect between the years 1995 and 1996 and it clear in the plot. Yet, we can see no other anomaly in the next few years after 1996, while in 2007 it reaches its lowest point of slightly less than 0.3 (Could be related to the Great recession)</p>
+<p>Highest peek occurs in 1983 which is 2.7 and it decreases over the years gradually. While in the year 1971 the points were close to 1. The gradual decrease is not in effect between the years 1995 and 1996 and its clear in the plot. Yet, we can see no other anomaly in the next few years after 1996, while in 2007 it reaches its lowest point of slightly less than 0.3 (Could be related to the Great recession)</p>
 <p>Anyway by year 2018 after this 2007 recession the points have increased but has not reached 1 and is always oscillating between 0.4 and 0.6 in the years of 2015 to 2018.</p>
 <pre class="r"><code>p1&lt;-ggplot(mortgage,aes(x=factor(year(date)),y=factor(fees_and_pts_30_yr),color=week(date)))+
        geom_jitter()+ theme(legend.position = &quot;bottom&quot;,
@@ -129,7 +129,7 @@ animate(p1,nframes=48, fps=1)</code></pre>
 <div id="fees-and-points-of-15-years-from-1991-to-2018" class="section level2">
 <h2>Fees and Points of 15 Years from 1991 to 2018</h2>
 <p>In 1991 the points are close to 1.9 and it wavers in between 1.6 and 1.8 until 1997. There is a significant drop from 1997 to 1998 where the points end up averaged around 1 and over the years it slowly decreases until year 2007. Where the lowest point of 0.3 occurs.</p>
-<p>After this new low it struggles to maintain any steady increase and rather holds below 0.8 over the next years until 2018.</p>
+<p>After this new low it struggles to maintain any steady increase and rather holds below 0.8 over the next few years until 2018.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(mortgage,year(date)&gt;=1991),
           aes(x=factor(year(date)),y=factor(fees_and_pts_15_yr),color=week(date)))+
        geom_jitter()+ theme(legend.position = &quot;bottom&quot;,
@@ -146,8 +146,8 @@ animate(p,nframes=28, fps=1)</code></pre>
 </div>
 <div id="states" class="section level1">
 <h1>States</h1>
-<p>United States of America has 50 states and comparing all of them at the same time is a ludicrous idea. Therefore, I decided to combine few states and compare and them as regions. In order to do this clustering I chose the Wikipedia page which was helpful for me.</p>
-<p>There are multiple reasons to make different regions out of the 50 states of USA. But according to the Wikipedia page I figured it would be best to focus on the financial side or to be precise cluster states based on the “Bureau of Economic Analysis Regions”.</p>
+<p>United States of America has 50 states and comparing all of them at the same time is a ludicrous idea. Therefore, I decided to combine few states and compare them as regions. In order to do this clustering I chose the Wikipedia page which was helpful for me.</p>
+<p>There are multiple reasons to make different regions out of the 50 states of USA. But according to the Wikipedia page I figured it would be best to focus on the financial side or to be precise cluster of states based on the “Bureau of Economic Analysis Regions”.</p>
 <p><a href="https://en.wikipedia.org/wiki/List_of_regions_of_the_United_States">Wikipedia for US Regions</a></p>
 <p>So according to the above choice we have 8 regions clustering 50 states and they are</p>
 <ol style="list-style-type: decimal">
@@ -265,7 +265,7 @@ animate(p,nframes = 44,fps=1)</code></pre>
        transition_time(year)+ease_aes(&quot;linear&quot;)
 animate(p,nframes = 44,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week6/index_files/figure-html/Region%20Far%20West-1.gif" /><!-- --></p>
-<p>It might look that I have not enough justice for the changes which occurred before the year 2000, and I do agree with you. But if I do add them into my consideration this article would be very long. Hopefully, the animate plots clearly indicate the strong changes which occurred in the pre-y2k era.</p>
+<p>It might look that I have not done enough justice for the changes which occurred before the year 2000, and I do agree with you. But if I do add them into my consideration this article would be very long. Hopefully, the animated plots clearly indicate the strong changes which occurred in the pre-y2k era.</p>
 <p><em>THANK YOU</em></p>
 </div>
 </div>
