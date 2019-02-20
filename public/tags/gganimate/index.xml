@@ -18,7 +18,7 @@
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week8/week8/</guid>
-      <description>Broad FieldAll fieldsDropping Psychology and Social SciencesMajor FieldMajor Fields with Box plotMajor Fields without PsychologyMathematics and Computer SciencesMathematics and Computer Science as a Broad fieldMajor Field for Mathematics and Computer ScienceFields for Major Field Mathematics and Computer ScienceMajor Field, Field For Mathematics and Computer Sciences# load the packageslibrary(tidyverse)library(ggthemr)library(readr)library(gganimate)library(ggridges)library(ggalluvial)ggthemr(&amp;quot;flat&amp;quot;)#load the dataphdlist &amp;lt;- read_csv(&amp;quot;phd_by_field.</description>
+      <description>Broad FieldAll fieldsDropping Psychology and Social SciencesMajor FieldMajor Fields with Box plotMajor Fields without Psychology but still in a BoxplotMathematics and Computer SciencesMathematics and Computer Science as a Broad fieldMathematics and Computer Science as a Major FieldMajor Field of Mathematics and Computer Science but now all FieldsMajor Field, Field and Year For Mathematics and Computer Sciences# load the packageslibrary(tidyverse)library(ggthemr)library(readr)library(gganimate)library(ggridges)library(ggalluvial)ggthemr(&amp;quot;flat&amp;quot;)#load the dataphdlist &amp;lt;- read_csv(&amp;quot;phd_by_field.</description>
     </item>
     
     <item>

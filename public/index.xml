@@ -24,14 +24,14 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#major-field&#34;&gt;Major Field&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#major-fields-with-box-plot&#34;&gt;Major Fields with Box plot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#major-fields-without-psychology&#34;&gt;Major Fields without Psychology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#major-fields-without-psychology-but-still-in-a-boxplot&#34;&gt;Major Fields without Psychology but still in a Boxplot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#mathematics-and-computer-sciences&#34;&gt;Mathematics and Computer Sciences&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#mathematics-and-computer-science-as-a-broad-field&#34;&gt;Mathematics and Computer Science as a Broad field&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#major-field-for-mathematics-and-computer-science&#34;&gt;Major Field for Mathematics and Computer Science&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#fields-for-major-field-mathematics-and-computer-science&#34;&gt;Fields for Major Field Mathematics and Computer Science&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mathematics-and-computer-science-as-a-major-field&#34;&gt;Mathematics and Computer Science as a Major Field&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#major-field-of-mathematics-and-computer-science-but-now-all-fields&#34;&gt;Major Field of Mathematics and Computer Science but now all Fields&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#major-field-field-for-mathematics-and-computer-sciences&#34;&gt;Major Field, Field For Mathematics and Computer Sciences&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#major-field-field-and-year-for-mathematics-and-computer-sciences&#34;&gt;Major Field, Field and Year For Mathematics and Computer Sciences&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -89,7 +89,7 @@ animate(p,nframes=9,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;major-field&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Major Field&lt;/h1&gt;
-&lt;p&gt;Focus now solely switch towards the Major Field column and here also we can see the strong outlier in Psychology over the years. Further, Physics and Astronomy field also has a very strong outlier where over the years it reaches 2000 Phds.&lt;/p&gt;
+&lt;p&gt;Focus now solely switches towards the Major Field column and here also we can see the strong outlier in Psychology over the years. Further, Physics and Astronomy field also has a very strong outlier where over the years it reaches 2000 Phds.&lt;/p&gt;
 &lt;p&gt;Without dropping Psychology we can see the odd behavior from the fields “Education Research”, “Economics” and “Computer and Information Sciences”. Specially the gradual decrease of “Education Research” from 2008 to 2017.&lt;/p&gt;
 &lt;p&gt;Also in “Computer and Information Sciences” field there is an odd increase in 2012.&lt;/p&gt;
 &lt;p&gt;After dropping the “Psychology” field we can now clearly see how other Major fields behave over the years.&lt;/p&gt;
@@ -108,8 +108,8 @@ animate(p,nframes=9,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,nframes=9,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week8/index_files/figure-html/major%20field%20boxplot-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;major-fields-without-psychology&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Major Fields without Psychology&lt;/h2&gt;
+&lt;div id=&#34;major-fields-without-psychology-but-still-in-a-boxplot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Major Fields without Psychology but still in a Boxplot&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;q&amp;lt;-ggplot(subset(phdlist,major_field != &amp;quot;Psychology&amp;quot;),
           aes(x=str_wrap(major_field,20),y=n_phds,fill=broad_field))+
           geom_boxplot()+coord_flip()+
@@ -145,8 +145,8 @@ ggplot(.,aes(x=factor(year),y=n_phds,fill=major_field))+
           labs(fill=&amp;quot;Major Field&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week8/index_files/figure-html/mathematics%20and%20cs%20bar%20chart-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;major-field-for-mathematics-and-computer-science&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Major Field for Mathematics and Computer Science&lt;/h2&gt;
+&lt;div id=&#34;mathematics-and-computer-science-as-a-major-field&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mathematics and Computer Science as a Major Field&lt;/h2&gt;
 &lt;p&gt;Box plot indicates the clear variation among these two major fields over years which could be used for comparison. The sudden peak in year 2012 for “Computer and Information Sciences” interests me alot. It should be noted that “Mathematics and Statistics” has more outliers than “Computer and Information Sciences”.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(phdlist,broad_field == &amp;quot;Mathematics and computer sciences&amp;quot;),
           aes(x=str_wrap(major_field,20),y=n_phds))+
@@ -168,9 +168,9 @@ animate(p,nframes=9,fps=1)&lt;/code&gt;&lt;/pre&gt;
                   subtitle = &amp;quot;Year : 2008 to 2017&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week8/index_files/figure-html/ridge%20major%20fields-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;fields-for-major-field-mathematics-and-computer-science&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Fields for Major Field Mathematics and Computer Science&lt;/h2&gt;
-&lt;p&gt;considering the sub categories of the chosen broad field in a box plot did not work quite well, but Computer Science phds being awarded with highest amount would indicate the boom of Artificial Intelligence.&lt;/p&gt;
+&lt;div id=&#34;major-field-of-mathematics-and-computer-science-but-now-all-fields&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Major Field of Mathematics and Computer Science but now all Fields&lt;/h2&gt;
+&lt;p&gt;Considering the sub categories of the chosen broad field in a box plot did not work quite well, but clearly this plot indicates the Computer Science Phds being awarded with highest amount over the years. Would that mean the boom of Artificial Intelligence in Computer Science.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(phdlist,broad_field == &amp;quot;Mathematics and computer sciences&amp;quot;),
           aes(x=str_wrap(field,20),y=n_phds,fill=major_field))+
           geom_boxplot()+coord_flip()+
@@ -196,9 +196,9 @@ animate(p,nframes=9,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week8/index_files/figure-html/ridge%20plot%20fields-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;major-field-field-for-mathematics-and-computer-sciences&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Major Field, Field For Mathematics and Computer Sciences&lt;/h1&gt;
-&lt;p&gt;Finally an alluvial diagram just to look at the impact of Computer science field with respective to each year and major field.&lt;/p&gt;
+&lt;div id=&#34;major-field-field-and-year-for-mathematics-and-computer-sciences&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Major Field, Field and Year For Mathematics and Computer Sciences&lt;/h1&gt;
+&lt;p&gt;Finally an alluvial diagram just to look at the impact of Computer science field with respective to each year, which is very strong.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(subset(phdlist,broad_field==&amp;quot;Mathematics and computer sciences&amp;quot;)) %&amp;gt;%
            na.omit() %&amp;gt;%
 ggplot(.,aes(axis2=factor(str_wrap(year,10)), axis1= factor(str_wrap(major_field,10)), 

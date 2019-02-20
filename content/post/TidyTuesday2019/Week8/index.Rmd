@@ -100,7 +100,7 @@ animate(p,nframes=9,fps=1)
 
 # Major Field
 
-Focus now solely switch towards the Major Field column and here also we can see the strong 
+Focus now solely switches towards the Major Field column and here also we can see the strong 
 outlier in Psychology over the years. Further, Physics and Astronomy field also has a very
 strong outlier where over the years it reaches 2000 Phds.
 
@@ -129,7 +129,7 @@ p<-ggplot(phdlist,aes(x=str_wrap(major_field,20),y=n_phds,fill=broad_field))+
 animate(p,nframes=9,fps=1)
 ```
 
-## Major Fields without Psychology
+## Major Fields without Psychology but still in a Boxplot
 
 ```{r Major field without psy}
 q<-ggplot(subset(phdlist,major_field != "Psychology"),
@@ -178,7 +178,7 @@ ggplot(.,aes(x=factor(year),y=n_phds,fill=major_field))+
 ```
 
 
-## Major Field for Mathematics and Computer Science
+## Mathematics and Computer Science as a Major Field
 
 Box plot indicates the clear variation among these two major fields over years which 
 could be used for comparison. The sudden peak in year 2012 for "Computer and Information Sciences"
@@ -209,11 +209,12 @@ ggplot(subset(phdlist,broad_field == "Mathematics and computer sciences"),
                   subtitle = "Year : 2008 to 2017")
 ```
 
-##  Fields for Major Field Mathematics and Computer Science
+## Major Field of Mathematics and Computer Science but now all Fields
 
-considering the sub categories of the chosen broad field in a box plot did not
-work quite well, but Computer Science phds being awarded with highest amount would
-indicate the boom of Artificial Intelligence.
+Considering the sub categories of the chosen broad field in a box plot did not
+work quite well, but clearly this plot indicates the Computer Science Phds being 
+awarded with highest amount over the years. Would that mean the boom of Artificial Intelligence in
+Computer Science.
 
 ```{r field boxplot with maths and cs}
 p<-ggplot(subset(phdlist,broad_field == "Mathematics and computer sciences"),
@@ -249,10 +250,10 @@ ggplot(subset(phdlist,broad_field == "Mathematics and computer sciences"),
           labs(fill="Major Field")
 ```
 
-# Major Field, Field For Mathematics and Computer Sciences
+# Major Field, Field and Year For Mathematics and Computer Sciences
 
 Finally an alluvial diagram just to look at the impact of Computer science field with 
-respective to each year and major field.
+respective to each year, which is very strong.
 
 ```{r broad and major and field}
 data.frame(subset(phdlist,broad_field=="Mathematics and computer sciences")) %>%
