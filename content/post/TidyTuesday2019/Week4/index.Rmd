@@ -92,7 +92,7 @@ ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
 
 5 ethnicity types are considered here which are Asian, Black, Latino, White
 and Native American. From 1980 only we can see the active prisoners of 
-Latino and Native American ethnicity. Over the year we can the increase of
+Latino and Native American ethnicity. Over the years we can the increase of
 prisoners for African American Community. The increase is very high considering 
 the other ethnicity types. 
 
@@ -144,7 +144,7 @@ female are considered with the total. The data-set is for Pretrial prisoners.
 There is sudden increase after mid 1980s to all the areas. This sudden increase 
 occurs to both genders and the total as well. 
 
-Here, also we can see an odd behavior for urban area in the time entire range 
+Here, also we can see an odd behavior for urban area in the entire time range 
 with sudden steeps and peaks. 
 
 ```{r pretrial summary gender and total}
@@ -164,15 +164,17 @@ This data-set has all the necessary information related to Incarceration. Furthe
 it includes data for 11 different crime types. Rather than exploring all the crimes
 I have explored only one crime here, which is Rape. 
 
-There are four areas in concern are rural, suburban, mid/small and urban.  51 states and 
+The are four areas in concern are rural, suburban, mid/small and urban.  51 states and 
 4 regions are considered to see the diversity of these prisoners. We have dropped 
 the years from 1970 to 1976, 2015 and 2016 because they had no data. Even the years
 1979 and 1993 has missing data but still I am including this in the plot. 
 
 ## Rape Crimes over the Years in States of Rural Area
 
-I developed these plots to understand a patters in the states or regions wise 
-apparently itsvery difficult but still I am keeping these plots here. 
+I developed these plots to understand a pattern in state wise or region wise, 
+apparently its very difficult but still I am keeping these plots here. Well,
+frankly I think there could be some other better way to visualize the above 
+selective data.
 
 ```{r All Data Rape Crime but rural,fig.length=14,fig.width=14}
 p1<-subset(incarceration_trends,year!="1970" & year!="1971" & year!="1972" &

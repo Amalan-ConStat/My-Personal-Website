@@ -1736,11 +1736,11 @@ ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
   scale_y_continuous(breaks = seq(0,1750,250),labels=seq(0,1750,250))+
   xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rate per 100,000&amp;quot;)+
   ggtitle(&amp;quot;Gender change over the years from 1983-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/prison%20summary%20Male%20and%20Female-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Male%20and%20Female-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;prison-summary-with-ethnicity&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Prison Summary with Ethnicity&lt;/h2&gt;
-&lt;p&gt;5 ethnicity types are considered here which are Asian, Black, Latino, White and Native American. From 1980 only we can see the active prisoners of Latino and Native American ethnicity. Over the year we can the increase of prisoners for African American Community. The increase is very high considering the other ethnicity types.&lt;/p&gt;
+&lt;p&gt;5 ethnicity types are considered here which are Asian, Black, Latino, White and Native American. From 1980 only we can see the active prisoners of Latino and Native American ethnicity. Over the years we can the increase of prisoners for African American Community. The increase is very high considering the other ethnicity types.&lt;/p&gt;
 &lt;p&gt;Asian ethnicity people have prisoners but it is only negligible considering the other ethnicity types. Except the suburban area others have an increase rate until 2005 and there is a decline followed in the next years. This is not the case for suburban area. Here less change after year 2000 and the decline begins only in year 2010.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(prison_summary,pop_category == &amp;quot;Asian&amp;quot; | pop_category==&amp;quot;Black&amp;quot; |
                       pop_category == &amp;quot;Latino&amp;quot; |pop_category==&amp;quot;White&amp;quot; |
@@ -1753,7 +1753,7 @@ ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
   scale_y_continuous(breaks = seq(0,5250,250),labels=seq(0,5250,250))+
   xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rate per 100,000&amp;quot;)+
   ggtitle(&amp;quot;Ethnicity change over the years from 1983-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/prison%20summary%20Ethnicity-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Ethnicity-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;prison-summary-with-other-and-total&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Prison Summary with Other and Total&lt;/h2&gt;
@@ -1768,13 +1768,13 @@ ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
     scale_y_continuous(breaks = seq(0,1000,100),labels=seq(0,1000,100))+
     xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rate per 100,000&amp;quot;)+
     ggtitle(&amp;quot;Total and Other category change over the years from 1983-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/prison%20summary%20Other%20and%20Total-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Other%20and%20Total-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;pretrial-summary-with-gender-and-total&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Pretrial Summary with Gender and Total&lt;/h1&gt;
 &lt;p&gt;Year 1970 to 2015 is the range of time considered here and the genders male and female are considered with the total. The data-set is for Pretrial prisoners. There is sudden increase after mid 1980s to all the areas. This sudden increase occurs to both genders and the total as well.&lt;/p&gt;
-&lt;p&gt;Here, also we can see an odd behavior for urban area in the time entire range with sudden steeps and peaks.&lt;/p&gt;
+&lt;p&gt;Here, also we can see an odd behavior for urban area in the entire time range with sudden steeps and peaks.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(pretrial_summary,aes(x=year,y=rate_per_100000,fill=pop_category))+
       geom_area()+facet_wrap(~urbanicity)+
       transition_reveal(year)+ labs(fill=&amp;quot;Category&amp;quot;)+
@@ -1783,15 +1783,15 @@ ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
       scale_y_continuous(breaks = seq(0,800,50),labels=seq(0,800,50))+
       xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Rate per 100,000&amp;quot;)+
       ggtitle(&amp;quot;Total and Gender category change over the years from 1970-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/pretrial%20summary%20gender%20and%20total-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/pretrial%20summary%20gender%20and%20total-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;complete-data-of-incarceration-trends&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Complete Data of Incarceration Trends&lt;/h1&gt;
 &lt;p&gt;This data-set has all the necessary information related to Incarceration. Further, it includes data for 11 different crime types. Rather than exploring all the crimes I have explored only one crime here, which is Rape.&lt;/p&gt;
-&lt;p&gt;There are four areas in concern are rural, suburban, mid/small and urban. 51 states and 4 regions are considered to see the diversity of these prisoners. We have dropped the years from 1970 to 1976, 2015 and 2016 because they had no data. Even the years 1979 and 1993 has missing data but still I am including this in the plot.&lt;/p&gt;
+&lt;p&gt;The are four areas in concern are rural, suburban, mid/small and urban. 51 states and 4 regions are considered to see the diversity of these prisoners. We have dropped the years from 1970 to 1976, 2015 and 2016 because they had no data. Even the years 1979 and 1993 has missing data but still I am including this in the plot.&lt;/p&gt;
 &lt;div id=&#34;rape-crimes-over-the-years-in-states-of-rural-area&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Rape Crimes over the Years in States of Rural Area&lt;/h2&gt;
-&lt;p&gt;I developed these plots to understand a patters in the states or regions wise apparently itsvery difficult but still I am keeping these plots here.&lt;/p&gt;
+&lt;p&gt;I developed these plots to understand a pattern in state wise or region wise, apparently its very difficult but still I am keeping these plots here. Well, frankly I think there could be some other better way to visualize the above selective data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1&amp;lt;-subset(incarceration_trends,year!=&amp;quot;1970&amp;quot; &amp;amp; year!=&amp;quot;1971&amp;quot; &amp;amp; year!=&amp;quot;1972&amp;quot; &amp;amp;
                             year!=&amp;quot;1973&amp;quot; &amp;amp; year!=&amp;quot;1974&amp;quot; &amp;amp; year!=&amp;quot;1975&amp;quot; &amp;amp;
                             year!=&amp;quot;1976&amp;quot; &amp;amp; year!=&amp;quot;2015&amp;quot; &amp;amp; year!=&amp;quot;2016&amp;quot; &amp;amp;
@@ -1805,7 +1805,7 @@ ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
       labs(title=&amp;quot;Rape Crime for Rural Areas on the Year : {round(frame_time)}&amp;quot;)
 
 animate(p1,fps=1,duration=38)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/All%20Data%20Rape%20Crime%20but%20rural-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20rural-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rape-crimes-over-the-years-in-states-of-small-or-mid-area&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Rape Crimes over the Years in States of Small or Mid Area&lt;/h2&gt;
@@ -1822,7 +1822,7 @@ ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
       labs(title=&amp;quot;Rape Crime for Small or Mid Areas on the Year: {round(frame_time)}&amp;quot;)
 
 animate(p2,fps=1,duration=38)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/All%20Data%20Rape%20Crime%20but%20small%20or%20mid-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20small%20or%20mid-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rape-crimes-over-the-years-in-states-of-suburban-area&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Rape Crimes over the Years in States of Suburban Area&lt;/h2&gt;
@@ -1839,7 +1839,7 @@ ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
       labs(title=&amp;quot;Rape Crime for Suburban Areas on the Year: {round(frame_time)}&amp;quot;)
 
 animate(p3,fps=1,duration=38)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/All%20Data%20Rape%20Crime%20but%20suburban-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20suburban-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rape-crimes-over-the-years-in-states-of-urban-area&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Rape Crimes over the Years in States of Urban Area&lt;/h2&gt;
@@ -1856,7 +1856,7 @@ ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
       labs(title=&amp;quot;Rape Crime for Urban Areas on the Year: {round(frame_time)}&amp;quot;)
 
 animate(p4,fps=1,duration=38)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/2019-01-22-week-4-prison-data_files/figure-html/All%20Data%20Rape%20Crime%20but%20Urban-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20Urban-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
