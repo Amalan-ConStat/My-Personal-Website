@@ -598,12 +598,12 @@ p&lt;-ggplot(fluid_milk_sales,aes(x=fct_inorder(milk_type) ,y=pounds,fill=year))
        ggtitle(&quot;Milk Type vs Pounds in year: {round(frame_time)}&quot;)
 
 animate(p,nframes=48,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Fluid%20milk%20Sales-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Fluid%20milk%20Sales-1.gif" /><!-- --></p>
 <pre class="r"><code>detach(fluid_milk_sales)</code></pre>
 </div>
 <div id="state-milk-production" class="section level1">
 <h1>State Milk Production</h1>
-<p>In the 48 years we are separating them by 24 years each for a plot. Using <a href="">usmap</a> package I am going to plot it into their respective states in perspective of Milk Produced lbs in 10^6.</p>
+<p>In the 48 years we are separating them by 24 years each for a plot. Using <a href="https://cran.r-project.org/web/packages/usmap/index.html">usmap</a> package I am going to plot it into their respective states in perspective of Milk Produced lbs in 10^6.</p>
 <div id="us-states-and-milk-production-over-the-years" class="section level2">
 <h2>US States and Milk Production Over the Years</h2>
 <p>In the first half of 1970 to 1993 we can see how a few states are having steady increase over the years.</p>
@@ -619,16 +619,16 @@ plot_usmap(data=subset(state_milk_production,year &lt;=&quot;1993&quot;),values 
           ggtitle(&quot;Over the years Milk production changing in USA&quot;)+
           theme(legend.position = &quot;left&quot;)+
           labs(fill=&quot;lbs in 10^6&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20Us%20Map-1.png" width="1344" /></p>
-<p>This is similar to the next half years which is from 1994 to 2017 as well. Similar increase occurs for the above same states as I see in the below plot. Well it is not very accurately described in the two plots for us to see.</p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/State%20Milk%20production%20Us%20Map-1.png" width="1344" /></p>
+<p>This is similar to the next half which is from 1994 to 2017 as well. Similar increase occurs for the above same states as I see in the below plot. Well it is not very accurately described in the two plots for us to see.</p>
 <pre class="r"><code># plot in us map the milk produced by state for years 1994 to 2017
 plot_usmap(data=subset(state_milk_production,year &gt;&quot;1993&quot;),values = &quot;milk_produced&quot;)+
           facet_wrap(~factor(year),ncol = 4)+
           ggtitle(&quot;Over the years Milk production changing in USA&quot;)+
           theme(legend.position = &quot;left&quot;)+
           labs(fill=&quot;lbs in 10^6&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20Us%20Map%201-1.png" width="1344" /></p>
-<p>To understand the above same change over the years clearly I have created a bar plot how the increase occurs. This plot also indicates how much change has occurred over the 48 years for each state who produces milk. Clearly the states California and Wisconsin have higher increase over the years, which is very strong. There are some states which have not produced more amount each year their previous years.</p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/State%20Milk%20production%20Us%20Map%201-1.png" width="1344" /></p>
+<p>To understand the above same change over the years clearly I have created a bar plot how the increase occurs. This plot also indicates how much change has occurred over the 48 years for each state who produces milk. Clearly the states California and Wisconsin have higher increase over the years, which is very strong. There are some states which have not produced more amount each year than their previous years.</p>
 <p>The states Wyoming, Rhode island, Hawaii, Delaware and Alaska have very low amount of milk production over the years.</p>
 <pre class="r"><code># over the years how milk production has changed for each year in a bar plot
 p&lt;-ggplot(state_milk_production,aes(x=state,y=milk_produced,
@@ -639,12 +639,12 @@ p&lt;-ggplot(state_milk_production,aes(x=state,y=milk_produced,
       ggtitle(&quot;States vs Milk Produced in year: {round(frame_time)}&quot;)
 
 animate(p,nframes = 48,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/State%20Milk%20production%20over%20the%20years%20for%20states-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/State%20Milk%20production%20over%20the%20years%20for%20states-1.gif" /><!-- --></p>
 </div>
 <div id="summing-states-of-same-regions-over-the-years" class="section level2">
 <h2>Summing States of Same Regions Over the Years</h2>
 <p>There are 50 states but only 10 regions and not all regions have equal amount of states. Therefore I am going to sum up the milk production for all regions over the years and try to understand if there is any pattern.</p>
-<p>In order to do this I have used the <a href="">dplyr</a> package and created a function which would sum up the production for each region of each year. Similarly, this function has the ability to get the average production for each region of each year as well.</p>
+<p>In order to do this I have used the <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> package and created a function which would sum up the production for each region of each year. Similarly, this function has the ability to get the average production for each region of each year as well.</p>
 <pre class="r"><code># manipulating the data by sum and mean
 by_region_sum&lt;-function(i,ch_sum)
 {
@@ -695,13 +695,13 @@ milk_region_data&lt;-rbind.data.frame(by_region_sum(1970,T),by_region_sum(1971,T
                                    by_region_sum(2014,T),by_region_sum(2015,T),
                                    by_region_sum(2016,T),by_region_sum(2017,T)                  
                                    )</code></pre>
-<p>If we consider the summation we can see clearly how centered and very limited variation is there for some regions such as Southeast, Northern Plains, Delta States, Corn Belt and Appalachian. There is some variation in the Northeast region. Clear and highest variation is in for Pacific, Mountain and Lake States region.</p>
+<p>If we consider the summation we can see clearly how centered and very limited variation is there for some regions such as Southeast, Northern Plains, Delta States, Corn Belt and Appalachian. There is some variation in the Northeast region. Clear and highest variation is in for Pacific, Mountain and Lake States regions.</p>
 <pre class="r"><code># Region wise total milk production changing  over the year 
 ggplot(milk_region_data,aes(x=region,y=milk_produced,color=year))+
         geom_jitter()+ coord_flip()+
         xlab(&quot;Region&quot;)+ylab(&quot;Milk Produced (in 10^6)&quot;)+
         ggtitle(&quot;Total Milk Produced by Year in All Regions&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Summation%20by%20region%20for%20jitter-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Summation%20by%20region%20for%20jitter-1.png" width="1152" /></p>
 <p>Below is the same graph with points animated by year.</p>
 <pre class="r"><code># Region wise total milk production changing  over the year animated
 p&lt;-ggplot(milk_region_data,aes(x=region,y=milk_produced,color=year))+
@@ -711,7 +711,7 @@ p&lt;-ggplot(milk_region_data,aes(x=region,y=milk_produced,color=year))+
         transition_time(year)+ease_aes(&quot;linear&quot;)+shadow_mark()
         
 animate(p,nframes=48,fps=1)        </code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Summation%20by%20region%20for%20jitter%20by%20year%20animation-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Summation%20by%20region%20for%20jitter%20by%20year%20animation-1.gif" /><!-- --></p>
 </div>
 <div id="averaging-regions-considering-all-the-states-over-the-years" class="section level2">
 <h2>Averaging Regions Considering All the States Over the Years</h2>
@@ -748,7 +748,7 @@ ggplot(milk_region_data_new,aes(x=region,y=milk_produced,color=year))+
         geom_jitter()+ coord_flip()+ 
         xlab(&quot;Region&quot;)+ylab(&quot;Milk Produced (in 10^6)&quot;)+
         ggtitle(&quot;Average Milk Produced by Year in All Regions&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/average%20by%20region%20for%20jitter-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/average%20by%20region%20for%20jitter-1.png" width="1152" /></p>
 <p>The same plot is now animated for each year and all regions.</p>
 <pre class="r"><code># Region wise average milk production changing  over the year animated
 p&lt;-ggplot(milk_region_data_new,aes(x=region,y=milk_produced,color=year))+
@@ -759,7 +759,7 @@ p&lt;-ggplot(milk_region_data_new,aes(x=region,y=milk_produced,color=year))+
         transition_time(year)+ease_aes(&quot;linear&quot;)
         
 animate(p,nframes=48,fps=1)        </code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/average%20by%20region%20for%20jitter%20by%20year%20animation-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/average%20by%20region%20for%20jitter%20by%20year%20animation-1.gif" /><!-- --></p>
 <pre class="r"><code>detach(state_milk_production)</code></pre>
 </div>
 </div>
@@ -781,11 +781,11 @@ p&lt;-ggplot(clean_cheese,aes(x=factor(Year)))+
           ease_aes(&quot;linear&quot;)+shadow_mark()
 
 animate(p,nframes=48,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20other-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Cheese%20with%20other-1.gif" /><!-- --></p>
 </div>
 <div id="cheese-with-total" class="section level2">
 <h2>Cheese with Total</h2>
-<p>This is also an animated plot but for the cheese types which has the word Total. They are Total American Cheese, Total Italian Cheese, Total Natural Cheese and Total Processed Cheese Products with the colors respectively red, yellow, blue and green.</p>
+<p>This is also an animated plot but for the cheese types which has the word Total. They are Total American Cheese, Total Italian Cheese, Total Natural Cheese and Total Processed Cheese Products with the colors represented respectively red, yellow, blue and green.</p>
 <p>All the Consumption units are in between 0 to 40 lbs per person. Clearly Total Natural Cheese has a steady amount of increase from 1970(slightly above 10) to 2017(approximately less than 40). Considering the other three types we can see it is not the same order that it is in 1970 over the years.</p>
 <pre class="r"><code># 4 types of cheese change per person over the year in lbs
 p&lt;-ggplot(clean_cheese,aes(x=factor(Year)))+ 
@@ -800,11 +800,11 @@ p&lt;-ggplot(clean_cheese,aes(x=factor(Year)))+
           ease_aes(&quot;linear&quot;)+shadow_mark()
 
 animate(p,nframes=48,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20Total-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Cheese%20with%20Total-1.gif" /><!-- --></p>
 </div>
 <div id="cheese-with-known-type-names" class="section level2">
 <h2>Cheese with known Type Names</h2>
-<p>Next group of cheese types include Cheddar, Mozzarella, Brick, Processed Cheese and Foods &amp; spreads for the colors respectively red, yellow, blue, green and white. Clearly Cheddar and mozzarella type cheese are are mostly consumed by 2017 above 10 lbs per person, but this is not the case in 1970 where consumption is less than 6 lbs per person.</p>
+<p>Next group of cheese types include Cheddar, Mozzarella, Brick, Processed Cheese and Foods &amp; spreads for the colors representing respectively red, yellow, blue, green and white. Clearly Cheddar and mozzarella type cheese are are mostly consumed by 2017 above 10 lbs per person, but this is not the case in 1970 where consumption is less than 6 lbs per person.</p>
 <p>Well Processed Cheese and Foods &amp; Spreads have changed very small over the years. The consumption is always less than 6 lbs per person. This is not the case for Brick type cheese where the consumption is close to zero over the years from 1970 until 2017.</p>
 <pre class="r"><code># 5 types of cheese change per person over the year in lbs
 p&lt;-ggplot(clean_cheese,aes(x=factor(Year)))+ 
@@ -820,7 +820,7 @@ p&lt;-ggplot(clean_cheese,aes(x=factor(Year)))+
           ease_aes(&quot;linear&quot;)+shadow_mark()
 
 animate(p,nframes=48,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week5/2019-01-29-week-5-dairy-products-in-usa_files/figure-html/Cheese%20with%20known-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week5/index_files/figure-html/Cheese%20with%20known-1.gif" /><!-- --></p>
 <p><em>THANK YOU</em></p>
 </div>
 </div>

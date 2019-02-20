@@ -82,7 +82,7 @@ detach(fluid_milk_sales)
 # State Milk Production
 
 In the 48 years we are separating them by 24 years each for a plot.
-Using [usmap]() package I am going to plot it into their respective 
+Using [usmap](https://cran.r-project.org/web/packages/usmap/index.html) package I am going to plot it into their respective 
 states in perspective of Milk Produced lbs in 10^6.
 
 ## US States and Milk Production Over the Years
@@ -105,7 +105,7 @@ plot_usmap(data=subset(state_milk_production,year <="1993"),values = "milk_produ
           labs(fill="lbs in 10^6")
 ```
 
-This is similar to the next half years which is from 1994 to 2017 as well. Similar increase
+This is similar to the next half which is from 1994 to 2017 as well. Similar increase
 occurs for the above same states as I see in the below plot. Well it is not very accurately 
 described in the two plots for us to see.
 
@@ -122,7 +122,7 @@ To understand the above same change over the years clearly I have created a bar 
 the increase occurs. This plot also indicates how much change has occurred 
 over the 48 years for each state who produces milk. Clearly the states 
 California and Wisconsin have higher increase over the years, which is very
-strong. There are some states which have not produced more amount each year their 
+strong. There are some states which have not produced more amount each year than their 
 previous years. 
 
 The states Wyoming, Rhode island, Hawaii, Delaware and Alaska have very low amount of
@@ -147,7 +147,7 @@ equal amount of states. Therefore I am going to sum up the milk
 production for all regions over the years and try to understand 
 if there is any pattern.
 
-In order to do this I have used the [dplyr]() package and created a function
+In order to do this I have used the [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) package and created a function
 which would sum up the production for each region of each year. Similarly,
 this function has the ability to get the average production for each region
 of each year as well.
@@ -211,7 +211,7 @@ milk_region_data<-rbind.data.frame(by_region_sum(1970,T),by_region_sum(1971,T),
 
 If we consider the summation we can see clearly how centered and very limited variation is there for some 
 regions such as Southeast, Northern Plains, Delta States, Corn Belt and Appalachian. There is some variation
-in the Northeast region. Clear and highest variation is in for Pacific, Mountain and Lake States region.
+in the Northeast region. Clear and highest variation is in for Pacific, Mountain and Lake States regions.
 
 ```{r Summation by region for jitter}
 # Region wise total milk production changing  over the year 
@@ -327,7 +327,7 @@ animate(p,nframes=48,fps=1)
 
 This is also an animated plot but for the cheese types which has the word Total. They are 
 Total American Cheese, Total Italian Cheese, Total Natural Cheese and Total Processed Cheese
-Products with the colors respectively red, yellow, blue and green.
+Products with the colors represented respectively red, yellow, blue and green.
 
 All the Consumption units are in between 0 to 40 lbs per person. Clearly Total Natural Cheese has 
 a steady amount of increase from 1970(slightly above 10) to 2017(approximately less than 40). 
@@ -352,7 +352,7 @@ animate(p,nframes=48,fps=1)
 ## Cheese with known Type Names
 
 Next group of cheese types include Cheddar, Mozzarella, Brick, Processed Cheese and Foods & spreads for the 
-colors respectively red, yellow, blue, green and white. Clearly Cheddar and mozzarella type cheese are
+colors representing respectively red, yellow, blue, green and white. Clearly Cheddar and mozzarella type cheese are
 are mostly consumed by 2017 above 10 lbs per person, but this is not the case in 1970 where consumption
 is less than 6 lbs per person. 
 
