@@ -2346,7 +2346,7 @@ Ratings &amp;lt;- read_csv(&amp;quot;IMDb_Economist_tv_ratings.csv&amp;quot;,
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;The code in GitHub: &lt;a href=&#34;https://t.co/ITQnSRH7Ot&#34;&gt;https://t.co/ITQnSRH7Ot&lt;/a&gt;  &lt;br&gt;.Week 2 of 2019.  Rating over the year and changes in sharing.  &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/xP5F7PWDFV&#34;&gt;pic.twitter.com/xP5F7PWDFV&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1082693109304168448?ref_src=twsrc%5Etfw&#34;&gt;January 8, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
  &lt;a href=&#34;&amp;#39;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/week2&#34;&gt;GitHub code&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;TV shows from 1990 to 2018 with their ratings, genres, sharing and aired dates is in this data-set. I wanted a cool function to summarize the data-set at once, therefore scroll through the internet and found the package &lt;a href=&#34;https://github.com/dcomtois/summarytools&#34;&gt;summarytools&lt;/a&gt;. There are quite a few functions in the mix, yet I choose dfSummary.&lt;/p&gt;
+&lt;p&gt;TV shows from 1990 to 2018 with their ratings, genres, sharing and aired dates is in this data-set. I wanted a cool function to summarize the data-set at once, therefore browse through the internet and found the package &lt;a href=&#34;https://github.com/dcomtois/summarytools&#34;&gt;summarytools&lt;/a&gt;. There are quite a few functions in the mix, yet I choose dfSummary.&lt;/p&gt;
 &lt;p&gt;Below is the code of using that function on the Ratings data-set.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Basic summary of all variables
 dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
@@ -2418,8 +2418,8 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 ## |    |               | 10. Crime,Drama,Thriller       | 63 ( 2.8%)           |                                        |        |         |
 ## |    |               | [ 87 others ]                  | 885 (39.1%)          | IIIIIII                                |        |         |
 ## +----+---------------+--------------------------------+----------------------+----------------------------------------+--------+---------+&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Basic summary of seasons indicate 27 distinct values and obviously 1 is the minimum value, but the maximum value is 44. Another odd thing is median for being 2, further the average is 3.26. Which means most of the TV shows have only up-to few seasons.&lt;/p&gt;
-&lt;p&gt;Summary of date indicates the earliest TV show from 1990 and latest from 2018. So the year difference is 28 years, but there are only 1808 distinct values. Even though the data-set contains 2266 observations. Some TV shows might have to start on the same day, that is only plausible conclusion.&lt;/p&gt;
+&lt;p&gt;Basic summary of seasons indicate 27 distinct values and obviously 1 is the minimum value, but the maximum value is 44. Another odd thing is median for being 2, further the average is 3.26. Which means most of the TV shows have only up-to few seasons. I would guess not more than 5.&lt;/p&gt;
+&lt;p&gt;Summary of date indicates the earliest TV show from 1990 and latest from 2018. So the year difference is 28 years, but there are only 1808 distinct values. Even though the data-set contains 2266 observations. Some TV shows might have to start on the same day, that is the only plausible conclusion.&lt;/p&gt;
 &lt;p&gt;“av_rating” (I presume Audio/Video Rating) is in the scale from 1 to 10, where people had influence. The least rating value is 2.7 and the most rating value is 9.68, but the median is 8.11. Also the mean is 8.06. We can say most of these TV shows are excellent to watch. There is another numeric variable called share and the value ranges from 0 to 55.65 where the average is 1.28.&lt;/p&gt;
 &lt;div id=&#34;genre&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Genre&lt;/h1&gt;
@@ -2433,7 +2433,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Genre&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
   ggtitle(&amp;quot;Genre and Seasons&amp;quot;)+
   scale_y_continuous(breaks=seq(0,375,25),labels=seq(0,375,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Genre%20vs%20Season-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Genre%20vs%20Season-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;genre-and-year&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Genre and Year&lt;/h2&gt;
@@ -2444,7 +2444,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Genre&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
   ggtitle(&amp;quot;Genre Over the Year&amp;quot;)+
   scale_y_continuous(breaks=seq(0,375,25),labels=seq(0,375,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Genre%20vs%20Year-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Genre%20vs%20Year-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;genre-and-month&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Genre and Month&lt;/h2&gt;
@@ -2454,7 +2454,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Genre&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
   ggtitle(&amp;quot;Genre Over the Months&amp;quot;)+
   scale_y_continuous(breaks=seq(0,375,25),labels=seq(0,375,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Genre%20vs%20Month-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Genre%20vs%20Month-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;season&#34; class=&#34;section level1&#34;&gt;
@@ -2470,7 +2470,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
   ggtitle(&amp;quot;Seasons over the Years&amp;quot;)+
   scale_y_continuous(breaks=seq(0,230,10),labels=seq(0,230,10))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Season%20vs%20Year-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Season%20vs%20Year-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;season-and-month&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Season and Month&lt;/h2&gt;
@@ -2480,7 +2480,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Month&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
   ggtitle(&amp;quot;Seasons over the months&amp;quot;)+
   scale_y_continuous(breaks=seq(0,550,25),labels=seq(0,550,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Season%20vs%20Month-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Season%20vs%20Month-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;top-3-genres&#34; class=&#34;section level1&#34;&gt;
@@ -2490,14 +2490,14 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;crime-drama-mystery&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Crime Drama Mystery&lt;/h2&gt;
 &lt;p&gt;Law and Order of 20 seasons has been over for more than 5 years and it began airing in 1990. Law and Order Special Victims Unit started airing in 1999 even now its still being aired. There are also odd shows like which has not aired continuously and skipped an year or two. Among them Columbo, Agatha Christie’s Marple and II commissario Montalbano are specially noted.&lt;/p&gt;
-&lt;p&gt;There are lot of shows which only aired one or two seasons only and then stopped. They also can be noted from the bar plot. In the legend there are colors to indicate all the years from 1990 to 2018 through color.&lt;/p&gt;
+&lt;p&gt;There are lot of shows which only aired one or two seasons only and then stopped. They also can be noted from the bar plot. In the legend there are colors to indicate all the years from 1990 to 2018.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(Ratings,genres==&amp;quot;Crime,Drama,Mystery&amp;quot;) %&amp;gt;%
   ggplot(aes(x=fct_infreq(title),fill=factor(year(date)),color=factor(year(date))))+
     geom_bar()+ coord_flip()+labs(color=&amp;quot;Year&amp;quot;,fill=&amp;quot;Year&amp;quot;)+
     xlab(&amp;quot;TV shows&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
     ggtitle(&amp;quot;&amp;#39;Crime,Drama,Mystery&amp;#39; Genre type over the Years&amp;quot;)+
     scale_y_continuous(breaks=0:20,labels=0:20)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Crime%20Drama%20Mystery-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Crime%20Drama%20Mystery-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;comedy-drama&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Comedy Drama&lt;/h2&gt;
@@ -2509,11 +2509,11 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     xlab(&amp;quot;TV shows&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
     ggtitle(&amp;quot;&amp;#39;Comedy,Drama&amp;#39; Genre type over the Years&amp;quot;)+
     scale_y_continuous(breaks=0:9,labels=0:9)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Comedy%20and%20Drama-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Comedy%20and%20Drama-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;drama&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Drama&lt;/h2&gt;
-&lt;p&gt;Most of the TV shows in this genre type are limited to one season an a few more with 2 seasons. Even though most of them were aired after 2015. TV shows “Mad Men”, “Skins” and “The West Wing” has aired for 7 seasons.&lt;/p&gt;
+&lt;p&gt;Most of the TV shows in this genre type are limited to one season an a few more with 2 or 3 seasons. Even though most of them were aired after 2015. TV shows “Mad Men”, “Skins” and “The West Wing” has aired for 7 seasons.&lt;/p&gt;
 &lt;p&gt;Some of these shows were limited series like “The News Room”. The only very early TV show is “Rebel Highway” which was aired in 1994 and in year 2004 “Summerland” was aired, where both of them were limited to one season.&lt;/p&gt;
 &lt;p&gt;According to the legend the years 1992,1993,1995 to 1998 were years free of “Drama” genre TV shows.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(Ratings,genres==&amp;quot;Drama&amp;quot;) %&amp;gt;%
@@ -2522,12 +2522,12 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     xlab(&amp;quot;TV shows&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+
     ggtitle(&amp;quot;&amp;#39;Drama&amp;#39; Genre type over the Years&amp;quot;)+
     scale_y_continuous(breaks=0:7,labels=0:7)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Drama-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Drama-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rating-over-the-years&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Rating over the years&lt;/h1&gt;
-&lt;p&gt;Lets discuss regarding TV shows and their rating over the years with related to sharing. Clearly we can see the number of shows of increasing from 1990 to 2018. Oddly there was more sharing related to movies before 2000, this is into the same over the next years. To be honest sharing becomes more extinct.&lt;/p&gt;
+&lt;p&gt;Lets discuss regarding TV shows and their rating over the years with related to sharing. Clearly we can see the number of shows increasing from 1990 to 2018. Oddly there was more sharing related to TV shows before 2000, but this is not the case after the birth of Millenium. To be honest sharing becomes more extinct even with the power of Internet and smart phones.&lt;/p&gt;
 &lt;p&gt;In perspective of rating the range is very much centered and small(between 7.5 - 9), but over the years this changes and expands to a wider range.(6.5 - 9.5). Only a handful of TV shows are rated below 5 in the scale over the year span of 28.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(Ratings,aes(x=factor(year(date)),y=av_rating,color=genres,size=share))+
       geom_point(show.legend = FALSE)+ 
@@ -2539,7 +2539,7 @@ dfSummary(Ratings,style = &amp;#39;grid&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
       shadow_mark()
 
 animate(p,fps= 5,duration =60)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/Rating%20vs%20Years-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/Rating%20vs%20Years-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tv-series-with-more-than-14-seasons&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Tv Series with more than 14 Seasons&lt;/h1&gt;
@@ -2558,7 +2558,7 @@ ggplot(aes(x=seasonNumber,y=av_rating,color=title,size=share))+
       shadow_mark()+theme(legend.position = &amp;quot;bottom&amp;quot;)
 
 animate(p,fps=5,duration = 60)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/2019-01-08-week-2-imdb-tv-shows-data_files/figure-html/More%20than%2014%20Seasons-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week2/index_files/figure-html/More%20than%2014%20Seasons-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

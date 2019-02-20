@@ -48,7 +48,7 @@ blogdown::shortcode('tweet','1082693109304168448')
 [GitHub code]('https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/week2)
 
 TV shows from 1990 to 2018 with their ratings, genres, sharing and aired dates is in this data-set.
-I wanted a cool function to summarize the data-set at once, therefore scroll through the internet
+I wanted a cool function to summarize the data-set at once, therefore browse through the internet
 and found the package [summarytools](https://github.com/dcomtois/summarytools). 
 There are quite a few functions in the mix, yet I choose dfSummary.
 
@@ -61,11 +61,11 @@ dfSummary(Ratings,style = 'grid')
 
 Basic summary of seasons indicate 27 distinct values and obviously 1 is the minimum value, 
 but the maximum value is 44. Another odd thing is median for being 2, further the average is 3.26. 
-Which means most of the TV shows have only up-to few seasons.
+Which means most of the TV shows have only up-to few seasons. I would guess not more than 5.
 
 Summary of date indicates the earliest TV show from 1990 and latest from 2018. So the year difference
 is 28 years, but there are only 1808 distinct values. Even though the data-set contains 2266 observations.
-Some TV shows might have to start on the same day, that is only plausible conclusion.
+Some TV shows might have to start on the same day, that is the only plausible conclusion.
 
 "av_rating" (I presume Audio/Video Rating) is in the scale from 1 to 10, where people had influence. 
 The least rating value is 2.7 and the most rating value is 9.68, but the median is 8.11. 
@@ -194,7 +194,7 @@ Among them Columbo, Agatha Christie's Marple and II commissario Montalbano are  
 
 There are lot of shows which only aired one or two seasons only and then stopped. They also can
 be noted from the bar plot. In the legend there are colors to indicate all the years from 
-1990 to 2018 through color.
+1990 to 2018.
 
 ```{r Crime Drama Mystery}
 subset(Ratings,genres=="Crime,Drama,Mystery") %>%
@@ -225,7 +225,7 @@ subset(Ratings,genres=="Comedy,Drama") %>%
 
 ## Drama
 
-Most of the TV shows in this genre type are limited to one season an a few more with 2 seasons.
+Most of the TV shows in this genre type are limited to one season an a few more with 2 or 3 seasons.
 Even though most of them were aired after 2015. TV shows "Mad Men", "Skins" and "The West Wing"
 has aired for 7 seasons. 
 
@@ -248,9 +248,9 @@ subset(Ratings,genres=="Drama") %>%
 # Rating over the years
 
 Lets discuss regarding TV shows and their rating over the years with related to sharing.
-Clearly we can see the number of shows of increasing from 1990 to 2018. Oddly there was more
-sharing related to movies before 2000, this is into the same over the next years. To be honest
-sharing becomes more extinct. 
+Clearly we can see the number of shows increasing from 1990 to 2018. Oddly there was more
+sharing related to TV shows before 2000, but this is not the case after the birth of Millenium. To be honest
+sharing becomes more extinct even with the power of Internet and smart phones. 
 
 In perspective of rating the range is very much centered and small(between 7.5 - 9), but 
 over the years this changes and expands to a wider range.(6.5 - 9.5). Only a handful 
