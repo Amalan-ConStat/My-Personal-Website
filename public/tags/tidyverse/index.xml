@@ -72,7 +72,7 @@
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/</guid>
-      <description>AGENCIESAgency vs CountType vs CountClass vs CountAgency Type vs CountState Code vs CountLocation vs CountStart Year and End Year vs agencyLAUNCHESSuccess or Failure of these missions vs Category VariablesSuccess or Failure vs Launch YearSuccess or Failure vs Agency TypeSuccess or Failure vs State CodeState Code vs Category Over time for Success and Failurelibrary(readr)library(tidyverse)library(ggalt)library(magrittr)library(dplyr)library(ggthemr)library(gganimate)# Load the Agency dataagencies&amp;lt;-read_csv(&amp;quot;agencies.</description>
+      <description>AGENCIESAgency vs CountType vs CountClass vs CountAgency Type vs CountState Code vs CountLocation vs CountStart Year and End Year vs agencyLAUNCHESSuccess or Failure of these missions vs Category VariablesSuccess or Failure vs Launch YearSuccess or Failure vs Agency TypeSuccess or Failure vs State CodeState Code vs Category Over time for Success and Failure# load the packageslibrary(readr)library(tidyverse)library(ggalt)library(magrittr)library(dplyr)library(ggthemr)library(gganimate)# Load the Agency dataagencies&amp;lt;-read_csv(&amp;quot;agencies.</description>
     </item>
     
     <item>

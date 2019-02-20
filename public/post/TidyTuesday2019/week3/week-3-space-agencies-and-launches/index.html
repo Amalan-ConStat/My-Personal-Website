@@ -564,7 +564,8 @@
 </ul>
 </div>
 
-<pre class="r"><code>library(readr)
+<pre class="r"><code># load the packages
+library(readr)
 library(tidyverse)
 library(ggalt)
 library(magrittr)
@@ -585,22 +586,22 @@ attach(launches)
 ggthemr(&quot;flat dark&quot;)</code></pre>
 <div id="agencies" class="section level1">
 <h1>AGENCIES</h1>
-<p>Space related agencies of 74 are in the world from this data set. Another, data set is for launches from the agencies in concern. In the agencies data set there are 19 variables and launches data set has 11 variables. You can find the data set and information regarded to it <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15">here</a></p>
+<p>Space related agencies of 74 are in the world from this data set. Another, data set is for launches from the agencies in concern. In the agencies data set there are 19 variables and launches data set has 11 variables. You can find the data set and information regarded to it <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15">here.</a></p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Early years of space launches had more mistakes and they were owned by the state. After the cold war, there is short of enthusiasm, but now we have an increase in launches. Code: <a href="https://t.co/R0BLjFOH4U">https://t.co/R0BLjFOH4U</a>    <a href="https://twitter.com/hashtag/tidytuesday?src=hash&amp;ref_src=twsrc%5Etfw">#tidytuesday</a> <a href="https://t.co/6dX338hpPD">pic.twitter.com/6dX338hpPD</a></p>&mdash; Amalan Mahendran (@Amalan_Con_Stat) <a href="https://twitter.com/Amalan_Con_Stat/status/1085387691393458179?ref_src=twsrc%5Etfw">January 16, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week3">GitHub Code</a></p>
 <div id="agency-vs-count" class="section level2">
 <h2>Agency vs Count</h2>
-<p>Most amount of launches are from Rakentiye Voiska Strategicheskogo Naznacheniye (RVSN) and it is 1528 and next is Upravleniye Nachalnika Kosmicheskikh Sredstv (UNKS) with 904. Top 10 places considering the most launches it clear that class D agencies has the most amount of 5, 3 class C agencies and the rest with class B. NASA is in third place with 469 launches and it is a class C agency. My favorite agency Space X (SPX) has launched 65 times and it is a class B agency.</p>
+<p>Most amount of launches are from Rakentiye Voiska Strategicheskogo Naznacheniye (RVSN) and it is 1528 and next is Upravleniye Nachalnika Kosmicheskikh Sredstv (UNKS) with 904. Out of the Top 10 places (considering the most launches) it is clear that class D agencies has the most amount (of 5),while 3 from class C agencies and the rest with class B. NASA is in third place with 469 launches and it is a class C agency. My favorite agency Space X (SPX) has launched 65 times and it is a class B agency.</p>
 <pre class="r"><code>ggplot(agencies,aes(x=fct_inorder(agency),y=count,
                     color=class,fill=class))+
        geom_bar(stat=&quot;identity&quot;,width=0.75)+coord_flip()+
        geom_text(label=agencies$count, hjust=-0.15)+
        xlab(&quot;Space Agency&quot;)+ylab(&quot;Frequency&quot;)+
        ggtitle(&quot;Space Agency vs Frequency By Class&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Agency%20vs%20Count%20and%20class-1.png" width="1056" /></p>
-<p>Similarly, for the same bar plot if we change color according to agency type we have different insight. Top 10 agencies is 90% filled with state ownership and 10% is with private ownership. It should be noted that there are only two start-ups and close to 10 have private ownership, rest is state owned. The highest amount of launches for a private ownership is from Arian Space(AE) and for start-up its Space X (SPX). Respectively, their counts are 258 and 65.</p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Agency%20vs%20Count%20and%20class-1.png" width="1056" /></p>
+<p>Similarly, for the same bar plot if we change color according to agency type we have different insight. Top 10 agencies is 90% filled with state ownership and 10% is with private ownership. It should be noted that overall there are only two start-ups and close to 10 have private ownership, rest is state owned. The highest amount of launches for a private ownership is from Arian Space(AE) and for start-up its Space X (SPX). Respectively, their counts are 258 and 65.</p>
 <pre class="r"><code>ggplot(agencies,aes(x=fct_inorder(agency),y=count,
                     color=agency_type,fill=agency_type))+
        geom_bar(stat=&quot;identity&quot;,width=0.75)+coord_flip()+
@@ -608,11 +609,11 @@ ggthemr(&quot;flat dark&quot;)</code></pre>
        xlab(&quot;Space Agency&quot;)+ylab(&quot;Frequency&quot;)+
       labs(color=&quot;Agency Type&quot;,fill=&quot;Agency Type&quot;)+
       ggtitle(&quot;Space Agency vs Frequency By Agency Type&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Agency%20vs%20Count%20and%20agency%20type-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Agency%20vs%20Count%20and%20agency%20type-1.png" width="1056" /></p>
 </div>
 <div id="type-vs-count" class="section level2">
 <h2>Type vs Count</h2>
-<p>Type of agencies is very complex because an agency can play multiple roles. Highest amount of count is for O/LA type with 3227 and second count is for LA type with 821 counts. There are 145 agencies with the highest combination of types this category is O/LA/LV/PL/E/S.</p>
+<p>Type of agencies is very complex because an agency can play multiple roles. Highest amount of count is for O/LA type with 3227 and second place is for LA type with 821 counts. There are 145 agencies with the highest combination of types and this category is O/LA/LV/PL/E/S with 145 counts.</p>
 <pre class="r"><code>agencies[,c(&#39;type&#39;,&#39;count&#39;)] %&gt;% group_by(type) %&gt;%
   summarise_each(funs(sum)) %&gt;% arrange(count) %&gt;%
 ggplot(.,aes(fct_inorder(type),count))+
@@ -620,7 +621,7 @@ ggplot(.,aes(fct_inorder(type),count))+
   geom_text(aes(label=count),hjust=-0.15)+coord_flip()+
   xlab(&quot;Type&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Type vs Frequency&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Type%20vs%20Count-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Type%20vs%20Count-1.png" width="1056" /></p>
 </div>
 <div id="class-vs-count" class="section level2">
 <h2>Class vs Count</h2>
@@ -632,7 +633,7 @@ ggplot(.,aes(fct_inorder(class),count))+
   geom_text(aes(label=count),vjust=-0.15)+
   xlab(&quot;Class&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Class vs Frequency&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Class%20vs%20Count-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Class%20vs%20Count-1.png" width="1056" /></p>
 </div>
 <div id="agency-type-vs-count" class="section level2">
 <h2>Agency Type vs Count</h2>
@@ -644,7 +645,7 @@ ggplot(.,aes(fct_inorder(agency_type),count))+
   geom_text(aes(label=count),vjust=-0.15)+
   xlab(&quot;Agency Type&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Agency Type vs Frequency&quot;)  </code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Agency%20Type%20vs%20Count-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Agency%20Type%20vs%20Count-1.png" width="1056" /></p>
 </div>
 <div id="state-code-vs-count" class="section level2">
 <h2>State Code vs Count</h2>
@@ -656,7 +657,7 @@ ggplot(.,aes(fct_inorder(state_code),count))+
   geom_text(aes(label=count),hjust=-0.15)+
   xlab(&quot;State Code&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;State Code vs Count&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/State%20Code%20vs%20Count-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/State%20Code%20vs%20Count-1.png" width="1056" /></p>
 </div>
 <div id="location-vs-count" class="section level2">
 <h2>Location vs Count</h2>
@@ -668,7 +669,7 @@ ggplot(.,aes(fct_inorder(location),count))+
   geom_text(aes(label=count),hjust=-0.15)+
   xlab(&quot;Location&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Location vs Count&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Location%20vs%20Count-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Location%20vs%20Count-1.png" width="1056" /></p>
 </div>
 <div id="start-year-and-end-year-vs-agency" class="section level2">
 <h2>Start Year and End Year vs agency</h2>
@@ -685,8 +686,8 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
   labs(fill=&quot;Agency Type&quot;,color=&quot;Agency Type&quot;)+
   theme(axis.text.x = element_text(angle = 90))+
   ggtitle(&quot;Start Year and End Year vs Agency If We Know When&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Start%20year%20and%20End%20Year%20vs%20Agency-1.png" width="1056" /></p>
-<p>It should be effectively noted that “-” mean still active and “*&quot; means unknown in my perspective. Here we cannot consider the years as numeric because of the characters used. Agencies like NASA and Space X are still active according to my knowledge therefore I considered the above assumption for characters. Most of these agencies are state owned and after Space X there is Rocket Lab USA (RLABU). Most of these agencies were launched after 1980.</p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Start%20year%20and%20End%20Year%20vs%20Agency-1.png" width="1056" /></p>
+<p>It should be effectively noted that “-” means still active and “*&quot; means unknown in my perspective. Here we cannot consider the years as numeric because of the characters used. Agencies like NASA and Space X are still active according to my knowledge therefore I considered the above assumption for characters. Most of these agencies are state owned and after Space X there is Rocket Lab USA (RLABU). Most of these agencies were launched after 1980.</p>
 <pre class="r"><code>subset(agencies, substr(tstart,1,4) == &quot;-&quot; | 
                  substr(tstop,1,4) == &quot;-&quot; | 
                  substr(tstop,1,4) == &quot;*&quot; ) %&gt;%
@@ -699,7 +700,7 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
   labs(fill=&quot;Agency Type&quot;,color=&quot;Agency Type&quot;)+
   theme(axis.text.x = element_text(angle = 90))+
   ggtitle(&quot;Start Year and End Year vs Agency If Do Not Know When&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Start%20year%20and%20End%20Year%20Unknown%20vs%20Agency-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Start%20year%20and%20End%20Year%20Unknown%20vs%20Agency-1.png" width="1056" /></p>
 </div>
 </div>
 <div id="launches" class="section level1">
@@ -717,17 +718,17 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
   xlab(&quot;Years&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Years vs Frequency&quot;)+
   scale_y_continuous(labels=seq(0,150,10),breaks=seq(0,150,10))</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Success%20or%20Failure%20vs%20Launch%20Year-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Success%20or%20Failure%20vs%20Launch%20Year-1.png" width="1056" /></p>
 </div>
 <div id="success-or-failure-vs-agency-type" class="section level3">
 <h3>Success or Failure vs Agency Type</h3>
-<p>State owned agencies has more failures than private and start-ups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 yet they have an amount of less than 1000 counts for launches.</p>
+<p>State owned agencies has more failures than private and start-ups because it would be costly. More than 4750 launches are from state owned agencies but in them more than 500 launches are failures. Even though private owned agencies has a history from 1990 they have less than 1000 launches.</p>
 <pre class="r"><code>ggplot(launches,aes(x=fct_infreq(factor(agency_type)),fill=category))+
   geom_bar()+
   xlab(&quot;Agency Type&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;Agency Type vs Frequency&quot;)+
   scale_y_continuous(labels=seq(0,5000,250),breaks=seq(0,5000,250))</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Success%20or%20Failure%20vs%20Agency%20Type-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Success%20or%20Failure%20vs%20Agency%20Type-1.png" width="1056" /></p>
 </div>
 <div id="success-or-failure-vs-state-code" class="section level3">
 <h3>Success or Failure vs State Code</h3>
@@ -738,7 +739,7 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
   xlab(&quot;State Code&quot;)+ylab(&quot;Frequency&quot;)+
   ggtitle(&quot;State Code vs Frequency&quot;)+
   scale_y_continuous(labels=seq(0,2500,100),breaks=seq(0,2500,100))</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/Success%20or%20Failure%20vs%20State%20Code-1.png" width="1056" /></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/Success%20or%20Failure%20vs%20State%20Code-1.png" width="1056" /></p>
 </div>
 </div>
 <div id="state-code-vs-category-over-time-for-success-and-failure" class="section level2">
@@ -752,7 +753,7 @@ ggplot(aes(y=reorder(agency,as.numeric(substr(tstart,1,4))),
        labs(color=&quot;Agency Type&quot;)
 
 animate(p,fps=2,duration = 60)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week3/2019-01-16-week-3-space-agencies-and-launches_files/figure-html/State%20code%20vs%20Category%20by%20time-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week3/index_files/figure-html/State%20code%20vs%20Category%20by%20time-1.gif" /><!-- --></p>
 <p><em>THANK YOU</em></p>
 </div>
 </div>
