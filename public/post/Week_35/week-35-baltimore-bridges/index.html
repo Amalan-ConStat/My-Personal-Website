@@ -587,7 +587,7 @@ attach(bridges)</code></pre>
 <div id="counties-which-have-bridges-owned-by-state-highway-agency" class="section level2">
 <h2>Counties which have bridges owned by State Highway Agency</h2>
 <p>Close to 1000 bridges are owned by State Highway Agency, where most of them are in Baltimore County. High amount of bridges are in good condition, further more bridges are in Fair condition and only around 10 bridges in Poor condition.</p>
-<p>Considering the Average Daily Traffic only one bridge in Poor condition has the amount of close to 110,000, while all the other poor condition bridges have Average Daily Traffic less than 30,000. While counties Anne Arundel and Hartford have no Poor condition bridges at all.</p>
+<p>Considering the Average Daily Traffic only one bridge in Poor condition has the amount of close to 110,000, while all the other poor condition bridges have Average Daily Traffic less than 30,000. Counties Anne Arundel and Hartford have no Poor condition bridges at all.</p>
 <p>Most of the bridges are from Baltimore County and around 20 bridges have count of more than 150,000 Average Daily Traffic for both Fair and Good conditions. Hartford and Carroll Counties have their Average Daily Traffic which does not exceed 80,000 at any condition of the bridge.</p>
 <pre class="r"><code># jitter plot to State Highway Agency
 ggplot(subset(bridges,Owner==&quot;State Highway Agency&quot;)
@@ -597,7 +597,7 @@ ggplot(subset(bridges,Owner==&quot;State Highway Agency&quot;)
   scale_y_continuous(labels =seq(0,230000,10000) ,breaks = seq(0,230000,10000))+
   transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)+geom_jitter()</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20SHA-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20SHA-1.gif" /><!-- --></p>
 </div>
 <div id="counties-which-have-bridges-owned-by-county-highway-agency" class="section level2">
 <h2>Counties which have bridges owned by County Highway Agency</h2>
@@ -613,11 +613,11 @@ ggplot(subset(bridges,Owner==&quot;County Highway Agency&quot;)
   scale_y_continuous(labels =seq(0,40000,5000) ,breaks = seq(0,40000,5000))+
   transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20CHA-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20CHA-1.gif" /><!-- --></p>
 </div>
 <div id="counties-which-have-bridges-owned-by-state-toll-authority" class="section level2">
 <h2>Counties which have bridges owned by State Toll Authority</h2>
-<p>There is only bridge which is in Poor condition and it is in Baltimore County, while counties Howard and Anne Arundel have no Good condition bridges. Further there is only 3 Fair condition bridges in Howard County while they have values for Average Daily Traffic less than 10,000.</p>
+<p>There is only one bridge which is in Poor condition and it is in Baltimore County, while counties Howard and Anne Arundel have no Good condition bridges. Further there is only 3 Fair condition bridges in Howard County while they have values for Average Daily Traffic less than 10,000.</p>
 <p>The highest Average Daily Traffic is close to 170,000 which are only 4 and are in Good and Fair conditions. Further, Anne Arundel County has only one Good bridge and in Hartford it is six bridges. Only few of the bridges have Average Daily Traffic close to zero.</p>
 <pre class="r"><code># jitter plot to State tolll authority
 ggplot(subset(bridges,Owner==&quot;State Toll Authority&quot;)
@@ -627,7 +627,7 @@ ggplot(subset(bridges,Owner==&quot;State Toll Authority&quot;)
   scale_y_continuous(labels =seq(0,170000,10000) ,breaks = seq(0,170000,10000))+
   transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20STA-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/County%20with%20Condition%20and%20Average%20Daily%20Traffic%20STA-1.gif" /><!-- --></p>
 </div>
 <div id="most-amount-of-bridges-built-based-on-year" class="section level2">
 <h2>Most amount of bridges Built based on Year</h2>
@@ -643,7 +643,7 @@ ggplot(subset(bridges,`Year Built`==&quot;1957&quot; | `Year Built`==&quot;1970&
   geom_jitter()+legend_bottom()+
   transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Year%20Built%20with%20Condition%20and%20Average%20Daily%20Traffic-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/Year%20Built%20with%20Condition%20and%20Average%20Daily%20Traffic-1.gif" /><!-- --></p>
 </div>
 <div id="average-traffic-less-than-or-equal-to-100000-for-counties-with-bridge-condition" class="section level2">
 <h2>Average Traffic Less than or equal to 100,000 for Counties with Bridge Condition</h2>
@@ -660,7 +660,7 @@ ggplot(subset(bridges,`Average Daily Traffic`&lt;=100000 &amp; County!=&quot;Bal
   theme(axis.text.x = element_text(angle = -90))+coord_flip()+ geom_jitter()+
   transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Average%20Traffic%20less%20than%20100000-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/Average%20Traffic%20less%20than%20100000-1.gif" /><!-- --></p>
 </div>
 <div id="average-traffic-more-than-100000-for-counties-with-bridge-condition" class="section level2">
 <h2>Average Traffic More than 100,000 for Counties with Bridge Condition</h2>
@@ -674,12 +674,12 @@ ggplot(subset(bridges, `Average Daily Traffic` &gt; 100000 &amp; County != &quot
   coord_flip()+ theme(axis.text.x = element_text(angle = -90))+
   geom_jitter()+transition_states(Condition,transition_length = 2,state_length = 3)+
   enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
-<p><img src="/post/Week_35/2018-11-28-week-35-baltimore-bridges_files/figure-html/Average%20Traffic%20more%20than%20100000-1.gif" /><!-- --></p>
+<p><img src="/post/Week_35/index_files/figure-html/Average%20Traffic%20more%20than%20100000-1.gif" /><!-- --></p>
 </div>
 <div id="improvement-and-bridge-conditions-with-counties" class="section level2">
 <h2>Improvement and Bridge Conditions with Counties</h2>
-<p>In the variable of Total Improvement there are 1438 missing values, 42 values are zero and the rest are actual values. I am going to look at Total Improvement in two tables. First table will include where Bridges have Total Improvement higher than 9,999,000 and less than 30,000,000. Second table is for Bridges which have Total Improvement higher than or equal to 30,000,000.</p>
-<p>Further to make these tables interesting I will be using the package formattable, and colors and tiles for numerical values. In the first table there are 7 bridges while only Anne Arundel County holds 3 and Baltimore City holds 4. One bridge is from 1953, and others are from the period of 1977 to 1983. Conditions of these bridges are mostly Fair and two bridges are in Good condition. Lowest Average Daily Traffic is 11760, while highest is 124193, where both bridges are in Fair Condition, and the amount spent on them for Total Improvement are respectively 18,163,000 and 16,264,000. The bridge with Highest amount of Average Daily traffic is built in 1953.</p>
+<p>In the variable of Total Improvement there are 1438 missing values, 42 values are zero and the rest are actual values. I am going to look at Total Improvement in two tables. First table will include where Bridges have Total Improvement higher than 9,999,000 USD and less than 30,000,000 USD. Second table is for Bridges which have Total Improvement higher than or equal to 30,000,000 USD.</p>
+<p>Further to make these tables interesting I will be using the package formattable, and colors and tiles for numerical values. In the first table there are 7 bridges while only Anne Arundel County holds 3 and Baltimore City holds 4. One bridge is from 1953, and others are from the period of 1977 to 1983. Conditions of these bridges are mostly Fair and two bridges are in Good condition. Lowest Average Daily Traffic is 11760, while highest is 124193, where both bridges are in Fair Condition, and the amount spent on them for Total Improvement are respectively 18,163,000 USD and 16,264,000 USD. The bridge with Highest amount of Average Daily traffic is built in 1953.</p>
 <pre class="r"><code># removing unnecessary columns and setting restriction to 
 # Total Improvement
 Top10&lt;-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], 
@@ -870,8 +870,8 @@ Good
 </tbody>
 </table>
 <p>When I did try to plot the top ten bridges with most Total improvement values there was one issue, which is the distance between first two values and the next 8 values. Therefore I divided the table into two.</p>
-<p>In this second table We can see there are two bridges which are from Baltimore City and are built in 1980 and 1971, but the amount spent on Total Improvement is 300,000,000 each. But their Average Daily Traffic is respectively 56280 and 30600.</p>
-<p>While we have another bridge from Baltimore City and built in 1907, but Total Improvement amount is 35,026,000. Here, the Average Daily Traffic is 3900.</p>
+<p>In this second table We can see there are two bridges which are from Baltimore City and are built in 1980 and 1971, but the amount spent on Total Improvement is 300,000,000 USD each. But their Average Daily Traffic is respectively 56280 and 30600.</p>
+<p>While we have another bridge from Baltimore City and built in 1907, but Total Improvement amount is 35,026,000 USD. Here, the Average Daily Traffic is 3900.</p>
 <pre class="r"><code># removing unnecessary columns and setting restriction to 
 # Total Improvement
 Top3&lt;-subset(bridges[,c(-1,-2,-9,-10,-11,-12,-13)], `Total Improvement` &gt;= 30000)
