@@ -98,7 +98,7 @@ ggplot(data_age,aes(x=factor(group),values))+
   enter_fade()+
   exit_shrink()+
   ease_aes(&#39;cubic-in-out&#39;)</code></pre>
-<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Age%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/Week_34/index_files/figure-html/Age%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>detach(Thanksgiving_Yes)
 detach(Thanksgiving_No)</code></pre>
 </div>
@@ -1344,7 +1344,7 @@ ggplot(data_sex,aes(group,values))+
   enter_fade()+
   exit_shrink()+
   ease_aes(&#39;elastic-in-out&#39;)</code></pre>
-<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Gender%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/Week_34/index_files/figure-html/Gender%20with%20do%20people%20and%20do%20not%20people-1.gif" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>detach(Thanksgiving_Yes)
 detach(Thanksgiving_No)</code></pre>
 </div>
@@ -1360,12 +1360,12 @@ detach(Thanksgiving_No)</code></pre>
 
 # table of percentages for people who do celebrate
 kable(addmargins(round(prop.table(table(gender,family_income)),4)*100),&quot;html&quot;)  %&gt;% 
-  kable_styling(&quot;striped&quot;,full_width = T,font_size = 9) %&gt;%
+  kable_styling(&quot;striped&quot;,full_width = T,font_size = 8.75) %&gt;%
   column_spec(13,bold = T,color = &quot;red&quot;) %&gt;%
   row_spec(3,bold = T,color = &quot;red&quot;) %&gt;%
   column_spec(1,bold = T,width = &#39;2cm&#39;) %&gt;%
   row_spec(0,bold = T,angle = 270,align = &#39;center&#39;)</code></pre>
-<table class="table table-striped" style="font-size: 9px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 8.75px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;font-weight: bold;text-align: center;-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -ms-transform: rotate(270deg); -o-transform: rotate(270deg); transform: rotate(270deg);">
@@ -2083,7 +2083,7 @@ ggplot(data_FI,aes(group,values))+
   enter_fade()+
   exit_shrink()+
   ease_aes(&#39;bounce-in&#39;)</code></pre>
-<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/Family%20Income%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/Week_34/index_files/figure-html/Family%20Income%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>detach(Thanksgiving_Yes)
 detach(Thanksgiving_No)</code></pre>
 </div>
@@ -3079,7 +3079,7 @@ ggplot(data_USR,aes(x=str_wrap(group,7),values))+
   enter_fade()+
   exit_shrink()+
   ease_aes(&#39;cubic-in-out&#39;)</code></pre>
-<p><img src="/post/Week_34/2018-11-26-week-34-thanksgiving_files/figure-html/US%20region%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
+<p><img src="/post/Week_34/index_files/figure-html/US%20region%20with%20do%20people%20and%20do%20not%20people-1.gif" width="100%" height="70%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>detach(Thanksgiving_Yes)
 detach(Thanksgiving_No)</code></pre>
 </div>

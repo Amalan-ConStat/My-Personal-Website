@@ -327,7 +327,7 @@ attach(Thanksgiving_Yes)
 
 # table of percentages for people who do celebrate
 kable(addmargins(round(prop.table(table(gender,family_income)),4)*100),"html")  %>% 
-  kable_styling("striped",full_width = T,font_size = 9) %>%
+  kable_styling("striped",full_width = T,font_size = 8.75) %>%
   column_spec(13,bold = T,color = "red") %>%
   row_spec(3,bold = T,color = "red") %>%
   column_spec(1,bold = T,width = '2cm') %>%
