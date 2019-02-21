@@ -590,7 +590,7 @@ ggthemr(&quot;fresh&quot;)
 #loading the data
 medium &lt;- read_csv(&quot;medium_datasci.csv&quot;)
 attach(medium)</code></pre>
-<p>Focusing on Claps with Authors and publications, where does writing alot of posts will get you popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.</p>
+<p>Focusing on Claps with Authors and publications, where does writing alot of posts will get you with popularity and claps. The code will focus on Top 10 Authors with most of the posts and Claps they have received. Further, does having an image in the post matter ?. Finally, word clouds for Top 10 authors and Top 5 publications with their titles.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">my take medium posts on week 36  <a href="https://twitter.com/hashtag/tidytuesday?src=hash&amp;ref_src=twsrc%5Etfw">#tidytuesday</a> <a href="https://t.co/FTAZh0vKI8">https://t.co/FTAZh0vKI8</a></p>&mdash; Amalan Mahendran (@Amalan_Con_Stat) <a href="https://twitter.com/Amalan_Con_Stat/status/1071369742672429056?ref_src=twsrc%5Etfw">December 8, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -918,11 +918,11 @@ g2_Top10_a&lt;-Top10_author[,c(&quot;author&quot;,&quot;claps&quot;)] %&gt;%
 
 # plotting two plots at same grid
 grid.arrange(g1_Top10_a,g2_Top10_a,ncol=1)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20in%20a%20table-1.png" width="960" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/Top%2010%20Authors%20in%20a%20table-1.png" width="960" /></p>
 </div>
 <div id="top-10-authors-who-have-posts-with-images" class="section level1">
 <h1>Top 10 Authors who have posts with Images</h1>
-<p>Extracting the top 10 authors with posts which have images it clear most of the posts do have Images and they do generate claps. This is true for Corsairs’s Publishing. With 154 posts it generates 109,906 claps. There are authors who have written more posts than totally received claps . It should be noted that two Authors did not add any Images for their post and they are Peter Marshall and C Gavilanes.</p>
+<p>Extracting the top 10 authors with posts which have images it is clear most of the posts do have Images and they do generate claps. This is true for Corsairs’s Publishing. With 154 posts it generates 109,906 claps. There are authors who have written more posts than totally received claps . It should be noted that two Authors did not add any Images for their post and they are Peter Marshall and C Gavilanes.</p>
 <pre class="r"><code># plotting top 10 authors with Image
 I1_g1_Top10_a&lt;-subset(Top10_author[,c(&quot;author&quot;,&quot;image&quot;)],image==1) %&gt;%
             ggplot(.,aes(x=author))+ geom_bar()+coord_flip()+
@@ -942,7 +942,7 @@ I1_g2_Top10_a&lt;-subset(Top10_author[,c(&quot;author&quot;,&quot;claps&quot;,&q
 
 # top plots one grid
 grid.arrange(I1_g1_Top10_a,I1_g2_Top10_a,ncol=1)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20when%20there%20is%20Image-1.png" width="960" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/Top%2010%20Authors%20when%20there%20is%20Image-1.png" width="960" /></p>
 </div>
 <div id="top-10-authors-who-have-posts-without-images" class="section level1">
 <h1>Top 10 Authors who have posts without Images</h1>
@@ -966,7 +966,7 @@ I0_g2_Top10_a&lt;-subset(Top10_author[,c(&quot;author&quot;,&quot;claps&quot;,&q
 
 # top plots one grid
 grid.arrange(I0_g1_Top10_a,I0_g2_Top10_a,ncol=1)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20when%20there%20is%20No%20Image-1.png" width="960" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/Top%2010%20Authors%20when%20there%20is%20No%20Image-1.png" width="960" /></p>
 </div>
 <div id="top-10-authors-and-reading-time-for-their-posts" class="section level1">
 <h1>Top 10 Authors and Reading time for their posts</h1>
@@ -982,12 +982,12 @@ RT_g1_Top10_a&lt;-Top10_author[,c(&quot;author&quot;,&quot;reading_time&quot;)] 
 
 # printing the above plot with number of posts 
 grid.arrange(g1_Top10_a,RT_g1_Top10_a,ncol=1)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%2010%20Authors%20and%20reading%20time%20for%20their%20posts-1.png" width="960" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/Top%2010%20Authors%20and%20reading%20time%20for%20their%20posts-1.png" width="960" /></p>
 </div>
 <div id="top-5-publications-with-most-posts" class="section level1">
 <h1>Top 5 Publications with most posts</h1>
 <p>Publications with most number of posts has the highest number of claps and order achieved<br />
-in the “Top 5 publications and number of posts they have written” plot is maintained in the “Total number of Claps they got” plot as well. This simply refers, when you write alot of posts under a publication you will receive alot of claps because of the foundation this specific publications holds in Medium.</p>
+in the “Top 5 publications and number of posts they have written” plot is maintained in the “Total number of Claps they got” plot as well. This simply refers, when you write alot of posts under a publication you will receive alot of claps because of the foundation these specific publications holds in Medium.</p>
 <pre class="r"><code># finding who are the top 5 publications with claps
 # summary.factor(medium$publication) %&gt;%
 #  sort() %&gt;%
@@ -1020,7 +1020,7 @@ g2_Top5_p&lt;-Top5_pub[,c(&quot;publication&quot;,&quot;claps&quot;)] %&gt;%
 
 # plotting two plots at same grid
 grid.arrange(g1_Top5_p,g2_Top5_p,ncol=1)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/Top%205%20publications%20in%20a%20table-1.png" width="960" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/Top%205%20publications%20in%20a%20table-1.png" width="960" /></p>
 </div>
 <div id="word-cloud-for-the-titles-from-top-10-authors" class="section level1">
 <h1>Word Cloud for the Titles from Top 10 Authors</h1>
@@ -1047,7 +1047,7 @@ Top10_author.Clean&lt;-tm_map(Top10_author.Clean,stemDocument)
 wordcloud(Top10_author.Clean,max.words = 1500,min.freq = 10,
           colors = brewer.pal(11,&quot;Spectral&quot;),random.color = FALSE,
           random.order = TRUE)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%2010%20Authors-1.png" width="480" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/word%20cloud%20for%20Top%2010%20Authors-1.png" width="480" /></p>
 </div>
 <div id="word-cloud-for-the-titles-from-top-5-publications" class="section level1">
 <h1>Word Cloud for the Titles from Top 5 publications</h1>
@@ -1073,13 +1073,13 @@ Top5_pub.Clean&lt;-tm_map(Top5_pub.Clean,stemDocument)
 wordcloud(Top5_pub.Clean,max.words = 1500,min.freq = 10,
           colors = brewer.pal(11,&quot;Spectral&quot;),random.color = FALSE,
           random.order = TRUE)</code></pre>
-<p><img src="/post/Week_36/2018-12-08-week-36-medium-posts_files/figure-html/word%20cloud%20for%20Top%205%20publications-1.png" width="552" /></p>
+<p><img src="/post/Week_36/index_files/figure-html/word%20cloud%20for%20Top%205%20publications-1.png" width="552" /></p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
 <p>My conclusion of the above plots and tables in point form</p>
 <ul>
-<li><p>Using dplyr to manipulate the datset was useful when there is complication.</p></li>
+<li><p>Using dplyr to manipulate the data-set was useful when there is complication.</p></li>
 <li><p>grid and gridExtra packages provide a safe way of combining multiple plots into one plot.</p></li>
 <li><p>formattable and kableExtra were crucial in generating tables which are informative.</p></li>
 <li><p>Word cloud or analyzing text is very useful and flexible when we use the above packages.</p></li>
