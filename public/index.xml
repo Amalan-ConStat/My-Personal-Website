@@ -3187,7 +3187,7 @@ to develop R functions, documentation and examples for their packages. Over time
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Hopefully we would have more packages and awareness towards R package development with more simplicity in the coming years. Even though we have more than 15,000 packages in CRAN it would still rapidly increase in the coming years, not only in CRAN but also in GitHub as well.&lt;/p&gt;
-&lt;p&gt;So far this post has only word content and links, therefore I am adding a screenshot of my fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads, R version, published date, package version and a hexagon logo sticker.&lt;/p&gt;
+&lt;p&gt;So far this post has only word content and links, therefore I am adding a screenshot of my fitODBOD package GitHub ReadME.md file. This screen shot includes badges for downloads, R version, published date, package version and a hexagon logo sticker.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;/screenshots/GitHub1.png&#34; /&gt;
 

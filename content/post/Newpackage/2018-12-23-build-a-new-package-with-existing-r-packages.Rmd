@@ -219,7 +219,7 @@ in CRAN it would still rapidly increase in the coming years, not only in CRAN bu
 GitHub as well. 
 
 So far this post has only word content and links, therefore I am adding a screenshot of my 
-fitODBOD package GitHub package ReadME.md file. This screen shot includes badges for downloads,
+fitODBOD package GitHub ReadME.md file. This screen shot includes badges for downloads,
 R version, published date, package version and a hexagon logo sticker.
 
 ![](/screenshots/GitHub1.png)
