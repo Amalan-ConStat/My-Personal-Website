@@ -599,7 +599,7 @@ ggplot(NYC,aes(x=fct_infreq(str_wrap(inspection_type,35))))+
   geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.005)+
   ylab(&quot;Frequency&quot;)+xlab(&quot;Type of Insepction&quot;)+
   ggtitle(&quot;Types of Inspection&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Inspection%20Type-1.png" width="1248" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Inspection%20Type-1.png" width="1248" /></p>
 </div>
 <div id="critical-flag" class="section level1">
 <h1>Critical Flag</h1>
@@ -632,7 +632,7 @@ P2&lt;-ggplot(CF,aes(x=&quot;&quot;,y=value,fill=group))+
     coord_polar(theta = &quot;y&quot;,start = 0)
 
 gridExtra::grid.arrange(P1,P2,nrow=2)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Critical%20flag-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Critical%20flag-1.png" width="864" /></p>
 </div>
 <div id="inspection-type-and-critical-flag-over-the-years" class="section level1">
 <h1>Inspection Type and Critical Flag over the years</h1>
@@ -659,11 +659,11 @@ ggplot(.,mapping=aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
       labs(fill=&quot;Critical Flag&quot;)+
        geom_text(stat = &quot;count&quot;,aes(label=..count..),
                  position = position_dodge(width = 1), vjust = -0.05)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Cycle%20Inspection-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Cycle%20Inspection-1.png" width="864" /></p>
 </div>
 <div id="pre-permit-operational" class="section level2">
 <h2>Pre-permit Operational</h2>
-<p>Second most considered type of inspection is Pre-permit Operational, where it begins from 2014. Even though in year 2014 the amounts for initial inspection and re-inspection are less than 20 in all three critical flag categories. Considering the gap between Critical and Not Critical for initial inspection over the years there is a clear increase. Where as in year 2015 the gap is slightly less than 400, next year it is close to 1000, but by year 2018 this is gap is above than 2000.</p>
+<p>Second most considered type of inspection is Pre-permit Operational, where it begins from 2014. Even though in year 2014 the amounts for initial inspection and re-inspection are less than 20 in all three critical flag categories. Considering the gap between Critical and Not Critical for initial inspection over the years there is a clear increase. Where as in year 2015 the gap is slightly less than 400, next year it is close to 1000, but by year 2018 this gap is above than 2000.</p>
 <p>In re-inspection for the year 2015 the gap is almost 150, yet with more inspections by 2018 the gap increases to 600. For, Not Applicable the counts do not have a clear increasing or decreasing pattern over the years.</p>
 <pre class="r"><code># subsetting data 
 # Specific insepction type, critical flag and year with bar plot 
@@ -679,12 +679,12 @@ ggplot(.,aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
       facet_wrap(~year(inspection_date)) +
        geom_text(stat = &quot;count&quot;,aes(label=..count..),
                  position = position_dodge(width = 1), vjust = -0.05)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Pre-permit%20(operational)-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Pre-permit%20(operational)-1.png" width="864" /></p>
 </div>
 <div id="administrative-miscellaneous" class="section level2">
 <h2>Administrative Miscellaneous</h2>
 <p>Very odd bar plot here than previous two plots for inspection types. There is no Critical type restaurants in the Administrative Miscellaneous inspection type. The counts begin from year 2014 but the amounts are less than 10. Clearly for initial inspections over the years from 2015 to 2018 the count for Not Applicable are increasing, but this is not the case for Not Critical.</p>
-<p>In year 2015 the amount for the type Not Critical for initial inspection was 528, but in years 2016 and 2018 the amounts increased to respectively to 1038 and 1486. Even though the amount decreased to 1015 in year 2017. The same pattern of increase and decrease behavior occurs for Re-inspection type as well.</p>
+<p>In year 2015 the amount for the type Not Critical for initial inspection was 528, but in years 2016 and 2018 the amounts increased respectively to 1038 and 1486. Even though the amount decreased to 1015 in year 2017. The same pattern of increase and decrease behavior occurs for Re-inspection type as well.</p>
 <pre class="r"><code># subsetting data 
 # Specific insepction type, critical flag and year with bar plot 
 subset(NYC,inspection_type==&quot;Administrative Miscellaneous / Initial Inspection&quot; |
@@ -699,7 +699,7 @@ ggplot(.,aes(x=str_wrap(inspection_type,8),fill=critical_flag))+
       facet_wrap(~year(inspection_date)) +
        geom_text(stat = &quot;count&quot;,aes(label=..count..),
                  position = position_dodge(width = 1), vjust = -0.05)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Administrative%20Miscellaneous-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Administrative%20Miscellaneous-1.png" width="864" /></p>
 </div>
 </div>
 <div id="most-inspected-restaurants" class="section level1">
@@ -771,9 +771,9 @@ subset(NYC, dba==&quot;DUNKIN&#39; DONUTS&quot;) %&gt;%
   ggplot(.,aes(x=boro))+
   geom_bar(position = &quot;dodge&quot;,stat = &quot;count&quot;)+
   geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
-  ggtitle(&quot;How many Dunkin Donuts in Boro&quot;)+
+  ggtitle(&quot;How many Dunkin Donuts in a Boro&quot;)+
   xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Dunkin%20Donuts-1.png" width="70%" height="70%" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Dunkin%20Donuts-1.png" width="70%" height="70%" /></p>
 <p>There are only 5 cuisine types and prominent ones are American, Donuts and drinks(Cafe/Coffee/Tea). Year 2014 is very low in amounts even for cuisine Donuts, but this is not the case over the next few years and the scores are mostly centered between 5 to 15. Bagels/Pretzels and Jewish/ Kosher have least amount of data where none of scores are above 25. It is safe to to say we have more Critical type data and they are mostly close to the score of 10.</p>
 <pre class="r"><code># Dunkin Donuts and scores with critical flag
 subset(NYC, dba==&quot;DUNKIN&#39; DONUTS&quot;) %&gt;%
@@ -783,7 +783,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
       scale_y_continuous(breaks = seq(0,60,5),labels =seq(0,60,5))+
       facet_wrap(~cuisine_description) </code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Dunkin%20Donuts,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Dunkin%20Donuts,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
 </div>
 <div id="subway" class="section level2">
 <h2>Subway</h2>
@@ -795,7 +795,7 @@ subset(NYC, dba==&quot;SUBWAY&quot;) %&gt;%
   geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
   ggtitle(&quot;How many Subways in Boro&quot;)+
   xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Subway-1.png" width="70%" height="70%" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Subway-1.png" width="70%" height="70%" /></p>
 <p>Subway has only 5 cuisines which are American, Other, Sandwiches, Sandwiches/Salads/Mixed Buffet and Soups &amp; Sandwiches. In these five categories only Sandwiches has significant amount of data points. Oddly, we can see the year 1900 in the x axis and which means error.</p>
 <p>In Sandwiches category there are more points which are centered in between 5 to 15 in scores, while most of them are Not Critical. Oddly in 2018 there are Critical data points with scores above 55 in Sandwiches cuisine type.</p>
 <p>For the Other category there are only 4 observations which are in 2018 and 75% of them are Not Critical. Considering American Cuisines there are points in all 4 years and most of them are less than 25% and Not Critical.</p>
@@ -807,7 +807,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
       scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
       facet_wrap(~cuisine_description) </code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Subway,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Subway,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
 </div>
 <div id="mcdonalds" class="section level2">
 <h2>McDonalds</h2>
@@ -819,7 +819,7 @@ subset(NYC, dba==&quot;MCDONALD&#39;S&quot;) %&gt;%
   geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
   ggtitle(&quot;How many McDonalds in Boro&quot;)+
   xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/McDonalds-1.png" width="70%" height="70%" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/McDonalds-1.png" width="70%" height="70%" /></p>
 <p>Only the cuisines Other and Sandwiches/Salads/Mixed Buffet has data points in the years 2017 and 2018 and these points have an amount less than 15 in both cases. Considering the other two cuisines which are American and Hamburgers, there are more points in the latter than in the former. It should be noted that Hamburgers cuisine has mostly points centered close to the score range of 5 to 10, and these points are mostly Not Critical.</p>
 <p>In American cuisine for the year 2016 there are 5 points which have scores close to 70, even though in any other year this has not occurred. To be more precise, except those 5 points all the others have scores less than 45 for American Cuisine.</p>
 <pre class="r"><code># McDonalds and scores with critical flag
@@ -831,7 +831,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
       scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
       facet_wrap(~cuisine_description) </code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/McDonalds%20scores,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/McDonalds%20scores,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
 </div>
 <div id="starbucks" class="section level2">
 <h2>Starbucks</h2>
@@ -843,7 +843,7 @@ subset(NYC, dba==&quot;STARBUCKS&quot;) %&gt;%
   geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
   ggtitle(&quot;How many Starbucks in Boro&quot;)+
   xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Starbucks-1.png" width="70%" height="70%" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Starbucks-1.png" width="70%" height="70%" /></p>
 <p>Starbucks is mainly focused on Cafe/Coffee/Tea rather than cuisines such as Pizza, Sandwiches, American and other. Clearly there are negligible amount of data points in those four categories, except American cuisine.</p>
 <p>If we focus on Drinks(Coffee/Cafe/Tea), evidently most of them are Not Critical and they are centered around the score of 0 to 10. Even though scores higher than 15 do occur they are spread out widely. This is a common occurrence for all four years, which is from 2015 to 2018.</p>
 <pre class="r"><code># Starbucks and scores with critical flag
@@ -855,7 +855,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
       scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
       facet_wrap(~cuisine_description) </code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Starbucks,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Starbucks,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
 </div>
 <div id="kennedy-fried-chicken" class="section level2">
 <h2>Kennedy Fried Chicken</h2>
@@ -867,7 +867,7 @@ subset(NYC, dba==&quot;KENNEDY FRIED CHICKEN&quot;) %&gt;%
   geom_text(stat = &quot;count&quot;,aes(label=..count..), vjust = -0.05)+
   ggtitle(&quot;How many Kennedy Fried Chicken&#39;s in Boro&quot;)+
   xlab(&quot;Boro&quot;)+ylab(&quot;Frequency&quot;)</code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Kennedy%20Fried%20Chicken-1.png" width="70%" height="70%" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Kennedy%20Fried%20Chicken-1.png" width="70%" height="70%" /></p>
 <p>There are only four cuisines which are related to Kennedy Fried Chicken, and they are American, Chicken, Hamburgers and other. The categories Hamburgers and Other have very less amount of counts and the year 1900 is also mentioned. For Hamburgers cuisine only the year 2017 has significant amount of data points, where the year 2015 has only one and year 2018 has only two points.</p>
 <p>Further, the scores for these points are always less than 20 and mostly Critical. Cuisines of Chicken has more data points than American but in both types there is no clear centering of data around a certain score.</p>
 <pre class="r"><code># Kennedy Fried Chicken and scores with critical flag
@@ -879,7 +879,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
       xlab(&quot;Critical Flag&quot;)+ylab(&quot;Score&quot;)+
       scale_y_continuous(breaks = seq(0,80,5),labels =seq(0,80,5))+
       facet_wrap(~cuisine_description) </code></pre>
-<p><img src="/post/Week_37/2018-12-13-week-37-nyc-restaurants_files/figure-html/Kennedy%20Fried%20Chicken,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
+<p><img src="/post/Week_37/index_files/figure-html/Kennedy%20Fried%20Chicken,%20score%20and%20critical%20flag%20with%20cuisine%20description%20over%20years-1.png" width="864" /></p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
@@ -888,7 +888,7 @@ ggplot(.,mapping=aes(y=score,color=critical_flag,x=factor(year(inspection_date))
 <ul>
 <li><p>facet wrap is very useful.</p></li>
 <li><p>Adding colors makes it more useful for the plots.</p></li>
-<li><p>pie chart using bar chart looks good.</p></li>
+<li><p>Generating pie chart using bar chart looks good.</p></li>
 </ul>
 </div>
 <div id="further-analysis" class="section level1">
