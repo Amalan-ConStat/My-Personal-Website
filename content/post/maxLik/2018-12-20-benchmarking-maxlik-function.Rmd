@@ -39,7 +39,7 @@ clearly indicates all things related to the function in detail.
 
 Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial 
 Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial 
-distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the 
+distribution for the Alcohol Consumption data. In this case Alcohol Consumption data from the 
 [fitODBOD](https://cran.r-project.org/package=fitODBOD) package will be used.
 
 Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, 
@@ -384,7 +384,7 @@ kable(Results1,"html",align = c('c','c','c','c','c','c')) %>%
 Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN,
 CG and NM. These estimated parameters will be now used in the fitBetaBin function to find
 the expected frequencies, p-values and over-dispersion. The above measurements can be used to
-compared for each analytical method for any significance difference. 
+compare each analytical method for any significance difference. 
 
 Comparing p-values it is clear that all analytical methods generate the same value up-to third 
 decimal point. This is not the case in Maximum Log Likelihood value where analytical methods

@@ -464,7 +464,7 @@
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Beginning of this month I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a> regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package <a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further, <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> clearly indicates all things related to the function in detail.</p>
-<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
+<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the Alcohol Consumption data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
 <p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion with tables.</p>
 <p>Below are the seven analytical methods in concern</p>
 <ol style="list-style-type: decimal">
@@ -860,13 +860,13 @@ NM
 1000
 </td>
 <td style="text-align:center;">
-25.50
+16.65
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-20.21
+16.65
 </td>
 <td style="text-align:center;">
 0.00
@@ -883,16 +883,16 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-38.19
+29.75
 </td>
 <td style="text-align:center;">
-1.498
+1.787
 </td>
 <td style="text-align:center;">
-33.25
+29.74
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -906,16 +906,16 @@ NR
 1000
 </td>
 <td style="text-align:center;">
-56.19
+36.69
 </td>
 <td style="text-align:center;">
 2.204
 </td>
 <td style="text-align:center;">
-46.31
+36.58
 </td>
 <td style="text-align:center;">
-0.10
+0.03
 </td>
 </tr>
 <tr>
@@ -929,16 +929,16 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-97.56
+64.42
 </td>
 <td style="text-align:center;">
-3.826
+3.869
 </td>
 <td style="text-align:center;">
-79.44
+64.39
 </td>
 <td style="text-align:center;">
-0.06
+0.00
 </td>
 </tr>
 <tr>
@@ -952,16 +952,16 @@ BFGSR
 1000
 </td>
 <td style="text-align:center;">
-842.00
+629.26
 </td>
 <td style="text-align:center;">
-33.020
+37.793
 </td>
 <td style="text-align:center;">
-716.00
+628.61
 </td>
 <td style="text-align:center;">
-0.28
+0.06
 </td>
 </tr>
 <tr>
@@ -975,16 +975,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-2523.78
+1767.41
 </td>
 <td style="text-align:center;">
-98.972
+106.151
 </td>
 <td style="text-align:center;">
-2072.40
+1754.92
 </td>
 <td style="text-align:center;">
-1.44
+0.53
 </td>
 </tr>
 </tbody>
@@ -992,7 +992,7 @@ SANN
 </div>
 <div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the maxLik function for different analytical methods</h1>
-<p>Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used to compared for each analytical method for any significance difference.</p>
+<p>Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used to compare each analytical method for any significance difference.</p>
 <p>Comparing p-values it is clear that all analytical methods generate the same value up-to third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have shown -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that there is a clear difference among all six methods.</p>
 <p>All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a, similarity is only until second decimal point, and for shape parameter b, similarity of value is only on first decimal point.</p>
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
@@ -1399,9 +1399,9 @@ Over Dispersion
         
         <li><a href="/publication/fitodbod-website/">Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
-        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
-        
         <li><a href="/publication/4th-year/">R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</a></li>
+        
+        <li><a href="/publication/fitodbod-cran/">CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</a></li>
         
       </ul>
     </div>
