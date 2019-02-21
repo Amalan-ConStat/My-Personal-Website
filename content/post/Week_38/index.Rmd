@@ -234,7 +234,7 @@ Plot6<-ggplot(SeaCreature,aes(x=status,y=acquisition,color=sex))+
 ## Conclusion
 
 - Ios slides are NICE. 
-- Jitter plots useful for categorical.
+- Jitter plots useful for categorical data.
 - Plots are too complex when using Location, Currently and Birth Year,
   but manageable. 
 - Bottle-nose species is holding a special place in this data-set.
