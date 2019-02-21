@@ -43,7 +43,7 @@ simply reiterate the initial things which I said in my earlier post on the blog 
 
 mle function is from the [stats4](https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html) 
 package. If we intend to use this function for
-the estimation of shape parameters a and b of the Beta-Binomial distribution when
+the estimation of shape parameters a and b of the Beta-Binomial distribution wtih
 Binomial Outcome Data, then we need to use the EstMLEBetaBin function from the fitODBOD
 package. This is not enough because for limitations in the mle we need to make changes 
 in our EstMLEBetaBin function as mentioned below. 
@@ -64,8 +64,8 @@ mle_answer<-mle(minuslogl = formle,start = list(a=0.1,b=0.2))
 
 We are going to use the Alcohol Consumption data of week 1. In the above code
 chunk we are using the mle function for our task of finding the optimum shape parameter
-values for a and b while using the give Binomial Outcome data. Also If you wish you
-study about the mle function refer [this link](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle-function) 
+values for a and b while using the given Binomial Outcome data. Also If you wish you
+study about the mle function by referring [this link](https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#mle-function) 
 from my previous post.
 
 ## mle2
