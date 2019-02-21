@@ -25,12 +25,12 @@ summary: "Useful information on how to develop your own website or blog using R.
 R enthusiasts are focused on developing packages and websites to promote their profile and share 
 their knowledge to the world. Recently released packages such as hugo, blogdown, Rmarkdown, bookdown 
 has played a significant amount of role in this popularity for R statistical software among 
-generals users and academics in every field of statistics.
+general users and academics in every field of statistics.
 
 Due to this reason, I also wanted to develop my own R package to solve problem in hand and share
 it with the #rstats community. Even though Social Media is a strong way of sharing this amount of
 information, it is not sturdy over time. To resolve this only I chose to develop my own website
-using R and supportive tools from R. Your reading this post on my website which I developed in a 
+using R and supportive tools from R. You are reading this post on my website which I developed in a 
 very short period of time and have being maintaining regularly by posting articles. 
 
 # Materials
@@ -110,20 +110,20 @@ give you certain specifics of my own website.
 * Descriptive amount of information about changing elements in the academic theme to make it more
   homely fo the user. 
 
-## *"Happy Git and GitHub for the User."
+## "Happy Git and GitHub for the User."
 
 [Link](https://happygitwithr.com/)
 
 * Git and GitHub with R with all the information that anyone needs to know.
 
-## *"RMarkdown : The Definitive Guide by Yihui Xie, J. J. Allaire, Garrett Grolemund."
+## "RMarkdown : The Definitive Guide by Yihui Xie, J. J. Allaire, Garrett Grolemund."
 
 [Link](https://bookdown.org/yihui/rmarkdown/)
 
 * Book with all the information related to Rmarkdown files.
 * No need to look anywhere for clarification regarding Rmarkdown.
 
-## *"blogdown: Creating Websites with R Markdown by Yihui Xie, Amber Thomas, Alison Presmanes Hill."
+## "blogdown: Creating Websites with R Markdown by Yihui Xie, Amber Thomas, Alison Presmanes Hill."
 
 [Link](https://bookdown.org/yihui/blogdown/)
 
@@ -132,7 +132,7 @@ give you certain specifics of my own website.
 
 # My Personal Website / Blog
 
-Few minute information related to my website / blog will be discussed here.  Mostly encouraging
+Information related to my website / blog will be discussed here.  Mostly encouraging
 other people to make necessary changes in the original template to satisfy their curiosity and interest. 
 
 * I also used the academic theme but made alot of changes.
