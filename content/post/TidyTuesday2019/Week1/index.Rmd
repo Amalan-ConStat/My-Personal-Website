@@ -65,9 +65,9 @@ tidytuesday_tweets[order(tidytuesday_tweets$created_at),c(3,4,13,14,71)] %>%
 ## Any Verified Profiles ?
 
 There are only 3 verified profiles where Hadley Wickham has the highest
-amount of followers of 76469, where that tweet has 61 favorites but no
+amount of followers with 76469, where that tweet has 61 favorites but no
 retweets. Other profiles are Civis Analytics and grspur, but both of them
-have friends above 600 counts, but Hadley Wickham friends close to 290.
+have friends above 600 counts, but Hadley Wickham friends count is close to 290.
 
 ```{r}
 subset(tidytuesday_tweets[,c(4,13,14,76,77,82)],verified==TRUE) %>%
@@ -193,8 +193,8 @@ ggplot(.,aes(x=fct_infreq(screen_name),y=favorite_count))+
 
 Very clear positive correlation. Y scale ranges from 0 to 500,
 where x scale range is from 0 to 100 and most of the data points
-are centered around the range of 0 to 12 retweets and 0 to 60 Favorite.
-a Few data data points are out of the above mentioned range.
+are centered around the range of 0 to 12 retweets and 0 to 60 Favorites.
+A Few data data points are out of the above mentioned range.
 
 ```{r Scatter plot between favourite count vs retweet count}
 ggplot(tidytuesday_tweets, 
@@ -208,12 +208,12 @@ ggplot(tidytuesday_tweets,
 
 ## Relationship between Followers Count vs Friends Count ?
 
-Here I have considers only twitter profiles which has followers count less 
+Here I have considered only twitter profiles which has followers count less 
 than 5000 with friends count also less than 5000. The reason is to explain the 
-relationship more clearly. Clearly most of the twitter profiles are has followers
-less than 2000 with Followers also less than 2000. Clearly there are some profiles
+relationship more clearly. Clearly most of the twitter profiles are having followers
+less than 2000 with friends also less than 2000. Clearly there are some profiles
 with Followers count above 1000 but friends count less than 1000. Even though there 
-are few profiles with less than 1000 followers but more than 1000 Friends
+are few profiles with less than 1000 followers but more than 1000 Friends.
 
 ```{r Scatter plot between Followers count vs Friends count}
 ggplot(subset(tidytuesday_tweets,

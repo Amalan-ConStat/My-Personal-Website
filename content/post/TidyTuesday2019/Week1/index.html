@@ -174,7 +174,7 @@ Umair Durrani
 </div>
 <div id="any-verified-profiles" class="section level2">
 <h2>Any Verified Profiles ?</h2>
-<p>There are only 3 verified profiles where Hadley Wickham has the highest amount of followers of 76469, where that tweet has 61 favorites but no retweets. Other profiles are Civis Analytics and grspur, but both of them have friends above 600 counts, but Hadley Wickham friends close to 290.</p>
+<p>There are only 3 verified profiles where Hadley Wickham has the highest amount of followers with 76469, where that tweet has 61 favorites but no retweets. Other profiles are Civis Analytics and grspur, but both of them have friends above 600 counts, but Hadley Wickham friends count is close to 290.</p>
 <pre class="r"><code>subset(tidytuesday_tweets[,c(4,13,14,76,77,82)],verified==TRUE) %&gt;%
   kable() %&gt;%
   kable_styling()</code></pre>
@@ -273,7 +273,7 @@ TRUE
   geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.25)+
   ylab(&quot;Frequency&quot;)+xlab(&quot;Types of Sources&quot;)+
   ggtitle(&quot;Source of Tweets&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Source%20of%20Tweets-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Source%20of%20Tweets-1.png" width="1152" /></p>
 </div>
 <div id="tweets-per-month" class="section level2">
 <h2>Tweets Per Month</h2>
@@ -285,7 +285,7 @@ TRUE
   scale_x_continuous(breaks = seq(1,12),labels = seq(1,12))+
   ylab(&quot;Frequency&quot;)+ xlab(&quot;Months&quot;)+
   ggtitle(&quot;Tweet Counts By Month&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Tweets%20Per%20Month-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Tweets%20Per%20Month-1.png" width="1152" /></p>
 </div>
 <div id="most-tweets-by-screen-name" class="section level2">
 <h2>Most Tweets By Screen Name</h2>
@@ -298,7 +298,7 @@ ggplot(aes(x=fct_infreq(screen_name)))+
   geom_text(stat = &quot;count&quot;,aes(label=..count..),hjust=-0.15)+
   ylab(&quot;Frequency&quot;)+ xlab(&quot;Screen Name&quot;)+
   ggtitle(&quot;Screen Name with Most Tweets&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20screen%20name-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Most%20Tweets%20By%20screen%20name-1.png" width="1152" /></p>
 <div id="most-tweets-by-screen-name-and-their-source" class="section level3">
 <h3>Most Tweets By Screen Name and their Source</h3>
 <p>For the same plot if we consider the source for the tweets, it is clear that only seven sources were used. Mostly all of these users are using the web client, but some are using the iPhone as well. R4DS community does more tweeting through iPhone than TweetDeck. TweetDeck is a simple way of handling multiple twitter accounts at the same time. Tidyyourworld account only uses Android and WeAreRLadies uses only TweetDeck.</p>
@@ -312,7 +312,7 @@ ggplot(aes(x=fct_infreq(screen_name),fill=source))+
             position = position_stack())+
   ylab(&quot;Frequency&quot;)+ xlab(&quot;Screen Name&quot;)+
   ggtitle(&quot;Screen Name with Most Tweets and their Source&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20and%20their%20Source-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Most%20Tweets%20By%20Screen%20name%20and%20their%20Source-1.png" width="1152" /></p>
 </div>
 <div id="most-tweets-by-screen-name-with-their-retweet-counts" class="section level3">
 <h3>Most Tweets By Screen Name with their Retweet Counts</h3>
@@ -325,7 +325,7 @@ ggplot(.,aes(x=fct_infreq(screen_name),y=retweet_count))+
   scale_y_continuous(breaks = seq(0,100,5),labels = seq(0,100,5))+
   ylab(&quot;Retweets&quot;)+ xlab(&quot;Screen Name&quot;)+
   ggtitle(&quot;Screen Name with Most Tweets and their Retweets Count&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Retweets-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Retweets-1.png" width="1152" /></p>
 </div>
 <div id="most-tweets-by-screen-name-with-their-favorite-counts" class="section level3">
 <h3>Most Tweets By Screen Name with their Favorite Counts</h3>
@@ -338,12 +338,12 @@ ggplot(.,aes(x=fct_infreq(screen_name),y=favorite_count))+
    scale_y_continuous(breaks = seq(0,500,25),labels = seq(0,500,25))+
   ylab(&quot;Favourites Count&quot;)+ xlab(&quot;Screen Name&quot;)+
   ggtitle(&quot;Screen Name with Most Tweets and their Favourties Count&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Favorite%20counts-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Most%20Tweets%20By%20Screen%20name%20with%20Favorite%20counts-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="relationship-between-favorite-counts-vs-retweet-counts" class="section level2">
 <h2>Relationship between Favorite Counts vs Retweet Counts ?</h2>
-<p>Very clear positive correlation. Y scale ranges from 0 to 500, where x scale range is from 0 to 100 and most of the data points are centered around the range of 0 to 12 retweets and 0 to 60 Favorite. a Few data data points are out of the above mentioned range.</p>
+<p>Very clear positive correlation. Y scale ranges from 0 to 500, where x scale range is from 0 to 100 and most of the data points are centered around the range of 0 to 12 retweets and 0 to 60 Favorites. A Few data data points are out of the above mentioned range.</p>
 <pre class="r"><code>ggplot(tidytuesday_tweets, 
        aes(x=retweet_count,y=favorite_count))+
   geom_point()+geom_smooth()+
@@ -351,11 +351,11 @@ ggplot(.,aes(x=fct_infreq(screen_name),y=favorite_count))+
   scale_y_continuous(breaks =seq(0,500,10),labels =seq(0,500,10))+
   xlab(&quot;Retweets&quot;)+ylab(&quot;Likes&quot;)+
   ggtitle(&quot;Retweets Versus Likes&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Scatter%20plot%20between%20favourite%20count%20vs%20retweet%20count-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Scatter%20plot%20between%20favourite%20count%20vs%20retweet%20count-1.png" width="1152" /></p>
 </div>
 <div id="relationship-between-followers-count-vs-friends-count" class="section level2">
 <h2>Relationship between Followers Count vs Friends Count ?</h2>
-<p>Here I have considers only twitter profiles which has followers count less than 5000 with friends count also less than 5000. The reason is to explain the relationship more clearly. Clearly most of the twitter profiles are has followers less than 2000 with Followers also less than 2000. Clearly there are some profiles with Followers count above 1000 but friends count less than 1000. Even though there are few profiles with less than 1000 followers but more than 1000 Friends</p>
+<p>Here I have considered only twitter profiles which has followers count less than 5000 with friends count also less than 5000. The reason is to explain the relationship more clearly. Clearly most of the twitter profiles are having followers less than 2000 with friends also less than 2000. Clearly there are some profiles with Followers count above 1000 but friends count less than 1000. Even though there are few profiles with less than 1000 followers but more than 1000 Friends.</p>
 <pre class="r"><code>ggplot(subset(tidytuesday_tweets,
        followers_count &lt; 5000 &amp; friends_count &lt; 5000), 
        aes(x=followers_count,y=friends_count))+
@@ -364,7 +364,7 @@ ggplot(.,aes(x=fct_infreq(screen_name),y=favorite_count))+
   scale_y_continuous(breaks =seq(0,5000,250),labels =seq(0,5000,250))+
   xlab(&quot;Followers Count&quot;)+ylab(&quot;Friends Count&quot;)+
   ggtitle(&quot;Followers Count Versus Friends Count&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week1/2019-01-01-week-1-tidytuesday-tweets_files/figure-html/Scatter%20plot%20between%20Followers%20count%20vs%20Friends%20count-1.png" width="1152" /></p>
+<p><img src="/post/TidyTuesday2019/Week1/index_files/figure-html/Scatter%20plot%20between%20Followers%20count%20vs%20Friends%20count-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
