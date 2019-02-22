@@ -109,11 +109,11 @@ is inconvenient to modify the EstMLEBetaBin function, because if we want to esti
 become tedious. After modification we have a new function foroptim which can be used for demonstration and comparison.
 
 Below is the code to estimation and going through the outputs. It should be noted that we have to provide 
-initial parameter values as an input to the optim function, and it is best to provide values in the domain of  
-shape parameter values which we want to estimate. 
+initial parameter values as an input to the optim function, and it is best to provide values in the domain 
+of shape parameter values which we want to estimate. 
 
-Here the shape parameters a and b are in the region of greater than zero but less than positive infinity($+\infty >a,b>0$). 
-So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative
+Here the shape parameters a and b are in the region of greater than zero but less than positive infinity 
+($+\infty >a,b>0$). So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative
 Log Likelihood function of Beta-Binomial distribution with the Alcohol Consumption data.
 
 ```{r optim function from stats package,results='hide'}
@@ -261,7 +261,7 @@ the function in concern
 
 ## ucminf Function
 
-Package [uncminf](https://cran.r-project.org/package=ucminf) produces the ucminf function, as previously mentioned functions here also
+Package [ucminf](https://cran.r-project.org/package=ucminf) produces the ucminf function, as previously mentioned functions here also
 we have to change the EstMLEBetaBin function. After making the changes we will be using the
 forucminf function to the estimation process of shape parameters a and b. 
 

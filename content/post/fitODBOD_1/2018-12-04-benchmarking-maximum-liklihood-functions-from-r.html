@@ -187,9 +187,8 @@ week2
 <h2>optim Function</h2>
 <p><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#O">optim</a> is the first function in concern. <a href="https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/optim">Documentation</a> of the optim function is useful and it indicates that this function is only used on one input situations only. This means our EstMLEBetaBin function has to be modified. Reason for this is only the parameters that should be estimated need to be input values but our EstMLEBetaBin function has four parameters which are a,b,x(Binomial Random Variable) and freq(corresponding frequency values).</p>
 <p>While using optim function first index refers to shape parameter a and second index refers to shape parameter b. Further, we have to input the observations or in our case the Binomial random variable values and their respective frequencies. I think it is inconvenient to modify the EstMLEBetaBin function, because if we want to estimate parameters for different data-sets it would become tedious. After modification we have a new function foroptim which can be used for demonstration and comparison.</p>
-<p>Below is the code to estimation and going through the outputs. It should be noted that we have to provide initial parameter values as an input to the optim function, and it is best to provide values in the domain of<br />
-shape parameter values which we want to estimate.</p>
-<p>Here the shape parameters a and b are in the region of greater than zero but less than positive infinity(<span class="math inline">\(+\infty &gt;a,b&gt;0\)</span>). So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative Log Likelihood function of Beta-Binomial distribution with the Alcohol Consumption data.</p>
+<p>Below is the code to estimation and going through the outputs. It should be noted that we have to provide initial parameter values as an input to the optim function, and it is best to provide values in the domain of shape parameter values which we want to estimate.</p>
+<p>Here the shape parameters a and b are in the region of greater than zero but less than positive infinity (<span class="math inline">\(+\infty &gt;a,b&gt;0\)</span>). So for the initial parameters of a=0.1 and b=0.2 we are finding parameters which would minimize the Negative Log Likelihood function of Beta-Binomial distribution with the Alcohol Consumption data.</p>
 <pre class="r"><code># new function to facilitate optim criteria
 # only one input but has two elements
 foroptim&lt;-function(a)
@@ -310,7 +309,7 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="ucminf-function" class="section level2">
 <h2>ucminf Function</h2>
-<p>Package <a href="https://cran.r-project.org/package=ucminf">uncminf</a> produces the ucminf function, as previously mentioned functions here also we have to change the EstMLEBetaBin function. After making the changes we will be using the forucminf function to the estimation process of shape parameters a and b.</p>
+<p>Package <a href="https://cran.r-project.org/package=ucminf">ucminf</a> produces the ucminf function, as previously mentioned functions here also we have to change the EstMLEBetaBin function. After making the changes we will be using the forucminf function to the estimation process of shape parameters a and b.</p>
 <p>When initial parameter values are set to a=0.1 and b=0.2 we will obtain results from ucminf function, which will minimize the Negative Log-likelihood value of Beta-Binomial distribution. Below is the code for estimation and using the results to understand the function ucminf.</p>
 <pre class="r"><code>library(ucminf)
 
@@ -875,16 +874,16 @@ nlminb
 1000
 </td>
 <td style="text-align:center;">
-9.79
+6.34
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-7.78
+6.34
 </td>
 <td style="text-align:center;">
-0.03
+0.00
 </td>
 </tr>
 <tr>
@@ -898,36 +897,13 @@ ucminf
 1000
 </td>
 <td style="text-align:center;">
-11.50
+7.67
 </td>
 <td style="text-align:center;">
-1.175
+1.210
 </td>
 <td style="text-align:center;">
-9.15
-</td>
-<td style="text-align:center;">
-0.01
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: red;">
-1
-</td>
-<td style="text-align:center;">
-optim
-</td>
-<td style="text-align:center;">
-1000
-</td>
-<td style="text-align:center;">
-13.84
-</td>
-<td style="text-align:center;">
-1.414
-</td>
-<td style="text-align:center;">
-12.04
+7.67
 </td>
 <td style="text-align:center;">
 0.00
@@ -944,13 +920,36 @@ nlm
 1000
 </td>
 <td style="text-align:center;">
-14.30
+8.38
 </td>
 <td style="text-align:center;">
-1.461
+1.322
 </td>
 <td style="text-align:center;">
-11.03
+8.37
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red;">
+1
+</td>
+<td style="text-align:center;">
+optim
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+10.70
+</td>
+<td style="text-align:center;">
+1.688
+</td>
+<td style="text-align:center;">
+10.64
 </td>
 <td style="text-align:center;">
 0.00
@@ -967,16 +966,16 @@ mle
 1000
 </td>
 <td style="text-align:center;">
-32.91
+23.14
 </td>
 <td style="text-align:center;">
-3.362
+3.650
 </td>
 <td style="text-align:center;">
-27.59
+23.11
 </td>
 <td style="text-align:center;">
-0.02
+0.01
 </td>
 </tr>
 <tr>
@@ -990,13 +989,13 @@ maxLik
 1000
 </td>
 <td style="text-align:center;">
-51.74
+36.28
 </td>
 <td style="text-align:center;">
-5.285
+5.722
 </td>
 <td style="text-align:center;">
-42.78
+36.25
 </td>
 <td style="text-align:center;">
 0.00
@@ -1013,13 +1012,13 @@ mle2
 1000
 </td>
 <td style="text-align:center;">
-60.89
+41.29
 </td>
 <td style="text-align:center;">
-6.220
+6.513
 </td>
 <td style="text-align:center;">
-50.25
+41.23
 </td>
 <td style="text-align:center;">
 0.00
