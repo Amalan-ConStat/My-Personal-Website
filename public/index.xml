@@ -1631,7 +1631,7 @@ animate(p,nframes=48,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/Olympic-Data-Rshiny-&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;material-useful-for-rsiny-development&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Material Useful for Rsiny Development&lt;/h2&gt;
-&lt;p&gt;Easiest way to build your own shiny app is to refer the official website. It provides extensive amount of information regarding Rshiny development. Already developed Rshiny Apps and Templates are also available, which would come in handy. Further, when you do start an Rshiny App through Rstudio you will initially receive a sample App with its code. A few tweaks and changes would lead to necessary changes that you need.&lt;/p&gt;
+&lt;p&gt;Easiest way to build your own shiny app is to refer the official website. It provides an extensive amount of information regarding Rshiny development. Already developed Rshiny Apps and Templates are also available, which would come in handy. Further, when you do start an Rshiny App through Rstudio you will initially receive a sample App with its code. A few tweaks and changes would lead to necessary changes that you need.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;Official Rshiny Website&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;how-to-use-the-olympic-rshiny-app&#34; class=&#34;section level2&#34;&gt;

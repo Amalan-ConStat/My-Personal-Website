@@ -49,7 +49,7 @@ participants name, country, sports, events, season and year.
 
 ## Material Useful for Rsiny Development
 
-Easiest way to build your own shiny app is to refer the official website. It provides 
+Easiest way to build your own shiny app is to refer the official website. It provides an
 extensive amount of information regarding Rshiny development. Already developed Rshiny 
 Apps and Templates are also available, which would come in handy. Further, when you do
 start an Rshiny App through Rstudio you will initially receive a sample App with its code.
