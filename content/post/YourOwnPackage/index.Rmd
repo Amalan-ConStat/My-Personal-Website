@@ -118,13 +118,13 @@ DiagrammeR(
 * Focus on indentation.
 * Comment regularly to make sense of the functions.
 
-![](/YourOwnPackage/codingstandards/figure1.PNG)
-Sample Code
+![Sample Code](/YourOwnPackage/codingstandards/figure1.PNG)
+
 
 ## 2) Package Structure
 
 * Very Important. 
-* Initially few files be originated in the designated project folder.
+* Initially few files will be originated in the designated project folder.
 * Over time we might add folders or create files manually. 
 * Example - tests directory, README.Rmd, ...
 
@@ -246,7 +246,7 @@ NAMESPACE file and its components.
 
 # Building the Package
 
-All the files should be in their respective directories and names should not changed for files or folders
+All the files should be in their respective directories and names should not be changed for files or folders
 manually if they are created automatically. After checking all of this we can proceed to building the package.
 This process has 9 steps and below is a diagram to show how it works. 
 
@@ -270,7 +270,7 @@ DiagrammeR(
 ```
 
 This process is explained through a small presentation [here](/YourOwnPackage/BuildYourOwnPackage.html).
-This presentation also can be used to when you need to update your package version.
+This presentation also can be used when you need to update your package version.
 
 # Distributing the Package
 
@@ -286,6 +286,6 @@ I have written two posts related to R packages as well. One is
 [How to find your R package](https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/) 
 and Second is 
 [Using R packages to develop your own package](https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/).
-These two posts will be very useful. 
+These two posts will be very useful as well. 
 
 *THANK YOU*

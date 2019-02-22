@@ -103,13 +103,16 @@ summary: "Developing your own package in R with steps and helpful materials."
 <li>Focus on indentation.</li>
 <li>Comment regularly to make sense of the functions.</li>
 </ul>
-<p><img src="/YourOwnPackage/codingstandards/figure1.PNG" /> Sample Code</p>
+<div class="figure">
+<img src="/YourOwnPackage/codingstandards/figure1.PNG" alt="Sample Code" />
+<p class="caption">Sample Code</p>
+</div>
 </div>
 <div id="package-structure" class="section level2">
 <h2>2) Package Structure</h2>
 <ul>
 <li>Very Important.</li>
-<li>Initially few files be originated in the designated project folder.</li>
+<li>Initially few files will be originated in the designated project folder.</li>
 <li>Over time we might add folders or create files manually.</li>
 <li>Example - tests directory, README.Rmd, …</li>
 </ul>
@@ -209,10 +212,10 @@ summary: "Developing your own package in R with steps and helpful materials."
 </div>
 <div id="building-the-package" class="section level1">
 <h1>Building the Package</h1>
-<p>All the files should be in their respective directories and names should not changed for files or folders manually if they are created automatically. After checking all of this we can proceed to building the package. This process has 9 steps and below is a diagram to show how it works.</p>
+<p>All the files should be in their respective directories and names should not be changed for files or folders manually if they are created automatically. After checking all of this we can proceed to building the package. This process has 9 steps and below is a diagram to show how it works.</p>
 <div id="htmlwidget-2" style="width:1000px;height:300px;" class="DiagrammeR html-widget"></div>
 <script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph LR;\n           A(Document <br> Generation)-->C(Clean and <br> Rebuild);\n           C-->D(Spellcheck <br> Rd files);\n           D-->B((Check for <br> issues));\n           B-->Z((Make Necessary <br> Changes)); Z-->A;\n           D-->E(Test <br> the Package); E-->B;\n           E-->F(Check <br> for Errors); F-->B;\n           F-->G(Build <br> Source Package);\n           G-->H(Build <br> Binary Package);\n           H-->I(Generate <br> Manual pdf);\n           I-->J(Check Errors <br> on Source Package); J-->B"},"evals":[],"jsHooks":[]}</script>
-<p>This process is explained through a small presentation <a href="/YourOwnPackage/BuildYourOwnPackage.html">here</a>. This presentation also can be used to when you need to update your package version.</p>
+<p>This process is explained through a small presentation <a href="/YourOwnPackage/BuildYourOwnPackage.html">here</a>. This presentation also can be used when you need to update your package version.</p>
 </div>
 <div id="distributing-the-package" class="section level1">
 <h1>Distributing the Package</h1>
@@ -224,6 +227,6 @@ summary: "Developing your own package in R with steps and helpful materials."
 <li>The project folder which includes the package.</li>
 <li>Submit to CRAN or Bioconductor.</li>
 </ol>
-<p>I have written two posts related to R packages as well. One is <a href="https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/">How to find your R package</a> and Second is <a href="https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/">Using R packages to develop your own package</a>. These two posts will be very useful.</p>
+<p>I have written two posts related to R packages as well. One is <a href="https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/">How to find your R package</a> and Second is <a href="https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/">Using R packages to develop your own package</a>. These two posts will be very useful as well.</p>
 <p><em>THANK YOU</em></p>
 </div>
