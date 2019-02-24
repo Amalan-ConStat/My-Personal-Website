@@ -449,7 +449,7 @@
 <li><a href="#packages-and-ideas">Packages and Ideas</a></li>
 <li><a href="#country-information">Country Information</a><ul>
 <li><a href="#ranking-of-sri-lanka-from-1996-to-2017">Ranking of Sri Lanka from 1996 to 2017</a></li>
-<li><a href="#documents-citable-documents-and-self-citations-from-sri-lanka-journals-from-1996-to-2017">Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017</a></li>
+<li><a href="#documents-citable-documents-and-self-citations-from-sri-lanka-journals">Documents , Citable Documents and Self Citations from Sri Lanka Journals</a></li>
 <li><a href="#citations-per-document-from-sri-lankan-journals">Citations per Document from Sri Lankan Journals</a></li>
 </ul></li>
 <li><a href="#journals-from-sri-lanka">Journals from Sri Lanka</a><ul>
@@ -466,6 +466,8 @@
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
+<p>“SCImago Journal and Country Rank provides valuable estimates of academic journals’ presitige.”, this is according to its GitHub repository which could be found <a href="https://github.com/ikashnitsky/sjrdata">here.</a> I completely agree with this statement, last year(2018) while searching for journals to publish a research of my interest and contribution this <a href="https://www.scimagojr.com/">website</a> came in useful comparative to most of my google searches.</p>
+<p>It is crucial to find a journal which summarizes the research work we intend to contribute with more relative information such as ranking, h-index, citations and etc which could be compared for our benefit. Usually people tend to collect information by themselves and might miss a valuable and more suitable opportunity to publish because they did not know where to find them. That will not occur if you use SciMagoJr.</p>
 </div>
 <div id="packages-and-ideas" class="section level1">
 <h1>Packages and Ideas</h1>
@@ -497,8 +499,8 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20rank-1.png" width="1152" /></p>
 </div>
-<div id="documents-citable-documents-and-self-citations-from-sri-lanka-journals-from-1996-to-2017" class="section level2">
-<h2>Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017</h2>
+<div id="documents-citable-documents-and-self-citations-from-sri-lanka-journals" class="section level2">
+<h2>Documents , Citable Documents and Self Citations from Sri Lanka Journals</h2>
 <pre class="r"><code>sjr_countries%&gt;%
   gather(citing,values,&quot;documents&quot;,&quot;citable_documents&quot;,&quot;self_citations&quot;) %&gt;%
   subset(country==&quot;Sri Lanka&quot;,select=c(citing,values,year)) %&gt;%

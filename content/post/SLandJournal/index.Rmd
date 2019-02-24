@@ -30,6 +30,19 @@ knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.width = 12
 
 # Introduction
 
+"SCImago Journal and Country Rank provides valuable estimates of academic journals' presitige.", this is 
+according to its GitHub repository which could be found [here.](https://github.com/ikashnitsky/sjrdata)
+I completely agree with this statement, last year(2018) while searching for journals to publish a research
+of my interest and contribution this [website](https://www.scimagojr.com/) came in useful comparative to
+most of my google searches.
+
+It is crucial to find a journal which summarizes the research work we intend to contribute with more
+relative information such as ranking, h-index, citations and etc which could be compared for our benefit.
+Usually people tend to collect information by themselves and might miss a valuable and more suitable
+opportunity to publish because they did not know where to find them. That will not occur if you use 
+SciMagoJr.
+
+
 
 # Packages and Ideas
 
@@ -64,7 +77,7 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   theme(axis.text.x =element_text(angle = 90, hjust = 1))
 ```
 
-## Documents , Citable Documents and Self Citations from Sri Lanka Journals from 1996 to 2017
+## Documents , Citable Documents and Self Citations from Sri Lanka Journals 
 
 ```{r sjr Sri Lanka and documents citable documents self citations}
 sjr_countries%>%
