@@ -251,6 +251,8 @@ ggplot(.,aes(axis2=factor(str_wrap(year,10)), axis1= factor(str_wrap(major_field
 &lt;/div&gt;
 &lt;div id=&#34;packages-and-ideas&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Packages and Ideas&lt;/h1&gt;
+&lt;p&gt;As a Researcher from Sri Lanka I am much more interested in how we as a country has made progress in related to journals or research publishing in perspective of our neighboring countries and fields of research interest.&lt;/p&gt;
+&lt;p&gt;The package sjrdata has three data-sets and they provide information regarding to journals which is mostly seeked by researchers to find an appropriate place to publish their research or find places which would benefit them in finding a unique research problem.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data
 library(sjrdata)
 
@@ -264,6 +266,12 @@ library(splitstackshape)
 library(qdap)
 library(ggthemr)
 ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The three datasets in concern are&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;sjr_countries - Contains information regarding h_index over the years for countries and their ranks with other information related to documents.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;sjr_journals -&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sjr_countries_1996_2017 -&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;country-information&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Country Information&lt;/h1&gt;

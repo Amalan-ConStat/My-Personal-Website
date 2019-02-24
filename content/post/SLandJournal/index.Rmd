@@ -42,9 +42,15 @@ Usually people tend to collect information by themselves and might miss a valuab
 opportunity to publish because they did not know where to find them. That will not occur if you use 
 SciMagoJr.
 
-
-
 # Packages and Ideas
+
+As a Researcher from Sri Lanka I am much more interested in how we as a country has made progress
+in related to journals or research publishing in perspective of our neighboring countries and fields
+of research interest.
+
+The package sjrdata has three data-sets and they provide information regarding to journals
+which is mostly seeked by researchers to find an appropriate place to publish their research
+or find places which would benefit them in finding a unique research problem. 
 
 ```{r Packages and data}
 # Data
@@ -61,6 +67,14 @@ library(qdap)
 library(ggthemr)
 ggthemr("flat dark")
 ```
+
+The three datasets in concern are 
+
+1.  sjr_countries - Contains information regarding h_index over the years for countries and their ranks 
+                    with other information related to documents.
+                    
+2.  sjr_journals -
+3.  sjr_countries_1996_2017 -
 
 # Country Information
 
