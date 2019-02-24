@@ -30,6 +30,7 @@ summary: "Exploring How has Sri Lanka done in related to Academic Journals."
 <li><a href="#packages-and-ideas">Packages and Ideas</a></li>
 <li><a href="#country-information">Country Information</a><ul>
 <li><a href="#ranking-of-sri-lanka-from-1996-to-2017">Ranking of Sri Lanka from 1996 to 2017</a></li>
+<li><a href="#ranking-of-south-asian-region-countries-from-1996-to-2017">Ranking of South Asian Region Countries from 1996 to 2017</a></li>
 <li><a href="#documents-citable-documents-and-self-citations-from-sri-lanka-journals">Documents , Citable Documents and Self Citations from Sri Lanka Journals</a></li>
 <li><a href="#citations-per-document-from-sri-lankan-journals">Citations per Document from Sri Lankan Journals</a></li>
 </ul></li>
@@ -70,12 +71,13 @@ ggthemr(&quot;flat dark&quot;)</code></pre>
 <p>The three datasets in concern are</p>
 <ol style="list-style-type: decimal">
 <li><p>sjr_countries - Contains information regarding h_index over the years for countries and their ranks with other information related to documents.</p></li>
-<li>sjr_journals -</li>
-<li><p>sjr_countries_1996_2017 -</p></li>
+<li><p>sjr_journals - Records for type of document with their basic information which can be connected to country of origin, publisher and fields of interest and much more.</p></li>
+<li><p>sjr_countries_1996_2017 - Similar to sjr_countries but this is an accumulation of the data-set which would indicate the overall perfromace as a country from 1996 to 2017.</p></li>
 </ol>
 </div>
 <div id="country-information" class="section level1">
 <h1>Country Information</h1>
+<p>This section will simply scrutinize how Sri Lanka over the years has performed and it should be noted that only the ranks of South Asian Region countries will be compared for the purpose of understanding the progress as a whole community.</p>
 <div id="ranking-of-sri-lanka-from-1996-to-2017" class="section level2">
 <h2>Ranking of Sri Lanka from 1996 to 2017</h2>
 <pre class="r"><code>subset(sjr_countries,country==&quot;Sri Lanka&quot;) %&gt;%
@@ -85,8 +87,23 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   geom_text_repel()+
   xlab(&quot;Year&quot;)+ylab(&quot;Rank&quot;)+
   ggtitle(&quot;Rank of Sri Lanka Changing from 1996 to 2017&quot;)+
-  theme(axis.text.x =element_text(angle = 90, hjust = 1))</code></pre>
+  theme(axis.text.x =element_text(angle = 45, hjust = 1))</code></pre>
 <p><img src="/post/SLandJournal/index_files/figure-html/sjr%20Sri%20Lanka%20and%20rank-1.png" width="1152" /></p>
+</div>
+<div id="ranking-of-south-asian-region-countries-from-1996-to-2017" class="section level2">
+<h2>Ranking of South Asian Region Countries from 1996 to 2017</h2>
+<pre class="r"><code>subset(sjr_countries,
+       country ==&quot;Sri Lanka&quot; | country==&quot;India&quot;| country==&quot;Pakistan&quot;|
+       country ==&quot;Nepal&quot; | country== &quot;Maldives&quot; | country ==&quot;Afghanistan&quot;|
+       country == &quot;Bhutan&quot; | country==&quot;Bangladesh&quot;) %&gt;%
+       mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
+ggplot(.,aes(x=year,y=rank,label=rank,color=country))+
+  geom_point()+geom_line()+
+  geom_text_repel()+
+  xlab(&quot;Year&quot;)+ylab(&quot;Rank&quot;)+
+  ggtitle(&quot;Rank of South Asian Region Changing from 1996 to 2017&quot;)+
+  theme(axis.text.x =element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/post/SLandJournal/index_files/figure-html/sjr%20South%20Asia%20and%20rank-1.png" width="1152" /></p>
 </div>
 <div id="documents-citable-documents-and-self-citations-from-sri-lanka-journals" class="section level2">
 <h2>Documents , Citable Documents and Self Citations from Sri Lanka Journals</h2>

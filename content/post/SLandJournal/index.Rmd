@@ -73,10 +73,17 @@ The three datasets in concern are
 1.  sjr_countries - Contains information regarding h_index over the years for countries and their ranks 
                     with other information related to documents.
                     
-2.  sjr_journals -
-3.  sjr_countries_1996_2017 -
+2.  sjr_journals - Records for type of document with their basic information which can be connected to country of
+                   origin, publisher and fields of interest and much more.
+                   
+3.  sjr_countries_1996_2017 - Similar to sjr_countries but this is an accumulation of the data-set which would 
+                              indicate the overall perfromace as a country from 1996 to 2017.
 
 # Country Information
+
+This section will simply scrutinize how Sri Lanka over the years has performed and it should be noted that only 
+the ranks of South Asian Region countries will be compared for the purpose of understanding the progress 
+as a whole community. 
 
 ## Ranking of Sri Lanka from 1996 to 2017
 
@@ -88,8 +95,25 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
   geom_text_repel()+
   xlab("Year")+ylab("Rank")+
   ggtitle("Rank of Sri Lanka Changing from 1996 to 2017")+
-  theme(axis.text.x =element_text(angle = 90, hjust = 1))
+  theme(axis.text.x =element_text(angle = 45, hjust = 1))
 ```
+
+## Ranking of South Asian Region Countries from 1996 to 2017
+
+```{r sjr South Asia and rank}
+subset(sjr_countries,
+       country =="Sri Lanka" | country=="India"| country=="Pakistan"|
+       country =="Nepal" | country== "Maldives" | country =="Afghanistan"|
+       country == "Bhutan" | country=="Bangladesh") %>%
+       mutate(year=year(as.Date(year,"%Y"))) %>%
+ggplot(.,aes(x=year,y=rank,label=rank,color=country))+
+  geom_point()+geom_line()+
+  geom_text_repel()+
+  xlab("Year")+ylab("Rank")+
+  ggtitle("Rank of South Asian Region Changing from 1996 to 2017")+
+  theme(axis.text.x =element_text(angle = 45, hjust = 1))
+```
+
 
 ## Documents , Citable Documents and Self Citations from Sri Lanka Journals 
 
