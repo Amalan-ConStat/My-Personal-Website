@@ -129,6 +129,7 @@ ggplot(.,aes(x=year,y=values,label=values,color=citing,shape=citing))+
 </div>
 <div id="citations-per-document-from-sri-lankan-journals" class="section level2">
 <h2>Citations per Document from Sri Lankan Journals</h2>
+<p>Citations per document has a steady rise from 14.28 to 24.29 in the years of 1996 to 2000, while there is a sudden decline next year it manages to increases and reach the peak point of 29.29 in year 2003. After the millenium we can clearly see a clear steep in numbers over the next two decades, where now in year 2017 the citations per document has dropped to 0.61. It is very alarming even though we have alot of citable documents in the same year according to the previous plot.</p>
 <pre class="r"><code>sjr_countries %&gt;%
    subset(country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
