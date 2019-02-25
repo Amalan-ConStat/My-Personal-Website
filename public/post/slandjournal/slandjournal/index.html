@@ -566,8 +566,10 @@ ggplot(.,aes(x=year,y=citations_per_document,
 </div>
 <div id="journals-from-sri-lanka" class="section level1">
 <h1>Journals from Sri Lanka</h1>
+<p>9 titles are listed and considered here from Sri Lanka where some began publishing recently.</p>
 <div id="rank-changes-for-sri-lankan-journals" class="section level2">
 <h2>Rank changes for Sri Lankan Journals</h2>
+<p>Journals which started close to year 2000 have ranks close to ten thousand, while recent publications has ranks leading upto the rank of higher than thirty thousand as well. Journal of the National Science Foundation of Sri Lanka and Ceylon Medical Journal has published more than other publications and they do have better rankings through out the years.</p>
 <pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=rank,color=year))+

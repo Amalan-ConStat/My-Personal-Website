@@ -184,7 +184,14 @@ ggplot(.,aes(x=year,y=citations_per_document,
 
 # Journals from Sri Lanka
 
+9 titles are listed and considered here from Sri Lanka where some began publishing recently.
+
 ## Rank changes for Sri Lankan Journals
+
+Journals which started close to year 2000 have ranks close to ten thousand, while recent publications
+has ranks leading upto the rank of higher than thirty thousand as well. Journal of the National Science Foundation
+of Sri Lanka and Ceylon Medical Journal has published more than other publications and they do have better rankings 
+through out the years.
 
 ```{r rank changes}
 p<-subset(sjr_journals,country=="Sri Lanka") %>%
