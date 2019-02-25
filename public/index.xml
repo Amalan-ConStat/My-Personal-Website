@@ -419,11 +419,12 @@ animate(p,fps=1,nframes=18) &lt;/code&gt;&lt;/pre&gt;
     gather(Group,values,&amp;quot;total_docs_year&amp;quot;,&amp;quot;total_refs&amp;quot;) %&amp;gt;%
     subset(country==&amp;quot;Sri Lanka&amp;quot;,select=c(Group,values,year,title)) %&amp;gt;%
     mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
-ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
-      geom_jitter()+coord_flip()+
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
+      #geom_bar(stat=&amp;quot;identity&amp;quot;,position = &amp;quot;dodge&amp;quot;)+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+
+      coord_flip()+
       xlab(&amp;quot;Title&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
-      shadow_mark()+
       ggtitle(&amp;quot;Counts changing for Sri Lankan Journals from 1999 to 2017&amp;quot;,
               subtitle = &amp;quot;Year : {round(frame_time)}&amp;quot;)+
       theme(legend.position=&amp;quot;bottom&amp;quot;)
@@ -463,7 +464,7 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(Categories,30),shape=Groups
       theme(axis.text.x =element_text(angle = 90, hjust = 1),
             legend.position=&amp;quot;bottom&amp;quot;)+
       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
-      xlab(&amp;quot;Title&amp;quot;)+ ylab(&amp;quot;Categories&amp;quot;)+
+      xlab(&amp;quot;Title&amp;quot;)+ ylab(&amp;quot;Categories&amp;quot;)+shadow_mark()+
       ggtitle(&amp;quot;Title and Categories between the years 1999 to 2017&amp;quot;,
               subtitle=&amp;quot;Year :{round(frame_time)}&amp;quot;)
 

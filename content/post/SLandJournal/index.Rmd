@@ -273,11 +273,12 @@ p<-sjr_journals %>%
     gather(Group,values,"total_docs_year","total_refs") %>%
     subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
     mutate(year=year(as.Date(year,"%Y"))) %>%
-ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
-      geom_jitter()+coord_flip()+
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
+      #geom_bar(stat="identity",position = "dodge")+
+      geom_col(position = "dodge")+
+      coord_flip()+
       xlab("Title")+ylab("Count")+
       transition_time(year)+ease_aes("linear")+
-      shadow_mark()+
       ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
               subtitle = "Year : {round(frame_time)}")+
       theme(legend.position="bottom")
@@ -320,7 +321,7 @@ ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(Categories,30),shape=Groups
       theme(axis.text.x =element_text(angle = 90, hjust = 1),
             legend.position="bottom")+
       transition_time(year)+ease_aes("linear")+
-      xlab("Title")+ ylab("Categories")+
+      xlab("Title")+ ylab("Categories")+shadow_mark()+
       ggtitle("Title and Categories between the years 1999 to 2017",
               subtitle="Year :{round(frame_time)}")
 
