@@ -215,6 +215,7 @@ p<-subset(sjr_journals,country=="Sri Lanka") %>%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=sjr,color=year,shape=sjr_best_quartile))+
          geom_jitter()+coord_flip()+
          shadow_mark()+
+         labs(shape="SJR Best Q")+
          transition_time(year)+ease_aes("linear")+
          xlab("Title of Journals")+ylab("SJR values")+
          ggtitle("SJR values Changing over time for Sri Lankan Journals from 1999 to 2017",
@@ -225,6 +226,10 @@ animate(p,fps=1,nframes=18)
 ```
 
 ## References per Document changing for Sri Lankan Journals
+
+Highest amount of reference per document is close to 100 while the minimum is
+close to zero. There is no specific pattern over the years which indicate an
+increase or decrease.
 
 ```{r ref per doc changes}
 p<-subset(sjr_journals,country=="Sri Lanka") %>%

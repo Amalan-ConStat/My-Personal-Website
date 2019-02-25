@@ -171,6 +171,7 @@ animate(p,fps=1,nframes=18)  </code></pre>
    ggplot(.,aes(x=str_wrap(factor(title),30),y=sjr,color=year,shape=sjr_best_quartile))+
          geom_jitter()+coord_flip()+
          shadow_mark()+
+         labs(shape=&quot;SJR Best Q&quot;)+
          transition_time(year)+ease_aes(&quot;linear&quot;)+
          xlab(&quot;Title of Journals&quot;)+ylab(&quot;SJR values&quot;)+
          ggtitle(&quot;SJR values Changing over time for Sri Lankan Journals from 1999 to 2017&quot;,
@@ -182,6 +183,7 @@ animate(p,fps=1,nframes=18)  </code></pre>
 </div>
 <div id="references-per-document-changing-for-sri-lankan-journals" class="section level2">
 <h2>References per Document changing for Sri Lankan Journals</h2>
+<p>Highest amount of reference per document is close to 100 while the minimum is close to zero. There is no specific pattern over the years which indicate an increase or decrease.</p>
 <pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=ref_doc,color=year))+
