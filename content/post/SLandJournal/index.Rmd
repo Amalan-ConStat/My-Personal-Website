@@ -87,6 +87,14 @@ as a whole community.
 
 ## Ranking of Sri Lanka from 1996 to 2017
 
+Sri Lanka(SL) had its ups and downs in the rankings where the worst place was to be in
+85th and the best place to be in 75th. As of in 2017 it has reached 78th which is good
+considering the previous three years(2014-2016) the ranks were higher.
+
+In 1996 SL was holding 85th and this occurs again in the years 2011 and 2014. Also it 
+reached the 75th ranking position in year 2007. I sincerely hope that in the coming years 
+SL would reach better ranks.
+
 ```{r sjr Sri Lanka and rank}
 subset(sjr_countries,country=="Sri Lanka") %>%
   mutate(year=year(as.Date(year,"%Y"))) %>%
@@ -99,6 +107,8 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
 ```
 
 ## Ranking of South Asian Region Countries from 1996 to 2017
+
+
 
 ```{r sjr South Asia and rank}
 subset(sjr_countries,

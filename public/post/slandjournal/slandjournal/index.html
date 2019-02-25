@@ -499,6 +499,8 @@ ggthemr(&quot;flat dark&quot;)</code></pre>
 <p>This section will simply scrutinize how Sri Lanka over the years has performed and it should be noted that only the ranks of South Asian Region countries will be compared for the purpose of understanding the progress as a whole community.</p>
 <div id="ranking-of-sri-lanka-from-1996-to-2017" class="section level2">
 <h2>Ranking of Sri Lanka from 1996 to 2017</h2>
+<p>Sri Lanka(SL) had its ups and downs in the rankings where the worst place was to be in 85th and the best place to be in 75th. As of in 2017 it has reached 78th which is good considering the previous three years(2014-2016) the ranks were higher.</p>
+<p>In 1996 SL was holding 85th and this occurs again in the years 2011 and 2014. Also it reached the 75th ranking position in year 2007. I sincerely hope that in the coming years SL would reach better ranks.</p>
 <pre class="r"><code>subset(sjr_countries,country==&quot;Sri Lanka&quot;) %&gt;%
   mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
 ggplot(.,aes(x=year,y=rank,label=rank))+
