@@ -108,7 +108,14 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
 
 ## Ranking of South Asian Region Countries from 1996 to 2017
 
+India is way ahead of other seven countries in the South Asian region where it has gradually
+moved from 13th position to 5th over the years. Sri Lanka is currently behind India, Pakistan and
+Nepal. 
 
+Further Bhutan, Maldives and Afghanistan have ranks above 130 for the period of time given, while
+Maldives has stayed in the range of 213 and 167. Afghanistan and Bhutan have made improvements where now(2017)
+they are holding ranks of 136 and 159 respectively while in 1996 they had ranks of 207 and 186. These three countries
+tend to oscilate very frequently among ranks than the other 5 countries in the region.
 
 ```{r sjr South Asia and rank}
 subset(sjr_countries,
