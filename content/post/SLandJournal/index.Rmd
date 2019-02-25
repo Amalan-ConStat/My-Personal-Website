@@ -268,13 +268,16 @@ animate(p,fps=1,nframes=18)
  
 ## Total Documents and References for Journals from Sri Lanka
 
+The Gaps between Total documents per year and Total references are compared here. Obviously
+in most of the cases Total documents per year is very low considering to Total references.
+There are anomalies such as Ceylon Medical Journal but only in the earlier publications.
+
 ```{r tot doc and ref}
 p<-sjr_journals %>%
     gather(Group,values,"total_docs_year","total_refs") %>%
     subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
     mutate(year=year(as.Date(year,"%Y"))) %>%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
-      #geom_bar(stat="identity",position = "dodge")+
       geom_col(position = "dodge")+
       coord_flip()+
       xlab("Title")+ylab("Count")+
@@ -293,11 +296,10 @@ p<-sjr_journals %>%
     gather(Group,values,"total_docs_3years","total_cites_3years","citable_docs_3years") %>%
     subset(country=="Sri Lanka",select=c(Group,values,year,title)) %>%
     mutate(year=year(as.Date(year,"%Y"))) %>%
-ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
-      geom_jitter()+coord_flip()+
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
+      geom_col(position="dodge")+coord_flip()+
       xlab("Title")+ylab("Count for 3 years")+
       transition_time(year)+ease_aes("linear")+
-      shadow_mark()+
       ggtitle("Counts changing for Sri Lankan Journals from 1999 to 2017",
               subtitle = "Year : {round(frame_time)}")+
       theme(legend.position="bottom")

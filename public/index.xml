@@ -415,12 +415,12 @@ animate(p,fps=1,nframes=18) &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;total-documents-and-references-for-journals-from-sri-lanka&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Total Documents and References for Journals from Sri Lanka&lt;/h2&gt;
+&lt;p&gt;The Gaps between Total documents per year and Total references are compared here. Obviously in most of the cases Total documents per year is very low considering to Total references. There are anomalies such as Ceylon Medical Journal but only in the earlier publications.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-sjr_journals %&amp;gt;%
     gather(Group,values,&amp;quot;total_docs_year&amp;quot;,&amp;quot;total_refs&amp;quot;) %&amp;gt;%
     subset(country==&amp;quot;Sri Lanka&amp;quot;,select=c(Group,values,year,title)) %&amp;gt;%
     mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
 ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
-      #geom_bar(stat=&amp;quot;identity&amp;quot;,position = &amp;quot;dodge&amp;quot;)+
       geom_col(position = &amp;quot;dodge&amp;quot;)+
       coord_flip()+
       xlab(&amp;quot;Title&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
@@ -438,11 +438,10 @@ animate(p,nframes=18,fps=1)&lt;/code&gt;&lt;/pre&gt;
     gather(Group,values,&amp;quot;total_docs_3years&amp;quot;,&amp;quot;total_cites_3years&amp;quot;,&amp;quot;citable_docs_3years&amp;quot;) %&amp;gt;%
     subset(country==&amp;quot;Sri Lanka&amp;quot;,select=c(Group,values,year,title)) %&amp;gt;%
     mutate(year=year(as.Date(year,&amp;quot;%Y&amp;quot;))) %&amp;gt;%
-ggplot(.,aes(x=str_wrap(factor(title),30),y=values,shape=Group,color=year))+
-      geom_jitter()+coord_flip()+
+ggplot(.,aes(x=str_wrap(factor(title),30),y=values,fill=Group,group=Group))+
+      geom_col(position=&amp;quot;dodge&amp;quot;)+coord_flip()+
       xlab(&amp;quot;Title&amp;quot;)+ylab(&amp;quot;Count for 3 years&amp;quot;)+
       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
-      shadow_mark()+
       ggtitle(&amp;quot;Counts changing for Sri Lankan Journals from 1999 to 2017&amp;quot;,
               subtitle = &amp;quot;Year : {round(frame_time)}&amp;quot;)+
       theme(legend.position=&amp;quot;bottom&amp;quot;)
