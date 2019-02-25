@@ -30,11 +30,11 @@ knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE,fig.width = 12
 
 # Introduction
 
-"SCImago Journal and Country Rank provides valuable estimates of academic journals' presitige.", this is 
+"SCImago Journal and Country Rank provides valuable estimates of academic journals' prestige.", this is 
 according to its GitHub repository which could be found [here.](https://github.com/ikashnitsky/sjrdata)
 I completely agree with this statement, last year(2018) while searching for journals to publish a research
 of my interest and contribution this [website](https://www.scimagojr.com/) came in useful comparative to
-most of my google searches.
+most of my Google searches.
 
 It is crucial to find a journal which summarizes the research work we intend to contribute with more
 relative information such as ranking, h-index, citations and etc which could be compared for our benefit.
@@ -68,7 +68,7 @@ library(ggthemr)
 ggthemr("flat dark")
 ```
 
-The three datasets in concern are 
+The three data-sets in concern are 
 
 1.  sjr_countries - Contains information regarding h_index over the years for countries and their ranks 
                     with other information related to documents.
@@ -77,7 +77,7 @@ The three datasets in concern are
                    origin, publisher and fields of interest and much more.
                    
 3.  sjr_countries_1996_2017 - Similar to sjr_countries but this is an accumulation of the data-set which would 
-                              indicate the overall perfromace as a country from 1996 to 2017.
+                              indicate the overall performance as a country from 1996 to 2017.
 
 # Country Information
 
@@ -115,7 +115,7 @@ Nepal.
 Further Bhutan, Maldives and Afghanistan have ranks above 130 for the period of time given, while
 Maldives has stayed in the range of 213 and 167. Afghanistan and Bhutan have made improvements where now(2017)
 they are holding ranks of 136 and 159 respectively while in 1996 they had ranks of 207 and 186. These three countries
-tend to oscilate very frequently among ranks than the other 5 countries in the region.
+tend to oscillate very frequently among ranks than the other 5 countries in the region.
 
 ```{r sjr South Asia and rank}
 subset(sjr_countries,
@@ -131,8 +131,19 @@ ggplot(.,aes(x=year,y=rank,label=rank,color=country))+
   theme(axis.text.x =element_text(angle = 45, hjust = 1))
 ```
 
-
 ## Documents , Citable Documents and Self Citations from Sri Lanka Journals 
+
+Over the years Self citations were higher than citable documents and documents in counts, but
+this is not the case after the year 2012. Self citations reached its highest peak of 1331 in 2012
+but in the next few years they gradually decreased to 175 counts in year 2017. Even though in 1996 
+the self citations count was 275 which is higher than current counts in 2017 for self citation.
+
+This is not the case for citable documents and documents where they start with counts of close to 200.
+Over the years they rapidly increase and reach the close to thousand mark 2012. This form of 
+improvement continues further and reaches the close to two thousand mark in the year 2017, which I feel 
+is impressive. The gap between documents and citable documents is very thin in the early 2000s but while
+counts increase the gap also considerably increases.
+
 
 ```{r sjr Sri Lanka and documents citable documents self citations}
 sjr_countries%>%

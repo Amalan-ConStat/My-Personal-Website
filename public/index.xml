@@ -247,7 +247,7 @@ ggplot(.,aes(axis2=factor(str_wrap(year,10)), axis1= factor(str_wrap(major_field
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;“SCImago Journal and Country Rank provides valuable estimates of academic journals’ presitige.”, this is according to its GitHub repository which could be found &lt;a href=&#34;https://github.com/ikashnitsky/sjrdata&#34;&gt;here.&lt;/a&gt; I completely agree with this statement, last year(2018) while searching for journals to publish a research of my interest and contribution this &lt;a href=&#34;https://www.scimagojr.com/&#34;&gt;website&lt;/a&gt; came in useful comparative to most of my google searches.&lt;/p&gt;
+&lt;p&gt;“SCImago Journal and Country Rank provides valuable estimates of academic journals’ prestige.”, this is according to its GitHub repository which could be found &lt;a href=&#34;https://github.com/ikashnitsky/sjrdata&#34;&gt;here.&lt;/a&gt; I completely agree with this statement, last year(2018) while searching for journals to publish a research of my interest and contribution this &lt;a href=&#34;https://www.scimagojr.com/&#34;&gt;website&lt;/a&gt; came in useful comparative to most of my Google searches.&lt;/p&gt;
 &lt;p&gt;It is crucial to find a journal which summarizes the research work we intend to contribute with more relative information such as ranking, h-index, citations and etc which could be compared for our benefit. Usually people tend to collect information by themselves and might miss a valuable and more suitable opportunity to publish because they did not know where to find them. That will not occur if you use SciMagoJr.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;packages-and-ideas&#34; class=&#34;section level1&#34;&gt;
@@ -267,11 +267,11 @@ library(splitstackshape)
 library(qdap)
 library(ggthemr)
 ggthemr(&amp;quot;flat dark&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The three datasets in concern are&lt;/p&gt;
+&lt;p&gt;The three data-sets in concern are&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;sjr_countries - Contains information regarding h_index over the years for countries and their ranks with other information related to documents.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;sjr_journals - Records for type of document with their basic information which can be connected to country of origin, publisher and fields of interest and much more.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;sjr_countries_1996_2017 - Similar to sjr_countries but this is an accumulation of the data-set which would indicate the overall perfromace as a country from 1996 to 2017.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sjr_countries_1996_2017 - Similar to sjr_countries but this is an accumulation of the data-set which would indicate the overall performance as a country from 1996 to 2017.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;country-information&#34; class=&#34;section level1&#34;&gt;
@@ -294,7 +294,7 @@ ggplot(.,aes(x=year,y=rank,label=rank))+
 &lt;div id=&#34;ranking-of-south-asian-region-countries-from-1996-to-2017&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Ranking of South Asian Region Countries from 1996 to 2017&lt;/h2&gt;
 &lt;p&gt;India is way ahead of other seven countries in the South Asian region where it has gradually moved from 13th position to 5th over the years. Sri Lanka is currently behind India, Pakistan and Nepal.&lt;/p&gt;
-&lt;p&gt;Further Bhutan, Maldives and Afghanistan have ranks above 130 for the period of time given, while Maldives has stayed in the range of 213 and 167. Afghanistan and Bhutan have made improvements where now(2017) they are holding ranks of 136 and 159 respectively while in 1996 they had ranks of 207 and 186. These three countries tend to oscilate very frequently among ranks than the other 5 countries in the region.&lt;/p&gt;
+&lt;p&gt;Further Bhutan, Maldives and Afghanistan have ranks above 130 for the period of time given, while Maldives has stayed in the range of 213 and 167. Afghanistan and Bhutan have made improvements where now(2017) they are holding ranks of 136 and 159 respectively while in 1996 they had ranks of 207 and 186. These three countries tend to oscillate very frequently among ranks than the other 5 countries in the region.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(sjr_countries,
        country ==&amp;quot;Sri Lanka&amp;quot; | country==&amp;quot;India&amp;quot;| country==&amp;quot;Pakistan&amp;quot;|
        country ==&amp;quot;Nepal&amp;quot; | country== &amp;quot;Maldives&amp;quot; | country ==&amp;quot;Afghanistan&amp;quot;|
@@ -310,6 +310,8 @@ ggplot(.,aes(x=year,y=rank,label=rank,color=country))+
 &lt;/div&gt;
 &lt;div id=&#34;documents-citable-documents-and-self-citations-from-sri-lanka-journals&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Documents , Citable Documents and Self Citations from Sri Lanka Journals&lt;/h2&gt;
+&lt;p&gt;Over the years Self citations were higher than citable documents and documents in counts, but this is not the case after the year 2012. Self citations reached its highest peak of 1331 in 2012 but in the next few years they gradually decreased to 175 counts in year 2017. Even though in 1996 the self citations count was 275 which is higher than current counts in 2017 for self citation.&lt;/p&gt;
+&lt;p&gt;This is not the case for citable documents and documents where they start with counts of close to 200. Over the years they rapidly increase and reach the close to thousand mark 2012. This form of improvement continues further and reaches the close to two thousand mark in the year 2017, which I feel is impressive. The gap between documents and citable documents is very thin in the early 2000s but while counts increase the gap also considerably increases.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sjr_countries%&amp;gt;%
   gather(citing,values,&amp;quot;documents&amp;quot;,&amp;quot;citable_documents&amp;quot;,&amp;quot;self_citations&amp;quot;) %&amp;gt;%
   subset(country==&amp;quot;Sri Lanka&amp;quot;,select=c(citing,values,year)) %&amp;gt;%
