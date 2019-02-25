@@ -618,6 +618,7 @@ animate(p,fps=1,nframes=18)  </code></pre>
 </div>
 <div id="publishers-and-journals-from-sri-lanka" class="section level2">
 <h2>Publishers and Journals from Sri Lanka</h2>
+<p>Without any hesitation I could say most of these publications are from the field of medicine and institutions related to medicine. There are some publishers such as Internations Centre for Ethnic Studies and International Irrigation Managament Institue, but they have published very few publications.</p>
 <pre class="r"><code>p&lt;-subset(sjr_journals,country==&quot;Sri Lanka&quot;) %&gt;%
    mutate(year=year(as.Date(year,&quot;%Y&quot;))) %&gt;%
    ggplot(.,aes(x=str_wrap(factor(title),30),y=str_wrap(factor(publisher),30),color=year))+

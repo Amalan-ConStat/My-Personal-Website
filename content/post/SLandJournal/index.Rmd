@@ -247,6 +247,10 @@ animate(p,fps=1,nframes=18)
 
 ## Publishers and Journals from Sri Lanka
  
+Without any hesitation I could say most of these publications are from the field of medicine and institutions
+related to medicine. There are some publishers such as Internations Centre for Ethnic Studies and International
+Irrigation Managament Institue, but they have published very few publications.
+ 
 ```{r publisher and Journals}
 p<-subset(sjr_journals,country=="Sri Lanka") %>%
    mutate(year=year(as.Date(year,"%Y"))) %>%
