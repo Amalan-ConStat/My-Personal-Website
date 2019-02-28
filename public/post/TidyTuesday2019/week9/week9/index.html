@@ -450,9 +450,11 @@ ggthemr(&quot;fresh&quot;)
 
 # load the data
 small_trains &lt;- read_csv(&quot;small_trains.csv&quot;)</code></pre>
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week9">GitHub Code</a></p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26">Data set</a></p>
 <div id="network-graph-for-the-french-city-trains" class="section level1">
 <h1>Network Graph for the French City Trains</h1>
-<p>Simply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and departuring. Cities such as Paris Lyon, Paris Montparnasse, Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.</p>
+<p>Simply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and leaving. Cities such as Paris Lyon, Paris Montparnasse, Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.</p>
 <pre class="r"><code>ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
           geom_net(directed = TRUE,labelon = TRUE,size=0.5,labelcolour = &quot;black&quot;,
                    repel = FALSE,ecolour = &quot;grey70&quot;, arrowsize = 0.75,
@@ -463,7 +465,7 @@ small_trains &lt;- read_csv(&quot;small_trains.csv&quot;)</code></pre>
 </div>
 <div id="paris-montparnasse" class="section level1">
 <h1>Paris Montparnasse</h1>
-<p>Let me focus on Montparnasse which has lot of trains coming towards and departuring outwards according to the network map. Not all are cities of France according to my observations, where I can see Madrid, Zurich and Barcelona.</p>
+<p>Let me focus on Montparnasse which has lot of trains coming towards and leaving outwards according to the network map. Not all are cities of France according to my observations, where I can see Madrid, Zurich and Barcelona.</p>
 <div id="chosen-city-with-total-number-of-trips" class="section level2">
 <h2>Chosen City with Total Number of Trips</h2>
 <p>Total number of trips from Paris Montparnasse station to other cities is noted here. Four years of data with more accuracy by months is considered in this plot. There is clear variation in this data for cities.</p>
@@ -497,8 +499,8 @@ animate(p,nframes=4,fps=1)</code></pre>
 </div>
 <div id="chosen-city-with-average-delay-with-all-departing" class="section level2">
 <h2>Chosen City with Average Delay with All Departing</h2>
-<p>There is no clear pattern in perspective of months or years because data points are spread all over the place. Yet there is an odd occuring of negative values for average delay with all departing for some cities after mid of year 2017.</p>
-<p>Well none of these negative values does not exceed -2.5, where the maximum average dealy in all departing is close to 5.5. I belive unit measured is in minutes.</p>
+<p>There is no clear pattern in perspective of months or years because data points are spread all over the place. Yet there is an odd occurring of negative values for average delay with all departing for some cities after mid of year 2017.</p>
+<p>Well none of these negative values does not exceed -2.5, where the maximum average delay in all departing is close to 5.5. I believe unit measured is in minutes.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(small_trains,departure_station==&quot;PARIS MONTPARNASSE&quot;),
        aes(x=str_wrap(arrival_station,20),y= avg_delay_all_departing,color=month))+
        geom_jitter()+coord_flip()+ labs(color=&quot;Month&quot;)+
@@ -544,7 +546,7 @@ animate(p,nframes=4,fps=1)</code></pre>
 </div>
 <div id="chosen-city-with-number-of-late-arrivals" class="section level2">
 <h2>Chosen City with Number of Late Arrivals</h2>
-<p>City of St Malo has the lowest amount of late arrivals for all fours in general. Most amount of highest late arrivals occur in the city of Bordeaux St Jean. In year 2015 most of these data points are centered towards their specific values. In the next few years we can see that is not the case and they are with a lot of varation.</p>
+<p>City of St Malo has the lowest amount of late arrivals for all fours in general. Most amount of highest late arrivals occur in the city of Bordeaux St Jean. In year 2015 most of these data points are centered towards their specific values. In the next few years we can see that is not the case and they are with a lot of variation.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(small_trains,departure_station==&quot;PARIS MONTPARNASSE&quot;),
        aes(x=str_wrap(arrival_station,20),y=num_arriving_late,
            color=month))+
@@ -609,6 +611,7 @@ animate(p,nframes=59,fps=1)</code></pre>
 </div>
 <div id="delayed-cause-and-delayed-number" class="section level1">
 <h1>Delayed Cause and Delayed Number</h1>
+<p>Delays caused by the travelers is very less likely to happen, where most of these delays are caused by external causes. Other causes such as rolling stock and rail infrastructure also has effect but not as much from external cause. Station management has limited amount of affect but higher than travelers in causes for delaying trains.</p>
 <pre class="r"><code>small_trains %&gt;%
     mutate(delay_cause = str_remove(delay_cause,&quot;delay_cause_&quot;)) %&gt;%
 ggplot(.,aes(x=delay_cause,y=delayed_number))+

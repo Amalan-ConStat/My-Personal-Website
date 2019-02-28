@@ -38,10 +38,18 @@ ggthemr("fresh")
 small_trains <- read_csv("small_trains.csv")
 ```
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week9)
+
+[Data set](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26)
+
+```{r tweet,include=FALSE}
+blogdown::shortcode("tweet","")
+```
+
 # Network Graph for the French City Trains
 
 Simply drawing a network graph to understand which french cities are mainly urban with 
-capacity to trains arriving and departuring. Cities such as Paris Lyon, Paris Montparnasse,
+capacity to trains arriving and leaving. Cities such as Paris Lyon, Paris Montparnasse,
 Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.
 
 ```{r network graph, fig.width= 14,fig.height=14}
@@ -56,7 +64,7 @@ ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
 
 # Paris Montparnasse
 
-Let me focus on Montparnasse which has lot of trains coming towards and departuring outwards
+Let me focus on Montparnasse which has lot of trains coming towards and leaving outwards
 according to the network map. Not all are cities of France according to my observations, where
 I can see Madrid, Zurich and Barcelona. 
 
@@ -110,11 +118,11 @@ animate(p,nframes=4,fps=1)
 ## Chosen City with Average Delay with All Departing
 
 There is no clear pattern in perspective of months or years because data points are spread
-all over the place. Yet there is an odd occuring of negative values for average delay with all
+all over the place. Yet there is an odd occurring of negative values for average delay with all
 departing for some cities after mid of year 2017. 
 
-Well none of these negative values does not exceed -2.5, where the maximum average dealy in 
-all departing is close to 5.5. I belive unit measured is in minutes.
+Well none of these negative values does not exceed -2.5, where the maximum average delay in 
+all departing is close to 5.5. I believe unit measured is in minutes.
 
 ```{r Paris Montparnasse avg delay all departing}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
@@ -177,7 +185,7 @@ City of St Malo has the lowest amount of late arrivals for all fours in general.
 Most amount of highest late arrivals occur in the city of Bordeaux St Jean. In 
 year 2015 most of these data points are centered towards their specific values. 
 In the next few years we can see that is not the case and they are with a lot of 
-varation.
+variation.
 
 ```{r Paris Montparnasse num arriving late}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
@@ -247,6 +255,11 @@ animate(p,nframes=59,fps=1)
 ```
 
 # Delayed Cause and Delayed Number 
+
+Delays caused by the travelers is very less likely to happen, where most of these delays are 
+caused by external causes. Other causes such as rolling stock and rail infrastructure also has 
+effect but not as much from external cause. Station management has limited amount of affect but 
+higher than travelers in causes for delaying trains.
 
 ```{r Delayed No and Delayed cause}
 small_trains %>%
