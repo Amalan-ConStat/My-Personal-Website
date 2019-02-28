@@ -84,11 +84,23 @@ animate(p,nframes=4,fps=1)
 
 # Chosen City with Average Journey Time
 
+Except year 2017 all cities has similar and centered data points. In this exceptional
+year of 2017 we can see a difference between the first six months and rest. Where most 
+of the Average journey times have been reduced, it is clear according to year 2018 points.
+
+City of Toulouse Matabiau has the highest Average Journey Time, while lowest time goes to the city 
+of Le Mans. So what happened after mid of year 2017.
+
+Maximum Average Journey time before mid of year 2017 is close to 325 but after this period 
+it is centered around 275. The Minimum Average Journey time before mid of year
+2017 and after also it is close to 50. 
+
 ```{r Paris Montparnasse Journey time average}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
        aes(x=str_wrap(arrival_station,20),y=journey_time_avg,color=month))+
        geom_jitter()+coord_flip()+ labs(color="Month")+
        transition_time(year)+ease_aes("linear")+
+       scale_y_continuous(breaks=seq(0,350,25),labels=seq(0,350,25))+
        xlab("Arrival Station")+ylab("Average Journey Time")+
        ggtitle("Paris Montparnasse and its arrival Station" ,subtitle ="Year :{frame_time}")
 
@@ -97,12 +109,7 @@ animate(p,nframes=4,fps=1)
 
 # Chosen City with Average Delay with All Departing
 
-Except year 2017 all cities has similar and centered data points. In this exceptional
-year of 2017 we can see a difference between the first six months and rest. Where most 
-of the Average journey times have been reduced, it is clear according to year 2018 points.
 
-City of Toulouse Matabiau has the highest Average Journey Time, while lowest time goes to the city 
-of Le Mans. So what happened after mid of year 2017.
 
 ```{r Paris Montparnasse avg delay all departing}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
