@@ -519,6 +519,7 @@ animate(p,nframes=4,fps=1)</code></pre>
        geom_jitter()+coord_flip()+ labs(color=&quot;Month&quot;)+
        transition_time(year)+ease_aes(&quot;linear&quot;)+
        geom_hline(yintercept = 0,color=&quot;red&quot;)+
+       scale_y_continuous(breaks=seq(-3,18),labels=seq(-3,18))+
        xlab(&quot;Arrival Station&quot;)+ylab(&quot;Average Delay All Arriving&quot;)+
        ggtitle(&quot;Paris Montparnasse and its arrival Station&quot; ,subtitle =&quot;Year :{frame_time}&quot;)
 

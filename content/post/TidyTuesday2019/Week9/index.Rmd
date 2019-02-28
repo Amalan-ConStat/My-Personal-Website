@@ -131,12 +131,15 @@ animate(p,nframes=4,fps=1)
 
 # Chosen City with Average Delay with All Arriving
 
+
+
 ```{r Paris Montparnasse avg delay all arriving}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
        aes(x=str_wrap(arrival_station,20),y=avg_delay_all_arriving,color=month))+
        geom_jitter()+coord_flip()+ labs(color="Month")+
        transition_time(year)+ease_aes("linear")+
        geom_hline(yintercept = 0,color="red")+
+       scale_y_continuous(breaks=seq(-3,18),labels=seq(-3,18))+
        xlab("Arrival Station")+ylab("Average Delay All Arriving")+
        ggtitle("Paris Montparnasse and its arrival Station" ,subtitle ="Year :{frame_time}")
 
