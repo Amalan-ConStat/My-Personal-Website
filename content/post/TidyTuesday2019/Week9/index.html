@@ -77,6 +77,8 @@ animate(p,nframes=4,fps=1)</code></pre>
 </div>
 <div id="chosen-city-with-average-delay-with-all-departing" class="section level1">
 <h1>Chosen City with Average Delay with All Departing</h1>
+<p>Except year 2017 all cities has similar and centered data points. In this exceptional year of 2017 we can see a difference between the first six months and rest. Where most of the Average journey times have been reduced, it is clear according to year 2018 points.</p>
+<p>City of Toulouse Matabiau has the highest Average Journey Time, while lowest time goes to the city of Le Mans. So what happened after mid of year 2017.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(small_trains,departure_station==&quot;PARIS MONTPARNASSE&quot;),
        aes(x=str_wrap(arrival_station,20),y= avg_delay_all_departing,color=month))+
        geom_jitter()+coord_flip()+ labs(color=&quot;Month&quot;)+
