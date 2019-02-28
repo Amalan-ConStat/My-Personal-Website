@@ -60,7 +60,7 @@ Let me focus on Montparnasse which has lot of trains coming towards and departur
 according to the network map. Not all are cities of France according to my observations, where
 I can see Madrid, Zurich and Barcelona. 
 
-# Chosen City with Total Number of Trips
+## Chosen City with Total Number of Trips
 
 Total number of trips from Paris Montparnasse station to other cities is noted here.
 Four years of data with more accuracy by months is considered in this plot.
@@ -82,7 +82,7 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
 animate(p,nframes=4,fps=1)
 ```
 
-# Chosen City with Average Journey Time
+## Chosen City with Average Journey Time
 
 Except year 2017 all cities has similar and centered data points. In this exceptional
 year of 2017 we can see a difference between the first six months and rest. Where most 
@@ -107,7 +107,7 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
 animate(p,nframes=4,fps=1)
 ```
 
-# Chosen City with Average Delay with All Departing
+## Chosen City with Average Delay with All Departing
 
 There is no clear pattern in perspective of months or years because data points are spread
 all over the place. Yet there is an odd occuring of negative values for average delay with all
@@ -129,9 +129,12 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
 animate(p,nframes=4,fps=1)
 ```
 
-# Chosen City with Average Delay with All Arriving
+## Chosen City with Average Delay with All Arriving
 
-
+Highest delay could occur close to 18 minutes for average delay in Arriving and
+the lowest is close to -3. only in 2018 we see such negative values. 
+These negative values occurs for the city of St Malo. Also there is no clear
+pattern in any city with relative to year or months.
 
 ```{r Paris Montparnasse avg delay all arriving}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
@@ -146,7 +149,7 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
 animate(p,nframes=4,fps=1)
 ```
 
-# Chosen City with Number of Late Departures
+## Chosen City with Number of Late Departures
 
 ```{r Paris Montparnasse num late at departure}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
@@ -160,7 +163,7 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
 animate(p,nframes=4,fps=1)
 ```
 
-# Chosen City with Number of Late Arrivals
+## Chosen City with Number of Late Arrivals
 
 ```{r Paris Montparnasse num arriving late}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),

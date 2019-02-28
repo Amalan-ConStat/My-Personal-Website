@@ -43,9 +43,8 @@ small_trains &amp;lt;- read_csv(&amp;quot;small_trains.csv&amp;quot;)&lt;/code&g
 &lt;div id=&#34;paris-montparnasse&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Paris Montparnasse&lt;/h1&gt;
 &lt;p&gt;Let me focus on Montparnasse which has lot of trains coming towards and departuring outwards according to the network map. Not all are cities of France according to my observations, where I can see Madrid, Zurich and Barcelona.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-total-number-of-trips&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Total Number of Trips&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-total-number-of-trips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Total Number of Trips&lt;/h2&gt;
 &lt;p&gt;Total number of trips from Paris Montparnasse station to other cities is noted here. Four years of data with more accuracy by months is considered in this plot. There is clear variation in this data for cities.&lt;/p&gt;
 &lt;p&gt;Close to 800 trips have been recorded towards the Bordeaux St Jean city but not clearly the same pattern for all years or months as well. Further, St Malo city has the lowest amount of trips compared to other cities in all fours but follows a centered pattern around the 100 mark.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
@@ -59,8 +58,8 @@ small_trains &amp;lt;- read_csv(&amp;quot;small_trains.csv&amp;quot;)&lt;/code&g
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20total%20num%20of%20trips-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-average-journey-time&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Average Journey Time&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-average-journey-time&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Average Journey Time&lt;/h2&gt;
 &lt;p&gt;Except year 2017 all cities has similar and centered data points. In this exceptional year of 2017 we can see a difference between the first six months and rest. Where most of the Average journey times have been reduced, it is clear according to year 2018 points.&lt;/p&gt;
 &lt;p&gt;City of Toulouse Matabiau has the highest Average Journey Time, while lowest time goes to the city of Le Mans. So what happened after mid of year 2017.&lt;/p&gt;
 &lt;p&gt;Maximum Average Journey time before mid of year 2017 is close to 325 but after this period it is centered around 275. The Minimum Average Journey time before mid of year 2017 and after also it is close to 50.&lt;/p&gt;
@@ -75,8 +74,8 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20Journey%20time%20average-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-average-delay-with-all-departing&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Average Delay with All Departing&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-average-delay-with-all-departing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Average Delay with All Departing&lt;/h2&gt;
 &lt;p&gt;There is no clear pattern in perspective of months or years because data points are spread all over the place. Yet there is an odd occuring of negative values for average delay with all departing for some cities after mid of year 2017.&lt;/p&gt;
 &lt;p&gt;Well none of these negative values does not exceed -2.5, where the maximum average dealy in all departing is close to 5.5. I belive unit measured is in minutes.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
@@ -91,8 +90,9 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20avg%20delay%20all%20departing-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-average-delay-with-all-arriving&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Average Delay with All Arriving&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-average-delay-with-all-arriving&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Average Delay with All Arriving&lt;/h2&gt;
+&lt;p&gt;Highest delay could occur close to 18 minutes for average delay in Arriving and the lowest is close to -3. only in 2018 we see such negative values. These negative values occurs for the city of St Malo. Also there is no clear pattern in any city with relative to year or months.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
        aes(x=str_wrap(arrival_station,20),y=avg_delay_all_arriving,color=month))+
        geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
@@ -105,8 +105,8 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20avg%20delay%20all%20arriving-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-number-of-late-departures&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Number of Late Departures&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-number-of-late-departures&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Number of Late Departures&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
        aes(x=str_wrap(arrival_station,20),y=num_late_at_departure,
            color=month))+
@@ -118,8 +118,8 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20num%20late%20at%20departure-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;chosen-city-with-number-of-late-arrivals&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Chosen City with Number of Late Arrivals&lt;/h1&gt;
+&lt;div id=&#34;chosen-city-with-number-of-late-arrivals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chosen City with Number of Late Arrivals&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
        aes(x=str_wrap(arrival_station,20),y=num_arriving_late,
            color=month))+
@@ -130,6 +130,7 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 
 animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20num%20arriving%20late-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;departure-station-with-average-journey-time-and-total-number-of-trips&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Departure Station with Average Journey Time and Total Number of Trips&lt;/h1&gt;
