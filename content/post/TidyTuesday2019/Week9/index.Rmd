@@ -1,0 +1,20 @@
+---
+title: 'Week 9 : French Train Delays'
+author: M.Amalan
+date: '2019-02-28'
+slug: Week9
+ouptut:
+  blogdown::html_page:
+    toc: true
+categories:
+  - TidyTuesday
+tags:
+  - tidyverse
+  - TidyTuesday
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: "2019 Week 9 TidyTuesday: Train Delays in French Land"  
+---
+

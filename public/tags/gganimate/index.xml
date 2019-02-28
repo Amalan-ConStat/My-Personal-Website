@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 9 : French Train Delays</title>
+      <link>/post/tidytuesday2019/week9/week9/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week9/week9/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Week 8 : Phds Awarded in USA between 2008 and 2017</title>
