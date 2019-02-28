@@ -107,10 +107,13 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;chosen-city-with-number-of-late-departures&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Chosen City with Number of Late Departures&lt;/h2&gt;
+&lt;p&gt;Number of Late departures over the years increases for all cities. It is more clear for Bordeaux St Jean where the counts go beyond 150 and close to 200 in the year of 2018, but in 2015 the highest point is close to 75 for the same city.&lt;/p&gt;
+&lt;p&gt;St Malo has the lowest number of late departures where it fails to reach the count of 30 in all four years.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
        aes(x=str_wrap(arrival_station,20),y=num_late_at_departure,
            color=month))+
        geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       scale_y_continuous(breaks=seq(0,200,25),labels=seq(0,200,25))+
        transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
        xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Number of Lates at Departure&amp;quot;)+
        ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
