@@ -544,11 +544,13 @@ animate(p,nframes=4,fps=1)</code></pre>
 </div>
 <div id="chosen-city-with-number-of-late-arrivals" class="section level2">
 <h2>Chosen City with Number of Late Arrivals</h2>
+<p>City of St Malo has the lowest amount of late arrivals for all fours in general. Most amount of highest late arrivals occur in the city of Bordeaux St Jean. In year 2015 most of these data points are centered towards their specific values. In the next few years we can see that is not the case and they are with a lot of varation.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(small_trains,departure_station==&quot;PARIS MONTPARNASSE&quot;),
        aes(x=str_wrap(arrival_station,20),y=num_arriving_late,
            color=month))+
        geom_jitter()+coord_flip()+ labs(color=&quot;Month&quot;)+
        transition_time(year)+ease_aes(&quot;linear&quot;)+
+       scale_y_continuous(breaks=seq(0,200,20),labels=seq(0,200,20))+
        xlab(&quot;Arrival Station&quot;)+ylab(&quot;Number of Lates at Arriving&quot;)+
        ggtitle(&quot;Paris Montparnasse and its arrival Station&quot; ,subtitle =&quot;Year :{frame_time}&quot;)
 

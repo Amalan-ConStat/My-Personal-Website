@@ -173,12 +173,19 @@ animate(p,nframes=4,fps=1)
 
 ## Chosen City with Number of Late Arrivals
 
+City of St Malo has the lowest amount of late arrivals for all fours in general.
+Most amount of highest late arrivals occur in the city of Bordeaux St Jean. In 
+year 2015 most of these data points are centered towards their specific values. 
+In the next few years we can see that is not the case and they are with a lot of 
+varation.
+
 ```{r Paris Montparnasse num arriving late}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
        aes(x=str_wrap(arrival_station,20),y=num_arriving_late,
            color=month))+
        geom_jitter()+coord_flip()+ labs(color="Month")+
        transition_time(year)+ease_aes("linear")+
+       scale_y_continuous(breaks=seq(0,200,20),labels=seq(0,200,20))+
        xlab("Arrival Station")+ylab("Number of Lates at Arriving")+
        ggtitle("Paris Montparnasse and its arrival Station" ,subtitle ="Year :{frame_time}")
 
