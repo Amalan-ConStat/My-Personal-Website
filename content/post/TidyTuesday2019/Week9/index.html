@@ -20,18 +20,22 @@ summary: "2019 Week 9 TidyTuesday: Train Delays in French Land"
 
 
 
-<pre class="r"><code>library(readr)
+<pre class="r"><code># load the packages
+library(readr)
 library(tidyverse)
 library(gganimate)
 library(ggalluvial)
 library(geomnet)
 library(ggthemr)
 
+# load the theme
 ggthemr(&quot;fresh&quot;)
 
+# load the data
 small_trains &lt;- read_csv(&quot;small_trains.csv&quot;)</code></pre>
 <div id="network-graph-for-the-french-city-trains" class="section level1">
 <h1>Network Graph for the French City Trains</h1>
+<p>Simply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and departuring. Cities such as Paris Lyon, Paris Montparnasse, Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.</p>
 <pre class="r"><code>ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
           geom_net(directed = TRUE,labelon = TRUE,size=0.5,labelcolour = &quot;black&quot;,
                    repel = FALSE,ecolour = &quot;grey70&quot;, arrowsize = 0.75,
@@ -42,16 +46,19 @@ small_trains &lt;- read_csv(&quot;small_trains.csv&quot;)</code></pre>
 </div>
 <div id="paris-montparnasse" class="section level1">
 <h1>Paris Montparnasse</h1>
+<p>Let me focus on Montparnasse which has lot of trains coming towards and departuring outwards according to the network map. Not all are cities of France according to my observations, where I can see Madrid, Zurich and Barcelona.</p>
 </div>
 <div id="chosen-city-with-total-number-of-trips" class="section level1">
 <h1>Chosen City with Total Number of Trips</h1>
+<p>Total number of trips from Paris Montparnasse station to other cities is noted here. Four years of data with more accuracy by months is considered in this plot. There is clear variation in this data for cities.</p>
+<p>Close to 800 trips have been recorded towards the Bordeaux St Jean city but not clearly the same pattern for all years or months as well. Further, St Malo city has the lowest amount of trips compared to other cities in all fours but follows a centered pattern around the 100 mark.</p>
 <pre class="r"><code>p&lt;-ggplot(subset(small_trains,departure_station==&quot;PARIS MONTPARNASSE&quot;),
        aes(x=str_wrap(arrival_station,20),y=total_num_trips,color=month))+
        geom_jitter()+coord_flip()+ labs(color=&quot;Month&quot;)+
        transition_time(year)+ease_aes(&quot;linear&quot;)+
        scale_y_continuous(breaks = seq(0,800,100),labels=seq(0,800,100))+
-       ylab(&quot;Arrival Station&quot;)+xlab(&quot;Total Number of Trips&quot;)+
-       ggtitle(&quot;Paris Montparnasse and its arrival Station&quot; ,subtitle =&quot;Year :{frame_time}&quot;)
+       xlab(&quot;Arrival Station&quot;)+ylab(&quot;Total Number of Trips&quot;)+
+       ggtitle(&quot;Paris Montparnasse and its arrival Stations&quot; ,subtitle =&quot;Year :{frame_time}&quot;)
 
 animate(p,nframes=4,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20total%20num%20of%20trips-1.gif" /><!-- --></p>

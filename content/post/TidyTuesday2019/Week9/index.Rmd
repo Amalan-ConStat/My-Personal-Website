@@ -18,12 +18,12 @@ image:
 summary: "2019 Week 9 TidyTuesday: Train Delays in French Land"  
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,warning = FALSE, message = FALSE,fig.width = 12,fig.height = 12)
 ```
 
 ```{r load the data and packages}
+# load the packages
 library(readr)
 library(tidyverse)
 library(gganimate)
@@ -31,12 +31,18 @@ library(ggalluvial)
 library(geomnet)
 library(ggthemr)
 
+# load the theme
 ggthemr("fresh")
 
+# load the data
 small_trains <- read_csv("small_trains.csv")
 ```
 
 # Network Graph for the French City Trains
+
+Simply drawing a network graph to understand which french cities are mainly urban with 
+capacity to trains arriving and departuring. Cities such as Paris Lyon, Paris Montparnasse,
+Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.
 
 ```{r network graph, fig.width= 14,fig.height=14}
 ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
@@ -50,7 +56,19 @@ ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
 
 # Paris Montparnasse
 
+Let me focus on Montparnasse which has lot of trains coming towards and departuring outwards
+according to the network map. Not all are cities of France according to my observations, where
+I can see Madrid, Zurich and Barcelona. 
+
 # Chosen City with Total Number of Trips
+
+Total number of trips from Paris Montparnasse station to other cities is noted here.
+Four years of data with more accuracy by months is considered in this plot.
+There is clear variation in this data for cities. 
+
+Close to 800 trips have been recorded towards the Bordeaux St Jean city but not clearly the same
+pattern for all years or months as well. Further, St Malo city has the lowest amount of trips
+compared to other cities in all fours but follows a centered pattern around the 100 mark.
 
 ```{r Paris Montparnasse total num of trips}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
@@ -58,8 +76,8 @@ p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
        geom_jitter()+coord_flip()+ labs(color="Month")+
        transition_time(year)+ease_aes("linear")+
        scale_y_continuous(breaks = seq(0,800,100),labels=seq(0,800,100))+
-       ylab("Arrival Station")+xlab("Total Number of Trips")+
-       ggtitle("Paris Montparnasse and its arrival Station" ,subtitle ="Year :{frame_time}")
+       xlab("Arrival Station")+ylab("Total Number of Trips")+
+       ggtitle("Paris Montparnasse and its arrival Stations" ,subtitle ="Year :{frame_time}")
 
 animate(p,nframes=4,fps=1)
 ```
