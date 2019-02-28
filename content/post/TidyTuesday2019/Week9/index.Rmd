@@ -109,12 +109,18 @@ animate(p,nframes=4,fps=1)
 
 # Chosen City with Average Delay with All Departing
 
+There is no clear pattern in perspective of months or years because data points are spread
+all over the place. Yet there is an odd occuring of negative values for average delay with all
+departing for some cities after mid of year 2017. 
 
+Well none of these negative values does not exceed -2.5, where the maximum average dealy in 
+all departing is close to 5.5. I belive unit measured is in minutes.
 
 ```{r Paris Montparnasse avg delay all departing}
 p<-ggplot(subset(small_trains,departure_station=="PARIS MONTPARNASSE"),
        aes(x=str_wrap(arrival_station,20),y= avg_delay_all_departing,color=month))+
        geom_jitter()+coord_flip()+ labs(color="Month")+
+       scale_y_continuous(breaks=seq(-2.5,5.5,0.5),labels=seq(-2.5,5.5,0.5))+
        transition_time(year)+ease_aes("linear")+
        geom_hline(yintercept = 0,color="red")+
        xlab("Arrival Station")+ylab("Average Delay All Departing")+
