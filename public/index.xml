@@ -16,7 +16,165 @@
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week9/week9/</guid>
-      <description></description>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readr)
+library(tidyverse)
+library(gganimate)
+library(ggalluvial)
+library(geomnet)
+library(ggthemr)
+
+ggthemr(&amp;quot;fresh&amp;quot;)
+
+small_trains &amp;lt;- read_csv(&amp;quot;small_trains.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;network-graph-for-the-french-city-trains&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Network Graph for the French City Trains&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(small_trains,aes(from_id=departure_station,to_id=arrival_station))+
+          geom_net(directed = TRUE,labelon = TRUE,size=0.5,labelcolour = &amp;quot;black&amp;quot;,
+                   repel = FALSE,ecolour = &amp;quot;grey70&amp;quot;, arrowsize = 0.75,
+                   linewidth = 0.5,layout.alg = &amp;quot;fruchtermanreingold&amp;quot;)+
+          theme_net()+
+          ggtitle(&amp;quot;Network Graph Showing from City to City of French Trains&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/network%20graph-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;paris-montparnasse&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Paris Montparnasse&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-total-number-of-trips&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Total Number of Trips&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y=total_num_trips,color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       scale_y_continuous(breaks = seq(0,800,100),labels=seq(0,800,100))+
+       ylab(&amp;quot;Arrival Station&amp;quot;)+xlab(&amp;quot;Total Number of Trips&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20total%20num%20of%20trips-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-average-journey-time&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Average Journey Time&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y=journey_time_avg,color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Average Journey Time&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20Journey%20time%20average-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-average-delay-with-all-departing&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Average Delay with All Departing&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y= avg_delay_all_departing,color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       geom_hline(yintercept = 0,color=&amp;quot;red&amp;quot;)+
+       xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Average Delay All Departing&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20avg%20delay%20all%20departing-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-average-delay-with-all-arriving&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Average Delay with All Arriving&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y=avg_delay_all_arriving,color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       geom_hline(yintercept = 0,color=&amp;quot;red&amp;quot;)+
+       xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Average Delay All Arriving&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20avg%20delay%20all%20arriving-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-number-of-late-departures&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Number of Late Departures&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y=num_late_at_departure,
+           color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Number of Lates at Departure&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20num%20late%20at%20departure-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chosen-city-with-number-of-late-arrivals&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Chosen City with Number of Late Arrivals&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(subset(small_trains,departure_station==&amp;quot;PARIS MONTPARNASSE&amp;quot;),
+       aes(x=str_wrap(arrival_station,20),y=num_arriving_late,
+           color=month))+
+       geom_jitter()+coord_flip()+ labs(color=&amp;quot;Month&amp;quot;)+
+       transition_time(year)+ease_aes(&amp;quot;linear&amp;quot;)+
+       xlab(&amp;quot;Arrival Station&amp;quot;)+ylab(&amp;quot;Number of Lates at Arriving&amp;quot;)+
+       ggtitle(&amp;quot;Paris Montparnasse and its arrival Station&amp;quot; ,subtitle =&amp;quot;Year :{frame_time}&amp;quot;)
+
+animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Paris%20Montparnasse%20num%20arriving%20late-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;departure-station-with-average-journey-time-and-total-number-of-trips&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Departure Station with Average Journey Time and Total Number of Trips&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(small_trains,aes(x=journey_time_avg,y=total_num_trips,color=month))+
+      geom_point()+transition_states(departure_station)+labs(color=&amp;quot;Month&amp;quot;)+
+      ggtitle(&amp;quot;Average Journey Time and Total Number of Trips&amp;quot;,
+              subtitle=&amp;quot;Departure Station : {closest_state}&amp;quot;)+
+      scale_y_continuous(breaks=seq(0,900,50),labels=seq(0,900,50))+
+      scale_x_continuous(breaks=seq(0,500,50),labels=seq(0,500,50))+  
+      xlab(&amp;quot;Average Journey Time&amp;quot;)+ylab(&amp;quot;Total Number of Trips&amp;quot;)+
+      shadow_mark()
+
+animate(p,nframes=59,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/departure%20station%20with%20journey%20time%20avg%20and%20total%20num%20trips-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;departure-station-with-average-delay-all-departing-and-number-of-late-at-departures&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Departure Station with Average Delay All Departing and Number of Late at Departures&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(small_trains,aes(x=num_late_at_departure,y=avg_delay_all_departing,
+                           color=month))+
+      geom_point()+transition_states(departure_station)+labs(color=&amp;quot;Month&amp;quot;)+
+      ggtitle(&amp;quot;Average Delay at All Departing and Number of Lates at Departure&amp;quot;,
+              subtitle=&amp;quot;Departure Station : {closest_state}&amp;quot;)+
+      geom_vline(xintercept = 0,color=&amp;quot;red&amp;quot;)+
+      geom_hline(yintercept = 0,color=&amp;quot;red&amp;quot;)+
+      scale_y_continuous(breaks=seq(-5,175,5),labels=seq(-5,175,5))+
+      scale_x_continuous(breaks=seq(0,500,50),labels=seq(0,500,50))+  
+      xlab(&amp;quot;Number of Lates at Departure&amp;quot;)+ylab(&amp;quot;Average Delays at all Departing&amp;quot;)+
+      shadow_mark()
+
+animate(p,nframes=59,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/departure%20station%20with%20Number%20of%20late%20and%20average%20Delay-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;departure-station-with-average-delay-all-arriving-and-number-of-arriving-late&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Departure Station with Average Delay All Arriving and Number of Arriving Late&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(small_trains,aes(x=num_arriving_late,y=avg_delay_all_arriving,
+                           color=month))+
+      geom_point()+transition_states(departure_station)+labs(color=&amp;quot;Month&amp;quot;)+
+      ggtitle(&amp;quot;Average Delay at All Arriving and Number of Lates at Arriving&amp;quot;,
+              subtitle=&amp;quot;Departure Station : {closest_state}&amp;quot;)+
+      geom_vline(xintercept = 0,color=&amp;quot;red&amp;quot;)+
+      geom_hline(yintercept = 0,color=&amp;quot;red&amp;quot;)+
+      scale_y_continuous(breaks=seq(-150,40,5),labels=seq(-150,40,5))+
+      scale_x_continuous(breaks=seq(0,250,25),labels=seq(0,250,25))+  
+      xlab(&amp;quot;Number of Lates at Arriving&amp;quot;)+ylab(&amp;quot;Average Delays at all Arriving&amp;quot;)+
+      shadow_mark()
+
+animate(p,nframes=59,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/departure%20station%20with%20Number%20of%20Arriving%20late%20and%20average%20Delay%20arriving-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;delayed-cause-and-delayed-number&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Delayed Cause and Delayed Number&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;small_trains %&amp;gt;%
+    mutate(delay_cause = str_remove(delay_cause,&amp;quot;delay_cause_&amp;quot;)) %&amp;gt;%
+ggplot(.,aes(x=delay_cause,y=delayed_number))+
+      xlab(&amp;quot;Delay Cause&amp;quot;)+ylab(&amp;quot;Delayed Number&amp;quot;)+
+      ggtitle(&amp;quot;Delayed Causes and Delayed Number as percentage&amp;quot;)+
+      geom_jitter()+coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week9/index_files/figure-html/Delayed%20No%20and%20Delayed%20cause-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
