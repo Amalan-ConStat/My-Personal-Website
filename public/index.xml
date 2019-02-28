@@ -139,6 +139,7 @@ animate(p,nframes=4,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;departure-station-with-average-journey-time-and-total-number-of-trips&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Departure Station with Average Journey Time and Total Number of Trips&lt;/h1&gt;
+&lt;p&gt;Summary of this below plot is that when Average Journey Time increases clearly Total Number of Trips will decrease.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(small_trains,aes(x=journey_time_avg,y=total_num_trips,color=month))+
       geom_point()+transition_states(departure_station)+labs(color=&amp;quot;Month&amp;quot;)+
       ggtitle(&amp;quot;Average Journey Time and Total Number of Trips&amp;quot;,

@@ -194,6 +194,9 @@ animate(p,nframes=4,fps=1)
 
 # Departure Station with Average Journey Time and Total Number of Trips
 
+Summary of this below plot is that when Average Journey Time increases clearly
+Total Number of Trips will decrease. 
+
 ```{r departure station with journey time avg and total num trips}
 p<-ggplot(small_trains,aes(x=journey_time_avg,y=total_num_trips,color=month))+
       geom_point()+transition_states(departure_station)+labs(color="Month")+
