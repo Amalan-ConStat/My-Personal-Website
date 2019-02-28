@@ -42,8 +42,8 @@ small_trains <- read_csv("small_trains.csv")
 
 [Data set](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26)
 
-```{r tweet,include=FALSE}
-blogdown::shortcode("tweet","")
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1101039210298003456")
 ```
 
 # Network Graph for the French City Trains

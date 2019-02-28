@@ -20,7 +20,8 @@
       <guid>/post/tidytuesday2019/week9/week9/</guid>
       <description># load the packageslibrary(readr)library(tidyverse)library(gganimate)library(ggalluvial)library(geomnet)library(ggthemr)# load the themeggthemr(&amp;quot;fresh&amp;quot;)# load the datasmall_trains &amp;lt;- read_csv(&amp;quot;small_trains.csv&amp;quot;)GitHub Code
 Data set
-Network Graph for the French City TrainsSimply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and leaving. Cities such as Paris Lyon, Paris Montparnasse, Paris Nord and Paris Est could be cities of concern with much for traffic with related to trains.</description>
+When Journey Average Time increases the Total Number of Trips will decrease. Obviously. Code : https://t.co/qY2l10OraS #TidyTuesday pic.twitter.com/ZZn0l7E7WZ
+&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) February 28, 2019  Network Graph for the French City TrainsSimply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and leaving.</description>
     </item>
     
     <item>
