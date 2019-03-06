@@ -1,0 +1,20 @@
+---
+title: 'Week 10: Women in Workforce'
+author: M.Amalan
+date: '2019-03-06'
+slug: Week10
+output: 
+    blogdown::html_page:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - tidyverse
+  - TidyTuesday
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+Summary: "2019 TidyTuesday Week 10: Women in Workforce"  
+---
+
