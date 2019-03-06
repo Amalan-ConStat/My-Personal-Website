@@ -19,5 +19,299 @@ Summary: "2019 Week 10 TidyTuesday: Women in Workforce"
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#earnings-female">Earnings Female</a><ul>
+<li><a href="#all-other-age-groups">All other age groups</a></li>
+</ul></li>
+<li><a href="#employed-gender">Employed Gender</a><ul>
+<li><a href="#comparing-full-time-with-part-time">Comparing Full Time with Part Time</a></li>
+<li><a href="#male-occupants-with-full-time-and-part-time-work">Male Occupants with Full Time and Part Time Work</a></li>
+<li><a href="#female-occupants-with-full-time-and-part-time-work">Female Occupants with Full Time and Part Time Work</a></li>
+</ul></li>
+<li><a href="#jobs-gender">Jobs Gender</a><ul>
+<li><a href="#major-category">Major Category</a><ul>
+<li><a href="#major-category-and-total-workers">Major Category and Total Workers</a></li>
+<li><a href="#major-category-and-male-workers">Major Category and Male Workers</a></li>
+<li><a href="#major-category-and-female-workers">Major Category and Female Workers</a></li>
+<li><a href="#major-category-and-total-earnings-male-wage">Major Category and Total Earnings Male Wage</a></li>
+<li><a href="#major-category-and-total-earnings-female-wage">Major Category and Total Earnings Female Wage</a></li>
+<li><a href="#major-category-and-wage-percent-for-female-relative-to-male">Major Category and Wage Percent for Female relative to Male</a></li>
+</ul></li>
+<li><a href="#minor-category">Minor Category</a><ul>
+<li><a href="#minor-category-and-total-workers">Minor Category and Total Workers</a></li>
+<li><a href="#minor-category-and-male-workers">Minor Category and Male Workers</a></li>
+<li><a href="#minor-category-and-female-workers">Minor Category and Female Workers</a></li>
+<li><a href="#minor-category-and-total-earnings-male-wage">Minor Category and Total Earnings Male Wage</a></li>
+<li><a href="#minor-category-and-total-earnings-female-wage">Minor Category and Total Earnings Female Wage</a></li>
+<li><a href="#minor-category-and-wage-percent-for-female-relative-to-male">Minor Category and Wage Percent for Female relative to Male</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week10">GitHub Code</a></p>
+{{% tweet "1103226092352139264" %}}
+<pre class="r"><code>#load the packages
+library(tidyverse)
+library(gganimate)
+library(readr)
+library(ggthemr)
 
+# load the theme
+ggthemr(&quot;fresh&quot;)
+
+# load the data
+earnings_female &lt;- read_csv(&quot;earnings_female.csv&quot;)
+employed_gender &lt;- read_csv(&quot;employed_gender.csv&quot;)
+jobs_gender &lt;- read_csv(&quot;jobs_gender.csv&quot;)</code></pre>
+<div id="earnings-female" class="section level1">
+<h1>Earnings Female</h1>
+<div id="all-other-age-groups" class="section level2">
+<h2>All other age groups</h2>
+<pre class="r"><code>average&lt;-earnings_female %&gt;%
+         filter(group==&quot;Total, 16 years and older&quot;) %&gt;%
+         mutate(year=cut(Year,breaks = c(1978,1989,1999,2011),
+                  labels =c(&quot;1980s&quot;,&quot;1990s&quot;,&quot;2000s&quot;) ) ) %&gt;%
+        group_by(year) %&gt;%
+        summarize(Mean=mean(percent))
+
+earnings_female %&gt;%
+  filter(group!=&quot;Total, 16 years and older&quot;) %&gt;%
+ggplot(.,aes(Year,percent,color=group))+
+  geom_point()+geom_line()+
+  theme(legend.position = &quot;bottom&quot;)+
+  geom_hline(yintercept = average$Mean,color=c(&quot;red&quot;,&quot;maroon&quot;,&quot;brown&quot;),size=1.2)+
+  annotate(&quot;text&quot;,x=2010,y=68,label=&quot;1980s Average&quot;)+
+  annotate(&quot;text&quot;,x=1983,y=76,label=&quot;1990s Average&quot;)+
+  annotate(&quot;text&quot;,x=2008,y=80.5,label=&quot;2000s Average&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/except%20total-1.png" width="1344" /></p>
+</div>
+</div>
+<div id="employed-gender" class="section level1">
+<h1>Employed Gender</h1>
+<div id="comparing-full-time-with-part-time" class="section level2">
+<h2>Comparing Full Time with Part Time</h2>
+<pre class="r"><code>employed_gender %&gt;%
+  select(year,total_full_time,total_part_time) %&gt;%
+  gather(Type,percent,c(total_full_time,total_part_time)) %&gt;%
+ggplot(.,aes(year,percent,fill=Type,label=round(percent)))+
+  geom_col()+theme(legend.position = &quot;bottom&quot;)+
+  geom_text(nudge_y = -.75,color=&quot;white&quot;)+xlab(&quot;Year&quot;)+
+  ylab(&quot;Percentage&quot;)+
+  ggtitle(&quot;Total Work Force Full Time and Part Time&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/total%20full%20and%20part-1.png" width="1344" /></p>
+</div>
+<div id="male-occupants-with-full-time-and-part-time-work" class="section level2">
+<h2>Male Occupants with Full Time and Part Time Work</h2>
+<pre class="r"><code>employed_gender %&gt;%
+  select(year,full_time_male,part_time_male) %&gt;%
+  gather(Type,percent,c(full_time_male,part_time_male)) %&gt;%
+ggplot(.,aes(year,percent,fill=Type,label=round(percent)))+
+  geom_col()+theme(legend.position = &quot;bottom&quot;)+
+  geom_text(nudge_y = -.75,color=&quot;white&quot;)+xlab(&quot;Year&quot;)+
+  ylab(&quot;Percentage&quot;)+
+  ggtitle(&quot;Male Work Force Full Time and Part Time&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/male%20full%20and%20part-1.png" width="1344" /></p>
+</div>
+<div id="female-occupants-with-full-time-and-part-time-work" class="section level2">
+<h2>Female Occupants with Full Time and Part Time Work</h2>
+<pre class="r"><code>employed_gender %&gt;%
+  select(year,full_time_female,part_time_female) %&gt;%
+  gather(Type,percent,c(full_time_female,part_time_female)) %&gt;%
+ggplot(.,aes(year,percent,fill=Type,label=round(percent)))+
+  geom_col()+theme(legend.position = &quot;bottom&quot;)+
+  geom_text(nudge_y = -.75,color=&quot;white&quot;)+xlab(&quot;Year&quot;)+
+  ylab(&quot;Percentage&quot;)+
+  ggtitle(&quot;Female Work Force Full Time and Part Time&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/female%20full%20and%20part-1.png" width="1344" /></p>
+</div>
+</div>
+<div id="jobs-gender" class="section level1">
+<h1>Jobs Gender</h1>
+<div id="major-category" class="section level2">
+<h2>Major Category</h2>
+<div id="major-category-and-total-workers" class="section level3">
+<h3>Major Category and Total Workers</h3>
+<pre class="r"><code>jg_avg&lt;-jobs_gender %&gt;%
+        select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+        group_by(year,major_category) %&gt;%
+        group_by(year) %&gt;%
+        summarize_if(is.numeric,funs(mean),na.rm=TRUE)
+
+p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),total_workers,label=round(total_workers,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+  
+  ggtitle(&quot;Total Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Total Workers&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20total%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="major-category-and-male-workers" class="section level3">
+<h3>Major Category and Male Workers</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),workers_male,label=round(workers_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+  
+  ggtitle(&quot;Male Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Male Workers&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20male%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="major-category-and-female-workers" class="section level3">
+<h3>Major Category and Female Workers</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),workers_female,label=round(workers_female,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+  
+  ggtitle(&quot;Female Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Female Workers&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20female%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="major-category-and-total-earnings-male-wage" class="section level3">
+<h3>Major Category and Total Earnings Male Wage</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),total_earnings_male,label=round(total_earnings_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;) +
+  ggtitle(&quot;Total Earnings Male Wage changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Total Earnings Male&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20earnings%20male-1.gif" /><!-- --></p>
+</div>
+<div id="major-category-and-total-earnings-female-wage" class="section level3">
+<h3>Major Category and Total Earnings Female Wage</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),total_earnings_female,label=round(total_earnings_female)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+
+  ggtitle(&quot;Total Earnings Female Wage changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Total Earnings Female&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20earnings%20female-1.gif" /><!-- --></p>
+</div>
+<div id="major-category-and-wage-percent-for-female-relative-to-male" class="section level3">
+<h3>Major Category and Wage Percent for Female relative to Male</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;minor_category&quot;))) %&gt;%
+     group_by(year,major_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(major_category,12),wage_percent_of_male,
+             label=round(wage_percent_of_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+
+  ggtitle(&quot;Wage Percent of Female relative to Male changing Over time&quot;,
+          subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Major Category&quot;)+ylab(&quot;Relative Percentage&quot;)+geom_text(vjust=-1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/major%20category%20and%20wage%20percent%20for%20Female%20relative%20to%20Male-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="minor-category" class="section level2">
+<h2>Minor Category</h2>
+<div id="minor-category-and-total-workers" class="section level3">
+<h3>Minor Category and Total Workers</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,20),total_workers,label=round(total_workers,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+coord_flip()+
+  ggtitle(&quot;Total Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Total Workers&quot;)+geom_text(hjust=&quot;inward&quot;)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20total%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="minor-category-and-male-workers" class="section level3">
+<h3>Minor Category and Male Workers</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,20),workers_male,label=round(workers_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+coord_flip()+
+  ggtitle(&quot;Male Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Male Workers&quot;)+geom_text(hjust=&quot;inward&quot;)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20male%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="minor-category-and-female-workers" class="section level3">
+<h3>Minor Category and Female Workers</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,20),workers_female,label=round(workers_female,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+coord_flip()+
+  ggtitle(&quot;Female Workers changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Female Workers&quot;)+geom_text(hjust=&quot;inward&quot;)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20female%20workers-1.gif" /><!-- --></p>
+</div>
+<div id="minor-category-and-total-earnings-male-wage" class="section level3">
+<h3>Minor Category and Total Earnings Male Wage</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,20),total_earnings_male,label=round(total_earnings_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+coord_flip()+
+  ggtitle(&quot;Total Earnings Male Wage changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Total earnings Male&quot;)+geom_text(hjust=&quot;inward&quot;)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20total%20earnings%20male%20wage-1.gif" /><!-- --></p>
+</div>
+<div id="minor-category-and-total-earnings-female-wage" class="section level3">
+<h3>Minor Category and Total Earnings Female Wage</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,20),total_earnings_female,label=round(total_earnings_female,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+coord_flip()+
+  ggtitle(&quot;Total Earnings Female Wage changing Over time&quot;,subtitle = &quot;Year :{frame_time}&quot;)+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Total earnings Female&quot;)+geom_text(hjust=&quot;inward&quot;)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20total%20earnings%20female%20wage-1.gif" /><!-- --></p>
+</div>
+<div id="minor-category-and-wage-percent-for-female-relative-to-male" class="section level3">
+<h3>Minor Category and Wage Percent for Female relative to Male</h3>
+<pre class="r"><code>p&lt;-jobs_gender %&gt;%
+     select(-one_of(c(&quot;occupation&quot;,&quot;major_category&quot;))) %&gt;%
+     group_by(year,minor_category) %&gt;%
+     summarise_all(funs(mean),na.rm=TRUE) %&gt;%
+ggplot(.,aes(str_wrap(minor_category,18),wage_percent_of_male,
+             label=round(wage_percent_of_male,2)))+
+  geom_col()+transition_time(year)+ease_aes(&quot;linear&quot;)+
+  ggtitle(&quot;Wage Percent of Female relative to Male changing Over time&quot;,
+          subtitle = &quot;Year :{frame_time}&quot;)+coord_flip()+
+  xlab(&quot;Minor Category&quot;)+ylab(&quot;Relative Percentage&quot;)+geom_text(hjust=1)
+
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week10/index_files/figure-html/minor%20category%20and%20wage%20percent%20for%20Female%20relative%20to%20Male-1.gif" /><!-- --></p>
+<p><em>THANK YOU</em></p>
+</div>
+</div>
+</div>
