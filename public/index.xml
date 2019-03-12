@@ -166,6 +166,7 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;maximum-no-of-players-and-average-rating&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Maximum No of Players and Average Rating&lt;/h1&gt;
+&lt;p&gt;Next is plotting the variables Maximum No of Players and Average Rating. Where over the time period from 1950 to 2016 the data is plotted here. There is three stages of plotting here also. Below is the code and plots.&lt;/p&gt;
 &lt;div id=&#34;general-2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;General&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(board_games,aes(max_players,average_rating))+

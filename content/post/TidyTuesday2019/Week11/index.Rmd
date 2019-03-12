@@ -162,7 +162,9 @@ animate(p,nframes=67,fps=1)
 
 # Maximum No of Players and Average Rating
 
-
+Next is plotting the variables Maximum No of Players and Average Rating. Where over the time period
+from 1950 to 2016 the data is plotted here. There is three stages of plotting here also. Below is the 
+code and plots.
 
 ## General
 
