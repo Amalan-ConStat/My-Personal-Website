@@ -260,7 +260,7 @@ in my perspective.
 
 ## General and Category 1
 
-```{r Category and rating 1}
+```{r Category and rating 1,fig.width=11,fig.height=11}
 p<-board_games %>%
    select(year_published,category,average_rating) %>%
    cSplit("category",sep=",") %>%
@@ -278,7 +278,7 @@ animate(p,fps=1,nframes=54)
 
 ## General and Category 2 
 
-```{r Category and rating 2}
+```{r Category and rating 2,fig.width=11,fig.height=11}
 p<-board_games %>%
    select(year_published,category,average_rating) %>%
    cSplit("category",sep=",") %>%
