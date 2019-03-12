@@ -218,7 +218,10 @@ animate(p,nframes=67,fps=1)
 
 # Average Rating and Users Rated
 
-## General 
+Now I am focusing on Average Rating with Users Rated, where the former is in a scale from 1 to 10 and
+the latter is just count.
+
+## Animated 
 
 ```{r Average Rating vs Users rated 1}
 p<-ggplot(board_games,aes(average_rating,users_rated))+
@@ -227,14 +230,14 @@ p<-ggplot(board_games,aes(average_rating,users_rated))+
           ylab("Users Rated")+
           xlab("Average Rating")+
           scale_x_continuous(breaks=seq(0,10,.5),labels = seq(0,10,.5))+
-          scale_y_continuous(breaks = seq(0,60000,5000),labels=seq(0,60000,5000))+
+          scale_y_continuous(breaks = seq(0,70000,2500),labels=seq(0,70000,2500))+
           ggtitle("Average Rating vs Users Rated",
                   subtitle ="Year :{frame_time}" )
 
 animate(p,nframes=67,fps=1)
 ```
 
-## Scrutinized
+## Not Animated
 
 ```{r Average Rating vs Users rated 2}
 ggplot(board_games,aes(average_rating,users_rated,color=year_published))+

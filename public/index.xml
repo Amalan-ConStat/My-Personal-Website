@@ -34,12 +34,12 @@
 &lt;li&gt;&lt;a href=&#34;#more-scrutinized-2&#34;&gt;More Scrutinized&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#average-rating-and-users-rated&#34;&gt;Average Rating and Users Rated&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#general-3&#34;&gt;General&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#scrutinized-3&#34;&gt;Scrutinized&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#animated&#34;&gt;Animated&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#not-animated&#34;&gt;Not Animated&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#category-and-rating&#34;&gt;Category and Rating&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#general-4&#34;&gt;General&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#scrutinized-4&#34;&gt;Scrutinized&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-3&#34;&gt;General&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#scrutinized-3&#34;&gt;Scrutinized&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -217,23 +217,24 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;average-rating-and-users-rated&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Average Rating and Users Rated&lt;/h1&gt;
-&lt;div id=&#34;general-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;General&lt;/h2&gt;
+&lt;p&gt;Now I am focusing on Average Rating with Users Rated, where the former is in a scale from 1 to 10 and the latter is just count.&lt;/p&gt;
+&lt;div id=&#34;animated&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Animated&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(board_games,aes(average_rating,users_rated))+
           geom_point()+transition_time(year_published)+
           ease_aes(&amp;quot;linear&amp;quot;)+
           ylab(&amp;quot;Users Rated&amp;quot;)+
           xlab(&amp;quot;Average Rating&amp;quot;)+
           scale_x_continuous(breaks=seq(0,10,.5),labels = seq(0,10,.5))+
-          scale_y_continuous(breaks = seq(0,60000,5000),labels=seq(0,60000,5000))+
+          scale_y_continuous(breaks = seq(0,70000,2500),labels=seq(0,70000,2500))+
           ggtitle(&amp;quot;Average Rating vs Users Rated&amp;quot;,
                   subtitle =&amp;quot;Year :{frame_time}&amp;quot; )
 
 animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week11/index_files/figure-html/Average%20Rating%20vs%20Users%20rated%201-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;scrutinized-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scrutinized&lt;/h2&gt;
+&lt;div id=&#34;not-animated&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Not Animated&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(board_games,aes(average_rating,users_rated,color=year_published))+
           geom_point(alpha=0.85)+
           labs(color=&amp;quot;Year&amp;quot;)+
@@ -248,7 +249,7 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;category-and-rating&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Category and Rating&lt;/h1&gt;
-&lt;div id=&#34;general-4&#34; class=&#34;section level2&#34;&gt;
+&lt;div id=&#34;general-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;General&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-board_games %&amp;gt;%
    select(year_published,category,average_rating) %&amp;gt;%
@@ -265,7 +266,7 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,fps=1,nframes=54)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week11/index_files/figure-html/Category%20and%20rating%201-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;scrutinized-4&#34; class=&#34;section level2&#34;&gt;
+&lt;div id=&#34;scrutinized-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scrutinized&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-board_games %&amp;gt;%
    select(year_published,category,average_rating) %&amp;gt;%
