@@ -1,0 +1,26 @@
+---
+title: 'Week 11 : Board Games'
+author: M.Amalan
+date: '2019-03-12'
+slug: Week11
+output: 
+    blogdown::html_page:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - tidyverse
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: "2019 Week 11 TidyTuesday: Board Games"  
+---
+
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1105389530008317952")
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11)
+
