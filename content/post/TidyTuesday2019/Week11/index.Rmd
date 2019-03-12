@@ -38,7 +38,10 @@ ggthemr("chalk")
 board_games <- read_csv("board_games.csv")
 ```
 
-
+Board Games data-set contains a lot of variables yet i will be focusing on only a few of them here.
+They are category, year_published, average_rating, users_rated, max_players, max_playtime, min_players 
+and min_playtime. Mostly the plots will identify patterns how over the years variables change with the 
+help of jitter/point plots. Slightly above 10,000 observations are in this data-set
 
 ```{r tweet,echo=FALSE}
 blogdown::shortcode("tweet","1105389530008317952")
@@ -47,6 +50,9 @@ blogdown::shortcode("tweet","1105389530008317952")
 [GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11)
 
 # Minimum No of Players and Minimum Play Time
+
+If we consider minimum no of players and minimum play time we can see how the data points are 
+spread out. In order to understand clearly we have changed the limits of x-axis and y-axis twice.
 
 ## General 
 
@@ -100,6 +106,8 @@ animate(p,nframes=67,fps=1)
 
 
 # Maximum No of Players and Maximimum Play Time
+
+
 
 ## General 
 

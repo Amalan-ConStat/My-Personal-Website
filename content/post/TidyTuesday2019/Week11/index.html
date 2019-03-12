@@ -60,10 +60,12 @@ ggthemr(&quot;chalk&quot;)
 
 # load the data
 board_games &lt;- read_csv(&quot;board_games.csv&quot;)</code></pre>
+<p>Board Games data-set contains a lot of variables yet i will be focusing on only a few of them here. They are category, year_published, average_rating, users_rated, max_players, max_playtime, min_players and min_playtime. Mostly the plots will identify patterns how over the years variables change with the help of jitter/point plots. Slightly above 10,000 observations are in this data-set</p>
 {{% tweet "1105389530008317952" %}}
 <p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11">GitHub Code</a></p>
 <div id="minimum-no-of-players-and-minimum-play-time" class="section level1">
 <h1>Minimum No of Players and Minimum Play Time</h1>
+<p>If we consider minimum no of players and minimum play time we can see how the data points are spread out. In order to understand clearly we have changed the limits of x-axis and y-axis twice.</p>
 <div id="general" class="section level2">
 <h2>General</h2>
 <pre class="r"><code>p&lt;-ggplot(board_games,aes(min_players,min_playtime))+

@@ -57,12 +57,14 @@ ggthemr(&amp;quot;chalk&amp;quot;)
 
 # load the data
 board_games &amp;lt;- read_csv(&amp;quot;board_games.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Board Games data-set contains a lot of variables yet i will be focusing on only a few of them here. They are category, year_published, average_rating, users_rated, max_players, max_playtime, min_players and min_playtime. Mostly the plots will identify patterns how over the years variables change with the help of jitter/point plots. Slightly above 10,000 observations are in this data-set&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; In the mid-2010s, card games as the first category are higher!!!!!!!!!!. Code: &lt;a href=&#34;https://t.co/1e5zotWApC&#34;&gt;https://t.co/1e5zotWApC&lt;/a&gt; &lt;a href=&#34;https://t.co/QebdFPAJuE&#34;&gt;pic.twitter.com/QebdFPAJuE&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1105389530008317952?ref_src=twsrc%5Etfw&#34;&gt;March 12, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;minimum-no-of-players-and-minimum-play-time&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Minimum No of Players and Minimum Play Time&lt;/h1&gt;
+&lt;p&gt;If we consider minimum no of players and minimum play time we can see how the data points are spread out. In order to understand clearly we have changed the limits of x-axis and y-axis twice.&lt;/p&gt;
 &lt;div id=&#34;general&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;General&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(board_games,aes(min_players,min_playtime))+
