@@ -105,9 +105,10 @@ animate(p,nframes=67,fps=1)
 ```
 
 
-# Maximum No of Players and Maximimum Play Time
+# Maximum No of Players and Maximmum Play Time
 
-
+Similarly, we are generating three plots to understand how Maximum No of Players and 
+Maximum Play Time is behaving. Below are the three plots.
 
 ## General 
 
@@ -160,6 +161,8 @@ animate(p,nframes=67,fps=1)
 ```
 
 # Maximum No of Players and Average Rating
+
+
 
 ## General
 
