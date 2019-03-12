@@ -29,12 +29,18 @@ summary: "2019 Week 11 TidyTuesday: Board Games"
 </ul>
 </div>
 
-<pre class="r"><code>library(readr)
+<pre class="r"><code># load the packages
+library(readr)
 library(tidyverse)
 library(tidylog)
 library(gganimate)
 library(splitstackshape)
+library(ggthemr)
 
+# load the theme
+ggthemr(&quot;chalk&quot;)
+
+# load the data
 board_games &lt;- read_csv(&quot;board_games.csv&quot;)</code></pre>
 {{% tweet "1105389530008317952" %}}
 <p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11">GitHub Code</a></p>

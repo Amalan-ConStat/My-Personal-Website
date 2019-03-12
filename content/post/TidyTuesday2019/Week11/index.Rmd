@@ -23,12 +23,18 @@ knitr::opts_chunk$set(echo = TRUE,fig.height = 10,fig.width = 10,message = FALSE
 ```
 
 ```{r load the packages and data}
+# load the packages
 library(readr)
 library(tidyverse)
 library(tidylog)
 library(gganimate)
 library(splitstackshape)
+library(ggthemr)
 
+# load the theme
+ggthemr("chalk")
+
+# load the data
 board_games <- read_csv("board_games.csv")
 ```
 

@@ -26,12 +26,18 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readr)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages
+library(readr)
 library(tidyverse)
 library(tidylog)
 library(gganimate)
 library(splitstackshape)
+library(ggthemr)
 
+# load the theme
+ggthemr(&amp;quot;chalk&amp;quot;)
+
+# load the data
 board_games &amp;lt;- read_csv(&amp;quot;board_games.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; In the mid-2010s, card games as the first category are higher!!!!!!!!!!. Code: &lt;a href=&#34;https://t.co/1e5zotWApC&#34;&gt;https://t.co/1e5zotWApC&lt;/a&gt; &lt;a href=&#34;https://t.co/QebdFPAJuE&#34;&gt;pic.twitter.com/QebdFPAJuE&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1105389530008317952?ref_src=twsrc%5Etfw&#34;&gt;March 12, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
