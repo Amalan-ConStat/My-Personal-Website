@@ -18,7 +18,7 @@
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week11/week11/</guid>
-      <description>Minimum No of Players and Minimum Play TimeMaximum No of Players and Maximimum Play TimeMaximum No of Players and Average RatingAverage Rating and Users RatedCategory and Rating# load the packageslibrary(readr)library(tidyverse)library(tidylog)library(gganimate)library(splitstackshape)library(ggthemr)# load the themeggthemr(&amp;quot;chalk&amp;quot;)# load the databoard_games &amp;lt;- read_csv(&amp;quot;board_games.csv&amp;quot;)#TidyTuesday In the mid-2010s, card games as the first category are higher!!!!!!!!!!. Code: https://t.co/1e5zotWApC pic.</description>
+      <description>Minimum No of Players and Minimum Play TimeGeneralScrutinizedMore ScrutinizedMaximum No of Players and Maximimum Play TimeGeneralScrutinizedMore ScrutinizedMaximum No of Players and Average RatingGeneralScrutinizedMore ScrutinizedAverage Rating and Users RatedGeneralScrutinizedCategory and RatingGeneralScrutinized# load the packageslibrary(readr)library(tidyverse)library(tidylog)library(gganimate)library(splitstackshape)library(ggthemr)# load the themeggthemr(&amp;quot;chalk&amp;quot;)# load the databoard_games &amp;lt;- read_csv(&amp;quot;board_games.</description>
     </item>
     
     <item>

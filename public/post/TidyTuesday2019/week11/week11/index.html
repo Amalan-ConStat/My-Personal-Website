@@ -439,11 +439,29 @@
     <div class="article-style" itemprop="articleBody">
       <div id="TOC">
 <ul>
-<li><a href="#minimum-no-of-players-and-minimum-play-time">Minimum No of Players and Minimum Play Time</a></li>
-<li><a href="#maximum-no-of-players-and-maximimum-play-time">Maximum No of Players and Maximimum Play Time</a></li>
-<li><a href="#maximum-no-of-players-and-average-rating">Maximum No of Players and Average Rating</a></li>
-<li><a href="#average-rating-and-users-rated">Average Rating and Users Rated</a></li>
-<li><a href="#category-and-rating">Category and Rating</a></li>
+<li><a href="#minimum-no-of-players-and-minimum-play-time">Minimum No of Players and Minimum Play Time</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#scrutinized">Scrutinized</a></li>
+<li><a href="#more-scrutinized">More Scrutinized</a></li>
+</ul></li>
+<li><a href="#maximum-no-of-players-and-maximimum-play-time">Maximum No of Players and Maximimum Play Time</a><ul>
+<li><a href="#general-1">General</a></li>
+<li><a href="#scrutinized-1">Scrutinized</a></li>
+<li><a href="#more-scrutinized-1">More Scrutinized</a></li>
+</ul></li>
+<li><a href="#maximum-no-of-players-and-average-rating">Maximum No of Players and Average Rating</a><ul>
+<li><a href="#general-2">General</a></li>
+<li><a href="#scrutinized-2">Scrutinized</a></li>
+<li><a href="#more-scrutinized-2">More Scrutinized</a></li>
+</ul></li>
+<li><a href="#average-rating-and-users-rated">Average Rating and Users Rated</a><ul>
+<li><a href="#general-3">General</a></li>
+<li><a href="#scrutinized-3">Scrutinized</a></li>
+</ul></li>
+<li><a href="#category-and-rating">Category and Rating</a><ul>
+<li><a href="#general-4">General</a></li>
+<li><a href="#scrutinized-4">Scrutinized</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -466,6 +484,8 @@ board_games &lt;- read_csv(&quot;board_games.csv&quot;)</code></pre>
 <p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11">GitHub Code</a></p>
 <div id="minimum-no-of-players-and-minimum-play-time" class="section level1">
 <h1>Minimum No of Players and Minimum Play Time</h1>
+<div id="general" class="section level2">
+<h2>General</h2>
 <pre class="r"><code>p&lt;-ggplot(board_games,aes(min_players,min_playtime))+
           geom_jitter()+transition_time(year_published)+
           ease_aes(&quot;linear&quot;)+
@@ -478,6 +498,9 @@ board_games &lt;- read_csv(&quot;board_games.csv&quot;)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/min%20players%20and%20min%20play%20time%201-1.gif" /><!-- --></p>
+</div>
+<div id="scrutinized" class="section level2">
+<h2>Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games, min_playtime &lt; 5000) %&gt;%
    ggplot(.,aes(min_players,min_playtime))+
           geom_jitter()+transition_time(year_published)+
@@ -491,6 +514,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/min%20players%20and%20min%20play%20time%202-1.gif" /><!-- --></p>
+</div>
+<div id="more-scrutinized" class="section level2">
+<h2>More Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games, min_playtime &lt; 500) %&gt;%
    ggplot(.,aes(min_players,min_playtime))+
           geom_jitter()+transition_time(year_published)+
@@ -505,8 +531,11 @@ animate(p,nframes=67,fps=1)</code></pre>
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/min%20players%20and%20min%20play%20time%203-1.gif" /><!-- --></p>
 </div>
+</div>
 <div id="maximum-no-of-players-and-maximimum-play-time" class="section level1">
 <h1>Maximum No of Players and Maximimum Play Time</h1>
+<div id="general-1" class="section level2">
+<h2>General</h2>
 <pre class="r"><code>p&lt;-ggplot(board_games,aes(max_players,max_playtime))+
           geom_jitter()+transition_time(year_published)+
           ease_aes(&quot;linear&quot;)+
@@ -519,6 +548,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/max%20players%20and%20max%20play%20time%201-1.gif" /><!-- --></p>
+</div>
+<div id="scrutinized-1" class="section level2">
+<h2>Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games,max_players&lt; 125 &amp; max_playtime &lt; 10000) %&gt;%
    ggplot(.,aes(max_players,max_playtime))+
           geom_jitter()+transition_time(year_published)+
@@ -532,6 +564,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/max%20players%20and%20max%20play%20time%202-1.gif" /><!-- --></p>
+</div>
+<div id="more-scrutinized-1" class="section level2">
+<h2>More Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games,max_players&lt; 15 &amp; max_playtime &lt; 1000) %&gt;%
    ggplot(.,aes(max_players,max_playtime))+
           geom_jitter()+transition_time(year_published)+
@@ -546,8 +581,11 @@ animate(p,nframes=67,fps=1)</code></pre>
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/max%20players%20and%20max%20play%20time%203-1.gif" /><!-- --></p>
 </div>
+</div>
 <div id="maximum-no-of-players-and-average-rating" class="section level1">
 <h1>Maximum No of Players and Average Rating</h1>
+<div id="general-2" class="section level2">
+<h2>General</h2>
 <pre class="r"><code>p&lt;-ggplot(board_games,aes(max_players,average_rating))+
           geom_jitter()+transition_time(year_published)+
           ease_aes(&quot;linear&quot;)+
@@ -560,6 +598,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/maximum%20players%20and%20avg%20rating%201-1.gif" /><!-- --></p>
+</div>
+<div id="scrutinized-2" class="section level2">
+<h2>Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games,max_players &lt;75 ) %&gt;%
    ggplot(.,aes(max_players,average_rating))+
           geom_jitter()+transition_time(year_published)+
@@ -573,6 +614,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/maximum%20players%20and%20avg%20rating%202-1.gif" /><!-- --></p>
+</div>
+<div id="more-scrutinized-2" class="section level2">
+<h2>More Scrutinized</h2>
 <pre class="r"><code>p&lt;-subset(board_games,max_players &lt;15 ) %&gt;%
    ggplot(.,aes(max_players,average_rating))+
           geom_jitter()+transition_time(year_published)+
@@ -587,8 +631,11 @@ animate(p,nframes=67,fps=1)</code></pre>
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/maximum%20players%20and%20avg%20rating%203-1.gif" /><!-- --></p>
 </div>
+</div>
 <div id="average-rating-and-users-rated" class="section level1">
 <h1>Average Rating and Users Rated</h1>
+<div id="general-3" class="section level2">
+<h2>General</h2>
 <pre class="r"><code>p&lt;-ggplot(board_games,aes(average_rating,users_rated))+
           geom_point()+transition_time(year_published)+
           ease_aes(&quot;linear&quot;)+
@@ -601,6 +648,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,nframes=67,fps=1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/Average%20Rating%20vs%20Users%20rated%201-1.gif" /><!-- --></p>
+</div>
+<div id="scrutinized-3" class="section level2">
+<h2>Scrutinized</h2>
 <pre class="r"><code>ggplot(board_games,aes(average_rating,users_rated,color=year_published))+
           geom_point(alpha=0.85)+
           labs(color=&quot;Year&quot;)+
@@ -612,8 +662,11 @@ animate(p,nframes=67,fps=1)</code></pre>
                   subtitle =&quot;Year : 1950 to 2016&quot; )</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/Average%20Rating%20vs%20Users%20rated%202-1.png" width="960" /></p>
 </div>
+</div>
 <div id="category-and-rating" class="section level1">
 <h1>Category and Rating</h1>
+<div id="general-4" class="section level2">
+<h2>General</h2>
 <pre class="r"><code>p&lt;-board_games %&gt;%
    select(year_published,category,average_rating) %&gt;%
    cSplit(&quot;category&quot;,sep=&quot;,&quot;) %&gt;%
@@ -628,6 +681,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 
 animate(p,fps=1,nframes=54)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/Category%20and%20rating%201-1.gif" /><!-- --></p>
+</div>
+<div id="scrutinized-4" class="section level2">
+<h2>Scrutinized</h2>
 <pre class="r"><code>p&lt;-board_games %&gt;%
    select(year_published,category,average_rating) %&gt;%
    cSplit(&quot;category&quot;,sep=&quot;,&quot;) %&gt;%
@@ -643,6 +699,7 @@ animate(p,fps=1,nframes=54)</code></pre>
 animate(p,fps=1,nframes=54)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/Category%20and%20rating%202-1.gif" /><!-- --></p>
 <p><em>THANK YOU</em></p>
+</div>
 </div>
 
     </div>

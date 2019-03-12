@@ -38,6 +38,8 @@ ggthemr("chalk")
 board_games <- read_csv("board_games.csv")
 ```
 
+
+
 ```{r tweet,echo=FALSE}
 blogdown::shortcode("tweet","1105389530008317952")
 ```
@@ -45,6 +47,8 @@ blogdown::shortcode("tweet","1105389530008317952")
 [GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week11)
 
 # Minimum No of Players and Minimum Play Time
+
+## General 
 
 ```{r min players and min play time 1}
 p<-ggplot(board_games,aes(min_players,min_playtime))+
@@ -60,6 +64,8 @@ p<-ggplot(board_games,aes(min_players,min_playtime))+
 animate(p,nframes=67,fps=1)
 ```
 
+## Scrutinized
+
 ```{r min players and min play time 2}
 p<-subset(board_games, min_playtime < 5000) %>%
    ggplot(.,aes(min_players,min_playtime))+
@@ -74,6 +80,8 @@ p<-subset(board_games, min_playtime < 5000) %>%
 
 animate(p,nframes=67,fps=1)
 ```
+
+## More Scrutinized
 
 ```{r min players and min play time 3}
 p<-subset(board_games, min_playtime < 500) %>%
@@ -93,6 +101,8 @@ animate(p,nframes=67,fps=1)
 
 # Maximum No of Players and Maximimum Play Time
 
+## General 
+
 ```{r max players and max play time 1}
 p<-ggplot(board_games,aes(max_players,max_playtime))+
           geom_jitter()+transition_time(year_published)+
@@ -106,6 +116,8 @@ p<-ggplot(board_games,aes(max_players,max_playtime))+
 
 animate(p,nframes=67,fps=1)
 ```
+
+## Scrutinized
 
 ```{r max players and max play time 2}
 p<-subset(board_games,max_players< 125 & max_playtime < 10000) %>%
@@ -121,6 +133,8 @@ p<-subset(board_games,max_players< 125 & max_playtime < 10000) %>%
 
 animate(p,nframes=67,fps=1)
 ```
+
+## More Scrutinized
 
 ```{r max players and max play time 3}
 p<-subset(board_games,max_players< 15 & max_playtime < 1000) %>%
@@ -139,6 +153,8 @@ animate(p,nframes=67,fps=1)
 
 # Maximum No of Players and Average Rating
 
+## General
+
 ```{r maximum players and avg rating 1}
 p<-ggplot(board_games,aes(max_players,average_rating))+
           geom_jitter()+transition_time(year_published)+
@@ -152,6 +168,8 @@ p<-ggplot(board_games,aes(max_players,average_rating))+
 
 animate(p,nframes=67,fps=1)
 ```
+
+## Scrutinized 
 
 ```{r maximum players and avg rating 2}
 p<-subset(board_games,max_players <75 ) %>%
@@ -167,6 +185,8 @@ p<-subset(board_games,max_players <75 ) %>%
 
 animate(p,nframes=67,fps=1)
 ```
+
+## More Scrutinized
 
 ```{r maximum players and avg rating 3}
 p<-subset(board_games,max_players <15 ) %>%
@@ -185,6 +205,8 @@ animate(p,nframes=67,fps=1)
 
 # Average Rating and Users Rated
 
+## General 
+
 ```{r Average Rating vs Users rated 1}
 p<-ggplot(board_games,aes(average_rating,users_rated))+
           geom_point()+transition_time(year_published)+
@@ -199,6 +221,8 @@ p<-ggplot(board_games,aes(average_rating,users_rated))+
 animate(p,nframes=67,fps=1)
 ```
 
+## Scrutinized
+
 ```{r Average Rating vs Users rated 2}
 ggplot(board_games,aes(average_rating,users_rated,color=year_published))+
           geom_point(alpha=0.85)+
@@ -212,6 +236,8 @@ ggplot(board_games,aes(average_rating,users_rated,color=year_published))+
 ```
 
 # Category and Rating
+
+## General
 
 ```{r Category and rating 1}
 p<-board_games %>%
@@ -229,6 +255,7 @@ p<-board_games %>%
 animate(p,fps=1,nframes=54)
 ```
 
+## Scrutinized 
 
 ```{r Category and rating 2}
 p<-board_games %>%
