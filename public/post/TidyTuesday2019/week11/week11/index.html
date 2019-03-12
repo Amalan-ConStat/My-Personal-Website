@@ -459,8 +459,8 @@
 <li><a href="#not-animated">Not Animated</a></li>
 </ul></li>
 <li><a href="#category-and-rating">Category and Rating</a><ul>
-<li><a href="#general-3">General</a></li>
-<li><a href="#scrutinized-3">Scrutinized</a></li>
+<li><a href="#general-and-category-1">General and Category 1</a></li>
+<li><a href="#general-and-category-2">General and Category 2</a></li>
 </ul></li>
 </ul>
 </div>
@@ -670,8 +670,9 @@ animate(p,nframes=67,fps=1)</code></pre>
 </div>
 <div id="category-and-rating" class="section level1">
 <h1>Category and Rating</h1>
-<div id="general-3" class="section level2">
-<h2>General</h2>
+<p>Finally, there are two plots which focuses on board games which has average rating above 7 with category. Even though a game can have multiple categories here I have chosen the first four while ignoring the others. Because most of the games do not have a third category it would be pointless in my perspective.</p>
+<div id="general-and-category-1" class="section level2">
+<h2>General and Category 1</h2>
 <pre class="r"><code>p&lt;-board_games %&gt;%
    select(year_published,category,average_rating) %&gt;%
    cSplit(&quot;category&quot;,sep=&quot;,&quot;) %&gt;%
@@ -687,8 +688,8 @@ animate(p,nframes=67,fps=1)</code></pre>
 animate(p,fps=1,nframes=54)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week11/index_files/figure-html/Category%20and%20rating%201-1.gif" /><!-- --></p>
 </div>
-<div id="scrutinized-3" class="section level2">
-<h2>Scrutinized</h2>
+<div id="general-and-category-2" class="section level2">
+<h2>General and Category 2</h2>
 <pre class="r"><code>p&lt;-board_games %&gt;%
    select(year_published,category,average_rating) %&gt;%
    cSplit(&quot;category&quot;,sep=&quot;,&quot;) %&gt;%

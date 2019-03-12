@@ -253,7 +253,12 @@ ggplot(board_games,aes(average_rating,users_rated,color=year_published))+
 
 # Category and Rating
 
-## General
+Finally, there are two plots which focuses on board games which has average rating above 7 with
+category. Even though a game can have multiple categories here I have chosen the first four while 
+ignoring the others. Because most of the games do not have a third category it would be pointless
+in my perspective.
+
+## General and Category 1
 
 ```{r Category and rating 1}
 p<-board_games %>%
@@ -271,7 +276,7 @@ p<-board_games %>%
 animate(p,fps=1,nframes=54)
 ```
 
-## Scrutinized 
+## General and Category 2 
 
 ```{r Category and rating 2}
 p<-board_games %>%

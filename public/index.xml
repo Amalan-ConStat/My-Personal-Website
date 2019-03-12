@@ -38,8 +38,8 @@
 &lt;li&gt;&lt;a href=&#34;#not-animated&#34;&gt;Not Animated&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#category-and-rating&#34;&gt;Category and Rating&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#general-3&#34;&gt;General&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#scrutinized-3&#34;&gt;Scrutinized&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-and-category-1&#34;&gt;General and Category 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-and-category-2&#34;&gt;General and Category 2&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -249,8 +249,9 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;category-and-rating&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Category and Rating&lt;/h1&gt;
-&lt;div id=&#34;general-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;General&lt;/h2&gt;
+&lt;p&gt;Finally, there are two plots which focuses on board games which has average rating above 7 with category. Even though a game can have multiple categories here I have chosen the first four while ignoring the others. Because most of the games do not have a third category it would be pointless in my perspective.&lt;/p&gt;
+&lt;div id=&#34;general-and-category-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;General and Category 1&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-board_games %&amp;gt;%
    select(year_published,category,average_rating) %&amp;gt;%
    cSplit(&amp;quot;category&amp;quot;,sep=&amp;quot;,&amp;quot;) %&amp;gt;%
@@ -266,8 +267,8 @@ animate(p,nframes=67,fps=1)&lt;/code&gt;&lt;/pre&gt;
 animate(p,fps=1,nframes=54)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week11/index_files/figure-html/Category%20and%20rating%201-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;scrutinized-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scrutinized&lt;/h2&gt;
+&lt;div id=&#34;general-and-category-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;General and Category 2&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-board_games %&amp;gt;%
    select(year_published,category,average_rating) %&amp;gt;%
    cSplit(&amp;quot;category&amp;quot;,sep=&amp;quot;,&amp;quot;) %&amp;gt;%
