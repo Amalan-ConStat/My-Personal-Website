@@ -1,0 +1,20 @@
+---
+title: 'Week 13 : Pets In Seattle'
+author: M.Amalan
+date: '2019-03-27'
+slug: Week13
+output:
+  blogdown::html_page:
+    toc: true
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - tidyverse
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: '2019 Week 13 TidyTuesday: Pets of Seattle '  
+---
+
