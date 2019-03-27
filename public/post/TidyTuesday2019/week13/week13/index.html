@@ -437,7 +437,277 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
+      <div id="TOC">
+<ul>
+<li><a href="#yearly-change">Yearly Change</a><ul>
+<li><a href="#zipcode-counts-over-the-years">Zipcode Counts Over the Years</a></li>
+<li><a href="#species-counts-over-the-years">Species Counts Over the Years</a></li>
+<li><a href="#primary-breed-over-the-years">Primary Breed Over the Years</a></li>
+<li><a href="#animals-name-over-the-years">Animals Name Over the Years</a></li>
+</ul></li>
+<li><a href="#zipcode-and-choices">ZipCode and Choices</a><ul>
+<li><a href="#zipcode-with-choices-of-species">Zipcode with choices of Species</a></li>
+<li><a href="#zipcode-with-choices-of-primary-breed">Zipcode with choices of Primary Breed</a></li>
+<li><a href="#zipcode-with-choices-of-animals-name">Zipcode with choices of Animals Name</a></li>
+</ul></li>
+<li><a href="#primary-and-secondary-breed-choices-over-the-years">Primary and Secondary Breed Choices Over the Years</a></li>
+<li><a href="#species-and-name-choices-for-animals">Species and Name choices for Animals</a></li>
+</ul>
+</div>
+
+<pre class="r"><code>library(readr)
+library(tidyverse)
+library(gganimate)
+library(splitstackshape)
+library(forcats)
+library(ggthemr)
+
+ggthemr(&quot;flat dark&quot;)
+seattle_pets &lt;- read_csv(&quot;seattle_pets.csv&quot;)</code></pre>
+<div id="yearly-change" class="section level1">
+<h1>Yearly Change</h1>
+<div id="zipcode-counts-over-the-years" class="section level2">
+<h2>Zipcode Counts Over the Years</h2>
+<pre class="r"><code>p&lt;-seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(zip_code,Year) %&gt;%
+   group_by(Year) %&gt;%
+   count(zip_code) %&gt;%
+   remove_missing() %&gt;%
+   subset(Year &gt;=2010) %&gt;%
+   top_n(25) %&gt;%
+ggplot(.,aes(x= fct_infreq(zip_code),y=n,fill=factor(Year)))+
+  geom_col()+transition_time(Year)+ease_aes(&quot;linear&quot;) +
+  coord_flip()+xlab(&quot;Zip code&quot;)+ylab(&quot; Count&quot;)+
+  labs(fill=&quot;Year&quot;)+
+  scale_y_continuous(breaks=seq(0,3000,250),labels = seq(0,3000,250))+
+  ggtitle(&quot;Zip Code Over the Years&quot;,subtitle=&quot;Year : {frame_time}&quot;)
+
+animate(p,fps=1,nframes=7)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/ZC%20with%20Years-1.gif" /><!-- --></p>
+</div>
+<div id="species-counts-over-the-years" class="section level2">
+<h2>Species Counts Over the Years</h2>
+<pre class="r"><code>seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(species,Year) %&gt;%
+   subset(Year &gt;=2016) %&gt;%
+   group_by(Year) %&gt;%
+   count(species) %&gt;%
+ggplot(.,aes(x= species,y=n,fill=factor(Year),label=n))+
+  geom_col()+geom_text()+
+  transition_states(Year,transition_length = 2,state_length = 2)+
+  enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)+
+  xlab(&quot;Species&quot;)+ylab(&quot;Count&quot;)+ labs(fill=&quot;Year&quot;)+
+  scale_y_continuous(breaks=seq(0,23000,1000),labels=seq(0,23000,1000))+
+  ggtitle(&quot;Species Over the Years&quot;,subtitle = &quot;Year: {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/Species%20with%20Years-1.gif" /><!-- --></p>
+</div>
+<div id="primary-breed-over-the-years" class="section level2">
+<h2>Primary Breed Over the Years</h2>
+<pre class="r"><code>p&lt;-seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(primary_breed,Year) %&gt;%
+   group_by(Year) %&gt;%
+   count(primary_breed) %&gt;%
+   remove_missing() %&gt;%
+   subset(Year &gt;=2010) %&gt;%
+   top_n(15) %&gt;%
+ggplot(.,aes(x= str_wrap(primary_breed,20),y=n,label=n,fill=factor(Year)))+
+  geom_col()+transition_time(Year)+ease_aes(&quot;linear&quot;) +
+  coord_flip()+geom_text()+labs(fill=&quot;Year&quot;)+
+  xlab(&quot;Primary Breed&quot;)+ylab(&quot;Count&quot;)+
+  scale_y_continuous(breaks=seq(0,6000,500),labels=seq(0,6000,500))+
+  ggtitle(&quot;Primary Breed Over the Years&quot;,subtitle = &quot;Year : {frame_time}&quot;)
+
+animate(p,fps=1,nframes=8)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/Primary%20Breed%20with%20Years-1.gif" /><!-- --></p>
+</div>
+<div id="animals-name-over-the-years" class="section level2">
+<h2>Animals Name Over the Years</h2>
+<pre class="r"><code>p&lt;-seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(animals_name,Year) %&gt;%
+   group_by(Year) %&gt;%
+   count(animals_name) %&gt;%
+   remove_missing() %&gt;%
+   subset(Year &gt;=2010) %&gt;%
+   top_n(5) %&gt;%
+ggplot(.,aes(x= fct_infreq(animals_name),y=n,fill=factor(Year),label=n))+
+  geom_col()+transition_time(Year)+ease_aes(&quot;linear&quot;) +
+  coord_flip()+geom_text()+labs(fill=&quot;Year&quot;)+
+  xlab(&quot;Animals Name&quot;)+ylab(&quot;Count&quot;)+
+  scale_y_continuous(breaks = seq(0,275,25),labels=seq(0,275,25))+
+  ggtitle(&quot;Animales N ame Over the Years&quot;,
+          subtitle = &quot;Year : {frame_time}&quot;)
+
+animate(p,fps=1,nframes=8)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/Names%20with%20Years-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="zipcode-and-choices" class="section level1">
+<h1>ZipCode and Choices</h1>
+<div id="zipcode-with-choices-of-species" class="section level2">
+<h2>Zipcode with choices of Species</h2>
+<pre class="r"><code>p&lt;-seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(zip_code,species,Year,Month) %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   cSplit(&quot;zip_code&quot;,sep = &quot;-&quot;) %&gt;%
+   remove_missing() %&gt;%
+   unite(&quot;zip_code&quot;,c(&quot;zip_code_1&quot;,&quot;zip_code_2&quot;)) %&gt;%
+ggplot(.,aes(x=factor(Month),y=factor(zip_code),
+             shape=species,color=factor(Year)))+geom_jitter()+
+      transition_time(Year)+ ease_aes(&quot;linear&quot;)+
+      ggtitle(&quot;Zipcode vs Species of Choice &quot;,
+              subtitle = &quot;Year : {frame_time}&quot;)+
+      shadow_mark()+xlab(&quot;Month&quot;)+ylab(&quot;Zip Code&quot;)+
+      labs(color=&quot;Year&quot;,shape=&quot;Species&quot;)
       
+animate(p,nframes=4,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/ZC%20with%20Species%201-1.gif" /><!-- --></p>
+<pre class="r"><code>a&lt;-seattle_pets %&gt;%
+   count(zip_code) %&gt;%
+   top_n(10)
+
+seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(zip_code,species,Year,Month) %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   subset(zip_code %in% c(a$zip_code)) %&gt;%
+ggplot(.,aes(x=species,y=zip_code,color=Month))+geom_jitter()+
+      transition_states(Year,transition_length = 2,state_length = 3)+
+      enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)+
+      xlab(&quot;Species&quot;)+ylab(&quot;Zip Code&quot;)+
+      ggtitle(&quot;Top 10 Zipcodes vs Species of Choice &quot;,
+              subtitle = &quot;Year : {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/ZC%20with%20Species%20top%2010-1.gif" /><!-- --></p>
+</div>
+<div id="zipcode-with-choices-of-primary-breed" class="section level2">
+<h2>Zipcode with choices of Primary Breed</h2>
+<pre class="r"><code>b&lt;-seattle_pets %&gt;%
+   count(primary_breed) %&gt;%
+   top_n(10)
+
+seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(zip_code,primary_breed,Year,Month) %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   subset(zip_code %in% c(a$zip_code)) %&gt;%
+   subset(primary_breed %in% c(b$primary_breed)) %&gt;%
+ggplot(.,aes(x=str_wrap(primary_breed,10),y=zip_code,color=Month))+
+      geom_jitter()+
+      transition_states(Year,transition_length = 2,state_length = 3)+
+      enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)+
+      xlab(&quot;Primary Breed&quot;)+ylab(&quot;Zip Code&quot;)+
+      ggtitle(&quot;Top 10 Zipcode and Primary Breed of Choice &quot;,
+              subtitle = &quot;Year : {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/ZC%20with%20Primary%20Breed%20top%2010-1.gif" /><!-- --></p>
+</div>
+<div id="zipcode-with-choices-of-animals-name" class="section level2">
+<h2>Zipcode with choices of Animals Name</h2>
+<pre class="r"><code>d&lt;-seattle_pets %&gt;%
+   count(animals_name) %&gt;%
+   top_n(10)
+
+e&lt;-seattle_pets %&gt;%
+   count(zip_code) %&gt;%
+   top_n(15)
+
+seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(zip_code,animals_name,Year,Month) %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   subset(zip_code %in% c(e$zip_code)) %&gt;%
+   subset(animals_name %in% c(d$animals_name)) %&gt;%
+ggplot(.,aes(x=animals_name,y=zip_code,color=Month))+geom_jitter()+
+      transition_states(Year,transition_length = 2,state_length = 3)+
+      enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)+
+      xlab(&quot;Animals Name&quot;)+ylab(&quot;Zip Code&quot;)+
+      ggtitle(&quot;Top 10 Zipcode and Top 15 Animals Name of Choice &quot;,
+              subtitle = &quot;Year : {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/ZC%20with%20Animals%20Name%20top%2010-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="primary-and-secondary-breed-choices-over-the-years" class="section level1">
+<h1>Primary and Secondary Breed Choices Over the Years</h1>
+<pre class="r"><code>a&lt;-seattle_pets %&gt;%
+   count(primary_breed) %&gt;%
+   top_n(10)
+
+b&lt;-seattle_pets %&gt;%
+   count(secondary_breed) %&gt;%
+   top_n(10)
+
+seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(primary_breed,secondary_breed,Year,Month) %&gt;%
+   remove_missing() %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   subset(primary_breed %in% c(a$primary_breed)) %&gt;%
+   subset(secondary_breed %in% c(b$secondary_breed)) %&gt;%
+ggplot(.,aes(x=str_wrap(primary_breed,12),y=str_wrap(secondary_breed,12),
+             color=Month))+
+      geom_jitter()+xlab(&quot;Primary Breed&quot;)+ylab(&quot;Second Breed&quot;)+
+      transition_states(Year,transition_length = 2,state_length = 3)+
+      enter_fade() + exit_shrink() +ease_aes(&quot;back-in&quot;)+
+      #theme(axis.text.x = element_text(angle = 270))+
+      ggtitle(&quot;Top 10 Primary and Secondary Breeds&quot;, 
+              subtitle = &quot;Year : {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/Primary%20and%20Secondary%20Breed-1.gif" /><!-- --></p>
+</div>
+<div id="species-and-name-choices-for-animals" class="section level1">
+<h1>Species and Name choices for Animals</h1>
+<pre class="r"><code>b&lt;-seattle_pets %&gt;%
+   count(animals_name) %&gt;%
+   top_n(15)
+
+seattle_pets %&gt;%
+   cSplit(&quot;license_issue_date&quot;,sep = &quot; &quot;) %&gt;%
+   rename(Month =license_issue_date_1) %&gt;%
+   rename(Day = license_issue_date_2) %&gt;%
+   rename(Year = license_issue_date_3) %&gt;%
+   select(species,animals_name,Year,Month) %&gt;%
+   remove_missing() %&gt;%
+   mutate(Month = as.integer(Month)) %&gt;%
+   subset(animals_name %in% c(b$animals_name)) %&gt;%
+ggplot(.,aes(y=animals_name,x=species,color=Month))+geom_jitter()+
+      transition_states(Year,transition_length = 2,state_length = 3)+
+      enter_fade() + exit_shrink() +ease_aes(&quot;back-in&quot;)+
+      ylab(&quot;Animals Name&quot;)+xlab(&quot;Species&quot;)+
+      ggtitle(&quot;Animals Name and Species&quot;, 
+              subtitle = &quot;Year : {closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week13/index_files/figure-html/Species%20and%20Name%20Choices-1.gif" /><!-- --></p>
+<p><em>THANK YOU</em></p>
+</div>
+
     </div>
 
     
