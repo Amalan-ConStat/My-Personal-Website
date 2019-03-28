@@ -43,6 +43,10 @@ library(ggthemr)
 
 ggthemr(&amp;quot;flat dark&amp;quot;)
 seattle_pets &amp;lt;- read_csv(&amp;quot;seattle_pets.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Daisy is a name no longer used after 2016 even though it is popular before that and a sudden surge from 2017 towards registering pets.  &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/bnYSgnkhac&#34;&gt;pic.twitter.com/bnYSgnkhac&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1111090496372391937?ref_src=twsrc%5Etfw&#34;&gt;March 28, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week13&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;yearly-change&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Yearly Change&lt;/h1&gt;
 &lt;div id=&#34;zipcode-counts-over-the-years&#34; class=&#34;section level2&#34;&gt;
