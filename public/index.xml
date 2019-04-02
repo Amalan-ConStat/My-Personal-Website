@@ -16,11 +16,376 @@
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week14/week14/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::shortcode(&amp;quot;tweet&amp;quot;,&amp;quot;1113036696214495232&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(dplyr)
+library(gganimate)
+library(ggthemr)
+library(splitstackshape)
+library(lubridate)
+library(readr)
+
+bike_traffic &amp;lt;- read_csv(&amp;quot;bike_traffic.csv&amp;quot;)
+
+#bike_traffic &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-02/bike_traffic.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::shortcode(&amp;quot;tweet&amp;quot;,&amp;quot;1113036696214495232&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Burke Gilman Trail, Elliot Bay Trail and MTS Trail are crossings having a higher average count of bikes than others over the Years while plotting them under days of a week.  &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/wCj6PLv8DM&#34;&gt;pic.twitter.com/wCj6PLv8DM&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1113036696214495232?ref_src=twsrc%5Etfw&#34;&gt;April 2, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week14&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;crossing-vs-direction-with-morning-or-evening-for-everyday&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Crossing vs Direction with Morning or Evening for Everyday&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      select(DMY,MorE,direction,crossing,bike_count) %&amp;gt;%
+ggplot(.,aes(x=direction,y=str_wrap(crossing,15),
+             color=MorE,size=bike_count))+
+      geom_jitter()+
+      xlab(&amp;quot;Direction&amp;quot;)+ylab(&amp;quot;Crossing&amp;quot;)+
+      transition_time(DMY)+ease_aes(&amp;quot;linear&amp;quot;)+
+      ggtitle(&amp;quot;Crossing and Direction for Bike Count&amp;quot;,
+              subtitle = &amp;quot;Date: {frame_time}&amp;quot;)
+
+animate(p,nframes=1899,fps=1)      &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/crossing%20vs%20direction%20with%20M%20or%20E%20and%20bikecount-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;averag-bike-count-in-different-time-laps&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Averag Bike Count in Different Time Laps&lt;/h1&gt;
+&lt;div id=&#34;monthly-average-bike-count-for-everyday-with-am-or-pm&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Monthly Average Bike Count for Everyday with AM or PM&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      summarise(Average=mean(bike_count,na.rm = TRUE)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Month),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      scale_y_continuous(labels=seq(0,175,5),breaks=seq(0,175,5))+
+      xlab(&amp;quot;Month&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Dayly%20Average%20Bike%20Count%20by%20M%20or%20E-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;day-by-average-bike-count-for-everyday-with-am-or-pm&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Day by Average Bike Count for Everyday with AM or PM&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      summarise(Average=mean(bike_count,na.rm = TRUE)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Day),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+coord_flip()+
+      scale_y_continuous(labels=seq(0,170,10),breaks=seq(0,170,10))+
+      xlab(&amp;quot;Day&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Day%20and%20Year%20Averge%20Bike%20Count%20by%20M%20or%20E-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hourly-average-bike-count-for-every-month-with-am-or-pm&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hourly Average Bike Count for Every Month with AM or PM&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Hour=hour(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Hour) %&amp;gt;%
+      summarise(Average=mean(bike_count,na.rm = TRUE)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Hour),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Hour&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,55,5),breaks=seq(0,55,5))+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Hourly%20and%20Year%20Average%20Bike%20Count%20by%20M%20or%20E-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pedestrian-count-with-different-time-laps&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Pedestrian Count With Different Time Laps&lt;/h1&gt;
+&lt;div id=&#34;monthly-pedestrian-count-for-everyday-with-am-or-pm-when-true&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Monthly Pedestrian Count for Everyday with AM or PM when TRUE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      subset(ped_count==TRUE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Month),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Month&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,22.5,2.5),breaks=seq(0,22.5,2.5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Daily%20Pedestrian%20Count%20by%20M%20or%20E%20when%20TRUE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;monthly-pedestrian-count-for-everyday-with-am-or-pm-when-false&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Monthly Pedestrian Count for Everyday with AM or PM when FALSE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      subset(ped_count==FALSE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Month),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Month&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,75,5),breaks=seq(0,75,5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Daily%20Pedestrian%20Count%20by%20M%20or%20E%20when%20FALSE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;day-by-pedestrian-count-for-everyday-with-am-or-pm-when-true&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Day by Pedestrian Count for Everyday with AM or PM when TRUE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      subset(ped_count==TRUE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Day),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+coord_flip()+
+      xlab(&amp;quot;Day&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,22.5,2.5),breaks=seq(0,22.5,2.5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Day%20and%20Year%20Pedestrian%20Count%20by%20M%20or%20E%20when%20TRUE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;day-by-pedestrian-count-for-everyday-with-am-or-pm-when-false&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Day by Pedestrian Count for Everyday with AM or PM when FALSE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Day=day(DMY)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Day) %&amp;gt;%
+      subset(ped_count==FALSE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Day),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+coord_flip()+
+      xlab(&amp;quot;Day&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,70,5),breaks=seq(0,70,5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Day%20and%20Year%20Pedestrian%20Count%20by%20M%20or%20E%20when%20FALSE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hourly-pedestrian-count-for-every-month-with-am-or-pm-when-true&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hourly Pedestrian Count for Every Month with AM or PM when TRUE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Hour=hour(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Hour) %&amp;gt;%
+      subset(ped_count==TRUE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Hour),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Hour&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,60,5),breaks=seq(0,60,5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Hourly%20and%20Year%20Pedestrian%20Count%20by%20M%20or%20E%20when%20TRUE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hourly-pedestrian-count-for-every-month-with-am-or-pm-when-false&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hourly Pedestrian Count for Every Month with AM or PM when FALSE&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Hour=hour(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,Hour) %&amp;gt;%
+      subset(ped_count==TRUE) %&amp;gt;%
+      summarise(Average=summary.factor(ped_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=factor(Hour),color=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Hour&amp;quot;)+ylab(&amp;quot;Pedestrian Count&amp;quot;)+
+      scale_y_continuous(labels=seq(0,60,5),breaks=seq(0,60,5))+
+      ggtitle(&amp;quot;Pedestrian Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Hourly%20and%20Year%20Pedestrian%20Count%20by%20M%20or%20E%20when%20FALSE-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;average-bike-count-with-crossings&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Average Bike Count with Crossings&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,crossing) %&amp;gt;%
+      summarise(Average=mean(bike_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=str_wrap(crossing,8),
+             color=Month,shape=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Crossing&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Yearly%20Average%20Bike%20Count%20by%20M%20or%20E%20for%20Crossings-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;average-bike-count-with-directions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Average Bike Count with Directions&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      group_by(MorE,Year,Month,direction) %&amp;gt;%
+      summarise(Average=mean(bike_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=str_wrap(direction,10),
+             color=Month,shape=MorE))+
+      geom_jitter()+transition_time(Year)+
+      ease_aes(&amp;quot;linear&amp;quot;)+
+      xlab(&amp;quot;Direction&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Yearly%20Average%20Bike%20Count%20by%20M%20or%20E%20for%20direction-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;average-bike-count-with-crossings-by-day&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Average Bike Count with Crossings by Day&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      mutate(Wday=wday(DMY,label=TRUE)) %&amp;gt;%
+      group_by(Year,Month,Wday,crossing) %&amp;gt;%
+      summarise(Average=mean(bike_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=Wday,color=Month))+
+      geom_jitter()+transition_time(Year)+
+      theme(legend.position = &amp;quot;bottom&amp;quot;,axis.text.x = element_text(hjust=1,angle = 45))+
+      ease_aes(&amp;quot;linear&amp;quot;)+facet_grid(~str_wrap(crossing,10))+
+      xlab(&amp;quot;Day of the week&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Yearly%20Average%20Bike%20Count%20by%20M%20or%20E%20with%20days%20for%20Crossings-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;average-bike-count-with-directions-by-day&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Average Bike Count with Directions by Day&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-bike_traffic %&amp;gt;%
+      cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%
+      rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%
+      rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%
+      mutate(DMY=mdy(DMY)) %&amp;gt;%
+      mutate(HMS=hms(HMS)) %&amp;gt;%
+      mutate(Year=year(DMY)) %&amp;gt;%
+      mutate(Month=month(DMY)) %&amp;gt;%
+      mutate(Wday=wday(DMY,label=TRUE)) %&amp;gt;%
+      group_by(Year,Month,Wday,direction) %&amp;gt;%
+      summarise(Average=mean(bike_count)) %&amp;gt;%
+ggplot(.,aes(y=Average,x=Wday,color=Month))+
+      geom_jitter()+transition_time(Year)+
+      theme(legend.position = &amp;quot;bottom&amp;quot;)+
+      ease_aes(&amp;quot;linear&amp;quot;)+facet_grid(~direction)+
+      xlab(&amp;quot;Day of the Week&amp;quot;)+ylab(&amp;quot;Average Bike Count&amp;quot;)+
+      ggtitle(&amp;quot;Average Bike Count changing with Time&amp;quot;,
+              subtitle = &amp;quot;Year : {frame_time}&amp;quot;)
+  
+animate(p,nframes=7,fps=1)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week14/index_files/figure-html/Monthly%20and%20Yearly%20Average%20Bike%20Count%20by%20M%20or%20E%20with%20days%20for%20Direction-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

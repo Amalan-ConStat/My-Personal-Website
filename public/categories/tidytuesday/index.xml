@@ -18,8 +18,9 @@
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week14/week14/</guid>
-      <description>blogdown::shortcode(&amp;quot;tweet&amp;quot;,&amp;quot;1113036696214495232&amp;quot;)Burke Gilman Trail, Elliot Bay Trail and MTS Trail are crossings having a higher average count of bikes than others over the Years while plotting them under days of a week. #TidyTuesday pic.twitter.com/wCj6PLv8DM
-&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) April 2, 2019  GitHub Code</description>
+      <description>library(tidyverse)library(dplyr)library(gganimate)library(ggthemr)library(splitstackshape)library(lubridate)library(readr)bike_traffic &amp;lt;- read_csv(&amp;quot;bike_traffic.csv&amp;quot;)#bike_traffic &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-02/bike_traffic.csv&amp;quot;)blogdown::shortcode(&amp;quot;tweet&amp;quot;,&amp;quot;1113036696214495232&amp;quot;)Burke Gilman Trail, Elliot Bay Trail and MTS Trail are crossings having a higher average count of bikes than others over the Years while plotting them under days of a week. #TidyTuesday pic.twitter.com/wCj6PLv8DM
+&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) April 2, 2019  GitHub Code
+Crossing vs Direction with Morning or Evening for Everydayp&amp;lt;-bike_traffic %&amp;gt;%cSplit(&amp;quot;date&amp;quot;,sep=&amp;quot; &amp;quot;) %&amp;gt;%rename(&amp;quot;DMY&amp;quot;=&amp;quot;date_1&amp;quot;) %&amp;gt;%rename(&amp;quot;HMS&amp;quot;=&amp;quot;date_2&amp;quot;) %&amp;gt;%rename(&amp;quot;MorE&amp;quot;=&amp;quot;date_3&amp;quot;) %&amp;gt;%mutate(DMY=mdy(DMY)) %&amp;gt;%mutate(HMS=hms(HMS)) %&amp;gt;%select(DMY,MorE,direction,crossing,bike_count) %&amp;gt;%ggplot(.</description>
     </item>
     
     <item>
