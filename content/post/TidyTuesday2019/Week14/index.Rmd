@@ -1,0 +1,20 @@
+---
+title: 'Week 14 : Seattle Bikes'
+author: M.Amalan
+date: '2019-04-02'
+slug: Week14
+output: 
+    blogdown::html_output:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - tidyverse
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: "2019 Week 14 TidyTuesday: Seattle Bike Data"  
+---
+
