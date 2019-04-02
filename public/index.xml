@@ -16,7 +16,30 @@
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week14/week14/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#crossing-vs-direction-with-morning-or-evening-for-everyday&#34;&gt;Crossing vs Direction with Morning or Evening for Everyday&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#averag-bike-count-in-different-time-laps&#34;&gt;Averag Bike Count in Different Time Laps&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#monthly-average-bike-count-for-everyday-with-am-or-pm&#34;&gt;Monthly Average Bike Count for Everyday with AM or PM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#day-by-average-bike-count-for-everyday-with-am-or-pm&#34;&gt;Day by Average Bike Count for Everyday with AM or PM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hourly-average-bike-count-for-every-month-with-am-or-pm&#34;&gt;Hourly Average Bike Count for Every Month with AM or PM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pedestrian-count-with-different-time-laps&#34;&gt;Pedestrian Count With Different Time Laps&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#monthly-pedestrian-count-for-everyday-with-am-or-pm-when-true&#34;&gt;Monthly Pedestrian Count for Everyday with AM or PM when TRUE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#monthly-pedestrian-count-for-everyday-with-am-or-pm-when-false&#34;&gt;Monthly Pedestrian Count for Everyday with AM or PM when FALSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#day-by-pedestrian-count-for-everyday-with-am-or-pm-when-true&#34;&gt;Day by Pedestrian Count for Everyday with AM or PM when TRUE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#day-by-pedestrian-count-for-everyday-with-am-or-pm-when-false&#34;&gt;Day by Pedestrian Count for Everyday with AM or PM when FALSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hourly-pedestrian-count-for-every-month-with-am-or-pm-when-true&#34;&gt;Hourly Pedestrian Count for Every Month with AM or PM when TRUE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hourly-pedestrian-count-for-every-month-with-am-or-pm-when-false&#34;&gt;Hourly Pedestrian Count for Every Month with AM or PM when FALSE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-bike-count-with-crossings&#34;&gt;Average Bike Count with Crossings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-bike-count-with-directions&#34;&gt;Average Bike Count with Directions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-bike-count-with-crossings-by-day&#34;&gt;Average Bike Count with Crossings by Day&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#average-bike-count-with-directions-by-day&#34;&gt;Average Bike Count with Directions by Day&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(dplyr)
 library(gganimate)
 library(ggthemr)

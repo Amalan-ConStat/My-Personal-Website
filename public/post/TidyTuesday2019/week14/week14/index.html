@@ -437,7 +437,30 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre class="r"><code>library(tidyverse)
+      <div id="TOC">
+<ul>
+<li><a href="#crossing-vs-direction-with-morning-or-evening-for-everyday">Crossing vs Direction with Morning or Evening for Everyday</a></li>
+<li><a href="#averag-bike-count-in-different-time-laps">Averag Bike Count in Different Time Laps</a><ul>
+<li><a href="#monthly-average-bike-count-for-everyday-with-am-or-pm">Monthly Average Bike Count for Everyday with AM or PM</a></li>
+<li><a href="#day-by-average-bike-count-for-everyday-with-am-or-pm">Day by Average Bike Count for Everyday with AM or PM</a></li>
+<li><a href="#hourly-average-bike-count-for-every-month-with-am-or-pm">Hourly Average Bike Count for Every Month with AM or PM</a></li>
+</ul></li>
+<li><a href="#pedestrian-count-with-different-time-laps">Pedestrian Count With Different Time Laps</a><ul>
+<li><a href="#monthly-pedestrian-count-for-everyday-with-am-or-pm-when-true">Monthly Pedestrian Count for Everyday with AM or PM when TRUE</a></li>
+<li><a href="#monthly-pedestrian-count-for-everyday-with-am-or-pm-when-false">Monthly Pedestrian Count for Everyday with AM or PM when FALSE</a></li>
+<li><a href="#day-by-pedestrian-count-for-everyday-with-am-or-pm-when-true">Day by Pedestrian Count for Everyday with AM or PM when TRUE</a></li>
+<li><a href="#day-by-pedestrian-count-for-everyday-with-am-or-pm-when-false">Day by Pedestrian Count for Everyday with AM or PM when FALSE</a></li>
+<li><a href="#hourly-pedestrian-count-for-every-month-with-am-or-pm-when-true">Hourly Pedestrian Count for Every Month with AM or PM when TRUE</a></li>
+<li><a href="#hourly-pedestrian-count-for-every-month-with-am-or-pm-when-false">Hourly Pedestrian Count for Every Month with AM or PM when FALSE</a></li>
+</ul></li>
+<li><a href="#average-bike-count-with-crossings">Average Bike Count with Crossings</a></li>
+<li><a href="#average-bike-count-with-directions">Average Bike Count with Directions</a></li>
+<li><a href="#average-bike-count-with-crossings-by-day">Average Bike Count with Crossings by Day</a></li>
+<li><a href="#average-bike-count-with-directions-by-day">Average Bike Count with Directions by Day</a></li>
+</ul>
+</div>
+
+<pre class="r"><code>library(tidyverse)
 library(dplyr)
 library(gganimate)
 library(ggthemr)
