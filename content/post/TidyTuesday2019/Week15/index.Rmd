@@ -4,7 +4,7 @@ author: M.Amalan
 date: '2019-04-09'
 slug: Week15
 output:
-    blogdown::html_output:
+    blogdown::html_document:
       toc: true
 categories:
   - TidyTuesday
@@ -40,6 +40,12 @@ grand_slam_timeline <- read_csv("grand_slam_timeline.csv",
                                 col_types = cols(gender = col_factor(levels = c("Female","Male")), 
                                 year = col_integer()))
 ```
+
+```{r ,echo=FALSE}
+blogdown::shortcode("tweet","1115652786862153729")
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week15)
 
 # Player Information
 

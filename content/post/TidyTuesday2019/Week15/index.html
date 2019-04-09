@@ -4,7 +4,7 @@ author: M.Amalan
 date: '2019-04-09'
 slug: Week15
 output:
-    blogdown::html_output:
+    blogdown::html_document:
       toc: true
 categories:
   - TidyTuesday
@@ -36,6 +36,8 @@ grand_slams &lt;- read_csv(&quot;grand_slams.csv&quot;,
 grand_slam_timeline &lt;- read_csv(&quot;grand_slam_timeline.csv&quot;, 
                                 col_types = cols(gender = col_factor(levels = c(&quot;Female&quot;,&quot;Male&quot;)), 
                                 year = col_integer()))</code></pre>
+{{% tweet "1115652786862153729" %}}
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week15">GitHub Code</a></p>
 <div id="player-information" class="section level1">
 <h1>Player Information</h1>
 <div id="decade-of-birth-vs-first-grand-slam-title-won" class="section level2">

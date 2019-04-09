@@ -32,6 +32,10 @@ grand_slams &amp;lt;- read_csv(&amp;quot;grand_slams.csv&amp;quot;,
 grand_slam_timeline &amp;lt;- read_csv(&amp;quot;grand_slam_timeline.csv&amp;quot;, 
                                 col_types = cols(gender = col_factor(levels = c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;)), 
                                 year = col_integer()))&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Winning the Wimbledon as your first grand slam looks very thin than other three tournaments. Also among the top 10 most grand slam winners Roger Federer and  Chris Evert have reached semi-finals only a lot of times. .code : &lt;a href=&#34;https://t.co/tOify2Npwd&#34;&gt;https://t.co/tOify2Npwd&lt;/a&gt;  &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/9Vfa3CXmne&#34;&gt;pic.twitter.com/9Vfa3CXmne&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1115652786862153729?ref_src=twsrc%5Etfw&#34;&gt;April 9, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week15&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;player-information&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Player Information&lt;/h1&gt;
 &lt;div id=&#34;decade-of-birth-vs-first-grand-slam-title-won&#34; class=&#34;section level2&#34;&gt;
