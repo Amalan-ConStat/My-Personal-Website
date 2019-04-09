@@ -16,7 +16,220 @@
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week15/week15/</guid>
-      <description></description>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readr)
+library(tidyverse)
+library(lubridate)
+library(gganimate)
+
+player_dob &amp;lt;- read_csv(&amp;quot;player_dob.csv&amp;quot;, 
+                        col_types = cols(date_of_birth = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), 
+                        date_of_first_title = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;)))
+grand_slams &amp;lt;- read_csv(&amp;quot;grand_slams.csv&amp;quot;, 
+                        col_types = cols(gender = col_factor(levels = c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;)), 
+                        rolling_win_count = col_integer(), 
+                        tournament_date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), 
+                        year = col_integer()))
+grand_slam_timeline &amp;lt;- read_csv(&amp;quot;grand_slam_timeline.csv&amp;quot;, 
+                                col_types = cols(gender = col_factor(levels = c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;)), 
+                                year = col_integer()))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;player-information&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Player Information&lt;/h1&gt;
+&lt;div id=&#34;decade-of-birth-vs-first-grand-slam-title-won&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Decade of Birth vs First Grand Slam Title Won&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;player_dob %&amp;gt;% 
+   remove_missing() %&amp;gt;%
+   mutate(grand_slam=recode_factor(grand_slam,
+                                  &amp;#39;Wimbledon&amp;#39;=&amp;quot;Wimbledon&amp;quot;,
+                                  &amp;#39;US Open&amp;#39;=&amp;quot;US Open&amp;quot;,
+                                  &amp;#39;French Open&amp;#39;=&amp;quot;French Open&amp;quot;,
+                                  &amp;#39;Australian Open&amp;#39;=&amp;quot;Aus Open&amp;quot;,
+                                  &amp;#39;Australian Open (January)&amp;#39;=&amp;quot;Aus Open&amp;quot;,
+                                  &amp;#39;Australian Open (Jan)&amp;#39;=&amp;quot;Aus Open&amp;quot;,       
+                                  &amp;#39;Australian Open (December)&amp;#39;=&amp;quot;Aus Open&amp;quot;,  
+                                  &amp;#39;Australian Open (Jan.)&amp;#39;=&amp;quot;Aus Open&amp;quot;                                  
+                                  )) %&amp;gt;%
+  mutate(Birth=year(date_of_birth)) %&amp;gt;%
+  mutate(Birth=cut(Birth,breaks = c(1929,1939,1949,1959,1969,1979,1989,1999),
+                   labels = c(1930,1940,1950,1960,1970,1980,1990)
+                   )) %&amp;gt;%
+  group_by(Birth,grand_slam) %&amp;gt;%
+  count()  %&amp;gt;%
+ggplot(.,aes(x=factor(Birth),y=n,fill=grand_slam))+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+
+      scale_y_continuous(breaks=seq(1,11,1),labels=seq(1,11,1))+
+      labs(fill=&amp;quot;Grand Slam&amp;quot;)+
+      geom_text(aes(label=n),position = position_dodge(width = 1),vjust=1)+
+      xlab(&amp;quot;Decade of Birth&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;How Decade of Birth and First Win of Grand Slam changes&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/decade%20of%20birth%20vs%20first%20title%20won-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;decade-of-birth-vs-first-grand-slam-with-age&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Decade of Birth vs First Grand Slam with Age&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;player_dob %&amp;gt;% 
+  remove_missing() %&amp;gt;%
+  mutate(grand_slam=recode_factor(grand_slam,
+                                  &amp;#39;Wimbledon&amp;#39;=&amp;quot;Wimbledon&amp;quot;,
+                                  &amp;#39;US Open&amp;#39;=&amp;quot;US Open&amp;quot;,
+                                  &amp;#39;French Open&amp;#39;=&amp;quot;French Open&amp;quot;,
+                                  &amp;#39;Australian Open&amp;#39;=&amp;quot;Aus Open&amp;quot;,
+                                  &amp;#39;Australian Open (January)&amp;#39;=&amp;quot;Aus Open&amp;quot;,
+                                  &amp;#39;Australian Open (Jan)&amp;#39;=&amp;quot;Aus Open&amp;quot;,       
+                                  &amp;#39;Australian Open (December)&amp;#39;=&amp;quot;Aus Open&amp;quot;,  
+                                  &amp;#39;Australian Open (Jan.)&amp;#39;=&amp;quot;Aus Open&amp;quot;                                  
+                                  )) %&amp;gt;%
+  mutate(Birth=year(date_of_birth)) %&amp;gt;%
+  mutate(Birth=cut(Birth,breaks = c(1929,1939,1949,1959,1969,1979,1989,1999),
+                   labels = c(1930,1940,1950,1960,1970,1980,1990)
+                   )) %&amp;gt;%
+ggplot(.,aes(x=grand_slam,size=round(age/365),y=Birth))+
+       geom_jitter()+
+       xlab(&amp;quot;Grand Slam&amp;quot;)+ylab(&amp;quot;Decade of Birth&amp;quot;)+
+       labs(color=&amp;quot;Age&amp;quot;,size=&amp;quot;Age in Years&amp;quot;)+
+       ggtitle(&amp;quot;Birth Decade vs First Grand Slam with Age&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/grand%20slams%20,%20Decade%20of%20Birth%20and%20age-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grand-slams&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Grand Slams&lt;/h1&gt;
+&lt;div id=&#34;gender-vs-grand-slam-with-name&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gender vs Grand Slam with Name&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slams %&amp;gt;%
+      group_by(name,gender) %&amp;gt;%
+      count(sort = TRUE) %&amp;gt;%
+      head(25) %&amp;gt;%
+      ggplot(.,aes(x=fct_inorder(name),y=n,
+                   fill=gender,label=n))+
+      geom_col()+xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      labs(fill=&amp;quot;Gender&amp;quot;)+
+      coord_flip()+geom_text(hjust =1)+
+      ggtitle(&amp;quot;Who won most with Gender&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/gender%20vs%20grand%20slam%20with%20name-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gender-vs-grand-slam-with-year&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gender vs Grand Slam with Year&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-grand_slams %&amp;gt;%
+      ggplot(.,aes(x=name,y=rolling_win_count,
+                   shape=gender,color=grand_slam))+
+      geom_point()+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Cumulative Count&amp;quot;)+
+      labs(color=&amp;quot;Grand Slam&amp;quot;,shape=&amp;quot;Gender&amp;quot;)+
+      transition_time(tournament_date)+ease_aes(&amp;quot;linear&amp;quot;)+
+      coord_flip()+shadow_mark()+
+      ggtitle(&amp;quot;Cumulative progress with Year: {year(frame_time)}&amp;quot;)
+
+animate(p,nframes = 52,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/gender%20vs%20grand%20slam%20with%20year-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grand-slam-timeline&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Grand Slam Timeline&lt;/h1&gt;
+&lt;div id=&#34;top-10-players-and-their-outcomes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 players and their Outcomes&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;top10&amp;lt;-grand_slams %&amp;gt;%
+       group_by(name) %&amp;gt;%
+       count(sort = TRUE) %&amp;gt;%
+       head(10) %&amp;gt;%
+       select(name)
+
+grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      group_by(name,outcome) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(name,n,fill=outcome))+
+      geom_col(position=position_dodge(width = 0.95))+
+      geom_text(aes(label=n),position = position_dodge(width = 0.95),hjust=1)+
+      coord_flip()+labs(fill=&amp;quot;Outcome&amp;quot;)+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Top 10 Tennis Players and their Outcomes&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20player%20and%20outcomes-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;top-10-players-and-tournament-with-outcomes-of-activeness&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 Players and Tournament with outcomes of activeness&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      group_by(tournament,outcome) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(x=tournament,y=n,fill=outcome))+
+      geom_col(position =position_dodge(width=0.95))+
+      geom_text(aes(label=n),position =position_dodge(width=0.95),vjust=1)+
+      labs(fill=&amp;quot;Outcome&amp;quot;)+
+      xlab(&amp;quot;Tournament&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Tournament perspective of Top 10 Tennis Players and their Outcomes&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20Players%20and%20outome-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;top-10-players-winning-based-on-tournament&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 Players Winning based on Tournament&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      subset(outcome==&amp;quot;Won&amp;quot;) %&amp;gt;%
+      group_by(name,tournament) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(x=name,y=n,fill=tournament))+
+      geom_col(position =position_dodge(width=0.95))+
+      geom_text(aes(label=n),position =position_dodge(width=0.95),hjust=1)+
+      coord_flip()+
+      labs(fill=&amp;quot;Tournament&amp;quot;)+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Winning, Top 10 Tennis Players with related to Tournament&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20Players%20Winning-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;top-10-players-finalist-based-on-tournament&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 Players Finalist based on Tournament&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      subset(outcome==&amp;quot;Finalist&amp;quot;) %&amp;gt;%
+      group_by(name,tournament) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(x=name,y=n,fill=tournament))+
+      geom_col(position =position_dodge(width=0.95))+
+      geom_text(aes(label=n),position =position_dodge(width=0.95),hjust=1)+
+      coord_flip()+
+      labs(fill=&amp;quot;Tournament&amp;quot;)+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Finalist, Top 10 Tennis Players with related to Tournament&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20Players%20Finalist-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;top-10-players-semi-finalist-based-on-tournament&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 Players Semi-Finalist based on Tournament&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      subset(outcome==&amp;quot;Semi-finalist&amp;quot;) %&amp;gt;%
+      group_by(name,tournament) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(x=name,y=n,fill=tournament))+
+      geom_col(position =position_dodge(width=0.95))+
+      geom_text(aes(label=n),position =position_dodge(width=0.95),hjust=1)+
+      coord_flip()+
+      labs(fill=&amp;quot;Tournament&amp;quot;)+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Semi-Finalist, Top 10 Tennis Players with related to Tournament&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20Players%20Semi-Finalist-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;top-10-players-retired-based-on-tournament&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Top 10 Players Retired based on Tournament&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;grand_slam_timeline %&amp;gt;%
+      rename(name=&amp;quot;player&amp;quot;) %&amp;gt;%
+      inner_join(top10,&amp;quot;name&amp;quot;) %&amp;gt;%
+      subset(outcome==&amp;quot;Retired&amp;quot;) %&amp;gt;%
+      group_by(name,tournament) %&amp;gt;%
+      count() %&amp;gt;%
+ggplot(.,aes(x=name,y=n,fill=tournament))+
+      geom_col(position =position_dodge(width=0.95))+
+      geom_text(aes(label=n),position =position_dodge(width=0.95),hjust=1)+
+      coord_flip()+
+      labs(fill=&amp;quot;Tournament&amp;quot;)+
+      xlab(&amp;quot;Name&amp;quot;)+ylab(&amp;quot;Count&amp;quot;)+
+      ggtitle(&amp;quot;Retired, Top 10 Tennis Players with related to Tournament&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week15/index_files/figure-html/Top%2010%20Tennis%20Players%20Retired-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
