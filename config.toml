@@ -278,9 +278,14 @@ enableGitInfo = false
     link = "https://cran.r-project.org/package=fitODBOD"
 
   [[params.social]]
-    icon = "globe"
+    icon = "chart-line"
     icon_pack = "fas"
     link = "https://amalan-con-stat.shinyapps.io/olympic/"
+    
+  [[params.social]]
+    icon = "chart-bar"
+    icon_pack = "fas"
+    link = "https://amalan-con-stat.shinyapps.io/southparktextanalytics/"
     
   # Link to a PDF of your resume/CV from the About widget.
   # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
