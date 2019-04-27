@@ -11,13 +11,14 @@ weight = 4
 [interests]
   interests = [ 
     "Big Data",
-    "Binomial Outcome Data",
     "R",
     "Latex",
     "tidyverse",
+    "Rshiny",
     "#TidyTuesday",
     "#rstats",
-    "fitODBOD",
+    "Binomial Outcome Data",
+    "fitODBOD"
   ]
 
 # List your qualifications (such as academic degrees).
