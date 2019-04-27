@@ -247,10 +247,10 @@ enableGitInfo = false
   #
   #   Full list: https://jpswalsh.github.io/academicons/
 
-  [[params.social]]
-    icon = "envelope"
-    icon_pack = "fas"
-    link = "mailto:amalan0595[at]gmail[dot]com"
+  #[[params.social]]
+  #  icon = "envelope"
+  #  icon_pack = "fas"
+  #  link = "mailto:amalan0595[at]gmail[dot]com"
 
   [[params.social]]
     icon = "twitter"
