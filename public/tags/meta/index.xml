@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2 on Consulting Statistician</title>
-    <link>/publication_types/2/</link>
-    <description>Recent content in 2 on Consulting Statistician</description>
+    <title>meta on Consulting Statistician</title>
+    <link>/tags/meta/</link>
+    <description>Recent content in meta on Consulting Statistician</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Mon, 22 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/meta/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/publication/southasia_antenatal_depression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</title>
-      <link>/publication/4th-year/</link>
-      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/4th-year/</guid>
       <description></description>
     </item>
     
