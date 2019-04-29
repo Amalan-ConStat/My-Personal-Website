@@ -16,7 +16,49 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
-      <description></description>
+      <description>&lt;div id=&#34;shiny-app-of-text-analytics-for-south-park-tv-show.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Shiny App of Text Analytics for South Park Tv show.&lt;/h1&gt;
+&lt;div id=&#34;trivia-tab&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Trivia Tab&lt;/h2&gt;
+&lt;div id=&#34;trivia-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Trivia Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lines-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Lines Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;words-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Words Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;special-words-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Special Words Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ratings-and-votes-from-imdb-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Ratings and Votes from IMDB Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentiment-analysis-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sentiment Analysis Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bigram-and-trigram-analysis-sub-tab&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bigram and Trigram Analysis Sub Tab&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-two-seasons-tab.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compare Two Seasons Tab.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-two-characters-tab.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compare Two Characters Tab.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-two-characters-but-same-season-tab.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compare Two Characters but Same Season Tab.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-two-seasons-but-same-character-tab.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compare Two Seasons but Same Character Tab.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;about-the-author-tab.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;About the Author Tab.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
