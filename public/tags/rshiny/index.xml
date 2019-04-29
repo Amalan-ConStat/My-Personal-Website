@@ -18,7 +18,8 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
-      <description>Shiny App of Text Analytics for South Park Tv show.Trivia TabTrivia Sub TabLines Sub TabWords Sub TabSpecial Words Sub TabRatings and Votes from IMDB Sub TabSentiment Analysis Sub TabBigram and Trigram Analysis Sub TabCompare Two Seasons Tab.Compare Two Characters Tab.Compare Two Characters but Same Season Tab.Compare Two Seasons but Same Character Tab.</description>
+      <description>Shiny App of Text Analytics for South Park Tv show.R Shiny Apps are very popular, that is why I developed my first Shiny App based on Olympic Data from Kaggle. It will be updated after year 2020 Olympic games. Here is the Link. After this I now developed something grand-eloquent, which is for the long running Tv series South Park.
+This show has 22 seasons aired until now. I was able to find the data for scripts of all the aired episodes until season 18 from the GitHub repository of .</description>
     </item>
     
     <item>

@@ -20,6 +20,28 @@ summary: "R shiny App to show text analytics elements of the Tv Show South Park 
 
 # Shiny App of Text Analytics for South Park Tv show.
 
+R Shiny Apps are very popular, that is why I developed my first Shiny App based on Olympic Data
+from Kaggle. It will be updated after year 2020 Olympic games. Here is the [Link.]()
+After this I now developed something grand-eloquent, which is for the long running Tv series
+South Park. 
+
+This show has 22 seasons aired until now. I was able to find the data for scripts of all
+the aired episodes until season 18 from the GitHub [repository]() 
+of [.]() While this was more than enough information I was focusing on getting data for the 
+rest of the seasons(19,20,21,22). For this task I briefly studied web scraping and thankfully
+it was helpful in obtaining that data with a little amount of knowledge of string manipulation.
+
+Finally I was able to create one massive data set which would have all the script details
+from season 1 to season 22 for all episodes with who spoke them and what did these Characters
+say without unnecessary background interpretations or scenario desctiptions. 
+
+But this was not the end, because I was lucky enough to find the R package in GitHub
+[southparkr](). This package included information from the IMDB website regarding 
+Episode Name, Rating and Votes. Further it also included similar information 
+regarding the scripts but more thoroughly until recent seasons. Which gave me an idea
+to use this package for data regarding the Rating and votes from IMDB because I already
+had the information for scripts. 
+
 ## Trivia Tab
 
 ### Trivia Sub Tab
