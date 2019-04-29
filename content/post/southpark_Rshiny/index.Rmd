@@ -3,8 +3,9 @@ title: South Park Text Analytics Shiny App
 author: M.Amalan
 date: '2019-04-29'
 slug: southpark_Rshiny
-blogdown::html_page:
-    toc: true
+output:
+  blogdown::html_page:
+       toc: true
 categories:
   - Rshiny
 tags:

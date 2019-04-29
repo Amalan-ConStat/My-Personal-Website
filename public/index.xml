@@ -16,7 +16,28 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
-      <description>&lt;div id=&#34;shiny-app-of-text-analytics-for-south-park-tv-show.&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#shiny-app-of-text-analytics-for-south-park-tv-show.&#34;&gt;Shiny App of Text Analytics for South Park Tv show.&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#trivia-tab&#34;&gt;Trivia Tab&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#trivia-sub-tab&#34;&gt;Trivia Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lines-sub-tab&#34;&gt;Lines Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#words-sub-tab&#34;&gt;Words Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#special-words-sub-tab&#34;&gt;Special Words Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ratings-and-votes-from-imdb-sub-tab&#34;&gt;Ratings and Votes from IMDB Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sentiment-analysis-sub-tab&#34;&gt;Sentiment Analysis Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bigram-and-trigram-analysis-sub-tab&#34;&gt;Bigram and Trigram Analysis Sub Tab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compare-two-seasons-tab.&#34;&gt;Compare Two Seasons Tab.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compare-two-characters-tab.&#34;&gt;Compare Two Characters Tab.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compare-two-characters-but-same-season-tab.&#34;&gt;Compare Two Characters but Same Season Tab.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compare-two-seasons-but-same-character-tab.&#34;&gt;Compare Two Seasons but Same Character Tab.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#about-the-author-tab.&#34;&gt;About the Author Tab.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;shiny-app-of-text-analytics-for-south-park-tv-show.&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Shiny App of Text Analytics for South Park Tv show.&lt;/h1&gt;
 &lt;p&gt;R Shiny Apps are very popular, that is why I developed my first Shiny App based on Olympic Data from Kaggle. It will be updated after year 2020 Olympic games. Here is the &lt;a href=&#34;&#34;&gt;Link.&lt;/a&gt; After this I now developed something grand-eloquent, which is for the long running Tv series South Park.&lt;/p&gt;
 &lt;p&gt;This show has 22 seasons aired until now. I was able to find the data for scripts of all the aired episodes until season 18 from the GitHub &lt;a href=&#34;&#34;&gt;repository&lt;/a&gt; of &lt;a href=&#34;&#34;&gt;.&lt;/a&gt; While this was more than enough information I was focusing on getting data for the rest of the seasons(19,20,21,22). For this task I briefly studied web scraping and thankfully it was helpful in obtaining that data with a little amount of knowledge of string manipulation.&lt;/p&gt;
