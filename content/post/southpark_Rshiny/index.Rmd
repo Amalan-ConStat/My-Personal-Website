@@ -3,6 +3,8 @@ title: South Park Text Analytics Shiny App
 author: M.Amalan
 date: '2019-04-29'
 slug: southpark_Rshiny
+blogdown::html_page:
+    toc: true
 categories:
   - Rshiny
 tags:
@@ -13,5 +15,6 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: "R shiny App to show text analytics elements of the Tv Show South Park from Season 1 to 22."  
 ---
 
