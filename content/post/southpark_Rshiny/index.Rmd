@@ -1,0 +1,17 @@
+---
+title: South Park Text Analytics Shiny App
+author: M.Amalan
+date: '2019-04-29'
+slug: southpark_Rshiny
+categories:
+  - Rshiny
+tags:
+  - SouthPark
+  - Rshiny
+  - tidyverse
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+---
+

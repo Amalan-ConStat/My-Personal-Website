@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SouthPark on Consulting Statistician</title>
+    <link>/tags/southpark/</link>
+    <description>Recent content in SouthPark on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/southpark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>South Park Text Analytics Shiny App</title>
+      <link>/post/southpark_rshiny/southpark_rshiny/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

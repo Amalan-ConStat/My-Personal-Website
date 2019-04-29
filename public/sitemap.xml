@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/southpark_rshiny/southpark_rshiny/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/publication/southasia_antenatal_depression/</loc>
       <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     </url>
@@ -605,7 +613,7 @@
     <url>
     
       <loc>/tags/rshiny/</loc>
-      <lastmod>2019-01-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -614,7 +622,7 @@
     <url>
     
       <loc>/categories/rshiny/</loc>
-      <lastmod>2019-01-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -649,6 +657,15 @@
     <url>
     
       <loc>/slides/example-slides/</loc>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/southpark/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
+      <priority>0</priority>
     </url>
     
   
@@ -737,7 +754,7 @@
     <url>
     
       <loc>/tags/gganimate/</loc>
-      <lastmod>2019-04-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -836,7 +853,7 @@
     <url>
     
       <loc>/tags/tidyverse/</loc>
-      <lastmod>2019-04-09T00:00:00+00:00</lastmod>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
