@@ -23,7 +23,7 @@ summary: "R shiny App to show text analytics elements of the Tv Show South Park 
 
 R Shiny Apps are very popular, that is why I developed my first Shiny App based on Olympic Data
 from Kaggle. It will be updated after year 2020 Olympic games. Here is the [Link.]()
-After this I now developed something grand-eloquent, which is for the long running Tv series
+After this I now developed something grand-eloquent, which is for the long running TV series
 South Park. 
 
 This show has 22 seasons aired until now. I was able to find the data for scripts of all
@@ -34,7 +34,7 @@ it was helpful in obtaining that data with a little amount of knowledge of strin
 
 Finally I was able to create one massive data set which would have all the script details
 from season 1 to season 22 for all episodes with who spoke them and what did these Characters
-say without unnecessary background interpretations or scenario desctiptions. 
+say without unnecessary background interpretations or scenario descriptions. 
 
 But this was not the end, because I was lucky enough to find the R package in GitHub
 [southparkr](). This package included information from the IMDB website regarding 
@@ -60,9 +60,18 @@ stuff.
 
 ### Lines Sub Tab
 
+Summarized information for number of lines with relative to seasons, characters and episodes
+will be plotted here. 
+
 ### Words Sub Tab
 
+Summarized information for number of words with relative to seasons, characters and episodes
+will be plotted here. 
+
 ### Special Words Sub Tab
+
+Summarized information for words, words without stop words, swear words with relative to 
+seasons, characters and episodes will be plotted here. 
 
 ### Ratings and Votes from IMDB Sub Tab
 
@@ -83,11 +92,28 @@ are positive and negative.
 
 ### Compare Two Seasons Tab.
 
+Two seasons of the users choice will be used to generate plots. It will take some time 
+so patiently wait until they are plotted. Where all the users who were from those 
+two seasons. 
+
 ### Compare Two Characters Tab.
+
+Two Characters of the users choice will be used to generate plots. It will take some time
+so patiently wait until they are plotted. All the seasons which they were active.
 
 ### Compare Two Characters but Same Season Tab.
 
+Two Characters of the Same Season will be used to generate plots. It will take some time 
+so patiently wait until they are plotted. Here, we will not consider characters which were
+active in this particular season, rather all Characters which were active throughout all
+seasons. Therefore sometimes their might not be meaningful plots.
+
 ### Compare Two Seasons but Same Character Tab.
+
+Two Seasons of the Same Character will be used to generate plots. It will take some time so
+patiently wait until they are plotted. Here also we are not considering if the chosen
+character by the user is active in the chosen two seasons of choice. Therefore sometimes
+we might not generate meaningful plots.
 
 ## About the Author Tab.
 
