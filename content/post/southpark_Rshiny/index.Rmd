@@ -75,9 +75,19 @@ seasons, characters and episodes will be plotted here.
 
 ### Ratings and Votes from IMDB Sub Tab
 
+Data from southparkr package related to ratings and votes of IMDB will be used to generate
+plots in this tab. There are two animated plots and it might take some time  to generate also
+therefore patiently wait.
+
 ### Sentiment Analysis Sub Tab
 
+As above mentioned here also there will be plots related sentiment analysis. Which are 
+related to AFINN, bing and nrc techniques. 
+
 ### Bigram and Trigram Analysis Sub Tab
+
+This is something rare to be useful and time consuming, but will still generate plots.
+Therefore patiently wait until the plots are done to be view-able. 
 
 ## Inputs needed from the user to generate Plots and Results
 

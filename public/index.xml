@@ -66,12 +66,15 @@
 &lt;/div&gt;
 &lt;div id=&#34;ratings-and-votes-from-imdb-sub-tab&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Ratings and Votes from IMDB Sub Tab&lt;/h3&gt;
+&lt;p&gt;Data from southparkr package related to ratings and votes of IMDB will be used to generate plots in this tab. There are two animated plots and it might take some time to generate also therefore patiently wait.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;sentiment-analysis-sub-tab&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sentiment Analysis Sub Tab&lt;/h3&gt;
+&lt;p&gt;As above mentioned here also there will be plots related sentiment analysis. Which are related to AFINN, bing and nrc techniques.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;bigram-and-trigram-analysis-sub-tab&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Bigram and Trigram Analysis Sub Tab&lt;/h3&gt;
+&lt;p&gt;This is something rare to be useful and time consuming, but will still generate plots. Therefore patiently wait until the plots are done to be view-able.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;inputs-needed-from-the-user-to-generate-plots-and-results&#34; class=&#34;section level2&#34;&gt;
