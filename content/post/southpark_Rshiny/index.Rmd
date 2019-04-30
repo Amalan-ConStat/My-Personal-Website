@@ -19,16 +19,22 @@ image:
 summary: "R shiny App to show text analytics elements of the Tv Show South Park from Season 1 to 22."  
 ---
 
+[GitHub Code](https://github.com/Amalan-ConStat/SouthPark-Rshiny)
+[Link for the Rshiny App](https://amalan-con-stat.shinyapps.io/southparktextanalytics/)
+
 # Shiny App of Text Analytics for South Park Tv show.
 
 R Shiny Apps are very popular, that is why I developed my first Shiny App based on Olympic Data
-from Kaggle. It will be updated after year 2020 Olympic games. Here is the [Link.]()
+from Kaggle. It will be updated after year 2020 Olympic games. Here is the
+[Link.](https://amalan-con-stat.shinyapps.io/olympic/)
 After this I now developed something grand-eloquent, which is for the long running TV series
 South Park. 
 
 This show has 22 seasons aired until now. I was able to find the data for scripts of all
-the aired episodes until season 18 from the GitHub [repository]() 
-of [.]() While this was more than enough information I was focusing on getting data for the 
+the aired episodes until season 18 from the GitHub
+[repository](https://github.com/walkerkq/textmining_southpark) 
+of [Kaylin Pavlik](http://kaylinpavlik.com/) While this was more than enough information I was
+focusing on getting data for the 
 rest of the seasons(19,20,21,22). For this task I briefly studied web scraping and thankfully
 it was helpful in obtaining that data with a little amount of knowledge of string manipulation.
 
@@ -37,7 +43,8 @@ from season 1 to season 22 for all episodes with who spoke them and what did the
 say without unnecessary background interpretations or scenario descriptions. 
 
 But this was not the end, because I was lucky enough to find the R package in GitHub
-[southparkr](). This package included information from the IMDB website regarding 
+[southparkr](https://github.com/pdrhlik/southparkr) of [Patrik Drhlik.](https://patrio.blog)
+This package included information from the IMDB website regarding 
 Episode Name, Rating and Votes. Further it also included similar information 
 regarding the scripts but more thoroughly until recent seasons. Which gave me an idea
 to use this package for data regarding the Rating and votes from IMDB because I already
@@ -48,9 +55,9 @@ had the information for scripts.
 Plots generated here are to summarize so far how the South park season 1 to 22 has changed.
 In terms of Swear words, stop words, all words, sentiment and much more. If we focus on 
 sentiment analysis it is more clear when you read documents related to 
-[AFINN](), 
-[bing]() 
-and [nrc]().
+[AFINN](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010), 
+[bing](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html) 
+and [nrc](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm).
 
 ### Trivia Sub Tab
 
