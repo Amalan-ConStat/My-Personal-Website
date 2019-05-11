@@ -1,6 +1,6 @@
 +++
 title = "Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data"
-date = "2018-09-30"
+date = "2019-05-07"
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -25,7 +25,7 @@ publication = "*fitting Over Dispersed Binomial Outcome Data*"
 publication_short = "*fitODBOD*"
 
 # Abstract and optional shortened version.
-abstract = " Using [pkgdown](https://pkgdown.r-lib.org/) a genuine website for fitODBOD was generated. There is no extra work to be done here, because pkgdown uses our exisiting man files and vignettes to create this website. It is quie easy and convenient for a user to use this website generated for fitODBOD. Rather than the CRAN or GitHub  versions, which only provides a manual in the website there are clear and concise examples of how functions can be used for researchers"
+abstract = " Using [pkgdown](https://pkgdown.r-lib.org/) a genuine website for fitODBOD was generated. There is no extra work to be done here, because pkgdown uses our exisiting man files and vignettes to create this website. It is quie easy and convenient for a user to use this website generated for fitODBOD. Rather than the CRAN or GitHub  versions, which only provides a manual in the website there are clear and concise examples of how functions can be used for researchers. Currently the website is for version 1.3.0 with clear examples."
 
 abstract_short = " Every year when the package is updated, website will be updated as well with the newest helpful documents to explain how the fitODBOD package works."
 
@@ -55,7 +55,7 @@ url_video = ""
 url_poster = ""
 url_source = ""
 
-url_custom = [{name = "Manual", url = "https://cran.r-project.org/web/packages/fitODBOD/fitODBOD.pdf"}, {name ="GitHub", url = "https://github.com/Amalan-ConStat/R-fitODBOD/tree/master/docs"},{ name = "Website", url = "https://amalan-constat.github.io/R-fitODBOD/index.html"}, {name = "RDocumentation", url = "https://www.rdocumentation.org/packages/fitODBOD/versions/1.2.0"}]
+url_custom = [{name = "Manual", url = "https://cran.r-project.org/web/packages/fitODBOD/fitODBOD.pdf"}, {name ="GitHub", url = "https://github.com/Amalan-ConStat/R-fitODBOD/tree/master/docs"},{ name = "Website", url = "https://amalan-constat.github.io/R-fitODBOD/index.html"}, {name = "RDocumentation", url = "https://www.rdocumentation.org/packages/fitODBOD/versions/1.3.0"}]
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
