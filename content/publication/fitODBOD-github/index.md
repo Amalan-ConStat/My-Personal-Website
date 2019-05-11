@@ -25,8 +25,7 @@ publication = "*fitODBOD: fitting Over Dispersed Binomial Outcome Data*."
 publication_short = "*fitODBOD*"
 
 # Abstract and optional shortened version.
-abstract = " GitHub version is there for version 1.2.0 with is maintained by me if issues are raised regarding the package. While building under CRAN restrictions some examples and vignettes were not included to submission but there are in R-fitODBOD repository. Readme file includes a badge and a small example of how to fit Binomial outcome data which cannot be modeled by Binomial distribution. Finally, if there are any issues regarding the functions or suggestions you can use the issue tab to report them to me. The package was further updated to version 1.3.0 which is indicated in the README file with
-three new distributions."
+abstract = " GitHub version is there for version 1.2.0 with is maintained by me if issues are raised regarding the package. While building under CRAN restrictions some examples and vignettes were not included to submission but there are in R-fitODBOD repository. Readme file includes a badge and a small example of how to fit Binomial outcome data which cannot be modeled by Binomial distribution. Finally, if there are any issues regarding the functions or suggestions you can use the issue tab to report them to me. The package was further updated to version 1.3.0 which is indicated in the README file with three new distributions."
 
 abstract_short = "There are two repositories, where one is mirrored by CRAN. The R-fitODBOD version which is under full supervision by me to resolve issues."
 

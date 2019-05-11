@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/fitodbod/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
+      <link>/publication/fitodbod-cran/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-cran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
+      <link>/publication/fitodbod-website/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-website/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Tree of Binomial Distribution</title>
@@ -64,24 +82,6 @@
       
       <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
       <description>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.Introductionoptim Functionnlm Functionnlminb Functionucminf FunctionmaxLik Functionmle Functionmle2 FunctionSummary of the seven optimization functions in RSummary of Time evaluation for the seven optimization R functionsSummary of Results after estimating parameters using the optimization R functionsFinal ConclusionEstimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.</description>
-    </item>
-    
-    <item>
-      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-website/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-cran/</link>
-      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-cran/</guid>
-      <description></description>
     </item>
     
     <item>

@@ -4,6 +4,30 @@
     
     <url>
     
+      <loc>/publication/fitodbod-cran/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/publication/fitodbod-github/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/publication/fitodbod-website/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/southpark_rshiny/southpark_rshiny/</loc>
       <lastmod>2019-04-29T00:00:00+00:00</lastmod>
     </url>
@@ -308,22 +332,6 @@
     
     <url>
     
-      <loc>/publication/fitodbod-website/</loc>
-      <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/publication/fitodbod-github/</loc>
-      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tutorial/example/</loc>
       <lastmod>2018-09-09T00:00:00+05:30</lastmod>
     </url>
@@ -342,14 +350,6 @@
     
       <loc>/privacy/</loc>
       <lastmod>2018-06-28T00:00:00+05:30</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/publication/fitodbod-cran/</loc>
-      <lastmod>2018-02-27T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -406,7 +406,7 @@
     <url>
     
       <loc>/publication_types/7/</loc>
-      <lastmod>2018-02-27T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -415,7 +415,7 @@
     <url>
     
       <loc>/publication_types/8/</loc>
-      <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -424,7 +424,7 @@
     <url>
     
       <loc>/publication_types/9/</loc>
-      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -441,7 +441,7 @@
     
     <url>
     
-      <loc>/tags/binomial/</loc>
+      <loc>/categories/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -450,7 +450,7 @@
     
     <url>
     
-      <loc>/categories/binomial/</loc>
+      <loc>/tags/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -478,7 +478,7 @@
     <url>
     
       <loc>/tags/cran/</loc>
-      <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -505,7 +505,7 @@
     <url>
     
       <loc>/tags/github/</loc>
-      <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -550,7 +550,7 @@
     <url>
     
       <loc>/tags/package/</loc>
-      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -576,8 +576,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -585,8 +585,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -612,15 +612,6 @@
     
     <url>
     
-      <loc>/tags/rshiny/</loc>
-      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/categories/rshiny/</loc>
       <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -630,8 +621,8 @@
     
     <url>
     
-      <loc>/tags/sl/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <loc>/tags/rshiny/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -640,6 +631,15 @@
     <url>
     
       <loc>/categories/sl/</loc>
+      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/sl/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -690,15 +690,6 @@
     
     <url>
     
-      <loc>/tags/tidytuesday/</loc>
-      <lastmod>2019-04-09T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/categories/tidytuesday/</loc>
       <lastmod>2019-04-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -708,8 +699,8 @@
     
     <url>
     
-      <loc>/tags/website/</loc>
-      <lastmod>2019-01-28T00:00:00+00:00</lastmod>
+      <loc>/tags/tidytuesday/</loc>
+      <lastmod>2019-04-09T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -726,6 +717,15 @@
     
     <url>
     
+      <loc>/tags/website/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/bbmle/</loc>
       <lastmod>2018-12-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -735,7 +735,7 @@
     
     <url>
     
-      <loc>/tags/fitodbod/</loc>
+      <loc>/categories/fitodbod/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -744,8 +744,8 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
-      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+      <loc>/tags/fitodbod/</loc>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -844,7 +844,7 @@
     <url>
     
       <loc>/tags/package/</loc>
-      <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

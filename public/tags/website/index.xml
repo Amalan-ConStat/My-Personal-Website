@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 28 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
+      <link>/publication/fitodbod-website/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-website/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Build Your Own Website or Blog Using R, RStudio and R Packages.</title>
@@ -19,15 +28,6 @@
       
       <guid>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</guid>
       <description>IntroductionMaterials“Making Websites with Rmarkdown and Blogdown by Yihui Xie.”“Up and Running with Blogdown by Alison Presmanes Hill.”“Rmarkdown Websites.”“How to make an RMarkdown Website by Nick Strayer &amp;amp; Lucy D’Agostino McGowan.”“Creating websites in R by Emily C Zabor.”“Getting Started with Blogdown by David Selby.”“Getting Started with Blogdown by Danielle Navarro.”“Blogdown by Peter’s Blog.”“Academic by George Cushen”“Happy Git and GitHub for the User.</description>
-    </item>
-    
-    <item>
-      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-website/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-website/</guid>
-      <description></description>
     </item>
     
   </channel>
