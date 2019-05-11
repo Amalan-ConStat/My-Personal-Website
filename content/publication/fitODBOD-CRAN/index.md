@@ -1,6 +1,6 @@
 +++
 title = "CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data"
-date = "2018-02-27"
+date = "2019-05-07"
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -25,9 +25,9 @@ publication = "*fitting Over Dispersed Binomial Outcome Data*"
 publication_short = "*fitODBOD*"
 
 # Abstract and optional shortened version.
-abstract = "Binomial Outcome Data has vast amount use in the field of biology, medicine and epidemiology. Modeling such data relative to Binomial Mixture Distributions were discussed because Binomial distribution fails to model the data. The reason is actual observed variance of the data is greater than the assumed theoretical variance, which is defined as over dispersion. fitODBOD package has two versions until October 2018, but in the future there will be updates regularly each year. Whenever there are new distributions to model BOD the new versions will include these distributions. Further, if there are new techniques to make these distributions more useful they will be also added as functions. Version 1.1.0 was published in February 2018 and Version 1.20 was released in September 2018 with two new distributions."
+abstract = "Binomial Outcome Data has vast amount use in the field of biology, medicine and epidemiology. Modeling such data relative to Binomial Mixture Distributions were discussed because Binomial distribution fails to model the data. The reason is actual observed variance of the data is greater than the assumed theoretical variance, which is defined as over dispersion. fitODBOD package has two versions until October 2018, but in the future there will be updates regularly each year. Whenever there are new distributions to model BOD the new versions will include these distributions. Further, if there are new techniques to make these distributions more useful they will be also added as functions. Version 1.1.0 was published in February 2018 and Version 1.2.0 was released in September 2018 with two new distributions. Recently Version 1.3.0 was published with three new distributions and fitxxx functions have classes which would support methods."
 
-abstract_short = "Version 1.1.0 with nine distributions, but in version 1.2.0 it was increased to eleven distributions."
+abstract_short = "Version 1.1.0 with nine distributions, but in version 1.2.0 it was increased to eleven distributions. Version 1.3.0 now has fourteen distributions."
 
 # Is this a selected publication? (true/false)
 selected = true
