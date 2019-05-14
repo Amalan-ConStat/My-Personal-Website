@@ -11,13 +11,13 @@ weight = 4
 [interests]
   interests = [ 
     "Big Data",
-    "R",
+    "Public Health Data",
     "Latex",
+    "R",
     "tidyverse",
     "Rshiny",
     "#TidyTuesday",
     "#rstats",
-    "Binomial Outcome Data",
     "fitODBOD"
   ]
 
@@ -29,8 +29,9 @@ weight = 4
 +++
 
 # Biography
-Amalan is currently focused in research topics for Phd and Masters using R statistical programming and statistics.
-Recently published his R package to CRAN, which is ["fitODBOD"](https://cran.r-project.org/package=fitODBOD). 
+Amalan is currently focused in research topics for PhD and Masters using R statistical programming and statistics.
+Published his R package to CRAN, which is ["fitODBOD"](https://cran.r-project.org/package=fitODBOD). 
 This package was a research project to fulfill credit requirements. Journal article is under review with the task 
 of how to use this package to produce meaningful results for researchers. He is a committed researcher, even under
-severe pressure to complete objectives on scheduled times.
+severe pressure to complete objectives on scheduled times. Mostly interested in Public Health data and big data,
+while using R programming to make things easier and interesting.
