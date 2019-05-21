@@ -16,7 +16,16 @@
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week20/week20/</guid>
-      <description></description>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(readr)
+library(gganimate)
+
+coast_vs_waste &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv&amp;quot;)
+
+mismanaged_vs_gdp &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)
+
+waste_vs_gdp &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>

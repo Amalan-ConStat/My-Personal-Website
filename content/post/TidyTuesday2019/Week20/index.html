@@ -20,4 +20,12 @@ summary: '2019 Week 20 TidyTuesday: Plastic Waste Data'
 
 
 
+<pre class="r"><code>library(tidyverse)
+library(readr)
+library(gganimate)
 
+coast_vs_waste &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv&quot;)
+
+mismanaged_vs_gdp &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv&quot;)
+
+waste_vs_gdp &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv&quot;)</code></pre>
