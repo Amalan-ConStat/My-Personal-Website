@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 20 : Global Plastic Waste</title>
+      <link>/post/tidytuesday2019/week20/week20/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week20/week20/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>South Park Text Analytics Shiny App</title>
