@@ -40,15 +40,6 @@
     </item>
     
     <item>
-      <title>Tweets</title>
-      <link>/home/twitter/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/home/twitter/</guid>
-      <description> </description>
-    </item>
-    
-    <item>
       <title>Ability and Knowledge</title>
       <link>/home/skills/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0530</pubDate>
@@ -147,6 +138,15 @@ I am a teaching instructor for the following courses at University X:
       
       <guid>/home/search/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Tweets</title>
+      <link>/home/twitter/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/home/twitter/</guid>
+      <description>  </description>
     </item>
     
     <item>
