@@ -2034,3 +2034,7 @@ body.dark,
 .dark a.badge:hover {
   color: rgba(255, 255, 255, .68);
 }
+
+.twitter {
+    width: 85%;
+}

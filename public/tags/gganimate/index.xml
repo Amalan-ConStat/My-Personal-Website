@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Week 20 : Global Plastic Waste</title>
-      <link>/post/tidytuesday2019/week20/week20/</link>
-      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week20/week20/</guid>
-      <description>library(tidyverse)library(readr)library(gganimate)coast_vs_waste &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv&amp;quot;)mismanaged_vs_gdp &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)waste_vs_gdp &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)</description>
-    </item>
     
     <item>
       <title>South Park Text Analytics Shiny App</title>
