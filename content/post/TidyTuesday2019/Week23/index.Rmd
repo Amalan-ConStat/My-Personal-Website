@@ -92,7 +92,7 @@ ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
 ```
 
 
-### Rating below 2
+### Rating where stars is below 2
 
 ```{r Rating stars of 2 or below 2 for Style}
 ramen_ratings %>%
@@ -109,30 +109,56 @@ ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
 
 ## Country versus Stars
 
-### Rating where stars is 5
+### Rating where stars is 4 or above 4
 
-### Rating below 2
+```{r Rating stars of 4 or above 4 for Country}
+ramen_ratings %>%
+  subset(stars >=4)%>%
+  count(country,sort = TRUE) %>%
+  top_n(25) %>%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab("Count / Frequency")+xlab("Country")+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle("Countries Distribution by Stars",
+              subtitle = "Top 25")+
+      theme_economist()+ coord_flip()
+```
+
+### Rating where stars is below 2
+
+```{r Rating stars of 2 or below 2 for Country}
+ramen_ratings %>%
+  subset(stars < 2)%>%
+  count(country,sort = TRUE) %>%
+  top_n(25) %>%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab("Count / Frequency")+xlab("Country")+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle("Countries Distribution by Stars",
+              subtitle = "Top 20")+
+      theme_economist()+ coord_flip()
+```
 
 ## Brand and Style versus Stars
 
-### Rating where stars is 5
+### Rating where stars is 4 or above 4
 
-### Rating below 2
+### Rating where stars is below 2
 
 ## Brand and Country versus Stars
 
-### Rating where stars is 5
+### Rating where stars is 4 or above 4
 
-### Rating below 2
+### Rating where stars is below 2
 
 ## Style and Country versus Stars
 
-### Rating where stars is 5
+### Rating where stars is 4 or above 4
 
-### Rating below 2
+### Rating where stars is below 2
 
 ## Brand, Style and Country versus Stars
 
-### Rating where stars is 5
+### Rating where stars is 4 or above 4
 
-### Rating below 2
+### Rating where stars is below 2

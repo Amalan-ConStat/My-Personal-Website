@@ -517,8 +517,8 @@ ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
       theme_economist()+ coord_flip()</code></pre>
 <p><img src="/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Style-1.png" width="1152" /></p>
 </div>
-<div id="rating-below-2" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-1" class="section level3">
+<h3>Rating where stars is below 2</h3>
 <pre class="r"><code>ramen_ratings %&gt;%
   subset(stars &lt; 2)%&gt;%
   count(style,sort = TRUE) %&gt;%
@@ -534,47 +534,69 @@ ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
 </div>
 <div id="country-versus-stars" class="section level2">
 <h2>Country versus Stars</h2>
-<div id="rating-where-stars-is-5" class="section level3">
-<h3>Rating where stars is 5</h3>
+<div id="rating-where-stars-is-4-or-above-4-2" class="section level3">
+<h3>Rating where stars is 4 or above 4</h3>
+<pre class="r"><code>ramen_ratings %&gt;%
+  subset(stars &gt;=4)%&gt;%
+  count(country,sort = TRUE) %&gt;%
+  top_n(25) %&gt;%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&quot;Count / Frequency&quot;)+xlab(&quot;Country&quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&quot;Countries Distribution by Stars&quot;,
+              subtitle = &quot;Top 25&quot;)+
+      theme_economist()+ coord_flip()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Country-1.png" width="1152" /></p>
 </div>
-<div id="rating-below-2-1" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-2" class="section level3">
+<h3>Rating where stars is below 2</h3>
+<pre class="r"><code>ramen_ratings %&gt;%
+  subset(stars &lt; 2)%&gt;%
+  count(country,sort = TRUE) %&gt;%
+  top_n(25) %&gt;%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&quot;Count / Frequency&quot;)+xlab(&quot;Country&quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&quot;Countries Distribution by Stars&quot;,
+              subtitle = &quot;Top 20&quot;)+
+      theme_economist()+ coord_flip()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%202%20or%20below%202%20for%20Country-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="brand-and-style-versus-stars" class="section level2">
 <h2>Brand and Style versus Stars</h2>
-<div id="rating-where-stars-is-5-1" class="section level3">
-<h3>Rating where stars is 5</h3>
+<div id="rating-where-stars-is-4-or-above-4-3" class="section level3">
+<h3>Rating where stars is 4 or above 4</h3>
 </div>
-<div id="rating-below-2-2" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-3" class="section level3">
+<h3>Rating where stars is below 2</h3>
 </div>
 </div>
 <div id="brand-and-country-versus-stars" class="section level2">
 <h2>Brand and Country versus Stars</h2>
-<div id="rating-where-stars-is-5-2" class="section level3">
-<h3>Rating where stars is 5</h3>
+<div id="rating-where-stars-is-4-or-above-4-4" class="section level3">
+<h3>Rating where stars is 4 or above 4</h3>
 </div>
-<div id="rating-below-2-3" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-4" class="section level3">
+<h3>Rating where stars is below 2</h3>
 </div>
 </div>
 <div id="style-and-country-versus-stars" class="section level2">
 <h2>Style and Country versus Stars</h2>
-<div id="rating-where-stars-is-5-3" class="section level3">
-<h3>Rating where stars is 5</h3>
+<div id="rating-where-stars-is-4-or-above-4-5" class="section level3">
+<h3>Rating where stars is 4 or above 4</h3>
 </div>
-<div id="rating-below-2-4" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-5" class="section level3">
+<h3>Rating where stars is below 2</h3>
 </div>
 </div>
 <div id="brand-style-and-country-versus-stars" class="section level2">
 <h2>Brand, Style and Country versus Stars</h2>
-<div id="rating-where-stars-is-5-4" class="section level3">
-<h3>Rating where stars is 5</h3>
+<div id="rating-where-stars-is-4-or-above-4-6" class="section level3">
+<h3>Rating where stars is 4 or above 4</h3>
 </div>
-<div id="rating-below-2-5" class="section level3">
-<h3>Rating below 2</h3>
+<div id="rating-where-stars-is-below-2-6" class="section level3">
+<h3>Rating where stars is below 2</h3>
 </div>
 </div>
 
