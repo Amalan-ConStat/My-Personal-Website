@@ -302,18 +302,21 @@ ggplot(.,aes(x=country,y=n,label=n,fill=style))+
 ```{r Special Plot}
 #summarytools::dfSummary(ramen_ratings)
 
-ramen_ratings %>%
-  subset(brand=="Nissin" | brand=="Nongshim" |
-         brand=="Maruchan" | brand=="Myojo" |
-         brand=="Samyang Foods" | brand=="Mama"|
-         brand=="Paldo" | brand=="Indomie"|
-         brand=="Ottogi" | brand=="Sapporo Ichiban") %>%
-  ggplot(.,aes(brand,as_factor(stars),color=style))+
-         geom_jitter()+theme_economist()+
-         xlab("Brand")+ylab("Stars")+
-         ggtitle("How Stars change for Brands",subtitle="{closest_state}")+
-  transition_states(country,transition_length = 1,state_length = 3)+
-  enter_fade()+exit_shrink()+ease_aes("back-in")
+spe_plot<-ramen_ratings %>%
+          subset(brand=="Nissin" | brand=="Nongshim" |
+                 brand=="Maruchan" | brand=="Myojo" |
+                 brand=="Samyang Foods" | brand=="Mama"|
+                 brand=="Paldo" | brand=="Indomie"|
+                 brand=="Ottogi" | brand=="Sapporo Ichiban") %>%
+                 remove_missing() %>%
+          ggplot(.,aes(brand,as_factor(stars),color=style))+
+          geom_jitter()+theme_economist()+
+          xlab("Brand")+ylab("Stars")+
+          ggtitle("How Stars change for Brands",subtitle="{closest_state}")+
+          transition_states(country,transition_length = 1,state_length = 2)+
+          enter_fade()+exit_fade()
+
+animate(spe_plot,nframes=44,fps=2)
 ```
 
 

@@ -711,18 +711,21 @@ ggplot(.,aes(x=country,y=n,label=n,fill=style))+
 <h1>Special Plot</h1>
 <pre class="r"><code>#summarytools::dfSummary(ramen_ratings)
 
-ramen_ratings %&gt;%
-  subset(brand==&quot;Nissin&quot; | brand==&quot;Nongshim&quot; |
-         brand==&quot;Maruchan&quot; | brand==&quot;Myojo&quot; |
-         brand==&quot;Samyang Foods&quot; | brand==&quot;Mama&quot;|
-         brand==&quot;Paldo&quot; | brand==&quot;Indomie&quot;|
-         brand==&quot;Ottogi&quot; | brand==&quot;Sapporo Ichiban&quot;) %&gt;%
-  ggplot(.,aes(brand,as_factor(stars),color=style))+
-         geom_jitter()+theme_economist()+
-         xlab(&quot;Brand&quot;)+ylab(&quot;Stars&quot;)+
-         ggtitle(&quot;How Stars change for Brands&quot;,subtitle=&quot;{closest_state}&quot;)+
-  transition_states(country,transition_length = 1,state_length = 3)+
-  enter_fade()+exit_shrink()+ease_aes(&quot;back-in&quot;)</code></pre>
+spe_plot&lt;-ramen_ratings %&gt;%
+          subset(brand==&quot;Nissin&quot; | brand==&quot;Nongshim&quot; |
+                 brand==&quot;Maruchan&quot; | brand==&quot;Myojo&quot; |
+                 brand==&quot;Samyang Foods&quot; | brand==&quot;Mama&quot;|
+                 brand==&quot;Paldo&quot; | brand==&quot;Indomie&quot;|
+                 brand==&quot;Ottogi&quot; | brand==&quot;Sapporo Ichiban&quot;) %&gt;%
+                 remove_missing() %&gt;%
+          ggplot(.,aes(brand,as_factor(stars),color=style))+
+          geom_jitter()+theme_economist()+
+          xlab(&quot;Brand&quot;)+ylab(&quot;Stars&quot;)+
+          ggtitle(&quot;How Stars change for Brands&quot;,subtitle=&quot;{closest_state}&quot;)+
+          transition_states(country,transition_length = 1,state_length = 2)+
+          enter_fade()+exit_fade()
+
+animate(spe_plot,nframes=44,fps=2)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week23/index_files/figure-html/Special%20Plot-1.gif" /><!-- --></p>
 <p><em>THANK YOU</em></p>
 </div>
