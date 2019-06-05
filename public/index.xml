@@ -265,8 +265,26 @@ ggplot(.,aes(x=country,y=n,label=n,fill=style))+
               subtitle = &amp;quot;Top 25&amp;quot;)+
       theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%20below%202%20for%20Brand,Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;special-plot&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Special Plot&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#summarytools::dfSummary(ramen_ratings)
+
+ramen_ratings %&amp;gt;%
+  subset(brand==&amp;quot;Nissin&amp;quot; | brand==&amp;quot;Nongshim&amp;quot; |
+         brand==&amp;quot;Maruchan&amp;quot; | brand==&amp;quot;Myojo&amp;quot; |
+         brand==&amp;quot;Samyang Foods&amp;quot; | brand==&amp;quot;Mama&amp;quot;|
+         brand==&amp;quot;Paldo&amp;quot; | brand==&amp;quot;Indomie&amp;quot;|
+         brand==&amp;quot;Ottogi&amp;quot; | brand==&amp;quot;Sapporo Ichiban&amp;quot;) %&amp;gt;%
+  ggplot(.,aes(brand,as_factor(stars),color=style))+
+         geom_jitter()+theme_economist()+
+         xlab(&amp;quot;Brand&amp;quot;)+ylab(&amp;quot;Stars&amp;quot;)+
+         ggtitle(&amp;quot;How Stars change for Brands&amp;quot;,subtitle=&amp;quot;{closest_state}&amp;quot;)+
+  transition_states(country,transition_length = 1,state_length = 3)+
+  enter_fade()+exit_shrink()+ease_aes(&amp;quot;back-in&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Special%20Plot-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
