@@ -29,7 +29,8 @@ weight = 4
 +++
 
 # Biography
-Amalan is currently focused in research topics for PhD and Masters using R statistical programming and statistics.
+Amalan is currently focused in research related work using R statistical programming and statistics 
+which are topics similar to PhD, MPhil and Masters.
 Published his R package to CRAN, which is ["fitODBOD"](https://cran.r-project.org/package=fitODBOD). 
 This package was a research project to fulfill credit requirements. Journal article is under review with the task 
 of how to use this package to produce meaningful results for researchers. He is a committed researcher, even under
