@@ -11,6 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 23 : Ramen Ratings</title>
+      <link>/post/tidytuesday2019/week23/week23/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week23/week23/</guid>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
       <link>/publication/fitodbod-cran/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
@@ -2651,110 +2661,6 @@ animate(p,nframes=18,fps=1)             &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Boswell, M. T., Ord, J. K., and Patil, G. P. (1979). Chance mechanisms underlying univariate distributions, Statistical Ecology, Vol. 4:Statistical Distributions in Ecological Work, J. K. Ord, G. P. Patil, and C. Taillie (editors), 1-156. Fairland, MD: International Co-operative Publishing House.&lt;/p&gt;
 &lt;p&gt;Kaplan, N., and Risko, K. (1982). A method for estimating rates of nucleotide substitution using DNA sequence data, Theoretical Population Biology, 21, 318-328.&lt;/p&gt;
 &lt;p&gt;Seber, G. A. F. (1982b). The Estimation of Animal Abundance (second edition), London: Griffin.&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 7: Spending On Science Stuff</title>
-      <link>/post/tidytuesday2019/week7/week7/</link>
-      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week7/week7/</guid>
-      <description>&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#climate-change-research&#34;&gt;Climate Change Research&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#energy&#34;&gt;Energy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#federal&#34;&gt;Federal&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load the packages 
-library(readr)
-library(tidyverse)
-library(gganimate)
-library(dplyr)
-library(magrittr)
-
-# load the data
-climate &amp;lt;- read_csv(&amp;quot;climate_spending.csv&amp;quot;)
-
-energy &amp;lt;- read_csv(&amp;quot;energy_spending.csv&amp;quot;, 
-                    col_types = cols(year = col_integer()))
-
-federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Even though I can go further and do an investigative plotting from the rest data it is not done here. I was more focused on the scientific notation values in the plotting and scales, which were bothering me a lot.&lt;/p&gt;
-&lt;p&gt;3 Data sets are given here, they are&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Global Climate Change Research Program Spending. - climate&lt;/li&gt;
-&lt;li&gt;Energy Departments Data. - energy&lt;/li&gt;
-&lt;li&gt;Total Federal R &amp;amp; D Spending by Department. - federal&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Oddly though climate data-set did not have year values, I checked the downloaded csv file and the GitHub upload as well. Well, that did not stop me from doing some tidy plotting.&lt;/p&gt;
-&lt;p&gt;You can obtain the data from &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-12&#34;&gt;here.&lt;/a&gt; It should be noted that I am not going to rename the abbreviation of departments with their full names, so below is a screen shot which would come in handy.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;department.jpg&#34; alt=&#34;Department Full Names with Abbreviations&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Department Full Names with Abbreviations&lt;/p&gt;
-&lt;/div&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Scientific notation of numbers and plotting them was fun. Except for the R and D budget, other 3 have a steady increase over the years. Further, the R and D budget is very small than the others. Code: &lt;a href=&#34;https://t.co/jmzfTGMRaT&#34;&gt;https://t.co/jmzfTGMRaT&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/tidytuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidytuesday&lt;/a&gt; &lt;a href=&#34;https://t.co/3WfBU72kWW&#34;&gt;pic.twitter.com/3WfBU72kWW&lt;/a&gt;&lt;/p&gt;&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) &lt;a href=&#34;https://twitter.com/Amalan_Con_Stat/status/1095152521507733505?ref_src=twsrc%5Etfw&#34;&gt;February 12, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week7&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
-&lt;div id=&#34;climate-change-research&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Climate Change Research&lt;/h1&gt;
-&lt;p&gt;As I mentioned earlier for the climate data there are no values in the year column, but according to summary I was able to deduce that we have 18 years of information. When we do plot it is going to be the summation for each department in a bar.&lt;/p&gt;
-&lt;p&gt;Clearly NASA has the most amount ( above than 2.5 x 10^10 USD) of spending because rockets are expensive, second place goes to NSF (5 x 10^9 USD) and third place to NOAA. Lowest amount of spending is to the Department of Interior (8.47 x 10^8 USD).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(climate,aes(x=fct_inorder(department),y=gcc_spending,fill=department))+
-  geom_bar(stat=&amp;quot;identity&amp;quot;,show.legend = FALSE)+
-  ggtitle(&amp;quot;Total GCC Spending for 18 Years&amp;quot;)+
-  scale_y_continuous(labels = scales::scientific,breaks = seq(0,2.75e+10,0.25e+10))+
-  xlab(&amp;quot;Sub Agency / Department&amp;quot;)+ylab(&amp;quot;GCC Spending (in USD)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week7/index_files/figure-html/Global%20Climate%20change%20Research-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;energy&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Energy&lt;/h1&gt;
-&lt;p&gt;Since 1997 to 2018 how Energy Department funding has changed with sub agency/ department is the purpose of the below bar plot. Office of Science R &amp;amp; D and Atomic Energy Defense are competitive over the years and for a short period of time the latter has less funding than the former, this was between 2006 to 2010.&lt;/p&gt;
-&lt;p&gt;Other agencies oscillates over the years while reaching new highs and lows.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-ggplot(energy,aes(x=department,y=energy_spending,fill=year))+
-          geom_bar(stat=&amp;quot;identity&amp;quot;,position =&amp;quot;identity&amp;quot;)+
-          transition_time(year)+
-          geom_text(aes(label=scales::scientific(energy_spending)),
-                    vjust = &amp;quot;inward&amp;quot;, hjust = &amp;quot;inward&amp;quot;)+
-          ease_aes(&amp;quot;linear&amp;quot;)+coord_flip()+
-          ylab(&amp;quot;Energy Spending (in USD)&amp;quot;)+
-          theme(legend.position = &amp;quot;right&amp;quot;)+
-          xlab(&amp;quot;Sub Agency / Department&amp;quot;)+
-          scale_fill_continuous(breaks = seq(1997,2018,3))+
-          scale_y_continuous(labels = scales::scientific)+
-          ggtitle(&amp;quot;Energy Spending Of Year : {frame_time}&amp;quot;)
-
-animate(p,fps=1,nframes=22)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week7/index_files/figure-html/Energy%20Funding-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;federal&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Federal&lt;/h1&gt;
-&lt;p&gt;Data of Federal funding has four different types to be compared and they are mentioned below in the description image which would make explanation more easier.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;description.jpg&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Except rd_budget others have a very clear increase in amount between 1976 to 2018. Further, all four plots have different scales and the limits are widely different for each plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p&amp;lt;-federal %&amp;gt;%
-    gather(funding,amount,c(rd_budget,total_outlays,discretionary_outlays,gdp)) %&amp;gt;%
-    ggplot(.,aes(x=factor(department),y=amount,color=year))+
-           geom_jitter()+transition_time(year)+
-           ease_aes(&amp;quot;linear&amp;quot;)+coord_flip()+
-           shadow_mark()+
-           theme(legend.position = &amp;quot;right&amp;quot;)+
-           ylab(&amp;quot;Spending in USD&amp;quot;)+xlab(&amp;quot;Department&amp;quot;)+
-           ggtitle(&amp;quot;Total Federal R&amp;amp;D for Year : {frame_time}&amp;quot;)+
-           scale_color_continuous(breaks = seq(1976,2018,6),labels=seq(1976,2018,6))+
-           scale_y_continuous(labels = scales::scientific)+
-           facet_wrap(~funding,scales = &amp;quot;free&amp;quot;)
-
-animate(p,fps=1,nframes=42)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week7/index_files/figure-html/Federal%20Funding-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
