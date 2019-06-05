@@ -179,7 +179,38 @@ ggplot(.,aes(x=fct_inorder(brand),y=n,label=n,fill=style))+
 
 ### Rating where stars is 4 or above 4
 
+```{r Rating stars of 4 or above 4 for Brand and Country}
+ramen_ratings %>%
+  subset(stars >=4)%>%
+  count(brand,country,sort = TRUE) %>%
+  top_n(25) %>%
+ggplot(.,aes(x=fct_inorder(brand),y=n,label=n,fill=country))+
+      geom_col(position = "dodge")+
+      ylab("Count / Frequency")+xlab("Brand")+
+      geom_text(hjust=-0.25,color=blues9[9],
+                position = position_dodge(width = 1))+
+      ggtitle("Brand Distribution by Stars but for Country",
+              subtitle = "Top 25")+
+      theme_economist()+ coord_flip()
+```
+
 ### Rating where stars is below 2
+
+
+```{r Rating stars of below 2 for Brand and Country}
+ramen_ratings %>%
+  subset(stars <2)%>%
+  count(brand,country,sort = TRUE) %>%
+  top_n(25) %>%
+ggplot(.,aes(x=fct_inorder(brand),y=n,label=n,fill=country))+
+      geom_col(position = "dodge")+
+      ylab("Count / Frequency")+xlab("Brand")+
+      geom_text(hjust=-0.25,color=blues9[9],
+                position = position_dodge(width = 1))+
+      ggtitle("Brand Distribution by Stars but for Country",
+              subtitle = "Top 25")+
+      theme_economist()+ coord_flip()
+```
 
 ## Style and Country versus Stars
 
