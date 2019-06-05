@@ -197,18 +197,70 @@ ggplot(.,aes(x=fct_inorder(brand),y=n,label=n,fill=country))+
 &lt;h2&gt;Style and Country versus Stars&lt;/h2&gt;
 &lt;div id=&#34;rating-where-stars-is-4-or-above-4-5&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Rating where stars is 4 or above 4&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;gt;=4)%&amp;gt;%
+  count(style,country,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n,fill=style))+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Country&amp;quot;)+
+      geom_text(hjust=-0.25,color=blues9[9],
+                position = position_dodge(width = 1))+
+      ggtitle(&amp;quot;Style Distribution by Stars but for Country&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rating-where-stars-is-below-2-5&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Rating where stars is below 2&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;lt;2)%&amp;gt;%
+  count(style,country,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(country),y=n,label=n,fill=style))+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Country&amp;quot;)+
+      geom_text(hjust=-0.25,color=blues9[9],
+                position = position_dodge(width = 1))+
+      ggtitle(&amp;quot;Style Distribution by Stars but for Country&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%20below%202%20for%20Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;brand-style-and-country-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Brand, Style and Country versus Stars&lt;/h2&gt;
 &lt;div id=&#34;rating-where-stars-is-4-or-above-4-6&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Rating where stars is 4 or above 4&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;gt;=4)%&amp;gt;%
+  count(brand,style,country,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=country,y=n,label=n,fill=style))+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+facet_wrap(~brand)+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Country&amp;quot;)+
+      geom_text(hjust=-0.05,color=blues9[9],size=3.5,
+                position = position_dodge(width = 1))+
+      ggtitle(&amp;quot;Style Distribution by Stars but for Country&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Brand,Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rating-where-stars-is-below-2-6&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Rating where stars is below 2&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;lt;2)%&amp;gt;%
+  count(brand,style,country,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=country,y=n,label=n,fill=style))+
+      geom_col(position = &amp;quot;dodge&amp;quot;)+facet_wrap(~brand)+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Country&amp;quot;)+
+      geom_text(hjust=-0.05,color=blues9[9],size=3.5,
+                position = position_dodge(width = 1))+
+      ggtitle(&amp;quot;Style Distribution by Stars but for Country&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%20below%202%20for%20Brand,Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
