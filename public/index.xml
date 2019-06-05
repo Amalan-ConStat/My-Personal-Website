@@ -21,6 +21,10 @@
 library(tidyverse)
 library(gganimate)
 library(ggthemes)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I have not posted regarding #TidyTuesday in a while, so here it is. It is all
+about manipulating the dataset and generating necessary plots.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04&#34;&gt;Data&lt;/a&gt;
+&lt;a href=&#34;&#34;&gt;GitHub Code&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
   count(stars,sort = TRUE) %&amp;gt;%
 ggplot(.,aes(fct_inorder(as_factor(stars)),n,label=n))+
@@ -261,6 +265,7 @@ ggplot(.,aes(x=country,y=n,label=n,fill=style))+
               subtitle = &amp;quot;Top 25&amp;quot;)+
       theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%20below%202%20for%20Brand,Style%20and%20Country-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THANK YOU&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

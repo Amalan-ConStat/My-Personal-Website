@@ -30,6 +30,17 @@ library(gganimate)
 library(ggthemes)
 ```
 
+I have not posted regarding #TidyTuesday in a while, so here it is. It is all
+about manipulating the dataset and generating necessary plots.
+
+
+[Data](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04)
+[GitHub Code]()
+
+```{r tweet,echo=FALSE}
+#blogdown::shortcode("tweet","")
+```
+
 ```{r Stars all}
 ramen_ratings %>%
   count(stars,sort = TRUE) %>%
@@ -284,3 +295,5 @@ ggplot(.,aes(x=country,y=n,label=n,fill=style))+
               subtitle = "Top 25")+
       theme_economist()+ coord_flip()
 ```
+
+*THANK YOU*
