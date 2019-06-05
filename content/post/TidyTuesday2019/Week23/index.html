@@ -28,7 +28,8 @@ library(ggthemes)</code></pre>
 <p>I have not posted regarding #TidyTuesday in a while, so here it is. It is all
 about manipulating the dataset and generating necessary plots.</p>
 <p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04">Data</a>
-<a href="">GitHub Code</a></p>
+<a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week23">GitHub Code</a></p>
+{{% tweet "1136303490978988033" %}}
 <pre class="r"><code>ramen_ratings %&gt;%
   count(stars,sort = TRUE) %&gt;%
 ggplot(.,aes(fct_inorder(as_factor(stars)),n,label=n))+

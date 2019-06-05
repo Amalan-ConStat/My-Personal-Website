@@ -35,10 +35,10 @@ about manipulating the dataset and generating necessary plots.
 
 
 [Data](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04)
-[GitHub Code]()
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week23)
 
 ```{r tweet,echo=FALSE}
-#blogdown::shortcode("tweet","")
+blogdown::shortcode("tweet","1136303490978988033")
 ```
 
 ```{r Stars all}

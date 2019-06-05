@@ -20,7 +20,8 @@
       <guid>/post/tidytuesday2019/week23/week23/</guid>
       <description>ramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)I have not posted regarding #TidyTuesday in a while, so here it is. It is allabout manipulating the dataset and generating necessary plots.
 DataGitHub Code
-ramen_ratings %&amp;gt;%count(stars,sort = TRUE) %&amp;gt;%ggplot(.,aes(fct_inorder(as_factor(stars)),n,label=n))+geom_col(fill=blues9[5])+geom_text(vjust=-0.5,color=blues9[9])+ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Stars&amp;quot;)+ggtitle(&amp;quot;Stars Distribution&amp;quot;)+theme_economist()+theme(axis.text.x = element_text(angle = 45))Brand versus StarsRating where stars is 4 or above 4ramen_ratings %&amp;gt;%subset(stars &amp;gt;=4)%&amp;gt;%count(brand,sort = TRUE) %&amp;gt;%top_n(25) %&amp;gt;%ggplot(.</description>
+Just an animated plot where for the top 10 brands how stars change with style and country. Ramen is with highest ratings in Japan, Taiwan and South Korea. #TidyTuesday GitHub Code : https://t.co/lPQrYK8aoN pic.twitter.com/IQ3okDflYK
+&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) June 5, 2019  ramen_ratings %&amp;gt;%count(stars,sort = TRUE) %&amp;gt;%ggplot(.</description>
     </item>
     
     <item>
