@@ -16,27 +16,126 @@
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week23/week23/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)
+
+library(tidyverse)
+library(gganimate)
+library(ggthemes)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  count(stars,sort = TRUE) %&amp;gt;%
+ggplot(.,aes(fct_inorder(as_factor(stars)),n,label=n))+
+      geom_col(fill=blues9[5])+
+      geom_text(vjust=-0.5,color=blues9[9])+ylab(&amp;quot;Count / Frequency&amp;quot;)+
+      xlab(&amp;quot;Stars&amp;quot;)+ggtitle(&amp;quot;Stars Distribution&amp;quot;)+
+      theme_economist()+
+      theme(axis.text.x = element_text(angle = 45))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Stars%20all-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;brand-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Brand versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-4-or-above-4&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 4 or above 4&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;gt;=4)%&amp;gt;%
+  count(brand,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(brand),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Brand&amp;quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&amp;quot;Brands Distribution by Stars&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Brands-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-where-stars-is-below-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is below 2&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;lt; 2)%&amp;gt;%
+  count(brand,sort = TRUE) %&amp;gt;%
+  top_n(25) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(brand),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Brand&amp;quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&amp;quot;Brands Distribution by Stars&amp;quot;,
+              subtitle = &amp;quot;Top 25&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%202%20or%20below%202%20for%20Brands-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;style-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Style versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-4-or-above-4-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 4 or above 4&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;gt;=4)%&amp;gt;%
+  count(style,sort = TRUE) %&amp;gt;%
+  top_n(10) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Style&amp;quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&amp;quot;Styles Distribution by Stars&amp;quot;,
+              subtitle = &amp;quot;Top 10&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%204%20or%20above%204%20for%20Style-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ramen_ratings %&amp;gt;%
+  subset(stars &amp;lt; 2)%&amp;gt;%
+  count(style,sort = TRUE) %&amp;gt;%
+  top_n(5) %&amp;gt;%
+ggplot(.,aes(x=fct_inorder(style),y=n,label=n))+geom_col(fill=blues9[5])+
+      ylab(&amp;quot;Count / Frequency&amp;quot;)+xlab(&amp;quot;Style&amp;quot;)+
+      geom_text(hjust=-0.5,color=blues9[9])+
+      ggtitle(&amp;quot;Styles Distribution by Stars&amp;quot;,
+              subtitle = &amp;quot;Top 5&amp;quot;)+
+      theme_economist()+ coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week23/index_files/figure-html/Rating%20stars%20of%202%20or%20below%202%20for%20Style-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;country-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Country versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-5&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 5&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;brand-and-style-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Brand and Style versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-5-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 5&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;brand-and-country-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Brand and Country versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-5-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 5&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2-3&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;style-and-country-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Style and Country versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-5-3&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 5&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2-4&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;brand-style-and-country-versus-stars&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Brand, Style and Country versus Stars&lt;/h2&gt;
+&lt;div id=&#34;rating-where-stars-is-5-4&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating where stars is 5&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rating-below-2-5&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Rating below 2&lt;/h3&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
