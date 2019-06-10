@@ -18,7 +18,7 @@
       <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week24/week24/</guid>
-      <description></description>
+      <description>meteorites &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&amp;quot;)library(tidyverse)library(gganimate)</description>
     </item>
     
     <item>

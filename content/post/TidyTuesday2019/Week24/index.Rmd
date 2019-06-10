@@ -15,6 +15,19 @@ tags:
 image:
   caption: ''
   focal_point: ''
-summary: '2019 Week 24 TidyTuesday: Meteors Falling from the Sky.'  
+summary: '2019 Week 24 TidyTuesday: Meteors Falling from the Space.'  
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.width = 12,fig.height = 12)
+```
+
+
+```{r load the data and packages}
+meteorites <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv")
+
+library(tidyverse)
+library(gganimate)
+
+```
 
