@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/tidytuesday/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 24: Meteorite Data</title>
+      <link>/post/tidytuesday2019/week24/week24/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week24/week24/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Week 23 : Ramen Ratings</title>
