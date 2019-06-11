@@ -456,30 +456,120 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <pre class="r"><code>meteorites &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&quot;)
+      <div id="TOC">
+<ul>
+<li><a href="#meteorites-over-the-year-with-name-type">Meteorites over the Year with Name Type</a></li>
+<li><a href="#meteorites-over-the-year-with-fall">Meteorites over the Year with Fall</a></li>
+<li><a href="#meteorites-and-classes">Meteorites and Classes</a></li>
+</ul>
+</div>
+
+<pre class="r"><code>meteorites &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&quot;)
 
 library(tidyverse)
 library(gganimate)
 library(maps)
 library(ggthemes)</code></pre>
+<div id="meteorites-over-the-year-with-name-type" class="section level1">
+<h1>Meteorites over the Year with Name Type</h1>
 <pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
 
 world &lt;- ggplot() + theme_map()+
          borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
 
 plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                 color=&quot;blue&quot;)+
+                 color=meteorites_rm$name_type)+
              transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
              shadow_mark(past = TRUE)+
              theme(plot.title = element_text(color = &quot;black&quot;, 
                                            size = 15, 
                                            face = &quot;bold&quot;),
                    panel.background = element_rect(fill = &quot;#5e8bed&quot;)) +
-             ggtitle(&quot;Meteors Falling from the sky &quot;,subtitle = &quot;Year:{closest_state}&quot;)
+             ggtitle(&quot;Meteors Falling from the sky by Name Type&quot;,subtitle = &quot;Year:{closest_state}&quot;)
 
 animate(plot1,nframes=253,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year-1.gif" /><!-- --></p>
-<pre class="r"><code>beepr::beep(1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20by%20name%20type-1.gif" /><!-- --></p>
+</div>
+<div id="meteorites-over-the-year-with-fall" class="section level1">
+<h1>Meteorites over the Year with Fall</h1>
+<pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
+
+world &lt;- ggplot() + theme_map()+
+         borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
+
+plot2&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
+                 color=meteorites_rm$fall)+
+             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
+             shadow_mark(past = TRUE)+
+             theme(plot.title = element_text(color = &quot;black&quot;, 
+                                           size = 15, 
+                                           face = &quot;bold&quot;),
+                   panel.background = element_rect(fill = &quot;#5e8bed&quot;)) +
+             ggtitle(&quot;Meteors Falling from the sky by Fall&quot;,subtitle = &quot;Year:{closest_state}&quot;)
+
+animate(plot2,nframes=253,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20with%20fall-1.gif" /><!-- --></p>
+</div>
+<div id="meteorites-and-classes" class="section level1">
+<h1>Meteorites and Classes</h1>
+<pre class="r"><code>test&lt;-meteorites%&gt;%
+          subset(year &gt;= 2000 &amp; year &lt; 2101) %&gt;%
+          group_by(year,class) %&gt;%
+          count(class) %&gt;%
+          group_by(year)%&gt;%     
+          mutate(rank=rank(-n),
+                 #value_rel= n/n[rank==1],
+                 value_lbl=paste0(&quot;&quot;,n)) %&gt;%
+          group_by(class) %&gt;%
+          filter(rank &lt;=5) %&gt;%
+          ungroup()
+
+plot3&lt;-ggplot(test, aes(rank, group = class, 
+              fill = as.factor(class), color = as.factor(class))) +
+       geom_tile(aes(y = n/2,height = n,width = 0.9), alpha = 0.8, color = NA) +
+       geom_text(aes(y = 0, label = paste(class, &quot; &quot;)), vjust = 0.2, hjust = 1) +
+       geom_text(aes(y=n,label = value_lbl, hjust=0)) +
+       coord_flip(clip = &quot;off&quot;, expand = FALSE) +
+       scale_y_continuous(labels = scales::comma) +
+       scale_x_reverse() +
+       guides(color = FALSE, fill = FALSE) +
+       theme(axis.line=element_blank(),
+             axis.text.x=element_blank(),
+             axis.text.y=element_blank(),
+             axis.ticks=element_blank(),
+             axis.title.x=element_blank(),
+             axis.title.y=element_blank(),
+             legend.position=&quot;none&quot;,
+             panel.background=element_blank(),
+             panel.border=element_blank(),
+             panel.grid.major=element_blank(),
+             panel.grid.minor=element_blank(),
+             panel.grid.major.x = element_line( size=.1, color=&quot;grey&quot; ),
+             panel.grid.minor.x = element_line( size=.1, color=&quot;grey&quot; ),
+             plot.title=element_text(size=25, hjust=0.5, face=&quot;bold&quot;, colour=&quot;grey&quot;, vjust=-1),
+             plot.subtitle=element_text(size=18, hjust=0.5, face=&quot;italic&quot;, color=&quot;grey&quot;),
+             plot.caption =element_text(size=8, hjust=0.5, face=&quot;italic&quot;, color=&quot;grey&quot;),
+             plot.background=element_blank(),
+             plot.margin = margin(2,2, 2, 4, &quot;cm&quot;)) +
+       transition_states(year, transition_length = 3, state_length = 2) +
+  view_follow(fixed_x = TRUE)  +
+  labs(title = &#39;Meteorites Classes by Year: {closest_state}&#39;,  
+       subtitle  =  &quot;Top 5 Classes&quot;) 
+
+# For GIF
+
+animate(plot3, nframes=200, fps = 20,  width = 1000, height = 800, 
+        renderer = gifski_renderer(&quot;gganim.gif&quot;)) </code></pre>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes-1.gif" /><!-- --></p>
+<pre class="r"><code>test %&gt;%
+     ggplot(.,aes(x=class,y=n,label=rank,fill=class))+geom_col()+
+     facet_wrap(~factor(year))+geom_text(vjust=-0.5)+
+     geom_text(aes(label=n),vjust=1)+
+     ggtitle(&quot;Meteors class count from 2000 to 2013&quot;,subtitle = &quot;Top 5 Ranks&quot;)+
+     scale_y_continuous(expand = c(0,75))+theme_dark()+
+     theme(axis.text.x = element_text(angle = 45))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png" width="1344" /></p>
+</div>
 
     </div>
 
