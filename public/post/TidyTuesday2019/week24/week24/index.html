@@ -458,8 +458,7 @@
     <div class="article-style" itemprop="articleBody">
       <div id="TOC">
 <ul>
-<li><a href="#meteorites-over-the-year-with-name-type">Meteorites over the Year with Name Type</a></li>
-<li><a href="#meteorites-over-the-year-with-fall">Meteorites over the Year with Fall</a></li>
+<li><a href="#meteorites-over-the-year">Meteorites over the Year</a></li>
 <li><a href="#meteorites-and-classes">Meteorites and Classes</a></li>
 </ul>
 </div>
@@ -470,17 +469,16 @@ library(tidyverse)
 library(gganimate)
 library(maps)
 library(ggthemes)</code></pre>
-<div id="meteorites-over-the-year-with-name-type" class="section level1">
-<h1>Meteorites over the Year with Name Type</h1>
+<div id="meteorites-over-the-year" class="section level1">
+<h1>Meteorites over the Year</h1>
 <pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
 
 world &lt;- ggplot() + theme_map()+
          borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
 
 plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                        color=meteorites_rm$name_type)+
+                        color=&quot;#e20e06&quot;)+
              transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
-             shadow_mark(past = TRUE)+
              theme(plot.title = element_text(color = &quot;black&quot;, 
                                            size = 15, 
                                            face = &quot;bold&quot;),
@@ -488,27 +486,7 @@ plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_
              ggtitle(&quot;Meteors Falling from the sky by Name Type&quot;,subtitle = &quot;Year:{closest_state}&quot;)
 
 animate(plot1,nframes=253,fps=1,detail = 1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20by%20name%20type-1.gif" /><!-- --></p>
-</div>
-<div id="meteorites-over-the-year-with-fall" class="section level1">
-<h1>Meteorites over the Year with Fall</h1>
-<pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
-
-world &lt;- ggplot() + theme_map()+
-         borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
-
-plot2&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                 color=meteorites_rm$fall)+
-             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
-             shadow_mark(past = TRUE)+
-             theme(plot.title = element_text(color = &quot;black&quot;, 
-                                           size = 15, 
-                                           face = &quot;bold&quot;),
-                   panel.background = element_rect(fill = &quot;#5e8bed&quot;)) +
-             ggtitle(&quot;Meteors Falling from the sky by Fall&quot;,subtitle = &quot;Year:{closest_state}&quot;)
-
-animate(plot2,nframes=253,fps=1)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20with%20fall-1.gif" /><!-- --></p>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year-1.gif" /><!-- --></p>
 </div>
 <div id="meteorites-and-classes" class="section level1">
 <h1>Meteorites and Classes</h1>

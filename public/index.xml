@@ -18,8 +18,7 @@
       <guid>/post/tidytuesday2019/week24/week24/</guid>
       <description>&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#meteorites-over-the-year-with-name-type&#34;&gt;Meteorites over the Year with Name Type&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#meteorites-over-the-year-with-fall&#34;&gt;Meteorites over the Year with Fall&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#meteorites-over-the-year&#34;&gt;Meteorites over the Year&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#meteorites-and-classes&#34;&gt;Meteorites and Classes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -30,17 +29,16 @@ library(tidyverse)
 library(gganimate)
 library(maps)
 library(ggthemes)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;meteorites-over-the-year-with-name-type&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Meteorites over the Year with Name Type&lt;/h1&gt;
+&lt;div id=&#34;meteorites-over-the-year&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Meteorites over the Year&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;meteorites_rm&amp;lt;-remove_missing(meteorites)
 
 world &amp;lt;- ggplot() + theme_map()+
          borders(&amp;quot;world&amp;quot;, colour = &amp;quot;#353535&amp;quot;, fill = &amp;quot;#74e04a&amp;quot;) 
 
 plot1&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                        color=meteorites_rm$name_type)+
+                        color=&amp;quot;#e20e06&amp;quot;)+
              transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
-             shadow_mark(past = TRUE)+
              theme(plot.title = element_text(color = &amp;quot;black&amp;quot;, 
                                            size = 15, 
                                            face = &amp;quot;bold&amp;quot;),
@@ -48,27 +46,7 @@ plot1&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteori
              ggtitle(&amp;quot;Meteors Falling from the sky by Name Type&amp;quot;,subtitle = &amp;quot;Year:{closest_state}&amp;quot;)
 
 animate(plot1,nframes=253,fps=1,detail = 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20by%20name%20type-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;meteorites-over-the-year-with-fall&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Meteorites over the Year with Fall&lt;/h1&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;meteorites_rm&amp;lt;-remove_missing(meteorites)
-
-world &amp;lt;- ggplot() + theme_map()+
-         borders(&amp;quot;world&amp;quot;, colour = &amp;quot;#353535&amp;quot;, fill = &amp;quot;#74e04a&amp;quot;) 
-
-plot2&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                 color=meteorites_rm$fall)+
-             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
-             shadow_mark(past = TRUE)+
-             theme(plot.title = element_text(color = &amp;quot;black&amp;quot;, 
-                                           size = 15, 
-                                           face = &amp;quot;bold&amp;quot;),
-                   panel.background = element_rect(fill = &amp;quot;#5e8bed&amp;quot;)) +
-             ggtitle(&amp;quot;Meteors Falling from the sky by Fall&amp;quot;,subtitle = &amp;quot;Year:{closest_state}&amp;quot;)
-
-animate(plot2,nframes=253,fps=1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20with%20fall-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;meteorites-and-classes&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Meteorites and Classes&lt;/h1&gt;
