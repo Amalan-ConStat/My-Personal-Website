@@ -136,4 +136,12 @@ test %>%
 
 ```
 
+So I posted a tweet about the Meteor data for week 24 of #TidyTuesday.
+
+```{r my tweet, echo=FALSE}
+blogdown::shortcode("tweet","1138476351453913090")
+```
+
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week24)
+
 *THANK YOU*
