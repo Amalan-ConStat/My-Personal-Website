@@ -19,7 +19,7 @@ summary: '2019 Week 24 TidyTuesday: Meteors Falling from the Space.'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.width = 12,fig.height = 12)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.width = 14,fig.height = 11)
 ```
 
 
@@ -28,6 +28,28 @@ meteorites <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience
 
 library(tidyverse)
 library(gganimate)
-
+library(maps)
+library(ggthemes)
 ```
+
+```{r meteorites over the year}
+meteorites_rm<-remove_missing(meteorites)
+
+world <- ggplot() + theme_map()+
+         borders("world", colour = "#353535", fill = "#74e04a") 
+
+plot1<-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
+                 color="blue")+
+             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
+             shadow_mark(past = TRUE)+
+             theme(plot.title = element_text(color = "black", 
+                                           size = 15, 
+                                           face = "bold"),
+                   panel.background = element_rect(fill = "#5e8bed")) +
+             ggtitle("Meteors Falling from the sky ",subtitle = "Year:{closest_state}")
+
+animate(plot1,nframes=253,fps=1)
+beepr::beep(1)
+```
+
 

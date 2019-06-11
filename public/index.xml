@@ -19,7 +19,27 @@
       <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;meteorites &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&amp;quot;)
 
 library(tidyverse)
-library(gganimate)&lt;/code&gt;&lt;/pre&gt;
+library(gganimate)
+library(maps)
+library(ggthemes)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;meteorites_rm&amp;lt;-remove_missing(meteorites)
+
+world &amp;lt;- ggplot() + theme_map()+
+         borders(&amp;quot;world&amp;quot;, colour = &amp;quot;#353535&amp;quot;, fill = &amp;quot;#74e04a&amp;quot;) 
+
+plot1&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
+                 color=&amp;quot;blue&amp;quot;)+
+             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
+             shadow_mark(past = TRUE)+
+             theme(plot.title = element_text(color = &amp;quot;black&amp;quot;, 
+                                           size = 15, 
+                                           face = &amp;quot;bold&amp;quot;),
+                   panel.background = element_rect(fill = &amp;quot;#5e8bed&amp;quot;)) +
+             ggtitle(&amp;quot;Meteors Falling from the sky &amp;quot;,subtitle = &amp;quot;Year:{closest_state}&amp;quot;)
+
+animate(plot1,nframes=253,fps=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;beepr::beep(1)&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

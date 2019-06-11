@@ -23,4 +23,24 @@ summary: '2019 Week 24 TidyTuesday: Meteors Falling from the Space.'
 <pre class="r"><code>meteorites &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&quot;)
 
 library(tidyverse)
-library(gganimate)</code></pre>
+library(gganimate)
+library(maps)
+library(ggthemes)</code></pre>
+<pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
+
+world &lt;- ggplot() + theme_map()+
+         borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
+
+plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
+                 color=&quot;blue&quot;)+
+             transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
+             shadow_mark(past = TRUE)+
+             theme(plot.title = element_text(color = &quot;black&quot;, 
+                                           size = 15, 
+                                           face = &quot;bold&quot;),
+                   panel.background = element_rect(fill = &quot;#5e8bed&quot;)) +
+             ggtitle(&quot;Meteors Falling from the sky &quot;,subtitle = &quot;Year:{closest_state}&quot;)
+
+animate(plot1,nframes=253,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year-1.gif" /><!-- --></p>
+<pre class="r"><code>beepr::beep(1)</code></pre>
