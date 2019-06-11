@@ -478,7 +478,7 @@ world &lt;- ggplot() + theme_map()+
          borders(&quot;world&quot;, colour = &quot;#353535&quot;, fill = &quot;#74e04a&quot;) 
 
 plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                 color=meteorites_rm$name_type)+
+                        color=meteorites_rm$name_type)+
              transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
              shadow_mark(past = TRUE)+
              theme(plot.title = element_text(color = &quot;black&quot;, 
@@ -487,7 +487,7 @@ plot1&lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_
                    panel.background = element_rect(fill = &quot;#5e8bed&quot;)) +
              ggtitle(&quot;Meteors Falling from the sky by Name Type&quot;,subtitle = &quot;Year:{closest_state}&quot;)
 
-animate(plot1,nframes=253,fps=1)</code></pre>
+animate(plot1,nframes=253,fps=1,detail = 1)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20by%20name%20type-1.gif" /><!-- --></p>
 </div>
 <div id="meteorites-over-the-year-with-fall" class="section level1">
@@ -567,7 +567,7 @@ animate(plot3, nframes=200, fps = 20) </code></pre>
      ggtitle(&quot;Meteors class count from 2000 to 2013&quot;,subtitle = &quot;Top 5 Ranks&quot;)+
      scale_y_continuous(expand = c(0,75))+theme_dark()+
      theme(axis.text.x = element_text(angle = 45))</code></pre>
-<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png" width="1344" /></p>
+<p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png" width="1152" /></p>
 </div>
 
     </div>

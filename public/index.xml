@@ -38,7 +38,7 @@ world &amp;lt;- ggplot() + theme_map()+
          borders(&amp;quot;world&amp;quot;, colour = &amp;quot;#353535&amp;quot;, fill = &amp;quot;#74e04a&amp;quot;) 
 
 plot1&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteorites_rm$lat,
-                 color=meteorites_rm$name_type)+
+                        color=meteorites_rm$name_type)+
              transition_states(meteorites_rm$year,transition_length = 1,state_length = 1)+
              shadow_mark(past = TRUE)+
              theme(plot.title = element_text(color = &amp;quot;black&amp;quot;, 
@@ -47,7 +47,7 @@ plot1&amp;lt;-world+geom_point(data=meteorites_rm,x=meteorites_rm$long,y=meteori
                    panel.background = element_rect(fill = &amp;quot;#5e8bed&amp;quot;)) +
              ggtitle(&amp;quot;Meteors Falling from the sky by Name Type&amp;quot;,subtitle = &amp;quot;Year:{closest_state}&amp;quot;)
 
-animate(plot1,nframes=253,fps=1)&lt;/code&gt;&lt;/pre&gt;
+animate(plot1,nframes=253,fps=1,detail = 1)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20over%20the%20year%20by%20name%20type-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;meteorites-over-the-year-with-fall&#34; class=&#34;section level1&#34;&gt;
@@ -127,7 +127,7 @@ animate(plot3, nframes=200, fps = 20) &lt;/code&gt;&lt;/pre&gt;
      ggtitle(&amp;quot;Meteors class count from 2000 to 2013&amp;quot;,subtitle = &amp;quot;Top 5 Ranks&amp;quot;)+
      scale_y_continuous(expand = c(0,75))+theme_dark()+
      theme(axis.text.x = element_text(angle = 45))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
