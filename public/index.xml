@@ -21,7 +21,6 @@
 &lt;li&gt;&lt;a href=&#34;#meteorites-over-the-year-with-name-type&#34;&gt;Meteorites over the Year with Name Type&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#meteorites-over-the-year-with-fall&#34;&gt;Meteorites over the Year with Fall&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#meteorites-and-classes&#34;&gt;Meteorites and Classes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#meteorites-and-their-mass-by-class&#34;&gt;Meteorites and their Mass by Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -119,8 +118,7 @@ plot3&amp;lt;-ggplot(test, aes(rank, group = class,
 
 # For GIF
 
-animate(plot3, nframes=200, fps = 20,  width = 1000, height = 800, 
-        renderer = gifski_renderer(&amp;quot;gganim.gif&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+animate(plot3, nframes=200, fps = 20) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes-1.gif&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test %&amp;gt;%
      ggplot(.,aes(x=class,y=n,label=rank,fill=class))+geom_col()+
@@ -130,18 +128,6 @@ animate(plot3, nframes=200, fps = 20,  width = 1000, height = 800,
      scale_y_continuous(expand = c(0,75))+theme_dark()+
      theme(axis.text.x = element_text(angle = 45))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;meteorites-and-their-mass-by-class&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Meteorites and their Mass by Class&lt;/h1&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test1&amp;lt;-meteorites %&amp;gt;%
-            select(year,mass) %&amp;gt;%
-            group_by(year) %&amp;gt;%
-            summarise_each(funs(sum))
-
-test2&amp;lt;-meteorites %&amp;gt;%
-            select(year,mass) %&amp;gt;%
-            group_by(year) %&amp;gt;%
-            summarise_all(funs(mean))&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>

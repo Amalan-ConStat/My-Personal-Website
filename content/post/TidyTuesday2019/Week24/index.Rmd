@@ -140,18 +140,5 @@ test %>%
 
 ```
 
-# Meteorites and their Mass by Class
 
-```{r meteorites and masses by class}
-test1<-meteorites %>%
-            select(year,mass) %>%
-            group_by(year) %>%
-            summarise_each(funs(sum))
-
-test2<-meteorites %>%
-            select(year,mass) %>%
-            group_by(year) %>%
-            summarise_all(funs(mean))
-
-```
 
