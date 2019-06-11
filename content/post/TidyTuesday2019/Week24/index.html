@@ -26,6 +26,10 @@ summary: '2019 Week 24 TidyTuesday: Meteors Falling from the Space.'
 </ul>
 </div>
 
+<p>This week has data for Meteors from 8th century to year 2013(well 2101 is an error).</p>
+<p>So I have used the packages tidyverse,gganimate,maps and ggthemes to make this more
+interesting. There are three plots which I have generated, two of them are inspired
+by others.</p>
 <pre class="r"><code>meteorites &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&quot;)
 
 library(tidyverse)
@@ -34,6 +38,10 @@ library(maps)
 library(ggthemes)</code></pre>
 <div id="meteorites-over-the-year" class="section level1">
 <h1>Meteorites over the Year</h1>
+<p>Based on the below tweet I was inspired to creata a similar plot which is animated by
+years.</p>
+{{% tweet "1138187182559170560" %}}
+<p>Frames change is based on year, and meteors which have missing values are dropped.</p>
 <pre class="r"><code>meteorites_rm&lt;-remove_missing(meteorites)
 
 world &lt;- ggplot() + theme_map()+
@@ -53,13 +61,16 @@ animate(plot1,nframes=253,fps=1,detail = 1)</code></pre>
 </div>
 <div id="meteorites-and-classes" class="section level1">
 <h1>Meteorites and Classes</h1>
+<p>A Bar plot which changes for the top 5 classes based on their counts after the
+year 1999. This plot is based on the blog post published in Rbloggers. This type
+is a very popular animated bar plot.</p>
+<p><a href="https://www.r-bloggers.com/how-to-build-animated-bar-plots-using-r/">Link for the Blog post</a></p>
 <pre class="r"><code>test&lt;-meteorites%&gt;%
           subset(year &gt;= 2000 &amp; year &lt; 2101) %&gt;%
           group_by(year,class) %&gt;%
           count(class) %&gt;%
           group_by(year)%&gt;%     
           mutate(rank=rank(-n),
-                 #value_rel= n/n[rank==1],
                  value_lbl=paste0(&quot;&quot;,n)) %&gt;%
           group_by(class) %&gt;%
           filter(rank &lt;=5) %&gt;%
@@ -98,9 +109,10 @@ plot3&lt;-ggplot(test, aes(rank, group = class,
        subtitle  =  &quot;Top 5 Classes&quot;) 
 
 # For GIF
-
 animate(plot3, nframes=200, fps = 20) </code></pre>
 <p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes-1.gif" /><!-- --></p>
+<p>Below is the same plot but not animated, therefore we can understand patiently
+how the top 5 classes counts change after year 1999.</p>
 <pre class="r"><code>test %&gt;%
      ggplot(.,aes(x=class,y=n,label=rank,fill=class))+geom_col()+
      facet_wrap(~factor(year))+geom_text(vjust=-0.5)+
@@ -109,4 +121,5 @@ animate(plot3, nframes=200, fps = 20) </code></pre>
      scale_y_continuous(expand = c(0,75))+theme_dark()+
      theme(axis.text.x = element_text(angle = 45))</code></pre>
 <p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png" width="1152" /></p>
+<p><em>THANK YOU</em></p>
 </div>
