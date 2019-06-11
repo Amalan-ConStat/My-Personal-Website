@@ -461,6 +461,7 @@
 <li><a href="#meteorites-over-the-year-with-name-type">Meteorites over the Year with Name Type</a></li>
 <li><a href="#meteorites-over-the-year-with-fall">Meteorites over the Year with Fall</a></li>
 <li><a href="#meteorites-and-classes">Meteorites and Classes</a></li>
+<li><a href="#meteorites-and-their-mass-by-class">Meteorites and their Mass by Class</a></li>
 </ul>
 </div>
 
@@ -569,6 +570,18 @@ animate(plot3, nframes=200, fps = 20,  width = 1000, height = 800,
      scale_y_continuous(expand = c(0,75))+theme_dark()+
      theme(axis.text.x = element_text(angle = 45))</code></pre>
 <p><img src="/post/TidyTuesday2019/Week24/index_files/figure-html/meteorites%20and%20classes%20jitter%20plot-1.png" width="1344" /></p>
+</div>
+<div id="meteorites-and-their-mass-by-class" class="section level1">
+<h1>Meteorites and their Mass by Class</h1>
+<pre class="r"><code>test1&lt;-meteorites %&gt;%
+            select(year,mass) %&gt;%
+            group_by(year) %&gt;%
+            summarise_each(funs(sum))
+
+test2&lt;-meteorites %&gt;%
+            select(year,mass) %&gt;%
+            group_by(year) %&gt;%
+            summarise_all(funs(mean))</code></pre>
 </div>
 
     </div>
