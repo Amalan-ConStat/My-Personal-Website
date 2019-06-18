@@ -194,6 +194,62 @@ bird_counts_new%>%
          geom_text(aes(label=hmc),size=3.5,vjust=0.5)
 ```
 
-# Top 5 Species with Total Hours
 
-# Top 5 How many counted by hours
+# Top 10 How many counted by hours
+
+```{r Top 10 Species with how many counted by hours}
+  bird_counts_new %>%
+  replace_na(list(how_many_counted_by_hour = 0)) %>%
+  group_by(species) %>%
+  summarise(sum_counted=sum(how_many_counted_by_hour)) %>%
+  top_n(10) %>%
+  ggplot(.,aes(str_wrap(species,12),sum_counted))+geom_col()+
+         xlab("Year")+ylab("Summation of How Many Counted by Hour")+
+         ggtitle("Total of How many counted by Hour")+
+         geom_text(aes(label=round(sum_counted,2)),size=3.5,vjust=0.5)
+```
+
+
+## Top 10 Species with how many counted by hours for year
+
+```{r Top 10 species with how many counted by hours for year}
+p1<-bird_counts%>%
+    subset(species=="American Crow" | species=="Canada Goose" | 
+           species=="Common Goldeneye" | species=="Common Merganser" |
+           species=="European Starling" | species=="Greater Scaup" | 
+           species=="Herring Gull" | species=="House Sparrow" |
+           species=="Long-tailed Duck" | species=="Mallard") %>%
+  replace_na(list(how_many_counted_by_hour = 0)) %>%
+  group_by(year,species) %>%
+  ggplot(.,aes(str_wrap(species,12),how_many_counted_by_hour))+geom_col()+
+         xlab("Year")+ylab("How Many Counted by Hour")+
+         ggtitle("How many counted by Hour for Top 10 Species",
+                 subtitle ="Year:{round(frame_time)}" )+
+         transition_time(year)+ease_aes("linear")+
+         geom_text(aes(label=round(how_many_counted_by_hour,2)),size=3.5,vjust=0.5)
+
+animate(p1,nframes=94,fps=1)
+```
+
+## Top 10 Species with how many counted by hours for decade
+
+```{r Top 10 species with how many counted by hours for decade}
+bird_counts_new%>%
+    subset(species=="American Crow" | species=="Canada Goose" | 
+           species=="Common Goldeneye" | species=="Common Merganser" |
+           species=="European Starling" | species=="Greater Scaup" | 
+           species=="Herring Gull" | species=="House Sparrow" |
+           species=="Long-tailed Duck" | species=="Mallard") %>%
+  replace_na(list(how_many_counted_by_hour = 0)) %>%
+  group_by(year,species) %>%
+  summarise(hmc=sum(how_many_counted)) %>%
+  ggplot(.,aes(str_wrap(species,12),hmc))+geom_col()+
+         xlab("Year")+ylab("How Many Counted")+
+         ggtitle("How many counted for Top 10 Species",
+                 subtitle ="Decade:{closest_state}" )+
+         transition_states(year)+ease_aes("linear")+
+         geom_text(aes(label=round(hmc,2)),size=3.5,vjust=0.5)
+```
+
+
+*THANK YOU* 
