@@ -1,0 +1,61 @@
+---
+title: 'Week 25: Birds, Ohhhh Canada '
+author: M.Amalan
+date: '2019-06-18'
+slug: Week25
+output: 
+    blogdown::html_page:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - tidyverse
+  - TidyTuesday
+  - gganimate
+image:
+  caption: ''
+  focal_point: ''
+summary: '2019 Week 25 TidyTuesday: Ohhhhhh Canada with Birds.'  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.width = 12,fig.height = 9)
+```
+
+
+```{r load data an packages}
+bird_counts <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-18/bird_counts.csv")
+
+library(tidyverse)
+library(gganimate)
+library(ggthemr)
+
+ggthemr('flat')
+```
+
+
+## Year with How many counted, How many counted by Hour and Total Hours
+
+```{r Year vs How many counted}
+p1<-bird_counts %>%
+    ggplot(.,aes(year,how_many_counted,color=how_many_counted_by_hour,
+                 label=species))+
+          geom_point()+labs(color="Counted by Hour")+
+          xlab("Year")+ylab("How Many Counted")+
+          ggtitle("How many Counted vs Year")
+
+plotly::ggplotly(p1)
+```
+
+
+```{r Year vs Total Hours}
+p2<-bird_counts %>%
+    ggplot(.,aes(year,total_hours,color=how_many_counted_by_hour,
+                 label=species))+
+          geom_point()+labs(color="Counted by Hour")+
+          xlab("Year")+ylab("Total Hours")+
+          ggtitle("Total Hours vs Year")
+
+plotly::ggplotly(p2)
+```
+
