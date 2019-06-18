@@ -34,6 +34,13 @@ ggthemr('flat')
 ```
 
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/blob/master/2019/Week25/Birds_in_Canada.md)
+
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1141046651815178240")
+```
+
+
 # Year with How many counted, How many counted by Hour and Total Hours
 
 ```{r Year vs How many counted with species label}
