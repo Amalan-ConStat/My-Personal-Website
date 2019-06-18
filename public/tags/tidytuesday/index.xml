@@ -18,7 +18,7 @@
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week25/week25/</guid>
-      <description>Year with How many counted, How many counted by Hour and Total HoursYear and Total Hours by decadeYear and How many Counted by decadeYear and How many Hours Counted by Hour for decadebird_counts &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-18/bird_counts.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemr)ggthemr(&amp;#39;flat&amp;#39;)Year with How many counted, How many counted by Hour and Total Hoursp1&amp;lt;-bird_counts %&amp;gt;%ggplot(.,aes(year,how_many_counted,color=how_many_counted_by_hour,label=species))+geom_point()+labs(color=&amp;quot;Counted by Hour&amp;quot;)+xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;How Many Counted&amp;quot;)+ggtitle(&amp;quot;How many Counted vs Year&amp;quot;)plotly::ggplotly(p1){&#34;</description>
+      <description>Year with How many counted, How many counted by Hour and Total HoursYear and Total Hours by decadeYear and How many Counted by decadeYear and How many Hours Counted by Hour for decadeTop 10 Species with how many countedTop 10 Species with how many counted by yearTop 10 Species with how many counted by decadeTop 5 Species with Total HoursTop 5 How many counted by hoursbird_counts &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
     </item>
     
     <item>

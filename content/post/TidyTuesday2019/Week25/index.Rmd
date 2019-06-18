@@ -137,3 +137,63 @@ bird_counts_new$year<-cut(bird_counts_new$year,
          geom_text(aes(label=round(mean_counted_hour,2)),vjust=1)
 
 ```
+
+# Top 10 Species with how many counted 
+
+```{r Top 10 Species with how many counted}
+  bird_counts_new %>%
+  replace_na(list(how_many_counted = 0)) %>%
+  group_by(species) %>%
+  summarise(sum_counted=sum(how_many_counted)) %>%
+  top_n(10) %>%
+  ggplot(.,aes(str_wrap(species,12),sum_counted))+geom_col()+
+         xlab("Year")+ylab("Summation of How Many Counted")+
+         ggtitle("Total of How many counted")+
+         geom_text(aes(label=sum_counted),size=3.5,vjust=0.5)
+```
+
+
+## Top 10 Species with how many counted by year
+
+```{r Top 10 species with how many counted by year}
+p1<-bird_counts%>%
+    subset(species=="American Crow" | species=="Canada Goose" | 
+           species=="Common Goldeneye" | species=="Common Merganser" |
+           species=="European Starling" | species=="Greater Scaup" | 
+           species=="Herring Gull" | species=="House Sparrow" |
+           species=="Long-tailed Duck" | species=="Mallard") %>%
+  replace_na(list(how_many_counted = 0)) %>%
+  group_by(year,species) %>%
+  ggplot(.,aes(str_wrap(species,12),how_many_counted))+geom_col()+
+         xlab("Year")+ylab("How Many Counted")+
+         ggtitle("How many counted for Top 10 Species",
+                 subtitle ="Year:{round(frame_time)}" )+
+         transition_time(year)+ease_aes("linear")+
+         geom_text(aes(label=how_many_counted),size=3.5,vjust=0.5)
+
+animate(p1,nframes=94,fps=1)
+```
+
+## Top 10 Species with how many counted by decade
+
+```{r Top 10 species with how many counted by decade}
+bird_counts_new%>%
+    subset(species=="American Crow" | species=="Canada Goose" | 
+           species=="Common Goldeneye" | species=="Common Merganser" |
+           species=="European Starling" | species=="Greater Scaup" | 
+           species=="Herring Gull" | species=="House Sparrow" |
+           species=="Long-tailed Duck" | species=="Mallard") %>%
+  replace_na(list(how_many_counted = 0)) %>%
+  group_by(year,species) %>%
+  summarise(hmc=sum(how_many_counted)) %>%
+  ggplot(.,aes(str_wrap(species,12),hmc))+geom_col()+
+         xlab("Year")+ylab("How Many Counted")+
+         ggtitle("How many counted for Top 10 Species",
+                 subtitle ="Decade:{closest_state}" )+
+         transition_states(year)+ease_aes("linear")+
+         geom_text(aes(label=hmc),size=3.5,vjust=0.5)
+```
+
+# Top 5 Species with Total Hours
+
+# Top 5 How many counted by hours
