@@ -24,10 +24,15 @@ summary: '2019 Week 26 TidyTuesday: UFOs So Far.'
 <li><a href="#timely-changes-for-country-and-shape">Timely changes for country and shape</a><ul>
 <li><a href="#yearly-count-changes">Yearly count changes</a></li>
 <li><a href="#monthly-count-changes">Monthly count changes</a></li>
+<li><a href="#hourly-count-changes">Hourly count changes</a></li>
 <li><a href="#yearly-count-changes-for-countries">Yearly Count changes for Countries</a></li>
 <li><a href="#monthly-count-changes-for-countries">Monthly Count changes for Countries</a></li>
+<li><a href="#hourly-count-changes-for-countries">Hourly Count changes for Countries</a></li>
 <li><a href="#decade-wise-ufo-shape-changes">Decade wise UFO shape changes</a></li>
 </ul></li>
+<li><a href="#documented-year-and-origin-year">Documented Year and Origin Year</a></li>
+<li><a href="#year-vs-encounter-length">Year vs Encounter Length</a></li>
+<li><a href="#hour-vs-encounter-length">Hour vs Encounter Length</a></li>
 </ul>
 </div>
 
@@ -36,7 +41,9 @@ summary: '2019 Week 26 TidyTuesday: UFOs So Far.'
 library(tidyverse)
 library(gganimate)
 library(ggthemes)
-library(lubridate)</code></pre>
+library(lubridate)
+library(ggforce)
+library(ggthemr)</code></pre>
 <div id="timely-changes-for-country-and-shape" class="section level1">
 <h1>Timely changes for country and shape</h1>
 <div id="yearly-count-changes" class="section level2">
@@ -65,6 +72,18 @@ ufo_sightings %&gt;%
          xlab(&quot;Months&quot;)+ylab(&quot;Frequency&quot;)+
          ggtitle(&quot;Monthly count changes&quot;)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Monthly%20count-1.png" width="1152" /></p>
+</div>
+<div id="hourly-count-changes" class="section level2">
+<h2>Hourly count changes</h2>
+<pre class="r"><code>ufo_sightings %&gt;%
+  mutate(hour=hour(date_time)) %&gt;%
+  count(hour) %&gt;%
+  ggplot(.,aes(x=as.factor(hour),y=n))+geom_col(fill=blues9[4])+
+         theme_minimal()+
+         geom_text(aes(label=n),vjust=-0.1,color=blues9[9])+
+         xlab(&quot;Hours&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Hourly count changes&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Hourly%20count-1.png" width="1152" /></p>
 </div>
 <div id="yearly-count-changes-for-countries" class="section level2">
 <h2>Yearly Count changes for Countries</h2>
@@ -106,6 +125,26 @@ ufo_sightings %&gt;%
          ggtitle(&quot;Monthly count changes for Nations&quot;)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Monthly%20but%20countries-1.png" width="1152" /></p>
 </div>
+<div id="hourly-count-changes-for-countries" class="section level2">
+<h2>Hourly Count changes for Countries</h2>
+<pre class="r"><code>ufo_sightings %&gt;%
+   mutate(hour=hour(date_time)) %&gt;%
+   mutate(country=recode_factor(country,
+                                &quot;au&quot;=&quot;Australia&quot;,
+                                &quot;ca&quot;=&quot;Canada&quot;,
+                                &quot;gb&quot;=&quot;Great Britain&quot;,
+                                &quot;us&quot;=&quot;USA&quot;)) %&gt;%
+   group_by(hour,country) %&gt;%
+   remove_missing() %&gt;%
+   count(country) %&gt;%
+   ggplot(.,aes(x=as.factor(hour),y=n))+geom_col(fill=blues9[8])+
+         theme_minimal()+
+         facet_wrap(~country,scales = &quot;free_y&quot;,ncol = 1)+
+         geom_text(aes(label=n),vjust=0.95,color=&quot;white&quot;)+
+         xlab(&quot;Hours&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Hours count changes for Nations&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Hourly%20but%20countries-1.png" width="1152" /></p>
+</div>
 <div id="decade-wise-ufo-shape-changes" class="section level2">
 <h2>Decade wise UFO shape changes</h2>
 <pre class="r"><code>ufo_sightings_new&lt;-ufo_sightings
@@ -135,4 +174,52 @@ ufo_sightings_new %&gt;%
                  subtitle = &quot;Year:{closest_state}&quot;)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Yearly%20shapes%20but%20decades-1.gif" /><!-- --></p>
 </div>
+</div>
+<div id="documented-year-and-origin-year" class="section level1">
+<h1>Documented Year and Origin Year</h1>
+<pre class="r"><code>ufo_sightings %&gt;%
+  mutate(o_year=year(date_time)) %&gt;%
+  mutate(d_year=year(mdy(date_documented))) %&gt;%
+  ggplot(.,aes(x=factor(o_year),y=factor(d_year)))+geom_jitter()+
+         coord_flip()+theme_minimal()+
+         ylab(&quot;Documented Year&quot;)+xlab(&quot;Origin Year&quot;)+
+         ggtitle(&quot;Documented Year vs Origin Year&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Years%20of%20documentation%20and%20origin-1.png" width="1152" /></p>
+</div>
+<div id="year-vs-encounter-length" class="section level1">
+<h1>Year vs Encounter Length</h1>
+<pre class="r"><code>ggthemr(&quot;flat&quot;)
+
+ufo_sightings %&gt;%
+  mutate(year=year(date_time)) %&gt;%
+  remove_missing() %&gt;%
+  ggplot(.,aes(x=year,y=encounter_length,color=country))+geom_point()+
+         facet_zoom(y=encounter_length &lt;1000000)+
+         xlab(&quot;Year&quot;)+ylab(&quot;Encounter Length&quot;)+
+         ggtitle(&quot;Encounter Length over the Years&quot;,
+                 subtitle = &quot;Zoomed In for Encounter Length &lt;1,000,000&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Year%20with%20Encounter%20Length-1.png" width="1152" /></p>
+<pre class="r"><code>ufo_sightings %&gt;%
+  subset(encounter_length &lt;1000000) %&gt;%
+  mutate(year=year(date_time)) %&gt;%
+  remove_missing() %&gt;%
+  ggplot(.,aes(x=year,y=encounter_length,color=country))+geom_point()+
+        facet_zoom(y=encounter_length &lt;100000)+
+        xlab(&quot;Year&quot;)+ylab(&quot;Encounter Length&quot;)+
+        ggtitle(&quot;Encounter Length &lt; 1,000,000 over the Years&quot;,
+                subtitle = &quot;Zoomed In for Encounter Length &lt;1,00,000&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Year%20with%20Encounter%20Length-2.png" width="1152" /></p>
+<pre class="r"><code>ufo_sightings %&gt;%
+  subset(encounter_length &lt;100000) %&gt;%
+  mutate(year=year(date_time)) %&gt;%
+  remove_missing() %&gt;%
+  ggplot(.,aes(x=year,y=encounter_length,color=country))+geom_point()+
+        facet_zoom(y=encounter_length &lt;10000)+
+        xlab(&quot;Year&quot;)+ylab(&quot;Encounter Length&quot;)+
+        ggtitle(&quot;Encounter Length &lt; 100,000 over the Years&quot;,
+                subtitle = &quot;Zoomed In for Encounter Length &lt;10,000&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Year%20with%20Encounter%20Length-3.png" width="1152" /></p>
+</div>
+<div id="hour-vs-encounter-length" class="section level1">
+<h1>Hour vs Encounter Length</h1>
 </div>
