@@ -18,7 +18,7 @@
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week26/week26/</guid>
-      <description></description>
+      <description>Timely changes for country and shapeYearly count changesMonthly count changesYearly Count changes for CountriesMonthly Count changes for CountriesDecade wise UFO shape changesufo_sightings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-25/ufo_sightings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)library(lubridate)Timely changes for country and shapeYearly count changesufo_sightings$date_time &amp;lt;- mdy_hm(ufo_sightings$date_time)ufo_sightings %&amp;gt;%mutate(year=year(date_time)) %&amp;gt;%count(year) %&amp;gt;%ggplot(.,aes(x=as.factor(year),y=n))+geom_col(fill=blues9[4])+theme_minimal()+theme(axis.text.x = element_text(angle = 90))+geom_text(aes(label=n),hjust=-0.1,angle=90,color=blues9[9])+xlab(&amp;quot;Years&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+ggtitle(&amp;quot;Yearly count changes&amp;quot;)Monthly count changesufo_sightings %&amp;gt;%mutate(month=month(date_time)) %&amp;gt;%count(month) %&amp;gt;%ggplot(.</description>
     </item>
     
     <item>

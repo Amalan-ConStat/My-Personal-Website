@@ -19,5 +19,120 @@ summary: '2019 Week 26 TidyTuesday: UFOs So Far.'
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#timely-changes-for-country-and-shape">Timely changes for country and shape</a><ul>
+<li><a href="#yearly-count-changes">Yearly count changes</a></li>
+<li><a href="#monthly-count-changes">Monthly count changes</a></li>
+<li><a href="#yearly-count-changes-for-countries">Yearly Count changes for Countries</a></li>
+<li><a href="#monthly-count-changes-for-countries">Monthly Count changes for Countries</a></li>
+<li><a href="#decade-wise-ufo-shape-changes">Decade wise UFO shape changes</a></li>
+</ul></li>
+</ul>
+</div>
 
+<pre class="r"><code>ufo_sightings &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-25/ufo_sightings.csv&quot;)
 
+library(tidyverse)
+library(gganimate)
+library(ggthemes)
+library(lubridate)</code></pre>
+<div id="timely-changes-for-country-and-shape" class="section level1">
+<h1>Timely changes for country and shape</h1>
+<div id="yearly-count-changes" class="section level2">
+<h2>Yearly count changes</h2>
+<pre class="r"><code>ufo_sightings$date_time &lt;- mdy_hm(ufo_sightings$date_time)
+
+ufo_sightings %&gt;%
+  mutate(year=year(date_time)) %&gt;%
+  count(year) %&gt;%
+  ggplot(.,aes(x=as.factor(year),y=n))+geom_col(fill=blues9[4])+
+         theme_minimal()+
+         theme(axis.text.x = element_text(angle = 90))+
+         geom_text(aes(label=n),hjust=-0.1,angle=90,color=blues9[9])+
+         xlab(&quot;Years&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Yearly count changes&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Yearly%20count-1.png" width="1152" /></p>
+</div>
+<div id="monthly-count-changes" class="section level2">
+<h2>Monthly count changes</h2>
+<pre class="r"><code>ufo_sightings %&gt;%
+  mutate(month=month(date_time)) %&gt;%
+  count(month) %&gt;%
+  ggplot(.,aes(x=as.factor(month),y=n))+geom_col(fill=blues9[4])+
+         theme_minimal()+
+         geom_text(aes(label=n),vjust=-0.1,color=blues9[9])+
+         xlab(&quot;Months&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Monthly count changes&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Monthly%20count-1.png" width="1152" /></p>
+</div>
+<div id="yearly-count-changes-for-countries" class="section level2">
+<h2>Yearly Count changes for Countries</h2>
+<pre class="r"><code>ufo_sightings %&gt;%
+   mutate(year=year(date_time)) %&gt;%
+   mutate(country=recode_factor(country,
+                                &quot;au&quot;=&quot;Australia&quot;,
+                                &quot;ca&quot;=&quot;Canada&quot;,
+                                &quot;gb&quot;=&quot;Great Britain&quot;,
+                                &quot;us&quot;=&quot;USA&quot;)) %&gt;%
+   group_by(year,country) %&gt;%
+   remove_missing() %&gt;%
+   count(country) %&gt;%
+   ggplot(.,aes(x=as.factor(year),y=n))+geom_col(fill=blues9[8])+
+         theme_minimal()+
+         facet_wrap(~country,scales = &quot;free_y&quot;,ncol = 1)+
+         theme(axis.text.x = element_text(angle = 90))+
+         xlab(&quot;Year&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Yearly count changes for Nations&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Yearly%20but%20countries-1.png" width="1152" /></p>
+</div>
+<div id="monthly-count-changes-for-countries" class="section level2">
+<h2>Monthly Count changes for Countries</h2>
+<pre class="r"><code>ufo_sightings %&gt;%
+   mutate(month=month(date_time)) %&gt;%
+   mutate(country=recode_factor(country,
+                                &quot;au&quot;=&quot;Australia&quot;,
+                                &quot;ca&quot;=&quot;Canada&quot;,
+                                &quot;gb&quot;=&quot;Great Britain&quot;,
+                                &quot;us&quot;=&quot;USA&quot;)) %&gt;%
+   group_by(month,country) %&gt;%
+   remove_missing() %&gt;%
+   count(country) %&gt;%
+   ggplot(.,aes(x=as.factor(month),y=n))+geom_col(fill=blues9[8])+
+         theme_minimal()+
+         facet_wrap(~country,scales = &quot;free_y&quot;,ncol = 1)+
+         geom_text(aes(label=n),vjust=0.95,color=&quot;white&quot;)+
+         xlab(&quot;Months&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;Monthly count changes for Nations&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Monthly%20but%20countries-1.png" width="1152" /></p>
+</div>
+<div id="decade-wise-ufo-shape-changes" class="section level2">
+<h2>Decade wise UFO shape changes</h2>
+<pre class="r"><code>ufo_sightings_new&lt;-ufo_sightings
+
+ufo_sightings_new$year&lt;-year(ufo_sightings_new$date_time)
+
+ufo_sightings_new$year&lt;-cut(ufo_sightings_new$year,
+                            breaks=c(1910,1919,1929,1939,
+                                     1949,1959,1969,1979,
+                                     1989,1999,2009,2015),
+                            labels=c(&quot;1910s&quot;,&quot;1920s&quot;,&quot;1930s&quot;,&quot;1940s&quot;,
+                                     &quot;1950s&quot;,&quot;1960s&quot;,&quot;1970s&quot;,&quot;1980s&quot;,
+                                     &quot;1990s&quot;,&quot;2000s&quot;,&quot;2010s&quot;))
+
+ufo_sightings_new %&gt;%
+  group_by(year,ufo_shape) %&gt;%
+  count(ufo_shape) %&gt;%
+  remove_missing() %&gt;%
+  ggplot(.,aes(x=str_wrap(ufo_shape,10),y=n))+geom_col(fill=blues9[8])+
+         theme_minimal()+
+         theme(axis.text.x = element_text(angle = 90))+
+         geom_text(aes(label=n),hjust=-0.1,angle=90)+
+         scale_y_continuous(expand = c(0,1000))+
+         transition_states(year)+ease_aes(&quot;linear&quot;)+
+         xlab(&quot;Shape&quot;)+ylab(&quot;Frequency&quot;)+
+         ggtitle(&quot;UFO shapes over the Years&quot;,
+                 subtitle = &quot;Year:{closest_state}&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Yearly%20shapes%20but%20decades-1.gif" /><!-- --></p>
+</div>
+</div>
