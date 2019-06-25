@@ -226,4 +226,16 @@ ufo_sightings %>%
 
 # Hour vs Encounter Length
 
+```{r Hour of origin vs Encounter Length}
+ufo_sightings %>%
+  mutate(hour=hour(date_time)) %>%
+  remove_missing() %>%
+  ggplot(.,aes(x=hour,y=encounter_length,color=country))+geom_jitter()+
+        facet_zoom(y=encounter_length <1000, x=hour >=20)+
+        xlab("Hour")+ylab("Encounter Length")+
+        ggtitle("Encounter Length over the Years",
+                subtitle = "Zoomed In for Encounter Length <1,000")
+         
+```
 
+**THANK YOU**

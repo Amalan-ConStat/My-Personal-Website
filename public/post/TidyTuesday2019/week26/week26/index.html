@@ -764,6 +764,16 @@ ufo_sightings %&gt;%
 </div>
 <div id="hour-vs-encounter-length" class="section level1">
 <h1>Hour vs Encounter Length</h1>
+<pre class="r"><code>ufo_sightings %&gt;%
+  mutate(hour=hour(date_time)) %&gt;%
+  remove_missing() %&gt;%
+  ggplot(.,aes(x=hour,y=encounter_length,color=country))+geom_jitter()+
+        facet_zoom(y=encounter_length &lt;1000, x=hour &gt;=20)+
+        xlab(&quot;Hour&quot;)+ylab(&quot;Encounter Length&quot;)+
+        ggtitle(&quot;Encounter Length over the Years&quot;,
+                subtitle = &quot;Zoomed In for Encounter Length &lt;1,000&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week26/index_files/figure-html/Hour%20of%20origin%20vs%20Encounter%20Length-1.png" width="1152" /></p>
+<p><strong>THANK YOU</strong></p>
 </div>
 
     </div>
