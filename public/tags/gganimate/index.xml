@@ -18,7 +18,8 @@
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week26/week26/</guid>
-      <description>Timely changes for country and shapeYearly count changesMonthly count changesHourly count changesYearly Count changes for CountriesMonthly Count changes for CountriesHourly Count changes for CountriesDecade wise UFO shape changesDocumented Year and Origin YearYear vs Encounter LengthHour vs Encounter Lengthufo_sightings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-25/ufo_sightings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)library(lubridate)library(ggforce)library(ggthemr)Timely changes for country and shapeYearly count changesufo_sightings$date_time &amp;lt;- mdy_hm(ufo_sightings$date_time)ufo_sightings %&amp;gt;%mutate(year=year(date_time)) %&amp;gt;%count(year) %&amp;gt;%ggplot(.</description>
+      <description>Timely changes for country and shapeYearly count changesMonthly count changesHourly count changesYearly Count changes for CountriesMonthly Count changes for CountriesHourly Count changes for CountriesDecade wise UFO shape changesDocumented Year and Origin YearYear vs Encounter LengthHour vs Encounter Lengthufo_sightings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-25/ufo_sightings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)library(lubridate)library(ggforce)library(ggthemr)GitHub
+USA and Canada has lot of sightings and most of them in mid year.</description>
     </item>
     
     <item>
