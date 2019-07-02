@@ -476,14 +476,23 @@
 </ul>
 </div>
 
+<p><strong>NOTE : Below post is valid for Package version 1.4.0 and Before. </strong></p>
 <div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
 <h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">blog post</a> earlier this month to understand the optimization functions in R and compare them. Here I am taking my time to go through one function at a time, only when there are more than one analytical method to use.</p>
-<p>Today I will scrutinize the optim function which has six analytical methods. Setting the stage, we have the Beta-Binomial distribution and Binomial Outcome data, and we need to estimate proper shape parameters which would minimize the Negative Log Likelihood value or Maximize the Log Likelihood value of the Beta-Binomial distribution for the above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
-<p>In this blog post we focus on the process time to optimization, estimated shape parameters, minimized Negative Log Likelihood value, expected frequencies, p-value and Over-dispersion in tables.</p>
+<p>I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/">blog post</a>
+earlier this month to understand the optimization functions in R and compare them.
+Here I am taking my time to go through one function at a time, only when there are more than one analytical
+method to use.</p>
+<p>Today I will scrutinize the optim function which has six analytical methods. Setting the stage, we have the Beta-Binomial
+distribution and Binomial Outcome data, and we need to estimate proper shape parameters which would minimize the
+Negative Log Likelihood value or Maximize the Log Likelihood value of the Beta-Binomial distribution for the
+above Binomial Outcome data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a>
+package will be used.</p>
+<p>In this blog post we focus on the process time to optimization, estimated shape parameters, minimized Negative Log Likelihood value,
+expected frequencies, p-value and Over-dispersion in tables.</p>
 <p>Below are the six analytical methods in concern</p>
 <ol style="list-style-type: decimal">
 <li>Nelder Mead</li>
@@ -493,7 +502,9 @@
 <li>SANN</li>
 <li>Brent</li>
 </ol>
-<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used.
+Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random
+variable is a vector of values from zero to seven.</p>
 <pre class="r"><code>library(fitODBOD)
 kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
@@ -502,20 +513,20 @@ kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 Days
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 week1
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 week2
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 0
 </td>
 <td style="text-align:center;">
@@ -526,7 +537,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 1
 </td>
 <td style="text-align:center;">
@@ -537,7 +548,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -548,7 +559,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -559,7 +570,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -570,7 +581,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -581,7 +592,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 6
 </td>
 <td style="text-align:center;">
@@ -592,7 +603,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 7
 </td>
 <td style="text-align:center;">
@@ -606,8 +617,11 @@ week2
 </table>
 <div id="brief-of-optim-function" class="section level2">
 <h2>Brief of optim Function</h2>
-<p>Reading through the optim function <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#optim-function">brief</a> from the previous post it will help the reader regarding operational questions of the function.</p>
-<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would minimize the Negative Log Likelihood value of the Beta-Binomial distribution.</p>
+<p>Reading through the optim function
+<a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#optim-function">brief</a>
+from the previous post it will help the reader regarding operational questions of the function.</p>
+<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which
+would minimize the Negative Log Likelihood value of the Beta-Binomial distribution.</p>
 <p>First we are transforming the given EstMLEBetaBin function to satisfy the optim function conditions.</p>
 <pre class="r"><code># new function to facilitate optim criteria
 # only one input but has two elements
@@ -615,7 +629,8 @@ foroptim&lt;-function(a)
   {
   EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
   }</code></pre>
-<p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further the optim function can be scrutinized as below.</p>
+<p>So the foroptim function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption
+data week 1. Further the optim function can be scrutinized as below.</p>
 <ul>
 <li>package : stats</li>
 <li>No of Inputs: 7</li>
@@ -628,8 +643,11 @@ foroptim&lt;-function(a)
 </div>
 <div id="nelder-and-mead-method" class="section level2">
 <h2>Nelder and Mead method</h2>
-<p>Default analytical method is Nelder and Mead method. According to the documentation it uses only function values and is robust but relatively slow. It will work reasonably well for non-differential functions.</p>
-<p>Reference : Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.</p>
+<p>Default analytical method is Nelder and Mead method.
+According to the documentation it uses only function values and is robust but relatively
+slow. It will work reasonably well for non-differential functions.</p>
+<p>Reference :
+Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.</p>
 <p>Below is the code of using optim function with Nelder and Mead analytical method.</p>
 <pre class="r"><code># optimizing values for a,b using default analytical method or Nelder and Mead
 NM_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim)
@@ -646,8 +664,12 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,NM_answer$par[1],NM_answer$par[2
 </div>
 <div id="bfgs-method" class="section level2">
 <h2>BFGS method</h2>
-<p>The documentation indicates that BFGS is a Quasi-Newton method (also known as a variable metric algorithm), specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses function values and gradients to build up a picture of the surface to be optimized.</p>
-<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
+<p>The documentation indicates that BFGS is a Quasi-Newton method (also known as a variable metric algorithm),
+specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses
+function values and gradients to build up a picture of the surface to be optimized.</p>
+<p>Reference :
+Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of
+Computation, 21(99), pp.368-381.</p>
 <p>Below is the code for using optim function with BFGS analytical method</p>
 <pre class="r"><code># optimizing values for a,b using BFGS inputs
 BFGS_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;BFGS&quot;)
@@ -665,8 +687,13 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="cg-method" class="section level2">
 <h2>CG method</h2>
-<p>The documentation indicates the Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) (but with the option of Polak–Ribiere or Beale–Sorenson updates). Conjugate gradient methods will generally be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
-<p>Reference : Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2), pp.149-154.</p>
+<p>The documentation indicates the Method CG is a conjugate gradients method based on that by Fletcher and Reeves
+(1964) (but with the option of Polak–Ribiere or Beale–Sorenson updates). Conjugate gradient methods will generally
+be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger
+optimization problems.</p>
+<p>Reference :
+Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2),
+pp.149-154.</p>
 <p>Using CG method with optim function is explained below</p>
 <pre class="r"><code># optimizing values for a,b using CG inputs
 CG_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;CG&quot;)
@@ -683,8 +710,13 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,CG_answer$par[1],CG_answer$par[2
 </div>
 <div id="l-bfgs-b-method" class="section level2">
 <h2>L-BFGS-B method</h2>
-<p>Method L-BFGS-B is that of Byrd et. al. (1995) which allows box constraints, that is each variable can be given a lower and/or upper bound. The initial value must satisfy the constraints. This uses a limited-memory modification of the BFGS quasi-Newton method. If non-trivial bounds are supplied, this method will be selected, with a warning.</p>
-<p>Reference : Byrd, R.H., Lu, P., Nocedal, J. and Zhu, C., 1995. A limited memory algorithm for bound constrained optimization. SIAM Journal on Scientific Computing, 16(5), pp.1190-1208.</p>
+<p>Method L-BFGS-B is that of Byrd et. al. (1995) which allows box constraints, that is each variable can be
+given a lower and/or upper bound. The initial value must satisfy the constraints. This uses a limited-memory
+modification of the BFGS quasi-Newton method. If non-trivial bounds are supplied, this method will be selected,
+with a warning.</p>
+<p>Reference :
+Byrd, R.H., Lu, P., Nocedal, J. and Zhu, C., 1995. A limited memory algorithm for bound constrained optimization.
+SIAM Journal on Scientific Computing, 16(5), pp.1190-1208.</p>
 <p>Refer the below code chunk to under the L-BFGS-B method from optim function</p>
 <pre class="r"><code># optimizing values for a,b using L-BFGS-B inputs
 L_BFGS_B_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;L-BFGS-B&quot;)
@@ -702,10 +734,19 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="sann-method" class="section level2">
 <h2>SANN method</h2>
-<p>Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability.</p>
-<p>By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control.</p>
-<p>Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
-<p>Reference : Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied Probability, 29(4), pp.885-895.</p>
+<p>Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to
+the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also
+work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability.</p>
+<p>By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual
+temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve
+combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given
+in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span>
+is the current iteration step and temp and tmax are specifiable via control.</p>
+<p>Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose
+method but can be very useful in getting to a good value on a very rough surface.</p>
+<p>Reference :
+Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied
+Probability, 29(4), pp.885-895.</p>
 <p>Below mentioned code chunk is simply using SANN method for optim function</p>
 <pre class="r"><code># optimizing values for a,b using default inputs
 SANN_answer&lt;-optim(par=c(0.1,0.2),fn=foroptim,method = &quot;SANN&quot;)
@@ -723,14 +764,28 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="brent-method" class="section level2">
 <h2>Brent method</h2>
-<p>Brent Method is for one-dimensional problems only, using optimize(). It can be useful in cases where optim() is used inside other functions where only method can be specified, such as in mle from package stats4. Brent method does not work for our situation.</p>
-<p>Reference : Brent, R.P., 2013. Algorithms for minimization without derivatives. Courier Corporation.</p>
+<p>Brent Method is for one-dimensional problems only, using optimize(). It can be useful in cases where optim()
+is used inside other functions where only method can be specified, such as in mle from package stats4.
+Brent method does not work for our situation.</p>
+<p>Reference :
+Brent, R.P., 2013. Algorithms for minimization without derivatives. Courier Corporation.</p>
 </div>
 </div>
 <div id="summary-of-time-evaluation-for-different-analytical-methods-of-optim-function" class="section level1">
 <h1>Summary of Time evaluation for different Analytical methods of optim function</h1>
-<p>Below considered table will compare the system process time for different analytical methods. In order to do this time comparison it is necessary to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below written code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
-<p>The table is in accordance to the elapsed time value column in the ascending order. According to this we can see that least time takes to the Nelder and Mead method and most time is taken to the SANN method. These times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided, the number of estimators that needs to be estimated, the complexity of the function and finally computer’s processing power.</p>
+<p>Below considered table will compare the system process time for different analytical methods.
+In order to do this time comparison
+it is necessary to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a>
+function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a>
+package. Below written code chunk provides the output
+in a table form which includes the analytical methods and their respective time values. The estimation
+process of the parameters where each method has been replicated 1000 times to receive a
+more accurate table for time values.</p>
+<p>The table is in accordance to the elapsed time value column in the ascending order. According to this we
+can see that least time takes to the Nelder and Mead method and most time is taken to the SANN method. These
+times completely depends on the Negative Log Likelihood function you need to minimize, the data you provided,
+the number of estimators that needs to be estimated, the complexity of the function and finally computer’s processing
+power.</p>
 <pre class="r"><code>library(rbenchmark)
 
 Results1&lt;-benchmark(
@@ -752,54 +807,31 @@ kable(Results1,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#
 <table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:left;color: blue;">
+<th style="text-align:left;color: blue !important;">
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 test
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 replications
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 elapsed
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 relative
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 user.self
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 sys.self
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;color: red;">
-1
-</td>
-<td style="text-align:center;">
-NelderMead
-</td>
-<td style="text-align:center;">
-1000
-</td>
-<td style="text-align:center;">
-15.49
-</td>
-<td style="text-align:center;">
-1.000
-</td>
-<td style="text-align:center;">
-12.44
-</td>
-<td style="text-align:center;">
-0.07
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -809,20 +841,43 @@ L-BFGS-B
 1000
 </td>
 <td style="text-align:center;">
-23.46
+11.83
 </td>
 <td style="text-align:center;">
-1.515
+1.000
 </td>
 <td style="text-align:center;">
-17.53
+11.61
 </td>
 <td style="text-align:center;">
-0.05
+0.01
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
+1
+</td>
+<td style="text-align:center;">
+NelderMead
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+11.92
+</td>
+<td style="text-align:center;">
+1.008
+</td>
+<td style="text-align:center;">
+11.47
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -832,20 +887,20 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-42.87
+21.55
 </td>
 <td style="text-align:center;">
-2.768
+1.822
 </td>
 <td style="text-align:center;">
-30.25
+20.84
 </td>
 <td style="text-align:center;">
-0.11
+0.03
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -855,20 +910,20 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-93.99
+40.03
 </td>
 <td style="text-align:center;">
-6.068
+3.384
 </td>
 <td style="text-align:center;">
-63.95
+38.81
 </td>
 <td style="text-align:center;">
-0.11
+0.05
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -878,16 +933,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-2526.70
+1573.93
 </td>
 <td style="text-align:center;">
-163.118
+133.046
 </td>
 <td style="text-align:center;">
-2071.07
+1546.35
 </td>
 <td style="text-align:center;">
-2.44
+1.27
 </td>
 </tr>
 </tbody>
@@ -895,37 +950,45 @@ SANN
 </div>
 <div id="summary-of-results-after-using-the-optim-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the optim function for different analytical methods</h1>
-<p>After using the methods Nelder Mead, BFGS, CG, L-BFGS-B and SANN to estimate the shape parameters a, b we can use the estimated parameters in the function fitBetaBin. Using this function we can find expected frequencies for each of these analytical methods and compare p-values and over-dispersion. Further, understand if using different analytical methods had any effect on them.</p>
-<p>According to the below table there is no significant changes between the expected frequencies, except while using SANN method. All five methods generate different Over-dispersion values after the first three decimal places. Negative Log Likelihood values and p values are same for all 5 methods until first three decimal places. This is a clear indication of it does not matter what analytical method we use the estimation will occur effectively but only efficiency will be affected.</p>
+<p>After using the methods Nelder Mead, BFGS, CG, L-BFGS-B and SANN to estimate
+the shape parameters a, b we can use the estimated parameters in the function fitBetaBin.
+Using this function we can find expected frequencies for each of these analytical methods and
+compare p-values and over-dispersion. Further, understand if using different analytical methods had
+any effect on them.</p>
+<p>According to the below table there is no significant changes between the expected frequencies, except
+while using SANN method. All five methods generate different Over-dispersion values after the first three
+decimal places. Negative Log Likelihood values and p values are same for all 5 methods until first three
+decimal places. This is a clear indication of it does not matter what analytical method we use the estimation
+will occur effectively but only efficiency will be affected.</p>
 <table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 BinomialRandomVariable
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 Frequency
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 NelderMead
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 BFGS
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 CG
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 LBFGSB
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 SANN
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 0
 </td>
 <td style="text-align:center;">
@@ -948,7 +1011,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 1
 </td>
 <td style="text-align:center;">
@@ -971,7 +1034,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -994,7 +1057,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -1017,7 +1080,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -1040,7 +1103,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -1063,7 +1126,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 6
 </td>
 <td style="text-align:center;">
@@ -1086,7 +1149,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 7
 </td>
 <td style="text-align:center;">
@@ -1109,7 +1172,7 @@ SANN
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 Total No of Observations
 </td>
 <td style="text-align:center;">
@@ -1132,7 +1195,7 @@ Total No of Observations
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 p-value
 </td>
 <td style="text-align:center;">
@@ -1154,30 +1217,37 @@ p-value
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
-Estimated a and b
+<td style="text-align:center;color: red !important;">
+Estimated
+a and b
 </td>
 <td style="text-align:center;">
 </td>
 <td style="text-align:center;">
-a=0.7230707 b=0.5809894
+a=0.7230707
+b=0.5809894
 </td>
 <td style="text-align:center;">
-a=0.7228930 b=0.5807279
+a=0.7228930
+b=0.5807279
 </td>
 <td style="text-align:center;">
-a=0.7229414 b=0.5808477
+a=0.7229414
+b=0.5808477
 </td>
 <td style="text-align:center;">
-a=0.7229432 b=0.5808496
+a=0.7229432
+b=0.5808496
 </td>
 <td style="text-align:center;">
-a=0.7215669 b=0.5802982
+a=0.7215669
+b=0.5802982
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
-Negative Log Likelihood
+<td style="text-align:center;color: red !important;">
+Negative
+Log Likelihood
 </td>
 <td style="text-align:center;">
 </td>
@@ -1198,7 +1268,7 @@ Negative Log Likelihood
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 Over Dispersion
 </td>
 <td style="text-align:center;">
@@ -1224,7 +1294,10 @@ Over Dispersion
 </div>
 <div id="final-conclusion" class="section level1">
 <h1>Final Conclusion</h1>
-<p>We had 6 methods to compare but choosing one over the other is completely harmless to the final result of estimation as seen by our tables. And our situation forces us to not use the Brent method. The only issue is time, therefore I would recommend choose the best analytical method from the optim function based on your needs of output and research objective.</p>
+<p>We had 6 methods to compare but choosing one over the other is completely harmless
+to the final result of estimation as seen by our tables. And our situation forces us to not use
+the Brent method. The only issue is time, therefore I would recommend choose the best analytical method
+from the optim function based on your needs of output and research objective.</p>
 <p><em>THANK YOU</em></p>
 </div>
 

@@ -26,6 +26,8 @@ library(formattable)
 library(kableExtra)
 ```
 
+**NOTE : Below post is valid for Package version 1.4.0 and Before. **
+
 # Estimating the shape parameters of Beta-Binomial Distribution
 
 # Introduction
