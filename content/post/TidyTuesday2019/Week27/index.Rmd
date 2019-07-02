@@ -139,9 +139,9 @@ plot_gg(p1,width=3.5,multicore = TRUE, windowsize = c(1000, 800),
 render_snapshot(clear=TRUE)
 ```
 
-# Creators Revenue Total 
+# Revenue Category In Decades 
 
-```{r Creators Yearly Revenue Mosiac plot}
+```{r Revenue Cateogry In Decades Mosiac plot}
 media_franchises %>%
     mutate(years=cut(year_created,
                      breaks=c(1920,1929,1939,1949,
@@ -158,6 +158,28 @@ ggplot(.) +
     labs(fill="Revenue\nCategory")+
     ggtitle("Mosaic Graph for Decades of Year vs Revenue of Category ")
     
+```
+
+# Revenue Category In Decades but with Total Revenue 
+
+```{r Revenue Cateogry In Decades but with Total Revenue}
+media_franchises %>%
+    mutate(years=cut(year_created,
+                     breaks=c(1920,1929,1939,1949,
+                              1959,1969,1979,1989,
+                              1999,2009,2017),
+                     labels=c("1920s","1930s","1940s","1950s",
+                              "1960s","1970s","1980s","1990s",
+                              "2000s","2010s"))) %>%
+    group_by(years,revenue_category) %>%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>%
+ggplot(.,aes(x=str_wrap(revenue_category,10),y=revenue_total,fill=revenue_avg))+
+    xlab("Revenue Category")+ylab("Revenue Total")+geom_col()+
+    transition_states(years)+ease_aes("linear")+
+    labs(fill="Revenue\nAverage")+
+    geom_text(aes(label=revenue_total),vjust=-1)+
+    ggtitle("Revenue Total in Billion $ for Revenue Category",
+            subtitle = "Year : {closest_state}")
 ```
 
 
