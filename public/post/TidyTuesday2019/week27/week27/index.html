@@ -654,29 +654,37 @@ media_franchises %&gt;% summarytools::dfSummary()</code></pre>
 ## --------------------------------------------------------------------------------------------------------------------------------------</code></pre>
 <div id="revenue-category-and-original-media" class="section level2">
 <h2>Revenue Category and Original Media</h2>
-<pre class="r"><code>media_franchises %&gt;%
-  group_by(revenue_category) %&gt;%
-  summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
+<pre class="r"><code>p1&lt;-media_franchises %&gt;%
+    group_by(revenue_category) %&gt;%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
 ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,fill=revenue_avg))+geom_col()+
        xlab(&quot;Revenue Category&quot;)+ylab(&quot;Revenue Total by $(Revenue Average by $)&quot;)+
        ggtitle(&quot;Revenue Category vs Revenue Total&quot;,
                subtitle = &quot;By Billions of Dollars&quot;)+
+       theme(axis.text.x = element_text(size=10.5,angle = 90))+
        labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
-       geom_text(aes(label=revenue_total),vjust=-1)+
-       geom_text(aes(label=round(revenue_avg,2)),vjust=1,color=&quot;yellow&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-1.png" width="1152" /></p>
-<pre class="r"><code>media_franchises %&gt;%
-  group_by(original_media) %&gt;%
-  summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
+       scale_y_continuous(expand = c(0,150))+
+       geom_text(aes(label=revenue_total),vjust=-0.5)+
+       geom_text(aes(label=round(revenue_avg,2)),vjust=1,color=&quot;red&quot;)
+  
+p2&lt;-media_franchises %&gt;%
+    group_by(original_media) %&gt;%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,fill=revenue_avg))+geom_col()+
-       xlab(&quot;Original Media&quot;)+ylab(&quot;Original media by $(Revenue Average by $)&quot;)+
+       xlab(&quot;Original Media&quot;)+
+       ylab(&quot;Original media by $(Revenue Average by $)&quot;)+
        ggtitle(&quot;Original Media vs Revenue Total&quot;,
                subtitle = &quot;By Billions of Dollars&quot;)+
        labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
        scale_y_continuous(expand = c(0,50))+
        geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()+
-       geom_text(aes(label=round(revenue_avg,2)),hjust=1,color=&quot;red&quot;)</code></pre>
-<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-2.png" width="1152" /></p>
+       geom_text(aes(label=round(revenue_avg,2)),hjust=1,color=&quot;red&quot;)
+
+ggdraw()+
+    draw_plot(p2+theme(legend.justification = &quot;top&quot;),0,0,1,1)+
+    draw_plot(p1+scale_color_viridis_d()+theme(legend.justification = &quot;bottom&quot;), 0.5, 0.08, 0.55, 0.55)+
+    draw_plot_label(c(&quot;A&quot;, &quot;B&quot;), c(0, 0.55), c(1, 0.45), size = 5.5)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-1.png" width="1152" /></p>
 </div>
 
     </div>
