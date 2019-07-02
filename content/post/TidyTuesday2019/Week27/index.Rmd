@@ -31,8 +31,7 @@ library(cowplot)
 library(rayshader)
 library(ggmosaic)
 library(gganimate)
-
-media_franchises %>% summarytools::dfSummary()
+library(viridis)
 ```
 
 # Revenue Category and Original Media by Cow Plot
@@ -93,6 +92,7 @@ p1<-media_franchises %>%
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,
              fill=revenue_avg))+ geom_col()+coord_flip()+
        xlab("Original Media")+ ylab("Revenue Total by $")+
+       theme(axis.text = element_text(size=7,angle = 90))+
        transition_time(year_created)+ease_aes("linear")+
        ggtitle("Original Media vs Revenue Total",
                subtitle = "By Billions of Dollars of Year : {round(frame_time)}")+
@@ -106,11 +106,41 @@ animate(p1,nframes=52,fps=1)
 
 
 ```{r revenue category by rayshader}
+p1<-media_franchises %>%
+    group_by(revenue_category) %>%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>%
+    ggplot(.,aes(x=str_wrap(revenue_category,10),y=revenue_total,fill=revenue_avg))+geom_col()+
+       xlab("Revenue Category")+ylab("Revenue Total by $")+
+       ggtitle("Revenue Category vs Revenue Total",
+               subtitle = "By Billions of Dollars")+theme_minimal()+
+       theme(axis.text = element_text(size=7,angle = 90),
+             title = element_text(size=10))+
+       labs(fill="Revenue\nAverage\nIn Billions")+
+       scale_y_continuous(expand = c(0,150))
 
+plot_gg(p1,width=3.5,multicore = TRUE, windowsize = c(1000, 1000), 
+        zoom = 0.85, phi = 60, theta = 30, sunangle = 270, soliddepth = -60)
+render_snapshot(clear=TRUE)
 ```
 
 
 ```{r original media by rayshader}
+p1<-media_franchises %>%
+    group_by(original_media) %>%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>%
+    ggplot(.,aes(x=original_media,y=revenue_total,fill=revenue_avg))+geom_col()+
+       xlab("Original Media")+ylab("Revenue Total by $")+
+       ggtitle("Original Media vs Revenue Total",
+               subtitle = "By Billions of Dollars")+theme_minimal()+
+       theme(axis.text = element_text(size=7,angle = 90))+
+       labs(fill="Revenue\nAverage\nIn Billions")
 
+plot_gg(p1,width=3.5,multicore = TRUE, windowsize = c(1000, 800), 
+        zoom = 0.85, phi = 60, theta = 310, sunangle = 270, soliddepth = -60)
+render_snapshot(clear=TRUE)
 ```
 
+# Creators Revenue Total 
+
+
+# Owners Revenue Total.
