@@ -12,6 +12,14 @@
     
     <url>
     
+      <loc>/publication/fitodbod-article/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/tidytuesday2019/week26/week26/</loc>
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
     </url>
@@ -437,7 +445,7 @@
     <url>
     
       <loc>/publication_types/2/</loc>
-      <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -518,7 +526,7 @@
     <url>
     
       <loc>/tags/cran/</loc>
-      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -546,6 +554,15 @@
     
       <loc>/tags/github/</loc>
       <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/joss/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -608,7 +625,7 @@
     <url>
     
       <loc>/publication_types/</loc>
-      <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -617,7 +634,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -776,7 +793,7 @@
     <url>
     
       <loc>/tags/fitodbod/</loc>
-      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -884,7 +901,7 @@
     <url>
     
       <loc>/tags/package/</loc>
-      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

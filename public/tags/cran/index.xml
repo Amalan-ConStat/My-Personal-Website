@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 07 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/cran/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.</title>
+      <link>/publication/fitodbod-article/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-article/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>

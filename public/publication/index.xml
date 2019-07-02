@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.</title>
+      <link>/publication/fitodbod-article/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
       <link>/publication/fitodbod-cran/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
