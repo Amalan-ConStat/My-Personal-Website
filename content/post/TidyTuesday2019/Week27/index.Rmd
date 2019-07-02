@@ -92,7 +92,6 @@ p1<-media_franchises %>%
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,
              fill=revenue_avg))+ geom_col()+coord_flip()+
        xlab("Original Media")+ ylab("Revenue Total by $")+
-       theme(axis.text = element_text(size=7,angle = 90))+
        transition_time(year_created)+ease_aes("linear")+
        ggtitle("Original Media vs Revenue Total",
                subtitle = "By Billions of Dollars of Year : {round(frame_time)}")+
@@ -136,7 +135,7 @@ p1<-media_franchises %>%
        labs(fill="Revenue\nAverage\nIn Billions")
 
 plot_gg(p1,width=3.5,multicore = TRUE, windowsize = c(1000, 800), 
-        zoom = 0.85, phi = 60, theta = 310, sunangle = 270, soliddepth = -60)
+        zoom = 0.85, phi = 40, theta = 50, sunangle = 270, soliddepth = -30)
 render_snapshot(clear=TRUE)
 ```
 

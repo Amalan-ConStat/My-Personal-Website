@@ -92,7 +92,6 @@ animate(p1,nframes=52,fps=1)</code></pre>
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,
              fill=revenue_avg))+ geom_col()+coord_flip()+
        xlab(&quot;Original Media&quot;)+ ylab(&quot;Revenue Total by $&quot;)+
-       theme(axis.text = element_text(size=7,angle = 90))+
        transition_time(year_created)+ease_aes(&quot;linear&quot;)+
        ggtitle(&quot;Original Media vs Revenue Total&quot;,
                subtitle = &quot;By Billions of Dollars of Year : {round(frame_time)}&quot;)+
@@ -131,7 +130,7 @@ render_snapshot(clear=TRUE)</code></pre>
        labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)
 
 plot_gg(p1,width=3.5,multicore = TRUE, windowsize = c(1000, 800), 
-        zoom = 0.85, phi = 60, theta = 310, sunangle = 270, soliddepth = -60)
+        zoom = 0.85, phi = 40, theta = 50, sunangle = 270, soliddepth = -30)
 render_snapshot(clear=TRUE)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/original%20media%20by%20rayshader-1.png" width="1152" /></p>
 </div>
