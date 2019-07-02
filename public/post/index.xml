@@ -243,7 +243,8 @@ When Journey Average Time increases the Total Number of Trips will decrease. Obv
       <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
-      <description>Introductionmlemle2ConclusionIntroductionmle and mle2 are my favorite functions, because they provide extensive amount of outputs for the optimization process. Even though there is no difference in analytical methods used in both of these functions. Further, these analytical methods are the same ones used by optim function. To be honest mle and mle2 functions are wrapper functions of optim. It means both mle and mle2 are using the optim function inside but with some additional inputs, which would generate extended outputs.</description>
+      <description>Introductionmlemle2ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Introductionmle and mle2are my favorite functions, because they provide extensive amount of outputsfor the optimization process. Even though there is no difference in analytical methodsused in both of these functions. Further, these analytical methods are the same ones usedby optim function. To be honest mle and mle2 functions are wrapper functions of optim.</description>
     </item>
     
     <item>

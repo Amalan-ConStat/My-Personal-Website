@@ -21,6 +21,8 @@ image:
 summary: "Using different analytical methods from the mle and mle2 optimizing function."  
 ---
 
+**NOTE : Below post is valid for Package version 1.4.0 and Before. **
+
 # Introduction
 
 [mle](https://www.rdocumentation.org/packages/stats4/versions/3.5.1/topics/mle) and [mle2](https://www.rdocumentation.org/packages/bbmle/versions/1.0.20/topics/mle2) 
