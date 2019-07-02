@@ -18,6 +18,8 @@ image:
 summary: "Comparing the analytical methods of the maxLik optimizing function."  
 ---
 
+**NOTE : Below post is valid for Package version 1.4.0 and Before. **
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NA,fig.height = 10,fig.width = 10,warning = FALSE,message = FALSE)
 library(tidyverse)

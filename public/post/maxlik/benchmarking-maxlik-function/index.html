@@ -477,14 +477,25 @@
 </ul>
 </div>
 
+<p><strong>NOTE : Below post is valid for Package version 1.4.0 and Before. </strong></p>
 <div id="estimating-the-shape-parameters-of-beta-binomial-distribution" class="section level1">
 <h1>Estimating the shape parameters of Beta-Binomial Distribution</h1>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Beginning of this month I wrote a <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a> regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods which can be used in this function and compare them to find suitability. maxLik function is from the package <a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further, <a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a> clearly indicates all things related to the function in detail.</p>
-<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial distribution for the Alcohol Consumption data. In this case Alcohol Consumption data from the <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
-<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value, expected frequencies, p-value and Over-dispersion with tables.</p>
+<p>Beginning of this month I wrote a
+<a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">small section</a>
+regarding maxLik function by comparing it to other optimization functions. Here, we will further study the analytical methods
+which can be used in this function and compare them to find suitability. maxLik function is from the package
+<a href="https://cran.r-project.org/web/packages/maxLik/index.html">maxLik</a>. Further,
+<a href="https://www.rdocumentation.org/packages/maxLik/versions/1.3-4/topics/maxLik">Documentation</a>
+clearly indicates all things related to the function in detail.</p>
+<p>Focusing on the seven analytical methods is my intention from this blog post. So, we have the Beta-Binomial distribution and Binomial
+Outcome data, and need to estimate proper shape parameters which would Maximize the Log Likelihood value of the Beta-Binomial
+distribution for the Alcohol Consumption data. In this case Alcohol Consumption data from the
+<a href="https://cran.r-project.org/package=fitODBOD">fitODBOD</a> package will be used.</p>
+<p>Further we will focus on the process time to optimization, estimated shape parameters, maximized Log Likelihood value,
+expected frequencies, p-value and Over-dispersion with tables.</p>
 <p>Below are the seven analytical methods in concern</p>
 <ol style="list-style-type: decimal">
 <li>NR</li>
@@ -495,7 +506,8 @@
 <li>CG</li>
 <li>NM</li>
 </ol>
-<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
+<p>Alcohol Consumption data has two sets of frequency values but only values from week 1 will be used. Below is the the Alcohol
+Consumption data, where number of observations is 399 and the Binomial Random variable is a vector of values from zero to seven.</p>
 <pre class="r"><code>library(fitODBOD)
 kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;),font_size = 14,full_width = F) %&gt;%
@@ -504,20 +516,20 @@ kable(Alcohol_data,&quot;html&quot;,align=c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;)
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 Days
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 week1
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 week2
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 0
 </td>
 <td style="text-align:center;">
@@ -528,7 +540,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 1
 </td>
 <td style="text-align:center;">
@@ -539,7 +551,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -550,7 +562,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -561,7 +573,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -572,7 +584,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -583,7 +595,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 6
 </td>
 <td style="text-align:center;">
@@ -594,7 +606,7 @@ week2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 7
 </td>
 <td style="text-align:center;">
@@ -608,10 +620,14 @@ week2
 </table>
 <div id="brief-of-maxlik-function" class="section level2">
 <h2>Brief of maxLik Function</h2>
-<p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a> about the maxLik function will be very useful to understand this blog post.</p>
-<p>Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26, 443–458 Marquardt, D.W., (1963)</p>
-<p>An Algorithm for Least-Squares Estimation of Nonlinear Parameters, Journal of the Society for Industrial &amp; Applied Mathematics 11, 2, 431–441</p>
-<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
+<p>Small <a href="https://amalan-con-stat.netlify.com/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/#maxlik-function">section</a>
+about the maxLik function will be very useful to understand this blog post.</p>
+<p>Reference : Henningsen, A. and Toomet, O. (2011): maxLik: A package for maximum likelihood estimation in R Computational Statistics 26,
+443–458 Marquardt, D.W., (1963)</p>
+<p>An Algorithm for Least-Squares Estimation of Nonlinear Parameters,
+Journal of the Society for Industrial &amp; Applied Mathematics 11, 2, 431–441</p>
+<p>So for the initial parameters of a=0.1 and b=0.2 we will be finding estimated parameters from different analytical methods which
+would maximize the Log Likelihood value of the Beta-Binomial distribution.</p>
 <p>First we are transforming the given EstMLEBetaBin function to satisfy the maxLik function conditions.</p>
 <pre class="r"><code># new function to facilitate maxLik criteria
 # only one input but has two elements
@@ -619,7 +635,8 @@ formaxLik&lt;-function(a)
   {
   -EstMLEBetaBin(x=Alcohol_data$Days, freq=Alcohol_data$week1,a=a[1],b=a[2])
   }</code></pre>
-<p>So the formaxLik function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol Consumption data week 1. Further the maxLik function can be scrutinized as below.</p>
+<p>So the formaxLik function can be used as above and parameters are estimated for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> (or a, b) for the Alcohol
+Consumption data week 1. Further the maxLik function can be scrutinized as below.</p>
 <ul>
 <li>package : maxLik</li>
 <li>No of Inputs: 6</li>
@@ -632,7 +649,9 @@ formaxLik&lt;-function(a)
 </div>
 <div id="nr-method" class="section level2">
 <h2>NR method</h2>
-<p>NR is an abbreviation for Unconstrained and equality-constrained maximization based on the quadratic approximation (Newton) method. The idea of the Newton method is to approximate the function at a given location by a multidimensional quadratic function, and use the estimated maximum as the start value for the next iteration.</p>
+<p>NR is an abbreviation for Unconstrained and equality-constrained maximization based on the quadratic approximation (Newton) method.
+The idea of the Newton method is to approximate the function at a given location by a multidimensional quadratic function, and use
+the estimated maximum as the start value for the next iteration.</p>
 <pre class="r"><code>library(maxLik)
 
 # optimizing values for a,b using NR analytical method
@@ -663,8 +682,10 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="bfgs-method" class="section level2">
 <h2>BFGS method</h2>
-<p>BFGS is a Quasi-Newton method (also known as a variable metric algorithm), specifically that published simultaneously in 1970 by Broyden, Fletcher, Goldfarb and Shanno. This uses function values and gradients to build up a picture of the surface to be optimized.</p>
-<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
+<p>BFGS is a Quasi-Newton method (also known as a variable metric algorithm), specifically that published simultaneously in 1970 by Broyden,
+Fletcher, Goldfarb and Shanno. This uses function values and gradients to build up a picture of the surface to be optimized.</p>
+<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation,
+21(99), pp.368-381.</p>
 <pre class="r"><code># optimizing values for a,b using BFGS analytical method
 BFGS_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGS&quot;)
 
@@ -694,7 +715,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 <div id="bfgsr-method" class="section level2">
 <h2>BFGSR method</h2>
 <p>Combination of two methods which are Newton-Raphson, BFGS (Broyden 1970, Fletcher 1970, Goldfarb 1970, Shanno 1970).</p>
-<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99), pp.368-381.</p>
+<p>Reference : Broyden, C.G., 1967. Quasi-Newton methods and their application to function minimization. Mathematics of Computation, 21(99),
+pp.368-381.</p>
 <pre class="r"><code># optimizing values for a,b using BFGSR analytical method
 BFGSR_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;BFGSR&quot;)
 
@@ -723,15 +745,28 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="bhhh-method" class="section level2">
 <h2>BHHH method</h2>
-<p>BHHH method (Berndt, Hall, Hall, Hausman 1974). The BHHH (information equality) approximation is only valid for log-likelihood functions. It requires the score (gradient) values by individual observations and hence those must be returned by individual observations by grad or fn. With the complexity of BHHH method I choose not to discuss it here, but a reference is mentioned to anyone who has interest in this analytical method.</p>
-<p>Reference : Berndt, E., Hall, B., Hall, R. and Hausman, J. (1974): Estimation and Inference in Nonlinear Structural Models, Annals of Social Measurement 3, 653–665.</p>
+<p>BHHH method (Berndt, Hall, Hall, Hausman 1974). The BHHH (information equality) approximation is only valid for log-likelihood functions.
+It requires the score (gradient) values by individual observations and hence those must be returned by individual observations by grad or fn.
+With the complexity of BHHH method I choose not to discuss it here, but a reference is mentioned to anyone who has interest in
+this analytical method.</p>
+<p>Reference : Berndt, E., Hall, B., Hall, R. and Hausman, J. (1974): Estimation and Inference in Nonlinear Structural Models,
+Annals of Social Measurement 3, 653–665.</p>
 </div>
 <div id="sann-method" class="section level2">
 <h2>SANN method</h2>
-<p>Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability.</p>
-<p>By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span> is the current iteration step and temp and tmax are specifiable via control.</p>
-<p>Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose method but can be very useful in getting to a good value on a very rough surface.</p>
-<p>Reference : Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied Probability, 29(4), pp.885-895.</p>
+<p>Method SANN is by default a variant of simulated annealing given in Belisle (1992). Simulated-annealing belongs to
+the class of stochastic global optimization methods. It uses only function values but is relatively slow. It will also
+work for non-differential functions. This implementation uses the Metropolis function for the acceptance probability.</p>
+<p>By default the next candidate point is generated from a Gaussian Markov kernel with scale proportional to the actual
+temperature. If a function to generate a new candidate point is given, method SANN can also be used to solve
+combinatorial optimization problems. Temperatures are decreased according to the logarithmic cooling schedule as given
+in Belisle (1992, p.890); specifically, the temperature is set to <span class="math inline">\(temp / log(((t-1) %/% tmax)*tmax + exp(1))\)</span>, where <span class="math inline">\(t\)</span>
+is the current iteration step and temp and tmax are specifiable via control.</p>
+<p>Note that the SANN method depends critically on the settings of the control parameters. It is not a general-purpose method
+but can be very useful in getting to a good value on a very rough surface.</p>
+<p>Reference :
+Belisle, C.J., 1992. Convergence theorems for a class of simulated annealing algorithms on R d. Journal of Applied
+Probability, 29(4), pp.885-895.</p>
 <pre class="r"><code># optimizing values for a,b using SANN analytical method
 SANN_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;SANN&quot;)
 
@@ -760,7 +795,9 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="cg-method" class="section level2">
 <h2>CG method</h2>
-<p>Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964) (but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
+<p>Method CG is a conjugate gradients method based on that by Fletcher and Reeves (1964)
+(but with the option of Polak-Ribiere or Beale-Sorenson updates). Conjugate gradient methods will generally be more fragile
+than the BFGS method, but as they do not store a matrix they may be successful in much larger optimization problems.</p>
 <p>Reference : Fletcher, R. and Reeves, C.M., 1964. Function minimization by conjugate gradients. The computer journal, 7(2), pp.149-154.</p>
 <pre class="r"><code># optimizing values for a,b using CG analytical method
 CG_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;CG&quot;)
@@ -790,7 +827,8 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="nm-method" class="section level2">
 <h2>NM method</h2>
-<p>NM is the abbreviation to Nelder and Mead method. According to the documentation it uses only function values and is robust but relatively slow. It will work reasonably well for non-differential functions.</p>
+<p>NM is the abbreviation to Nelder and Mead method. According to the documentation it uses only function values and
+is robust but relatively slow. It will work reasonably well for non-differential functions.</p>
 <p>Reference : Nelder, J.A. and Mead, R., 1965. A simplex method for function minimization. The computer journal, 7(4), pp.308-313.</p>
 <pre class="r"><code># optimizing values for a,b using NM analytical method
 NM_answer&lt;-maxLik(logLik =formaxLik, start = c(0.1,0.2),method = &quot;NM&quot;)
@@ -821,8 +859,21 @@ fitBetaBin(Alcohol_data$Days,Alcohol_data$week1,
 </div>
 <div id="sumary-of-time-evalutation-for-different-analytical-methods-of-maxlik-function" class="section level1">
 <h1>Sumary of Time evalutation for different Analytical methods of maxLik function</h1>
-<p>Below table will compare the system process time for different analytical methods. In order to do this time comparison it is possible to use the <a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a> function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package. Below mentioned code chunk provides the output in a table form which includes the analytical methods and their respective time values. The estimation process of the parameters where each method has been replicated 1000 times to receive a more accurate table for time values.</p>
-<p>Table is in the ascending order for elapsed time column. It is evidently clear that SANN analytical method has taken the most time. Before that the analytical method BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time. This time is calculated for 1000 replications of the function being repeated under same conditions. These times does not only reflect based on analytical method, rather on the Log Likelihood function that needs to be maximized, the data provided, the number of estimated that needs to be estimated, the complexity of the function and finally the computer’s processing power.</p>
+<p>Below table will compare the system process time for different analytical methods.
+In order to do this time comparison it is possible to use the
+<a href="https://www.rdocumentation.org/packages/rbenchmark/versions/1.0.0/topics/benchmark">benchmark</a>
+function of <a href="https://cran.r-project.org/package=rbenchmark">rbenchmark</a> package.
+Below mentioned code chunk provides the output in a table form which includes the analytical
+methods and their respective time values. The estimation process of the parameters where each
+method has been replicated 1000 times to receive a more accurate table for time values.</p>
+<p>Table is in the ascending order for elapsed time column. It is evidently clear that
+SANN analytical method has taken the most time. Before that the analytical method
+BFGSR is in 5th place. While NM or Nelder Mead method has taken the least time.
+This time is calculated for 1000 replications of the function being repeated under
+same conditions. These times does not only reflect based on analytical method, rather
+on the Log Likelihood function that needs to be maximized, the data provided,
+the number of estimated that needs to be estimated, the complexity of the function and
+finally the computer’s processing power.</p>
 <pre class="r"><code>library(rbenchmark)
 
 Results1&lt;-benchmark(
@@ -845,31 +896,31 @@ kable(Results1,&quot;html&quot;,align = c(&#39;c&#39;,&#39;c&#39;,&#39;c&#39;,&#
 <table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:left;color: blue;">
+<th style="text-align:left;color: blue !important;">
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 test
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 replications
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 elapsed
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 relative
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 user.self
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 sys.self
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 6
 </td>
 <td style="text-align:center;">
@@ -879,20 +930,20 @@ NM
 1000
 </td>
 <td style="text-align:center;">
-16.65
+18.33
 </td>
 <td style="text-align:center;">
 1.000
 </td>
 <td style="text-align:center;">
-16.65
+17.61
 </td>
 <td style="text-align:center;">
-0.00
+0.03
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -902,20 +953,20 @@ BFGS
 1000
 </td>
 <td style="text-align:center;">
-29.75
+29.17
 </td>
 <td style="text-align:center;">
-1.787
+1.591
 </td>
 <td style="text-align:center;">
-29.74
+29.12
 </td>
 <td style="text-align:center;">
 0.00
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 1
 </td>
 <td style="text-align:center;">
@@ -925,20 +976,20 @@ NR
 1000
 </td>
 <td style="text-align:center;">
-36.69
+34.33
 </td>
 <td style="text-align:center;">
-2.204
+1.873
 </td>
 <td style="text-align:center;">
-36.58
+34.22
 </td>
 <td style="text-align:center;">
 0.03
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -948,20 +999,20 @@ CG
 1000
 </td>
 <td style="text-align:center;">
-64.42
+68.72
 </td>
 <td style="text-align:center;">
-3.869
+3.749
 </td>
 <td style="text-align:center;">
-64.39
+66.83
 </td>
 <td style="text-align:center;">
-0.00
+0.09
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -971,20 +1022,20 @@ BFGSR
 1000
 </td>
 <td style="text-align:center;">
-629.26
+621.30
 </td>
 <td style="text-align:center;">
-37.793
+33.895
 </td>
 <td style="text-align:center;">
-628.61
+616.80
 </td>
 <td style="text-align:center;">
-0.06
+0.22
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: red;">
+<td style="text-align:left;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -994,16 +1045,16 @@ SANN
 1000
 </td>
 <td style="text-align:center;">
-1767.41
+1694.63
 </td>
 <td style="text-align:center;">
-106.151
+92.451
 </td>
 <td style="text-align:center;">
-1754.92
+1667.28
 </td>
 <td style="text-align:center;">
-0.53
+1.20
 </td>
 </tr>
 </tbody>
@@ -1011,41 +1062,50 @@ SANN
 </div>
 <div id="summary-of-results-after-using-the-maxlik-function-for-different-analytical-methods" class="section level1">
 <h1>Summary of results after using the maxLik function for different analytical methods</h1>
-<p>Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN, CG and NM. These estimated parameters will be now used in the fitBetaBin function to find the expected frequencies, p-values and over-dispersion. The above measurements can be used to compare each analytical method for any significance difference.</p>
-<p>Comparing p-values it is clear that all analytical methods generate the same value up-to third decimal point. This is not the case in Maximum Log Likelihood value where analytical methods NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have shown -813.4576. Further, Over-dispersion values are similar until third decimal point, but after that there is a clear difference among all six methods.</p>
-<p>All of the analytical methods have produced distinct values for estimated shape parameters of a and b. For the shape parameter a, similarity is only until second decimal point, and for shape parameter b, similarity of value is only on first decimal point.</p>
+<p>Estimated the shape parameters a,b pair wise from the analytical methods NR, BFGS, BFGSR, SANN,
+CG and NM. These estimated parameters will be now used in the fitBetaBin function to find
+the expected frequencies, p-values and over-dispersion. The above measurements can be used to
+compare each analytical method for any significance difference.</p>
+<p>Comparing p-values it is clear that all analytical methods generate the same value up-to third
+decimal point. This is not the case in Maximum Log Likelihood value where analytical methods
+NR, BFGS, CG and NM have obtained the value -813.4571, while BFGSR and SANN have shown -813.4576. Further,
+Over-dispersion values are similar until third decimal point, but after that there is a clear difference
+among all six methods.</p>
+<p>All of the analytical methods have produced distinct values for estimated shape parameters of a and b.
+For the shape parameter a, similarity is only until second decimal point, and for shape parameter b,
+similarity of value is only on first decimal point.</p>
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 BinomialRandomVariable
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 Frequency
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 NR
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 BFGS
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 BFGSR
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 SANN
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 CG
 </th>
-<th style="text-align:center;color: blue;">
+<th style="text-align:center;color: blue !important;">
 NM
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 0
 </td>
 <td style="text-align:center;">
@@ -1071,7 +1131,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 1
 </td>
 <td style="text-align:center;">
@@ -1097,7 +1157,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 2
 </td>
 <td style="text-align:center;">
@@ -1123,7 +1183,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 3
 </td>
 <td style="text-align:center;">
@@ -1149,7 +1209,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 4
 </td>
 <td style="text-align:center;">
@@ -1175,7 +1235,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 5
 </td>
 <td style="text-align:center;">
@@ -1201,7 +1261,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 6
 </td>
 <td style="text-align:center;">
@@ -1227,7 +1287,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 7
 </td>
 <td style="text-align:center;">
@@ -1253,7 +1313,7 @@ NM
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 Total No of Observations
 </td>
 <td style="text-align:center;">
@@ -1279,7 +1339,7 @@ Total No of Observations
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 p-value
 </td>
 <td style="text-align:center;">
@@ -1304,33 +1364,41 @@ p-value
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
-Estimated a and b
+<td style="text-align:center;color: red !important;">
+Estimated
+a and b
 </td>
 <td style="text-align:center;">
 </td>
 <td style="text-align:center;">
-a=0.7229428 b=0.5808488
+a=0.7229428
+b=0.5808488
 </td>
 <td style="text-align:center;">
-a=0.7228919 b=0.5807283
+a=0.7228919
+b=0.5807283
 </td>
 <td style="text-align:center;">
-a=0.7209896 b=0.5790360
+a=0.7209896
+b=0.5790360
 </td>
 <td style="text-align:center;">
-a=0.7219066 b=0.5813484
+a=0.7219066
+b=0.5813484
 </td>
 <td style="text-align:center;">
-a=0.7229403 b=0.5808469
+a=0.7229403
+b=0.5808469
 </td>
 <td style="text-align:center;">
-a=0.7230707 b=0.5809894
+a=0.7230707
+b=0.5809894
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
-Maximum Log Likelihood
+<td style="text-align:center;color: red !important;">
+Maximum
+Log Likelihood
 </td>
 <td style="text-align:center;">
 </td>
@@ -1354,7 +1422,7 @@ Maximum Log Likelihood
 </td>
 </tr>
 <tr>
-<td style="text-align:center;color: red;">
+<td style="text-align:center;color: red !important;">
 Over Dispersion
 </td>
 <td style="text-align:center;">
@@ -1383,7 +1451,12 @@ Over Dispersion
 </div>
 <div id="final-conclusion" class="section level1">
 <h1>Final Conclusion</h1>
-<p>Now we can conclude the above findings using the tables provided, and it is clear that there is no strong change in expected frequencies, maximum Log Likelihood value or p-value if we use any one of the methods mentioned above. If time is crucial it is best to avoid BFGSR and SANN methods as they take considerable amount of time. I would recommend choose the analytical method from maxLik function based on your needs of output and research objective.</p>
+<p>Now we can conclude the above findings using the tables provided, and it is clear that
+there is no strong change in expected frequencies, maximum Log Likelihood value or p-value
+if we use any one of the methods mentioned above. If time is crucial it is best to avoid
+BFGSR and SANN methods as they take considerable amount of time. I would recommend choose
+the analytical method from maxLik function based on your needs of output and
+research objective.</p>
 <p><em>THANK YOU</em></p>
 </div>
 
