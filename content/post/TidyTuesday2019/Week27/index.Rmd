@@ -1,0 +1,29 @@
+---
+title: 'Week 27: Media Franchise Powerhouses'
+author: M.Amalan
+date: '2019-07-02'
+slug: Week27
+output: 
+    blogdown::html_page:
+      toc: true
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - tidyverse
+  - gganimate
+  - rayshader
+image:
+  caption: ''
+  focal_point: ''
+summary: '2019 Week 27 TidyTuesday: Media Powerhouses.'   
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.width = 12,fig.height = 9)
+```
+
+```{r load data and packages}
+media_franchises <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv")
+```
+

@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/tidytuesday2019/week27/week27/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/tidytuesday2019/week26/week26/</loc>
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
     </url>
@@ -723,7 +731,7 @@
     <url>
     
       <loc>/categories/tidytuesday/</loc>
-      <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -732,7 +740,7 @@
     <url>
     
       <loc>/tags/tidytuesday/</loc>
-      <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -786,7 +794,7 @@
     <url>
     
       <loc>/tags/gganimate/</loc>
-      <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -884,8 +892,17 @@
     
     <url>
     
+      <loc>/tags/rayshader/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/tidyverse/</loc>
-      <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

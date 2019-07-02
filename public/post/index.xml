@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Week 27: Media Franchise Powerhouses</title>
+      <link>/post/tidytuesday2019/week27/week27/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week27/week27/</guid>
+      <description>media_franchises &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&amp;quot;)</description>
+    </item>
+    
+    <item>
       <title>Week 26: Unidentified Flying Objects</title>
       <link>/post/tidytuesday2019/week26/week26/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
