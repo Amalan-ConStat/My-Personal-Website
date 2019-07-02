@@ -25,6 +25,7 @@ image:
 summary: "Comparing optimization functions for the estimation of shape parameters from the Beta-Binomial distribution."  
 ---
 
+**NOTE : Below post is valid for Package version 1.4.0 and Before. **
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NA,fig.height = 10,fig.width = 10,warning = FALSE,message = FALSE)
