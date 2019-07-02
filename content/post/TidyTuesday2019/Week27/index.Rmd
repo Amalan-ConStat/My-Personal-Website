@@ -141,5 +141,24 @@ render_snapshot(clear=TRUE)
 
 # Creators Revenue Total 
 
+```{r Creators Yearly Revenue Mosiac plot}
+media_franchises %>%
+    mutate(years=cut(year_created,
+                     breaks=c(1920,1929,1939,1949,
+                              1959,1969,1979,1989,
+                              1999,2009,2017),
+                     labels=c("1920s","1930s","1940s","1950s",
+                              "1960s","1970s","1980s","1990s",
+                              "2000s","2010s"))) %>%
+    group_by(years,revenue_category) %>%
+ggplot(.) + 
+    geom_mosaic(aes(x=product(years),fill=revenue_category))+
+    xlab("Years by Decade")+ylab("Revenue Category")+
+    theme(axis.text.x = element_text(angle=90))+
+    labs(fill="Revenue\nCategory")+
+    ggtitle("Mosaic Graph for Decades of Year vs Revenue of Category ")
+    
+```
 
-# Owners Revenue Total.
+
+**THANK YOU**

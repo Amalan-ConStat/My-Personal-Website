@@ -26,7 +26,6 @@ summary: '2019 Week 27 TidyTuesday: Media Powerhouses.'
 <li><a href="#revenue-category-and-original-media-by-animations">Revenue Category and Original Media by Animations</a></li>
 <li><a href="#revenue-category-and-original-media-by-rayshader">Revenue Category and Original Media by rayshader</a></li>
 <li><a href="#creators-revenue-total">Creators Revenue Total</a></li>
-<li><a href="#owners-revenue-total.">Owners Revenue Total.</a></li>
 </ul>
 </div>
 
@@ -136,7 +135,21 @@ render_snapshot(clear=TRUE)</code></pre>
 </div>
 <div id="creators-revenue-total" class="section level1">
 <h1>Creators Revenue Total</h1>
-</div>
-<div id="owners-revenue-total." class="section level1">
-<h1>Owners Revenue Total.</h1>
+<pre class="r"><code>media_franchises %&gt;%
+    mutate(years=cut(year_created,
+                     breaks=c(1920,1929,1939,1949,
+                              1959,1969,1979,1989,
+                              1999,2009,2017),
+                     labels=c(&quot;1920s&quot;,&quot;1930s&quot;,&quot;1940s&quot;,&quot;1950s&quot;,
+                              &quot;1960s&quot;,&quot;1970s&quot;,&quot;1980s&quot;,&quot;1990s&quot;,
+                              &quot;2000s&quot;,&quot;2010s&quot;))) %&gt;%
+    group_by(years,revenue_category) %&gt;%
+ggplot(.) + 
+    geom_mosaic(aes(x=product(years),fill=revenue_category))+
+    xlab(&quot;Years by Decade&quot;)+ylab(&quot;Revenue Category&quot;)+
+    theme(axis.text.x = element_text(angle=90))+
+    labs(fill=&quot;Revenue\nCategory&quot;)+
+    ggtitle(&quot;Mosaic Graph for Decades of Year vs Revenue of Category &quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/Creators%20Yearly%20Revenue%20Mosiac%20plot-1.png" width="1152" /></p>
+<p><strong>THANK YOU</strong></p>
 </div>
