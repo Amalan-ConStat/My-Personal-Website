@@ -30,43 +30,87 @@ library(tidyverse)
 library(cowplot)
 library(rayshader)
 library(ggmosaic)
+library(gganimate)
 
 media_franchises %>% summarytools::dfSummary()
 ```
 
-## Revenue Category and Original Media
+# Revenue Category and Original Media by Cow Plot
 
 ```{r revenue category and original media}
 p1<-media_franchises %>%
     group_by(revenue_category) %>%
     summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>%
 ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,fill=revenue_avg))+geom_col()+
-       xlab("Revenue Category")+ylab("Revenue Total by $(Revenue Average by $)")+
+       xlab("Revenue Category")+ylab("Revenue Total by $")+
        ggtitle("Revenue Category vs Revenue Total",
                subtitle = "By Billions of Dollars")+
        theme(axis.text.x = element_text(size=10.5,angle = 90))+
        labs(fill="Revenue\nAverage\nIn Billions")+
        scale_y_continuous(expand = c(0,150))+
-       geom_text(aes(label=revenue_total),vjust=-0.5)+
-       geom_text(aes(label=round(revenue_avg,2)),vjust=1,color="red")
+       geom_text(aes(label=revenue_total),vjust=-0.5)
   
 p2<-media_franchises %>%
     group_by(original_media) %>%
     summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>%
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,fill=revenue_avg))+geom_col()+
        xlab("Original Media")+
-       ylab("Original media by $(Revenue Average by $)")+
+       ylab("Original media by $")+
        ggtitle("Original Media vs Revenue Total",
                subtitle = "By Billions of Dollars")+
        labs(fill="Revenue\nAverage\nIn Billions")+
        scale_y_continuous(expand = c(0,50))+
-       geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()+
-       geom_text(aes(label=round(revenue_avg,2)),hjust=1,color="red")
+       geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()
 
 ggdraw()+
     draw_plot(p2+theme(legend.justification = "top"),0,0,1,1)+
-    draw_plot(p1+scale_color_viridis_d()+theme(legend.justification = "bottom"), 0.5, 0.08, 0.55, 0.55)+
+    draw_plot(p1+scale_color_viridis_d()+theme(legend.justification = "bottom"), 0.45, 0.08, 0.55, 0.55)+
     draw_plot_label(c("A", "B"), c(0, 0.55), c(1, 0.45), size = 5.5)
+```
+
+# Revenue Category and Original Media by Animations
+
+```{r Revenue Category Yearly change for revenue total}
+p1<-media_franchises %>%
+    group_by(year_created,revenue_category) %>%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>% 
+ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,
+             fill=revenue_avg))+ geom_col()+
+       xlab("Revenue Category")+ ylab("Revenue Total by $")+
+       transition_time(year_created)+ease_aes("linear")+
+       ggtitle("Revenue Category vs Revenue Total",
+               subtitle = "By Billions of Dollars of Year : {round(frame_time)}")+
+       labs(fill="Revenue\nAverage\nIn Billions")+
+       geom_text(aes(label=revenue_total),vjust=-0.5)
+
+animate(p1,nframes=52,fps=1)
+```
+
+```{r Original Media Yearly change for revenue total}
+p1<-media_franchises %>%
+    group_by(year_created,original_media) %>%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %>% 
+ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,
+             fill=revenue_avg))+ geom_col()+coord_flip()+
+       xlab("Original Media")+ ylab("Revenue Total by $")+
+       transition_time(year_created)+ease_aes("linear")+
+       ggtitle("Original Media vs Revenue Total",
+               subtitle = "By Billions of Dollars of Year : {round(frame_time)}")+
+       labs(fill="Revenue\nAverage\nIn Billions")+
+       geom_text(aes(label=revenue_total),hjust=-0.05)
+
+animate(p1,nframes=52,fps=1)
+```
+
+# Revenue Category and Original Media by rayshader
+
+
+```{r revenue category by rayshader}
+
+```
+
+
+```{r original media by rayshader}
 
 ```
 

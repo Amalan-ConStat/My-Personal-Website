@@ -22,7 +22,9 @@ summary: '2019 Week 27 TidyTuesday: Media Powerhouses.'
 
 <div id="TOC">
 <ul>
-<li><a href="#revenue-category-and-original-media">Revenue Category and Original Media</a></li>
+<li><a href="#revenue-category-and-original-media-by-cow-plot">Revenue Category and Original Media by Cow Plot</a></li>
+<li><a href="#revenue-category-and-original-media-by-animations">Revenue Category and Original Media by Animations</a></li>
+<li><a href="#revenue-category-and-original-media-by-rayshader">Revenue Category and Original Media by rayshader</a></li>
 </ul>
 </div>
 
@@ -32,6 +34,7 @@ library(tidyverse)
 library(cowplot)
 library(rayshader)
 library(ggmosaic)
+library(gganimate)
 
 media_franchises %&gt;% summarytools::dfSummary()</code></pre>
 <pre><code>## Data Frame Summary  
@@ -111,37 +114,69 @@ media_franchises %&gt;% summarytools::dfSummary()</code></pre>
 ##                          10. Marvel Entertainment (The       8 ( 2.2%)                                                                
 ##                          [ 68 others ]                     241 (65.1%)           IIIIIIIIIIIII                                        
 ## --------------------------------------------------------------------------------------------------------------------------------------</code></pre>
-<div id="revenue-category-and-original-media" class="section level2">
-<h2>Revenue Category and Original Media</h2>
+<div id="revenue-category-and-original-media-by-cow-plot" class="section level1">
+<h1>Revenue Category and Original Media by Cow Plot</h1>
 <pre class="r"><code>p1&lt;-media_franchises %&gt;%
     group_by(revenue_category) %&gt;%
     summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
 ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,fill=revenue_avg))+geom_col()+
-       xlab(&quot;Revenue Category&quot;)+ylab(&quot;Revenue Total by $(Revenue Average by $)&quot;)+
+       xlab(&quot;Revenue Category&quot;)+ylab(&quot;Revenue Total by $&quot;)+
        ggtitle(&quot;Revenue Category vs Revenue Total&quot;,
                subtitle = &quot;By Billions of Dollars&quot;)+
        theme(axis.text.x = element_text(size=10.5,angle = 90))+
        labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
        scale_y_continuous(expand = c(0,150))+
-       geom_text(aes(label=revenue_total),vjust=-0.5)+
-       geom_text(aes(label=round(revenue_avg,2)),vjust=1,color=&quot;red&quot;)
+       geom_text(aes(label=revenue_total),vjust=-0.5)
   
 p2&lt;-media_franchises %&gt;%
     group_by(original_media) %&gt;%
     summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
 ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,fill=revenue_avg))+geom_col()+
        xlab(&quot;Original Media&quot;)+
-       ylab(&quot;Original media by $(Revenue Average by $)&quot;)+
+       ylab(&quot;Original media by $&quot;)+
        ggtitle(&quot;Original Media vs Revenue Total&quot;,
                subtitle = &quot;By Billions of Dollars&quot;)+
        labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
        scale_y_continuous(expand = c(0,50))+
-       geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()+
-       geom_text(aes(label=round(revenue_avg,2)),hjust=1,color=&quot;red&quot;)
+       geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()
 
 ggdraw()+
     draw_plot(p2+theme(legend.justification = &quot;top&quot;),0,0,1,1)+
-    draw_plot(p1+scale_color_viridis_d()+theme(legend.justification = &quot;bottom&quot;), 0.5, 0.08, 0.55, 0.55)+
+    draw_plot(p1+scale_color_viridis_d()+theme(legend.justification = &quot;bottom&quot;), 0.45, 0.08, 0.55, 0.55)+
     draw_plot_label(c(&quot;A&quot;, &quot;B&quot;), c(0, 0.55), c(1, 0.45), size = 5.5)</code></pre>
 <p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-1.png" width="1152" /></p>
+</div>
+<div id="revenue-category-and-original-media-by-animations" class="section level1">
+<h1>Revenue Category and Original Media by Animations</h1>
+<pre class="r"><code>p1&lt;-media_franchises %&gt;%
+    group_by(year_created,revenue_category) %&gt;%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;% 
+ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,
+             fill=revenue_avg))+ geom_col()+
+       xlab(&quot;Revenue Category&quot;)+ ylab(&quot;Revenue Total by $&quot;)+
+       transition_time(year_created)+ease_aes(&quot;linear&quot;)+
+       ggtitle(&quot;Revenue Category vs Revenue Total&quot;,
+               subtitle = &quot;By Billions of Dollars of Year : {round(frame_time)}&quot;)+
+       labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
+       geom_text(aes(label=revenue_total),vjust=-0.5)
+
+animate(p1,nframes=52,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/Revenue%20Category%20Yearly%20change%20for%20revenue%20total-1.gif" /><!-- --></p>
+<pre class="r"><code>p1&lt;-media_franchises %&gt;%
+    group_by(year_created,original_media) %&gt;%
+    summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;% 
+ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,
+             fill=revenue_avg))+ geom_col()+coord_flip()+
+       xlab(&quot;Original Media&quot;)+ ylab(&quot;Revenue Total by $&quot;)+
+       transition_time(year_created)+ease_aes(&quot;linear&quot;)+
+       ggtitle(&quot;Original Media vs Revenue Total&quot;,
+               subtitle = &quot;By Billions of Dollars of Year : {round(frame_time)}&quot;)+
+       labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
+       geom_text(aes(label=revenue_total),hjust=-0.05)
+
+animate(p1,nframes=52,fps=1)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/Original%20Media%20Yearly%20change%20for%20revenue%20total-1.gif" /><!-- --></p>
+</div>
+<div id="revenue-category-and-original-media-by-rayshader" class="section level1">
+<h1>Revenue Category and Original Media by rayshader</h1>
 </div>
