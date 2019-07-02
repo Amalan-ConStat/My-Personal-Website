@@ -20,5 +20,120 @@ summary: '2019 Week 27 TidyTuesday: Media Powerhouses.'
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#revenue-category-and-original-media">Revenue Category and Original Media</a></li>
+</ul>
+</div>
 
-<pre class="r"><code>media_franchises &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&quot;)</code></pre>
+<pre class="r"><code>media_franchises &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&quot;)
+
+library(tidyverse)
+library(cowplot)
+library(rayshader)
+library(ggmosaic)
+
+media_franchises %&gt;% summarytools::dfSummary()</code></pre>
+<pre><code>## Data Frame Summary  
+##   
+## Dimensions: 370 x 7  
+## Duplicates: 49  
+## 
+## --------------------------------------------------------------------------------------------------------------------------------------
+## No   Variable            Stats / Values                    Freqs (% of Valid)    Graph                              Valid    Missing  
+## ---- ------------------- --------------------------------- --------------------- ---------------------------------- -------- ---------
+## 1    franchise           1. Neon Genesis Evangelion          9 ( 2.4%)                                              370      0        
+##      [character]         2. Spider-Man                       9 ( 2.4%)                                              (100%)   (0%)     
+##                          3. Superman                         9 ( 2.4%)                                                                
+##                          4. Dragon Ball                      8 ( 2.2%)                                                                
+##                          5. Final Fantasy                    8 ( 2.2%)                                                                
+##                          6. Aladdin                          7 ( 1.9%)                                                                
+##                          7. Fist of the North Star           7 ( 1.9%)                                                                
+##                          8. Wizarding World / Harry P        7 ( 1.9%)                                                                
+##                          9. Detective Conan / Case Cl        6 ( 1.6%)                                                                
+##                          10. Digimon                         6 ( 1.6%)                                                                
+##                          [ 93 others ]                     294 (79.5%)           IIIIIIIIIIIIIII                                      
+## 
+## 2    revenue_category    1. Book sales                      7 ( 1.9%)                                               370      0        
+##      [character]         2. Box Office                     76 (20.5%)            IIII                               (100%)   (0%)     
+##                          3. Comic or Manga                 43 (11.6%)            II                                                   
+##                          4. Home Video/Entertainment       73 (19.7%)            III                                                  
+##                          5. Merchandise, Licensing &amp;       78 (21.1%)            IIII                                                 
+##                          6. Music                          15 ( 4.0%)                                                                 
+##                          7. TV                             14 ( 3.8%)                                                                 
+##                          8. Video Games/Games              64 (17.3%)            III                                                  
+## 
+## 3    revenue             Mean (sd) : 5.1 (10.3)            174 distinct values   :                                  370      0        
+##      [numeric]           min &lt; med &lt; max:                                        :                                  (100%)   (0%)     
+##                          0 &lt; 1 &lt; 80                                              :                                                    
+##                          IQR (CV) : 4.7 (2)                                      :                                                    
+##                                                                                  : .                                                  
+## 
+## 4    year_created        Mean (sd) : 1985.5 (20.3)         52 distinct values                  : :                  370      0        
+##      [numeric]           min &lt; med &lt; max:                                                      : :                  (100%)   (0%)     
+##                          1924 &lt; 1991 &lt; 2013                                                  : : : :                                  
+##                          IQR (CV) : 20.8 (0)                                             .   : : : :                                  
+##                                                                                  . : . . : : : : : :                                  
+## 
+## 5    original_media      1. Manga                          81 (21.9%)            IIII                               370      0        
+##      [character]         2. Video game                     71 (19.2%)            III                                (100%)   (0%)     
+##                          3. Comic book                     36 ( 9.7%)            I                                                    
+##                          4. Novel                          36 ( 9.7%)            I                                                    
+##                          5. Animated film                  30 ( 8.1%)            I                                                    
+##                          6. Television series              24 ( 6.5%)            I                                                    
+##                          7. Animated series                17 ( 4.6%)                                                                 
+##                          8. Film                           17 ( 4.6%)                                                                 
+##                          9. Anime                          16 ( 4.3%)                                                                 
+##                          10. Digital pet                   10 ( 2.7%)                                                                 
+##                          [ 8 others ]                      32 ( 8.6%)            I                                                    
+## 
+## 6    creators            1. Hideaki Anno Gainax Tatsu        9 ( 2.4%)                                              370      0        
+##      [character]         2. Jerry Siegel Joe Shuster         9 ( 2.4%)                                              (100%)   (0%)     
+##                          3. Stan Lee Steve Ditko             9 ( 2.4%)                                                                
+##                          4. Akira Toriyama                   8 ( 2.2%)                                                                
+##                          5. Hironobu Sakaguchi Hiromi        8 ( 2.2%)                                                                
+##                          6. Buronson Tetsuo Hara             7 ( 1.9%)                                                                
+##                          7. J. K. Rowling                    7 ( 1.9%)                                                                
+##                          8. Walt Disney Animation Han        7 ( 1.9%)                                                                
+##                          9. Akiyoshi Hongo  Toei Anim        6 ( 1.6%)                                                                
+##                          10. Eiichiro Oda                    6 ( 1.6%)                                                                
+##                          [ 91 others ]                     294 (79.5%)           IIIIIIIIIIIIIII                                      
+## 
+## 7    owners              1. The Walt Disney Company         26 ( 7.0%)           I                                  370      0        
+##      [character]         2. Shueisha (Hitotsubashi Gr       21 ( 5.7%)           I                                  (100%)   (0%)     
+##                          3. DC Entertainment (AT&amp;T)         16 ( 4.3%)                                                                
+##                          4. Square Enix                     13 ( 3.5%)                                                                
+##                          5. Shueisha (Hitotsubashi Gr       11 ( 3.0%)                                                                
+##                          6. Khara[dc][279][280]              9 ( 2.4%)                                                                
+##                          7. Marvel Entertainment (The        9 ( 2.4%)                                                                
+##                          8. Bird Studio  Shueisha (Hi        8 ( 2.2%)                                                                
+##                          9. Capcom                           8 ( 2.2%)                                                                
+##                          10. Marvel Entertainment (The       8 ( 2.2%)                                                                
+##                          [ 68 others ]                     241 (65.1%)           IIIIIIIIIIIII                                        
+## --------------------------------------------------------------------------------------------------------------------------------------</code></pre>
+<div id="revenue-category-and-original-media" class="section level2">
+<h2>Revenue Category and Original Media</h2>
+<pre class="r"><code>media_franchises %&gt;%
+  group_by(revenue_category) %&gt;%
+  summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
+ggplot(.,aes(x=str_wrap(revenue_category,15),y=revenue_total,fill=revenue_avg))+geom_col()+
+       xlab(&quot;Revenue Category&quot;)+ylab(&quot;Revenue Total by $(Revenue Average by $)&quot;)+
+       ggtitle(&quot;Revenue Category vs Revenue Total&quot;,
+               subtitle = &quot;By Billions of Dollars&quot;)+
+       labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
+       geom_text(aes(label=revenue_total),vjust=-1)+
+       geom_text(aes(label=round(revenue_avg,2)),vjust=1,color=&quot;yellow&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-1.png" width="1152" /></p>
+<pre class="r"><code>media_franchises %&gt;%
+  group_by(original_media) %&gt;%
+  summarise(revenue_total=sum(revenue),revenue_avg=mean(revenue)) %&gt;%
+ggplot(.,aes(x=str_wrap(original_media,15),y=revenue_total,fill=revenue_avg))+geom_col()+
+       xlab(&quot;Original Media&quot;)+ylab(&quot;Original media by $(Revenue Average by $)&quot;)+
+       ggtitle(&quot;Original Media vs Revenue Total&quot;,
+               subtitle = &quot;By Billions of Dollars&quot;)+
+       labs(fill=&quot;Revenue\nAverage\nIn Billions&quot;)+
+       scale_y_continuous(expand = c(0,50))+
+       geom_text(aes(label=revenue_total),hjust=-0.15)+coord_flip()+
+       geom_text(aes(label=round(revenue_avg,2)),hjust=1,color=&quot;red&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week27/index_files/figure-html/revenue%20category%20and%20original%20media-2.png" width="1152" /></p>
+</div>

@@ -18,7 +18,7 @@
       <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week27/week27/</guid>
-      <description>media_franchises &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&amp;quot;)</description>
+      <description>Revenue Category and Original Mediamedia_franchises &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&amp;quot;)library(tidyverse)library(cowplot)library(rayshader)library(ggmosaic)media_franchises %&amp;gt;% summarytools::dfSummary()## Data Frame Summary ## ## Dimensions: 370 x 7 ## Duplicates: 49 ## ## --------------------------------------------------------------------------------------------------------------------------------------## No Variable Stats / Values Freqs (% of Valid) Graph Valid Missing ## ---- ------------------- --------------------------------- --------------------- ---------------------------------- -------- ---------## 1 franchise 1. Neon Genesis Evangelion 9 ( 2.4%) 370 0 ## [character] 2. Spider-Man 9 ( 2.</description>
     </item>
     
     <item>
