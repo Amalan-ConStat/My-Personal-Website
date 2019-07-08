@@ -175,6 +175,15 @@
     </item>
     
     <item>
+      <title>Webscrape</title>
+      <link>/tags/webscrape/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/webscrape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Website</title>
       <link>/tags/website/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
@@ -306,6 +315,24 @@
       <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/rayshader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rvest</title>
+      <link>/tags/rvest/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rvest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stringr</title>
+      <link>/tags/stringr/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stringr/</guid>
       <description></description>
     </item>
     

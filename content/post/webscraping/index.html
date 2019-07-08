@@ -1,0 +1,55 @@
+---
+title: 'Web-scraping ODI Cricket World Cup Matches '
+author: M.Amalan
+date: '2019-07-08'
+slug: webscraping
+output:
+  blogdown::html_page:
+    toc: yes
+categories:
+  - Webscrape
+tags:
+  - Webscrape
+  - rvest
+  - stringr
+image:
+  caption: ''
+  focal_point: ''
+summary: 'Web-scraping ODI Cricket World Cup Matches from ESPN CricInfo.'  
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#webscraping">Webscraping</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>World Cup matches are now in action as all initial matches are over, while semi-final and final
+matches are to come. Sri Lanka is not in the final four, but not at the bottom as well thankfully
+we ended up in sixth place.</p>
+<p>It should be noted that not all world cups are the same, earlier it was 60 overs for a team now it is 50
+overs. Two decades ago there were less than 10 teams who played cricket, but now more than 10 teams play
+cricket. To be more clear in 2019 Afghanistan is playing in the world cup but not Ireland, Scotland,
+Netherlands, Zimbabwe or Kenya. Further, in late 1990s Duckworth-Lewis method was introduced to avoid
+abandoning matches because of slight drizzle.</p>
+<p>I initially wanted to do a clear analysis on all world cups so far, but as there are clear differences
+among several worldcups I will with hold that for now. Yet, In order to do this Exploratory Data
+analysis on World cups we need data. This data is extracted from Espn CricInfo website.</p>
+</div>
+<div id="webscraping" class="section level1">
+<h1>Webscraping</h1>
+<p>This <a href="http://stats.espncricinfo.com/ci/engine/records/team/series_results.html?id=12;type=trophy">link</a>
+provides links to all world cups. These individual webpages all have the same format, therefore it is
+easy to extract information from them.</p>
+<p>2019 world cup is unfinished therefore its data format is different from others and with missing
+information. Therefore 2019 world cup data is not added here. To extract this information R packages
+<a href="https://cran.r-project.org/web/packages/rvest/">“rvest”</a>,
+<a href="https://cran.r-project.org/web/packages/stringr/index.html">“stringr”</a> and
+<a href="https://cran.r-project.org/web/packages/splitstackshape/index.html">“splitstackshape”</a> are used. rvest
+is for information extraction from webpages, where stringr and splitstackshape are used for manipulating
+characters, strings, columns and rows.</p>
+</div>
