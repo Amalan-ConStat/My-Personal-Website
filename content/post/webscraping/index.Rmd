@@ -30,10 +30,10 @@ Netherlands, Zimbabwe or Kenya. Further, in late 1990s Duckworth-Lewis method wa
 abandoning matches because of slight drizzle. 
 
 I initially wanted to do a clear analysis on all world cups so far, but as there are clear differences 
-among several worldcups I will with hold that for now. Yet, In order to do this Exploratory Data
+among several world-cups I will with hold that for now. Yet, In order to do this Exploratory Data
 analysis on World cups we need data. This data is extracted from Espn CricInfo website. 
 
-# Webscraping
+# Web scraping
 
 This [link](http://stats.espncricinfo.com/ci/engine/records/team/series_results.html?id=12;type=trophy)
 provides links to all world cups. These individual webpages all have the same format, therefore it is 
@@ -47,7 +47,7 @@ information. Therefore 2019 world cup data is not added here. To extract this in
 is for information extraction from webpages, where stringr and splitstackshape are used for manipulating
 characters, strings, columns and rows.
 
-Below figure is the layout from the worldcup 1975 page. Also the highlighted area is chosen by me 
+Below figure is the layout from the world-cup 1975 page. Also the highlighted area is chosen by me 
 with the help of browser extension ["Selector Gadget"](https://selectorgadget.com). This extension
 is used to select the css section of a given websites highlighted area. 
 ![](/webscraping/1975cup.JPG)
@@ -62,7 +62,7 @@ can be studied from this
 Below is the code for data extraction from website, finally we have a character class list
 with 22 rows of information.
 
-```{r Code for extracting html information,echo=FALSE}
+```{r Code for extracting html information,results='hide'}
 # Load the packages
   library(rvest)
   library(stringr)
@@ -85,7 +85,7 @@ with 22 rows of information.
 2. The resultant is a long list of Characters, but it could be different according to what you have 
 highlighted in the website. 
 
-```{r Data manipulation,echo=FALSE}
+```{r Data manipulation,results='hide'}
 # add the infor into a matrix
   data_mat <- matrix(data)
   # View(data_mat) # view the data
@@ -97,7 +97,7 @@ highlighted in the website.
 all the information regarding one match. All the information means match number, who vs who, location, 
 winning conditions, number of runs scored, number of wickets taken, number of overs played. 
 
-```{r One row information,echo=FALSE}
+```{r One row information}
 # one row information
   data_mat[4,]
 ```
@@ -107,7 +107,7 @@ separate columns of meaningful information. Also it should be noted that several
 unnecessary information and they should be removed. Further, each row has latex notations such 
 as "\n" and "\t", which will be replaced by "-" because already we do have "-". 
 
-```{r transforming the data and replacing notations,echo=FALSE}
+```{r transforming the data and replacing notations,results='hide'}
 # remove unnecessary rows     
   data_mat_edit <- as.matrix(data_mat[-c((1:3),((dim(data_mat)[1]-3):dim(data_mat)[1]))])
   
@@ -122,60 +122,80 @@ notations has made it easy to split the one column data frame into multiple colu
 help of "cSplit" function. After that we can select only the columns which matters to us 
 and make them into a new data-set.
 
-```{r Selecting only few columns and spliting the one column,echo=FALSE}
+```{r Selecting only few columns and spliting the one column,results='hide'}
 # remove the --- patterns and split it into  columns
   data_mat_tab <- cSplit(data_mat_rep,"Column","---")
   data_mat_tab_good <- data_mat_tab[,c(2,5,8,11,12)]
   # View(data_mat_tab_good)
 ```
 
-Now we have a much better data frame than earlier, which makes alot sense. 
+Now we have a much better data frame than earlier, which makes a lot sense. 
 
 6. Now is the next part of our data extraction, where we have to extract much more information 
 from the last column which is about runs, wickets, overs of both teams. Along the way we can 
 manipulate all the columns into losing the "-" notation and cleaning the data-set. 
 
-```{r Much more complex data extraction}
+## a. Extracting matches information and storing it in a separate column after removing ":".
+
+```{r Much more complex data extraction 1,results='hide'}
 # acquire information about matches, basically which one and what type
   Matches <- str_remove(data_mat_tab_good$Column_02,":")
-  
+```
+
+## b. Extracting the Location and finding who vs who. 
+
+```{r Much more complex data extraction 2,results='hide'}
 # acquiring who vs who and locations
   WhovsWhos <- data.frame(cSplit(data_mat_tab_good,
                                  "Column_05","-at-")[,c("Column_05_1","Column_05_2")])
   Location <- list(WhovsWhos$Column_05_2)
   WhovsWho <- str_replace(WhovsWhos$Column_05_1,"--","")
-  
+```
+
+## c. Extracting the Date match and winning conditions.
+
+```{r Much more complex data extraction 3,results='hide'}
 # acquiring the Date
   Date <- str_replace(str_replace(data_mat_tab_good$Column_08,",",""),"-","")
   
 # Information of how wins
   won <- str_replace_all(str_replace(data_mat_tab_good$Column_11,"-",""),"-"," ")
-  
+```
+
+## d. Information of both teams who played the match into separate columns.
+
+```{r Much more complex data extraction 4,results='hide'}
 # match info extracted
-  onetwo <- data.frame(cSplit(data_mat_tab_good,"Column_12",";")[,c("Column_12_1","Column_12_2")])
+  onetwo <- data.frame(cSplit(data_mat_tab_good,
+                              "Column_12",";")[,c("Column_12_1","Column_12_2")])
   names(onetwo) <- c("Team1","Team2")
   
 # Team 1 overs and Team 2 overs extracted
-  team1_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", onetwo$Team1, perl=T),"-ov")
-  team2_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", onetwo$Team2, perl=T),"-ov")
+  team1_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", 
+                                 onetwo$Team1, perl=T),"-ov")
+  team2_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", 
+                                 onetwo$Team2, perl=T),"-ov")
   
-# Runs 1 and Runs 2 extracted
+# Runs of Team 1 and Runs of Team 2 extracted
   Runs1 <- str_match(onetwo$Team1, "\\-(\\d{2,3})")[,2]
   Runs2 <- str_match(onetwo$Team2, "\\-(\\d{2,3})")[,2]
   
-# Team 1 and Team 2 extracted
-  Team1<-dplyr::recode_factor(cSplit(onetwo,"Team1","-")$Team1_1,
-                              "Sri"="Sri Lanka","West"="West Indies",
-                              "South"="South Africa","New"="New Zealand")
-  Team2<-dplyr::recode_factor(cSplit(onetwo,"Team2","-")$Team2_2,
-                              "Sri"="Sri Lanka","West"="West Indies",
-                              "South"="South Africa","New"="New Zealand")
+# Country Name of Team 1 and Country Name of Team 2 extracted
+  Team1 <- dplyr::recode_factor(cSplit(onetwo,"Team1","-")$Team1_1,
+                                "Sri"="Sri Lanka","West"="West Indies",
+                                "South"="South Africa","New"="New Zealand")
+  Team2 <- dplyr::recode_factor(cSplit(onetwo,"Team2","-")$Team2_2,
+                                "Sri"="Sri Lanka","West"="West Indies",
+                                "South"="South Africa","New"="New Zealand")
   
   #wickets1<-
   #wickets2<-
-    
-  output<-cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
-                           Runs1,Team2,team2_overs,Runs2)
-  
+```
+
+## e. All those seprarte information after extraction now into one data set.
+
+```{r Much more complex data extraction 5,results='hide'}
+  output <- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
+                             Runs1,Team2,team2_overs,Runs2)
 ```
 
