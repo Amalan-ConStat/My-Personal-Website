@@ -105,7 +105,7 @@ winning conditions, number of runs scored, number of wickets taken, number of ov
 4. The difficult part is dividing this one row of information which has similar pattern over rows into
 separate columns of meaningful information. Also it should be noted that several rows contain
 unnecessary information and they should be removed. Further, each row has latex notations such 
-as "\n" and "\t", which will be replaced by "-" because already we do have "-". 
+as " ","\n" and "\t", which will be replaced by "-" because already we do have "-". 
 
 ```{r transforming the data and replacing notations,results='hide'}
 # remove unnecessary rows     
@@ -116,6 +116,8 @@ as "\n" and "\t", which will be replaced by "-" because already we do have "-".
   names(data_mat_rep) <- "Column"
   # View(data_mat_rep)
 ```
+
+![Before -----> After](/webscraping/BeforeAfter1.JPG)
 
 5. It should be noted that being creative is the key part here, thankfully replacing those latex
 notations has made it easy to split the one column data frame into multiple columns with the 
@@ -129,6 +131,10 @@ and make them into a new data-set.
   # View(data_mat_tab_good)
 ```
 
+![data_mat_tab](/webscraping/data_mat_tab.JPG)
+
+![data_mat_tab_good](/webscraping/data_mat_tab_good.JPG)
+
 Now we have a much better data frame than earlier, which makes a lot sense. 
 
 6. Now is the next part of our data extraction, where we have to extract much more information 
@@ -140,7 +146,10 @@ manipulate all the columns into losing the "-" notation and cleaning the data-se
 ```{r Much more complex data extraction 1,results='hide'}
 # acquire information about matches, basically which one and what type
   Matches <- str_remove(data_mat_tab_good$Column_02,":")
+  # View(Matches)
 ```
+
+![Matches](/webscraping/Matches.JPG)
 
 ## b. Extracting the Location and finding who vs who. 
 
@@ -148,19 +157,28 @@ manipulate all the columns into losing the "-" notation and cleaning the data-se
 # acquiring who vs who and locations
   WhovsWhos <- data.frame(cSplit(data_mat_tab_good,
                                  "Column_05","-at-")[,c("Column_05_1","Column_05_2")])
-  Location <- list(WhovsWhos$Column_05_2)
+  Location <- data.frame(WhovsWhos$Column_05_2)
   WhovsWho <- str_replace(WhovsWhos$Column_05_1,"--","")
+  # View(WhovsWhos)
+  # View(Location)
+  # View(WhovsWho)
 ```
+
+![Whovswhos--->Location-->WhovsWho](/webscraping/whovswhos.JPG)
 
 ## c. Extracting the Date match and winning conditions.
 
 ```{r Much more complex data extraction 3,results='hide'}
 # acquiring the Date
   Date <- str_replace(str_replace(data_mat_tab_good$Column_08,",",""),"-","")
-  
+  # View(Date)
+
 # Information of how wins
   won <- str_replace_all(str_replace(data_mat_tab_good$Column_11,"-",""),"-"," ")
+  # View(won)
 ```
+
+![Date---->won](/webscraping/Dateandwon.JPG)
 
 ## d. Information of both teams who played the match into separate columns.
 

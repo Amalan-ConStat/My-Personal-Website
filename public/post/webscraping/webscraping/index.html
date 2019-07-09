@@ -549,7 +549,7 @@ winning conditions, number of runs scored, number of wickets taken, number of ov
 <li>The difficult part is dividing this one row of information which has similar pattern over rows into
 separate columns of meaningful information. Also it should be noted that several rows contain
 unnecessary information and they should be removed. Further, each row has latex notations such
-as “” and “, which will be replaced by”-" because already we do have “-”.</li>
+as " “,”" and “, which will be replaced by”-" because already we do have “-”.</li>
 </ol>
 <pre class="r"><code># remove unnecessary rows     
   data_mat_edit &lt;- as.matrix(data_mat[-c((1:3),((dim(data_mat)[1]-3):dim(data_mat)[1]))])
@@ -558,6 +558,10 @@ as “” and “, which will be replaced by”-" because already we do have “
   data_mat_rep &lt;- data.frame(str_replace_all(data_mat_edit,c(&quot;\n&quot;=&quot;-&quot;,&quot;\t&quot;=&quot;-&quot;,&quot; &quot;=&quot;-&quot;)))
   names(data_mat_rep) &lt;- &quot;Column&quot;
   # View(data_mat_rep)</code></pre>
+<div class="figure">
+<img src="/webscraping/BeforeAfter1.JPG" alt="" />
+<p class="caption">Before —–&gt; After</p>
+</div>
 <ol start="5" style="list-style-type: decimal">
 <li>It should be noted that being creative is the key part here, thankfully replacing those latex
 notations has made it easy to split the one column data frame into multiple columns with the
@@ -568,6 +572,14 @@ and make them into a new data-set.</li>
   data_mat_tab &lt;- cSplit(data_mat_rep,&quot;Column&quot;,&quot;---&quot;)
   data_mat_tab_good &lt;- data_mat_tab[,c(2,5,8,11,12)]
   # View(data_mat_tab_good)</code></pre>
+<div class="figure">
+<img src="/webscraping/data_mat_tab.JPG" alt="" />
+<p class="caption">data_mat_tab</p>
+</div>
+<div class="figure">
+<img src="/webscraping/data_mat_tab_good.JPG" alt="" />
+<p class="caption">data_mat_tab_good</p>
+</div>
 <p>Now we have a much better data frame than earlier, which makes a lot sense.</p>
 <ol start="6" style="list-style-type: decimal">
 <li>Now is the next part of our data extraction, where we have to extract much more information
@@ -577,23 +589,41 @@ manipulate all the columns into losing the “-” notation and cleaning the dat
 <div id="a.-extracting-matches-information-and-storing-it-in-a-separate-column-after-removing-." class="section level2">
 <h2>a. Extracting matches information and storing it in a separate column after removing “:”.</h2>
 <pre class="r"><code># acquire information about matches, basically which one and what type
-  Matches &lt;- str_remove(data_mat_tab_good$Column_02,&quot;:&quot;)</code></pre>
+  Matches &lt;- str_remove(data_mat_tab_good$Column_02,&quot;:&quot;)
+  # View(Matches)</code></pre>
+<div class="figure">
+<img src="/webscraping/Matches.JPG" alt="" />
+<p class="caption">Matches</p>
+</div>
 </div>
 <div id="b.-extracting-the-location-and-finding-who-vs-who." class="section level2">
 <h2>b. Extracting the Location and finding who vs who.</h2>
 <pre class="r"><code># acquiring who vs who and locations
   WhovsWhos &lt;- data.frame(cSplit(data_mat_tab_good,
                                  &quot;Column_05&quot;,&quot;-at-&quot;)[,c(&quot;Column_05_1&quot;,&quot;Column_05_2&quot;)])
-  Location &lt;- list(WhovsWhos$Column_05_2)
-  WhovsWho &lt;- str_replace(WhovsWhos$Column_05_1,&quot;--&quot;,&quot;&quot;)</code></pre>
+  Location &lt;- data.frame(WhovsWhos$Column_05_2)
+  WhovsWho &lt;- str_replace(WhovsWhos$Column_05_1,&quot;--&quot;,&quot;&quot;)
+  # View(WhovsWhos)
+  # View(Location)
+  # View(WhovsWho)</code></pre>
+<div class="figure">
+<img src="/webscraping/whovswhos.JPG" alt="" />
+<p class="caption">Whovswhos—&gt;Location–&gt;WhovsWho</p>
+</div>
 </div>
 <div id="c.-extracting-the-date-match-and-winning-conditions." class="section level2">
 <h2>c. Extracting the Date match and winning conditions.</h2>
 <pre class="r"><code># acquiring the Date
   Date &lt;- str_replace(str_replace(data_mat_tab_good$Column_08,&quot;,&quot;,&quot;&quot;),&quot;-&quot;,&quot;&quot;)
-  
+  # View(Date)
+
 # Information of how wins
-  won &lt;- str_replace_all(str_replace(data_mat_tab_good$Column_11,&quot;-&quot;,&quot;&quot;),&quot;-&quot;,&quot; &quot;)</code></pre>
+  won &lt;- str_replace_all(str_replace(data_mat_tab_good$Column_11,&quot;-&quot;,&quot;&quot;),&quot;-&quot;,&quot; &quot;)
+  # View(won)</code></pre>
+<div class="figure">
+<img src="/webscraping/Dateandwon.JPG" alt="" />
+<p class="caption">Date—-&gt;won</p>
+</div>
 </div>
 <div id="d.-information-of-both-teams-who-played-the-match-into-separate-columns." class="section level2">
 <h2>d. Information of both teams who played the match into separate columns.</h2>
