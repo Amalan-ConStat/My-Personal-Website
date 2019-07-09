@@ -19,6 +19,7 @@ summary: 'Web-scraping ODI Cricket World Cup Matches from ESPN CricInfo.'
 ---
 
 # Introduction
+
 World Cup matches are now in action as all initial matches are over, while semi-final and final 
 matches are to come. Sri Lanka is not in the final four, but not at the bottom as well thankfully
 we ended up in sixth place. 
@@ -50,6 +51,7 @@ characters, strings, columns and rows.
 Below figure is the layout from the world-cup 1975 page. Also the highlighted area is chosen by me 
 with the help of browser extension ["Selector Gadget"](https://selectorgadget.com). This extension
 is used to select the css section of a given websites highlighted area. 
+
 ![](/webscraping/1975cup.JPG)
 
 # Process
@@ -236,10 +238,11 @@ going to write the above code into one function.
 
 Below are the links for different world cups.
 
+# Links for world cups
+
 ```{r World cup Links,results='hide'}
 Link1975 <- "http://stats.espncricinfo.com/ci/engine/series/60793.html"
 Link1979 <- "http://stats.espncricinfo.com/ci/engine/series/60806.html"
-Link1983 <- "http://stats.espncricinfo.com/ci/engine/series/60832.html"
 Link1983 <- "http://stats.espncricinfo.com/ci/engine/series/60832.html"
 Link1988 <- "http://stats.espncricinfo.com/ci/engine/series/60876.html"
 Link1992 <- "http://stats.espncricinfo.com/ci/engine/series/60924.html"
@@ -251,9 +254,11 @@ Link2011 <- "http://stats.espncricinfo.com/ci/engine/series/381449.html"
 Link2015 <- "http://stats.espncricinfo.com/ci/engine/series/509587.html"
 ```
 
+# Function for data extraction of World cup matches
+
 Further, below is the code for extraction of data from html webpages.
 
-```{r WorldCup function for extraction}
+```{r WorldCup function for extraction,results='hide'}
 WorldCup<-function(weblink)
 {
   #extract the webpage information from cricinfo page
@@ -284,7 +289,7 @@ WorldCup<-function(weblink)
   
   # acquiring who vs who and locations
   WhovsWhos<-data.frame(cSplit(data_mat_tab_good,"Column_05","-at-")[,c("Column_05_1","Column_05_2")])
-  Location<-list(WhovsWhos$Column_05_2)
+  Location<-data.frame("Location"=WhovsWhos$Column_05_2)
   WhovsWho<-str_replace(WhovsWhos$Column_05_1,"--","")
   
   # acquiring the Date
@@ -311,7 +316,8 @@ WorldCup<-function(weblink)
   Team2<-dplyr::recode_factor(cSplit(onetwo,"Team2","-")$Team2_2,"Sri"="Sri Lanka","West"="West Indies",
                               "South"="South Africa","New"="New Zealand")
   
-  #wickets1<-
+  # Team 1 and Team 2 wickets extracted
+  #wickets1<- will figure this out
   #wickets2<-
     
   output<-cbind.data.frame("Matches" = Matches, "Location" = Location,"WhovsWho" = WhovsWho,"Date" = Date, 
@@ -322,3 +328,43 @@ WorldCup<-function(weblink)
 }
 ```
 
+Using the links above and function developed by me it is possible to extract each world cup information into 
+separate dataframes, after a few tweaks(because as I said earlier not all world cups share the same format)
+we can generate one grand data-frame.
+
+If we compare these 11 world cups and their matches it is clear that after 1992 it is no longer the same simple 
+format. This earlier format has initial matches, semi-finals and at the end final. This format changes to 
+initial matches, quarter finals, semi-finals and then only final in later versions. In 1999 this format was renewed
+and extra set of matches such as super eights were added but with the removal of quarter finals. This format of super
+eights continued in 2003 and 2007 also. Yet in 2011 and 2015 this was changed by the removal of super eight matches, finally
+this year all together we do not even have quarter finals. This is the summary of match formats. 
+
+![WorldCup 1975](/webscraping/Cup1975.JPG)
+
+![WorldCup 1999](/webscraping/Cup1999.JPG)
+
+![WorldCup 2011](/webscraping/Cup2011.JPG)
+
+Because of these format changes only the first column(Matches) will be affected and as it is a minor change I am going rectify it 
+after extracting the data using the WorldCup function. My main intention of this post is to explain how simple extracting 
+information from webpages is and I hope it is completed. 
+
+# Summarize
+
+* Extracting information from websites is mainly affected by the selector gadget and its highlighted area. 
+
+* Ensure that you highlight the most sensible part of the webpage and be prepared to think few steps ahead how you are going to
+change this css information into a data-frame. 
+
+* If your first attempt creates a complex structure and difficult to construct a clear data-frame do not hesitate to make changes 
+in your highlighting process using selector gadget extension in the browser.
+
+* After creating this initial one column data-frame it is purely based on your creative skills to construct the much divided 
+meaningful data-frame with multiple columns. This data-frame does not necessarily has to be perfect, but it needs to be more
+informative. 
+
+* With the creation of this initial data-frame it is possible to make more intuitive changes for a much clear data-frame.
+
+* That is all the information related to extracting data from web pages.
+
+*THANK YOU*
