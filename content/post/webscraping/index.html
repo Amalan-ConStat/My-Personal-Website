@@ -23,6 +23,7 @@ summary: 'Web-scraping ODI Cricket World Cup Matches from ESPN CricInfo.'
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#webscraping">Webscraping</a></li>
+<li><a href="#process">Process</a></li>
 </ul>
 </div>
 
@@ -52,4 +53,23 @@ information. Therefore 2019 world cup data is not added here. To extract this in
 <a href="https://cran.r-project.org/web/packages/splitstackshape/index.html">“splitstackshape”</a> are used. rvest
 is for information extraction from webpages, where stringr and splitstackshape are used for manipulating
 characters, strings, columns and rows.</p>
+<p>Below figure is the layout from the worldcup 1975 page. Also the highlighted area is chosen by me
+with the help of browser extension <a href="https://selectorgadget.com">“Selector Gadget”</a>. This extension
+is used to select the css section of a given websites highlighted area.
+<img src="/webscraping/1975cup.JPG" /></p>
+</div>
+<div id="process" class="section level1">
+<h1>Process</h1>
+<ol style="list-style-type: decimal">
+<li><p>Using the rvest package we can extract this highlighted information, more knowledge regarding this
+can be studied from this
+<a href="https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/">blog post</a> and
+<a href="https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html">Vignettes File</a>.</p></li>
+<li><p>The resultant is a long list of Characters, but it could be different according to what you have
+highlighted in the website.</p></li>
+<li><p>Here, the world cup data of 1975 has multiple rows of information but one column, one row contains
+all the information regarding one match. All the information means match number, who vs who, location,
+winning conditions, number of runs scored, number of wickets taken, number of overs played.</p></li>
+<li><p>The difficult part is</p></li>
+</ol>
 </div>

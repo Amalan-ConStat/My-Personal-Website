@@ -46,7 +46,23 @@ information. Therefore 2019 world cup data is not added here. To extract this in
 is for information extraction from webpages, where stringr and splitstackshape are used for manipulating
 characters, strings, columns and rows.
 
+Below figure is the layout from the worldcup 1975 page. Also the highlighted area is chosen by me 
+with the help of browser extension ["Selector Gadget"](https://selectorgadget.com). This extension
+is used to select the css section of a given websites highlighted area. 
+![](/webscraping/1975cup.JPG)
 
+# Process
 
+1. Using the rvest package we can extract this highlighted information, more knowledge regarding this
+can be studied from this 
+[blog post](https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/) and
+[Vignettes File](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html).
 
+2. The resultant is a long list of Characters, but it could be different according to what you have 
+highlighted in the website. 
 
+3. Here, the world cup data of 1975 has multiple rows of information but one column, one row contains 
+all the information regarding one match. All the information means match number, who vs who, location, 
+winning conditions, number of runs scored, number of wickets taken, number of overs played. 
+
+4. The difficult part is 
