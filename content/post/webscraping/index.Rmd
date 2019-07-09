@@ -221,7 +221,7 @@ manipulate all the columns into losing the "-" notation and cleaning the data-se
 
 ![Extracting useful match information](/webscraping/longtable.JPG)
 
-## e. All those seprarte information after extraction now into one data set.
+## e. All those separate information after extraction now into one data set.
 
 ```{r Much more complex data extraction 5,results='hide'}
   output <- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
@@ -329,7 +329,7 @@ WorldCup<-function(weblink)
 ```
 
 Using the links above and function developed by me it is possible to extract each world cup information into 
-separate dataframes, after a few tweaks(because as I said earlier not all world cups share the same format)
+separate data-frames, after a few tweaks(because as I said earlier not all world cups share the same format)
 we can generate one grand data-frame.
 
 If we compare these 11 world cups and their matches it is clear that after 1992 it is no longer the same simple 
@@ -346,7 +346,7 @@ this year all together we do not even have quarter finals. This is the summary o
 ![WorldCup 2011](/webscraping/Cup2011.JPG)
 
 Because of these format changes only the first column(Matches) will be affected and as it is a minor change I am going rectify it 
-after extracting the data using the WorldCup function. My main intention of this post is to explain how simple extracting 
+after extracting the data using the World Cup function. My main intention of this post is to explain how simple extracting 
 information from webpages is and I hope it is completed. 
 
 # Summarize

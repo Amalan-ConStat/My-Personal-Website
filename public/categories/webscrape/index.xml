@@ -18,7 +18,7 @@
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/webscraping/webscraping/</guid>
-      <description>IntroductionWeb scrapingProcessa. Extracting matches information and storing it in a separate column after removing “:”.b. Extracting the Location and finding who vs who.c. Extracting the Date match and winning conditions.d. Information of both teams who played the match into separate columns.e. All those seprarte information after extraction now into one data set.Links for world cupsFunction for data extraction of World cup matchesSummarizeIntroductionWorld Cup matches are now in action as all initial matches are over, while semi-final and finalmatches are to come.</description>
+      <description>IntroductionWeb scrapingProcessa. Extracting matches information and storing it in a separate column after removing “:”.b. Extracting the Location and finding who vs who.c. Extracting the Date match and winning conditions.d. Information of both teams who played the match into separate columns.e. All those separate information after extraction now into one data set.Links for world cupsFunction for data extraction of World cup matchesSummarizeIntroductionWorld Cup matches are now in action as all initial matches are over, while semi-final and finalmatches are to come.</description>
     </item>
     
   </channel>

@@ -351,18 +351,124 @@
 
 
 
+
+<div class="article-header d-xl-none">
+  <img src="/post/webscraping/webscraping/featured_huc4bda9b1694f7f0bbbdd37e40951441f_49461_1600x400_fill_q90_box_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Web-scraping ODI Cricket World Cup Matches </h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-07-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-07-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jul 8, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
   
 
   
   
   
-<div class="article-container pt-3">
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/webscrape/">Webscrape</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Web-scraping%20ODI%20Cricket%20World%20Cup%20Matches%20&amp;url=%2fpost%2fwebscraping%2fwebscraping%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fwebscraping%2fwebscraping%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fwebscraping%2fwebscraping%2f&amp;title=Web-scraping%20ODI%20Cricket%20World%20Cup%20Matches%20"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fwebscraping%2fwebscraping%2f&amp;title=Web-scraping%20ODI%20Cricket%20World%20Cup%20Matches%20"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Web-scraping%20ODI%20Cricket%20World%20Cup%20Matches%20&amp;body=%2fpost%2fwebscraping%2fwebscraping%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/webscraping/webscraping/featured_huc4bda9b1694f7f0bbbdd37e40951441f_49461_680x500_fill_q90_box_smart1.jpg" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
   <h1 itemprop="name">Web-scraping ODI Cricket World Cup Matches </h1>
 
   
 
   
-    
 
 <div class="article-metadata">
 
@@ -448,7 +554,6 @@
 
 </div>
 
-  
 </div>
 
 
@@ -465,7 +570,7 @@
 <li><a href="#b.-extracting-the-location-and-finding-who-vs-who.">b. Extracting the Location and finding who vs who.</a></li>
 <li><a href="#c.-extracting-the-date-match-and-winning-conditions.">c. Extracting the Date match and winning conditions.</a></li>
 <li><a href="#d.-information-of-both-teams-who-played-the-match-into-separate-columns.">d. Information of both teams who played the match into separate columns.</a></li>
-<li><a href="#e.-all-those-seprarte-information-after-extraction-now-into-one-data-set.">e. All those seprarte information after extraction now into one data set.</a></li>
+<li><a href="#e.-all-those-separate-information-after-extraction-now-into-one-data-set.">e. All those separate information after extraction now into one data set.</a></li>
 </ul></li>
 <li><a href="#links-for-world-cups">Links for world cups</a></li>
 <li><a href="#function-for-data-extraction-of-world-cup-matches">Function for data extraction of World cup matches</a></li>
@@ -667,8 +772,8 @@ manipulate all the columns into losing the “-” notation and cleaning the dat
 <p class="caption">Extracting useful match information</p>
 </div>
 </div>
-<div id="e.-all-those-seprarte-information-after-extraction-now-into-one-data-set." class="section level2">
-<h2>e. All those seprarte information after extraction now into one data set.</h2>
+<div id="e.-all-those-separate-information-after-extraction-now-into-one-data-set." class="section level2">
+<h2>e. All those separate information after extraction now into one data set.</h2>
 <pre class="r"><code>  output &lt;- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
                              Runs1,Team2,team2_overs,Runs2)
   # View(output)</code></pre>
@@ -768,7 +873,7 @@ Link2015 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/509587.html&
   return(output)
 }</code></pre>
 <p>Using the links above and function developed by me it is possible to extract each world cup information into
-separate dataframes, after a few tweaks(because as I said earlier not all world cups share the same format)
+separate data-frames, after a few tweaks(because as I said earlier not all world cups share the same format)
 we can generate one grand data-frame.</p>
 <p>If we compare these 11 world cups and their matches it is clear that after 1992 it is no longer the same simple
 format. This earlier format has initial matches, semi-finals and at the end final. This format changes to
@@ -789,7 +894,7 @@ this year all together we do not even have quarter finals. This is the summary o
 <p class="caption">WorldCup 2011</p>
 </div>
 <p>Because of these format changes only the first column(Matches) will be affected and as it is a minor change I am going rectify it
-after extracting the data using the WorldCup function. My main intention of this post is to explain how simple extracting
+after extracting the data using the World Cup function. My main intention of this post is to explain how simple extracting
 information from webpages is and I hope it is completed.</p>
 </div>
 <div id="summarize" class="section level1">
