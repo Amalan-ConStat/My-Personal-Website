@@ -764,23 +764,24 @@ manipulate all the columns into losing the “-” notation and cleaning the dat
                                 &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
   # View(Team1)
   # View(Team2)
+
+# Wickets by Team 1 and Team 2 extracted    
+  wickets1 &lt;- str_match(onetwo$Team1, &quot;\\-(\\d{2,3})\\/(\\d{0,1})\\-&quot;)[,3]
+  wickets1[is.na(wickets1)]&lt;-10
   
-  #wickets1&lt;-
-  #wickets2&lt;-</code></pre>
-<div class="figure">
-<img src="/webscraping/longtable.JPG" alt="" />
-<p class="caption">Extracting useful match information</p>
-</div>
+  wickets2 &lt;- str_match(onetwo$Team2, &quot;\\-(\\d{2,3})\\/(\\d{0,1})\\-&quot;)[,3]
+  wickets2[is.na(wickets2)]&lt;-10
+  
+  # View(wickets1)
+  # View(wickets2)</code></pre>
+<p><img src="/webscraping/longtable.JPG" alt="Extracting useful match information" /> # change</p>
 </div>
 <div id="e.-all-those-separate-information-after-extraction-now-into-one-data-set." class="section level2">
 <h2>e. All those separate information after extraction now into one data set.</h2>
 <pre class="r"><code>  output &lt;- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
-                             Runs1,Team2,team2_overs,Runs2)
+                             Runs1,wickets1,Team2,team2_overs,Runs2,wickets2)
   # View(output)</code></pre>
-<div class="figure">
-<img src="/webscraping/output.JPG" alt="" />
-<p class="caption">Output</p>
-</div>
+<p><img src="/webscraping/output.JPG" alt="Output" /> # change</p>
 <p>Now we have a clear table output, it is time to extract the data of all world cups(except 2019)
 into separate tables. As I mentioned before not all world cups stay the same in format therefore we
 are going to check these extracted tables for discrepancy. In order to do this extraction I am
@@ -793,7 +794,7 @@ going to write the above code into one function.</p>
 <pre class="r"><code>Link1975 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60793.html&quot;
 Link1979 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60806.html&quot;
 Link1983 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60832.html&quot;
-Link1988 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60876.html&quot;
+Link1987 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60876.html&quot;
 Link1992 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60924.html&quot;
 Link1996 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/60981.html&quot;
 Link1999 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/61046.html&quot;
@@ -858,17 +859,22 @@ Link2015 &lt;- &quot;http://stats.espncricinfo.com/ci/engine/series/509587.html&
   
   # Team 1 and Team 2 extracted
   Team1&lt;-dplyr::recode_factor(cSplit(onetwo,&quot;Team1&quot;,&quot;-&quot;)$Team1_1,&quot;Sri&quot;=&quot;Sri Lanka&quot;,&quot;West&quot;=&quot;West Indies&quot;,
-                       &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
+                              &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;,&quot;East&quot;=&quot;East Africa&quot;,
+                              &quot;United&quot;=&quot;United Arab Emirates&quot;)
   Team2&lt;-dplyr::recode_factor(cSplit(onetwo,&quot;Team2&quot;,&quot;-&quot;)$Team2_2,&quot;Sri&quot;=&quot;Sri Lanka&quot;,&quot;West&quot;=&quot;West Indies&quot;,
-                              &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
+                              &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;,&quot;East&quot;=&quot;East Africa&quot;,
+                              &quot;United&quot;=&quot;United Arab Emirates&quot;)
   
-  # Team 1 and Team 2 wickets extracted
-  #wickets1&lt;- will figure this out
-  #wickets2&lt;-
+  # Wickets by Team 1 and Team 2 extracted    
+  wickets1 &lt;- str_match(onetwo$Team1, &quot;\\-(\\d{2,3})\\/(\\d{0,1})\\-&quot;)[,3]
+  wickets1[is.na(wickets1)]&lt;-10
+  
+  wickets2 &lt;- str_match(onetwo$Team2, &quot;\\-(\\d{2,3})\\/(\\d{0,1})\\-&quot;)[,3]
+  wickets2[is.na(wickets2)]&lt;-10
     
   output&lt;-cbind.data.frame(&quot;Matches&quot; = Matches, &quot;Location&quot; = Location,&quot;WhovsWho&quot; = WhovsWho,&quot;Date&quot; = Date, 
-                           &quot;WinningConditions&quot; = won, &quot;Team1&quot; = Team1, &quot;Overs1&quot; = team1_overs, &quot;Runs1&quot; =  Runs1,
-                           &quot;Team2&quot; = Team2, &quot;Overs2&quot; = team2_overs, &quot;Runs2&quot; = Runs2)
+                           &quot;WinningConditions&quot; = won, &quot;Team1&quot; = Team1, &quot;Overs1&quot; = team1_overs, &quot;Runs1&quot; =  Runs1,&quot;Wickets1&quot;=wickets1,
+                           &quot;Team2&quot; = Team2, &quot;Overs2&quot; = team2_overs, &quot;Runs2&quot; = Runs2,&quot;Wickets2&quot;=wickets2)
   
   return(output)
 }</code></pre>
@@ -878,7 +884,7 @@ we can generate one grand data-frame.</p>
 <p>If we compare these 11 world cups and their matches it is clear that after 1992 it is no longer the same simple
 format. This earlier format has initial matches, semi-finals and at the end final. This format changes to
 initial matches, quarter finals, semi-finals and then only final in later versions. In 1999 this format was renewed
-and extra set of matches such as super eights were added but with the removal of quarter finals. This format of super
+and extra set of matches such as super sixes were added but with the removal of quarter finals. This format of super
 eights continued in 2003 and 2007 also. Yet in 2011 and 2015 this was changed by the removal of super eight matches, finally
 this year all together we do not even have quarter finals. This is the summary of match formats.</p>
 <div class="figure">
