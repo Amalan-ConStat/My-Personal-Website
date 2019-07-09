@@ -194,16 +194,21 @@ manipulate all the columns into losing the “-” notation and cleaning the dat
   onetwo &lt;- data.frame(cSplit(data_mat_tab_good,
                               &quot;Column_12&quot;,&quot;;&quot;)[,c(&quot;Column_12_1&quot;,&quot;Column_12_2&quot;)])
   names(onetwo) &lt;- c(&quot;Team1&quot;,&quot;Team2&quot;)
+  # View(onetwo)
   
 # Team 1 overs and Team 2 overs extracted
   team1_overs &lt;- str_remove(gsub(&quot;(?&lt;=\\()[^()]*(?=\\))(*SKIP)(*F)|.&quot;, &quot;&quot;, 
                                  onetwo$Team1, perl=T),&quot;-ov&quot;)
   team2_overs &lt;- str_remove(gsub(&quot;(?&lt;=\\()[^()]*(?=\\))(*SKIP)(*F)|.&quot;, &quot;&quot;, 
                                  onetwo$Team2, perl=T),&quot;-ov&quot;)
+  # View(team1_overs)
+  # View(team2_overs)
   
 # Runs of Team 1 and Runs of Team 2 extracted
   Runs1 &lt;- str_match(onetwo$Team1, &quot;\\-(\\d{2,3})&quot;)[,2]
   Runs2 &lt;- str_match(onetwo$Team2, &quot;\\-(\\d{2,3})&quot;)[,2]
+  # View(Runs1)
+  # View(Runs2)
   
 # Country Name of Team 1 and Country Name of Team 2 extracted
   Team1 &lt;- dplyr::recode_factor(cSplit(onetwo,&quot;Team1&quot;,&quot;-&quot;)$Team1_1,
@@ -212,13 +217,18 @@ manipulate all the columns into losing the “-” notation and cleaning the dat
   Team2 &lt;- dplyr::recode_factor(cSplit(onetwo,&quot;Team2&quot;,&quot;-&quot;)$Team2_2,
                                 &quot;Sri&quot;=&quot;Sri Lanka&quot;,&quot;West&quot;=&quot;West Indies&quot;,
                                 &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
+  # View(Team1)
+  # View(Team2)
   
   #wickets1&lt;-
   #wickets2&lt;-</code></pre>
+<p><img src="/webscraping/longtable.JPG" /></p>
 </div>
 <div id="e.-all-those-seprarte-information-after-extraction-now-into-one-data-set." class="section level2">
 <h2>e. All those seprarte information after extraction now into one data set.</h2>
 <pre class="r"><code>  output &lt;- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
-                             Runs1,Team2,team2_overs,Runs2)</code></pre>
+                             Runs1,Team2,team2_overs,Runs2)
+  # View(output)</code></pre>
+<p><img src="/webscraping/output.JPG" /></p>
 </div>
 </div>

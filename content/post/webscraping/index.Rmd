@@ -187,16 +187,21 @@ manipulate all the columns into losing the "-" notation and cleaning the data-se
   onetwo <- data.frame(cSplit(data_mat_tab_good,
                               "Column_12",";")[,c("Column_12_1","Column_12_2")])
   names(onetwo) <- c("Team1","Team2")
+  # View(onetwo)
   
 # Team 1 overs and Team 2 overs extracted
   team1_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", 
                                  onetwo$Team1, perl=T),"-ov")
   team2_overs <- str_remove(gsub("(?<=\\()[^()]*(?=\\))(*SKIP)(*F)|.", "", 
                                  onetwo$Team2, perl=T),"-ov")
+  # View(team1_overs)
+  # View(team2_overs)
   
 # Runs of Team 1 and Runs of Team 2 extracted
   Runs1 <- str_match(onetwo$Team1, "\\-(\\d{2,3})")[,2]
   Runs2 <- str_match(onetwo$Team2, "\\-(\\d{2,3})")[,2]
+  # View(Runs1)
+  # View(Runs2)
   
 # Country Name of Team 1 and Country Name of Team 2 extracted
   Team1 <- dplyr::recode_factor(cSplit(onetwo,"Team1","-")$Team1_1,
@@ -205,15 +210,21 @@ manipulate all the columns into losing the "-" notation and cleaning the data-se
   Team2 <- dplyr::recode_factor(cSplit(onetwo,"Team2","-")$Team2_2,
                                 "Sri"="Sri Lanka","West"="West Indies",
                                 "South"="South Africa","New"="New Zealand")
+  # View(Team1)
+  # View(Team2)
   
   #wickets1<-
   #wickets2<-
 ```
+
+![](/webscraping/longtable.JPG)
 
 ## e. All those seprarte information after extraction now into one data set.
 
 ```{r Much more complex data extraction 5,results='hide'}
   output <- cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
                              Runs1,Team2,team2_overs,Runs2)
+  # View(output)
 ```
 
+![](/webscraping/output.JPG)
