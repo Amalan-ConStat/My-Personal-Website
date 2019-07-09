@@ -498,17 +498,83 @@ is used to select the css section of a given websites highlighted area.
 <div id="process" class="section level1">
 <h1>Process</h1>
 <ol style="list-style-type: decimal">
-<li><p>Using the rvest package we can extract this highlighted information, more knowledge regarding this
+<li>Using the rvest package we can extract this highlighted information, more knowledge regarding this
 can be studied from this
 <a href="https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/">blog post</a> and
-<a href="https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html">Vignettes File</a>.</p></li>
-<li><p>The resultant is a long list of Characters, but it could be different according to what you have
-highlighted in the website.</p></li>
-<li><p>Here, the world cup data of 1975 has multiple rows of information but one column, one row contains
-all the information regarding one match. All the information means match number, who vs who, location,
-winning conditions, number of runs scored, number of wickets taken, number of overs played.</p></li>
-<li><p>The difficult part is</p></li>
+<a href="https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html">Vignettes File</a>.</li>
 </ol>
+<p>Below is the code for data extraction from website, finally we have a character class list
+with 22 rows of information.</p>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>##  chr [1:22] &quot;\n\t\t \n\t\t\n\n\n\t\t\n\n\t\t\n\t\t\t\n\n\t\t\n\t&quot; ...</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The resultant is a long list of Characters, but it could be different according to what you have
+highlighted in the website.</li>
+</ol>
+<p><img src="/webscraping/View_data_mat.JPG" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Here, the world cup data of 1975 has multiple rows of information but one column, one row contains
+all the information regarding one match. All the information means match number, who vs who, location,
+winning conditions, number of runs scored, number of wickets taken, number of overs played.</li>
+</ol>
+<pre><code>## [1] &quot; \n 1st Match: \n  \n  \t\n\t\tEngland v India at Lord&#39;s\n\t\n  \n  - Jun 7, 1975\n \n\n\n\t\t\t  England won by 202 runs\n\n England 334/4 (60/60 ov); India 132/3 (60/60 ov)\n\n\n\n Scorecard\n\n\tArticles (7)\n\n\tPhotos (8)\n&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>The difficult part is dividing this one row of information which has similar pattern over rows into
+separate columns of meaningful information. Also it should be noted that several rows contain
+unnecessary information and they should be removed. Further, each row has latex notations such
+as “” and “, which will be replaced by”-" because already we do have “-”.</p></li>
+<li><p>It should be noted that being creative is the key part here, thankfully replacing those latex
+notations has made it easy to split the one column data frame into multiple columns with the
+help of “cSplit” function. After that we can select only the columns which matters to us
+and make them into a new data-set.</p></li>
+</ol>
+<p>Now we have a much better data frame than earlier, which makes alot sense.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Now is the next part of our data extraction, where we have to extract much more information
+from the last column which is about runs, wickets, overs of both teams. Along the way we can
+manipulate all the columns into losing the “-” notation and cleaning the data-set.</li>
+</ol>
+<pre class="r"><code># acquire information about matches, basically which one and what type
+  Matches &lt;- str_remove(data_mat_tab_good$Column_02,&quot;:&quot;)
+  
+# acquiring who vs who and locations
+  WhovsWhos &lt;- data.frame(cSplit(data_mat_tab_good,
+                                 &quot;Column_05&quot;,&quot;-at-&quot;)[,c(&quot;Column_05_1&quot;,&quot;Column_05_2&quot;)])
+  Location &lt;- list(WhovsWhos$Column_05_2)
+  WhovsWho &lt;- str_replace(WhovsWhos$Column_05_1,&quot;--&quot;,&quot;&quot;)
+  
+# acquiring the Date
+  Date &lt;- str_replace(str_replace(data_mat_tab_good$Column_08,&quot;,&quot;,&quot;&quot;),&quot;-&quot;,&quot;&quot;)
+  
+# Information of how wins
+  won &lt;- str_replace_all(str_replace(data_mat_tab_good$Column_11,&quot;-&quot;,&quot;&quot;),&quot;-&quot;,&quot; &quot;)
+  
+# match info extracted
+  onetwo &lt;- data.frame(cSplit(data_mat_tab_good,&quot;Column_12&quot;,&quot;;&quot;)[,c(&quot;Column_12_1&quot;,&quot;Column_12_2&quot;)])
+  names(onetwo) &lt;- c(&quot;Team1&quot;,&quot;Team2&quot;)
+  
+# Team 1 overs and Team 2 overs extracted
+  team1_overs &lt;- str_remove(gsub(&quot;(?&lt;=\\()[^()]*(?=\\))(*SKIP)(*F)|.&quot;, &quot;&quot;, onetwo$Team1, perl=T),&quot;-ov&quot;)
+  team2_overs &lt;- str_remove(gsub(&quot;(?&lt;=\\()[^()]*(?=\\))(*SKIP)(*F)|.&quot;, &quot;&quot;, onetwo$Team2, perl=T),&quot;-ov&quot;)
+  
+# Runs 1 and Runs 2 extracted
+  Runs1 &lt;- str_match(onetwo$Team1, &quot;\\-(\\d{2,3})&quot;)[,2]
+  Runs2 &lt;- str_match(onetwo$Team2, &quot;\\-(\\d{2,3})&quot;)[,2]
+  
+# Team 1 and Team 2 extracted
+  Team1&lt;-dplyr::recode_factor(cSplit(onetwo,&quot;Team1&quot;,&quot;-&quot;)$Team1_1,
+                              &quot;Sri&quot;=&quot;Sri Lanka&quot;,&quot;West&quot;=&quot;West Indies&quot;,
+                              &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
+  Team2&lt;-dplyr::recode_factor(cSplit(onetwo,&quot;Team2&quot;,&quot;-&quot;)$Team2_2,
+                              &quot;Sri&quot;=&quot;Sri Lanka&quot;,&quot;West&quot;=&quot;West Indies&quot;,
+                              &quot;South&quot;=&quot;South Africa&quot;,&quot;New&quot;=&quot;New Zealand&quot;)
+  
+  #wickets1&lt;-
+  #wickets2&lt;-
+    
+  output&lt;-cbind.data.frame(Matches,Location,WhovsWho,Date,won,Team1,team1_overs,
+                           Runs1,Team2,team2_overs,Runs2)</code></pre>
 </div>
 
     </div>
