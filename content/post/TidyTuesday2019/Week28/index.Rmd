@@ -34,14 +34,20 @@ library(dplyr)
 library(tvthemes)
 ```
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week28)
+
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1148866198370750464")
+```
+
 # Squads
 
-## Captainship vs Goals
+## Captain-ship vs Goals
 
 ```{r Captiainship vs Goals }
 p1<-ggplot(squads,aes(caps,goals,color=pos,label1=player,label2=country,group=1))+geom_point()+
     ylab("No of Goals Scored")+xlab("No of Matches as Captains")+
-    ggtitle("Relationship Between Goals Scoring and Captainship",
+    ggtitle("Relationship Between Goals Scoring and Captain-ship",
             subtitle = "This is plotly so click on the points on legend")+
     theme_parksAndRec()+labs(color="Position")
 
