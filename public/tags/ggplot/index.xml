@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot on Consulting Statistician</title>
+    <link>/tags/ggplot/</link>
+    <description>Recent content in ggplot on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 28: FIFA Womens World Cup</title>
+      <link>/post/tidytuesday2019/week28/week28/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week28/week28/</guid>
+      <description>SquadsCaptainship vs GoalsAge vs GoalsCountry and PositionsAge and PositionsCountry and Age DistributionsCountry and Goal ExperienceTop 15 Highest Goal Scorers participated in the FIFA World CupWWC OutcomesYear vs Countries of participationYear vs Rounds of MatchesYears vs Goalswwc_outcomes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/wwc_outcomes.csv&amp;quot;)squads &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/squads.csv&amp;quot;)codes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/codes.csv&amp;quot;)library(ggplot2)library(gganimate)library(dplyr)library(tvthemes)SquadsCaptainship vs Goalsp1&amp;lt;-ggplot(squads,aes(caps,goals,color=pos,label1=player,label2=country,group=1))+geom_point()+ylab(&amp;quot;No of Goals Scored&amp;quot;)+xlab(&amp;quot;No of Matches as Captains&amp;quot;)+ggtitle(&amp;quot;Relationship Between Goals Scoring and Captainship&amp;quot;,subtitle = &amp;quot;This is plotly so click on the points on legend&amp;quot;)+theme_parksAndRec()+labs(color=&amp;quot;Position&amp;quot;)plotly::plotly_build(p1){&#34;</description>
+    </item>
+    
+  </channel>
+</rss>
