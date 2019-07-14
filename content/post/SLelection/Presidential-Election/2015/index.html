@@ -24,6 +24,8 @@ have voted so far in previous elections we need data. I was hoping this data cou
 <a href="http://www.data.gov.lk/search/type/dataset?query=election">opendata</a> initiative website, unfortunately i
 was not happy with the results. Only one set of data was presented here, which was for District Registered
 Electors from 2007 - 2017.</p>
+<div id="where-is-the-data" class="section level2">
+<h2>Where is the data !</h2>
 <p>Well I did not give up, because there is the Election Commission website. Hopefully, I found the data which
 was needed under the title
 <a href="https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/">Presidential Election Results.</a>
@@ -32,6 +34,38 @@ After skimming through these six election results in pdf files it was clear that
 format or pattern in representing the data. But this will not be an issue if we had the data in a csv or excel file
 which could be useful for researchers or investigative journalists.</p>
 <p>So my knowledge as an R programmer will come in handy in extracting tables from these pdfs. Also this blog post is
-about extracting data from the pdf file of Presidential Election results of 2015. I will be using packages <em>pdftools</em>,
+about extracting data from the pdf file of Presidential Election results of 2015. I will be using the packages <em>pdftools</em>,
 <em>stringr</em>, <em>data.table</em> and <em>splitstackshape</em>.</p>
+</div>
+</div>
+<div id="simplifying-and-solving" class="section level1">
+<h1>Simplifying and Solving</h1>
+<p><em>pdftools</em> to extract information from pdf files, <em>stringr</em> for string manipulation such as identify, remove or match
+patterns, <em>data.table</em> to create the data-set, finally <em>splitstackshape</em> for critical column and row manipulation using
+patterns in text. These packages are much useful in creating one strong data-set of Presidential Election results from
+year 2015.</p>
+<p>In a presidential election all contestants are voted from all electorates through out the country, therefore in all
+tables the information looks the same. This same type of information is the contestants names, valid votes, rejected votes,
+total polled and registered electors. So extracting data is much more easier in a presidential election than parliament
+election. Also in this year 2015 presidential election pdf file with 111 pages we can classify these pages in-to three groups.</p>
+<p>First group includes pages 1 and 111 where no data needs to be extracted. Second group is for pages which has only one table,
+Final group is with pages which has two tables per page(which is a lot). New district result begins in a new page that is why
+we have pages with one table. It should be noted that in this pdf file the results tables are divided by district wise.
+Main heading is district name, secondary heading is Electorate name for each table, this is not the case for all tables.
+There are three types of tables, which are tables for electorate votes, district postal votes and final district results,
+and these tables in the above order as mentioned. Below are figures of proof.</p>
+<p>Page types</p>
+<p><img src="" /></p>
+<p><img src="" /></p>
+<p>Table types</p>
+<p><img src="" /></p>
+<p><img src="" /></p>
+<p><img src="" /></p>
+<p>So from these tables only we need to extract information and create one large data-set.</p>
+</div>
+<div id="programming-part" class="section level1">
+<h1>Programming Part</h1>
+</div>
+<div id="validating-the-data" class="section level1">
+<h1>Validating the Data</h1>
 </div>

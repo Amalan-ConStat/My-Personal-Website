@@ -23,6 +23,8 @@ have voted so far in previous elections we need data. I was hoping this data cou
 was not happy with the results. Only one set of data was presented here, which was for District Registered 
 Electors from 2007 - 2017. 
 
+## Where is the data !
+
 Well I did not give up, because there is the Election Commission website. Hopefully, I found the data which 
 was needed under the title 
 [Presidential Election Results.](https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/)
@@ -32,5 +34,44 @@ format or pattern in representing the data. But this will not be an issue if we 
 which could be useful for researchers or investigative journalists.
 
 So my knowledge as an R programmer will come in handy in extracting tables from these pdfs. Also this blog post is 
-about extracting data from the pdf file of Presidential Election results of 2015. I will be using packages *pdftools*,
+about extracting data from the pdf file of Presidential Election results of 2015. I will be using the packages *pdftools*,
 *stringr*, *data.table* and *splitstackshape*.  
+
+# Simplifying and Solving
+
+*pdftools* to extract information from pdf files, *stringr* for string manipulation such as identify, remove or match
+patterns, *data.table* to create the data-set, finally *splitstackshape* for critical column and row manipulation using 
+patterns in text. These packages are much useful in creating one strong data-set of Presidential Election results from 
+year 2015.
+
+In a presidential election all contestants are voted from all electorates through out the country, therefore in all
+tables the information looks the same. This same type of information is the contestants names, valid votes, rejected votes,
+total polled and registered electors. So extracting data is much more easier in a presidential election than parliament
+election. Also in this year 2015 presidential election pdf file with 111 pages we can classify these pages in-to three groups.
+
+First group includes pages 1 and 111 where no data needs to be extracted. Second group is for pages which has only one table,
+Final group is with pages which has two tables per page(which is a lot). New district result begins in a new page that is why 
+we have pages with one table. It should be noted that in this pdf file the results tables are divided by district wise. 
+Main heading is district name, secondary heading is Electorate name for each table, this is not the case for all tables.
+There are three types of tables, which are tables for electorate votes, district postal votes and final district results,
+and these tables in the above order as mentioned. Below are figures of proof. 
+
+Page types
+
+![]()
+
+![]()
+
+Table types
+
+![]()
+
+![]()
+
+![]()
+
+So from these tables only we need to extract information and create one large data-set. 
+
+# Programming Part
+
+# Validating the Data
