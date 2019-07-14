@@ -1,0 +1,36 @@
+---
+title: 'Extract Presidential Election Data of 2015 from the Pdf file '
+author: M.Amalan
+date: '2019-07-14'
+slug: '2015'
+categories:
+  - SLelection
+tags:
+  - pdftools
+  - stringr
+  - data.table
+  - splitstackshape
+image:
+  caption: ''
+  focal_point: ''
+---
+
+# What I am going to do and Why ?
+
+Sri Lanka will face a presidential election by the end of this year, but in order to understand how people 
+have voted so far in previous elections we need data. I was hoping this data could be in 
+[opendata](http://www.data.gov.lk/search/type/dataset?query=election) initiative website, unfortunately i
+was not happy with the results. Only one set of data was presented here, which was for District Registered 
+Electors from 2007 - 2017. 
+
+Well I did not give up, because there is the Election Commission website. Hopefully, I found the data which 
+was needed under the title 
+[Presidential Election Results.](https://elections.gov.lk/web/en/elections/elections-results/presidential-elections-results/)
+Still there is an issue where all the election results are in pdf files. Each pdf file had data of each presidential election.
+After skimming through these six election results in pdf files it was clear that not all of them have the same 
+format or pattern in representing the data. But this will not be an issue if we had the data in a csv or excel file
+which could be useful for researchers or investigative journalists.
+
+So my knowledge as an R programmer will come in handy in extracting tables from these pdfs. Also this blog post is 
+about extracting data from the pdf file of Presidential Election results of 2015. I will be using packages *pdftools*,
+*stringr*, *data.table* and *splitstackshape*.  

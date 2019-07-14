@@ -202,6 +202,15 @@
     </item>
     
     <item>
+      <title>data.table</title>
+      <link>/tags/data.table/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data.table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>dplyr</title>
       <link>/tags/dplyr/</link>
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
@@ -328,6 +337,15 @@
     </item>
     
     <item>
+      <title>pdftools</title>
+      <link>/tags/pdftools/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pdftools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>rayshader</title>
       <link>/tags/rayshader/</link>
       <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
@@ -346,9 +364,18 @@
     </item>
     
     <item>
+      <title>splitstackshape</title>
+      <link>/tags/splitstackshape/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/splitstackshape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>stringr</title>
       <link>/tags/stringr/</link>
-      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/stringr/</guid>
       <description></description>
