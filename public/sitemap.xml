@@ -513,7 +513,7 @@
     
     <url>
     
-      <loc>/categories/binomial/</loc>
+      <loc>/tags/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -522,7 +522,7 @@
     
     <url>
     
-      <loc>/tags/binomial/</loc>
+      <loc>/categories/binomial/</loc>
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -657,8 +657,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -666,8 +666,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -693,15 +693,6 @@
     
     <url>
     
-      <loc>/categories/rshiny/</loc>
-      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/rshiny/</loc>
       <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -711,8 +702,8 @@
     
     <url>
     
-      <loc>/categories/sl/</loc>
-      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <loc>/categories/rshiny/</loc>
+      <lastmod>2019-04-29T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -721,6 +712,15 @@
     <url>
     
       <loc>/tags/sl/</loc>
+      <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/sl/</loc>
       <lastmod>2019-02-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -780,15 +780,6 @@
     
     <url>
     
-      <loc>/categories/tidytuesday/</loc>
-      <lastmod>2019-07-10T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tags/tidytuesday/</loc>
       <lastmod>2019-07-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -798,8 +789,8 @@
     
     <url>
     
-      <loc>/categories/webscrape/</loc>
-      <lastmod>2019-07-08T00:00:00+00:00</lastmod>
+      <loc>/categories/tidytuesday/</loc>
+      <lastmod>2019-07-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -816,8 +807,8 @@
     
     <url>
     
-      <loc>/categories/website/</loc>
-      <lastmod>2019-01-28T00:00:00+00:00</lastmod>
+      <loc>/categories/webscrape/</loc>
+      <lastmod>2019-07-08T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -827,6 +818,15 @@
     
       <loc>/tags/website/</loc>
       <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/website/</loc>
+      <lastmod>2019-01-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -861,8 +861,8 @@
     
     <url>
     
-      <loc>/categories/fitodbod/</loc>
-      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+      <loc>/tags/fitodbod/</loc>
+      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -870,8 +870,8 @@
     
     <url>
     
-      <loc>/tags/fitodbod/</loc>
-      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+      <loc>/categories/fitodbod/</loc>
+      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -58,20 +58,287 @@ and these tables in the above order as mentioned. Below are figures of proof.
 
 Page types
 
-![]()
+![](/SLelection/2015/PT1.JPG)
 
-![]()
+![](/SLelection/2015/PT2.JPG)
+
+![](/SLelection/2015/PT3.JPG)
 
 Table types
 
-![]()
+![](/SLelection/2015/TT1.JPG)
 
-![]()
+![](/SLelection/2015/TT2.JPG)
 
-![]()
+![](/SLelection/2015/TT3.JPG)
+
+![](/SLelection/2015/TT4.JPG)
 
 So from these tables only we need to extract information and create one large data-set. 
 
 # Programming Part
 
+I shall divide the data extraction in-to two parts, first extract data from two table pages and next
+extract data from one table pages. For these two situations will develop two functions. Both functions
+are similar except for the part with number of tables. 
+
+I shall only discuss the two table situation here. 
+
+## Step 1
+
+Extract two tables based on the lines, such lines are created by splitting the one large character 
+data using the pattern "\n". Using the pdf_text function on the pdf file we will produce a data-frame
+where each page is represented by a list(so 111 lists). Using str_split function we can create a data-frame
+where each line is for a row. So for the first table the information is from line 4 to 26 and second table
+data is from line 29 to 51. 
+
+```{r Step 1 load the packages and file}
+# load the packages 
+library(pdftools)
+library(stringr)
+library(splitstackshape)
+library(data.table)
+
+# load the file 
+SL_PE_2015<-pdf_text("PresidentialElections2015.pdf")
+
+page<-2
+
+# split the one large list into a data frame of lines and separate them into two tables
+table1<-data.table(str_split(SL_PE_2015[[page]],"\n")[[1]][4:26])
+table2<-data.table(str_split(SL_PE_2015[[page]],"\n")[[1]][29:51])
+
+# name the only column in these two data tables
+names(table1)<-"hello"
+names(table2)<-"hello"
+```
+
+Now we have two one column data-frames.
+
+## Step 2 
+
+First column in these two tables contain the same information as mentioned earlier. So after removing
+this information we will be a one column data-frame with votes and percentage values only. This one column
+of one table can be separated by column splitting based on the pattern " ". 
+
+```{r Step 2}
+# creating the list with same type of information
+Names=c("Aithurus Mohamed Illias","Ibrahim Miflar","Prasanna Priyankara",
+        "Wimal Geeganage","Sirithunga Jayasuriya","M. B. Theminimulla",
+        "Pani Wijesiriwardane","Duminda Nagamuwa",
+        "Panagoda Don Prince Soloman Anura Liyanage",
+        "Maithripala Sirisena","Ruwanthilaka Peduru Arachchi",
+        "Anuruddha Polgampala","Baththaramulle Seelarathana Thero",
+        "Sarath Manamendra","Arachchige Rathnayaka Sirisena",
+        "Mahinda Rajapaksa","Namal Rajapaksa","Sundaram Mahendran",
+        "Jayantha Kulathunga","Valid Votes","Rejected Votes",
+        "Total Polled","Regis.Electors")
+
+# first using the above list remove the first column info
+# then split all rows of one column into two columns based on " " pattern
+Top<-cSplit(lapply(table1, function(x) str_remove(x,Names)),"hello"," ")
+Bottom<-cSplit(lapply(table2, function(x) str_remove(x,Names)),"hello"," ")
+
+# Extract the information of sub heading above each table by removing the pattern "\r"
+Name1<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][2],"\r")
+Name2<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][27],"\r")
+```
+
+## Step 3
+
+Now create a proper table with three columns which has that same type of information, votes(with commas) and percentages
+(with percentage sign). Well by creating this Top1 and Bottom1 table we will remove the percentage sign. Then 
+we will remove the commas(,) in votes columns and convert them into numeric class. Further, even though the percentage 
+column looks numeric it is not. To resolve it we shall convert these values from factor to character and then finally 
+to numeric. 
+
+```{r Step 3}
+# creating the new dataset with three columns without percentage sign
+Top1<-data.table("ColumnNames"=Names,"Votes"=Top$hello_1,"Percentage"=str_remove(Top$hello_2,"%"))
+Bottom1<-data.table("ColumnNames"=Names,"Votes"=Bottom$hello_1,"Percentage"=str_remove(Bottom$hello_2,"%"))
+
+# remove the commas from votes column and convert them to numeric class
+Top1[,2] <- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
+Bottom1[,2] <- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
+
+# convert the percentage values to numeric class
+Top1[,3]<-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+Bottom1[,3]<-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))
+```
+
+## Step 4
+
+Now our final tables are prepared. We shall name the columns. First column is for year,
+second column is for district name, third column is for that same type of information,
+fourth column is for number of votes and final column is for the percentage values.
+
+```{r Step 4}
+Electorate1<-data.table("Year"=2015,
+                        "District"=str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][1],
+                                                          " Districts Results\r"), 
+                        "Electorate"=Name1,"ColNames"=Top1$ColumnNames,"Votes"=Top1$Votes,
+                        "Percentage"=Top1$Percentage)
+Electorate2<-data.table("Year"=2015,
+                        "District"=str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][1],
+                                                          " Districts Results\r"),
+                        "Electorate"=Name2,"ColNames"=Bottom1$ColumnNames,"Votes"=Bottom1$Votes,
+                        "Percentage"=Bottom1$Percentage)
+```
+
+Finally, we have extracted two clear tables under the name Electorate1 and Electorate2. First three table types 
+mentioned above can be extracted now. 
+
+# One Complete Function
+
+Combining the above 4 steps we can create one function where the input is page number and the resultant
+will be a data-table of one page information but of two tables. 
+
+```{r Extracting two tables from all pages which has two tables}
+Extract_twotable<-function(page)
+{
+table1<-data.table(str_split(SL_PE_2015[[page]],"\n")[[1]][4:26])
+table2<-data.table(str_split(SL_PE_2015[[page]],"\n")[[1]][29:51])
+
+names(table1)<-"hello"
+names(table2)<-"hello"
+
+Names=c("Aithurus Mohamed Illias","Ibrahim Miflar","Prasanna Priyankara",
+        "Wimal Geeganage","Sirithunga Jayasuriya","M. B. Theminimulla",
+        "Pani Wijesiriwardane","Duminda Nagamuwa",
+        "Panagoda Don Prince Soloman Anura Liyanage",
+        "Maithripala Sirisena","Ruwanthilaka Peduru Arachchi",
+        "Anuruddha Polgampala","Baththaramulle Seelarathana Thero",
+        "Sarath Manamendra","Arachchige Rathnayaka Sirisena",
+        "Mahinda Rajapaksa","Namal Rajapaksa","Sundaram Mahendran",
+        "Jayantha Kulathunga","Valid Votes","Rejected Votes",
+        "Total Polled","Regis.Electors")
+
+Top<-cSplit(lapply(table1, function(x) str_remove(x,Names)),"hello"," ")
+Bottom<-cSplit(lapply(table2, function(x) str_remove(x,Names)),"hello"," ")
+
+Name1<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][2],"\r")
+Name2<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][27],"\r")
+
+Top1<-data.table("ColumnNames"=Names,"Votes"=Top$hello_1,"Percentage"=str_remove(Top$hello_2,"%"))
+Bottom1<-data.table("ColumnNames"=Names,"Votes"=Bottom$hello_1,"Percentage"=str_remove(Bottom$hello_2,"%"))
+
+Top1[,2] <- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
+Bottom1[,2] <- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
+
+Top1[,3]<-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+Bottom1[,3]<-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))
+
+Electorate1<-data.table("Year"=2015,
+                        "District"=str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][1],
+                                                          " Districts Results\r"), 
+                        "Electorate"=Name1,"ColNames"=Top1$ColumnNames,"Votes"=Top1$Votes,
+                        "Percentage"=Top1$Percentage)
+Electorate2<-data.table("Year"=2015,
+                        "District"=str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][1],
+                                                          " Districts Results\r"),
+                        "Electorate"=Name2,"ColNames"=Bottom1$ColumnNames,"Votes"=Bottom1$Votes,
+                        "Percentage"=Bottom1$Percentage)
+
+output<-rbind2(Electorate1,Electorate2)
+
+return(output)
+}
+
+```
+
+
+# Using the One Function to extract Data from Multiple pages
+
+```{r extracting pages with two tables,warning=FALSE}
+# page numbers from 1 to 111
+pages<-c(1:111)
+
+# removing pages with only one tables
+pages<-pages[-c(1,10,18,31,48,58,61,64,70,82,87,90,96,99,110,111)]
+
+# creating a empty data-frame
+datas<-NULL
+
+# creating the large data frame after extracting two tables 
+for (i in pages) 
+        {
+        # two tables of each page is considered as a list element
+        datas[[i]]<-Extract_twotable(i)        
+        }
+
+# combining the multiple list data-frame as one data-frame
+out1<-do.call("rbind",datas)
+```
+
+
+```{r one table page extraction}
+Extract_onetable<-function(page)
+{
+table1<-data.table(str_split(SL_PE_2015[[page]],"\n")[[1]][4:26])
+
+names(table1)<-"hello"
+
+Names=c("Aithurus Mohamed Illias","Ibrahim Miflar","Prasanna Priyankara",
+        "Wimal Geeganage","Sirithunga Jayasuriya","M. B. Theminimulla",
+        "Pani Wijesiriwardane","Duminda Nagamuwa",
+        "Panagoda Don Prince Soloman Anura Liyanage",
+        "Maithripala Sirisena","Ruwanthilaka Peduru Arachchi",
+        "Anuruddha Polgampala","Baththaramulle Seelarathana Thero",
+        "Sarath Manamendra","Arachchige Rathnayaka Sirisena",
+        "Mahinda Rajapaksa","Namal Rajapaksa","Sundaram Mahendran",
+        "Jayantha Kulathunga","Valid Votes","Rejected Votes",
+        "Total Polled","Regis.Electors")
+
+Top<-cSplit(lapply(table1, function(x) str_remove(x,Names)),"hello"," ")
+
+Name1<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][2],"\r")
+
+Top1<-data.table("ColumnNames"=Names,"Votes"=Top$hello_1,"Percentage"=str_remove(Top$hello_2,"%"))
+
+Top1[,2] <- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
+
+Top1[,3]<-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+
+Electorate1<-data.table("Year"=2015,
+                        "District"=str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][1],
+                                                          " Districts Results\r"), 
+                        "Electorate"=Name1,"ColNames"=Top1$ColumnNames,"Votes"=Top1$Votes,
+                        "Percentage"=Top1$Percentage)
+
+output<-Electorate1
+
+return(output)
+}
+
+pages<-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
+
+datas1<-NULL
+
+for (i in pages) 
+        {
+        datas1[[i]]<-Extract_onetable(i)        
+        }
+
+out2<-do.call("rbind",datas1)
+```
+
+
+```{r Final data frame}
+# final data frame which has information from the entire pdf
+Election2015<-rbind(out1,out2)
+```
+
+
 # Validating the Data
+
+```{r Validating data frame}
+ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Maithripala Sirisena" |
+                              Electorate=="Final District Result" & ColNames=="Maithripala Sirisena")
+ElecFinal2015[,sum(Votes),by="ColNames"]
+sum(ElecFinal2015$Votes)
+```
+
+# Issues in the pdf file
+
+
+**THANK YOU**

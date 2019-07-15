@@ -494,19 +494,251 @@ Main heading is district name, secondary heading is Electorate name for each tab
 There are three types of tables, which are tables for electorate votes, district postal votes and final district results,
 and these tables in the above order as mentioned. Below are figures of proof.</p>
 <p>Page types</p>
-<p><img src="" /></p>
-<p><img src="" /></p>
+<p><img src="/SLelection/2015/PT1.JPG" /></p>
+<p><img src="/SLelection/2015/PT2.JPG" /></p>
+<p><img src="/SLelection/2015/PT3.JPG" /></p>
 <p>Table types</p>
-<p><img src="" /></p>
-<p><img src="" /></p>
-<p><img src="" /></p>
+<p><img src="/SLelection/2015/TT1.JPG" /></p>
+<p><img src="/SLelection/2015/TT2.JPG" /></p>
+<p><img src="/SLelection/2015/TT3.JPG" /></p>
+<p><img src="/SLelection/2015/TT4.JPG" /></p>
 <p>So from these tables only we need to extract information and create one large data-set.</p>
 </div>
 <div id="programming-part" class="section level1">
 <h1>Programming Part</h1>
+<p>I shall divide the data extraction in-to two parts, first extract data from two table pages and next
+extract data from one table pages. For these two situations will develop two functions. Both functions
+are similar except for the part with number of tables.</p>
+<p>I shall only discuss the two table situation here.</p>
+<div id="step-1" class="section level2">
+<h2>Step 1</h2>
+<p>Extract two tables based on the lines, such lines are created by splitting the one large character
+data using the pattern “”. Using the pdf_text function on the pdf file we will produce a data-frame
+where each page is represented by a list(so 111 lists). Using str_split function we can create a data-frame
+where each line is for a row. So for the first table the information is from line 4 to 26 and second table
+data is from line 29 to 51.</p>
+<pre class="r"><code># load the packages 
+library(pdftools)
+library(stringr)
+library(splitstackshape)
+library(data.table)
+
+# load the file 
+SL_PE_2015&lt;-pdf_text(&quot;PresidentialElections2015.pdf&quot;)
+
+page&lt;-2
+
+# split the one large list into a data frame of lines and separate them into two tables
+table1&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][4:26])
+table2&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][29:51])
+
+# name the only column in these two data tables
+names(table1)&lt;-&quot;hello&quot;
+names(table2)&lt;-&quot;hello&quot;</code></pre>
+<p>Now we have two one column data-frames.</p>
+</div>
+<div id="step-2" class="section level2">
+<h2>Step 2</h2>
+<p>First column in these two tables contain the same information as mentioned earlier. So after removing
+this information we will be a one column data-frame with votes and percentage values only. This one column
+of one table can be separated by column splitting based on the pattern " ".</p>
+<pre class="r"><code># creating the list with same type of information
+Names=c(&quot;Aithurus Mohamed Illias&quot;,&quot;Ibrahim Miflar&quot;,&quot;Prasanna Priyankara&quot;,
+        &quot;Wimal Geeganage&quot;,&quot;Sirithunga Jayasuriya&quot;,&quot;M. B. Theminimulla&quot;,
+        &quot;Pani Wijesiriwardane&quot;,&quot;Duminda Nagamuwa&quot;,
+        &quot;Panagoda Don Prince Soloman Anura Liyanage&quot;,
+        &quot;Maithripala Sirisena&quot;,&quot;Ruwanthilaka Peduru Arachchi&quot;,
+        &quot;Anuruddha Polgampala&quot;,&quot;Baththaramulle Seelarathana Thero&quot;,
+        &quot;Sarath Manamendra&quot;,&quot;Arachchige Rathnayaka Sirisena&quot;,
+        &quot;Mahinda Rajapaksa&quot;,&quot;Namal Rajapaksa&quot;,&quot;Sundaram Mahendran&quot;,
+        &quot;Jayantha Kulathunga&quot;,&quot;Valid Votes&quot;,&quot;Rejected Votes&quot;,
+        &quot;Total Polled&quot;,&quot;Regis.Electors&quot;)
+
+# first using the above list remove the first column info
+# then split all rows of one column into two columns based on &quot; &quot; pattern
+Top&lt;-cSplit(lapply(table1, function(x) str_remove(x,Names)),&quot;hello&quot;,&quot; &quot;)
+Bottom&lt;-cSplit(lapply(table2, function(x) str_remove(x,Names)),&quot;hello&quot;,&quot; &quot;)
+
+# Extract the information of sub heading above each table by removing the pattern &quot;\r&quot;
+Name1&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][2],&quot;\r&quot;)
+Name2&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][27],&quot;\r&quot;)</code></pre>
+</div>
+<div id="step-3" class="section level2">
+<h2>Step 3</h2>
+<p>Now create a proper table with three columns which has that same type of information, votes(with commas) and percentages
+(with percentage sign). Well by creating this Top1 and Bottom1 table we will remove the percentage sign. Then
+we will remove the commas(,) in votes columns and convert them into numeric class. Further, even though the percentage
+column looks numeric it is not. To resolve it we shall convert these values from factor to character and then finally
+to numeric.</p>
+<pre class="r"><code># creating the new dataset with three columns without percentage sign
+Top1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Top$hello_1,&quot;Percentage&quot;=str_remove(Top$hello_2,&quot;%&quot;))
+Bottom1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Bottom$hello_1,&quot;Percentage&quot;=str_remove(Bottom$hello_2,&quot;%&quot;))
+
+# remove the commas from votes column and convert them to numeric class
+Top1[,2] &lt;- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
+Bottom1[,2] &lt;- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
+
+# convert the percentage values to numeric class
+Top1[,3]&lt;-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+Bottom1[,3]&lt;-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))</code></pre>
+</div>
+<div id="step-4" class="section level2">
+<h2>Step 4</h2>
+<p>Now our final tables are prepared. We shall name the columns. First column is for year,
+second column is for district name, third column is for that same type of information,
+fourth column is for number of votes and final column is for the percentage values.</p>
+<pre class="r"><code>Electorate1&lt;-data.table(&quot;Year&quot;=2015,
+                        &quot;District&quot;=str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][1],
+                                                          &quot; Districts Results\r&quot;), 
+                        &quot;Electorate&quot;=Name1,&quot;ColNames&quot;=Top1$ColumnNames,&quot;Votes&quot;=Top1$Votes,
+                        &quot;Percentage&quot;=Top1$Percentage)
+Electorate2&lt;-data.table(&quot;Year&quot;=2015,
+                        &quot;District&quot;=str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][1],
+                                                          &quot; Districts Results\r&quot;),
+                        &quot;Electorate&quot;=Name2,&quot;ColNames&quot;=Bottom1$ColumnNames,&quot;Votes&quot;=Bottom1$Votes,
+                        &quot;Percentage&quot;=Bottom1$Percentage)</code></pre>
+<p>Finally, we have extracted two clear tables under the name Electorate1 and Electorate2. First three table types
+mentioned above can be extracted now.</p>
+</div>
+</div>
+<div id="one-complete-function" class="section level1">
+<h1>One Complete Function</h1>
+<p>Combining the above 4 steps we can create one function where the input is page number and the resultant
+will be a data-table of one page information but of two tables.</p>
+<pre class="r"><code>Extract_twotable&lt;-function(page)
+{
+table1&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][4:26])
+table2&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][29:51])
+
+names(table1)&lt;-&quot;hello&quot;
+names(table2)&lt;-&quot;hello&quot;
+
+Names=c(&quot;Aithurus Mohamed Illias&quot;,&quot;Ibrahim Miflar&quot;,&quot;Prasanna Priyankara&quot;,
+        &quot;Wimal Geeganage&quot;,&quot;Sirithunga Jayasuriya&quot;,&quot;M. B. Theminimulla&quot;,
+        &quot;Pani Wijesiriwardane&quot;,&quot;Duminda Nagamuwa&quot;,
+        &quot;Panagoda Don Prince Soloman Anura Liyanage&quot;,
+        &quot;Maithripala Sirisena&quot;,&quot;Ruwanthilaka Peduru Arachchi&quot;,
+        &quot;Anuruddha Polgampala&quot;,&quot;Baththaramulle Seelarathana Thero&quot;,
+        &quot;Sarath Manamendra&quot;,&quot;Arachchige Rathnayaka Sirisena&quot;,
+        &quot;Mahinda Rajapaksa&quot;,&quot;Namal Rajapaksa&quot;,&quot;Sundaram Mahendran&quot;,
+        &quot;Jayantha Kulathunga&quot;,&quot;Valid Votes&quot;,&quot;Rejected Votes&quot;,
+        &quot;Total Polled&quot;,&quot;Regis.Electors&quot;)
+
+Top&lt;-cSplit(lapply(table1, function(x) str_remove(x,Names)),&quot;hello&quot;,&quot; &quot;)
+Bottom&lt;-cSplit(lapply(table2, function(x) str_remove(x,Names)),&quot;hello&quot;,&quot; &quot;)
+
+Name1&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][2],&quot;\r&quot;)
+Name2&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][27],&quot;\r&quot;)
+
+Top1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Top$hello_1,&quot;Percentage&quot;=str_remove(Top$hello_2,&quot;%&quot;))
+Bottom1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Bottom$hello_1,&quot;Percentage&quot;=str_remove(Bottom$hello_2,&quot;%&quot;))
+
+Top1[,2] &lt;- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
+Bottom1[,2] &lt;- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
+
+Top1[,3]&lt;-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+Bottom1[,3]&lt;-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))
+
+Electorate1&lt;-data.table(&quot;Year&quot;=2015,
+                        &quot;District&quot;=str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][1],
+                                                          &quot; Districts Results\r&quot;), 
+                        &quot;Electorate&quot;=Name1,&quot;ColNames&quot;=Top1$ColumnNames,&quot;Votes&quot;=Top1$Votes,
+                        &quot;Percentage&quot;=Top1$Percentage)
+Electorate2&lt;-data.table(&quot;Year&quot;=2015,
+                        &quot;District&quot;=str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][1],
+                                                          &quot; Districts Results\r&quot;),
+                        &quot;Electorate&quot;=Name2,&quot;ColNames&quot;=Bottom1$ColumnNames,&quot;Votes&quot;=Bottom1$Votes,
+                        &quot;Percentage&quot;=Bottom1$Percentage)
+
+output&lt;-rbind2(Electorate1,Electorate2)
+
+return(output)
+}</code></pre>
+</div>
+<div id="using-the-one-function-to-extract-data-from-multiple-pages" class="section level1">
+<h1>Using the One Function to extract Data from Multiple pages</h1>
+<pre class="r"><code># page numbers from 1 to 111
+pages&lt;-c(1:111)
+
+# removing pages with only one tables
+pages&lt;-pages[-c(1,10,18,31,48,58,61,64,70,82,87,90,96,99,110,111)]
+
+# creating a empty data-frame
+datas&lt;-NULL
+
+# creating the large data frame after extracting two tables 
+for (i in pages) 
+        {
+        # two tables of each page is considered as a list element
+        datas[[i]]&lt;-Extract_twotable(i)        
+        }
+
+# combining the multiple list data-frame as one data-frame
+out1&lt;-do.call(&quot;rbind&quot;,datas)</code></pre>
+<pre class="r"><code>Extract_onetable&lt;-function(page)
+{
+table1&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][4:26])
+
+names(table1)&lt;-&quot;hello&quot;
+
+Names=c(&quot;Aithurus Mohamed Illias&quot;,&quot;Ibrahim Miflar&quot;,&quot;Prasanna Priyankara&quot;,
+        &quot;Wimal Geeganage&quot;,&quot;Sirithunga Jayasuriya&quot;,&quot;M. B. Theminimulla&quot;,
+        &quot;Pani Wijesiriwardane&quot;,&quot;Duminda Nagamuwa&quot;,
+        &quot;Panagoda Don Prince Soloman Anura Liyanage&quot;,
+        &quot;Maithripala Sirisena&quot;,&quot;Ruwanthilaka Peduru Arachchi&quot;,
+        &quot;Anuruddha Polgampala&quot;,&quot;Baththaramulle Seelarathana Thero&quot;,
+        &quot;Sarath Manamendra&quot;,&quot;Arachchige Rathnayaka Sirisena&quot;,
+        &quot;Mahinda Rajapaksa&quot;,&quot;Namal Rajapaksa&quot;,&quot;Sundaram Mahendran&quot;,
+        &quot;Jayantha Kulathunga&quot;,&quot;Valid Votes&quot;,&quot;Rejected Votes&quot;,
+        &quot;Total Polled&quot;,&quot;Regis.Electors&quot;)
+
+Top&lt;-cSplit(lapply(table1, function(x) str_remove(x,Names)),&quot;hello&quot;,&quot; &quot;)
+
+Name1&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][2],&quot;\r&quot;)
+
+Top1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Top$hello_1,&quot;Percentage&quot;=str_remove(Top$hello_2,&quot;%&quot;))
+
+Top1[,2] &lt;- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
+
+Top1[,3]&lt;-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
+
+Electorate1&lt;-data.table(&quot;Year&quot;=2015,
+                        &quot;District&quot;=str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][1],
+                                                          &quot; Districts Results\r&quot;), 
+                        &quot;Electorate&quot;=Name1,&quot;ColNames&quot;=Top1$ColumnNames,&quot;Votes&quot;=Top1$Votes,
+                        &quot;Percentage&quot;=Top1$Percentage)
+
+output&lt;-Electorate1
+
+return(output)
+}
+
+pages&lt;-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
+
+datas1&lt;-NULL
+
+for (i in pages) 
+        {
+        datas1[[i]]&lt;-Extract_onetable(i)        
+        }
+
+out2&lt;-do.call(&quot;rbind&quot;,datas1)</code></pre>
+<pre class="r"><code># final data frame which has information from the entire pdf
+Election2015&lt;-rbind(out1,out2)</code></pre>
 </div>
 <div id="validating-the-data" class="section level1">
 <h1>Validating the Data</h1>
+<pre class="r"><code>ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot; |
+                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot;)
+ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
+<pre><code>##                ColNames      V1
+## 1: Maithripala Sirisena 6217162</code></pre>
+<pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
+<pre><code>## [1] 6217162</code></pre>
+</div>
+<div id="issues-in-the-pdf-file" class="section level1">
+<h1>Issues in the pdf file</h1>
+<p><strong>THANK YOU</strong></p>
 </div>
 
     </div>
