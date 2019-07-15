@@ -3,6 +3,9 @@ title: 'Extract Presidential Election Data of 2015 from the Pdf file '
 author: M.Amalan
 date: '2019-07-14'
 slug: '2015'
+output:
+  blogdown::html_page:
+    toc: yes
 categories:
   - SLelection
 tags:
@@ -13,9 +16,31 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: 'Extracting information from pdf file for Presidential Election of 2015'  
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#what-i-am-going-to-do-and-why">What I am going to do and Why ?</a><ul>
+<li><a href="#where-is-the-data">Where is the data !</a></li>
+</ul></li>
+<li><a href="#simplifying-and-solving">Simplifying and Solving</a><ul>
+<li><a href="#page-types">Page types</a></li>
+<li><a href="#table-types">Table types</a></li>
+</ul></li>
+<li><a href="#programming-part">Programming Part</a><ul>
+<li><a href="#step-1">Step 1</a></li>
+<li><a href="#step-2">Step 2</a></li>
+<li><a href="#step-3">Step 3</a></li>
+<li><a href="#step-4">Step 4</a></li>
+</ul></li>
+<li><a href="#one-complete-function">One Complete Function</a></li>
+<li><a href="#using-the-one-function-to-extract-data-from-multiple-pages">Using the One Function to extract Data from Multiple pages</a></li>
+<li><a href="#validating-the-data">Validating the Data</a></li>
+<li><a href="#issues-in-the-pdf-file">Issues in the pdf file</a></li>
+</ul>
+</div>
 
 <div id="what-i-am-going-to-do-and-why" class="section level1">
 <h1>What I am going to do and Why ?</h1>
@@ -50,20 +75,44 @@ total polled and registered electors. So extracting data is much more easier in 
 election. This year 2015 presidential election pdf file of 111 pages can be classified in-to three groups based on pages.</p>
 <p>First group includes pages 1 and 111 where no data needs to be extracted. Second group is for pages which has only one table,
 Final group is with pages which have two tables per page(which is a lot). Small note is that a new district result begins in
-a new page that is why we have pages with one table. It should be noted that in this pdf file the results tables are divided
-by district wise. Main heading is district name, secondary heading is Electorate name for each table, this is not the case
-for all tables. There are three types of tables, which are tables for electorate votes, district postal votes and final
-district results. Below are figures of proof.</p>
-<p>Page types</p>
-<p><img src="/SLelection/2015/PT1.JPG" /></p>
-<p><img src="/SLelection/2015/PT2.JPG" /></p>
-<p><img src="/SLelection/2015/PT3.JPG" /></p>
-<p>Table types</p>
-<p><img src="/SLelection/2015/TT1.JPG" /></p>
-<p><img src="/SLelection/2015/TT2.JPG" /></p>
-<p><img src="/SLelection/2015/TT3.JPG" /></p>
-<p><img src="/SLelection/2015/TT4.JPG" /></p>
+a new page that is why we have pages with one table. Main heading is district name but only on top of the page, secondary
+heading is Electorate name for each table, but this is not the case for all tables. There are three types of tables, which
+are tables for electorate votes, district postal votes and final district results. Below are figures of proof.</p>
+<div id="page-types" class="section level2">
+<h2>Page types</h2>
+<div class="figure">
+<img src="/SLelection/2015/PT1.JPG" alt="" />
+<p class="caption">No Info</p>
+</div>
+<div class="figure">
+<img src="/SLelection/2015/PT2.JPG" alt="" />
+<p class="caption">Two Tables</p>
+</div>
+<div class="figure">
+<img src="/SLelection/2015/PT3.JPG" alt="" />
+<p class="caption">One Table</p>
+</div>
+</div>
+<div id="table-types" class="section level2">
+<h2>Table types</h2>
+<div class="figure">
+<img src="/SLelection/2015/TT1.JPG" alt="" />
+<p class="caption">Two Electorate Results</p>
+</div>
+<div class="figure">
+<img src="/SLelection/2015/TT2.JPG" alt="" />
+<p class="caption">One Electorate and Postal Votes</p>
+</div>
+<div class="figure">
+<img src="/SLelection/2015/TT3.JPG" alt="" />
+<p class="caption">Postal Votes and Final District Results</p>
+</div>
+<div class="figure">
+<img src="/SLelection/2015/TT4.JPG" alt="" />
+<p class="caption">Final District Results only</p>
+</div>
 <p>So from these tables only we need to extract information and create one large data-set.</p>
+</div>
 </div>
 <div id="programming-part" class="section level1">
 <h1>Programming Part</h1>
@@ -73,11 +122,10 @@ are similar except for the part with number of tables.</p>
 <p>I shall only discuss the two table situation here(but will include code for one table extraction).</p>
 <div id="step-1" class="section level2">
 <h2>Step 1</h2>
-<p>Extract two tables based on the lines, such lines are created by splitting the one large character
-data using the pattern “”. Using the pdf_text function on the pdf file we will produce a data-frame
-where each page is represented by a list(so 111 lists). Using str_split function we can create a data-frame
-where each line is for a row. So for the first table the information is from line 4 to 26 and second table
-data is from line 29 to 51.</p>
+<p>Using the pdf_text function on the pdf file we will produce a character class output where each page is represented by a
+list(so 111 lists in this one output). Now consider one list which represents a page but it is still one line character.
+Convert this one line character into a multiple row list using str_split function and *pattern. So for the first
+table the information is from row 4 to 26 and second table data is from row 29 to 51.</p>
 <pre class="r"><code># load the packages 
 library(pdftools)
 library(stringr)
@@ -97,12 +145,12 @@ table2&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][29:51])
 names(table1)&lt;-&quot;hello&quot;
 names(table2)&lt;-&quot;hello&quot;</code></pre>
 <p><img src="/SLelection/2015/Step1.JPG" /></p>
-<p>Now we have two one column data-frames.</p>
+<p>Now we have two one column data-frames with exact rows as the page of the pdf file we are extracting.</p>
 </div>
 <div id="step-2" class="section level2">
 <h2>Step 2</h2>
-<p>First column in these two tables contain the same information as mentioned earlier. So after removing
-this information we will be limited to a one column data-frame with votes and percentage values only.
+<p>Beginning information in these two tables contain the same information as mentioned earlier. So after removing
+this information we will be limited to another one column data-table but now only with votes and percentage values.
 This one column table can be separated by column splitting based on the pattern " ".</p>
 <pre class="r"><code># creating the list with same type of information
 Names=c(&quot;Aithurus Mohamed Illias&quot;,&quot;Ibrahim Miflar&quot;,&quot;Prasanna Priyankara&quot;,
@@ -137,7 +185,7 @@ to numeric.</p>
 Top1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Top$hello_1,&quot;Percentage&quot;=str_remove(Top$hello_2,&quot;%&quot;))
 Bottom1&lt;-data.table(&quot;ColumnNames&quot;=Names,&quot;Votes&quot;=Bottom$hello_1,&quot;Percentage&quot;=str_remove(Bottom$hello_2,&quot;%&quot;))
 
-# remove the commas from votes column and convert them to numeric class
+# remove the commas from votes columns and convert them to numeric class
 Top1[,2] &lt;- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
 Bottom1[,2] &lt;- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,&quot;,&quot;))))
 
@@ -169,7 +217,7 @@ mentioned above can be extracted now.</p>
 <div id="one-complete-function" class="section level1">
 <h1>One Complete Function</h1>
 <p>Combining the above 4 steps we can create one function where the input is page number and the resultant
-will be a data-table of one page information but of two tables as below.</p>
+will be a data-table of one page information but of two tables in the pdf file.</p>
 <pre class="r"><code>Extract_twotable&lt;-function(page)
 {
 table1&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][4:26])
@@ -219,14 +267,14 @@ output&lt;-rbind2(Electorate1,Electorate2)
 
 return(output)
 }</code></pre>
-<p>After developing such function and naming it as <em>Extract_twotable(page)</em>, it now possible to extract
-data from more than 75 pages in the Presidential election 2015 pdf file.</p>
+<p>After developing such a function and naming it as <em>Extract_twotable()</em>, it now possible to extract
+data from more than 90 pages in the Presidential election 2015 pdf file.</p>
 </div>
 <div id="using-the-one-function-to-extract-data-from-multiple-pages" class="section level1">
 <h1>Using the One Function to extract Data from Multiple pages</h1>
 <p>In order to do the above extraction first we have to identify the pages which have only
 one table and then deselect them. After this with the help of a for loop we can create
-a long list of elements. Where each element is a table, and that table is from one page.
+a long list of elements. Where each element is a table, and that table from one page.
 Below is the code for that solution.</p>
 <pre class="r"><code># page numbers from 1 to 111
 pages&lt;-c(1:111)
@@ -234,7 +282,7 @@ pages&lt;-c(1:111)
 # removing pages with only one tables
 pages&lt;-pages[-c(1,10,18,31,48,58,61,64,70,82,87,90,96,99,110,111)]
 
-# creating a empty data-frame
+# creating an empty data-frame
 datas&lt;-NULL
 
 # creating the large data frame after extracting two tables 
@@ -247,8 +295,8 @@ for (i in pages)
 # combining the multiple list data-frame as one data-frame
 out1&lt;-do.call(&quot;rbind&quot;,datas)</code></pre>
 <p><img src="/SLelection/2015/output1.JPG" /></p>
-<p>After this large extraction similarly we have to write a function for one table pages
-also. Below is the code chunk for that. Here we create a function called <em>Extract_onetable(page)</em>
+<p>After this large extraction similarly we have to write a function for one table pages also.
+Below is the code chunk for that. Here we create a function called <em>Extract_onetable()</em>
 similar as before where the input is page-number.</p>
 <pre class="r"><code>Extract_onetable&lt;-function(page)
 {
@@ -292,7 +340,7 @@ how we extract information from such pages and create a large data-frame.</p>
 <pre class="r"><code># list of pages with only one tables
 pages&lt;-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
 
-# creating a empty data-frame
+# creating an empty data-frame
 datas1&lt;-NULL
 
 # creating the large data frame after extracting one table 
@@ -316,14 +364,14 @@ Election2015&lt;-rbind(out1,out2)</code></pre>
 </div>
 <div id="validating-the-data" class="section level1">
 <h1>Validating the Data</h1>
-<p>Even though I claim the data extraction is complete there needs to be validation. I find
+<p>Even though I claim the data extraction is complete there needs to be validation. I find that
 it will be reassuring to have some form of validation. Therefore the best way is to tally the votes
 in individual districts and compare them with the final vote(which is on the last page of the pdf file).
 I shall focus on the contestants Maithripala Sirisena, Mahinda Rajapaksa and data such as Valid Votes, Rejected
-votes and Total Polled. Below is the code to find those final votes which will be compared with the</p>
+votes and Total Polled. Below is the code to find those final votes which will be compared with the pdf file.</p>
 <pre class="r"><code># validating final votes of Maithripala Sirisena
 ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot; |
-                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot;)
+                                   Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot;)
 ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
 <pre><code>##                ColNames      V1
 ## 1: Maithripala Sirisena 6217162</code></pre>
@@ -361,12 +409,13 @@ ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
 ## 1: Total Polled 12264377</code></pre>
 <pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
 <pre><code>## [1] 12264377</code></pre>
-<p>If we compare the above results with below table clearly our extraction is much successful.</p>
+<p>If we compare the above results with below table clearly our extraction is successful and the amounts are
+accurate.</p>
 <p><img src="/SLelection/2015/validate.JPG" /></p>
 </div>
 <div id="issues-in-the-pdf-file" class="section level1">
 <h1>Issues in the pdf file</h1>
-<p>Satisfying end to be honest, but there was one glitch if we consider the final district result table
+<p>Satisfying end to be honest, but there was one glitch. If we consider the final district result tables
 only in one occasion the heading was inconsistent. This occurred for the Kalutara district, it should have
 been “Final District Result” instead of “Final District Votes”. Rather than that no issues at all. Similarly
 if we identify some creative pattern step by step it is possible to extract all the presidential election data

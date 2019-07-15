@@ -3,6 +3,9 @@ title: 'Extract Presidential Election Data of 2015 from the Pdf file '
 author: M.Amalan
 date: '2019-07-14'
 slug: '2015'
+output:
+  blogdown::html_page:
+    toc: yes
 categories:
   - SLelection
 tags:
@@ -13,6 +16,7 @@ tags:
 image:
   caption: ''
   focal_point: ''
+summary: 'Extracting information from pdf file for Presidential Election of 2015'  
 ---
 
 # What I am going to do and Why ?
@@ -51,28 +55,27 @@ election. This year 2015 presidential election pdf file of 111 pages can be clas
 
 First group includes pages 1 and 111 where no data needs to be extracted. Second group is for pages which has only one table,
 Final group is with pages which have two tables per page(which is a lot). Small note is that a new district result begins in
-a new page that is why we have pages with one table. It should be noted that in this pdf file the results tables are divided
-by district wise. Main heading is district name, secondary heading is Electorate name for each table, this is not the case
-for all tables. There are three types of tables, which are tables for electorate votes, district postal votes and final
-district results. Below are figures of proof. 
+a new page that is why we have pages with one table. Main heading is district name but only on top of the page, secondary
+heading is Electorate name for each table, but this is not the case for all tables. There are three types of tables, which
+are tables for electorate votes, district postal votes and final district results. Below are figures of proof. 
 
-Page types
+## Page types
 
-![](/SLelection/2015/PT1.JPG)
+![No Info](/SLelection/2015/PT1.JPG)
 
-![](/SLelection/2015/PT2.JPG)
+![Two Tables](/SLelection/2015/PT2.JPG)
 
-![](/SLelection/2015/PT3.JPG)
+![One Table](/SLelection/2015/PT3.JPG)
 
-Table types
+## Table types
 
-![](/SLelection/2015/TT1.JPG)
+![Two Electorate Results](/SLelection/2015/TT1.JPG)
 
-![](/SLelection/2015/TT2.JPG)
+![One Electorate and Postal Votes](/SLelection/2015/TT2.JPG)
 
-![](/SLelection/2015/TT3.JPG)
+![Postal Votes and Final District Results](/SLelection/2015/TT3.JPG)
 
-![](/SLelection/2015/TT4.JPG)
+![Final District Results only](/SLelection/2015/TT4.JPG)
 
 So from these tables only we need to extract information and create one large data-set. 
 
@@ -86,11 +89,10 @@ I shall only discuss the two table situation here(but will include code for one 
 
 ## Step 1
 
-Extract two tables based on the lines, such lines are created by splitting the one large character 
-data using the pattern "\n". Using the pdf_text function on the pdf file we will produce a data-frame
-where each page is represented by a list(so 111 lists). Using str_split function we can create a data-frame
-where each line is for a row. So for the first table the information is from line 4 to 26 and second table
-data is from line 29 to 51. 
+Using the pdf_text function on the pdf file we will produce a character class output where each page is represented by a
+list(so 111 lists in this one output). Now consider one list which represents a page but it is still one line character.
+Convert this one line character into a multiple row list using str_split function and *\n* pattern. So for the first 
+table the information is from row 4 to 26 and second table data is from row 29 to 51. 
 
 ```{r Step 1 load the packages and file}
 # load the packages 
@@ -115,12 +117,12 @@ names(table2)<-"hello"
 
 ![](/SLelection/2015/Step1.JPG)
 
-Now we have two one column data-frames.
+Now we have two one column data-frames with exact rows as the page of the pdf file we are extracting.
 
 ## Step 2 
 
-First column in these two tables contain the same information as mentioned earlier. So after removing
-this information we will be limited to a one column data-frame with votes and percentage values only. 
+Beginning information in these two tables contain the same information as mentioned earlier. So after removing
+this information we will be limited to another one column data-table but now only with votes and percentage values. 
 This one column table can be separated by column splitting based on the pattern " ". 
 
 ```{r Step 2}
@@ -161,7 +163,7 @@ to numeric.
 Top1<-data.table("ColumnNames"=Names,"Votes"=Top$hello_1,"Percentage"=str_remove(Top$hello_2,"%"))
 Bottom1<-data.table("ColumnNames"=Names,"Votes"=Bottom$hello_1,"Percentage"=str_remove(Bottom$hello_2,"%"))
 
-# remove the commas from votes column and convert them to numeric class
+# remove the commas from votes columns and convert them to numeric class
 Top1[,2] <- lapply(Top1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
 Bottom1[,2] <- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_remove_all(x,","))))
 
@@ -199,7 +201,7 @@ mentioned above can be extracted now.
 # One Complete Function
 
 Combining the above 4 steps we can create one function where the input is page number and the resultant
-will be a data-table of one page information but of two tables as below. 
+will be a data-table of one page information but of two tables in the pdf file. 
 
 ```{r Extracting two tables from all pages which has two tables}
 Extract_twotable<-function(page)
@@ -253,14 +255,14 @@ return(output)
 }
 ```
 
-After developing such function and naming it as *Extract_twotable(page)*, it now possible to extract
-data from more than 75 pages in the Presidential election 2015 pdf file. 
+After developing such a function and naming it as *Extract_twotable()*, it now possible to extract
+data from more than 90 pages in the Presidential election 2015 pdf file. 
 
 # Using the One Function to extract Data from Multiple pages
 
 In order to do the above extraction first we have to identify the pages which have only
 one table and then deselect them. After this with the help of a for loop we can create 
-a long list of elements. Where each element is a table, and that table is from one page.
+a long list of elements. Where each element is a table, and that table from one page.
 Below is the code for that solution.
 
 ```{r extracting pages with two tables,warning=FALSE}
@@ -270,7 +272,7 @@ pages<-c(1:111)
 # removing pages with only one tables
 pages<-pages[-c(1,10,18,31,48,58,61,64,70,82,87,90,96,99,110,111)]
 
-# creating a empty data-frame
+# creating an empty data-frame
 datas<-NULL
 
 # creating the large data frame after extracting two tables 
@@ -286,8 +288,8 @@ out1<-do.call("rbind",datas)
 
 ![](/SLelection/2015/output1.JPG)
 
-After this large extraction similarly we have to write a function for one table pages 
-also. Below is the code chunk for that. Here we create a function called *Extract_onetable(page)*
+After this large extraction similarly we have to write a function for one table pages also. 
+Below is the code chunk for that. Here we create a function called *Extract_onetable()*
 similar as before where the input is page-number. 
 
 ```{r one table page extraction}
@@ -337,7 +339,7 @@ how we extract information from such pages and create a large data-frame.
 # list of pages with only one tables
 pages<-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
 
-# creating a empty data-frame
+# creating an empty data-frame
 datas1<-NULL
 
 # creating the large data frame after extracting one table 
@@ -368,16 +370,16 @@ Election2015<-rbind(out1,out2)
 
 # Validating the Data
 
-Even though I claim the data extraction is complete there needs to be validation. I find
+Even though I claim the data extraction is complete there needs to be validation. I find that
 it will be reassuring to have some form of validation. Therefore the best way is to tally the votes 
 in individual districts and compare them with the final vote(which is on the last page of the pdf file).
 I shall focus on the contestants Maithripala Sirisena, Mahinda Rajapaksa and data such as Valid Votes, Rejected 
-votes and Total Polled. Below is the code to find those final votes which will be compared with the 
+votes and Total Polled. Below is the code to find those final votes which will be compared with the pdf file.
 
 ```{r Validating data frame}
 # validating final votes of Maithripala Sirisena
 ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Maithripala Sirisena" |
-                              Electorate=="Final District Result" & ColNames=="Maithripala Sirisena")
+                                   Electorate=="Final District Result" & ColNames=="Maithripala Sirisena")
 ElecFinal2015[,sum(Votes),by="ColNames"]
 sum(ElecFinal2015$Votes)
 
@@ -406,13 +408,14 @@ ElecFinal2015[,sum(Votes),by="ColNames"]
 sum(ElecFinal2015$Votes)
 ```
 
-If we compare the above results with below table clearly our extraction is much successful.
+If we compare the above results with below table clearly our extraction is successful and the amounts are 
+accurate.
 
 ![](/SLelection/2015/validate.JPG)
 
 # Issues in the pdf file
 
-Satisfying end to be honest, but there was one glitch if we consider the final district result table
+Satisfying end to be honest, but there was one glitch. If we consider the final district result tables
 only in one occasion the heading was inconsistent. This occurred for the Kalutara district, it should have
 been "Final District Result" instead of "Final District Votes". Rather than that no issues at all. Similarly
 if we identify some creative pattern step by step it is possible to extract all the presidential election data
