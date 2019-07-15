@@ -113,7 +113,7 @@ names(table1)<-"hello"
 names(table2)<-"hello"
 ```
 
-!()[/SLelection/2015/Step1.JPG]
+![](/SLelection/2015/Step1.JPG)
 
 Now we have two one column data-frames.
 
@@ -146,7 +146,7 @@ Name1<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][2],"\r")
 Name2<-str_remove(str_split(SL_PE_2015[[page]],"\n")[[1]][27],"\r")
 ```
 
-!()[/SLelection/2015/Step2.JPG]
+![](/SLelection/2015/Step2.JPG)
 
 ## Step 3
 
@@ -170,7 +170,7 @@ Top1[,3]<-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
 Bottom1[,3]<-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))
 ```
 
-!()[/SLelection/2015/Step3.JPG]
+![](/SLelection/2015/Step3.JPG)
 
 ## Step 4
 
@@ -194,7 +194,7 @@ Electorate2<-data.table("Year"=2015,
 Finally, we have extracted two clear tables under the name Electorate1 and Electorate2. First three table types 
 mentioned above can be extracted now. 
 
-!()[/SLelection/2015/Step4.JPG]
+![](/SLelection/2015/Step4.JPG)
 
 # One Complete Function
 
@@ -284,11 +284,11 @@ for (i in pages)
 out1<-do.call("rbind",datas)
 ```
 
-!()[/SLelection/2015/output1.JPG]
+![](/SLelection/2015/output1.JPG)
 
 After this large extraction similarly we have to write a function for one table pages 
-also. Below is the code chunch for that. Here we create a function called *Extract_onetable(page)*
-similar as before where the input is pagenumber. 
+also. Below is the code chunk for that. Here we create a function called *Extract_onetable(page)*
+similar as before where the input is page-number. 
 
 ```{r one table page extraction}
 Extract_onetable<-function(page)
@@ -328,7 +328,12 @@ output<-Electorate1
 
 return(output)
 }
+```
 
+After creating this function we focus only on the pages with one tables. Below is 
+how we extract information from such pages and create a large data-frame.
+
+```{r }
 # list of pages with only one tables
 pages<-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
 
@@ -346,24 +351,74 @@ for (i in pages)
 out2<-do.call("rbind",datas1)
 ```
 
+![](/SLelection/2015/output2.JPG)
 
+Now we have two data-frames which are named as out1 and out2 which 
+needs to be combined based on rows. The combined data-frame is called
+Election2015 which has all the information of Presidential Election 2015 
+pdf file.
 
 ```{r Final data frame}
 # final data frame which has information from the entire pdf
+# which means combining the out1 and out2 data-frames
 Election2015<-rbind(out1,out2)
 ```
 
+![](/SLelection/2015/Election2015.JPG)
 
 # Validating the Data
 
+Even though I claim the data extraction is complete there needs to be validation. I find
+it will be reassuring to have some form of validation. Therefore the best way is to tally the votes 
+in individual districts and compare them with the final vote(which is on the last page of the pdf file).
+I shall focus on the contestants Maithripala Sirisena, Mahinda Rajapaksa and data such as Valid Votes, Rejected 
+votes and Total Polled. Below is the code to find those final votes which will be compared with the 
+
 ```{r Validating data frame}
+# validating final votes of Maithripala Sirisena
 ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Maithripala Sirisena" |
                               Electorate=="Final District Result" & ColNames=="Maithripala Sirisena")
 ElecFinal2015[,sum(Votes),by="ColNames"]
 sum(ElecFinal2015$Votes)
+
+# validating final votes of Mahinda Rajapaksa
+ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Mahinda Rajapaksa" |
+                              Electorate=="Final District Result" & ColNames=="Mahinda Rajapaksa")
+ElecFinal2015[,sum(Votes),by="ColNames"]
+sum(ElecFinal2015$Votes)
+
+# validating final votes of valid votes
+ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Valid Votes" |
+                              Electorate=="Final District Result" & ColNames=="Valid Votes")
+ElecFinal2015[,sum(Votes),by="ColNames"]
+sum(ElecFinal2015$Votes)
+
+# validating final votes of rejected votes
+ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Rejected Votes" |
+                              Electorate=="Final District Result" & ColNames=="Rejected Votes")
+ElecFinal2015[,sum(Votes),by="ColNames"]
+sum(ElecFinal2015$Votes)
+
+# validating final votes of polled votes
+ElecFinal2015<-subset(Election2015,Electorate=="Final District Votes" & ColNames=="Total Polled" |
+                              Electorate=="Final District Result" & ColNames=="Total Polled")
+ElecFinal2015[,sum(Votes),by="ColNames"]
+sum(ElecFinal2015$Votes)
 ```
+
+If we compare the above results with below table clearly our extraction is much successful.
+
+![](/SLelection/2015/validate.JPG)
 
 # Issues in the pdf file
 
+Satisfying end to be honest, but there was one glitch if we consider the final district result table
+only in one occasion the heading was inconsistent. This occurred for the Kalutara district, it should have
+been "Final District Result" instead of "Final District Votes". Rather than that no issues at all. Similarly
+if we identify some creative pattern step by step it is possible to extract all the presidential election data
+and create a much more lucrative data retrieval website. Well we could even add the parliament and provincial election
+results as well. 
+
+For now One step at a time. 
 
 **THANK YOU**

@@ -96,7 +96,7 @@ table2&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][29:51])
 # name the only column in these two data tables
 names(table1)&lt;-&quot;hello&quot;
 names(table2)&lt;-&quot;hello&quot;</code></pre>
-<p>!()[/SLelection/2015/Step1.JPG]</p>
+<p><img src="/SLelection/2015/Step1.JPG" /></p>
 <p>Now we have two one column data-frames.</p>
 </div>
 <div id="step-2" class="section level2">
@@ -124,7 +124,7 @@ Bottom&lt;-cSplit(lapply(table2, function(x) str_remove(x,Names)),&quot;hello&qu
 # Extract the information of sub heading above each table by removing the pattern &quot;\r&quot;
 Name1&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][2],&quot;\r&quot;)
 Name2&lt;-str_remove(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][27],&quot;\r&quot;)</code></pre>
-<p>!()[/SLelection/2015/Step2.JPG]</p>
+<p><img src="/SLelection/2015/Step2.JPG" /></p>
 </div>
 <div id="step-3" class="section level2">
 <h2>Step 3</h2>
@@ -144,7 +144,7 @@ Bottom1[,2] &lt;- lapply(Bottom1[,2], function(x) as.numeric(as.character(str_re
 # convert the percentage values to numeric class
 Top1[,3]&lt;-lapply(Top1[,3], function(x) as.numeric(as.character(x)))
 Bottom1[,3]&lt;-lapply(Bottom1[,3], function(x) as.numeric(as.character(x)))</code></pre>
-<p>!()[/SLelection/2015/Step3.JPG]</p>
+<p><img src="/SLelection/2015/Step3.JPG" /></p>
 </div>
 <div id="step-4" class="section level2">
 <h2>Step 4</h2>
@@ -163,7 +163,7 @@ Electorate2&lt;-data.table(&quot;Year&quot;=2015,
                         &quot;Percentage&quot;=Bottom1$Percentage)</code></pre>
 <p>Finally, we have extracted two clear tables under the name Electorate1 and Electorate2. First three table types
 mentioned above can be extracted now.</p>
-<p>!()[/SLelection/2015/Step4.JPG]</p>
+<p><img src="/SLelection/2015/Step4.JPG" /></p>
 </div>
 </div>
 <div id="one-complete-function" class="section level1">
@@ -246,10 +246,10 @@ for (i in pages)
 
 # combining the multiple list data-frame as one data-frame
 out1&lt;-do.call(&quot;rbind&quot;,datas)</code></pre>
-<p>!()[/SLelection/2015/output1.JPG]</p>
+<p><img src="/SLelection/2015/output1.JPG" /></p>
 <p>After this large extraction similarly we have to write a function for one table pages
-also. Below is the code chunch for that. Here we create a function called <em>Extract_onetable(page)</em>
-similar as before where the input is pagenumber.</p>
+also. Below is the code chunk for that. Here we create a function called <em>Extract_onetable(page)</em>
+similar as before where the input is page-number.</p>
 <pre class="r"><code>Extract_onetable&lt;-function(page)
 {
 table1&lt;-data.table(str_split(SL_PE_2015[[page]],&quot;\n&quot;)[[1]][4:26])
@@ -286,9 +286,10 @@ Electorate1&lt;-data.table(&quot;Year&quot;=2015,
 output&lt;-Electorate1
 
 return(output)
-}
-
-# list of pages with only one tables
+}</code></pre>
+<p>After creating this function we focus only on the pages with one tables. Below is
+how we extract information from such pages and create a large data-frame.</p>
+<pre class="r"><code># list of pages with only one tables
 pages&lt;-c(10,18,31,48,58,61,64,70,82,87,90,96,99,110)
 
 # creating a empty data-frame
@@ -303,20 +304,74 @@ for (i in pages)
 
 # combining the multiple list data-frame as one data-frame
 out2&lt;-do.call(&quot;rbind&quot;,datas1)</code></pre>
+<p><img src="/SLelection/2015/output2.JPG" /></p>
+<p>Now we have two data-frames which are named as out1 and out2 which
+needs to be combined based on rows. The combined data-frame is called
+Election2015 which has all the information of Presidential Election 2015
+pdf file.</p>
 <pre class="r"><code># final data frame which has information from the entire pdf
+# which means combining the out1 and out2 data-frames
 Election2015&lt;-rbind(out1,out2)</code></pre>
+<p><img src="/SLelection/2015/Election2015.JPG" /></p>
 </div>
 <div id="validating-the-data" class="section level1">
 <h1>Validating the Data</h1>
-<pre class="r"><code>ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot; |
+<p>Even though I claim the data extraction is complete there needs to be validation. I find
+it will be reassuring to have some form of validation. Therefore the best way is to tally the votes
+in individual districts and compare them with the final vote(which is on the last page of the pdf file).
+I shall focus on the contestants Maithripala Sirisena, Mahinda Rajapaksa and data such as Valid Votes, Rejected
+votes and Total Polled. Below is the code to find those final votes which will be compared with the</p>
+<pre class="r"><code># validating final votes of Maithripala Sirisena
+ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot; |
                               Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Maithripala Sirisena&quot;)
 ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
 <pre><code>##                ColNames      V1
 ## 1: Maithripala Sirisena 6217162</code></pre>
 <pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
 <pre><code>## [1] 6217162</code></pre>
+<pre class="r"><code># validating final votes of Mahinda Rajapaksa
+ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Mahinda Rajapaksa&quot; |
+                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Mahinda Rajapaksa&quot;)
+ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
+<pre><code>##             ColNames      V1
+## 1: Mahinda Rajapaksa 5768090</code></pre>
+<pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
+<pre><code>## [1] 5768090</code></pre>
+<pre class="r"><code># validating final votes of valid votes
+ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Valid Votes&quot; |
+                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Valid Votes&quot;)
+ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
+<pre><code>##       ColNames       V1
+## 1: Valid Votes 12123452</code></pre>
+<pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
+<pre><code>## [1] 12123452</code></pre>
+<pre class="r"><code># validating final votes of rejected votes
+ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Rejected Votes&quot; |
+                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Rejected Votes&quot;)
+ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
+<pre><code>##          ColNames     V1
+## 1: Rejected Votes 140925</code></pre>
+<pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
+<pre><code>## [1] 140925</code></pre>
+<pre class="r"><code># validating final votes of polled votes
+ElecFinal2015&lt;-subset(Election2015,Electorate==&quot;Final District Votes&quot; &amp; ColNames==&quot;Total Polled&quot; |
+                              Electorate==&quot;Final District Result&quot; &amp; ColNames==&quot;Total Polled&quot;)
+ElecFinal2015[,sum(Votes),by=&quot;ColNames&quot;]</code></pre>
+<pre><code>##        ColNames       V1
+## 1: Total Polled 12264377</code></pre>
+<pre class="r"><code>sum(ElecFinal2015$Votes)</code></pre>
+<pre><code>## [1] 12264377</code></pre>
+<p>If we compare the above results with below table clearly our extraction is much successful.</p>
+<p><img src="/SLelection/2015/validate.JPG" /></p>
 </div>
 <div id="issues-in-the-pdf-file" class="section level1">
 <h1>Issues in the pdf file</h1>
+<p>Satisfying end to be honest, but there was one glitch if we consider the final district result table
+only in one occasion the heading was inconsistent. This occurred for the Kalutara district, it should have
+been “Final District Result” instead of “Final District Votes”. Rather than that no issues at all. Similarly
+if we identify some creative pattern step by step it is possible to extract all the presidential election data
+and create a much more lucrative data retrieval website. Well we could even add the parliament and provincial election
+results as well.</p>
+<p>For now One step at a time.</p>
 <p><strong>THANK YOU</strong></p>
 </div>
