@@ -561,7 +561,217 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <div id="TOC">
+<ul>
+<li><a href="#timely-change">Timely Change</a><ul>
+<li><a href="#timely-change-for-full-members">Timely Change for Full Members</a></li>
+</ul></li>
+<li><a href="#daily-members">Daily Members</a></li>
+<li><a href="#daily-members-by-day-of-week">Daily Members by Day of Week</a></li>
+<li><a href="#weekly-members">Weekly Members</a></li>
+<li><a href="#weekly-members-by-day-of-week">Weekly Members by Day of Week</a></li>
+<li><a href="#messages-in-public-private-and-dm-channels">Messages in Public, Private and DM Channels</a></li>
+<li><a href="#percent-based-messages-in-public-private-and-dm-channels">Percent Based Messages in Public, Private and DM Channels</a></li>
+<li><a href="#messages-in-public-channels-by-day-of-week">Messages in Public Channels by Day of Week</a></li>
+<li><a href="#percent-based-messages-in-public-channels-by-day-of-week">Percent Based Messages in Public Channels by Day of Week</a></li>
+<li><a href="#messages-in-private-channels-by-day-of-week">Messages in Private Channels by Day of Week</a></li>
+<li><a href="#percent-based-messages-in-private-channels-by-day-of-week">Percent Based Messages in Private Channels by day of Week</a></li>
+<li><a href="#messages-in-dm-by-day-of-week">Messages in DM by Day of Week</a></li>
+<li><a href="#percent-based-messages-in-dm-by-day-of-week">Percent Based Messages in DM by Day of Week</a></li>
+</ul>
+</div>
+
+<pre class="r"><code>r4ds_members &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-16/r4ds_members.csv&quot;)
+
+# load the packages
+library(tidyverse)
+library(ggstatsplot)
+library(lubridate)</code></pre>
+<div id="timely-change" class="section level1">
+<h1>Timely Change</h1>
+<div id="timely-change-for-full-members" class="section level2">
+<h2>Timely Change for Full Members</h2>
+<pre class="r"><code>ggplot(r4ds_members,aes(date,full_members))+geom_point(color=blues9[7])+
+      ggthemes::theme_stata()+
+      xlab(&quot;Date&quot;)+ylab(&quot;Full Members&quot;)+
+      scale_x_date(date_labels = &quot;%y %b %d&quot;,breaks = &#39;1 month&#39;)+
+      theme(axis.text.x = element_text(angle = 60,hjust=1))+
+      ggtitle(&quot;How R4DS Members have involved over the Years&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/Timely%20Change-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="daily-members" class="section level1">
+<h1>Daily Members</h1>
+<pre class="r"><code>ggscatterstats(
+               data = r4ds_members,
+               x = daily_active_members,
+               y = daily_members_posting_messages,
+               xlab = &quot;Daily Active Members&quot;,
+               ylab = &quot;Daily Active Members Posting Messages&quot;,
+               title = &quot;Relationship between Daily Active Members and them posting messages&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/Daily%20members-1.png" width="1152" /></p>
+</div>
+<div id="daily-members-by-day-of-week" class="section level1">
+<h1>Daily Members by Day of Week</h1>
+<pre class="r"><code>grouped_ggscatterstats(
+                       data = r4ds_members %&gt;% mutate(day=wday(date,label=TRUE)),
+                       x=daily_active_members,
+                       y=daily_members_posting_messages,
+                       grouping.var = day,
+                       xlab = &quot;Daily Active\nMembers&quot;,
+                       ylab = &quot;Daily Active Members\nPosting Messages&quot;,
+                       title = &quot;Relationship between Daily Active Members\nand them posting messages&quot;,
+                       messages = FALSE,ncol=2
+                       )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/Daily%20members%20by%20week%20of%20day-1.png" width="1344" /></p>
+</div>
+<div id="weekly-members" class="section level1">
+<h1>Weekly Members</h1>
+<pre class="r"><code>ggscatterstats(
+               data = r4ds_members,
+               x = weekly_active_members,
+               y = weekly_members_posting_messages,
+               xlab = &quot;Weekly Active Members&quot;,
+               ylab = &quot;Weekly Active Members Posting Messages&quot;,
+               title = &quot;Relationship between Weekly Active Members and them posting messages&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/Weekly%20members-1.png" width="1152" /></p>
+</div>
+<div id="weekly-members-by-day-of-week" class="section level1">
+<h1>Weekly Members by Day of Week</h1>
+<pre class="r"><code>grouped_ggscatterstats(
+                       data = r4ds_members %&gt;% mutate(day=wday(date,label=TRUE)),
+                       x = weekly_active_members,
+                       y = weekly_members_posting_messages,
+                       grouping.var=day,
+                       xlab = &quot;Weekly Active Members&quot;,
+                       ylab = &quot;Weekly Active Members\nPosting Messages&quot;,
+                       title = &quot;Relationship between Weekly Active Members\nand them posting messages&quot;,
+                       messages = FALSE,ncol=2
+                       )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/Weekly%20members%20by%20week%20of%20day-1.png" width="1344" /></p>
+</div>
+<div id="messages-in-public-private-and-dm-channels" class="section level1">
+<h1>Messages in Public, Private and DM Channels</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = select(r4ds_members,&quot;messages_in_public_channels&quot;,
+                                          &quot;messages_in_private_channels&quot;,
+                                          &quot;messages_in_d_ms&quot;) %&gt;% 
+                      gather(&quot;Type&quot;,&quot;Count&quot;),
+               x = Type,
+               y = Count,
+               xlab = &quot;Type of Channel&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages Between Channels&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/public%20private%20shared%20channels-1.png" width="1152" /></p>
+</div>
+<div id="percent-based-messages-in-public-private-and-dm-channels" class="section level1">
+<h1>Percent Based Messages in Public, Private and DM Channels</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = select(r4ds_members,&quot;percent_of_messages_public_channels&quot;,
+                                          &quot;percent_of_messages_private_channels&quot;,
+                                          &quot;percent_of_messages_d_ms&quot;) %&gt;% 
+                      gather(&quot;Type&quot;,&quot;Count&quot;),
+               x = Type,
+               y = Count,
+               xlab = &quot;Type of Channel&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages Between Channels Percentage Wise&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/percent%20public%20private%20shared%20channels-1.png" width="1152" /></p>
+</div>
+<div id="messages-in-public-channels-by-day-of-week" class="section level1">
+<h1>Messages in Public Channels by Day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;messages_in_public_channels&quot;,&quot;day&quot;), 
+               x = day,
+               y = messages_in_public_channels,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages of Public Channels\nbetween Week of the Day&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/public%20shared%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+</div>
+<div id="percent-based-messages-in-public-channels-by-day-of-week" class="section level1">
+<h1>Percent Based Messages in Public Channels by Day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;percent_of_messages_public_channels&quot;,&quot;day&quot;), 
+               x = day,
+               y = percent_of_messages_public_channels,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages Percent of Public Channels\nbetween Week of the Day&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/percent%20public%20shared%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+</div>
+<div id="messages-in-private-channels-by-day-of-week" class="section level1">
+<h1>Messages in Private Channels by Day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;messages_in_private_channels&quot;,&quot;day&quot;), 
+               x = day,
+               y = messages_in_private_channels,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages of Private Channels\nbetween Week of the Day&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/private%20shared%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+</div>
+<div id="percent-based-messages-in-private-channels-by-day-of-week" class="section level1">
+<h1>Percent Based Messages in Private Channels by day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;percent_of_messages_private_channels&quot;,&quot;day&quot;), 
+               x = day,
+               y = percent_of_messages_private_channels,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages Percent of Private Channels\nbetween Week of the Day &quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/percent%20private%20shared%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+</div>
+<div id="messages-in-dm-by-day-of-week" class="section level1">
+<h1>Messages in DM by Day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;messages_in_d_ms&quot;,&quot;day&quot;), 
+               x = day,
+               y = messages_in_d_ms,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages of DM \nbetween Week of the Day&quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/DM%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+</div>
+<div id="percent-based-messages-in-dm-by-day-of-week" class="section level1">
+<h1>Percent Based Messages in DM by Day of Week</h1>
+<pre class="r"><code>ggbetweenstats(
+               data = r4ds_members %&gt;% mutate(day=wday(date,label = TRUE)) %&gt;%
+                      select(&quot;percent_of_messages_d_ms&quot;,&quot;day&quot;), 
+               x = day,
+               y = percent_of_messages_d_ms,
+               xlab = &quot;Week of the Day&quot;,
+               ylab = &quot;Count&quot;,
+               title = &quot;Comparing Daily Messages Percent of DM \nbetween Week of the Day &quot;,
+               messages = FALSE
+               )</code></pre>
+<p><img src="/post/TidyTuesday2019/Week29/index_files/figure-html/percent%20DM%20channels,%20by%20week%20of%20Day-1.png" width="1152" /></p>
+<p><strong>THANK YOU</strong></p>
+</div>
+
     </div>
 
     
