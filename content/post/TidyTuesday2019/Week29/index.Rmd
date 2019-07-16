@@ -33,6 +33,12 @@ library(ggstatsplot)
 library(lubridate)
 ```
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week29)
+
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1151089852663963650")
+```
+
 # Timely Change
 
 ## Timely Change for Full Members
