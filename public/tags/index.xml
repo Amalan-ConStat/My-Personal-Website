@@ -49,6 +49,15 @@
     </item>
     
     <item>
+      <title>Election</title>
+      <link>/tags/election/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/election/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GitHub</title>
       <link>/tags/github/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
@@ -72,6 +81,15 @@
       <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LK</title>
+      <link>/tags/lk/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/lk/</guid>
       <description></description>
     </item>
     
@@ -103,9 +121,18 @@
     </item>
     
     <item>
+      <title>Presidential</title>
+      <link>/tags/presidential/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/presidential/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -153,6 +180,15 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/southpark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stringr</title>
+      <link>/tags/stringr/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stringr/</guid>
       <description></description>
     </item>
     
@@ -339,7 +375,7 @@
     <item>
       <title>package</title>
       <link>/tags/package/</link>
-      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/package/</guid>
       <description></description>
@@ -348,7 +384,7 @@
     <item>
       <title>pdftools</title>
       <link>/tags/pdftools/</link>
-      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/pdftools/</guid>
       <description></description>

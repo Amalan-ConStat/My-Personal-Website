@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/publication/presidential_election/</loc>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/tidytuesday2019/week29/week29/</loc>
       <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     </url>
@@ -504,7 +512,7 @@
     <url>
     
       <loc>/publication_types/9/</loc>
-      <lastmod>2019-05-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -584,6 +592,15 @@
     
     <url>
     
+      <loc>/tags/election/</loc>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/github/</loc>
       <lastmod>2019-05-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -620,6 +637,15 @@
     
     <url>
     
+      <loc>/tags/lk/</loc>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tags/medium/</loc>
       <lastmod>2018-12-08T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -647,6 +673,15 @@
     
     <url>
     
+      <loc>/tags/presidential/</loc>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/projects/</loc>
       <lastmod>2018-10-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -666,7 +701,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -763,6 +798,15 @@
     
       <loc>/tags/southpark/</loc>
       <lastmod>2019-04-29T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/stringr/</loc>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -996,7 +1040,7 @@
     <url>
     
       <loc>/tags/package/</loc>
-      <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1005,7 +1049,7 @@
     <url>
     
       <loc>/tags/pdftools/</loc>
-      <lastmod>2019-07-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-08-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

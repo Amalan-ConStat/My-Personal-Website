@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Election on Consulting Statistician</title>
+    <link>/tags/election/</link>
+    <description>Recent content in Election on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/election/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Presidential Election Data Sri Lanka.</title>
+      <link>/publication/presidential_election/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/presidential_election/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

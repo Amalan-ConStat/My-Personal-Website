@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Presidential Election Data Sri Lanka.</title>
+      <link>/publication/presidential_election/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/presidential_election/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.</title>
       <link>/publication/fitodbod-article/</link>
       <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
