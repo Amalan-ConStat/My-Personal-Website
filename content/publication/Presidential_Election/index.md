@@ -1,5 +1,5 @@
 +++
-title = "Presidential Election Data Sri Lanka."
+title = "Presidential Election Data of Sri Lanka from PDF Files."
 date = "2019-08-05"
 draft = false
 
@@ -21,11 +21,11 @@ authors = ["M.Amalan"]
 publication_types = ["9"]
 
 # Publication name and optional abbreviated version.
-publication = "*Extracting Sri Lankan Presidential Data from pdf Files.*"
+publication = "*Extracting Sri Lankan Presidential Election Data from PDF Files.*"
 publication_short = "*Presidential Election*"
 
 # Abstract and optional shortened version.
-abstract = "."
+abstract = "Presidential Election Data of Sri Lanka has been in PDF files until this project was finished. While a Presidential Election is closeby it would be useful to have all the data regarding Presidential Elections from the beginning(1982). Over the seven elections we can thoroughly study how Sri Lankan community has voted based on political parties and interest. Further, this data could be used to the upcoming election as well. Future projects can be of similar idea while converting pdf files of Parliamentary and Local Elections to data-frames."
 
 #abstract_short = ""
 
@@ -47,18 +47,19 @@ tags = ["package", "R", "pdftools", "Stringr","Presidential","Election","LK"]
 # Links (optional).
 url_pdf = ""
 url_preprint = ""
-url_code = " "
-url_dataset = " "
-url_project = ""
+url_code = ""
+url_dataset = "https://raw.githubusercontent.com/Amalan-ConStat/PresidentialElection/master/Final%20Data/Final.csv"
+url_project = "https://github.com/Amalan-ConStat/PresidentialElection"
 url_slides = ""
 url_video = ""
 url_poster = ""
-url_source = " "
+url_source = "https://github.com/Amalan-ConStat/PresidentialElection"
 
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
 # url_custom = [{name = "Custom Link", url = "http://example.org"}]
+url_custom = [{name = "Blog Post", url = "https://amalan-con-stat.netlify.com/post/slelection/presidential-election/2015/2015/"}]
 
 # Digital Object Identifier (DOI)
 doi = ""

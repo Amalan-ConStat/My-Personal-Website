@@ -21,7 +21,7 @@ authors = ["M.Amalan"]
 publication_types = ["9"]
 
 # Publication name and optional abbreviated version.
-publication = "*fitODBOD: fitting Over Dispersed Binomial Outcome Data*."
+publication = "*fitODBOD: fitting Over Dispersed Binomial Outcome Data.*"
 publication_short = "*fitODBOD*"
 
 # Abstract and optional shortened version.

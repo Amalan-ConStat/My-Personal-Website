@@ -21,7 +21,7 @@ authors = ["M.Amalan","Prof.Pushpakanthie Wijekoon"]
 publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "*fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions. *"
+publication = "*fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.*"
 publication_short = "*fitODBOD*"
 
 # Abstract and optional shortened version.
