@@ -19,5 +19,80 @@ summary: '2019 Week 33 TidyTuesday: Roman Emperors, Right!.'
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#birth-province">Birth Province</a></li>
+<li><a href="#reign-time">Reign Time</a></li>
+<li><a href="#cause-and-killer">Cause and Killer</a></li>
+</ul>
+</div>
 
-<pre class="r"><code>emperors &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv&quot;)</code></pre>
+<pre class="r"><code># load the data
+emperors &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv&quot;)
+
+# load packages
+library(ggplot2)
+library(dplyr)
+library(gganimate)
+
+# load theme package
+library(ggthemr)
+ggthemr(&quot;flat&quot;)</code></pre>
+<div id="birth-province" class="section level1">
+<h1>Birth Province</h1>
+<pre class="r"><code>emperors %&gt;%
+  group_by(birth_prv) %&gt;%
+  count(sort = TRUE) %&gt;%
+  ggplot(.,aes(birth_prv,n,label=n))+geom_col()+
+  xlab(&quot;Birth Province&quot;)+ylab(&quot;Frequency&quot;)+geom_text(vjust=1)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Birth%20Pro%20vs%20Count-1.png" width="1152" /></p>
+<pre class="r"><code>ggplot(emperors ,aes(stringr::str_wrap(birth_prv,12),stringr::str_wrap(rise,15)))+geom_jitter()+
+  xlab(&quot;Birth Province&quot;)+ylab(&quot;Risen to Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Birth%20Pro%20vs%20rise-1.png" width="1152" /></p>
+<pre class="r"><code>emperors %&gt;%
+  mutate(reign_time=reign_end-reign_start) %&gt;%
+ggplot(.,aes(stringr::str_wrap(birth_prv,12),abs(reign_time)))+
+  geom_jitter()+
+  xlab(&quot;Birth Province&quot;)+ylab(&quot;Days in Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Birth%20Pro%20vs%20Time-1.png" width="1152" /></p>
+</div>
+<div id="reign-time" class="section level1">
+<h1>Reign Time</h1>
+<pre class="r"><code>emperors %&gt;%
+  mutate(reign_time=reign_end-reign_start) %&gt;%
+ggplot(.,aes(stringr::str_wrap(rise,12),abs(reign_time)))+
+  geom_jitter()+
+  xlab(&quot;Rise&quot;)+ylab(&quot;Days in Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Reign%20Time%20vs%20Rise-1.png" width="1152" /></p>
+<pre class="r"><code>emperors %&gt;%
+  mutate(reign_time=reign_end-reign_start) %&gt;%
+ggplot(.,aes(stringr::str_wrap(cause,12),abs(reign_time)))+
+  geom_jitter()+
+  xlab(&quot;Cause&quot;)+ylab(&quot;Days in Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Reign%20Time%20vs%20Cause-1.png" width="1152" /></p>
+<pre class="r"><code>emperors %&gt;%
+  mutate(reign_time=reign_end-reign_start) %&gt;%
+ggplot(.,aes(stringr::str_wrap(dynasty,12),abs(reign_time)))+
+  geom_jitter()+
+  xlab(&quot;Dynasty&quot;)+ylab(&quot;Days in Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Reign%20Time%20vs%20Dynasty-1.png" width="1152" /></p>
+<pre class="r"><code>emperors %&gt;%
+  mutate(reign_time=reign_end-reign_start) %&gt;%
+ggplot(.,aes(stringr::str_wrap(era,12),abs(reign_time)))+
+  geom_jitter()+
+  xlab(&quot;Era&quot;)+ylab(&quot;Days in Power&quot;)+
+  theme(axis.text.x = element_text(angle=30))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/Reign%20Time%20vs%20Era-1.png" width="1152" /></p>
+</div>
+<div id="cause-and-killer" class="section level1">
+<h1>Cause and Killer</h1>
+<pre class="r"><code>ggplot(emperors,aes(cause,killer))+geom_jitter()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week33/index_files/figure-html/cause%20and%20killer-1.png" width="1152" /></p>
+<p><em>THANK YOU</em></p>
+</div>
