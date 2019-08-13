@@ -213,5 +213,9 @@ ggplot(.) +
   coord_fixed() + theme_void()
 ```
 
+The 'ggpol' plots seem fine, to be fair they would be much more cool if we 
+have a proper color palette. Also it would make more sense if the number of 
+observations are higher also but not above 500. Rather than that it looks 
+fine.
 
 *THANK YOU*
