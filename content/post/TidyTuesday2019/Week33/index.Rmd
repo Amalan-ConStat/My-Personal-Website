@@ -39,10 +39,10 @@ library(ggthemr)
 ggthemr("flat")
 ```
 
-[GitHub Code]()
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week33)
 
 ```{r tweet,echo=FALSE}
-#blogdown::shortcode("tweet","")
+blogdown::shortcode("tweet","1161214486012993536")
 ```
 
 # Birth Province
