@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Week 33: Roman Emperors</title>
-      <link>/post/tidytuesday2019/week33/week33/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week33/week33/</guid>
-      <description>Birth ProvinceReign TimeCause and Killer# load the dataemperors &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv&amp;quot;)# load packageslibrary(ggplot2)library(dplyr)library(gganimate)# load theme packagelibrary(ggthemr)ggthemr(&amp;quot;flat&amp;quot;)Birth Provinceemperors %&amp;gt;%group_by(birth_prv) %&amp;gt;%count(sort = TRUE) %&amp;gt;%ggplot(.,aes(birth_prv,n,label=n))+geom_col()+xlab(&amp;quot;Birth Province&amp;quot;)+ylab(&amp;quot;Frequency&amp;quot;)+geom_text(vjust=1)+theme(axis.text.x = element_text(angle=30))ggplot(emperors ,aes(stringr::str_wrap(birth_prv,12),stringr::str_wrap(rise,15)))+geom_jitter()+xlab(&amp;quot;Birth Province&amp;quot;)+ylab(&amp;quot;Risen to Power&amp;quot;)+theme(axis.text.x = element_text(angle=30))emperors %&amp;gt;%mutate(reign_time=reign_end-reign_start) %&amp;gt;%ggplot(.,aes(stringr::str_wrap(birth_prv,12),abs(reign_time)))+geom_jitter()+xlab(&amp;quot;Birth Province&amp;quot;)+ylab(&amp;quot;Days in Power&amp;quot;)+theme(axis.text.x = element_text(angle=30))Reign Timeemperors %&amp;gt;%mutate(reign_time=reign_end-reign_start) %&amp;gt;%ggplot(.</description>
-    </item>
     
     <item>
       <title>Week 29: R4DS Users</title>

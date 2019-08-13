@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggpol on Consulting Statistician</title>
+    <link>/tags/ggpol/</link>
+    <description>Recent content in ggpol on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ggpol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 33: Roman Emperors</title>
+      <link>/post/tidytuesday2019/week33/week33/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week33/week33/</guid>
+      <description>Birth ProvinceReign TimeCause and KillerUsing ggpol packageEraRisen to PowerCause of DeathKillerDynastyThis is a very small data frame, which is with 68 observations and 16 variables. Several plots weregenerated but main focus was on using the ‘ggpol’ package.
+# load the dataemperors &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv&amp;quot;)# load packageslibrary(ggplot2)library(dplyr)library(ggpol)# load theme packagelibrary(ggthemr)ggthemr(&amp;quot;flat&amp;quot;)GitHub Code</description>
+    </item>
+    
+  </channel>
+</rss>
