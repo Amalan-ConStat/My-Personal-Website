@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 34: Nuclear Explosions</title>
+      <link>/post/tidytuesday2019/week34/week34/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week34/week34/</guid>
+      <description>Magnitude Surface vs Magnitude BodyAll pointsPoints where Magnitude surface and body are more than 0 measurementMagnitude Surface and Body but Based on CountryMagnitude Surface and Body but Based on Country with animationYield Lower vs Yield UpperAll pointsPoints where Yield Upper and Lower are more than 0 measurementYield Upper and Lower but Based on CountryYield Upper and Lower but Based on Country with animationYearly progress based on CountryAnimatedStack graphType vs Purpose by CountryAnimatedSource vs Year by CountryAnimatednuclear_explosions &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
+    </item>
     
     <item>
       <title>Week 29: R4DS Users</title>

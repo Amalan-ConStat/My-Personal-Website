@@ -1,0 +1,219 @@
+---
+title: 'Week 34: Nuclear Explosions'
+author: M.Amalan
+date: '2019-08-20'
+slug: Week34
+categories:
+  - TidyTuesday
+tags:
+  - TidyTuesday
+  - dplyr
+  - gganimate
+  - ggplot
+output:
+  blogdown::html_page:
+    toc: yes  
+image:
+  caption: ''
+  focal_point: ''
+summary: '2019 Week 34 TidyTuesday: Nuclear Explosions until Millenium.'  
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#magnitude-surface-vs-magnitude-body">Magnitude Surface vs Magnitude Body</a><ul>
+<li><a href="#all-points">All points</a></li>
+<li><a href="#points-where-magnitude-surface-and-body-are-more-than-0-measurement">Points where Magnitude surface and body are more than 0 measurement</a></li>
+<li><a href="#magnitude-surface-and-body-but-based-on-country">Magnitude Surface and Body but Based on Country</a></li>
+<li><a href="#magnitude-surface-and-body-but-based-on-country-with-animation">Magnitude Surface and Body but Based on Country with animation</a></li>
+</ul></li>
+<li><a href="#yield-lower-vs-yield-upper">Yield Lower vs Yield Upper</a><ul>
+<li><a href="#all-points-1">All points</a></li>
+<li><a href="#points-where-yield-upper-and-lower-are-more-than-0-measurement">Points where Yield Upper and Lower are more than 0 measurement</a></li>
+<li><a href="#yield-upper-and-lower-but-based-on-country">Yield Upper and Lower but Based on Country</a></li>
+<li><a href="#yield-upper-and-lower-but-based-on-country-with-animation">Yield Upper and Lower but Based on Country with animation</a></li>
+</ul></li>
+<li><a href="#yearly-progress-based-on-country">Yearly progress based on Country</a><ul>
+<li><a href="#animated">Animated</a></li>
+<li><a href="#stack-graph">Stack graph</a></li>
+</ul></li>
+<li><a href="#type-vs-purpose-by-country">Type vs Purpose by Country</a><ul>
+<li><a href="#animated-1">Animated</a></li>
+</ul></li>
+<li><a href="#source-vs-year-by-country">Source vs Year by Country</a><ul>
+<li><a href="#animated-2">Animated</a></li>
+</ul></li>
+</ul>
+</div>
+
+<pre class="r"><code>nuclear_explosions &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-20/nuclear_explosions.csv&quot;)
+
+# load packages
+library(dplyr)
+library(ggplot2)
+library(gganimate)
+library(tvthemes)</code></pre>
+<div id="magnitude-surface-vs-magnitude-body" class="section level1">
+<h1>Magnitude Surface vs Magnitude Body</h1>
+<div id="all-points" class="section level2">
+<h2>All points</h2>
+<pre class="r"><code>ggplot(nuclear_explosions,aes(magnitude_surface,magnitude_body))+
+      geom_point(color=blues9[7])+
+      xlab(&quot;Magnitude Surface&quot;)+ylab(&quot;Magnitude Body&quot;)+
+      ggtitle(&quot;Magnitude Surface Changing with Magnitude Body&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Surface%20vs%20Body%20P1-1.png" width="960" /></p>
+</div>
+<div id="points-where-magnitude-surface-and-body-are-more-than-0-measurement" class="section level2">
+<h2>Points where Magnitude surface and body are more than 0 measurement</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(magnitude_surface &gt;0) %&gt;%
+  filter(magnitude_body &gt;0) %&gt;%
+ggplot(.,aes(magnitude_surface,magnitude_body))+
+      geom_point(color=blues9[7])+
+      xlab(&quot;Magnitude Surface&quot;)+ylab(&quot;Magnitude Body&quot;)+
+      ggtitle(&quot;Magnitude Surface Changing with Magnitude Body&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Surface%20vs%20Body%20P2-1.png" width="960" /></p>
+</div>
+<div id="magnitude-surface-and-body-but-based-on-country" class="section level2">
+<h2>Magnitude Surface and Body but Based on Country</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(magnitude_surface &gt;0) %&gt;%
+  filter(magnitude_body &gt;0) %&gt;%
+ggplot(.,aes(magnitude_surface,magnitude_body,color=country))+
+      geom_point()+
+      xlab(&quot;Magnitude Surface&quot;)+ylab(&quot;Magnitude Body&quot;)+
+      ggtitle(&quot;Magnitude Surface Changing with Magnitude Body&quot;,
+              subtitle = &quot;By Country&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()+scale_color_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Surface%20vs%20Body%20P3-1.png" width="960" /></p>
+</div>
+<div id="magnitude-surface-and-body-but-based-on-country-with-animation" class="section level2">
+<h2>Magnitude Surface and Body but Based on Country with animation</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(magnitude_surface &gt;0) %&gt;%
+  filter(magnitude_body &gt;0) %&gt;%
+ggplot(.,aes(magnitude_surface,magnitude_body,color=country))+
+      geom_point()+
+      xlab(&quot;Magnitude Surface&quot;)+ylab(&quot;Magnitude Body&quot;)+
+      ggtitle(&quot;Magnitude Surface Changing with Magnitude Body&quot;,
+              subtitle = &quot;By Country&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      transition_states(country)+theme_simpsons()+scale_color_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Surface%20vs%20Body%20P4-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="yield-lower-vs-yield-upper" class="section level1">
+<h1>Yield Lower vs Yield Upper</h1>
+<div id="all-points-1" class="section level2">
+<h2>All points</h2>
+<pre class="r"><code>ggplot(nuclear_explosions,aes(yield_lower,yield_upper))+
+      geom_point(color=blues9[7])+
+      xlab(&quot;Yield Lower&quot;)+ylab(&quot;Yield Upper&quot;)+
+      ggtitle(&quot;Yield Lower Changing with Yield Upper&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Yield%20Lower%20vs%20Upper%20P1-1.png" width="960" /></p>
+</div>
+<div id="points-where-yield-upper-and-lower-are-more-than-0-measurement" class="section level2">
+<h2>Points where Yield Upper and Lower are more than 0 measurement</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(yield_lower &gt;0) %&gt;%
+  filter(yield_upper &gt;0) %&gt;%
+ggplot(.,aes(yield_lower,yield_upper))+
+      geom_point(color=blues9[7])+
+      xlab(&quot;Yield Lower&quot;)+ylab(&quot;Yield Upper&quot;)+
+      ggtitle(&quot;Yield Lower Changing with Yield Upper&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Yield%20Lower%20vs%20Upper%20P2-1.png" width="960" /></p>
+</div>
+<div id="yield-upper-and-lower-but-based-on-country" class="section level2">
+<h2>Yield Upper and Lower but Based on Country</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(yield_lower &gt;0) %&gt;%
+  filter(yield_upper &gt;0) %&gt;%
+ggplot(.,aes(yield_lower,yield_upper,color=country))+
+      geom_point()+
+      xlab(&quot;Yield Lower&quot;)+ylab(&quot;Yield Upper&quot;)+
+      ggtitle(&quot;Yield Lower Changing with Yield Upper&quot;,
+              subtitle = &quot;By Country&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+      theme_simpsons()+scale_color_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Yield%20Lower%20vs%20Upper%20P3-1.png" width="960" /></p>
+</div>
+<div id="yield-upper-and-lower-but-based-on-country-with-animation" class="section level2">
+<h2>Yield Upper and Lower but Based on Country with animation</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  filter(yield_lower &gt;0) %&gt;%
+  filter(yield_upper &gt;0) %&gt;%
+ggplot(.,aes(yield_lower,yield_upper,color=country))+
+      geom_point()+
+      xlab(&quot;Yield Lower&quot;)+ylab(&quot;Yield Upper&quot;)+
+      ggtitle(&quot;Yield Lower Changing with Yield Upper&quot;,
+              subtitle = &quot;By Country&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+       transition_states(country)+theme_simpsons()+scale_color_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Yield%20Lower%20vs%20Upper%20P4-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="yearly-progress-based-on-country" class="section level1">
+<h1>Yearly progress based on Country</h1>
+<div id="animated" class="section level2">
+<h2>Animated</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+   group_by(year,country) %&gt;%
+   summarise(counting=n()) %&gt;%
+ggplot(.,aes(country,counting,label=counting))+geom_col(fill=blues9[1])+
+   xlab(&quot;Country&quot;)+ylab(&quot;Counts&quot;)+geom_text(vjust=-1)+
+   ggtitle(&quot;Nuclear Explosions for Countries&quot;,
+          subtitle = &quot;Year :{closest_state}&quot;)+labs(caption=&quot;TidyTuesday 34&quot;)+
+   transition_states(year)+
+   scale_fill_simpsons()+theme_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Year%20vs%20Country%20P1-1.gif" /><!-- --></p>
+</div>
+<div id="stack-graph" class="section level2">
+<h2>Stack graph</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+   group_by(year,country) %&gt;%
+   summarise(counting=n()) %&gt;%
+ggplot(.,aes(year,counting,label=counting,fill=country))+
+   geom_col(position = &quot;stack&quot;)+
+   xlab(&quot;Year&quot;)+ylab(&quot;Counts&quot;)+geom_text(position = &quot;stack&quot;,vjust=1,size=2)+
+   ggtitle(&quot;Nuclear Explosions by Year&quot;,subtitle = &quot;for Countries&quot;)+
+   labs(caption=&quot;TidyTuesday 34&quot;)+
+   theme_simpsons()+scale_fill_simpsons()</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Year%20vs%20Country%20P2-1.png" width="960" /></p>
+</div>
+</div>
+<div id="type-vs-purpose-by-country" class="section level1">
+<h1>Type vs Purpose by Country</h1>
+<div id="animated-1" class="section level2">
+<h2>Animated</h2>
+<pre class="r"><code>ggplot(nuclear_explosions,aes(type,purpose,color=country))+
+  geom_jitter(alpha=0.7)+xlab(&quot;Type&quot;)+ylab(&quot;Purpose&quot;)+
+  ggtitle(&quot;Purpose vs Type for Nuclear Missiles&quot;,subtitle = &quot;By Country&quot;)+
+  labs(caption=&quot;TidyTuesday 34&quot;)+ transition_states(country)+
+  theme_simpsons()+scale_color_simpsons()+
+  theme(axis.text.x = element_text(angle=60,hjust=1))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Country%20vs%20Purpose%20P1-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="source-vs-year-by-country" class="section level1">
+<h1>Source vs Year by Country</h1>
+<div id="animated-2" class="section level2">
+<h2>Animated</h2>
+<pre class="r"><code>nuclear_explosions %&gt;%
+  group_by(year,type,country) %&gt;%
+  summarise(counting=n()) %&gt;%
+  select(year,country,type,counting) %&gt;%
+  subset(type==&quot;SHAFT&quot;|type==&quot;TUNNEL&quot;|type==&quot;ATMOSPH&quot;|type==&quot;SHAFT/GR&quot;|type==&quot;AIRDROP&quot;) %&gt;%
+ggplot(.,aes(year,counting,fill=type,label=counting))+
+  geom_col()+geom_text(position = &quot;stack&quot;,vjust=1,size=2)+
+  transition_states(country)+theme_simpsons()+
+  enter_fade() + exit_shrink() + ease_aes(&#39;sine-in-out&#39;)+
+  scale_fill_simpsons()+xlab(&quot;Year&quot;)+ylab(&quot;Counts&quot;)+
+  ggtitle(&quot;Yearly change by Countries for Types&quot;,
+          subtitle = &quot;Country:{closest_state}&quot;)+
+  labs(caption=&quot;TidyTuesday 34&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week34/index_files/figure-html/Type%20vs%20year%20P1-1.gif" /><!-- --></p>
+<p><em>THANK YOU</em></p>
+</div>
+</div>
