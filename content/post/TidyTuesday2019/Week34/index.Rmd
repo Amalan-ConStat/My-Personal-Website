@@ -23,6 +23,12 @@ summary: '2019 Week 34 TidyTuesday: Nuclear Explosions until Millenium.'
 knitr::opts_chunk$set(echo = TRUE,fig.width = 10,fig.height = 8,message = FALSE,warning = FALSE)
 ```
 
+[GitHub Code](https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week34)
+
+```{r tweet,echo=FALSE}
+blogdown::shortcode("tweet","1163767794636328960")
+```
+
 
 ```{r load the data and packages}
 nuclear_explosions <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-20/nuclear_explosions.csv")
