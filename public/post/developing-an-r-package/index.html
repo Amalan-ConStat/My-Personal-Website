@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Developing your own package in R with steps and helpful materials.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/developing-an-r-package/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3D3B45">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Playfair+Display:400,700|EB+Garamond>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/override.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/developing-an-r-package/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/developing-an-r-package/">
+  <meta property="og:title" content="Developing an R package | Consulting Statistician">
+  <meta property="og:description" content="Developing your own package in R with steps and helpful materials.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2019-01-10T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-01-10T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Developing an R package | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#twitter">
+            
+            <span>Tweets</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan_Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <img src="/post/developing-an-r-package/featured_hubf53c0cdf6ef1d499c0b8a8e07e52b9a_53065_1600x400_fill_q90_box_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Developing an R package</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-01-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-01-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jan 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/fitodbod/">fitODBOD</a>, 
+    
+    <a href="/categories/r/">R</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Developing%20an%20R%20package&amp;url=%2fpost%2fdeveloping-an-r-package%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fdeveloping-an-r-package%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fdeveloping-an-r-package%2f&amp;title=Developing%20an%20R%20package"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fdeveloping-an-r-package%2f&amp;title=Developing%20an%20R%20package"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Developing%20an%20R%20package&amp;body=%2fpost%2fdeveloping-an-r-package%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/developing-an-r-package/featured_hubf53c0cdf6ef1d499c0b8a8e07e52b9a_53065_680x500_fill_q90_box_smart1.jpg" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Developing an R package</h1>
+
+  
+
+  
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-01-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-01-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jan 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/fitodbod/">fitODBOD</a>, 
+    
+    <a href="/categories/r/">R</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Developing%20an%20R%20package&amp;url=%2fpost%2fdeveloping-an-r-package%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fdeveloping-an-r-package%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fdeveloping-an-r-package%2f&amp;title=Developing%20an%20R%20package"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fdeveloping-an-r-package%2f&amp;title=Developing%20an%20R%20package"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Developing%20an%20R%20package&amp;body=%2fpost%2fdeveloping-an-r-package%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/dagre/dagre-d3.min.js"></script>
+<link href="/rmarkdown-libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/mermaid/dist/mermaid.slim.min.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/chromatography/chromatography.js"></script>
+<script src="/rmarkdown-libs/DiagrammeR-binding/DiagrammeR.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#credit-to-people-of-r-community">Credit to People of R Community</a><ul>
+<li><a href="#coding-standards-coding-to-understand">1) Coding Standards (Coding to Understand)</a></li>
+<li><a href="#package-structure">2) Package Structure</a></li>
+<li><a href="#description-file">3) DESCRIPTION file</a></li>
+<li><a href="#readme-file">4) README file</a></li>
+<li><a href="#r-directory">5) /R directory</a></li>
+<li><a href="#data-directory">6) /data directory</a></li>
+<li><a href="#tests-directory">7) /tests directory</a></li>
+<li><a href="#man-directory">8) /man directory</a></li>
+<li><a href="#namsespace-file">9) NAMSESPACE file</a></li>
+<li><a href="#rbuildignore-file">10) .Rbuildignore file</a></li>
+<li><a href="#gitignore-file">11) .gitignore file</a></li>
+</ul></li>
+<li><a href="#building-the-package">Building the Package</a></li>
+<li><a href="#distributing-the-package">Distributing the Package</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>R package development is no longer as it was before 2010 because now most of the work can be done by just a simple mouse-click or with the use of a function. My intention of writing this blog post is not to give a thorough demonstration of how to develop your own R package. But it will briefly explain the process with the most important steps, and will include valuable blog posts and websites which helped me to develop my own R package <a href="https://cran.r-project.org/package=fitODBOD">fitODBOD.</a></p>
+</div>
+<div id="credit-to-people-of-r-community" class="section level1">
+<h1>Credit to People of R Community</h1>
+<p>I would definitely recommend to read all of these books and start your package development. Or at least make step by step progress in your work while reading them. If you have a basic knowledge regarding R, R studio, CRAN and writing programs, they are more than enough for you to start.</p>
+<ul>
+<li><a href="http://r-pkgs.had.co.nz/">R packages by Hadley Wickam</a></li>
+</ul>
+<p>This website contains everything that is in the book. The basic things related to an R package development process are structured properly here. It is very useful to read this book/website. The package structure, the type of files necessary, how should the writing be in these files and further, what kind of ways can we use to achieve the final outputs. The book is mainly focused on producing an R package which can be updated with the highest standards using reproducing ability. Such as CRAN standards and GitHub releases.</p>
+<ul>
+<li><a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a></li>
+</ul>
+<p>Everything related to package development is included here with clear instructions. This document is provided by the CRAN project to make package development more friendlier. It includes the official standards for files and naming conventions related to R package development.</p>
+<ul>
+<li><a href="https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf">Creating R packages: A Tutorial by Friedrich Leish</a></li>
+</ul>
+<p>A brief article explaining about writing functions, classes and methods for R package development. This is very abstract and useful in package development specially as it is focusing on object oriented programming and S formulas.</p>
+<ul>
+<li><a href="https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf">R for Beginners by Emmanuel Paradis</a></li>
+</ul>
+<p>A book explaining R and its ability in detail, for example regarding functions, data, abilities and limitations of R. There is also a section for R packages, which has valuable information. Writing functions is very crucial in R package development therefore going through this document is worth. Several packages also include data-sets in them. While you develop functions similarly we can develop data-sets as well. There are sections which includes information regarding data-sets as well.</p>
+<ul>
+<li><a href="http://diytranscriptomics.com/Reading/files/The%20Art%20of%20R%20Programming.pdf">The Art of R Programming by Norman Matloff</a></li>
+</ul>
+<p>Another book that will be useful in understanding how R functions and data-sets can be used in R package development.</p>
+<ul>
+<li><a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno by Patrick Burns</a></li>
+</ul>
+<p>Useful book related to object oriented programming, functions and data objects related to R. Very thorough and scrutinized information with valuable explanation which makes things more clearer.</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">Cheat Sheets</a></li>
+</ul>
+<p>Easy implementation of packages mentioned in these cheatsheets. Very essential for someone who is interested in doing R related stuff efficient and eloquent.</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide by Yihui Xie, J. J. Allaire, Garrett Grolemund</a></li>
+</ul>
+<p>Notes related to RMarkdown, very useful for vignette building.</p>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, Jim Hester</a></li>
+</ul>
+<p>Using GitHub for package development is very useful, specially when it comes to sharing and version control. This book explains it all with simplicity.</p>
+<div id="htmlwidget-1" style="width:900px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"graph TB;\n           A(Code with Standards and comment)-->C(Create R package);\n           C-->D(R package <br> Structure);\n           D-->E(DESCRIPTION file);\n           D-->F(README file);\n           D-->G(/R directory);\n           D-->H(/data directory);\n           D-->I(/tests directory);\n           D-->J(/man directory);\n           D-->K(NAMESPACE file);\n           D-->L(/vignettes <br> directory);\n           D-->M(NEWS.md file);\n           E-->O(Build <br> the package);\n           O-->N(Source,Bundle,Binary,Installed,In Memory);\n           F-->O; G-->O; H-->O; I-->O; J-->O; K-->O;  L-->O; M-->O;"},"evals":[],"jsHooks":[]}</script>
+<div id="coding-standards-coding-to-understand" class="section level2">
+<h2>1) Coding Standards (Coding to Understand)</h2>
+<ul>
+<li>Focus on naming conventions.</li>
+<li>Focus on input parameters and outputs.</li>
+<li>Focus on indentation.</li>
+<li>Comment regularly to make sense of the functions.</li>
+</ul>
+<div class="figure">
+<img src="/YourOwnPackage/codingstandards/figure1.PNG" alt="Sample Code" />
+<p class="caption">Sample Code</p>
+</div>
+</div>
+<div id="package-structure" class="section level2">
+<h2>2) Package Structure</h2>
+<ul>
+<li>Very Important.</li>
+<li>Initially few files will be originated in the designated project folder.</li>
+<li>Over time we might add folders or create files manually.</li>
+<li>Example - tests directory, README.Rmd, …</li>
+</ul>
+<p><img src="/YourOwnPackage/directory/figure1.PNG" /> Package structure inside your project folder.</p>
+</div>
+<div id="description-file" class="section level2">
+<h2>3) DESCRIPTION file</h2>
+<ul>
+<li>File explaining basic things related to your package.</li>
+<li>Example - package name, other packages needed, authors name, …</li>
+<li>Can edit manually or use specific R package.</li>
+</ul>
+<p><img src="/YourOwnPackage/otherfiles/figure1.PNG" /> After changes the DESCRIPTION file</p>
+</div>
+<div id="readme-file" class="section level2">
+<h2>4) README file</h2>
+<ul>
+<li>Very much optional.</li>
+<li>Only used in related to GitHub submission.</li>
+<li>Using Rmarkdown to generate a GitHub output document.</li>
+</ul>
+<p><img src="/YourOwnPackage/readme/figure1.PNG" /> Rmarkdown document</p>
+<p><img src="/YourOwnPackage/readme/figure2.PNG" /> GitHub document</p>
+<p><img src="/YourOwnPackage/readme/figure3.PNG" /> Preview of GitHub document</p>
+</div>
+<div id="r-directory" class="section level2">
+<h2>5) /R directory</h2>
+<ul>
+<li>Most important directory.</li>
+<li>The place where all your R code is written by you.</li>
+<li>Best to have separate R script files for each function.</li>
+<li>Need to have a R script file for Data as well.</li>
+<li>R scripts can be modified further in order to create RDocumentation files(Rd files).</li>
+<li>These RDocumentation files will explain about the function.</li>
+<li>Processed R script files will automatically generate Rd files in the man directory.</li>
+</ul>
+<p><img src="/YourOwnPackage/codingstandards/figure2.PNG" /> <img src="/YourOwnPackage/codingstandards/figure3.PNG" /> R script file with necessary roxygen tags to develop RDocumentation files.</p>
+</div>
+<div id="data-directory" class="section level2">
+<h2>6) /data directory</h2>
+<ul>
+<li>Not compulsory.</li>
+<li>Easy to use your own data therefore its worth it.</li>
+<li>This directory will include the data-sets.</li>
+<li>R directory can have an R script to generate Rd files for these data-sets.</li>
+</ul>
+<p><img src="/YourOwnPackage/directory/figure3.PNG" /> data directory which includes data-sets.</p>
+<p><img src="/YourOwnPackage/data/figure1.PNG" /> Rscript file which includes necessary roxygen tags to generate Rd files.</p>
+</div>
+<div id="tests-directory" class="section level2">
+<h2>7) /tests directory</h2>
+<ul>
+<li>If your package is going to be in CRAN or going to be in a platform with large range of users this would be useful.</li>
+<li>Unit tests to check if functions are working properly.</li>
+<li>Testing if the data sets are in proper form.</li>
+</ul>
+<p><img src="/YourOwnPackage/directory/figure4.PNG" /> tests directory and files in side that directory.</p>
+<p><img src="/YourOwnPackage/directory/figure5.PNG" /> sub directory testthat which includes test R scripts for all functions and data sets.</p>
+<p><img src="/YourOwnPackage/checktest/figure1.PNG" /> R script to test a function.</p>
+<p><img src="/YourOwnPackage/checktest/figure2.PNG" /> R script to test a data set.</p>
+</div>
+<div id="man-directory" class="section level2">
+<h2>8) /man directory</h2>
+<ul>
+<li>This directory will include the Rd files for all functions and data sets.</li>
+<li>If you use roxygen tags there is no need to manually type them.</li>
+</ul>
+<p><img src="/YourOwnPackage/codingstandards/figure6.PNG" /> <img src="/YourOwnPackage/codingstandards/figure7.PNG" /> With the help of R script files these RDocumentation files will be generated for each function and will be in the man directory.</p>
+<p><img src="/YourOwnPackage/codingstandards/figure4.PNG" /> <img src="/YourOwnPackage/codingstandards/figure5.PNG" /> The RDocumentation files can be processed into html outputs or into a pdf manual.</p>
+<p><img src="" /> Rd file of a data-set which is created with the help of data R script.</p>
+<p><img src="/YourOwnPackage/data/figure2.PNG" /> Html file which is generated with the help of Rd file for the data-set.</p>
+</div>
+<div id="namsespace-file" class="section level2">
+<h2>9) NAMSESPACE file</h2>
+<ul>
+<li>A file which will have all the functions that you created for your package.</li>
+<li>If a function is exported then it will be in this file.</li>
+</ul>
+<p><img src="/YourOwnPackage/otherfiles/figure2.PNG" /> NAMESPACE file and its components.</p>
+</div>
+<div id="rbuildignore-file" class="section level2">
+<h2>10) .Rbuildignore file</h2>
+<ul>
+<li>A document which includes what kind of files should not be used when building the package.</li>
+<li>Extensions of a file or partial or full name of the file can be added into this document.</li>
+</ul>
+<p><img src="/YourOwnPackage/otherfiles/figure3.PNG" /> .Rbuildignore file of fitODBOD package.</p>
+</div>
+<div id="gitignore-file" class="section level2">
+<h2>11) .gitignore file</h2>
+<ul>
+<li>A document which includes what kind of files should not be pushed to the GitHub repository.</li>
+<li>Extensions of a file or partial or full name of the file can be added into this document.</li>
+</ul>
+<p><img src="/YourOwnPackage/otherfiles/figure4.PNG" /> .gitignore file of fitODBOD package.</p>
+</div>
+</div>
+<div id="building-the-package" class="section level1">
+<h1>Building the Package</h1>
+<p>All the files should be in their respective directories and names should not be changed for files or folders manually if they are created automatically. After checking all of this we can proceed to building the package. This process has 9 steps and below is a diagram to show how it works.</p>
+<div id="htmlwidget-2" style="width:1000px;height:300px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"graph LR;\n           A(Document <br> Generation)-->C(Clean and <br> Rebuild);\n           C-->D(Spellcheck <br> Rd files);\n           D-->B((Check for <br> issues));\n           B-->Z((Make Necessary <br> Changes)); Z-->A;\n           D-->E(Test <br> the Package); E-->B;\n           E-->F(Check <br> for Errors); F-->B;\n           F-->G(Build <br> Source Package);\n           G-->H(Build <br> Binary Package);\n           H-->I(Generate <br> Manual pdf);\n           I-->J(Check Errors <br> on Source Package); J-->B"},"evals":[],"jsHooks":[]}</script>
+<p>This process is explained through a small presentation <a href="/YourOwnPackage/BuildYourOwnPackage.html">here</a>. This presentation also can be used when you need to update your package version.</p>
+</div>
+<div id="distributing-the-package" class="section level1">
+<h1>Distributing the Package</h1>
+<p>There are several ways of distributing your package. They are mainly</p>
+<ol style="list-style-type: decimal">
+<li>tar.qz version.</li>
+<li>zip version.</li>
+<li>GitHub Repository.</li>
+<li>The project folder which includes the package.</li>
+<li>Submit to CRAN or Bioconductor.</li>
+</ol>
+<p>I have written two posts related to R packages as well. One is <a href="https://amalan-con-stat.netlify.com/post/findrpackage/how-to-find-your-r-package/">How to find your R package</a> and Second is <a href="https://amalan-con-stat.netlify.com/post/newpackage/build-a-new-package-with-existing-r-packages/">Using R packages to develop your own package</a>. These two posts will be very useful as well.</p>
+<p><em>THANK YOU</em></p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="">R package</a>
+  
+  <a class="badge badge-light" href="/tags/fitodbod/">fitODBOD</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/mleand2/benchmarking-the-mle-and-mle2-function/">Benchmarking the mle and mle2 function </a></li>
+        
+        <li><a href="/post/tidytuesday2019/week-2-imdb-tv-shows-data/">Week 2: IMDB TV Shows Data</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week-1-tidytuesday-tweets/">2019 Week 1 : #TidyTuesday Tweets </a></li>
+        
+        <li><a href="/post/newpackage/build-a-new-package-with-existing-r-packages/">Build a New Package with Existing R packages</a></li>
+        
+        <li><a href="/post/findrpackage/how-to-find-your-r-package/">How To Find Your R package ?</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+
