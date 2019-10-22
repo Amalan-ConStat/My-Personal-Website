@@ -22,7 +22,7 @@ summary: '2019 Week 43 TidyTuesday: Horror Movies.'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,fig.width = 12,fig.height = 10,message = FALSE,warning = FALSE)
+knitr::opts_chunk$set(echo = TRUE,message = FALSE,warning = FALSE)
 ```
 
 [Data](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-22) is for 
@@ -138,7 +138,7 @@ TreeData <- treemap(
                     type="value"
                     )
 
-d3tree(TreeData,rootname = "Choices")
+d3tree3(TreeData,rootname = "Choices")
 ```
 
 *THANK YOU*

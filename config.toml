@@ -37,7 +37,7 @@ defaultContentLanguageInSubdir = false
 enableGitInfo = false
 
 [outputs]
-  home = [ "HTML", "CSS", "RSS", "JSON" ]
+  home = [ "HTML", "CSS", "RSS", "JSON"]
   section = [ "HTML", "RSS" ]
 
 # Configure BlackFriday Markdown rendering.
