@@ -31,6 +31,8 @@ self-learning. I hope to share these books with you so that it will be useful. T
 numbers except that they are just for ordering from 1 to further in no hierarchy. Genre specificity
 is not my thing therefore these books are not divided into groups. 
 
+## April 2018 - December 2018
+
 1. [Rise the Dark by Michael Koryta](https://www.amazon.com/gp/product/0316293865/ref=dbs_a_def_rwt_hsch_vapi_taft_p1_i1)
 2. [The Bourne Enigma by Eric Van LustBader](https://www.amazon.com/Robert-Ludlums-Bourne-Enigma-Jason/dp/1455597953)
 3. [Jack Reacher thriller, A Wanted Man by Lee Child](https://www.amazon.com/gp/product/0440246318/ref=dbs_a_def_rwt_bibl_vppi_i26)
@@ -42,6 +44,12 @@ is not my thing therefore these books are not divided into groups.
 9. [Boy by Roald Dohl](https://www.amazon.com/gp/product/014241381X/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i10)
 10. [Animal Farm by George Orwell](https://www.amazon.com/gp/product/0451526341/ref=dbs_a_def_rwt_hsch_vapi_tpbk_p1_i1)
 11. [The power of Habit by Charles Duhigg](https://www.amazon.com/gp/product/081298160X/ref=dbs_a_def_rwt_bibl_vppi_i0)
+
+## October 2019 
+
+1. [The Lost Symbol by Dan Brown](https://www.amazon.com/Lost-Symbol-Robert-Langdon/dp/0307950689/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
+2. [Jack Reacher thriller, Die Trying by Lee Child ](https://www.amazon.com/Die-Trying-Lee-Child/dp/0857500058/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
+3. [Like a Virgin by Richard Branson](https://www.amazon.com/Like-Virgin-Secrets-Business-School/dp/1591845688/ref=sr_1_1?crid=2B5WHCF9D6HGQ&keywords=like+a+virgin+richard+branson&qid=1571767270&s=books&sprefix=Like+a+virgin+richard%2Cstripbooks-intl-ship%2C349&sr=1-1)
 
 Books Related to R, Data Science and Statistics
 
