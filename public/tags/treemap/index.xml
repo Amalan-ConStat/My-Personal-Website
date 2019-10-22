@@ -18,7 +18,9 @@
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tidytuesday2019/week43/week43/</guid>
-      <description></description>
+      <description>Organize DataRain GraphTree mapData is forWeek 43 under the title Horror Movies. Have not done any plotting for TidyTuesday for some time orto be exact more than two months. So here I am trying out d3 visualisation in R.
+Helpful packages for this post are ‘d3rain’ and ‘d3treeR’.
+# load the packageslibrary(d3rain)library(dplyr)library(ggplot2)library(splitstackshape)library(d3treeR)library(treemap)# load the datahorror_movies &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
     </item>
     
   </channel>
