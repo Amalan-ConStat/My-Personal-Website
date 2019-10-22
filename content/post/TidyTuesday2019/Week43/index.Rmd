@@ -1,0 +1,23 @@
+---
+title: 'Week 43: Horror Movies'
+author: M.Amalan
+date: '2019-10-22'
+slug: Week43
+categories:
+  - TidyTuesday
+tags:
+  - d3
+  - dplyr
+  - treemap
+  - splitstackshape
+  - TidyTuesday
+  - tidyverse
+output:
+  blogdown::html_page:
+    toc: yes   
+image:
+  caption: ''
+  focal_point: ''
+summary: '2019 Week 43 TidyTuesday: Horror Movies.'  
+---
+
