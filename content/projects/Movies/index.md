@@ -78,54 +78,113 @@ give you more information.
 8. [Dunkirk]()
 
 #   F
-1. [Fargo]
+1. [Fargo]()
 2. [Fast Furious Collection]()
 3. [Fury]()
-8. [Fight Club](https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1)
-9. [Forrest Gump](https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1)
+4. [Fight Club](https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1)
+5. [Forrest Gump](https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1)
 
 #   G
-1. [Godfather](https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1) 
+1. [Godfather Trilogy](https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1) 
+2. [Glass]()
+3. [Good Will Hunting]()
+4. [Green Book]()
+5. [Guardians of Galaxy Dualogy]()
+
+#   H
+1. [How to train your dragon]()
 
 #    I    
 1. [Inception](https://www.imdb.com/title/tt1375666/?ref_=nv_sr_1)
-12. [Interstellar](https://www.imdb.com/title/tt0816692/?ref_=nv_sr_1)
-13. [Internal Affairs](https://www.imdb.com/title/tt0338564/?ref_=tt_rec_tti)
-14. [Ip man](https://www.imdb.com/title/tt1220719/?ref_=nv_sr_1) 
+2. [Interstellar](https://www.imdb.com/title/tt0816692/?ref_=nv_sr_1)
+3. [Internal Affairs](https://www.imdb.com/title/tt0338564/?ref_=tt_rec_tti)
+4. [Ip man](https://www.imdb.com/title/tt1220719/?ref_=nv_sr_1) 
+5. [Independence Day Dualogy]()
+6. [Indiana Jones Quadrapology]()
+7. [Inglorious Bastards]()
+8. [Insomnia]()
+9. [Inside Man]()
+10. [Iron Man Trilogy]()
+
+#   J
+1. [Jack Reacher Dualogy]
+2. [Jack Ryan Collection]()
+3. [James Bond 007 Collection]()
+4. [John Wick Trilogy]()
+
+#   K
+1. [Kill Bill Dualogy]()
+2. [Killer Elite]()
+3. [Knight and Day]()
+4. [Kungfu Panda]()
+
 
 #   L 
-1. [Lock, Stock and Two Smoking Barrels](https://www.imdb.com/title/tt0120735/?ref_=nv_sr_1)
-16. [Lord of The Rings Collection](https://www.imdb.com/title/tt0167260/?ref_=nv_sr_2) 
+1. [L.A. Confidential]()
+2. [Lawrence of Arabia]()
+3. [Limitless]()
+4. [Lock, Stock and Two Smoking Barrels](https://www.imdb.com/title/tt0120735/?ref_=nv_sr_1)
 
 #   M
-1. [Memento](https://www.imdb.com/title/tt0209144/?ref_=nv_sr_1)
-18. [Mr and Mrs Smith](https://www.imdb.com/title/tt0356910/?ref_=nv_sr_1) 
+1. [Margin Call]()
+2. [Men in Black]()
+3. [Minions]()
+4. [Mirage]()
+5. [Murder on the Orient Express Dualogy]()
+6. [Memento](https://www.imdb.com/title/tt0209144/?ref_=nv_sr_1)
+7. [Mr and Mrs Smith](https://www.imdb.com/title/tt0356910/?ref_=nv_sr_1) 
+
+#   N
+1. [No Country for Old Men]()
 
 #   O
 1. [One flew over the cuckoos nest](https://www.imdb.com/title/tt0073486/?ref_=nv_sr_1)
+2. [Oceans Collection]()
+3. [On the Basis Of Sex]()
+4. [Once upon a Time in the West]()
+
+#   P
+1. [Pain and Gain]()
+2. [Paycheck]()
+3. [Pulp Fiction]()
+4. [Rear Window]()
+5. [Reservior Dogs]()
+6. [Rock n Rolla]()
 
 #   S
-2. [Se7en](https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1)
-21. [Saving Private Ryan](https://www.imdb.com/title/tt0120815/?ref_=nv_sr_1)
-22. [Shutter Island](https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1) 
-23. [Schindlers List](https://www.imdb.com/title/tt0108052/?ref_=nv_sr_1) 
+1. [Se7en](https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1)
+2. [Saving Private Ryan](https://www.imdb.com/title/tt0120815/?ref_=nv_sr_1)
+3. [Shutter Island](https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1) 
+4. [Schindlers List](https://www.imdb.com/title/tt0108052/?ref_=nv_sr_1) 
+5. [Safe House]()
+6. [Salt]()
+7. [Saving Private Ryan]()
+8. [Seven Psychopaths]()
+9. [Shaft Dualogy]()
+10. [Snatch]()
+11. [Shazam]()
+12. [Spider Man]()
+13. [Split]()
+14. [Stargate]()
 
 #   T
-2. [The Departed](https://www.imdb.com/title/tt0407887/?ref_=nv_sr_1)
-25. [The Good The Bad and The Ugly](https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1)
-26. [The Shawshank Redemption](https://www.imdb.com/title/tt0111161/?ref_=nv_sr_1)
-27. [The Silence of the Lambs](https://www.imdb.com/title/tt0102926/?ref_=nv_sr_1)
-28. [The Sting](https://www.imdb.com/title/tt0070735/?ref_=nv_sr_1)
-30. [The Terminal](https://www.imdb.com/title/tt0362227/?ref_=nv_sr_2)
-31. [The Truman Show](https://www.imdb.com/title/tt0120382/?ref_=nv_sr_1)
-32. [The Matrix Trilogy](https://www.imdb.com/title/tt0133093/?ref_=nv_sr_1)
-33. [The Bourne Collection](https://www.imdb.com/title/tt4196776/?ref_=nv_sr_1) 
-34. [The Hobbit Collection](https://www.imdb.com/title/tt2310332/?ref_=nv_sr_2) 
-35  [The Raid](https://www.imdb.com/title/tt2265171/?ref_=nv_sr_2) 
-36. [The Prestige](https://www.imdb.com/title/tt0482571/?ref_=nv_sr_1)
-42. [The Intouchables](https://www.imdb.com/title/tt1675434/)
-
-44. [The Invisible Guest](https://www.imdb.com/title/tt4857264/)
+1. [Taken Trilogy]()
+2. [Ted Dualogy]()
+3. [The Departed](https://www.imdb.com/title/tt0407887/?ref_=nv_sr_1)
+4. [The Good The Bad and The Ugly](https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1)
+5. [The Shawshank Redemption](https://www.imdb.com/title/tt0111161/?ref_=nv_sr_1)
+6. [The Silence of the Lambs](https://www.imdb.com/title/tt0102926/?ref_=nv_sr_1)
+7. [The Sting](https://www.imdb.com/title/tt0070735/?ref_=nv_sr_1)
+8. [The Terminal](https://www.imdb.com/title/tt0362227/?ref_=nv_sr_2)
+9. [The Truman Show](https://www.imdb.com/title/tt0120382/?ref_=nv_sr_1)
+10. [The Matrix Trilogy](https://www.imdb.com/title/tt0133093/?ref_=nv_sr_1)
+11. [The Bourne Collection](https://www.imdb.com/title/tt4196776/?ref_=nv_sr_1) 
+12. [The Hobbit Collection](https://www.imdb.com/title/tt2310332/?ref_=nv_sr_2) 
+13  [The Raid](https://www.imdb.com/title/tt2265171/?ref_=nv_sr_2) 
+14. [The Prestige](https://www.imdb.com/title/tt0482571/?ref_=nv_sr_1)
+15. [The Intouchables](https://www.imdb.com/title/tt1675434/)
+16. [The Lord of The Rings Collection](https://www.imdb.com/title/tt0167260/?ref_=nv_sr_2) 
+17. [The Invisible Guest](https://www.imdb.com/title/tt4857264/)
 
 
 #   V
