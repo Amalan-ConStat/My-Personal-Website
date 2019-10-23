@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/projects/tvshows/</loc>
+      <lastmod>2019-10-22T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/tidytuesday2019/week43/week43/</loc>
       <lastmod>2019-10-22T00:00:00+00:00</lastmod>
     </url>
@@ -436,14 +444,6 @@
     
     <url>
     
-      <loc>/projects/tvshows/</loc>
-      <lastmod>2018-10-20T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/tutorial/example/</loc>
       <lastmod>2018-09-09T00:00:00+05:30</lastmod>
     </url>
@@ -707,7 +707,7 @@
     <url>
     
       <loc>/projects/</loc>
-      <lastmod>2018-10-20T00:00:00+00:00</lastmod>
+      <lastmod>2019-10-22T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -839,7 +839,7 @@
     <url>
     
       <loc>/tags/tvshows/</loc>
-      <lastmod>2018-10-20T00:00:00+00:00</lastmod>
+      <lastmod>2019-10-22T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
