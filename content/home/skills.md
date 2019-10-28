@@ -25,19 +25,19 @@ weight = 7
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "90%"
+  description = "Experience 5 years"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "90%"  
+  description = "Experience 6 Years"  
   
 [[feature]]
   icon = "chart-pie"
   icon_pack = "fas"
   name = "Solve, Code & Try"
-  description = "35%, 30% & 35%"
+  description = "Experience 2 Years"
 
 [[feature]]
   icon = "globe"
