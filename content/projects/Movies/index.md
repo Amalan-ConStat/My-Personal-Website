@@ -33,18 +33,18 @@ give you more information.
 
 #   0 to 9
 1. [12 Angry Men](https://www.imdb.com/title/tt0050083/?ref_=nv_sr_1)
-2. [13 Hours The Secret Soldiers of Benghazi]()
-3. [2012]()
+2. [13 Hours The Secret Soldiers of Benghazi](https://www.imdb.com/title/tt4172430/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [2012](https://www.imdb.com/title/tt1190080/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   A  
-1. [A Private War]()
-2. [American Gangster]()
-3. [Aquaman]()
-4. [Arrival]()
-5. [Asterix and Obelix Mansion of Gods]()
-6. [Asterix and Obelix The Secret of The Magic Potion]()
-7. [Avengers Trilogy]()
-8. [Argo]()
+1. [A Private War](https://www.imdb.com/title/tt2368254/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [American Gangster](https://www.imdb.com/title/tt0765429/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [Aquaman](https://www.imdb.com/title/tt1477834/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Arrival](https://www.imdb.com/title/tt2543164/?ref_=nv_sr_1?ref_=nv_sr_1)
+5. [Asterix and Obelix Mansion of Gods](https://www.imdb.com/title/tt3759416/?ref_=nv_sr_2?ref_=nv_sr_2)
+6. [Asterix and Obelix The Secret of The Magic Potion](https://www.imdb.com/title/tt8001346/?ref_=nv_sr_1?ref_=nv_sr_1)
+7. [Avengers Trilogy](https://www.imdb.com/title/tt4154796/?ref_=nv_sr_1?ref_=nv_sr_1)
+8. [Argo](https://www.imdb.com/title/tt1024648/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   B
 1. [Bad Boys Dualogy]()
