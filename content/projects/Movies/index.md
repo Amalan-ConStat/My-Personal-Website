@@ -142,43 +142,43 @@ give you more information.
 9. [Moneyball](https://www.imdb.com/title/tt1210166/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   N
-1. [No Country for Old Men]()
+1. [No Country for Old Men](https://www.imdb.com/title/tt0477348/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   O
 1. [One flew over the cuckoos nest](https://www.imdb.com/title/tt0073486/?ref_=nv_sr_1)
-2. [Oceans Collection]()
-3. [On the Basis Of Sex]()
-4. [Once upon a Time in the West]()
+2. [Oceans Collection](https://www.imdb.com/title/tt0240772/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [On the Basis Of Sex](https://www.imdb.com/title/tt4669788/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Once upon a Time in the West](https://www.imdb.com/title/tt0064116/?ref_=nv_sr_4?ref_=nv_sr_4)
 
 #   P
-1. [Pain and Gain]()
-2. [Paycheck]()
-3. [Pulp Fiction]()
-4. [Rear Window]()
-5. [Reservior Dogs]()
-6. [Rock n Rolla]()
+1. [Pain and Gain](https://www.imdb.com/title/tt1980209/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [Paycheck](https://www.imdb.com/title/tt0338337/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [Pulp Fiction](https://www.imdb.com/title/tt0110912/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Rear Window](https://www.imdb.com/title/tt0047396/?ref_=nv_sr_1?ref_=nv_sr_1)
+5. [Reservior Dogs](https://www.imdb.com/title/tt0105236/?ref_=nv_sr_1?ref_=nv_sr_1)
+6. [Rock n Rolla](https://www.imdb.com/title/tt1032755/?ref_=nv_sr_2?ref_=nv_sr_2)
 
 #   Q
-1. [Quiz Show]()
+1. [Quiz Show](https://www.imdb.com/title/tt0110932/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   R
-1. [Ronin]
+1. [Ronin](https://www.imdb.com/title/tt0122690/?ref_=nv_sr_2?ref_=nv_sr_2)
 
 #   S
 1. [Se7en](https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1)
 2. [Saving Private Ryan](https://www.imdb.com/title/tt0120815/?ref_=nv_sr_1)
 3. [Shutter Island](https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1) 
 4. [Schindlers List](https://www.imdb.com/title/tt0108052/?ref_=nv_sr_1) 
-5. [Safe House]()
-6. [Salt]()
-7. [Saving Private Ryan]()
-8. [Seven Psychopaths]()
-9. [Shaft Dualogy]()
-10. [Snatch]()
-11. [Shazam]()
-12. [Spider Man]()
-13. [Split]()
-14. [Stargate]()
+5. [Safe House](https://www.imdb.com/title/tt1599348/?ref_=nv_sr_1?ref_=nv_sr_1)
+6. [Salt](https://www.imdb.com/title/tt0944835/?ref_=nv_sr_1?ref_=nv_sr_1)
+7. [Saving Private Ryan](https://www.imdb.com/title/tt0120815/?ref_=nv_sr_1?ref_=nv_sr_1)
+8. [Seven Psychopaths](https://www.imdb.com/title/tt1931533/?ref_=nv_sr_1?ref_=nv_sr_1)
+9. [Shaft Dualogy](https://www.imdb.com/title/tt4463894/?ref_=nv_sr_1?ref_=nv_sr_1)
+10. [Snatch](https://www.imdb.com/title/tt0208092/?ref_=nv_sr_1?ref_=nv_sr_1)
+11. [Shazam](https://www.imdb.com/title/tt0448115/?ref_=nv_sr_1?ref_=nv_sr_1)
+12. [Spider Man](https://www.imdb.com/title/tt6320628/?ref_=nv_sr_1?ref_=nv_sr_1)
+13. [Split](https://www.imdb.com/title/tt4972582/?ref_=nv_sr_1?ref_=nv_sr_1)
+14. [Stargate](https://www.imdb.com/title/tt0111282/?ref_=nv_sr_3?ref_=nv_sr_3)
 
 #   T
 1. [Taken Trilogy]()
