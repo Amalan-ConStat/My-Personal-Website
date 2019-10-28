@@ -70,20 +70,20 @@ give you more information.
 11. [Cast Away](https://www.imdb.com/title/tt0162222/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   D
-1. [Deadpool Dualogy]()
-2. [Deja Vu]()
-3. [Doctor Strange]()
+1. [Deadpool Dualogy](https://www.imdb.com/title/tt1431045/?ref_=nv_sr_2?ref_=nv_sr_2)
+2. [Deja Vu](https://www.imdb.com/title/tt0453467/?ref_=nv_sr_2?ref_=nv_sr_2)
+3. [Doctor Strange](https://www.imdb.com/title/tt1211837/?ref_=nv_sr_1?ref_=nv_sr_1)
 4. [Dan Brown Trilogy](https://www.imdb.com/title/tt0382625/?ref_=nv_sr_1)
 5. [Die Hard Quadropolgy](https://www.imdb.com/title/tt0095016/?ref_=nv_sr_1) 
 6. [Despicable Me Collection](https://www.imdb.com/title/tt1323594/?ref_=nv_sr_1) 
 7. [Dr. Strangelove](https://www.imdb.com/title/tt0057012/?ref_=nv_sr_1)
-8. [Dunkirk]()
-9. [Dead Poets Society]()
+8. [Dunkirk](https://www.imdb.com/title/tt5013056/?ref_=nv_sr_1?ref_=nv_sr_1)
+9. [Dead Poets Society](https://www.imdb.com/title/tt0097165/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   F
-1. [Fargo]()
-2. [Fast Furious Collection]()
-3. [Fury]()
+1. [Fargo](https://www.imdb.com/title/tt0116282/?ref_=nv_sr_2?ref_=nv_sr_2)
+2. [Fast Furious Collection](https://www.imdb.com/title/tt0232500/?ref_=nv_sr_5?ref_=nv_sr_5)
+3. [Fury](https://www.imdb.com/title/tt2713180/?ref_=nv_sr_2?ref_=nv_sr_2)
 4. [Fight Club](https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1)
 5. [Forrest Gump](https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1)
 
