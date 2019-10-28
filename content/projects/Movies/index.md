@@ -112,34 +112,34 @@ give you more information.
 10. [Iron Man Trilogy](https://www.imdb.com/title/tt0371746/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   J
-1. [Jack Reacher Dualogy]
-2. [Jack Ryan Collection]()
-3. [James Bond 007 Collection]()
-4. [John Wick Trilogy]()
+1. [Jack Reacher Dualogy](https://www.imdb.com/title/tt0790724/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [Jack Ryan Collection](https://www.imdb.com/title/tt1205537/?ref_=nv_sr_2?ref_=nv_sr_2)
+3. [James Bond 007 Collection](https://www.imdb.com/title/tt2379713/?ref_=nv_sr_3?ref_=nv_sr_3)
+4. [John Wick Trilogy](https://www.imdb.com/title/tt6146586/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   K
-1. [Kill Bill Dualogy]()
-2. [Killer Elite]()
-3. [Knight and Day]()
-4. [Kungfu Panda]()
+1. [Kill Bill Dualogy](https://www.imdb.com/title/tt0266697/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [Killer Elite](https://www.imdb.com/title/tt1448755/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [Knight and Day](https://www.imdb.com/title/tt1013743/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Kungfu Panda](https://www.imdb.com/title/tt0441773/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 
 #   L 
-1. [L.A. Confidential]()
-2. [Lawrence of Arabia]()
-3. [Limitless]()
+1. [L.A. Confidential](https://www.imdb.com/title/tt0119488/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [Lawrence of Arabia](https://www.imdb.com/title/tt0056172/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [Limitless](https://www.imdb.com/title/tt1219289/?ref_=nv_sr_1?ref_=nv_sr_1)
 4. [Lock, Stock and Two Smoking Barrels](https://www.imdb.com/title/tt0120735/?ref_=nv_sr_1)
 
 #   M
-1. [Margin Call]()
-2. [Men in Black]()
-3. [Minions]()
-4. [Mirage]()
-5. [Murder on the Orient Express Dualogy]()
+1. [Margin Call](https://www.imdb.com/title/tt1615147/?ref_=nv_sr_1?ref_=nv_sr_1)
+2. [Men in Black Trilogy](https://www.imdb.com/title/tt0119654/?ref_=nv_sr_2?ref_=nv_sr_2)
+3. [Minions](https://www.imdb.com/title/tt2293640/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Mirage](https://www.imdb.com/title/tt6908274/?ref_=nv_sr_1?ref_=nv_sr_1)
+5. [Murder on the Orient Express Dualogy](https://www.imdb.com/title/tt0071877/?ref_=nv_sr_2?ref_=nv_sr_2)
 6. [Memento](https://www.imdb.com/title/tt0209144/?ref_=nv_sr_1)
 7. [Mr and Mrs Smith](https://www.imdb.com/title/tt0356910/?ref_=nv_sr_1) 
-8. [Million Dollar Baby]()
-9. [Moneyball]()
+8. [Million Dollar Baby](https://www.imdb.com/title/tt0405159/?ref_=nv_sr_1?ref_=nv_sr_1)
+9. [Moneyball](https://www.imdb.com/title/tt1210166/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   N
 1. [No Country for Old Men]()
