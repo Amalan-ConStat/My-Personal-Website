@@ -44,6 +44,7 @@ give you more information.
 5. [Asterix and Obelix Mansion of Gods]()
 6. [Asterix and Obelix The Secret of The Magic Potion]()
 7. [Avengers Trilogy]()
+8. [Argo]()
 
 #   B
 1. [Bad Boys Dualogy]()
@@ -96,6 +97,7 @@ give you more information.
 
 #   H
 1. [How to train your dragon]()
+2. [Heat]()
 
 #   I    
 1. [Inception](https://www.imdb.com/title/tt1375666/?ref_=nv_sr_1)
@@ -137,6 +139,7 @@ give you more information.
 6. [Memento](https://www.imdb.com/title/tt0209144/?ref_=nv_sr_1)
 7. [Mr and Mrs Smith](https://www.imdb.com/title/tt0356910/?ref_=nv_sr_1) 
 8. [Million Dollar Baby]()
+9. [Moneyball]()
 
 #   N
 1. [No Country for Old Men]()
@@ -154,6 +157,12 @@ give you more information.
 4. [Rear Window]()
 5. [Reservior Dogs]()
 6. [Rock n Rolla]()
+
+#   Q
+1. [Quiz Show]()
+
+#   R
+1. [Ronin]
 
 #   S
 1. [Se7en](https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1)
@@ -221,6 +230,7 @@ give you more information.
 47. [Toy Story]()
 48. [Training Day]()
 49. [Triple Frontier]()
+50. [The Untouchables]()
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1)
