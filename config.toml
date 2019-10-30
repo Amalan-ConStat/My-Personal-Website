@@ -354,6 +354,11 @@ enableGitInfo = false
     url = "files/Amalan_Mahendran.pdf"
     weight = 9
 
+ [[menu.main]]
+    name = "CV Web"
+    url = "https://amalan-cv.netlify.com/"
+    weight = 10
+
 # Search.
 [params.search]
   # Search provider:
