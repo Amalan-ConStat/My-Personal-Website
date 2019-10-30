@@ -98,6 +98,7 @@ give you more information.
 #   H
 1. [How to train your dragon](https://www.imdb.com/title/tt0892769/?ref_=nv_sr_2?ref_=nv_sr_2)
 2. [Heat](https://www.imdb.com/title/tt0113277/?ref_=nv_sr_1?ref_=nv_sr_1)
+3. [Hot Fuzz](https://www.imdb.com/title/tt0425112/)
 
 #   I    
 1. [Inception](https://www.imdb.com/title/tt1375666/?ref_=nv_sr_1)
@@ -116,13 +117,13 @@ give you more information.
 2. [Jack Ryan Collection](https://www.imdb.com/title/tt1205537/?ref_=nv_sr_2?ref_=nv_sr_2)
 3. [James Bond 007 Collection](https://www.imdb.com/title/tt2379713/?ref_=nv_sr_3?ref_=nv_sr_3)
 4. [John Wick Trilogy](https://www.imdb.com/title/tt6146586/?ref_=nv_sr_1?ref_=nv_sr_1)
+5. [Jackie Brown](https://www.imdb.com/title/tt0119396/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   K
 1. [Kill Bill Dualogy](https://www.imdb.com/title/tt0266697/?ref_=nv_sr_1?ref_=nv_sr_1)
 2. [Killer Elite](https://www.imdb.com/title/tt1448755/?ref_=nv_sr_1?ref_=nv_sr_1)
 3. [Knight and Day](https://www.imdb.com/title/tt1013743/?ref_=nv_sr_1?ref_=nv_sr_1)
 4. [Kungfu Panda](https://www.imdb.com/title/tt0441773/?ref_=nv_sr_1?ref_=nv_sr_1)
-
 
 #   L 
 1. [L.A. Confidential](https://www.imdb.com/title/tt0119488/?ref_=nv_sr_1?ref_=nv_sr_1)
@@ -179,6 +180,7 @@ give you more information.
 12. [Spider Man](https://www.imdb.com/title/tt6320628/?ref_=nv_sr_1?ref_=nv_sr_1)
 13. [Split](https://www.imdb.com/title/tt4972582/?ref_=nv_sr_1?ref_=nv_sr_1)
 14. [Stargate](https://www.imdb.com/title/tt0111282/?ref_=nv_sr_3?ref_=nv_sr_3)
+15. [Shaun of The Dead](https://www.imdb.com/title/tt0365748/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   T
 1. [Taken Trilogy](https://www.imdb.com/title/tt0936501/?ref_=nv_sr_1?ref_=nv_sr_1)
@@ -231,6 +233,8 @@ give you more information.
 48. [Training Day](https://www.imdb.com/title/tt0139654/?ref_=nv_sr_1?ref_=nv_sr_1)
 49. [Triple Frontier](https://www.imdb.com/title/tt1488606/?ref_=nv_sr_1?ref_=nv_sr_1)
 50. [The Untouchables](https://www.imdb.com/title/tt0094226/?ref_=nv_sr_1?ref_=nv_sr_1)
+51. [The Hurt Locker](https://www.imdb.com/title/tt0887912/?ref_=nv_sr_1?ref_=nv_sr_1)
+52. [The Martian](https://www.imdb.com/title/tt3659388/?ref_=fn_al_tt_1)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1)
@@ -247,6 +251,7 @@ give you more information.
 1. [World War Z](https://www.imdb.com/title/tt0816711/?ref_=nv_sr_1?ref_=nv_sr_1)
 2. [Wanted](https://www.imdb.com/title/tt0493464/?ref_=nv_sr_2?ref_=nv_sr_2)
 3. [Wall-E](https://www.imdb.com/title/tt0910970/?ref_=nv_sr_1)
+4. [Watchmen](https://www.imdb.com/title/tt0409459/?ref_=nv_sr_2?ref_=nv_sr_2)
 
 #  Z
 1. [Zombieland](https://www.imdb.com/title/tt1156398/?ref_=nv_sr_2?ref_=nv_sr_2)
