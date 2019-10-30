@@ -6,7 +6,7 @@ title = "Books I have read"
 date = "2018-10-20"
 
 # Project summary to display on homepage.
-summary = "The names of books with amazon links."
+summary = "The names of books with Amazon links."
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`

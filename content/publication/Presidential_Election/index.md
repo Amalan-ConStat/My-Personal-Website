@@ -25,7 +25,7 @@ publication = "*Extracting Sri Lankan Presidential Election Data from PDF Files.
 publication_short = "*Presidential Election*"
 
 # Abstract and optional shortened version.
-abstract = "Presidential Election Data of Sri Lanka has been in PDF files until this project was finished. While a Presidential Election is closeby it would be useful to have all the data regarding Presidential Elections from the beginning(1982). Over the seven elections we can thoroughly study how Sri Lankan community has voted based on political parties and interest. Further, this data could be used to the upcoming election as well. Future projects can be of similar idea while converting pdf files of Parliamentary and Local Elections to data-frames."
+abstract = "Presidential Election Data of Sri Lanka has been in PDF files until this project was finished. While a Presidential Election is close by it would be useful to have all the data regarding Presidential Elections from the beginning(1982). Over the seven elections we can thoroughly study how Sri Lankan community has voted based on political parties and interest. Further, this data could be used to the upcoming election as well. Future projects can be of similar idea while converting pdf files of Parliamentary and Local Elections to data-frames."
 
 #abstract_short = ""
 

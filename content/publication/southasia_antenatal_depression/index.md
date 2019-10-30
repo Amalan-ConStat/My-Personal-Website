@@ -25,7 +25,7 @@ publication = "*Prevalence of antenatal depression in South Asia: a systematic r
 publication_short = "*Meta-Analysis*"
 
 # Abstract and optional shortened version.
-abstract = "Meta analysis was conducted by me for the provided data using the packages meta and metafor from R statistical programming software. In the full article the package versions are clearly mentioned. Data was used to generate forrest plots, funnel plots and find the prevalance rates. This article is published in the most prestigious Journal of Epidemiology and Community Health of BMJ Journals."
+abstract = "Meta analysis was conducted by me for the provided data using the packages meta and metafor from R statistical programming software. In the full article the package versions are clearly mentioned. Data was used to generate forest plots, funnel plots and find the prevalence rates. This article is published in the most prestigious Journal of Epidemiology and Community Health of BMJ Journals."
 
 #abstract_short = ""
 

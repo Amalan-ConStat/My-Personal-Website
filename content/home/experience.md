@@ -26,11 +26,11 @@ date_format = "January 2006"
   location = "Peradeniya, Sri Lanka."
   date_start = "2017-01-09"
   date_end = "2018-07-20"
-  description = """ Conducted Lectures, practicals and Tutorils, while preparing and marking exams, quizzes and tutorials."""
+  description = """ Conducted Lectures, practicals and Tutorials, while preparing and marking exams, quizzes and tutorials."""
 
 [[experience]]
   title = "Maintainer"
-  company = "Data Science Unit, Postgraduate Institue of Science."
+  company = "Data Science Unit, Postgraduate Institute of Science."
   company_url = "http://www.pgis.pdn.ac.lk/dsu/index.html"
   location = "Peradeniya, Sri Lanka."
   date_start = "2017-01-09"

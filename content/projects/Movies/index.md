@@ -28,7 +28,7 @@ external_link = ""
 
 Watching movies for the last six years(from 2012) with much interest in plot, story line and characters. I have 
 watched more than 300 movies but the below mentioned are in my mind. They are from different decades as well, 
-therefore do not hesistate to watch. If you prefer go through the IMDB link so that the ratings and summary will
+therefore do not hesitate to watch. If you prefer go through the IMDB link so that the ratings and summary will
 give you more information.
 
 #   0 to 9
