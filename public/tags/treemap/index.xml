@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>treemap on Consulting Statistician</title>
+    <link>/tags/treemap/</link>
+    <description>Recent content in treemap on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 22 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/treemap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 43: Horror Movies</title>
+      <link>/post/tidytuesday2019/week43/week43/</link>
+      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week43/week43/</guid>
+      <description>Organize DataRain GraphTree mapData is forWeek 43 under the title Horror Movies. Have not done any plotting for TidyTuesday for some time orto be exact more than two months. So here I am trying out d3 visualisation in R.
+Helpful packages for this post are ‘d3rain’ and ‘d3treeR’.
+# load the packageslibrary(d3rain)library(dplyr)library(ggplot2)library(splitstackshape)library(d3treeR)library(treemap)# load the datahorror_movies &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
+    </item>
+    
+  </channel>
+</rss>

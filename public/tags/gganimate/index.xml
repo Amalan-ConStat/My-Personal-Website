@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gganimate on Consulting Statistician</title>
+    <link>/tags/gganimate/</link>
+    <description>Recent content in gganimate on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/gganimate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 34: Nuclear Explosions</title>
+      <link>/post/tidytuesday2019/week34/week34/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week34/week34/</guid>
+      <description>Magnitude Surface vs Magnitude BodyAll pointsPoints where Magnitude surface and body are more than 0 measurementMagnitude Surface and Body but Based on CountryMagnitude Surface and Body but Based on Country with animationYield Lower vs Yield UpperAll pointsPoints where Yield Upper and Lower are more than 0 measurementYield Upper and Lower but Based on CountryYield Upper and Lower but Based on Country with animationYearly progress based on CountryAnimatedStack graphType vs Purpose by CountryAnimatedSource vs Year by CountryAnimatedGitHub Code</description>
+    </item>
+    
+    <item>
+      <title>Week 29: R4DS Users</title>
+      <link>/post/tidytuesday2019/week29/week29/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week29/week29/</guid>
+      <description>Timely ChangeTimely Change for Full MembersDaily MembersDaily Members by Day of WeekWeekly MembersWeekly Members by Day of WeekMessages in Public, Private and DM ChannelsPercent Based Messages in Public, Private and DM ChannelsMessages in Public Channels by Day of WeekPercent Based Messages in Public Channels by Day of WeekMessages in Private Channels by Day of WeekPercent Based Messages in Private Channels by day of WeekMessages in DM by Day of WeekPercent Based Messages in DM by Day of Weekr4ds_members &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
+    </item>
+    
+    <item>
+      <title>Week 28: FIFA Womens World Cup</title>
+      <link>/post/tidytuesday2019/week28/week28/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week28/week28/</guid>
+      <description>SquadsCaptain-ship vs GoalsAge vs GoalsCountry and PositionsAge and PositionsCountry and Age DistributionsCountry and Goal ExperienceTop 15 Highest Goal Scorers participated in the FIFA World CupWWC OutcomesYear vs Countries of participationYear vs Rounds of MatchesYears vs Goalswwc_outcomes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/wwc_outcomes.csv&amp;quot;)squads &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/squads.csv&amp;quot;)codes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/codes.csv&amp;quot;)library(ggplot2)library(gganimate)library(dplyr)library(tvthemes)GitHub Code</description>
+    </item>
+    
+    <item>
+      <title>Week 27: Media Franchise Powerhouses</title>
+      <link>/post/tidytuesday2019/week27/week27/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week27/week27/</guid>
+      <description>Revenue Category and Original Media by Cow PlotRevenue Category and Original Media by AnimationsRevenue Category and Original Media by rayshaderRevenue Category In DecadesRevenue Category In Decades but with Total Revenuemedia_franchises &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-02/media_franchises.csv&amp;quot;)library(tidyverse)library(cowplot)library(rayshader)library(ggmosaic)library(gganimate)library(viridis)Using rayshader for the first time, Also cowplot package to combine two plots. Also, Manga has the highest total revenue in Original Media and second place is for Video game, others are significantly low.</description>
+    </item>
+    
+    <item>
+      <title>Week 26: Unidentified Flying Objects</title>
+      <link>/post/tidytuesday2019/week26/week26/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week26/week26/</guid>
+      <description>Timely changes for country and shapeYearly count changesMonthly count changesHourly count changesYearly Count changes for CountriesMonthly Count changes for CountriesHourly Count changes for CountriesDecade wise UFO shape changesDocumented Year and Origin YearYear vs Encounter LengthHour vs Encounter Lengthufo_sightings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-25/ufo_sightings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)library(lubridate)library(ggforce)library(ggthemr)GitHub
+USA and Canada has lot of sightings and most of them in mid year.</description>
+    </item>
+    
+    <item>
+      <title>Week 25: Birds, Ohhhh Canada </title>
+      <link>/post/tidytuesday2019/week25/week25/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week25/week25/</guid>
+      <description>Year with How many counted, How many counted by Hour and Total HoursYear and Total Hours by decadeYear and How many Counted by decadeYear and How many Hours Counted by Hour for decadeTop 10 Species with how many countedTop 10 Species with how many counted by yearTop 10 Species with how many counted by decadeTop 10 How many counted by hoursTop 10 Species with how many counted by hours for yearTop 10 Species with how many counted by hours for decadebird_counts &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
+    </item>
+    
+    <item>
+      <title>Week 24: Meteorite Data</title>
+      <link>/post/tidytuesday2019/week24/week24/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week24/week24/</guid>
+      <description>Meteorites over the YearMeteorites and ClassesThis week has data for Meteors from 8th century to year 2013(well 2101 is an error).
+So I have used the packages tidyverse,gganimate,maps and ggthemes to make this moreinteresting. There are three plots which I have generated, two of them are inspiredby others.
+meteorites &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&amp;quot;)library(tidyverse)library(gganimate)library(maps)library(ggthemes)Meteorites over the YearBased on the below tweet I was inspired to creata a similar plot which is animated byyears.</description>
+    </item>
+    
+    <item>
+      <title>Week 23 : Ramen Ratings</title>
+      <link>/post/tidytuesday2019/week23/week23/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week23/week23/</guid>
+      <description>ramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)library(tidyverse)library(gganimate)library(ggthemes)I have not posted regarding #TidyTuesday in a while, so here it is. It is allabout manipulating the dataset and generating necessary plots.
+DataGitHub Code
+Just an animated plot where for the top 10 brands how stars change with style and country. Ramen is with highest ratings in Japan, Taiwan and South Korea. #TidyTuesday GitHub Code : https://t.co/lPQrYK8aoN pic.twitter.com/IQ3okDflYK
+&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) June 5, 2019  ramen_ratings %&amp;gt;%count(stars,sort = TRUE) %&amp;gt;%ggplot(.</description>
+    </item>
+    
+    <item>
+      <title>South Park Text Analytics Shiny App</title>
+      <link>/post/southpark_rshiny/southpark_rshiny/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
+      <description>Shiny App of Text Analytics for South Park Tv show.No Inputs needed to generate Plots or ResultsTrivia Sub TabLines Sub TabWords Sub TabSpecial Words Sub TabRatings and Votes from IMDB Sub TabSentiment Analysis Sub TabBigram and Trigram Analysis Sub TabInputs needed from the user to generate Plots and ResultsCompare Two Seasons Tab.Compare Two Characters Tab.Compare Two Characters but Same Season Tab.</description>
+    </item>
+    
+    <item>
+      <title>Week 15 : Tennis Tournaments</title>
+      <link>/post/tidytuesday2019/week15/week15/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week15/week15/</guid>
+      <description>library(readr)library(tidyverse)library(lubridate)library(gganimate)player_dob &amp;lt;- read_csv(&amp;quot;player_dob.csv&amp;quot;, col_types = cols(date_of_birth = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), date_of_first_title = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;)))grand_slams &amp;lt;- read_csv(&amp;quot;grand_slams.csv&amp;quot;, col_types = cols(gender = col_factor(levels = c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;)), rolling_win_count = col_integer(), tournament_date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), year = col_integer()))grand_slam_timeline &amp;lt;- read_csv(&amp;quot;grand_slam_timeline.csv&amp;quot;, col_types = cols(gender = col_factor(levels = c(&amp;quot;Female&amp;quot;,&amp;quot;Male&amp;quot;)), year = col_integer()))Winning the Wimbledon as your first grand slam looks very thin than other three tournaments. Also among the top 10 most grand slam winners Roger Federer and Chris Evert have reached semi-finals only a lot of times.</description>
+    </item>
+    
+    <item>
+      <title>Week 14 : Seattle Bikes</title>
+      <link>/post/tidytuesday2019/week14/week14/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week14/week14/</guid>
+      <description>Crossing vs Direction with Morning or Evening for EverydayAverag Bike Count in Different Time LapsMonthly Average Bike Count for Everyday with AM or PMDay by Average Bike Count for Everyday with AM or PMHourly Average Bike Count for Every Month with AM or PMPedestrian Count With Different Time LapsMonthly Pedestrian Count for Everyday with AM or PM when TRUEMonthly Pedestrian Count for Everyday with AM or PM when FALSEDay by Pedestrian Count for Everyday with AM or PM when TRUEDay by Pedestrian Count for Everyday with AM or PM when FALSEHourly Pedestrian Count for Every Month with AM or PM when TRUEHourly Pedestrian Count for Every Month with AM or PM when FALSEAverage Bike Count with CrossingsAverage Bike Count with DirectionsAverage Bike Count with Crossings by DayAverage Bike Count with Directions by Daylibrary(tidyverse)library(dplyr)library(gganimate)library(ggthemr)library(splitstackshape)library(lubridate)library(readr)bike_traffic &amp;lt;- read_csv(&amp;quot;bike_traffic.</description>
+    </item>
+    
+    <item>
+      <title>Week 13 : Pets In Seattle</title>
+      <link>/post/tidytuesday2019/week13/week13/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week13/week13/</guid>
+      <description>Yearly ChangeZipcode Counts Over the YearsSpecies Counts Over the YearsPrimary Breed Over the YearsAnimals Name Over the YearsZipCode and ChoicesZipcode with choices of SpeciesZipcode with choices of Primary BreedZipcode with choices of Animals NamePrimary and Secondary Breed Choices Over the YearsSpecies and Name choices for Animalslibrary(readr)library(tidyverse)library(gganimate)library(splitstackshape)library(forcats)library(ggthemr)ggthemr(&amp;quot;flat dark&amp;quot;)seattle_pets &amp;lt;- read_csv(&amp;quot;seattle_pets.</description>
+    </item>
+    
+    <item>
+      <title>Week 11 : Board Games</title>
+      <link>/post/tidytuesday2019/week11/week11/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week11/week11/</guid>
+      <description>Minimum No of Players and Minimum Play TimeGeneralScrutinizedMore ScrutinizedMaximum No of Players and Maximmum Play TimeGeneralScrutinizedMore ScrutinizedMaximum No of Players and Average RatingGeneralScrutinizedMore ScrutinizedAverage Rating and Users RatedAnimatedNot AnimatedCategory and RatingGeneral and Category 1General and Category 2# load the packageslibrary(readr)library(tidyverse)library(tidylog)library(gganimate)library(splitstackshape)library(ggthemr)# load the themeggthemr(&amp;quot;chalk&amp;quot;)# load the databoard_games &amp;lt;- read_csv(&amp;quot;board_games.</description>
+    </item>
+    
+    <item>
+      <title>Week 10: Women in Workforce</title>
+      <link>/post/tidytuesday2019/week10/week10/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week10/week10/</guid>
+      <description>Earnings FemaleAll other age groupsEmployed GenderComparing Full Time with Part TimeMale Occupants with Full Time and Part Time WorkFemale Occupants with Full Time and Part Time WorkJobs GenderMajor CategoryMajor Category and Total WorkersMajor Category and Male WorkersMajor Category and Female WorkersMajor Category and Total Earnings Male WageMajor Category and Total Earnings Female WageMajor Category and Wage Percent for Female relative to MaleMinor CategoryMinor Category and Total WorkersMinor Category and Male WorkersMinor Category and Female WorkersMinor Category and Total Earnings Male WageMinor Category and Total Earnings Female WageMinor Category and Wage Percent for Female relative to MaleGitHub Code</description>
+    </item>
+    
+    <item>
+      <title>Week 9 : French Train Delays</title>
+      <link>/post/tidytuesday2019/week9/week9/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week9/week9/</guid>
+      <description># load the packageslibrary(readr)library(tidyverse)library(gganimate)library(ggalluvial)library(geomnet)library(ggthemr)# load the themeggthemr(&amp;quot;fresh&amp;quot;)# load the datasmall_trains &amp;lt;- read_csv(&amp;quot;small_trains.csv&amp;quot;)GitHub Code
+Data set
+When Journey Average Time increases the Total Number of Trips will decrease. Obviously. Code : https://t.co/qY2l10OraS #TidyTuesday pic.twitter.com/ZZn0l7E7WZ
+&amp;mdash; Amalan Mahendran (@Amalan_Con_Stat) February 28, 2019  Network Graph for the French City TrainsSimply drawing a network graph to understand which french cities are mainly urban with capacity to trains arriving and leaving.</description>
+    </item>
+    
+    <item>
+      <title>Week 8 : Phds Awarded in USA between 2008 and 2017</title>
+      <link>/post/tidytuesday2019/week8/week8/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week8/week8/</guid>
+      <description>Broad FieldAll fieldsDropping Psychology and Social SciencesMajor FieldMajor Fields with Box plotMajor Fields without Psychology but still in a BoxplotMathematics and Computer SciencesMathematics and Computer Science as a Broad fieldMathematics and Computer Science as a Major FieldMajor Field of Mathematics and Computer Science but now all FieldsMajor Field, Field and Year For Mathematics and Computer Sciences# load the packageslibrary(tidyverse)library(ggthemr)library(readr)library(gganimate)library(ggridges)library(ggalluvial)ggthemr(&amp;quot;flat&amp;quot;)#load the dataphdlist &amp;lt;- read_csv(&amp;quot;phd_by_field.</description>
+    </item>
+    
+    <item>
+      <title>Sri Lanka and its affect on/in Journal Articles </title>
+      <link>/post/slandjournal/slandjournal/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/slandjournal/slandjournal/</guid>
+      <description>IntroductionPackages and IdeasCountry InformationRanking of Sri Lanka from 1996 to 2017Ranking of South Asian Region Countries from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka JournalsCitations per Document from Sri Lankan JournalsJournals from Sri LankaRank changes for Sri Lankan JournalsSJR values changing for Sri Lankan JournalsReferences per Document changing for Sri Lankan JournalsPublishers and Journals from Sri LankaTotal Documents and References for Journals from Sri LankaThree year time period for Journals from Sri LankaJournals and categoriesIntroduction“SCImago Journal and Country Rank provides valuable estimates of academic journals’ prestige.</description>
+    </item>
+    
+    <item>
+      <title>Week 7: Spending On Science Stuff</title>
+      <link>/post/tidytuesday2019/week7/week7/</link>
+      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week7/week7/</guid>
+      <description>Climate Change ResearchEnergyFederal# load the packages library(readr)library(tidyverse)library(gganimate)library(dplyr)library(magrittr)# load the dataclimate &amp;lt;- read_csv(&amp;quot;climate_spending.csv&amp;quot;)energy &amp;lt;- read_csv(&amp;quot;energy_spending.csv&amp;quot;, col_types = cols(year = col_integer()))federal &amp;lt;- read_csv(&amp;quot;fed_r_d_spending.csv&amp;quot;)Even though I can go further and do an investigative plotting from the rest data it is not done here. I was more focused on the scientific notation values in the plotting and scales, which were bothering me a lot.</description>
+    </item>
+    
+    <item>
+      <title>Week 4: Prison Data</title>
+      <link>/post/tidytuesday2019/week4/week-4-prison-data/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week4/week-4-prison-data/</guid>
+      <description>Prison SummaryPrison Summary With GenderPrison Summary with EthnicityPrison Summary with Other and TotalPretrial Summary with Gender and TotalComplete Data of Incarceration TrendsRape Crimes over the Years in States of Rural AreaRape Crimes over the Years in States of Small or Mid AreaRape Crimes over the Years in States of Suburban AreaRape Crimes over the Years in States of Urban Area# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(gganimate)library(ggthemr)# load the themeggthemr(&amp;quot;flat dark&amp;quot;)# load the datapretrial_summary &amp;lt;- read_csv(&amp;quot;pretrial_summary.</description>
+    </item>
+    
+    <item>
+      <title>Week 2: IMDB TV Shows Data</title>
+      <link>/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/</guid>
+      <description>GenreGenre and SeasonGenre and YearGenre and MonthSeasonSeason and YearSeason and MonthTop 3 GenresCrime Drama MysteryComedy DramaDramaRating over the yearsTv Series with more than 14 Seasons# loading the packageslibrary(tidyverse)library(summarytools)library(magrittr)library(readr)library(lubridate)library(gganimate)library(stringr)# load the datasetRatings &amp;lt;- read_csv(&amp;quot;IMDb_Economist_tv_ratings.csv&amp;quot;, col_types = cols(date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;)))Ratings data-set is from the IMDB site.</description>
+    </item>
+    
+  </channel>
+</rss>

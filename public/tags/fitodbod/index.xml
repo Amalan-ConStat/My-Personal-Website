@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fitODBOD on Consulting Statistician</title>
+    <link>/tags/fitodbod/</link>
+    <description>Recent content in fitODBOD on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 02 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/fitodbod/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.</title>
+      <link>/publication/fitodbod-article/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
+      <link>/publication/fitodbod-cran/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-cran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
+      <link>/publication/fitodbod-website/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fitodbod-website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tree of Binomial Distribution</title>
+      <link>/post/binomialdistribution/binomialdistribution/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/binomialdistribution/binomialdistribution/</guid>
+      <description>Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsGrassia Binomial DistributionZero Modified Binomial DistributionDandekar’s Modified Binomial DistributionSimplex Binomial Mixture ModelDouble Binomial DistributionFinite Biomial MixturesBinomial Distribution of order KTruncated Binomial DistributionWeighted Binomial DistributionBinomial Not ParentHypergeometric + BinomialNegative Binomial + BinomialPoisson + BinomialAlternate Binomial DistributionsAdditive Binomial DistributionBeta-Correlated Binomial DistributionCOM-Poisson Binomial DistributionCorrelated Binomial DistributionMultiplicative Binomial DistributionNeyman Type A DistributionPoisson + Binomial + BetaPoisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + BetaHermite DistributionBinomial + PoissonPoisson + BinomialBinomial ParentN/n , K and Y Mixturesp Transformed BinomialLog Inverse Distribution [0,1] DomainCumulative Distribution Functionp BinomialReferencesBinomial DistributionThe binomial distribution can be defined, using the binomial expansion</description>
+    </item>
+    
+    <item>
+      <title>Developing an R package</title>
+      <link>/post/yourownpackage/developing-an-r-package/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/yourownpackage/developing-an-r-package/</guid>
+      <description>IntroductionCredit to People of R Community1) Coding Standards (Coding to Understand)2) Package Structure3) DESCRIPTION file4) README file5) /R directory6) /data directory7) /tests directory8) /man directory9) NAMSESPACE file10) .Rbuildignore file11) .gitignore fileBuilding the PackageDistributing the PackageIntroductionR package development is no longer as it was before 2010 because now most of the work can be done by just a simple mouse-click or with the use of a function.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking the mle and mle2 function </title>
+      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
+      <description>Introductionmlemle2ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Introductionmle and mle2are my favorite functions, because they provide extensive amount of outputsfor the optimization process. Even though there is no difference in analytical methodsused in both of these functions. Further, these analytical methods are the same ones usedby optim function. To be honest mle and mle2 functions are wrapper functions of optim.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking the maxLik function</title>
+      <link>/post/maxlik/benchmarking-maxlik-function/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/maxlik/benchmarking-maxlik-function/</guid>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of maxLik FunctionNR methodBFGS methodBFGSR methodBHHH methodSANN methodCG methodNM methodSumary of Time evalutation for different Analytical methods of maxLik functionSummary of results after using the maxLik function for different analytical methodsFinal ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Estimating the shape parameters of Beta-Binomial DistributionIntroductionBeginning of this month I wrote asmall sectionregarding maxLik function by comparing it to other optimization functions.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking the optim function</title>
+      <link>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</link>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</guid>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of optim FunctionNelder and Mead methodBFGS methodCG methodL-BFGS-B methodSANN methodBrent methodSummary of Time evaluation for different Analytical methods of optim functionSummary of results after using the optim function for different analytical methodsFinal ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Estimating the shape parameters of Beta-Binomial DistributionIntroductionI wrote a blog postearlier this month to understand the optimization functions in R and compare them.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking optimization functions in R</title>
+      <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
+      <description>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.Introductionoptim Functionnlm Functionnlminb Functionucminf FunctionmaxLik Functionmle Functionmle2 FunctionSummary of the seven optimization functions in RSummary of Time evaluation for the seven optimization R functionsSummary of Results after estimating parameters using the optimization R functionsFinal ConclusionNOTE : Below post is valid for Package version 1.</description>
+    </item>
+    
+    <item>
+      <title>R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</title>
+      <link>/publication/4th-year/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/4th-year/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

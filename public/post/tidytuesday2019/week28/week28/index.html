@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.49" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="2019 Week 28 TidyTuesday: Women World Cup Football.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/tidytuesday2019/week28/week28/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3D3B45">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Playfair+Display:400,700|EB+Garamond>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/override.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/tidytuesday2019/week28/week28/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/tidytuesday2019/week28/week28/">
+  <meta property="og:title" content="Week 28: FIFA Womens World Cup | Consulting Statistician">
+  <meta property="og:description" content="2019 Week 28 TidyTuesday: Women World Cup Football.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2019-07-10T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-07-10T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Week 28: FIFA Womens World Cup | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#twitter">
+            
+            <span>Tweets</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan_Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <img src="/post/tidytuesday2019/week28/week28/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 28: FIFA Womens World Cup</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jul 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2028%3a%20FIFA%20Womens%20World%20Cup&amp;url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f&amp;title=Week%2028%3a%20FIFA%20Womens%20World%20Cup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f&amp;title=Week%2028%3a%20FIFA%20Womens%20World%20Cup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2028%3a%20FIFA%20Womens%20World%20Cup&amp;body=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/tidytuesday2019/week28/week28/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Week 28: FIFA Womens World Cup</h1>
+
+  
+
+  
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jul 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2028%3a%20FIFA%20Womens%20World%20Cup&amp;url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f&amp;title=Week%2028%3a%20FIFA%20Womens%20World%20Cup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f&amp;title=Week%2028%3a%20FIFA%20Womens%20World%20Cup"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2028%3a%20FIFA%20Womens%20World%20Cup&amp;body=%2fpost%2ftidytuesday2019%2fweek28%2fweek28%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#squads">Squads</a><ul>
+<li><a href="#captain-ship-vs-goals">Captain-ship vs Goals</a></li>
+<li><a href="#age-vs-goals">Age vs Goals</a></li>
+<li><a href="#country-and-positions">Country and Positions</a></li>
+<li><a href="#age-and-positions">Age and Positions</a></li>
+<li><a href="#country-and-age-distributions">Country and Age Distributions</a></li>
+<li><a href="#country-and-goal-experience">Country and Goal Experience</a></li>
+<li><a href="#top-15-highest-goal-scorers-participated-in-the-fifa-world-cup">Top 15 Highest Goal Scorers participated in the FIFA World Cup</a></li>
+</ul></li>
+<li><a href="#wwc-outcomes">WWC Outcomes</a><ul>
+<li><a href="#year-vs-countries-of-participation">Year vs Countries of participation</a></li>
+<li><a href="#year-vs-rounds-of-matches">Year vs Rounds of Matches</a></li>
+<li><a href="#years-vs-goals">Years vs Goals</a></li>
+</ul></li>
+</ul>
+</div>
+
+<pre class="r"><code>wwc_outcomes &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/wwc_outcomes.csv&quot;)
+squads &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/squads.csv&quot;)
+codes &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/codes.csv&quot;)
+
+library(ggplot2)
+library(gganimate)
+library(dplyr)
+library(tvthemes)</code></pre>
+<p><a href="https://github.com/Amalan-ConStat/TidyTuesday/tree/master/2019/Week28">GitHub Code</a></p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Most of these players are in between 23 and 29, also US women team players have scored a lot goals internationally.<br>GitHub Code: <a href="https://t.co/CHpOfgsdsZ">https://t.co/CHpOfgsdsZ</a>   <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> <a href="https://t.co/oKCDpjeLen">pic.twitter.com/oKCDpjeLen</a></p>&mdash; Amalan Mahendran (@Amalan_Con_Stat) <a href="https://twitter.com/Amalan_Con_Stat/status/1148866198370750464?ref_src=twsrc%5Etfw">July 10, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<div id="squads" class="section level1">
+<h1>Squads</h1>
+<div id="captain-ship-vs-goals" class="section level2">
+<h2>Captain-ship vs Goals</h2>
+<pre class="r"><code>p1&lt;-ggplot(squads,aes(caps,goals,color=pos,label1=player,label2=country,group=1))+geom_point()+
+    ylab(&quot;No of Goals Scored&quot;)+xlab(&quot;No of Matches as Captains&quot;)+
+    ggtitle(&quot;Relationship Between Goals Scoring and Captain-ship&quot;,
+            subtitle = &quot;This is plotly so click on the points on legend&quot;)+
+    theme_parksAndRec()+labs(color=&quot;Position&quot;)
+
+plotly::plotly_build(p1)</code></pre>
+<div id="htmlwidget-1" style="width:1152px;height:864px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"x":[155,115,37,99,19,31,83,null,11,25,7,44,27,20,null,null,40,109,21,175,48,25,8,13,14,2,10,3,20,72,16,35,71,123,135,6,9,70,55,26,57,77,18,46,13,64,88,52,48,5,76,20,11,4,63,29,62,null,4,31,null,34,18,108,123,98,19,13,48,112,108,103,15,4,4,23,17,66,35,104,26,49,6,12,21,36,13,24,32,8,18,6,19,9,16,13,16,9,10,95,28,61,45,0,10,8,59,65,31,43,19,4,18,42,11,116,60,71,77,31,40,22,26,61,21,85,23,26,62,129,152,166,43,2,0,15,29,69,2,12,7,24,58,null,69,86,45,null,null,87,12,42,79,76,37,54,80,59,32,6,135,3,26,20,81,53,null,13,108,20,11,23,46,49,2],"y":[0,2,0,1,1,0,24,null,0,2,3,0,2,0,null,null,0,8,0,23,5,2,2,1,4,0,0,0,3,7,1,3,4,1,6,1,0,0,7,1,0,6,0,0,0,1,3,1,5,0,5,0,0,0,10,0,0,null,0,1,null,0,0,16,22,9,0,0,1,6,5,0,0,0,0,0,0,7,2,12,0,1,0,0,3,0,2,0,3,0,0,0,1,0,1,2,2,0,0,5,0,5,1,0,0,1,6,13,1,3,0,0,2,6,0,9,2,2,7,1,0,0,1,8,0,9,0,0,1,6,61,11,0,0,0,2,4,10,0,0,1,0,0,null,0,3,1,null,null,14,0,0,1,5,1,11,1,3,1,0,19,0,1,1,0,0,null,0,20,0,0,0,4,4,0],"text":["caps: 155<br />goals:   0<br />pos: DF<br />player: Becky Sauerbrunn<br />country: US","caps: 115<br />goals:   2<br />pos: DF<br />player: Kelley O'Hara<br />country: US","caps:  37<br />goals:   0<br />pos: DF<br />player: Abby Dahlkemper<br />country: US","caps:  99<br />goals:   1<br />pos: DF<br />player: Ali Krieger<br />country: US","caps:  19<br />goals:   1<br />pos: DF<br />player: Tierna Davidson<br />country: US","caps:  31<br />goals:   0<br />pos: DF<br />player: Emily Sonnett<br />country: US","caps:  83<br />goals:  24<br />pos: DF<br />player: Crystal Dunn<br />country: US","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Kanjanaporn Saengkoon<br />country: Thailand","caps:  11<br />goals:   0<br />pos: DF<br />player: Natthakarn Chinwong<br />country: Thailand","caps:  25<br />goals:   2<br />pos: DF<br />player: Duangnapa Sritala<br />country: Thailand","caps:   7<br />goals:   3<br />pos: DF<br />player: Ainon Phancha<br />country: Thailand","caps:  44<br />goals:   0<br />pos: DF<br />player: Warunee Phetwiset<br />country: Thailand","caps:  27<br />goals:   2<br />pos: DF<br />player: Sunisa Srangthaisong<br />country: Thailand","caps:  20<br />goals:   0<br />pos: DF<br />player: Khwanrudi Saengchan<br />country: Thailand","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Pitsamai Sornsai<br />country: Thailand","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Phornphirun Philawan<br />country: Thailand","caps:  40<br />goals:   0<br />pos: DF<br />player: Jonna Andersson<br />country: Sweden","caps: 109<br />goals:   8<br />pos: DF<br />player: Linda Sembrant<br />country: Sweden","caps:  21<br />goals:   0<br />pos: DF<br />player: Hanna Glas<br />country: Sweden","caps: 175<br />goals:  23<br />pos: DF<br />player: Nilla Fischer<br />country: Sweden","caps:  48<br />goals:   5<br />pos: DF<br />player: Magdalena Eriksson<br />country: Sweden","caps:  25<br />goals:   2<br />pos: DF<br />player: Amanda Ilestedt<br />country: Sweden","caps:   8<br />goals:   2<br />pos: DF<br />player: Nathalie Björn<br />country: Sweden","caps:  13<br />goals:   1<br />pos: DF<br />player: Rocío Soto<br />country: Chile","caps:  14<br />goals:   4<br />pos: DF<br />player: Carla Guerrero<br />country: Chile","caps:   2<br />goals:   0<br />pos: DF<br />player: Valentina Díaz<br />country: Chile","caps:  10<br />goals:   0<br />pos: DF<br />player: Su Helen Galaz<br />country: Chile","caps:   3<br />goals:   0<br />pos: DF<br />player: Javiera Toro<br />country: Chile","caps:  20<br />goals:   3<br />pos: DF<br />player: Camila Sáez<br />country: Chile","caps:  72<br />goals:   7<br />pos: DF<br />player: Anna Green<br />country: New Zealand","caps:  16<br />goals:   1<br />pos: DF<br />player: CJ Bott<br />country: New Zealand","caps:  35<br />goals:   3<br />pos: DF<br />player: Meikayla Moore<br />country: New Zealand","caps:  71<br />goals:   4<br />pos: DF<br />player: Rebekah Stott<br />country: New Zealand","caps: 123<br />goals:   1<br />pos: DF<br />player: Ali Riley<br />country: New Zealand","caps: 135<br />goals:   6<br />pos: DF<br />player: Abby Erceg<br />country: New Zealand","caps:   6<br />goals:   1<br />pos: DF<br />player: Sarah Morton<br />country: New Zealand","caps:   9<br />goals:   0<br />pos: DF<br />player: Stephanie Skilton<br />country: New Zealand","caps:  70<br />goals:   0<br />pos: DF<br />player: Desiree van Lunteren<br />country: Netherlands","caps:  55<br />goals:   7<br />pos: DF<br />player: Stefanie van der Gragt<br />country: Netherlands","caps:  26<br />goals:   1<br />pos: DF<br />player: Merel van Dongen<br />country: Netherlands","caps:  57<br />goals:   0<br />pos: DF<br />player: Kika van Es<br />country: Netherlands","caps:  77<br />goals:   6<br />pos: DF<br />player: Anouk Dekker<br />country: Netherlands","caps:  18<br />goals:   0<br />pos: DF<br />player: Danique Kerkdijk<br />country: Netherlands","caps:  46<br />goals:   0<br />pos: DF<br />player: Dominique Bloodworth<br />country: Netherlands","caps:  13<br />goals:   0<br />pos: DF<br />player: Liza van der Most<br />country: Netherlands","caps:  64<br />goals:   1<br />pos: DF<br />player: Allysha Chapman<br />country: Canada","caps:  88<br />goals:   3<br />pos: DF<br />player: Kadeisha Buchanan<br />country: Canada","caps:  52<br />goals:   1<br />pos: DF<br />player: Shelina Zadorsky<br />country: Canada","caps:  48<br />goals:   5<br />pos: DF<br />player: Rebecca Quinn<br />country: Canada","caps:   5<br />goals:   0<br />pos: DF<br />player: Jayde Riviere<br />country: Canada","caps:  76<br />goals:   5<br />pos: DF<br />player: Ashley Lawrence<br />country: Canada","caps:  20<br />goals:   0<br />pos: DF<br />player: Shannon Woeller<br />country: Canada","caps:  11<br />goals:   0<br />pos: DF<br />player: Lindsay Agnew<br />country: Canada","caps:   4<br />goals:   0<br />pos: DF<br />player: Jenna Hellstrom<br />country: Canada","caps:  63<br />goals:  10<br />pos: DF<br />player: Christine Manie<br />country: Cameroon","caps:  29<br />goals:   0<br />pos: DF<br />player: Yvonne Leuko<br />country: Cameroon","caps:  62<br />goals:   0<br />pos: DF<br />player: Augustine Ejangue<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Estelle Johnson<br />country: Cameroon","caps:   4<br />goals:   0<br />pos: DF<br />player: Aurelle Awona<br />country: Cameroon","caps:  31<br />goals:   1<br />pos: DF<br />player: Claudine Meffometou<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Ysis Sonkeng<br />country: Cameroon","caps:  34<br />goals:   0<br />pos: DF<br />player: Kirsty Smith<br />country: Scotland","caps:  18<br />goals:   0<br />pos: DF<br />player: Nicola Docherty<br />country: Scotland","caps: 108<br />goals:  16<br />pos: DF<br />player: Rachel Corsie<br />country: Scotland","caps: 123<br />goals:  22<br />pos: DF<br />player: Jennifer Beattie<br />country: Scotland","caps:  98<br />goals:   9<br />pos: DF<br />player: Hayley Lauder<br />country: Scotland","caps:  19<br />goals:   0<br />pos: DF<br />player: Chloe Arthur<br />country: Scotland","caps:  13<br />goals:   0<br />pos: DF<br />player: Sophie Howard<br />country: Scotland","caps:  48<br />goals:   1<br />pos: DF<br />player: Joelle Murray<br />country: Scotland","caps: 112<br />goals:   6<br />pos: DF<br />player: Rumi Utsugi<br />country: Japan","caps: 108<br />goals:   5<br />pos: DF<br />player: Aya Sameshima<br />country: Japan","caps: 103<br />goals:   0<br />pos: DF<br />player: Saki Kumagai<br />country: Japan","caps:  15<br />goals:   0<br />pos: DF<br />player: Nana Ichise<br />country: Japan","caps:   4<br />goals:   0<br />pos: DF<br />player: Moeka Minami<br />country: Japan","caps:   4<br />goals:   0<br />pos: DF<br />player: Asato Miyagawa<br />country: Japan","caps:  23<br />goals:   0<br />pos: DF<br />player: Risa Shimizu<br />country: Japan","caps:  17<br />goals:   0<br />pos: DF<br />player: Shiori Miyake<br />country: Japan","caps:  66<br />goals:   7<br />pos: DF<br />player: Lucy Bronze<br />country: England","caps:  35<br />goals:   2<br />pos: DF<br />player: Alex Greenwood<br />country: England","caps: 104<br />goals:  12<br />pos: DF<br />player: Steph Houghton<br />country: England","caps:  26<br />goals:   0<br />pos: DF<br />player: Millie Bright<br />country: England","caps:  49<br />goals:   1<br />pos: DF<br />player: Demi Stokes<br />country: England","caps:   6<br />goals:   0<br />pos: DF<br />player: Leah Williamson<br />country: England","caps:  12<br />goals:   0<br />pos: DF<br />player: Abbie McManus<br />country: England","caps:  21<br />goals:   3<br />pos: DF<br />player: Rachel Daly<br />country: England","caps:  36<br />goals:   0<br />pos: DF<br />player: Agustina Barroso<br />country: Argentina","caps:  13<br />goals:   2<br />pos: DF<br />player: Eliana Stábile<br />country: Argentina","caps:  24<br />goals:   0<br />pos: DF<br />player: Adriana Sachs<br />country: Argentina","caps:  32<br />goals:   3<br />pos: DF<br />player: Aldana Cometti<br />country: Argentina","caps:   8<br />goals:   0<br />pos: DF<br />player: Virginia Gómez<br />country: Argentina","caps:  18<br />goals:   0<br />pos: DF<br />player: Gabriela Chávez<br />country: Argentina","caps:   6<br />goals:   0<br />pos: DF<br />player: Natalie Juncos<br />country: Argentina","caps:  19<br />goals:   1<br />pos: DF<br />player: Lauren Silver<br />country: Jamaica","caps:   9<br />goals:   0<br />pos: DF<br />player: Chantelle Swaby<br />country: Jamaica","caps:  16<br />goals:   1<br />pos: DF<br />player: Konya Plummer<br />country: Jamaica","caps:  13<br />goals:   2<br />pos: DF<br />player: Deneisha Blackwood<br />country: Jamaica","caps:  16<br />goals:   2<br />pos: DF<br />player: Dominique Bond-Flasza<br />country: Jamaica","caps:   9<br />goals:   0<br />pos: DF<br />player: Allyson Swaby<br />country: Jamaica","caps:  10<br />goals:   0<br />pos: DF<br />player: Toriana Patterson<br />country: Jamaica","caps:  95<br />goals:   5<br />pos: DF<br />player: Sara Gama<br />country: Italy","caps:  28<br />goals:   0<br />pos: DF<br />player: Elena Linari<br />country: Italy","caps:  61<br />goals:   5<br />pos: DF<br />player: Alia Guagni<br />country: Italy","caps:  45<br />goals:   1<br />pos: DF<br />player: Elisa Bartoli<br />country: Italy","caps:   0<br />goals:   0<br />pos: DF<br />player: Laura Fusetti<br />country: Italy","caps:  10<br />goals:   0<br />pos: DF<br />player: Lisa Boattin<br />country: Italy","caps:   8<br />goals:   1<br />pos: DF<br />player: Linda Tucceri<br />country: Italy","caps:  59<br />goals:   6<br />pos: DF<br />player: Fabiana<br />country: Brazil","caps:  65<br />goals:  13<br />pos: DF<br />player: Érika<br />country: Brazil","caps:  31<br />goals:   1<br />pos: DF<br />player: Tayla<br />country: Brazil","caps:  43<br />goals:   3<br />pos: DF<br />player: Tamires<br />country: Brazil","caps:  19<br />goals:   0<br />pos: DF<br />player: Letícia Santos<br />country: Brazil","caps:   4<br />goals:   0<br />pos: DF<br />player: Kathellen<br />country: Brazil","caps:  18<br />goals:   2<br />pos: DF<br />player: Camila Martins<br />country: Brazil","caps:  42<br />goals:   6<br />pos: DF<br />player: Mônica<br />country: Brazil","caps:  11<br />goals:   0<br />pos: DF<br />player: Gema Simon<br />country: Australia","caps: 116<br />goals:   9<br />pos: DF<br />player: Clare Polkinghorne<br />country: Australia","caps:  60<br />goals:   2<br />pos: DF<br />player: Laura Alleway<br />country: Australia","caps:  71<br />goals:   2<br />pos: DF<br />player: Steph Catley<br />country: Australia","caps:  77<br />goals:   7<br />pos: DF<br />player: Alanna Kennedy<br />country: Australia","caps:  31<br />goals:   1<br />pos: DF<br />player: Ellie Carpenter<br />country: Australia","caps:  40<br />goals:   0<br />pos: DF<br />player: Teigen Allen<br />country: Australia","caps:  22<br />goals:   0<br />pos: DF<br />player: Celia Jiménez<br />country: Spain","caps:  26<br />goals:   1<br />pos: DF<br />player: Leila Ouahabi<br />country: Spain","caps:  61<br />goals:   8<br />pos: DF<br />player: Irene Paredes<br />country: Spain","caps:  21<br />goals:   0<br />pos: DF<br />player: Ivana Andrés<br />country: Spain","caps:  85<br />goals:   9<br />pos: DF<br />player: Marta Torrejón<br />country: Spain","caps:  23<br />goals:   0<br />pos: DF<br />player: María Pilar León<br />country: Spain","caps:  26<br />goals:   0<br />pos: DF<br />player: Andrea Pereira<br />country: Spain","caps:  62<br />goals:   1<br />pos: DF<br />player: Lebogang Ramalepe<br />country: South Africa","caps: 129<br />goals:   6<br />pos: DF<br />player: Nothando Vilakazi<br />country: South Africa","caps: 152<br />goals:  61<br />pos: DF<br />player: Noko Matlou<br />country: South Africa","caps: 166<br />goals:  11<br />pos: DF<br />player: Janine van Wyk<br />country: South Africa","caps:  43<br />goals:   0<br />pos: DF<br />player: Bambanani Mbane<br />country: South Africa","caps:   2<br />goals:   0<br />pos: DF<br />player: Tiisetso Makhubela<br />country: South Africa","caps:   0<br />goals:   0<br />pos: DF<br />player: Bongeka Gamede<br />country: South Africa","caps:  15<br />goals:   2<br />pos: DF<br />player: Carolin Simon<br />country: Germany","caps:  29<br />goals:   4<br />pos: DF<br />player: Kathrin Hendrich<br />country: Germany","caps:  69<br />goals:  10<br />pos: DF<br />player: Leonie Maier<br />country: Germany","caps:   2<br />goals:   0<br />pos: DF<br />player: Marina Hegering <br />country: Germany","caps:  12<br />goals:   0<br />pos: DF<br />player: Johanna Elsig<br />country: Germany","caps:   7<br />goals:   1<br />pos: DF<br />player: Giulia Gwinn<br />country: Germany","caps:  24<br />goals:   0<br />pos: DF<br />player: Sara Doorsoun<br />country: Germany","caps:  58<br />goals:   0<br />pos: DF<br />player: Liu Shanshan<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Lin Yuping<br />country: China PR","caps:  69<br />goals:   0<br />pos: DF<br />player: Wu Haiyan<br />country: China PR","caps:  86<br />goals:   3<br />pos: DF<br />player: Han Peng<br />country: China PR","caps:  45<br />goals:   1<br />pos: DF<br />player: Li Jiayue<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Wang Ying<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Luo Guiping<br />country: China PR","caps:  87<br />goals:  14<br />pos: DF<br />player: Lee Eun-mi<br />country: South Korea","caps:  12<br />goals:   0<br />pos: DF<br />player: Jeong Yeong-a<br />country: South Korea","caps:  42<br />goals:   0<br />pos: DF<br />player: Hwang Bo-ram<br />country: South Korea","caps:  79<br />goals:   1<br />pos: DF<br />player: Kim Do-yeon<br />country: South Korea","caps:  76<br />goals:   5<br />pos: DF<br />player: Lim Seon-joo<br />country: South Korea","caps:  37<br />goals:   1<br />pos: DF<br />player: Shin Dam-yeong<br />country: South Korea","caps:  54<br />goals:  11<br />pos: DF<br />player: Jang Sel-gi<br />country: South Korea","caps:  80<br />goals:   1<br />pos: DF<br />player: Kim Hye-ri<br />country: South Korea","caps:  59<br />goals:   3<br />pos: DF<br />player: Ingrid Wold<br />country: Norway","caps:  32<br />goals:   1<br />pos: DF<br />player: Maria Thorisdottir<br />country: Norway","caps:   6<br />goals:   0<br />pos: DF<br />player: Stine Hovland<br />country: Norway","caps: 135<br />goals:  19<br />pos: DF<br />player: Maren Mjelde<br />country: Norway","caps:   3<br />goals:   0<br />pos: DF<br />player: Cecilie Kvamme <br />country: Norway","caps:  26<br />goals:   1<br />pos: DF<br />player: Osinachi Ohale<br />country: Nigeria","caps:  20<br />goals:   1<br />pos: DF<br />player: Ngozi Ebere<br />country: Nigeria","caps:  81<br />goals:   0<br />pos: DF<br />player: Onome Ebi<br />country: Nigeria","caps:  53<br />goals:   0<br />pos: DF<br />player: Faith Michael<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: DF<br />player: Chidinma Okeke<br />country: Nigeria","caps:  13<br />goals:   0<br />pos: DF<br />player: Ève Périsset<br />country: France","caps: 108<br />goals:  20<br />pos: DF<br />player: Wendie Renard<br />country: France","caps:  20<br />goals:   0<br />pos: DF<br />player: Marion Torrent<br />country: France","caps:  11<br />goals:   0<br />pos: DF<br />player: Aïssatou Tounkara<br />country: France","caps:  23<br />goals:   0<br />pos: DF<br />player: Sakina Karchaoui<br />country: France","caps:  46<br />goals:   4<br />pos: DF<br />player: Amel Majri<br />country: France","caps:  49<br />goals:   4<br />pos: DF<br />player: Griedge Mbock Bathy<br />country: France","caps:   2<br />goals:   0<br />pos: DF<br />player: Julie Debever <br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"DF","legendgroup":"DF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[50,271,160,150,147,7,113,17,8,null,16,3,100,43,6,34,20,72,20,6,19,9,15,10,3,50,91,99,87,11,63,74,102,35,14,39,40,21,282,50,56,57,49,58,128,43,38,null,null,77,126,20,24,37,29,61,62,5,2,4,40,32,39,37,71,80,12,24,21,28,3,12,21,2,4,2,45,51,3,24,19,39,45,133,117,38,13,40,7,71,147,28,34,4,76,20,66,13,7,11,9,52,74,22,57,1,30,7,42,92,77,12,115,74,34,50,20,115,125,40,5,6,81,5,null,17,35,null,1,null,26,null,7,159,45,3,17,30,11],"y":[15,107,101,44,28,2,47,12,2,null,9,0,17,10,0,8,6,9,12,0,9,1,1,0,0,3,33,24,25,1,15,57,42,3,1,9,8,6,181,10,25,15,5,17,49,5,0,null,null,17,58,3,3,2,9,20,17,2,0,0,17,11,17,12,22,28,5,2,5,7,0,8,28,0,0,0,20,27,1,8,3,10,14,110,83,17,1,3,0,16,47,7,3,0,31,2,27,0,1,1,1,7,6,0,8,0,7,1,23,24,10,4,54,21,12,16,7,19,57,12,1,0,16,0,null,11,22,null,0,null,7,null,0,73,4,0,9,4,1],"text":["caps:  50<br />goals:  15<br />pos: FW<br />player: Mallory Pugh<br />country: US","caps: 271<br />goals: 107<br />pos: FW<br />player: Carli Lloyd<br />country: US","caps: 160<br />goals: 101<br />pos: FW<br />player: Alex Morgan<br />country: US","caps: 150<br />goals:  44<br />pos: FW<br />player: Megan Rapinoe<br />country: US","caps: 147<br />goals:  28<br />pos: FW<br />player: Tobin Heath<br />country: US","caps:   7<br />goals:   2<br />pos: FW<br />player: Jessica McDonald<br />country: US","caps: 113<br />goals:  47<br />pos: FW<br />player: Christen Press<br />country: US","caps:  17<br />goals:  12<br />pos: FW<br />player: Suchawadee Nildhamrong<br />country: Thailand","caps:   8<br />goals:   2<br />pos: FW<br />player: Orathai Srimanee<br />country: Thailand","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Saowalak Pengngam<br />country: Thailand","caps:  16<br />goals:   9<br />pos: FW<br />player: Taneekarn Dangda<br />country: Thailand","caps:   3<br />goals:   0<br />pos: FW<br />player: Madelen Janogy<br />country: Sweden","caps: 100<br />goals:  17<br />pos: FW<br />player: Sofia Jakobsson<br />country: Sweden","caps:  43<br />goals:  10<br />pos: FW<br />player: Stina Blackstenius<br />country: Sweden","caps:   6<br />goals:   0<br />pos: FW<br />player: Julia Zigiotti Olme<br />country: Sweden","caps:  34<br />goals:   8<br />pos: FW<br />player: Fridolina Rolfö<br />country: Sweden","caps:  20<br />goals:   6<br />pos: FW<br />player: Mimmi Larsson<br />country: Sweden","caps:  72<br />goals:   9<br />pos: FW<br />player: Olivia Schough<br />country: Sweden","caps:  20<br />goals:  12<br />pos: FW<br />player: María José Rojas<br />country: Chile","caps:   6<br />goals:   0<br />pos: FW<br />player: María José Urrutia<br />country: Chile","caps:  19<br />goals:   9<br />pos: FW<br />player: Yanara Aedo<br />country: Chile","caps:   9<br />goals:   1<br />pos: FW<br />player: Javiera Grez<br />country: Chile","caps:  15<br />goals:   1<br />pos: FW<br />player: Yessenia Huenteo<br />country: Chile","caps:  10<br />goals:   0<br />pos: FW<br />player: Daniela Zamora<br />country: Chile","caps:   3<br />goals:   0<br />pos: FW<br />player: Rosario Balmaceda<br />country: Chile","caps:  50<br />goals:   3<br />pos: FW<br />player: Emma Kete<br />country: New Zealand","caps:  91<br />goals:  33<br />pos: FW<br />player: Sarah Gregorius<br />country: New Zealand","caps:  99<br />goals:  24<br />pos: FW<br />player: Rosie White<br />country: New Zealand","caps:  87<br />goals:  25<br />pos: FW<br />player: Hannah Wilkinson<br />country: New Zealand","caps:  11<br />goals:   1<br />pos: FW<br />player: Paige Satchell<br />country: New Zealand","caps:  63<br />goals:  15<br />pos: FW<br />player: Shanice van de Sanden<br />country: Netherlands","caps:  74<br />goals:  57<br />pos: FW<br />player: Vivianne Miedema<br />country: Netherlands","caps: 102<br />goals:  42<br />pos: FW<br />player: Lieke Martens<br />country: Netherlands","caps:  35<br />goals:   3<br />pos: FW<br />player: Renate Jansen<br />country: Netherlands","caps:  14<br />goals:   1<br />pos: FW<br />player: Ellen Jansen<br />country: Netherlands","caps:  39<br />goals:   9<br />pos: FW<br />player: Lineth Beerensteyn<br />country: Netherlands","caps:  40<br />goals:   8<br />pos: FW<br />player: Deanne Rose<br />country: Canada","caps:  21<br />goals:   6<br />pos: FW<br />player: Jordyn Huitema<br />country: Canada","caps: 282<br />goals: 181<br />pos: FW<br />player: Christine Sinclair<br />country: Canada","caps:  50<br />goals:  10<br />pos: FW<br />player: Nichelle Prince<br />country: Canada","caps:  56<br />goals:  25<br />pos: FW<br />player: Janine Beckie<br />country: Canada","caps:  57<br />goals:  15<br />pos: FW<br />player: Adriana Leon<br />country: Canada","caps:  49<br />goals:   5<br />pos: FW<br />player: Ajara Nchout<br />country: Cameroon","caps:  58<br />goals:  17<br />pos: FW<br />player: Gabrielle Aboudi Onguéné<br />country: Cameroon","caps: 128<br />goals:  49<br />pos: FW<br />player: Madeleine Ngono Mani<br />country: Cameroon","caps:  43<br />goals:   5<br />pos: FW<br />player: Gaëlle Enganamouit<br />country: Cameroon","caps:  38<br />goals:   0<br />pos: FW<br />player: Henriette Akaba<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Alexanda Takounda<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Michaela Abam<br />country: Cameroon","caps:  77<br />goals:  17<br />pos: FW<br />player: Lisa Evans<br />country: Scotland","caps: 126<br />goals:  58<br />pos: FW<br />player: Jane Ross<br />country: Scotland","caps:  20<br />goals:   3<br />pos: FW<br />player: Claire Emslie<br />country: Scotland","caps:  24<br />goals:   3<br />pos: FW<br />player: Lana Clelland<br />country: Scotland","caps:  37<br />goals:   2<br />pos: FW<br />player: Fiona Brown<br />country: Scotland","caps:  29<br />goals:   9<br />pos: FW<br />player: Erin Cuthbert<br />country: Scotland","caps:  61<br />goals:  20<br />pos: FW<br />player: Mana Iwabuchi<br />country: Japan","caps:  62<br />goals:  17<br />pos: FW<br />player: Yuika Sugasawa<br />country: Japan","caps:   5<br />goals:   2<br />pos: FW<br />player: Rikako Kobayashi<br />country: Japan","caps:   2<br />goals:   0<br />pos: FW<br />player: Riko Ueki<br />country: Japan","caps:   4<br />goals:   0<br />pos: FW<br />player: Jun Endo<br />country: Japan","caps:  40<br />goals:  17<br />pos: FW<br />player: Kumi Yokoyama<br />country: Japan","caps:  32<br />goals:  11<br />pos: FW<br />player: Nikita Parris<br />country: England","caps:  39<br />goals:  17<br />pos: FW<br />player: Jodie Taylor<br />country: England","caps:  37<br />goals:  12<br />pos: FW<br />player: Fran Kirby<br />country: England","caps:  71<br />goals:  22<br />pos: FW<br />player: Toni Duggan<br />country: England","caps:  80<br />goals:  28<br />pos: FW<br />player: Ellen White<br />country: England","caps:  12<br />goals:   5<br />pos: FW<br />player: Beth Mead<br />country: England","caps:  24<br />goals:   2<br />pos: FW<br />player: Yael Oviedo<br />country: Argentina","caps:  21<br />goals:   5<br />pos: FW<br />player: Sole Jaimes<br />country: Argentina","caps:  28<br />goals:   7<br />pos: FW<br />player: Belén Potassa<br />country: Argentina","caps:   3<br />goals:   0<br />pos: FW<br />player: Milagros Menéndez <br />country: Argentina","caps:  12<br />goals:   8<br />pos: FW<br />player: Jody Brown<br />country: Jamaica","caps:  21<br />goals:  28<br />pos: FW<br />player: Khadija Shaw<br />country: Jamaica","caps:   2<br />goals:   0<br />pos: FW<br />player: Tiffany Cameron<br />country: Jamaica","caps:   4<br />goals:   0<br />pos: FW<br />player: Olufolasade Adamolekun<br />country: Jamaica","caps:   2<br />goals:   0<br />pos: FW<br />player: Kayla McCoy<br />country: Jamaica","caps:  45<br />goals:  20<br />pos: FW<br />player: Daniela Sabatino<br />country: Italy","caps:  51<br />goals:  27<br />pos: FW<br />player: Cristiana Girelli<br />country: Italy","caps:   3<br />goals:   1<br />pos: FW<br />player: Stefania Tarenzi <br />country: Italy","caps:  24<br />goals:   8<br />pos: FW<br />player: Ilaria Mauro<br />country: Italy","caps:  19<br />goals:   3<br />pos: FW<br />player: Valentina Giacinti<br />country: Italy","caps:  39<br />goals:  10<br />pos: FW<br />player: Andressa Alves<br />country: Brazil","caps:  45<br />goals:  14<br />pos: FW<br />player: Debinha<br />country: Brazil","caps: 133<br />goals: 110<br />pos: FW<br />player: Marta<br />country: Brazil","caps: 117<br />goals:  83<br />pos: FW<br />player: Cristiane<br />country: Brazil","caps:  38<br />goals:  17<br />pos: FW<br />player: Beatriz<br />country: Brazil","caps:  13<br />goals:   1<br />pos: FW<br />player: Ludmila<br />country: Brazil","caps:  40<br />goals:   3<br />pos: FW<br />player: Raquel<br />country: Brazil","caps:   7<br />goals:   0<br />pos: FW<br />player: Geyse<br />country: Brazil","caps:  71<br />goals:  16<br />pos: FW<br />player: Caitlin Foord<br />country: Australia","caps: 147<br />goals:  47<br />pos: FW<br />player: Lisa De Vanna<br />country: Australia","caps:  28<br />goals:   7<br />pos: FW<br />player: Emily Gielnik<br />country: Australia","caps:  34<br />goals:   3<br />pos: FW<br />player: Hayley Raso<br />country: Australia","caps:   4<br />goals:   0<br />pos: FW<br />player: Mary Fowler<br />country: Australia","caps:  76<br />goals:  31<br />pos: FW<br />player: Sam Kerr<br />country: Australia","caps:  20<br />goals:   2<br />pos: FW<br />player: Mariona Caldentey<br />country: Spain","caps:  66<br />goals:  27<br />pos: FW<br />player: Jennifer Hermoso<br />country: Spain","caps:  13<br />goals:   0<br />pos: FW<br />player: Lucía García<br />country: Spain","caps:   7<br />goals:   1<br />pos: FW<br />player: Nahikari García<br />country: Spain","caps:  11<br />goals:   1<br />pos: FW<br />player: Ode Fulutudilu<br />country: South Africa","caps:   9<br />goals:   1<br />pos: FW<br />player: Amanda Mthandi<br />country: South Africa","caps:  52<br />goals:   7<br />pos: FW<br />player: Thembi Kgatlana<br />country: South Africa","caps:  74<br />goals:   6<br />pos: FW<br />player: Jermaine Seoposenwe<br />country: South Africa","caps:  22<br />goals:   0<br />pos: FW<br />player: Rhoda Mulaudzi<br />country: South Africa","caps:  57<br />goals:   8<br />pos: FW<br />player: Melanie Leupolz<br />country: Germany","caps:   1<br />goals:   0<br />pos: FW<br />player: Klara Bühl <br />country: Germany","caps:  30<br />goals:   7<br />pos: FW<br />player: Lina Magull<br />country: Germany","caps:   7<br />goals:   1<br />pos: FW<br />player: Turid Knaak<br />country: Germany","caps:  42<br />goals:  23<br />pos: FW<br />player: Yang Li<br />country: China PR","caps:  92<br />goals:  24<br />pos: FW<br />player: Li Ying<br />country: China PR","caps:  77<br />goals:  10<br />pos: FW<br />player: Wang Shanshan<br />country: China PR","caps:  12<br />goals:   4<br />pos: FW<br />player: Song Duan<br />country: China PR","caps: 115<br />goals:  54<br />pos: FW<br />player: Ji So-yun<br />country: South Korea","caps:  74<br />goals:  21<br />pos: FW<br />player: Jung Seol-bin<br />country: South Korea","caps:  34<br />goals:  12<br />pos: FW<br />player: Yeo Min-ji<br />country: South Korea","caps:  50<br />goals:  16<br />pos: FW<br />player: Lee Geum-min<br />country: South Korea","caps:  20<br />goals:   7<br />pos: FW<br />player: Son Hwa-yeon<br />country: South Korea","caps: 115<br />goals:  19<br />pos: FW<br />player: Elise Thorsnes<br />country: Norway","caps: 125<br />goals:  57<br />pos: FW<br />player: Isabell Herlovsen<br />country: Norway","caps:  40<br />goals:  12<br />pos: FW<br />player: Lisa-Marie Utland<br />country: Norway","caps:   5<br />goals:   1<br />pos: FW<br />player: Therese Åsland <br />country: Norway","caps:   6<br />goals:   0<br />pos: FW<br />player: Amalie Eikeland<br />country: Norway","caps:  81<br />goals:  16<br />pos: FW<br />player: Emilie Haavi<br />country: Norway","caps:   5<br />goals:   0<br />pos: FW<br />player: Emilie Nautnes<br />country: Norway","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Anam Imo<br />country: Nigeria","caps:  17<br />goals:  11<br />pos: FW<br />player: Asisat Oshoala<br />country: Nigeria","caps:  35<br />goals:  22<br />pos: FW<br />player: Desire Oparanozie<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Chinaza Uchendu<br />country: Nigeria","caps:   1<br />goals:   0<br />pos: FW<br />player: Uchenna Kanu<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Rasheedat Ajibade<br />country: Nigeria","caps:  26<br />goals:   7<br />pos: FW<br />player: Francisca Ordega<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: FW<br />player: Chinwendu Ihezuo<br />country: Nigeria","caps:   7<br />goals:   0<br />pos: FW<br />player: Alice Ogebe<br />country: Nigeria","caps: 159<br />goals:  73<br />pos: FW<br />player: Eugénie Le Sommer<br />country: France","caps:  45<br />goals:   4<br />pos: FW<br />player: Kadidiatou Diani<br />country: France","caps:   3<br />goals:   0<br />pos: FW<br />player: Emelyne Laurent<br />country: France","caps:  17<br />goals:   9<br />pos: FW<br />player: Valérie Gauvin<br />country: France","caps:  30<br />goals:   4<br />pos: FW<br />player: Viviane Asseyi<br />country: France","caps:  11<br />goals:   1<br />pos: FW<br />player: Delphine Cascarino<br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(124,174,0,1)"}},"hoveron":"points","name":"FW","legendgroup":"FW","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[43,21,1,87,8,1,157,0,2,20,3,0,61,3,1,52,1,123,61,7,6,50,null,0,16,30,4,14,26,2,75,16,5,31,2,0,10,9,3,34,40,3,41,9,3,77,0,23,29,28,3,0,37,18,58,8,4,null,3,null,13,2,3,131,21,0,null,null,null,0,139,1],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,0,null,0,0,0,0,0,0,null,null,null,0,0,0],"text":["caps:  43<br />goals:   0<br />pos: GK<br />player: Alyssa Naeher<br />country: US","caps:  21<br />goals:   0<br />pos: GK<br />player: Ashlyn Harris<br />country: US","caps:   1<br />goals:   0<br />pos: GK<br />player: Adrianna Franch<br />country: US","caps:  87<br />goals:   0<br />pos: GK<br />player: Waraporn Boonsing<br />country: Thailand","caps:   8<br />goals:   0<br />pos: GK<br />player: Sukanya Chor Charoenying<br />country: Thailand","caps:   1<br />goals:   0<br />pos: GK<br />player: Tiffany Sornpao<br />country: Thailand","caps: 157<br />goals:   0<br />pos: GK<br />player: Hedvig Lindahl<br />country: Sweden","caps:   0<br />goals:   0<br />pos: GK<br />player: Jennifer Falk<br />country: Sweden","caps:   2<br />goals:   0<br />pos: GK<br />player: Zecira Mušovic<br />country: Sweden","caps:  20<br />goals:   0<br />pos: GK<br />player: Christiane Endler<br />country: Chile","caps:   3<br />goals:   0<br />pos: GK<br />player: Natalia Campos<br />country: Chile","caps:   0<br />goals:   0<br />pos: GK<br />player: Ryann Torrero <br />country: Chile","caps:  61<br />goals:   0<br />pos: GK<br />player: Erin Nayler<br />country: New Zealand","caps:   3<br />goals:   0<br />pos: GK<br />player: Victoria Esson<br />country: New Zealand","caps:   1<br />goals:   0<br />pos: GK<br />player: Nadia Olla<br />country: New Zealand","caps:  52<br />goals:   0<br />pos: GK<br />player: Sari van Veenendaal<br />country: Netherlands","caps:   1<br />goals:   0<br />pos: GK<br />player: Lize Kop <br />country: Netherlands","caps: 123<br />goals:   0<br />pos: GK<br />player: Loes Geurts<br />country: Netherlands","caps:  61<br />goals:   0<br />pos: GK<br />player: Stephanie Labbé<br />country: Canada","caps:   7<br />goals:   0<br />pos: GK<br />player: Kailen Sheridan<br />country: Canada","caps:   6<br />goals:   0<br />pos: GK<br />player: Sabrina D'Angelo<br />country: Canada","caps:  50<br />goals:   0<br />pos: GK<br />player: Annette Ngo Ndom<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Isabelle Mambingo<br />country: Cameroon","caps:   0<br />goals:   0<br />pos: GK<br />player: Marthe Ongmahan<br />country: Cameroon","caps:  16<br />goals:   0<br />pos: GK<br />player: Lee Alexander<br />country: Scotland","caps:  30<br />goals:   0<br />pos: GK<br />player: Shannon Lynn<br />country: Scotland","caps:   4<br />goals:   0<br />pos: GK<br />player: Jenna Fife<br />country: Scotland","caps:  14<br />goals:   0<br />pos: GK<br />player: Sakiko Ikeda<br />country: Japan","caps:  26<br />goals:   0<br />pos: GK<br />player: Ayaka Yamashita<br />country: Japan","caps:   2<br />goals:   0<br />pos: GK<br />player: Chika Hirao<br />country: Japan","caps:  75<br />goals:   0<br />pos: GK<br />player: Karen Bardsley<br />country: England","caps:  16<br />goals:   0<br />pos: GK<br />player: Carly Telford<br />country: England","caps:   5<br />goals:   0<br />pos: GK<br />player: Mary Earps<br />country: England","caps:  31<br />goals:   0<br />pos: GK<br />player: Vanina Correa<br />country: Argentina","caps:   2<br />goals:   0<br />pos: GK<br />player: Gabriela Garton <br />country: Argentina","caps:   0<br />goals:   0<br />pos: GK<br />player: Solana Pereyra<br />country: Argentina","caps:  10<br />goals:   0<br />pos: GK<br />player: Sydney Schneider<br />country: Jamaica","caps:   9<br />goals:   0<br />pos: GK<br />player: Nicole McClure<br />country: Jamaica","caps:   3<br />goals:   0<br />pos: GK<br />player: Yazmeen Jamieson<br />country: Jamaica","caps:  34<br />goals:   0<br />pos: GK<br />player: Laura Giuliani<br />country: Italy","caps:  40<br />goals:   0<br />pos: GK<br />player: Chiara Marchitelli<br />country: Italy","caps:   3<br />goals:   0<br />pos: GK<br />player: Rosalia Pipitone <br />country: Italy","caps:  41<br />goals:   0<br />pos: GK<br />player: Bárbara<br />country: Brazil","caps:   9<br />goals:   0<br />pos: GK<br />player: Aline Villares<br />country: Brazil","caps:   3<br />goals:   0<br />pos: GK<br />player: Letícia Izidoro<br />country: Brazil","caps:  77<br />goals:   0<br />pos: GK<br />player: Lydia Williams<br />country: Australia","caps:   0<br />goals:   0<br />pos: GK<br />player: Teagan Micah<br />country: Australia","caps:  23<br />goals:   0<br />pos: GK<br />player: Mackenzie Arnold<br />country: Australia","caps:  29<br />goals:   0<br />pos: GK<br />player: Dolores Gallardo<br />country: Spain","caps:  28<br />goals:   0<br />pos: GK<br />player: Sandra Paños<br />country: Spain","caps:   3<br />goals:   0<br />pos: GK<br />player: María Asunción Quiñones<br />country: Spain","caps:   0<br />goals:   0<br />pos: GK<br />player: Mapaseka Mpuru<br />country: South Africa","caps:  37<br />goals:   0<br />pos: GK<br />player: Andile Dlamini<br />country: South Africa","caps:  18<br />goals:   0<br />pos: GK<br />player: Kaylin Swart<br />country: South Africa","caps:  58<br />goals:   0<br />pos: GK<br />player: Almuth Schult<br />country: Germany","caps:   8<br />goals:   0<br />pos: GK<br />player: Laura Benkarth<br />country: Germany","caps:   4<br />goals:   0<br />pos: GK<br />player: Merle Frohms<br />country: Germany","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Xu Huan<br />country: China PR","caps:   3<br />goals:   0<br />pos: GK<br />player: Peng Shimeng<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Bi Xiaolin<br />country: China PR","caps:  13<br />goals:   0<br />pos: GK<br />player: Kang Ga-ae<br />country: South Korea","caps:   2<br />goals:   0<br />pos: GK<br />player: Kim Min-Jeong<br />country: South Korea","caps:   3<br />goals:   0<br />pos: GK<br />player: Jung Bo-ram<br />country: South Korea","caps: 131<br />goals:   0<br />pos: GK<br />player: Ingrid Hjelmseth<br />country: Norway","caps:  21<br />goals:   0<br />pos: GK<br />player: Cecilie Fiskerstrand<br />country: Norway","caps:   0<br />goals:   0<br />pos: GK<br />player: Oda Bogstad<br />country: Norway","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Tochukwu Oluehi<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Chiamaka Nnadozie<br />country: Nigeria","caps:  NA<br />goals:  NA<br />pos: GK<br />player: Alaba Jonathan<br />country: Nigeria","caps:   0<br />goals:   0<br />pos: GK<br />player: Solène Durand <br />country: France","caps: 139<br />goals:   0<br />pos: GK<br />player: Sarah Bouhaddi<br />country: France","caps:   1<br />goals:   0<br />pos: GK<br />player: Pauline Peyraud-Magnin<br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"GK","legendgroup":"GK","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[47,82,79,66,24,42,44,14,null,21,null,46,47,17,126,6,193,8,62,22,15,20,20,5,4,0,139,113,111,59,122,8,11,161,88,3,45,2,40,16,143,184,13,65,60,38,null,null,null,14,191,132,62,63,60,25,6,69,124,35,24,8,14,134,45,6,138,8,31,18,32,34,9,2,34,36,1,4,1,22,6,13,8,13,2,14,22,35,45,48,0,30,20,64,160,43,6,21,37,106,85,78,73,10,61,66,65,16,53,64,12,45,7,96,5,42,104,95,17,26,1,2,12,104,43,89,95,59,20,44,31,93,null,null,123,45,99,null,null,56,120,22,25,28,49,1,14,18,71,15,36,96,19,3,null,42,33,27,12,20,83,20,14,186,154,3],"y":[9,6,18,8,6,6,0,0,null,3,null,11,30,3,32,0,27,1,2,9,0,6,3,0,0,0,14,15,13,3,1,2,0,30,16,0,2,0,3,0,0,19,1,8,1,1,null,null,null,1,13,53,7,3,4,2,0,14,29,6,8,0,0,22,1,1,32,2,0,1,9,10,0,0,2,8,0,0,0,3,1,3,2,3,0,3,0,1,5,17,0,6,3,4,23,10,0,0,6,1,18,10,14,0,13,5,13,3,6,5,1,11,1,18,0,9,12,10,0,0,0,0,8,8,7,32,45,10,5,3,0,25,null,null,11,1,17,null,null,14,20,11,8,2,5,0,0,1,25,2,5,9,0,1,null,3,15,4,0,3,11,1,0,29,58,0],"text":["caps:  47<br />goals:   9<br />pos: MF<br />player: Sam Mewis<br />country: US","caps:  82<br />goals:   6<br />pos: MF<br />player: Morgan Brian<br />country: US","caps:  79<br />goals:  18<br />pos: MF<br />player: Julie Ertz<br />country: US","caps:  66<br />goals:   8<br />pos: MF<br />player: Lindsey Horan<br />country: US","caps:  24<br />goals:   6<br />pos: MF<br />player: Rose Lavelle<br />country: US","caps:  42<br />goals:   6<br />pos: MF<br />player: Allie Long<br />country: US","caps:  44<br />goals:   0<br />pos: MF<br />player: Pikul Khueanpet<br />country: Thailand","caps:  14<br />goals:   0<br />pos: MF<br />player: Silawan Intamee<br />country: Thailand","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Sudarat Chucheun<br />country: Thailand","caps:  21<br />goals:   3<br />pos: MF<br />player: Rattikan Thongsombut<br />country: Thailand","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Orapin Waenngoen<br />country: Thailand","caps:  46<br />goals:  11<br />pos: MF<br />player: Wilaiporn Boothduang<br />country: Thailand","caps:  47<br />goals:  30<br />pos: MF<br />player: Kanjana Sungngoen<br />country: Thailand","caps:  17<br />goals:   3<br />pos: MF<br />player: Lina Hurtig<br />country: Sweden","caps: 126<br />goals:  32<br />pos: MF<br />player: Kosovare Asllani<br />country: Sweden","caps:   6<br />goals:   0<br />pos: MF<br />player: Julia Roddar<br />country: Sweden","caps: 193<br />goals:  27<br />pos: MF<br />player: Caroline Seger<br />country: Sweden","caps:   8<br />goals:   1<br />pos: MF<br />player: Anna Anvegård<br />country: Sweden","caps:  62<br />goals:   2<br />pos: MF<br />player: Elin Rubensson<br />country: Sweden","caps:  22<br />goals:   9<br />pos: MF<br />player: Francisca Lara<br />country: Chile","caps:  15<br />goals:   0<br />pos: MF<br />player: Claudia Soto<br />country: Chile","caps:  20<br />goals:   6<br />pos: MF<br />player: Karen Araya<br />country: Chile","caps:  20<br />goals:   3<br />pos: MF<br />player: Yessenia López<br />country: Chile","caps:   5<br />goals:   0<br />pos: MF<br />player: Daniela Pardo<br />country: Chile","caps:   4<br />goals:   0<br />pos: MF<br />player: Ana Gutiérrez<br />country: Chile","caps:   0<br />goals:   0<br />pos: MF<br />player: Elisa Durán <br />country: Chile","caps: 139<br />goals:  14<br />pos: MF<br />player: Ria Percival<br />country: New Zealand","caps: 113<br />goals:  15<br />pos: MF<br />player: Annalie Longo<br />country: New Zealand","caps: 111<br />goals:  13<br />pos: MF<br />player: Betsy Hassett<br />country: New Zealand","caps:  59<br />goals:   3<br />pos: MF<br />player: Katie Bowen<br />country: New Zealand","caps: 122<br />goals:   1<br />pos: MF<br />player: Katie Duncan<br />country: New Zealand","caps:   8<br />goals:   2<br />pos: MF<br />player: Daisy Cleverley<br />country: New Zealand","caps:  11<br />goals:   0<br />pos: MF<br />player: Olivia Chance<br />country: New Zealand","caps: 161<br />goals:  30<br />pos: MF<br />player: Sherida Spitse<br />country: Netherlands","caps:  88<br />goals:  16<br />pos: MF<br />player: Daniëlle van de Donk<br />country: Netherlands","caps:   3<br />goals:   0<br />pos: MF<br />player: Victoria Pelova <br />country: Netherlands","caps:  45<br />goals:   2<br />pos: MF<br />player: Jackie Groenen<br />country: Netherlands","caps:   2<br />goals:   0<br />pos: MF<br />player: Inessa Kaagman<br />country: Netherlands","caps:  40<br />goals:   3<br />pos: MF<br />player: Jill Roord<br />country: Netherlands","caps:  16<br />goals:   0<br />pos: MF<br />player: Julia Grosso<br />country: Canada","caps: 143<br />goals:   0<br />pos: MF<br />player: Desiree Scott<br />country: Canada","caps: 184<br />goals:  19<br />pos: MF<br />player: Sophie Schmidt<br />country: Canada","caps:  13<br />goals:   1<br />pos: MF<br />player: Gabrielle Carle<br />country: Canada","caps:  65<br />goals:   8<br />pos: MF<br />player: Jessie Fleming<br />country: Canada","caps:  60<br />goals:   1<br />pos: MF<br />player: Raissa Feudjio<br />country: Cameroon","caps:  38<br />goals:   1<br />pos: MF<br />player: Jeannette Yango<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Charlène Menene <br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Ninon Abena<br />country: Cameroon","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Marlyse Ngo Ndoumbouk<br />country: Cameroon","caps:  14<br />goals:   1<br />pos: MF<br />player: Genevieve Ngo Mbeleck<br />country: Cameroon","caps: 191<br />goals:  13<br />pos: MF<br />player: Joanne Love<br />country: Scotland","caps: 132<br />goals:  53<br />pos: MF<br />player: Kim Little<br />country: Scotland","caps:  62<br />goals:   7<br />pos: MF<br />player: Caroline Weir<br />country: Scotland","caps:  63<br />goals:   3<br />pos: MF<br />player: Leanne Crichton<br />country: Scotland","caps:  60<br />goals:   4<br />pos: MF<br />player: Christie Murray<br />country: Scotland","caps:  25<br />goals:   2<br />pos: MF<br />player: Lizzie Arnot<br />country: Scotland","caps:   6<br />goals:   0<br />pos: MF<br />player: Hina Sugita<br />country: Japan","caps:  69<br />goals:  14<br />pos: MF<br />player: Emi Nakajima<br />country: Japan","caps: 124<br />goals:  29<br />pos: MF<br />player: Mizuho Sakaguchi<br />country: Japan","caps:  35<br />goals:   6<br />pos: MF<br />player: Yui Hasegawa<br />country: Japan","caps:  24<br />goals:   8<br />pos: MF<br />player: Yuka Momiki<br />country: Japan","caps:   8<br />goals:   0<br />pos: MF<br />player: Narumi Miura<br />country: Japan","caps:  14<br />goals:   0<br />pos: MF<br />player: Keira Walsh<br />country: England","caps: 134<br />goals:  22<br />pos: MF<br />player: Jill Scott<br />country: England","caps:  45<br />goals:   1<br />pos: MF<br />player: Jade Moore<br />country: England","caps:   6<br />goals:   1<br />pos: MF<br />player: Georgia Stanway<br />country: England","caps: 138<br />goals:  32<br />pos: MF<br />player: Karen Carney<br />country: England","caps:   8<br />goals:   2<br />pos: MF<br />player: Lucy Staniforth<br />country: England","caps:  31<br />goals:   0<br />pos: MF<br />player: Vanesa Santana<br />country: Argentina","caps:  18<br />goals:   1<br />pos: MF<br />player: Ruth Bravo<br />country: Argentina","caps:  32<br />goals:   9<br />pos: MF<br />player: Estefanía Banini<br />country: Argentina","caps:  34<br />goals:  10<br />pos: MF<br />player: Florencia Bonsegundo<br />country: Argentina","caps:   9<br />goals:   0<br />pos: MF<br />player: Miriam Mayorga<br />country: Argentina","caps:   2<br />goals:   0<br />pos: MF<br />player: Lorena Benítez<br />country: Argentina","caps:  34<br />goals:   2<br />pos: MF<br />player: Mariela Coronel<br />country: Argentina","caps:  36<br />goals:   8<br />pos: MF<br />player: Mariana Larroquette<br />country: Argentina","caps:   1<br />goals:   0<br />pos: MF<br />player: Dalila Ippólito<br />country: Argentina","caps:   4<br />goals:   0<br />pos: MF<br />player: Chanel Hudson-Marks<br />country: Jamaica","caps:   1<br />goals:   0<br />pos: MF<br />player: Havana Solaun<br />country: Jamaica","caps:  22<br />goals:   3<br />pos: MF<br />player: Chinyelu Asher<br />country: Jamaica","caps:   6<br />goals:   1<br />pos: MF<br />player: Ashleigh Shim<br />country: Jamaica","caps:  13<br />goals:   3<br />pos: MF<br />player: Marlo Sweatman<br />country: Jamaica","caps:   8<br />goals:   2<br />pos: MF<br />player: Sashana Campbell<br />country: Jamaica","caps:  13<br />goals:   3<br />pos: MF<br />player: Trudi Carter<br />country: Jamaica","caps:   2<br />goals:   0<br />pos: MF<br />player: Cheyna Matthews<br />country: Jamaica","caps:  14<br />goals:   3<br />pos: MF<br />player: Valentina Bergamaschi<br />country: Italy","caps:  22<br />goals:   0<br />pos: MF<br />player: Aurora Galli<br />country: Italy","caps:  35<br />goals:   1<br />pos: MF<br />player: Martina Rosucci<br />country: Italy","caps:  45<br />goals:   5<br />pos: MF<br />player: Alice Parisi<br />country: Italy","caps:  48<br />goals:  17<br />pos: MF<br />player: Barbara Bonansea<br />country: Italy","caps:   0<br />goals:   0<br />pos: MF<br />player: Annamaria Serturini <br />country: Italy","caps:  30<br />goals:   6<br />pos: MF<br />player: Valentina Cernoia<br />country: Italy","caps:  20<br />goals:   3<br />pos: MF<br />player: Manuela Giugliano<br />country: Italy","caps:  64<br />goals:   4<br />pos: MF<br />player: Thaisa<br />country: Brazil","caps: 160<br />goals:  23<br />pos: MF<br />player: Formiga<br />country: Brazil","caps:  43<br />goals:  10<br />pos: MF<br />player: Andressinha<br />country: Brazil","caps:   6<br />goals:   0<br />pos: MF<br />player: Luana<br />country: Brazil","caps:  21<br />goals:   0<br />pos: MF<br />player: Aivi Luik<br />country: Australia","caps:  37<br />goals:   6<br />pos: MF<br />player: Chloe Logarzo<br />country: Australia","caps: 106<br />goals:   1<br />pos: MF<br />player: Elise Kellond-Knight<br />country: Australia","caps:  85<br />goals:  18<br />pos: MF<br />player: Emily van Egmond<br />country: Australia","caps:  78<br />goals:  10<br />pos: MF<br />player: Tameka Yallop<br />country: Australia","caps:  73<br />goals:  14<br />pos: MF<br />player: Katrina Gorry<br />country: Australia","caps:  10<br />goals:   0<br />pos: MF<br />player: Amy Harrison<br />country: Australia","caps:  61<br />goals:  13<br />pos: MF<br />player: Vicky Losada<br />country: Spain","caps:  66<br />goals:   5<br />pos: MF<br />player: Marta Corredera<br />country: Spain","caps:  65<br />goals:  13<br />pos: MF<br />player: Alexia Putellas<br />country: Spain","caps:  16<br />goals:   3<br />pos: MF<br />player: Patricia Guijarro<br />country: Spain","caps:  53<br />goals:   6<br />pos: MF<br />player: Virginia Torrecilla<br />country: Spain","caps:  64<br />goals:   5<br />pos: MF<br />player: Silvia Meseguer<br />country: Spain","caps:  12<br />goals:   1<br />pos: MF<br />player: Aitana Bonmatí<br />country: Spain","caps:  45<br />goals:  11<br />pos: MF<br />player: Amanda Sampedro<br />country: Spain","caps:   7<br />goals:   1<br />pos: MF<br />player: Andrea Falcón<br />country: Spain","caps:  96<br />goals:  18<br />pos: MF<br />player: Mamello Makhabane<br />country: South Africa","caps:   5<br />goals:   0<br />pos: MF<br />player: Karabo Dhlamini<br />country: South Africa","caps:  42<br />goals:   9<br />pos: MF<br />player: Linda Motlhalo<br />country: South Africa","caps: 104<br />goals:  12<br />pos: MF<br />player: Refiloe Jane<br />country: South Africa","caps:  95<br />goals:  10<br />pos: MF<br />player: Leandra Smeda<br />country: South Africa","caps:  17<br />goals:   0<br />pos: MF<br />player: Kholosa Biyana<br />country: South Africa","caps:  26<br />goals:   0<br />pos: MF<br />player: Busisiwe Ndimeni<br />country: South Africa","caps:   1<br />goals:   0<br />pos: MF<br />player: Sibulele Holweni<br />country: South Africa","caps:   2<br />goals:   0<br />pos: MF<br />player: Lena Oberdorf <br />country: Germany","caps:  12<br />goals:   8<br />pos: MF<br />player: Lea Schüller<br />country: Germany","caps: 104<br />goals:   8<br />pos: MF<br />player: Lena Goeßling<br />country: Germany","caps:  43<br />goals:   7<br />pos: MF<br />player: Svenja Huth<br />country: Germany","caps:  89<br />goals:  32<br />pos: MF<br />player: Dzsenifer Marozsán<br />country: Germany","caps:  95<br />goals:  45<br />pos: MF<br />player: Alexandra Popp<br />country: Germany","caps:  59<br />goals:  10<br />pos: MF<br />player: Sara Däbritz<br />country: Germany","caps:  20<br />goals:   5<br />pos: MF<br />player: Linda Dallmann<br />country: Germany","caps:  44<br />goals:   3<br />pos: MF<br />player: Verena Schweers<br />country: Germany","caps:  31<br />goals:   0<br />pos: MF<br />player: Lou Jiahui<br />country: China PR","caps:  93<br />goals:  25<br />pos: MF<br />player: Wang Shuang<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Wang Yan<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Li Wen<br />country: China PR","caps: 123<br />goals:  11<br />pos: MF<br />player: Gu Yasha<br />country: China PR","caps:  45<br />goals:   1<br />pos: MF<br />player: Tan Ruyin<br />country: China PR","caps:  99<br />goals:  17<br />pos: MF<br />player: Zhang Rui<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Yao Wei<br />country: China PR","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Liu Yanqiu<br />country: China PR","caps:  56<br />goals:  14<br />pos: MF<br />player: Lee Min-a<br />country: South Korea","caps: 120<br />goals:  20<br />pos: MF<br />player: Cho So-hyun<br />country: South Korea","caps:  22<br />goals:  11<br />pos: MF<br />player: Moon Mi-ra<br />country: South Korea","caps:  25<br />goals:   8<br />pos: MF<br />player: Kang Yu-mi<br />country: South Korea","caps:  28<br />goals:   2<br />pos: MF<br />player: Lee Young-ju<br />country: South Korea","caps:  49<br />goals:   5<br />pos: MF<br />player: Lee So-dam<br />country: South Korea","caps:   1<br />goals:   0<br />pos: MF<br />player: Kang Chae-rim<br />country: South Korea","caps:  14<br />goals:   0<br />pos: MF<br />player: Synne Skinnes Hansen<br />country: Norway","caps:  18<br />goals:   1<br />pos: MF<br />player: Vilde Bøe Risa<br />country: Norway","caps:  71<br />goals:  25<br />pos: MF<br />player: Caroline Hansen<br />country: Norway","caps:  15<br />goals:   2<br />pos: MF<br />player: Ingrid Engen<br />country: Norway","caps:  36<br />goals:   5<br />pos: MF<br />player: Guro Reiten<br />country: Norway","caps:  96<br />goals:   9<br />pos: MF<br />player: Kristine Minde<br />country: Norway","caps:  19<br />goals:   0<br />pos: MF<br />player: Frida Maanum<br />country: Norway","caps:   3<br />goals:   1<br />pos: MF<br />player: Karina Sævik<br />country: Norway","caps:  NA<br />goals:  NA<br />pos: MF<br />player: Amarachi Okoronkwo<br />country: Nigeria","caps:  42<br />goals:   3<br />pos: MF<br />player: Evelyn Nwabuoku<br />country: Nigeria","caps:  33<br />goals:  15<br />pos: MF<br />player: Rita Chikwelu<br />country: Nigeria","caps:  27<br />goals:   4<br />pos: MF<br />player: Ngozi Okobi-Okeoghene<br />country: Nigeria","caps:  12<br />goals:   0<br />pos: MF<br />player: Halimatu Ayinde<br />country: Nigeria","caps:  20<br />goals:   3<br />pos: MF<br />player: Ogonna Chukwudi<br />country: Nigeria","caps:  83<br />goals:  11<br />pos: MF<br />player: Amandine Henry<br />country: France","caps:  20<br />goals:   1<br />pos: MF<br />player: Grace Geyoro<br />country: France","caps:  14<br />goals:   0<br />pos: MF<br />player: Charlotte Bilbault<br />country: France","caps: 186<br />goals:  29<br />pos: MF<br />player: Élise Bussaglia<br />country: France","caps: 154<br />goals:  58<br />pos: MF<br />player: Gaëtane Thiney<br />country: France","caps:   3<br />goals:   0<br />pos: MF<br />player: Maéva Clémaron <br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(199,124,255,1)"}},"hoveron":"points","name":"MF","legendgroup":"MF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":52.3082883630829,"r":7.30593607305936,"b":47.9313684793137,"l":53.4661685346617},"plot_bgcolor":"rgba(204,255,187,1)","paper_bgcolor":"rgba(35,132,67,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.2536322125363},"title":{"text":"Relationship Between Goals Scoring and Captain-ship","font":{"color":"rgba(0,0,0,1)","family":"","size":26.5670402656704},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-14.1,296.1],"tickmode":"array","ticktext":["0","100","200"],"tickvals":[1.77635683940025e-015,100,200],"categoryorder":"array","categoryarray":["0","100","200"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(51,51,51,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"No of Matches as Captains","font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-9.05,190.05],"tickmode":"array","ticktext":["0","50","100","150"],"tickvals":[0,50,100,150],"categoryorder":"array","categoryarray":["0","50","100","150"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(51,51,51,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"No of Goals Scored","font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(204,255,187,1)","bordercolor":"rgba(0,0,0,1)","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"y":0.977034120734908},"annotations":[{"text":"Position","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"353861fc5ec5":{"x":{},"y":{},"colour":{},"label1":{},"label2":{},"type":"scatter"}},"cur_data":"353861fc5ec5","visdat":{"353861fc5ec5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="age-vs-goals" class="section level2">
+<h2>Age vs Goals</h2>
+<pre class="r"><code>p1&lt;-ggplot(squads,aes(age,goals,color=pos,label1=player,label2=country,group=1))+geom_point()+
+    xlab(&quot;Age of the Player&quot;)+ylab(&quot;No of Goals Scored&quot;)+
+    ggtitle(&quot;Relationship Between Goals Scoring and Age&quot;,
+            subtitle = &quot;This is plotly so click on the points on legend&quot;)+
+    theme_parksAndRec()+labs(color=&quot;Position&quot;)
+
+plotly::plotly_build(p1)</code></pre>
+<div id="htmlwidget-2" style="width:1152px;height:864px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":[{"x":[34,30,26,34,20,25,26,22,27,33,27,28,31,28,30,20,26,32,26,34,25,26,22,25,31,18,28,21,24,28,24,23,25,31,29,20,24,26,26,26,27,32,23,24,25,30,23,26,23,18,23,29,24,24,35,27,30,30,26,28,29,25,26,29,28,29,24,25,32,30,31,28,21,20,21,22,23,27,25,31,25,27,22,26,27,26,25,25,23,28,30,28,26,20,21,22,22,22,25,30,25,31,28,28,22,28,29,31,27,31,24,23,24,32,28,30,29,25,24,19,25,23,26,27,24,29,23,25,27,30,33,32,29,22,20,26,27,26,29,26,19,27,27,27,26,29,28,21,26,30,28,31,30,28,25,25,28,29,26,28,29,23,27,27,36,32,18,24,28,27,24,23,26,24,31],"y":[0,2,0,1,1,0,24,null,0,2,3,0,2,0,null,null,0,8,0,23,5,2,2,1,4,0,0,0,3,7,1,3,4,1,6,1,0,0,7,1,0,6,0,0,0,1,3,1,5,0,5,0,0,0,10,0,0,null,0,1,null,0,0,16,22,9,0,0,1,6,5,0,0,0,0,0,0,7,2,12,0,1,0,0,3,0,2,0,3,0,0,0,1,0,1,2,2,0,0,5,0,5,1,0,0,1,6,13,1,3,0,0,2,6,0,9,2,2,7,1,0,0,1,8,0,9,0,0,1,6,61,11,0,0,0,2,4,10,0,0,1,0,0,null,0,3,1,null,null,14,0,0,1,5,1,11,1,3,1,0,19,0,1,1,0,0,null,0,20,0,0,0,4,4,0],"text":["age: 34<br />goals:   0<br />pos: DF<br />player: Becky Sauerbrunn<br />country: US","age: 30<br />goals:   2<br />pos: DF<br />player: Kelley O'Hara<br />country: US","age: 26<br />goals:   0<br />pos: DF<br />player: Abby Dahlkemper<br />country: US","age: 34<br />goals:   1<br />pos: DF<br />player: Ali Krieger<br />country: US","age: 20<br />goals:   1<br />pos: DF<br />player: Tierna Davidson<br />country: US","age: 25<br />goals:   0<br />pos: DF<br />player: Emily Sonnett<br />country: US","age: 26<br />goals:  24<br />pos: DF<br />player: Crystal Dunn<br />country: US","age: 22<br />goals:  NA<br />pos: DF<br />player: Kanjanaporn Saengkoon<br />country: Thailand","age: 27<br />goals:   0<br />pos: DF<br />player: Natthakarn Chinwong<br />country: Thailand","age: 33<br />goals:   2<br />pos: DF<br />player: Duangnapa Sritala<br />country: Thailand","age: 27<br />goals:   3<br />pos: DF<br />player: Ainon Phancha<br />country: Thailand","age: 28<br />goals:   0<br />pos: DF<br />player: Warunee Phetwiset<br />country: Thailand","age: 31<br />goals:   2<br />pos: DF<br />player: Sunisa Srangthaisong<br />country: Thailand","age: 28<br />goals:   0<br />pos: DF<br />player: Khwanrudi Saengchan<br />country: Thailand","age: 30<br />goals:  NA<br />pos: DF<br />player: Pitsamai Sornsai<br />country: Thailand","age: 20<br />goals:  NA<br />pos: DF<br />player: Phornphirun Philawan<br />country: Thailand","age: 26<br />goals:   0<br />pos: DF<br />player: Jonna Andersson<br />country: Sweden","age: 32<br />goals:   8<br />pos: DF<br />player: Linda Sembrant<br />country: Sweden","age: 26<br />goals:   0<br />pos: DF<br />player: Hanna Glas<br />country: Sweden","age: 34<br />goals:  23<br />pos: DF<br />player: Nilla Fischer<br />country: Sweden","age: 25<br />goals:   5<br />pos: DF<br />player: Magdalena Eriksson<br />country: Sweden","age: 26<br />goals:   2<br />pos: DF<br />player: Amanda Ilestedt<br />country: Sweden","age: 22<br />goals:   2<br />pos: DF<br />player: Nathalie Björn<br />country: Sweden","age: 25<br />goals:   1<br />pos: DF<br />player: Rocío Soto<br />country: Chile","age: 31<br />goals:   4<br />pos: DF<br />player: Carla Guerrero<br />country: Chile","age: 18<br />goals:   0<br />pos: DF<br />player: Valentina Díaz<br />country: Chile","age: 28<br />goals:   0<br />pos: DF<br />player: Su Helen Galaz<br />country: Chile","age: 21<br />goals:   0<br />pos: DF<br />player: Javiera Toro<br />country: Chile","age: 24<br />goals:   3<br />pos: DF<br />player: Camila Sáez<br />country: Chile","age: 28<br />goals:   7<br />pos: DF<br />player: Anna Green<br />country: New Zealand","age: 24<br />goals:   1<br />pos: DF<br />player: CJ Bott<br />country: New Zealand","age: 23<br />goals:   3<br />pos: DF<br />player: Meikayla Moore<br />country: New Zealand","age: 25<br />goals:   4<br />pos: DF<br />player: Rebekah Stott<br />country: New Zealand","age: 31<br />goals:   1<br />pos: DF<br />player: Ali Riley<br />country: New Zealand","age: 29<br />goals:   6<br />pos: DF<br />player: Abby Erceg<br />country: New Zealand","age: 20<br />goals:   1<br />pos: DF<br />player: Sarah Morton<br />country: New Zealand","age: 24<br />goals:   0<br />pos: DF<br />player: Stephanie Skilton<br />country: New Zealand","age: 26<br />goals:   0<br />pos: DF<br />player: Desiree van Lunteren<br />country: Netherlands","age: 26<br />goals:   7<br />pos: DF<br />player: Stefanie van der Gragt<br />country: Netherlands","age: 26<br />goals:   1<br />pos: DF<br />player: Merel van Dongen<br />country: Netherlands","age: 27<br />goals:   0<br />pos: DF<br />player: Kika van Es<br />country: Netherlands","age: 32<br />goals:   6<br />pos: DF<br />player: Anouk Dekker<br />country: Netherlands","age: 23<br />goals:   0<br />pos: DF<br />player: Danique Kerkdijk<br />country: Netherlands","age: 24<br />goals:   0<br />pos: DF<br />player: Dominique Bloodworth<br />country: Netherlands","age: 25<br />goals:   0<br />pos: DF<br />player: Liza van der Most<br />country: Netherlands","age: 30<br />goals:   1<br />pos: DF<br />player: Allysha Chapman<br />country: Canada","age: 23<br />goals:   3<br />pos: DF<br />player: Kadeisha Buchanan<br />country: Canada","age: 26<br />goals:   1<br />pos: DF<br />player: Shelina Zadorsky<br />country: Canada","age: 23<br />goals:   5<br />pos: DF<br />player: Rebecca Quinn<br />country: Canada","age: 18<br />goals:   0<br />pos: DF<br />player: Jayde Riviere<br />country: Canada","age: 23<br />goals:   5<br />pos: DF<br />player: Ashley Lawrence<br />country: Canada","age: 29<br />goals:   0<br />pos: DF<br />player: Shannon Woeller<br />country: Canada","age: 24<br />goals:   0<br />pos: DF<br />player: Lindsay Agnew<br />country: Canada","age: 24<br />goals:   0<br />pos: DF<br />player: Jenna Hellstrom<br />country: Canada","age: 35<br />goals:  10<br />pos: DF<br />player: Christine Manie<br />country: Cameroon","age: 27<br />goals:   0<br />pos: DF<br />player: Yvonne Leuko<br />country: Cameroon","age: 30<br />goals:   0<br />pos: DF<br />player: Augustine Ejangue<br />country: Cameroon","age: 30<br />goals:  NA<br />pos: DF<br />player: Estelle Johnson<br />country: Cameroon","age: 26<br />goals:   0<br />pos: DF<br />player: Aurelle Awona<br />country: Cameroon","age: 28<br />goals:   1<br />pos: DF<br />player: Claudine Meffometou<br />country: Cameroon","age: 29<br />goals:  NA<br />pos: DF<br />player: Ysis Sonkeng<br />country: Cameroon","age: 25<br />goals:   0<br />pos: DF<br />player: Kirsty Smith<br />country: Scotland","age: 26<br />goals:   0<br />pos: DF<br />player: Nicola Docherty<br />country: Scotland","age: 29<br />goals:  16<br />pos: DF<br />player: Rachel Corsie<br />country: Scotland","age: 28<br />goals:  22<br />pos: DF<br />player: Jennifer Beattie<br />country: Scotland","age: 29<br />goals:   9<br />pos: DF<br />player: Hayley Lauder<br />country: Scotland","age: 24<br />goals:   0<br />pos: DF<br />player: Chloe Arthur<br />country: Scotland","age: 25<br />goals:   0<br />pos: DF<br />player: Sophie Howard<br />country: Scotland","age: 32<br />goals:   1<br />pos: DF<br />player: Joelle Murray<br />country: Scotland","age: 30<br />goals:   6<br />pos: DF<br />player: Rumi Utsugi<br />country: Japan","age: 31<br />goals:   5<br />pos: DF<br />player: Aya Sameshima<br />country: Japan","age: 28<br />goals:   0<br />pos: DF<br />player: Saki Kumagai<br />country: Japan","age: 21<br />goals:   0<br />pos: DF<br />player: Nana Ichise<br />country: Japan","age: 20<br />goals:   0<br />pos: DF<br />player: Moeka Minami<br />country: Japan","age: 21<br />goals:   0<br />pos: DF<br />player: Asato Miyagawa<br />country: Japan","age: 22<br />goals:   0<br />pos: DF<br />player: Risa Shimizu<br />country: Japan","age: 23<br />goals:   0<br />pos: DF<br />player: Shiori Miyake<br />country: Japan","age: 27<br />goals:   7<br />pos: DF<br />player: Lucy Bronze<br />country: England","age: 25<br />goals:   2<br />pos: DF<br />player: Alex Greenwood<br />country: England","age: 31<br />goals:  12<br />pos: DF<br />player: Steph Houghton<br />country: England","age: 25<br />goals:   0<br />pos: DF<br />player: Millie Bright<br />country: England","age: 27<br />goals:   1<br />pos: DF<br />player: Demi Stokes<br />country: England","age: 22<br />goals:   0<br />pos: DF<br />player: Leah Williamson<br />country: England","age: 26<br />goals:   0<br />pos: DF<br />player: Abbie McManus<br />country: England","age: 27<br />goals:   3<br />pos: DF<br />player: Rachel Daly<br />country: England","age: 26<br />goals:   0<br />pos: DF<br />player: Agustina Barroso<br />country: Argentina","age: 25<br />goals:   2<br />pos: DF<br />player: Eliana Stábile<br />country: Argentina","age: 25<br />goals:   0<br />pos: DF<br />player: Adriana Sachs<br />country: Argentina","age: 23<br />goals:   3<br />pos: DF<br />player: Aldana Cometti<br />country: Argentina","age: 28<br />goals:   0<br />pos: DF<br />player: Virginia Gómez<br />country: Argentina","age: 30<br />goals:   0<br />pos: DF<br />player: Gabriela Chávez<br />country: Argentina","age: 28<br />goals:   0<br />pos: DF<br />player: Natalie Juncos<br />country: Argentina","age: 26<br />goals:   1<br />pos: DF<br />player: Lauren Silver<br />country: Jamaica","age: 20<br />goals:   0<br />pos: DF<br />player: Chantelle Swaby<br />country: Jamaica","age: 21<br />goals:   1<br />pos: DF<br />player: Konya Plummer<br />country: Jamaica","age: 22<br />goals:   2<br />pos: DF<br />player: Deneisha Blackwood<br />country: Jamaica","age: 22<br />goals:   2<br />pos: DF<br />player: Dominique Bond-Flasza<br />country: Jamaica","age: 22<br />goals:   0<br />pos: DF<br />player: Allyson Swaby<br />country: Jamaica","age: 25<br />goals:   0<br />pos: DF<br />player: Toriana Patterson<br />country: Jamaica","age: 30<br />goals:   5<br />pos: DF<br />player: Sara Gama<br />country: Italy","age: 25<br />goals:   0<br />pos: DF<br />player: Elena Linari<br />country: Italy","age: 31<br />goals:   5<br />pos: DF<br />player: Alia Guagni<br />country: Italy","age: 28<br />goals:   1<br />pos: DF<br />player: Elisa Bartoli<br />country: Italy","age: 28<br />goals:   0<br />pos: DF<br />player: Laura Fusetti<br />country: Italy","age: 22<br />goals:   0<br />pos: DF<br />player: Lisa Boattin<br />country: Italy","age: 28<br />goals:   1<br />pos: DF<br />player: Linda Tucceri<br />country: Italy","age: 29<br />goals:   6<br />pos: DF<br />player: Fabiana<br />country: Brazil","age: 31<br />goals:  13<br />pos: DF<br />player: Érika<br />country: Brazil","age: 27<br />goals:   1<br />pos: DF<br />player: Tayla<br />country: Brazil","age: 31<br />goals:   3<br />pos: DF<br />player: Tamires<br />country: Brazil","age: 24<br />goals:   0<br />pos: DF<br />player: Letícia Santos<br />country: Brazil","age: 23<br />goals:   0<br />pos: DF<br />player: Kathellen<br />country: Brazil","age: 24<br />goals:   2<br />pos: DF<br />player: Camila Martins<br />country: Brazil","age: 32<br />goals:   6<br />pos: DF<br />player: Mônica<br />country: Brazil","age: 28<br />goals:   0<br />pos: DF<br />player: Gema Simon<br />country: Australia","age: 30<br />goals:   9<br />pos: DF<br />player: Clare Polkinghorne<br />country: Australia","age: 29<br />goals:   2<br />pos: DF<br />player: Laura Alleway<br />country: Australia","age: 25<br />goals:   2<br />pos: DF<br />player: Steph Catley<br />country: Australia","age: 24<br />goals:   7<br />pos: DF<br />player: Alanna Kennedy<br />country: Australia","age: 19<br />goals:   1<br />pos: DF<br />player: Ellie Carpenter<br />country: Australia","age: 25<br />goals:   0<br />pos: DF<br />player: Teigen Allen<br />country: Australia","age: 23<br />goals:   0<br />pos: DF<br />player: Celia Jiménez<br />country: Spain","age: 26<br />goals:   1<br />pos: DF<br />player: Leila Ouahabi<br />country: Spain","age: 27<br />goals:   8<br />pos: DF<br />player: Irene Paredes<br />country: Spain","age: 24<br />goals:   0<br />pos: DF<br />player: Ivana Andrés<br />country: Spain","age: 29<br />goals:   9<br />pos: DF<br />player: Marta Torrejón<br />country: Spain","age: 23<br />goals:   0<br />pos: DF<br />player: María Pilar León<br />country: Spain","age: 25<br />goals:   0<br />pos: DF<br />player: Andrea Pereira<br />country: Spain","age: 27<br />goals:   1<br />pos: DF<br />player: Lebogang Ramalepe<br />country: South Africa","age: 30<br />goals:   6<br />pos: DF<br />player: Nothando Vilakazi<br />country: South Africa","age: 33<br />goals:  61<br />pos: DF<br />player: Noko Matlou<br />country: South Africa","age: 32<br />goals:  11<br />pos: DF<br />player: Janine van Wyk<br />country: South Africa","age: 29<br />goals:   0<br />pos: DF<br />player: Bambanani Mbane<br />country: South Africa","age: 22<br />goals:   0<br />pos: DF<br />player: Tiisetso Makhubela<br />country: South Africa","age: 20<br />goals:   0<br />pos: DF<br />player: Bongeka Gamede<br />country: South Africa","age: 26<br />goals:   2<br />pos: DF<br />player: Carolin Simon<br />country: Germany","age: 27<br />goals:   4<br />pos: DF<br />player: Kathrin Hendrich<br />country: Germany","age: 26<br />goals:  10<br />pos: DF<br />player: Leonie Maier<br />country: Germany","age: 29<br />goals:   0<br />pos: DF<br />player: Marina Hegering <br />country: Germany","age: 26<br />goals:   0<br />pos: DF<br />player: Johanna Elsig<br />country: Germany","age: 19<br />goals:   1<br />pos: DF<br />player: Giulia Gwinn<br />country: Germany","age: 27<br />goals:   0<br />pos: DF<br />player: Sara Doorsoun<br />country: Germany","age: 27<br />goals:   0<br />pos: DF<br />player: Liu Shanshan<br />country: China PR","age: 27<br />goals:  NA<br />pos: DF<br />player: Lin Yuping<br />country: China PR","age: 26<br />goals:   0<br />pos: DF<br />player: Wu Haiyan<br />country: China PR","age: 29<br />goals:   3<br />pos: DF<br />player: Han Peng<br />country: China PR","age: 28<br />goals:   1<br />pos: DF<br />player: Li Jiayue<br />country: China PR","age: 21<br />goals:  NA<br />pos: DF<br />player: Wang Ying<br />country: China PR","age: 26<br />goals:  NA<br />pos: DF<br />player: Luo Guiping<br />country: China PR","age: 30<br />goals:  14<br />pos: DF<br />player: Lee Eun-mi<br />country: South Korea","age: 28<br />goals:   0<br />pos: DF<br />player: Jeong Yeong-a<br />country: South Korea","age: 31<br />goals:   0<br />pos: DF<br />player: Hwang Bo-ram<br />country: South Korea","age: 30<br />goals:   1<br />pos: DF<br />player: Kim Do-yeon<br />country: South Korea","age: 28<br />goals:   5<br />pos: DF<br />player: Lim Seon-joo<br />country: South Korea","age: 25<br />goals:   1<br />pos: DF<br />player: Shin Dam-yeong<br />country: South Korea","age: 25<br />goals:  11<br />pos: DF<br />player: Jang Sel-gi<br />country: South Korea","age: 28<br />goals:   1<br />pos: DF<br />player: Kim Hye-ri<br />country: South Korea","age: 29<br />goals:   3<br />pos: DF<br />player: Ingrid Wold<br />country: Norway","age: 26<br />goals:   1<br />pos: DF<br />player: Maria Thorisdottir<br />country: Norway","age: 28<br />goals:   0<br />pos: DF<br />player: Stine Hovland<br />country: Norway","age: 29<br />goals:  19<br />pos: DF<br />player: Maren Mjelde<br />country: Norway","age: 23<br />goals:   0<br />pos: DF<br />player: Cecilie Kvamme <br />country: Norway","age: 27<br />goals:   1<br />pos: DF<br />player: Osinachi Ohale<br />country: Nigeria","age: 27<br />goals:   1<br />pos: DF<br />player: Ngozi Ebere<br />country: Nigeria","age: 36<br />goals:   0<br />pos: DF<br />player: Onome Ebi<br />country: Nigeria","age: 32<br />goals:   0<br />pos: DF<br />player: Faith Michael<br />country: Nigeria","age: 18<br />goals:  NA<br />pos: DF<br />player: Chidinma Okeke<br />country: Nigeria","age: 24<br />goals:   0<br />pos: DF<br />player: Ève Périsset<br />country: France","age: 28<br />goals:  20<br />pos: DF<br />player: Wendie Renard<br />country: France","age: 27<br />goals:   0<br />pos: DF<br />player: Marion Torrent<br />country: France","age: 24<br />goals:   0<br />pos: DF<br />player: Aïssatou Tounkara<br />country: France","age: 23<br />goals:   0<br />pos: DF<br />player: Sakina Karchaoui<br />country: France","age: 26<br />goals:   4<br />pos: DF<br />player: Amel Majri<br />country: France","age: 24<br />goals:   4<br />pos: DF<br />player: Griedge Mbock Bathy<br />country: France","age: 31<br />goals:   0<br />pos: DF<br />player: Julie Debever <br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"DF","legendgroup":"DF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[21,36,29,33,31,31,30,22,30,22,26,23,29,23,21,25,25,28,31,25,25,18,26,28,20,31,31,26,27,21,26,22,26,28,26,22,20,18,35,24,24,26,26,30,35,26,27,18,21,27,29,25,26,24,20,26,28,21,19,19,25,25,33,25,27,30,24,27,30,30,22,17,22,27,18,22,33,29,31,31,25,26,27,33,34,25,24,28,25,24,34,27,24,16,25,23,29,20,22,29,23,23,25,29,25,18,24,28,28,26,29,23,28,29,26,25,22,30,30,26,23,23,26,20,18,24,25,21,21,19,25,22,24,30,24,20,23,25,22],"y":[15,107,101,44,28,2,47,12,2,null,9,0,17,10,0,8,6,9,12,0,9,1,1,0,0,3,33,24,25,1,15,57,42,3,1,9,8,6,181,10,25,15,5,17,49,5,0,null,null,17,58,3,3,2,9,20,17,2,0,0,17,11,17,12,22,28,5,2,5,7,0,8,28,0,0,0,20,27,1,8,3,10,14,110,83,17,1,3,0,16,47,7,3,0,31,2,27,0,1,1,1,7,6,0,8,0,7,1,23,24,10,4,54,21,12,16,7,19,57,12,1,0,16,0,null,11,22,null,0,null,7,null,0,73,4,0,9,4,1],"text":["age: 21<br />goals:  15<br />pos: FW<br />player: Mallory Pugh<br />country: US","age: 36<br />goals: 107<br />pos: FW<br />player: Carli Lloyd<br />country: US","age: 29<br />goals: 101<br />pos: FW<br />player: Alex Morgan<br />country: US","age: 33<br />goals:  44<br />pos: FW<br />player: Megan Rapinoe<br />country: US","age: 31<br />goals:  28<br />pos: FW<br />player: Tobin Heath<br />country: US","age: 31<br />goals:   2<br />pos: FW<br />player: Jessica McDonald<br />country: US","age: 30<br />goals:  47<br />pos: FW<br />player: Christen Press<br />country: US","age: 22<br />goals:  12<br />pos: FW<br />player: Suchawadee Nildhamrong<br />country: Thailand","age: 30<br />goals:   2<br />pos: FW<br />player: Orathai Srimanee<br />country: Thailand","age: 22<br />goals:  NA<br />pos: FW<br />player: Saowalak Pengngam<br />country: Thailand","age: 26<br />goals:   9<br />pos: FW<br />player: Taneekarn Dangda<br />country: Thailand","age: 23<br />goals:   0<br />pos: FW<br />player: Madelen Janogy<br />country: Sweden","age: 29<br />goals:  17<br />pos: FW<br />player: Sofia Jakobsson<br />country: Sweden","age: 23<br />goals:  10<br />pos: FW<br />player: Stina Blackstenius<br />country: Sweden","age: 21<br />goals:   0<br />pos: FW<br />player: Julia Zigiotti Olme<br />country: Sweden","age: 25<br />goals:   8<br />pos: FW<br />player: Fridolina Rolfö<br />country: Sweden","age: 25<br />goals:   6<br />pos: FW<br />player: Mimmi Larsson<br />country: Sweden","age: 28<br />goals:   9<br />pos: FW<br />player: Olivia Schough<br />country: Sweden","age: 31<br />goals:  12<br />pos: FW<br />player: María José Rojas<br />country: Chile","age: 25<br />goals:   0<br />pos: FW<br />player: María José Urrutia<br />country: Chile","age: 25<br />goals:   9<br />pos: FW<br />player: Yanara Aedo<br />country: Chile","age: 18<br />goals:   1<br />pos: FW<br />player: Javiera Grez<br />country: Chile","age: 26<br />goals:   1<br />pos: FW<br />player: Yessenia Huenteo<br />country: Chile","age: 28<br />goals:   0<br />pos: FW<br />player: Daniela Zamora<br />country: Chile","age: 20<br />goals:   0<br />pos: FW<br />player: Rosario Balmaceda<br />country: Chile","age: 31<br />goals:   3<br />pos: FW<br />player: Emma Kete<br />country: New Zealand","age: 31<br />goals:  33<br />pos: FW<br />player: Sarah Gregorius<br />country: New Zealand","age: 26<br />goals:  24<br />pos: FW<br />player: Rosie White<br />country: New Zealand","age: 27<br />goals:  25<br />pos: FW<br />player: Hannah Wilkinson<br />country: New Zealand","age: 21<br />goals:   1<br />pos: FW<br />player: Paige Satchell<br />country: New Zealand","age: 26<br />goals:  15<br />pos: FW<br />player: Shanice van de Sanden<br />country: Netherlands","age: 22<br />goals:  57<br />pos: FW<br />player: Vivianne Miedema<br />country: Netherlands","age: 26<br />goals:  42<br />pos: FW<br />player: Lieke Martens<br />country: Netherlands","age: 28<br />goals:   3<br />pos: FW<br />player: Renate Jansen<br />country: Netherlands","age: 26<br />goals:   1<br />pos: FW<br />player: Ellen Jansen<br />country: Netherlands","age: 22<br />goals:   9<br />pos: FW<br />player: Lineth Beerensteyn<br />country: Netherlands","age: 20<br />goals:   8<br />pos: FW<br />player: Deanne Rose<br />country: Canada","age: 18<br />goals:   6<br />pos: FW<br />player: Jordyn Huitema<br />country: Canada","age: 35<br />goals: 181<br />pos: FW<br />player: Christine Sinclair<br />country: Canada","age: 24<br />goals:  10<br />pos: FW<br />player: Nichelle Prince<br />country: Canada","age: 24<br />goals:  25<br />pos: FW<br />player: Janine Beckie<br />country: Canada","age: 26<br />goals:  15<br />pos: FW<br />player: Adriana Leon<br />country: Canada","age: 26<br />goals:   5<br />pos: FW<br />player: Ajara Nchout<br />country: Cameroon","age: 30<br />goals:  17<br />pos: FW<br />player: Gabrielle Aboudi Onguéné<br />country: Cameroon","age: 35<br />goals:  49<br />pos: FW<br />player: Madeleine Ngono Mani<br />country: Cameroon","age: 26<br />goals:   5<br />pos: FW<br />player: Gaëlle Enganamouit<br />country: Cameroon","age: 27<br />goals:   0<br />pos: FW<br />player: Henriette Akaba<br />country: Cameroon","age: 18<br />goals:  NA<br />pos: FW<br />player: Alexanda Takounda<br />country: Cameroon","age: 21<br />goals:  NA<br />pos: FW<br />player: Michaela Abam<br />country: Cameroon","age: 27<br />goals:  17<br />pos: FW<br />player: Lisa Evans<br />country: Scotland","age: 29<br />goals:  58<br />pos: FW<br />player: Jane Ross<br />country: Scotland","age: 25<br />goals:   3<br />pos: FW<br />player: Claire Emslie<br />country: Scotland","age: 26<br />goals:   3<br />pos: FW<br />player: Lana Clelland<br />country: Scotland","age: 24<br />goals:   2<br />pos: FW<br />player: Fiona Brown<br />country: Scotland","age: 20<br />goals:   9<br />pos: FW<br />player: Erin Cuthbert<br />country: Scotland","age: 26<br />goals:  20<br />pos: FW<br />player: Mana Iwabuchi<br />country: Japan","age: 28<br />goals:  17<br />pos: FW<br />player: Yuika Sugasawa<br />country: Japan","age: 21<br />goals:   2<br />pos: FW<br />player: Rikako Kobayashi<br />country: Japan","age: 19<br />goals:   0<br />pos: FW<br />player: Riko Ueki<br />country: Japan","age: 19<br />goals:   0<br />pos: FW<br />player: Jun Endo<br />country: Japan","age: 25<br />goals:  17<br />pos: FW<br />player: Kumi Yokoyama<br />country: Japan","age: 25<br />goals:  11<br />pos: FW<br />player: Nikita Parris<br />country: England","age: 33<br />goals:  17<br />pos: FW<br />player: Jodie Taylor<br />country: England","age: 25<br />goals:  12<br />pos: FW<br />player: Fran Kirby<br />country: England","age: 27<br />goals:  22<br />pos: FW<br />player: Toni Duggan<br />country: England","age: 30<br />goals:  28<br />pos: FW<br />player: Ellen White<br />country: England","age: 24<br />goals:   5<br />pos: FW<br />player: Beth Mead<br />country: England","age: 27<br />goals:   2<br />pos: FW<br />player: Yael Oviedo<br />country: Argentina","age: 30<br />goals:   5<br />pos: FW<br />player: Sole Jaimes<br />country: Argentina","age: 30<br />goals:   7<br />pos: FW<br />player: Belén Potassa<br />country: Argentina","age: 22<br />goals:   0<br />pos: FW<br />player: Milagros Menéndez <br />country: Argentina","age: 17<br />goals:   8<br />pos: FW<br />player: Jody Brown<br />country: Jamaica","age: 22<br />goals:  28<br />pos: FW<br />player: Khadija Shaw<br />country: Jamaica","age: 27<br />goals:   0<br />pos: FW<br />player: Tiffany Cameron<br />country: Jamaica","age: 18<br />goals:   0<br />pos: FW<br />player: Olufolasade Adamolekun<br />country: Jamaica","age: 22<br />goals:   0<br />pos: FW<br />player: Kayla McCoy<br />country: Jamaica","age: 33<br />goals:  20<br />pos: FW<br />player: Daniela Sabatino<br />country: Italy","age: 29<br />goals:  27<br />pos: FW<br />player: Cristiana Girelli<br />country: Italy","age: 31<br />goals:   1<br />pos: FW<br />player: Stefania Tarenzi <br />country: Italy","age: 31<br />goals:   8<br />pos: FW<br />player: Ilaria Mauro<br />country: Italy","age: 25<br />goals:   3<br />pos: FW<br />player: Valentina Giacinti<br />country: Italy","age: 26<br />goals:  10<br />pos: FW<br />player: Andressa Alves<br />country: Brazil","age: 27<br />goals:  14<br />pos: FW<br />player: Debinha<br />country: Brazil","age: 33<br />goals: 110<br />pos: FW<br />player: Marta<br />country: Brazil","age: 34<br />goals:  83<br />pos: FW<br />player: Cristiane<br />country: Brazil","age: 25<br />goals:  17<br />pos: FW<br />player: Beatriz<br />country: Brazil","age: 24<br />goals:   1<br />pos: FW<br />player: Ludmila<br />country: Brazil","age: 28<br />goals:   3<br />pos: FW<br />player: Raquel<br />country: Brazil","age: 25<br />goals:   0<br />pos: FW<br />player: Geyse<br />country: Brazil","age: 24<br />goals:  16<br />pos: FW<br />player: Caitlin Foord<br />country: Australia","age: 34<br />goals:  47<br />pos: FW<br />player: Lisa De Vanna<br />country: Australia","age: 27<br />goals:   7<br />pos: FW<br />player: Emily Gielnik<br />country: Australia","age: 24<br />goals:   3<br />pos: FW<br />player: Hayley Raso<br />country: Australia","age: 16<br />goals:   0<br />pos: FW<br />player: Mary Fowler<br />country: Australia","age: 25<br />goals:  31<br />pos: FW<br />player: Sam Kerr<br />country: Australia","age: 23<br />goals:   2<br />pos: FW<br />player: Mariona Caldentey<br />country: Spain","age: 29<br />goals:  27<br />pos: FW<br />player: Jennifer Hermoso<br />country: Spain","age: 20<br />goals:   0<br />pos: FW<br />player: Lucía García<br />country: Spain","age: 22<br />goals:   1<br />pos: FW<br />player: Nahikari García<br />country: Spain","age: 29<br />goals:   1<br />pos: FW<br />player: Ode Fulutudilu<br />country: South Africa","age: 23<br />goals:   1<br />pos: FW<br />player: Amanda Mthandi<br />country: South Africa","age: 23<br />goals:   7<br />pos: FW<br />player: Thembi Kgatlana<br />country: South Africa","age: 25<br />goals:   6<br />pos: FW<br />player: Jermaine Seoposenwe<br />country: South Africa","age: 29<br />goals:   0<br />pos: FW<br />player: Rhoda Mulaudzi<br />country: South Africa","age: 25<br />goals:   8<br />pos: FW<br />player: Melanie Leupolz<br />country: Germany","age: 18<br />goals:   0<br />pos: FW<br />player: Klara Bühl <br />country: Germany","age: 24<br />goals:   7<br />pos: FW<br />player: Lina Magull<br />country: Germany","age: 28<br />goals:   1<br />pos: FW<br />player: Turid Knaak<br />country: Germany","age: 28<br />goals:  23<br />pos: FW<br />player: Yang Li<br />country: China PR","age: 26<br />goals:  24<br />pos: FW<br />player: Li Ying<br />country: China PR","age: 29<br />goals:  10<br />pos: FW<br />player: Wang Shanshan<br />country: China PR","age: 23<br />goals:   4<br />pos: FW<br />player: Song Duan<br />country: China PR","age: 28<br />goals:  54<br />pos: FW<br />player: Ji So-yun<br />country: South Korea","age: 29<br />goals:  21<br />pos: FW<br />player: Jung Seol-bin<br />country: South Korea","age: 26<br />goals:  12<br />pos: FW<br />player: Yeo Min-ji<br />country: South Korea","age: 25<br />goals:  16<br />pos: FW<br />player: Lee Geum-min<br />country: South Korea","age: 22<br />goals:   7<br />pos: FW<br />player: Son Hwa-yeon<br />country: South Korea","age: 30<br />goals:  19<br />pos: FW<br />player: Elise Thorsnes<br />country: Norway","age: 30<br />goals:  57<br />pos: FW<br />player: Isabell Herlovsen<br />country: Norway","age: 26<br />goals:  12<br />pos: FW<br />player: Lisa-Marie Utland<br />country: Norway","age: 23<br />goals:   1<br />pos: FW<br />player: Therese Åsland <br />country: Norway","age: 23<br />goals:   0<br />pos: FW<br />player: Amalie Eikeland<br />country: Norway","age: 26<br />goals:  16<br />pos: FW<br />player: Emilie Haavi<br />country: Norway","age: 20<br />goals:   0<br />pos: FW<br />player: Emilie Nautnes<br />country: Norway","age: 18<br />goals:  NA<br />pos: FW<br />player: Anam Imo<br />country: Nigeria","age: 24<br />goals:  11<br />pos: FW<br />player: Asisat Oshoala<br />country: Nigeria","age: 25<br />goals:  22<br />pos: FW<br />player: Desire Oparanozie<br />country: Nigeria","age: 21<br />goals:  NA<br />pos: FW<br />player: Chinaza Uchendu<br />country: Nigeria","age: 21<br />goals:   0<br />pos: FW<br />player: Uchenna Kanu<br />country: Nigeria","age: 19<br />goals:  NA<br />pos: FW<br />player: Rasheedat Ajibade<br />country: Nigeria","age: 25<br />goals:   7<br />pos: FW<br />player: Francisca Ordega<br />country: Nigeria","age: 22<br />goals:  NA<br />pos: FW<br />player: Chinwendu Ihezuo<br />country: Nigeria","age: 24<br />goals:   0<br />pos: FW<br />player: Alice Ogebe<br />country: Nigeria","age: 30<br />goals:  73<br />pos: FW<br />player: Eugénie Le Sommer<br />country: France","age: 24<br />goals:   4<br />pos: FW<br />player: Kadidiatou Diani<br />country: France","age: 20<br />goals:   0<br />pos: FW<br />player: Emelyne Laurent<br />country: France","age: 23<br />goals:   9<br />pos: FW<br />player: Valérie Gauvin<br />country: France","age: 25<br />goals:   4<br />pos: FW<br />player: Viviane Asseyi<br />country: France","age: 22<br />goals:   1<br />pos: FW<br />player: Delphine Cascarino<br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(124,174,0,1)"}},"hoveron":"points","name":"FW","legendgroup":"FW","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[31,33,28,29,31,21,36,26,23,27,27,28,27,28,19,29,21,33,32,23,26,34,28,26,27,33,23,26,23,22,34,31,26,35,29,20,19,29,21,26,34,33,30,30,24,31,21,25,25,26,22,21,26,24,28,26,24,20,21,29,28,22,27,39,23,23,32,18,27,24,32,27],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null,0,null,0,0,0,0,0,0,null,null,null,0,0,0],"text":["age: 31<br />goals:   0<br />pos: GK<br />player: Alyssa Naeher<br />country: US","age: 33<br />goals:   0<br />pos: GK<br />player: Ashlyn Harris<br />country: US","age: 28<br />goals:   0<br />pos: GK<br />player: Adrianna Franch<br />country: US","age: 29<br />goals:   0<br />pos: GK<br />player: Waraporn Boonsing<br />country: Thailand","age: 31<br />goals:   0<br />pos: GK<br />player: Sukanya Chor Charoenying<br />country: Thailand","age: 21<br />goals:   0<br />pos: GK<br />player: Tiffany Sornpao<br />country: Thailand","age: 36<br />goals:   0<br />pos: GK<br />player: Hedvig Lindahl<br />country: Sweden","age: 26<br />goals:   0<br />pos: GK<br />player: Jennifer Falk<br />country: Sweden","age: 23<br />goals:   0<br />pos: GK<br />player: Zecira Mušovic<br />country: Sweden","age: 27<br />goals:   0<br />pos: GK<br />player: Christiane Endler<br />country: Chile","age: 27<br />goals:   0<br />pos: GK<br />player: Natalia Campos<br />country: Chile","age: 28<br />goals:   0<br />pos: GK<br />player: Ryann Torrero <br />country: Chile","age: 27<br />goals:   0<br />pos: GK<br />player: Erin Nayler<br />country: New Zealand","age: 28<br />goals:   0<br />pos: GK<br />player: Victoria Esson<br />country: New Zealand","age: 19<br />goals:   0<br />pos: GK<br />player: Nadia Olla<br />country: New Zealand","age: 29<br />goals:   0<br />pos: GK<br />player: Sari van Veenendaal<br />country: Netherlands","age: 21<br />goals:   0<br />pos: GK<br />player: Lize Kop <br />country: Netherlands","age: 33<br />goals:   0<br />pos: GK<br />player: Loes Geurts<br />country: Netherlands","age: 32<br />goals:   0<br />pos: GK<br />player: Stephanie Labbé<br />country: Canada","age: 23<br />goals:   0<br />pos: GK<br />player: Kailen Sheridan<br />country: Canada","age: 26<br />goals:   0<br />pos: GK<br />player: Sabrina D'Angelo<br />country: Canada","age: 34<br />goals:   0<br />pos: GK<br />player: Annette Ngo Ndom<br />country: Cameroon","age: 28<br />goals:  NA<br />pos: GK<br />player: Isabelle Mambingo<br />country: Cameroon","age: 26<br />goals:   0<br />pos: GK<br />player: Marthe Ongmahan<br />country: Cameroon","age: 27<br />goals:   0<br />pos: GK<br />player: Lee Alexander<br />country: Scotland","age: 33<br />goals:   0<br />pos: GK<br />player: Shannon Lynn<br />country: Scotland","age: 23<br />goals:   0<br />pos: GK<br />player: Jenna Fife<br />country: Scotland","age: 26<br />goals:   0<br />pos: GK<br />player: Sakiko Ikeda<br />country: Japan","age: 23<br />goals:   0<br />pos: GK<br />player: Ayaka Yamashita<br />country: Japan","age: 22<br />goals:   0<br />pos: GK<br />player: Chika Hirao<br />country: Japan","age: 34<br />goals:   0<br />pos: GK<br />player: Karen Bardsley<br />country: England","age: 31<br />goals:   0<br />pos: GK<br />player: Carly Telford<br />country: England","age: 26<br />goals:   0<br />pos: GK<br />player: Mary Earps<br />country: England","age: 35<br />goals:   0<br />pos: GK<br />player: Vanina Correa<br />country: Argentina","age: 29<br />goals:   0<br />pos: GK<br />player: Gabriela Garton <br />country: Argentina","age: 20<br />goals:   0<br />pos: GK<br />player: Solana Pereyra<br />country: Argentina","age: 19<br />goals:   0<br />pos: GK<br />player: Sydney Schneider<br />country: Jamaica","age: 29<br />goals:   0<br />pos: GK<br />player: Nicole McClure<br />country: Jamaica","age: 21<br />goals:   0<br />pos: GK<br />player: Yazmeen Jamieson<br />country: Jamaica","age: 26<br />goals:   0<br />pos: GK<br />player: Laura Giuliani<br />country: Italy","age: 34<br />goals:   0<br />pos: GK<br />player: Chiara Marchitelli<br />country: Italy","age: 33<br />goals:   0<br />pos: GK<br />player: Rosalia Pipitone <br />country: Italy","age: 30<br />goals:   0<br />pos: GK<br />player: Bárbara<br />country: Brazil","age: 30<br />goals:   0<br />pos: GK<br />player: Aline Villares<br />country: Brazil","age: 24<br />goals:   0<br />pos: GK<br />player: Letícia Izidoro<br />country: Brazil","age: 31<br />goals:   0<br />pos: GK<br />player: Lydia Williams<br />country: Australia","age: 21<br />goals:   0<br />pos: GK<br />player: Teagan Micah<br />country: Australia","age: 25<br />goals:   0<br />pos: GK<br />player: Mackenzie Arnold<br />country: Australia","age: 25<br />goals:   0<br />pos: GK<br />player: Dolores Gallardo<br />country: Spain","age: 26<br />goals:   0<br />pos: GK<br />player: Sandra Paños<br />country: Spain","age: 22<br />goals:   0<br />pos: GK<br />player: María Asunción Quiñones<br />country: Spain","age: 21<br />goals:   0<br />pos: GK<br />player: Mapaseka Mpuru<br />country: South Africa","age: 26<br />goals:   0<br />pos: GK<br />player: Andile Dlamini<br />country: South Africa","age: 24<br />goals:   0<br />pos: GK<br />player: Kaylin Swart<br />country: South Africa","age: 28<br />goals:   0<br />pos: GK<br />player: Almuth Schult<br />country: Germany","age: 26<br />goals:   0<br />pos: GK<br />player: Laura Benkarth<br />country: Germany","age: 24<br />goals:   0<br />pos: GK<br />player: Merle Frohms<br />country: Germany","age: 20<br />goals:  NA<br />pos: GK<br />player: Xu Huan<br />country: China PR","age: 21<br />goals:   0<br />pos: GK<br />player: Peng Shimeng<br />country: China PR","age: 29<br />goals:  NA<br />pos: GK<br />player: Bi Xiaolin<br />country: China PR","age: 28<br />goals:   0<br />pos: GK<br />player: Kang Ga-ae<br />country: South Korea","age: 22<br />goals:   0<br />pos: GK<br />player: Kim Min-Jeong<br />country: South Korea","age: 27<br />goals:   0<br />pos: GK<br />player: Jung Bo-ram<br />country: South Korea","age: 39<br />goals:   0<br />pos: GK<br />player: Ingrid Hjelmseth<br />country: Norway","age: 23<br />goals:   0<br />pos: GK<br />player: Cecilie Fiskerstrand<br />country: Norway","age: 23<br />goals:   0<br />pos: GK<br />player: Oda Bogstad<br />country: Norway","age: 32<br />goals:  NA<br />pos: GK<br />player: Tochukwu Oluehi<br />country: Nigeria","age: 18<br />goals:  NA<br />pos: GK<br />player: Chiamaka Nnadozie<br />country: Nigeria","age: 27<br />goals:  NA<br />pos: GK<br />player: Alaba Jonathan<br />country: Nigeria","age: 24<br />goals:   0<br />pos: GK<br />player: Solène Durand <br />country: France","age: 32<br />goals:   0<br />pos: GK<br />player: Sarah Bouhaddi<br />country: France","age: 27<br />goals:   0<br />pos: GK<br />player: Pauline Peyraud-Magnin<br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"GK","legendgroup":"GK","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[26,26,27,25,24,31,30,25,21,27,23,31,32,23,29,27,34,22,26,28,25,28,28,30,22,17,29,27,28,25,31,22,25,29,27,20,24,23,22,18,31,30,20,21,23,25,20,24,34,26,33,28,23,31,29,23,22,28,31,22,23,21,22,32,28,20,31,26,28,27,28,25,29,20,37,26,17,21,26,26,25,24,28,24,25,22,22,27,28,27,21,27,21,30,41,24,26,34,24,28,25,27,26,23,28,27,25,21,24,30,21,25,22,31,17,20,26,29,25,27,18,17,21,33,28,27,28,24,24,30,28,24,27,30,28,24,30,21,23,27,30,27,27,27,24,21,23,23,24,21,24,26,19,23,26,33,31,25,24,30,29,21,29,33,33,26],"y":[9,6,18,8,6,6,0,0,null,3,null,11,30,3,32,0,27,1,2,9,0,6,3,0,0,0,14,15,13,3,1,2,0,30,16,0,2,0,3,0,0,19,1,8,1,1,null,null,null,1,13,53,7,3,4,2,0,14,29,6,8,0,0,22,1,1,32,2,0,1,9,10,0,0,2,8,0,0,0,3,1,3,2,3,0,3,0,1,5,17,0,6,3,4,23,10,0,0,6,1,18,10,14,0,13,5,13,3,6,5,1,11,1,18,0,9,12,10,0,0,0,0,8,8,7,32,45,10,5,3,0,25,null,null,11,1,17,null,null,14,20,11,8,2,5,0,0,1,25,2,5,9,0,1,null,3,15,4,0,3,11,1,0,29,58,0],"text":["age: 26<br />goals:   9<br />pos: MF<br />player: Sam Mewis<br />country: US","age: 26<br />goals:   6<br />pos: MF<br />player: Morgan Brian<br />country: US","age: 27<br />goals:  18<br />pos: MF<br />player: Julie Ertz<br />country: US","age: 25<br />goals:   8<br />pos: MF<br />player: Lindsey Horan<br />country: US","age: 24<br />goals:   6<br />pos: MF<br />player: Rose Lavelle<br />country: US","age: 31<br />goals:   6<br />pos: MF<br />player: Allie Long<br />country: US","age: 30<br />goals:   0<br />pos: MF<br />player: Pikul Khueanpet<br />country: Thailand","age: 25<br />goals:   0<br />pos: MF<br />player: Silawan Intamee<br />country: Thailand","age: 21<br />goals:  NA<br />pos: MF<br />player: Sudarat Chucheun<br />country: Thailand","age: 27<br />goals:   3<br />pos: MF<br />player: Rattikan Thongsombut<br />country: Thailand","age: 23<br />goals:  NA<br />pos: MF<br />player: Orapin Waenngoen<br />country: Thailand","age: 31<br />goals:  11<br />pos: MF<br />player: Wilaiporn Boothduang<br />country: Thailand","age: 32<br />goals:  30<br />pos: MF<br />player: Kanjana Sungngoen<br />country: Thailand","age: 23<br />goals:   3<br />pos: MF<br />player: Lina Hurtig<br />country: Sweden","age: 29<br />goals:  32<br />pos: MF<br />player: Kosovare Asllani<br />country: Sweden","age: 27<br />goals:   0<br />pos: MF<br />player: Julia Roddar<br />country: Sweden","age: 34<br />goals:  27<br />pos: MF<br />player: Caroline Seger<br />country: Sweden","age: 22<br />goals:   1<br />pos: MF<br />player: Anna Anvegård<br />country: Sweden","age: 26<br />goals:   2<br />pos: MF<br />player: Elin Rubensson<br />country: Sweden","age: 28<br />goals:   9<br />pos: MF<br />player: Francisca Lara<br />country: Chile","age: 25<br />goals:   0<br />pos: MF<br />player: Claudia Soto<br />country: Chile","age: 28<br />goals:   6<br />pos: MF<br />player: Karen Araya<br />country: Chile","age: 28<br />goals:   3<br />pos: MF<br />player: Yessenia López<br />country: Chile","age: 30<br />goals:   0<br />pos: MF<br />player: Daniela Pardo<br />country: Chile","age: 22<br />goals:   0<br />pos: MF<br />player: Ana Gutiérrez<br />country: Chile","age: 17<br />goals:   0<br />pos: MF<br />player: Elisa Durán <br />country: Chile","age: 29<br />goals:  14<br />pos: MF<br />player: Ria Percival<br />country: New Zealand","age: 27<br />goals:  15<br />pos: MF<br />player: Annalie Longo<br />country: New Zealand","age: 28<br />goals:  13<br />pos: MF<br />player: Betsy Hassett<br />country: New Zealand","age: 25<br />goals:   3<br />pos: MF<br />player: Katie Bowen<br />country: New Zealand","age: 31<br />goals:   1<br />pos: MF<br />player: Katie Duncan<br />country: New Zealand","age: 22<br />goals:   2<br />pos: MF<br />player: Daisy Cleverley<br />country: New Zealand","age: 25<br />goals:   0<br />pos: MF<br />player: Olivia Chance<br />country: New Zealand","age: 29<br />goals:  30<br />pos: MF<br />player: Sherida Spitse<br />country: Netherlands","age: 27<br />goals:  16<br />pos: MF<br />player: Daniëlle van de Donk<br />country: Netherlands","age: 20<br />goals:   0<br />pos: MF<br />player: Victoria Pelova <br />country: Netherlands","age: 24<br />goals:   2<br />pos: MF<br />player: Jackie Groenen<br />country: Netherlands","age: 23<br />goals:   0<br />pos: MF<br />player: Inessa Kaagman<br />country: Netherlands","age: 22<br />goals:   3<br />pos: MF<br />player: Jill Roord<br />country: Netherlands","age: 18<br />goals:   0<br />pos: MF<br />player: Julia Grosso<br />country: Canada","age: 31<br />goals:   0<br />pos: MF<br />player: Desiree Scott<br />country: Canada","age: 30<br />goals:  19<br />pos: MF<br />player: Sophie Schmidt<br />country: Canada","age: 20<br />goals:   1<br />pos: MF<br />player: Gabrielle Carle<br />country: Canada","age: 21<br />goals:   8<br />pos: MF<br />player: Jessie Fleming<br />country: Canada","age: 23<br />goals:   1<br />pos: MF<br />player: Raissa Feudjio<br />country: Cameroon","age: 25<br />goals:   1<br />pos: MF<br />player: Jeannette Yango<br />country: Cameroon","age: 20<br />goals:  NA<br />pos: MF<br />player: Charlène Menene <br />country: Cameroon","age: 24<br />goals:  NA<br />pos: MF<br />player: Ninon Abena<br />country: Cameroon","age: 34<br />goals:  NA<br />pos: MF<br />player: Marlyse Ngo Ndoumbouk<br />country: Cameroon","age: 26<br />goals:   1<br />pos: MF<br />player: Genevieve Ngo Mbeleck<br />country: Cameroon","age: 33<br />goals:  13<br />pos: MF<br />player: Joanne Love<br />country: Scotland","age: 28<br />goals:  53<br />pos: MF<br />player: Kim Little<br />country: Scotland","age: 23<br />goals:   7<br />pos: MF<br />player: Caroline Weir<br />country: Scotland","age: 31<br />goals:   3<br />pos: MF<br />player: Leanne Crichton<br />country: Scotland","age: 29<br />goals:   4<br />pos: MF<br />player: Christie Murray<br />country: Scotland","age: 23<br />goals:   2<br />pos: MF<br />player: Lizzie Arnot<br />country: Scotland","age: 22<br />goals:   0<br />pos: MF<br />player: Hina Sugita<br />country: Japan","age: 28<br />goals:  14<br />pos: MF<br />player: Emi Nakajima<br />country: Japan","age: 31<br />goals:  29<br />pos: MF<br />player: Mizuho Sakaguchi<br />country: Japan","age: 22<br />goals:   6<br />pos: MF<br />player: Yui Hasegawa<br />country: Japan","age: 23<br />goals:   8<br />pos: MF<br />player: Yuka Momiki<br />country: Japan","age: 21<br />goals:   0<br />pos: MF<br />player: Narumi Miura<br />country: Japan","age: 22<br />goals:   0<br />pos: MF<br />player: Keira Walsh<br />country: England","age: 32<br />goals:  22<br />pos: MF<br />player: Jill Scott<br />country: England","age: 28<br />goals:   1<br />pos: MF<br />player: Jade Moore<br />country: England","age: 20<br />goals:   1<br />pos: MF<br />player: Georgia Stanway<br />country: England","age: 31<br />goals:  32<br />pos: MF<br />player: Karen Carney<br />country: England","age: 26<br />goals:   2<br />pos: MF<br />player: Lucy Staniforth<br />country: England","age: 28<br />goals:   0<br />pos: MF<br />player: Vanesa Santana<br />country: Argentina","age: 27<br />goals:   1<br />pos: MF<br />player: Ruth Bravo<br />country: Argentina","age: 28<br />goals:   9<br />pos: MF<br />player: Estefanía Banini<br />country: Argentina","age: 25<br />goals:  10<br />pos: MF<br />player: Florencia Bonsegundo<br />country: Argentina","age: 29<br />goals:   0<br />pos: MF<br />player: Miriam Mayorga<br />country: Argentina","age: 20<br />goals:   0<br />pos: MF<br />player: Lorena Benítez<br />country: Argentina","age: 37<br />goals:   2<br />pos: MF<br />player: Mariela Coronel<br />country: Argentina","age: 26<br />goals:   8<br />pos: MF<br />player: Mariana Larroquette<br />country: Argentina","age: 17<br />goals:   0<br />pos: MF<br />player: Dalila Ippólito<br />country: Argentina","age: 21<br />goals:   0<br />pos: MF<br />player: Chanel Hudson-Marks<br />country: Jamaica","age: 26<br />goals:   0<br />pos: MF<br />player: Havana Solaun<br />country: Jamaica","age: 26<br />goals:   3<br />pos: MF<br />player: Chinyelu Asher<br />country: Jamaica","age: 25<br />goals:   1<br />pos: MF<br />player: Ashleigh Shim<br />country: Jamaica","age: 24<br />goals:   3<br />pos: MF<br />player: Marlo Sweatman<br />country: Jamaica","age: 28<br />goals:   2<br />pos: MF<br />player: Sashana Campbell<br />country: Jamaica","age: 24<br />goals:   3<br />pos: MF<br />player: Trudi Carter<br />country: Jamaica","age: 25<br />goals:   0<br />pos: MF<br />player: Cheyna Matthews<br />country: Jamaica","age: 22<br />goals:   3<br />pos: MF<br />player: Valentina Bergamaschi<br />country: Italy","age: 22<br />goals:   0<br />pos: MF<br />player: Aurora Galli<br />country: Italy","age: 27<br />goals:   1<br />pos: MF<br />player: Martina Rosucci<br />country: Italy","age: 28<br />goals:   5<br />pos: MF<br />player: Alice Parisi<br />country: Italy","age: 27<br />goals:  17<br />pos: MF<br />player: Barbara Bonansea<br />country: Italy","age: 21<br />goals:   0<br />pos: MF<br />player: Annamaria Serturini <br />country: Italy","age: 27<br />goals:   6<br />pos: MF<br />player: Valentina Cernoia<br />country: Italy","age: 21<br />goals:   3<br />pos: MF<br />player: Manuela Giugliano<br />country: Italy","age: 30<br />goals:   4<br />pos: MF<br />player: Thaisa<br />country: Brazil","age: 41<br />goals:  23<br />pos: MF<br />player: Formiga<br />country: Brazil","age: 24<br />goals:  10<br />pos: MF<br />player: Andressinha<br />country: Brazil","age: 26<br />goals:   0<br />pos: MF<br />player: Luana<br />country: Brazil","age: 34<br />goals:   0<br />pos: MF<br />player: Aivi Luik<br />country: Australia","age: 24<br />goals:   6<br />pos: MF<br />player: Chloe Logarzo<br />country: Australia","age: 28<br />goals:   1<br />pos: MF<br />player: Elise Kellond-Knight<br />country: Australia","age: 25<br />goals:  18<br />pos: MF<br />player: Emily van Egmond<br />country: Australia","age: 27<br />goals:  10<br />pos: MF<br />player: Tameka Yallop<br />country: Australia","age: 26<br />goals:  14<br />pos: MF<br />player: Katrina Gorry<br />country: Australia","age: 23<br />goals:   0<br />pos: MF<br />player: Amy Harrison<br />country: Australia","age: 28<br />goals:  13<br />pos: MF<br />player: Vicky Losada<br />country: Spain","age: 27<br />goals:   5<br />pos: MF<br />player: Marta Corredera<br />country: Spain","age: 25<br />goals:  13<br />pos: MF<br />player: Alexia Putellas<br />country: Spain","age: 21<br />goals:   3<br />pos: MF<br />player: Patricia Guijarro<br />country: Spain","age: 24<br />goals:   6<br />pos: MF<br />player: Virginia Torrecilla<br />country: Spain","age: 30<br />goals:   5<br />pos: MF<br />player: Silvia Meseguer<br />country: Spain","age: 21<br />goals:   1<br />pos: MF<br />player: Aitana Bonmatí<br />country: Spain","age: 25<br />goals:  11<br />pos: MF<br />player: Amanda Sampedro<br />country: Spain","age: 22<br />goals:   1<br />pos: MF<br />player: Andrea Falcón<br />country: Spain","age: 31<br />goals:  18<br />pos: MF<br />player: Mamello Makhabane<br />country: South Africa","age: 17<br />goals:   0<br />pos: MF<br />player: Karabo Dhlamini<br />country: South Africa","age: 20<br />goals:   9<br />pos: MF<br />player: Linda Motlhalo<br />country: South Africa","age: 26<br />goals:  12<br />pos: MF<br />player: Refiloe Jane<br />country: South Africa","age: 29<br />goals:  10<br />pos: MF<br />player: Leandra Smeda<br />country: South Africa","age: 25<br />goals:   0<br />pos: MF<br />player: Kholosa Biyana<br />country: South Africa","age: 27<br />goals:   0<br />pos: MF<br />player: Busisiwe Ndimeni<br />country: South Africa","age: 18<br />goals:   0<br />pos: MF<br />player: Sibulele Holweni<br />country: South Africa","age: 17<br />goals:   0<br />pos: MF<br />player: Lena Oberdorf <br />country: Germany","age: 21<br />goals:   8<br />pos: MF<br />player: Lea Schüller<br />country: Germany","age: 33<br />goals:   8<br />pos: MF<br />player: Lena Goeßling<br />country: Germany","age: 28<br />goals:   7<br />pos: MF<br />player: Svenja Huth<br />country: Germany","age: 27<br />goals:  32<br />pos: MF<br />player: Dzsenifer Marozsán<br />country: Germany","age: 28<br />goals:  45<br />pos: MF<br />player: Alexandra Popp<br />country: Germany","age: 24<br />goals:  10<br />pos: MF<br />player: Sara Däbritz<br />country: Germany","age: 24<br />goals:   5<br />pos: MF<br />player: Linda Dallmann<br />country: Germany","age: 30<br />goals:   3<br />pos: MF<br />player: Verena Schweers<br />country: Germany","age: 28<br />goals:   0<br />pos: MF<br />player: Lou Jiahui<br />country: China PR","age: 24<br />goals:  25<br />pos: MF<br />player: Wang Shuang<br />country: China PR","age: 27<br />goals:  NA<br />pos: MF<br />player: Wang Yan<br />country: China PR","age: 30<br />goals:  NA<br />pos: MF<br />player: Li Wen<br />country: China PR","age: 28<br />goals:  11<br />pos: MF<br />player: Gu Yasha<br />country: China PR","age: 24<br />goals:   1<br />pos: MF<br />player: Tan Ruyin<br />country: China PR","age: 30<br />goals:  17<br />pos: MF<br />player: Zhang Rui<br />country: China PR","age: 21<br />goals:  NA<br />pos: MF<br />player: Yao Wei<br />country: China PR","age: 23<br />goals:  NA<br />pos: MF<br />player: Liu Yanqiu<br />country: China PR","age: 27<br />goals:  14<br />pos: MF<br />player: Lee Min-a<br />country: South Korea","age: 30<br />goals:  20<br />pos: MF<br />player: Cho So-hyun<br />country: South Korea","age: 27<br />goals:  11<br />pos: MF<br />player: Moon Mi-ra<br />country: South Korea","age: 27<br />goals:   8<br />pos: MF<br />player: Kang Yu-mi<br />country: South Korea","age: 27<br />goals:   2<br />pos: MF<br />player: Lee Young-ju<br />country: South Korea","age: 24<br />goals:   5<br />pos: MF<br />player: Lee So-dam<br />country: South Korea","age: 21<br />goals:   0<br />pos: MF<br />player: Kang Chae-rim<br />country: South Korea","age: 23<br />goals:   0<br />pos: MF<br />player: Synne Skinnes Hansen<br />country: Norway","age: 23<br />goals:   1<br />pos: MF<br />player: Vilde Bøe Risa<br />country: Norway","age: 24<br />goals:  25<br />pos: MF<br />player: Caroline Hansen<br />country: Norway","age: 21<br />goals:   2<br />pos: MF<br />player: Ingrid Engen<br />country: Norway","age: 24<br />goals:   5<br />pos: MF<br />player: Guro Reiten<br />country: Norway","age: 26<br />goals:   9<br />pos: MF<br />player: Kristine Minde<br />country: Norway","age: 19<br />goals:   0<br />pos: MF<br />player: Frida Maanum<br />country: Norway","age: 23<br />goals:   1<br />pos: MF<br />player: Karina Sævik<br />country: Norway","age: 26<br />goals:  NA<br />pos: MF<br />player: Amarachi Okoronkwo<br />country: Nigeria","age: 33<br />goals:   3<br />pos: MF<br />player: Evelyn Nwabuoku<br />country: Nigeria","age: 31<br />goals:  15<br />pos: MF<br />player: Rita Chikwelu<br />country: Nigeria","age: 25<br />goals:   4<br />pos: MF<br />player: Ngozi Okobi-Okeoghene<br />country: Nigeria","age: 24<br />goals:   0<br />pos: MF<br />player: Halimatu Ayinde<br />country: Nigeria","age: 30<br />goals:   3<br />pos: MF<br />player: Ogonna Chukwudi<br />country: Nigeria","age: 29<br />goals:  11<br />pos: MF<br />player: Amandine Henry<br />country: France","age: 21<br />goals:   1<br />pos: MF<br />player: Grace Geyoro<br />country: France","age: 29<br />goals:   0<br />pos: MF<br />player: Charlotte Bilbault<br />country: France","age: 33<br />goals:  29<br />pos: MF<br />player: Élise Bussaglia<br />country: France","age: 33<br />goals:  58<br />pos: MF<br />player: Gaëtane Thiney<br />country: France","age: 26<br />goals:   0<br />pos: MF<br />player: Maéva Clémaron <br />country: France"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(199,124,255,1)"}},"hoveron":"points","name":"MF","legendgroup":"MF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":52.3082883630829,"r":7.30593607305936,"b":47.9313684793137,"l":53.4661685346617},"plot_bgcolor":"rgba(204,255,187,1)","paper_bgcolor":"rgba(35,132,67,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":21.2536322125363},"title":{"text":"Relationship Between Goals Scoring and Age","font":{"color":"rgba(0,0,0,1)","family":"","size":26.5670402656704},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[14.75,42.25],"tickmode":"array","ticktext":["15","20","25","30","35","40"],"tickvals":[15,20,25,30,35,40],"categoryorder":"array","categoryarray":["15","20","25","30","35","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(51,51,51,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Age of the Player","font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-9.05,190.05],"tickmode":"array","ticktext":["0","50","100","150"],"tickvals":[0,50,100,150],"categoryorder":"array","categoryarray":["0","50","100","150"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(51,51,51,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"No of Goals Scored","font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(204,255,187,1)","bordercolor":"rgba(0,0,0,1)","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"y":0.977034120734908},"annotations":[{"text":"Position","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.5969281859693},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3538214e7a06":{"x":{},"y":{},"colour":{},"label1":{},"label2":{},"type":"scatter"}},"cur_data":"3538214e7a06","visdat":{"3538214e7a06":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="country-and-positions" class="section level2">
+<h2>Country and Positions</h2>
+<pre class="r"><code>squads %&gt;%
+  group_by(country,pos) %&gt;%
+  count() %&gt;%
+  ggplot(.,aes(country,n,fill=pos,label=n))+geom_col()+
+         theme_parksAndRec()+labs(fill=&quot;Position&quot;)+
+         xlab(&quot;Country&quot;)+ylab(&quot;Count of Players&quot;)+geom_text(position = &quot;stack&quot;,vjust=1)+
+         ggtitle(&quot;Positions and their counts according to Country&quot;)+
+         theme(axis.text.x = element_text(angle = 90,vjust=0))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/country%20and%20positions-1.png" width="1152" /></p>
+</div>
+<div id="age-and-positions" class="section level2">
+<h2>Age and Positions</h2>
+<pre class="r"><code>squads %&gt;%
+  group_by(age,pos) %&gt;%
+  count() %&gt;%
+  ggplot(.,aes(factor(age),n,fill=pos,label=n))+geom_col()+
+         xlab(&quot;Age&quot;)+ylab(&quot;Count of Players&quot;)+geom_text(position = &quot;stack&quot;,vjust=1,size=3.5)+
+         ggtitle(&quot;Positions and their counts according to Age&quot;)+
+         theme_parksAndRec()+labs(fill=&quot;Position&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/age%20and%20positions-1.png" width="1152" /></p>
+</div>
+<div id="country-and-age-distributions" class="section level2">
+<h2>Country and Age Distributions</h2>
+<pre class="r"><code>ggplot(squads,aes(age,country))+
+       ggridges::geom_density_ridges(scale=1.45,jittered_points=TRUE,fill=&quot;green&quot;,alpha=0.8)+
+       theme_parksAndRec()+
+       scale_x_continuous(breaks=seq(10,45,5),labels=seq(10,45,5))+
+       scale_y_discrete(expand = c(0, 1))+
+       xlab(&quot;Age&quot;)+ylab(&quot;Country&quot;)+
+       ggtitle(&quot;Country vs Age Distribution&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Country%20and%20age-1.png" width="864" /></p>
+</div>
+<div id="country-and-goal-experience" class="section level2">
+<h2>Country and Goal Experience</h2>
+<pre class="r"><code>squads %&gt;%
+  group_by(country=factor(country)) %&gt;%
+  na.omit() %&gt;%
+  summarise(goal_count=sum(goals)) %&gt;%
+ggplot(.,aes(x=country,y=goal_count,label=goal_count))+geom_col(fill=&quot;lightgreen&quot;)+
+       theme_parksAndRec_light()+geom_text(vjust=-0.5,color=blues9[9],size=5)+
+       xlab(&quot;Country&quot;)+ylab(&quot;No of Goals Scored by All Players&quot;)+
+       ggtitle(&quot;No of Goals Scored with Country as in Experience&quot;)+
+       theme(axis.text.x = element_text(angle = 90,vjust=0))</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Country%20and%20Goal%20Experience-1.png" width="1152" /></p>
+</div>
+<div id="top-15-highest-goal-scorers-participated-in-the-fifa-world-cup" class="section level2">
+<h2>Top 15 Highest Goal Scorers participated in the FIFA World Cup</h2>
+<pre class="r"><code>squads %&gt;%
+  top_n(15,goals) %&gt;%
+  select(country,player,goals) %&gt;% 
+ggplot(.,aes(stringr::str_wrap(player,10),goals,fill=country,label=goals))+geom_col()+
+       xlab(&quot;Player&quot;)+ylab(&quot;No of Goals&quot;)+theme_parksAndRec_light()+
+       labs(fill=&quot;Country&quot;)+geom_text(vjust=-0.5,size=7,color=&quot;green&quot;)+
+       theme(axis.text.x = element_text(angle = 90,vjust=0))+
+       ggtitle(&quot;Top 15 Players who have played most number of Goals So Far&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Top%2015%20Highest%20Goal%20scorers-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="wwc-outcomes" class="section level1">
+<h1>WWC Outcomes</h1>
+<div id="year-vs-countries-of-participation" class="section level2">
+<h2>Year vs Countries of participation</h2>
+<pre class="r"><code>wwc_outcomes %&gt;%
+  group_by(year,team) %&gt;%
+  count(team) %&gt;%
+  select(year,team) %&gt;%
+  ungroup() %&gt;%
+  count(year) %&gt;%
+ggplot(.,aes(factor(year),n,label=n))+geom_col(fill=blues9[5])+
+      geom_text(vjust=1,size=9,color=blues9[3])+theme_brooklyn99()+
+      xlab(&quot;Year&quot;)+ylab(&quot;No of Countries Participated&quot;)+
+      ggtitle(&quot;No of Countries participated by Year&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Year%20vs%20country-1.png" width="1152" /></p>
+<pre class="r"><code>wwc_outcomes %&gt;%
+  group_by(year,team) %&gt;%
+  count(team) %&gt;% 
+ggplot(.,aes(stringr::str_wrap(team,12),n,label=n))+
+      geom_col(fill=blues9[5])+
+      geom_text(vjust=1,size=6,color=blues9[3])+theme_brooklyn99()+
+      xlab(&quot;Country&quot;)+ylab(&quot;No of Matches&quot;)+
+      transition_states(year)+ease_aes(&quot;linear&quot;)+
+      theme(axis.text.x = element_text(angle = 90,vjust=0))+
+      ggtitle(&quot;No of Matches played by a country changing over the Tournament&quot;,
+              subtitle = &quot;Year:{closest_state}&quot;)      </code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Years%20vs%20Country%20gif-1.gif" /><!-- --></p>
+</div>
+<div id="year-vs-rounds-of-matches" class="section level2">
+<h2>Year vs Rounds of Matches</h2>
+<pre class="r"><code>wwc_outcomes %&gt;%
+  group_by(year,round) %&gt;%
+  count(round) %&gt;%
+  select(year,round) %&gt;%
+  ungroup() %&gt;%
+  count(year) %&gt;%
+ggplot(.,aes(factor(year),n,label=n))+geom_col(fill=blues9[5])+
+      geom_text(vjust=1,size=9,color=blues9[3])+theme_brooklyn99()+
+      xlab(&quot;Year&quot;)+ylab(&quot;No of Rounds in the Tournament&quot;)+
+      ggtitle(&quot;No of Rounds by Year&quot;)  </code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Year%20vs%20Round-1.png" width="1152" /></p>
+<pre class="r"><code>wwc_outcomes %&gt;%
+  group_by(year,round) %&gt;%
+  count(round) %&gt;%
+  mutate(matches=n/2) %&gt;%
+ggplot(.,aes(stringr::str_wrap(round,12),matches,label=matches))+
+      geom_col(fill=blues9[5])+
+      geom_text(vjust=1,size=6,color=blues9[3])+theme_brooklyn99()+
+      xlab(&quot;Rounds of the Tournament&quot;)+ylab(&quot;No of Matches&quot;)+
+      transition_states(year)+ease_aes(&quot;linear&quot;)+
+      ggtitle(&quot;No of Matches changing over the Tournament&quot;,
+              subtitle = &quot;Year:{closest_state}&quot;)    </code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Year%20vs%20Round%20gif-1.gif" /><!-- --></p>
+</div>
+<div id="years-vs-goals" class="section level2">
+<h2>Years vs Goals</h2>
+<pre class="r"><code>wwc_outcomes %&gt;%
+  group_by(year) %&gt;%
+  count(score) %&gt;%
+ggplot(.,aes(factor(score),n,label=n))+geom_col(fill=blues9[5])+
+      geom_text(vjust=1,size=6,color=blues9[3])+theme_brooklyn99()+
+      transition_states(year)+ease_aes(&quot;linear&quot;)+
+      xlab(&quot;Goals Scored&quot;)+ylab(&quot;No of Situations&quot;)+
+      ggtitle(&quot;No of Goals Scored by Year with Situations&quot;,
+              subtitle = &quot;Year :{closest_state}&quot;)  </code></pre>
+<p><img src="/post/TidyTuesday2019/Week28/index_files/figure-html/Years%20vs%20Goals%20gif-1.gif" /><!-- --></p>
+<p><strong>THANK YOU</strong></p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/tidytuesday/">TidyTuesday</a>
+  
+  <a class="badge badge-light" href="/tags/gganimate/">gganimate</a>
+  
+  <a class="badge badge-light" href="/tags/ggplot/">ggplot</a>
+  
+  <a class="badge badge-light" href="/tags/dplyr/">dplyr</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/tidytuesday2019/week27/week27/">Week 27: Media Franchise Powerhouses</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week26/week26/">Week 26: Unidentified Flying Objects</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week25/week25/">Week 25: Birds, Ohhhh Canada </a></li>
+        
+        <li><a href="/post/tidytuesday2019/week24/week24/">Week 24: Meteorite Data</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week23/week23/">Week 23 : Ramen Ratings</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

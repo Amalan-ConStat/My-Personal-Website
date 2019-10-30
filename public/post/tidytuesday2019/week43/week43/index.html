@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.49" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="2019 Week 43 TidyTuesday: Horror Movies.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/tidytuesday2019/week43/week43/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3D3B45">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Playfair+Display:400,700|EB+Garamond>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/override.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/tidytuesday2019/week43/week43/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/tidytuesday2019/week43/week43/">
+  <meta property="og:title" content="Week 43: Horror Movies | Consulting Statistician">
+  <meta property="og:description" content="2019 Week 43 TidyTuesday: Horror Movies.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2019-10-22T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-10-22T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Week 43: Horror Movies | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#twitter">
+            
+            <span>Tweets</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan_Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <img src="/post/tidytuesday2019/week43/week43/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 43: Horror Movies</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-10-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-10-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Oct 22, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2043%3a%20Horror%20Movies&amp;url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f&amp;title=Week%2043%3a%20Horror%20Movies"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f&amp;title=Week%2043%3a%20Horror%20Movies"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2043%3a%20Horror%20Movies&amp;body=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/tidytuesday2019/week43/week43/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Week 43: Horror Movies</h1>
+
+  
+
+  
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-10-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-10-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Oct 22, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%2043%3a%20Horror%20Movies&amp;url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f&amp;title=Week%2043%3a%20Horror%20Movies"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f&amp;title=Week%2043%3a%20Horror%20Movies"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%2043%3a%20Horror%20Movies&amp;body=%2fpost%2ftidytuesday2019%2fweek43%2fweek43%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<link href="/rmarkdown-libs/d3rain/style.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/d3-tip/index-min.js"></script>
+<script src="/rmarkdown-libs/d3rain-binding/d3rain.js"></script>
+<link href="/rmarkdown-libs/d3tree3/d3tree3.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/d3tree3-binding/d3tree3.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#organize-data">Organize Data</a></li>
+<li><a href="#rain-graph">Rain Graph</a></li>
+<li><a href="#tree-map">Tree map</a></li>
+</ul>
+</div>
+
+<p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-22">Data</a> is for
+Week 43 under the title Horror Movies. Have not done any plotting for TidyTuesday for some time or
+to be exact more than two months. So here I am trying out d3 visualisation in R.</p>
+<p>Helpful packages for this post are ‘d3rain’ and ‘d3treeR’.</p>
+<pre class="r"><code># load the packages
+library(d3rain)
+library(dplyr)
+library(ggplot2)
+library(splitstackshape)
+library(d3treeR)
+library(treemap)
+
+# load the data
+horror_movies &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv&quot;)</code></pre>
+<div id="organize-data" class="section level2">
+<h2>Organize Data</h2>
+<p>Genuine look indicates that data is fine. Well if you look closer there are some changes that need to
+be done to make the most of it. I have simpler dreams such as drawing two plots which would make sense.</p>
+<ol style="list-style-type: decimal">
+<li><p>Rain plot where Horror movie distribution occurs by each month for days.(Easier to look at the plot than
+try to grasp from what I am telling)</p></li>
+<li><p>Tree map which would indicate how the Genres of the movies are assigned. It is my intention
+to understand if there is a hierarchy in this genre naming as some movies have multiple assignments.</p></li>
+</ol>
+<p>To achieve above set plots some changes in the two columns ‘genres’ and ‘release_date’ are necessary;
+precisely we have to break one column into multiples based on a pattern for former and based on a condition
+for latter.</p>
+<pre class="r"><code>RainDataFormat &lt;- cSplit(horror_movies,&#39;release_date&#39;,&#39;-&#39;,drop=TRUE)
+
+RainDataFormat &lt;- RainDataFormat %&gt;% 
+                    rename(Day = release_date_1) %&gt;%
+                    rename(Month = release_date_2) %&gt;%
+                    rename(Year = release_date_3) %&gt;%
+                    select(Year,Month,Day,title)
+
+RainDataFormat$Year[is.na(RainDataFormat$Year)==TRUE] &lt;-
+    stringr::str_remove(RainDataFormat$Day[is.na(RainDataFormat$Year)==TRUE],&quot;20&quot;)
+
+class(RainDataFormat$Year) &lt;- &quot;numeric&quot;
+class(RainDataFormat$Day) &lt;- &quot;numeric&quot;
+
+RainDataFormat$Day[RainDataFormat$Day&gt;31] &lt;- NA</code></pre>
+<pre class="r"><code>TreeDataFormat &lt;- cSplit(horror_movies,&#39;genres&#39;,&#39;|&#39;,drop=TRUE)
+
+TreeDataFormat &lt;- TreeDataFormat %&gt;%
+                    rename(First_Choice = genres_1) %&gt;%
+                    rename(Second_Choice = genres_2) %&gt;%
+                    rename(Third_Choice = genres_3)
+
+TreeDataFormat &lt;- TreeDataFormat %&gt;%
+                  group_by(First_Choice,Second_Choice,Third_Choice) %&gt;%
+                  mutate(&quot;Counts&quot; = n()) %&gt;%
+                  select(First_Choice,Second_Choice,Third_Choice,Counts) %&gt;%
+                  unique()</code></pre>
+</div>
+<div id="rain-graph" class="section level2">
+<h2>Rain Graph</h2>
+<p>Compared how horror movies have increased compared to year 2017 from year 2012.</p>
+<pre class="r"><code>RainDataFormat &lt;- RainDataFormat[complete.cases(RainDataFormat)]
+levels(RainDataFormat$Month) &lt;- c(&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,
+                                  &quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,
+                                  &quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;)
+
+RainDataFormat[Year==12] %&gt;%
+    d3rain(Day,Month,toolTip = Day,title = &quot;Days vs Months for Year 2012&quot;) %&gt;%
+    drip_settings(dripSequence = &#39;iterate&#39;,
+                  ease = &#39;linear&#39;,
+                  jitterWidth = 25,
+                  dripSpeed = 500,
+                  dripFill = &#39;steelblue&#39;) %&gt;% 
+    chart_settings(fontFamily = &#39;times&#39;,
+                   yAxisTickLocation = &#39;left&#39;)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="d3rain html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"ind":[26,1,28,18,1,29,3,24,5,26,17,17,18,2,12,17,13,13,1,11,23,14,17,8,29,21,6,2,30,24,30,25,23,6,20,5,27,28,21,17,19,29,26,12,1,29,13,1,31,9,25,29,18,14,6,28,27,9,9,25,11,25,16,8,25,14,31,29,21,3,2,15,16,7,2,9,26,29,14,1,21,30,8,25,13,7,21,9,29,17,1,18,30,18,20,4,21,16,5,31,19,1,23,31,12,4,23,13,10,14,20,4,26,3,7,3,4,29,7,19,11,14,5,12,8,25,27,7,14,13,24,10,1,13,2,20,1,24,18,3,1,1,15,16,5,24,9,4,27,13,12,4,3,4,20,7,1,29,11,10,1,14,20,1,22,17,15,7,22,4,8,3,28,13,5,4,4,11,24,4,13,18,26,5,15,5,7,16,14,3,2,7,2,4,26,20,16,25,11,7,30,27,5,15,10,10,21,18,12,1,16,1,30,28,1,13,16,9,14,21,17,31,29,1,17,23,14,27,23,31,1,30,4,24,20,22,9,27,13,9,29,5,9,4,21,23,13,31,22,4,31,14,29,10,1,9,9,19,15,15,20,25,30,2,12,2,26,20,10,26,24,5,2,13,26,26,11,17,25,2,11,24,6,31,9,30,31,20,30,27,21,1,24,6,28,10,30,31,28,25,13,21,31,12,20,6,28,19,20,8,25,5,3,2,6,14,5,26,12,8,20,14,21,11,2,11,2,4,17],"group":["Nov","Sep","Jan","Apr","Nov","Oct","Feb","Jan","Jul","Jul","Aug","Jun","Sep","Oct","Nov","Nov","May","Jul","Jan","Mar","Dec","Jun","Feb","Mar","Jan","Oct","May","Nov","Aug","Jul","Sep","Dec","Oct","Nov","Jan","Nov","Nov","Dec","Feb","Nov","Dec","Dec","May","Jan","Nov","Oct","Feb","Jul","Nov","Aug","Jun","Oct","Nov","Apr","Jan","May","Jan","Nov","Oct","Jun","Apr","Dec","Aug","Sep","Mar","Nov","Nov","Dec","Mar","Feb","Aug","Oct","Jul","Dec","Jul","Jul","Nov","Mar","Jan","Aug","Apr","Jul","Jul","Nov","Dec","May","Dec","Apr","Mar","Apr","May","Nov","Dec","Sep","Mar","Nov","Jun","Jun","Mar","Nov","Jan","May","Nov","Sep","Jan","Mar","Nov","May","May","Mar","Jul","Oct","Jul","Aug","Feb","Feb","Dec","Aug","Nov","Feb","Sep","Nov","Nov","Jun","Apr","Oct","Dec","Oct","Aug","Dec","Jun","Jun","Feb","Nov","Oct","Jul","Feb","May","Apr","Aug","Apr","Sep","Dec","Jul","Mar","Aug","Oct","Dec","May","May","Nov","Jan","Nov","Mar","Aug","Apr","Feb","Nov","Sep","Nov","Feb","Jun","Jun","Oct","Aug","Apr","Jun","Dec","Oct","Feb","Jul","Nov","Jul","Oct","Nov","Feb","Sep","Mar","Jun","Apr","Jun","Feb","Jan","Nov","Dec","Jun","Feb","Nov","Jun","Oct","Apr","Dec","Nov","Mar","Nov","Jan","Apr","Dec","Dec","Mar","Oct","Jan","Nov","Dec","Sep","Oct","Sep","Nov","Sep","Nov","Feb","Mar","Aug","Apr","Aug","Dec","May","Aug","Jun","Dec","Aug","Mar","Jul","Jan","Apr","Jul","Nov","Nov","Aug","May","Apr","Oct","Sep","Jun","Dec","Jul","Aug","Dec","May","Oct","Jul","Sep","Jun","Mar","Nov","Jul","Dec","Jun","Aug","Sep","Jun","Dec","Jul","Oct","May","Sep","Nov","Nov","Oct","Dec","May","Apr","Aug","Nov","Oct","Oct","Nov","Dec","Feb","Nov","Feb","Jun","Aug","Jan","Jan","Nov","Jan","Sep","Nov","Sep","Nov","Oct","Jun","Jun","Aug","Aug","Nov","Jan","Oct","Nov","Oct","Oct","Feb","Feb","Dec","Jun","Aug","Feb","Aug","Sep","Jan","May","Feb","Nov","Jan","Dec","Dec","Nov","May","Aug","Nov","Nov","Apr","Oct","May","Dec","Dec","Nov","Nov","Jul","Jan","Nov","Dec","Sep","Oct","Sep","Aug","Sep","Aug"],"toolTip":[26,1,28,18,1,29,3,24,5,26,17,17,18,2,12,17,13,13,1,11,23,14,17,8,29,21,6,2,30,24,30,25,23,6,20,5,27,28,21,17,19,29,26,12,1,29,13,1,31,9,25,29,18,14,6,28,27,9,9,25,11,25,16,8,25,14,31,29,21,3,2,15,16,7,2,9,26,29,14,1,21,30,8,25,13,7,21,9,29,17,1,18,30,18,20,4,21,16,5,31,19,1,23,31,12,4,23,13,10,14,20,4,26,3,7,3,4,29,7,19,11,14,5,12,8,25,27,7,14,13,24,10,1,13,2,20,1,24,18,3,1,1,15,16,5,24,9,4,27,13,12,4,3,4,20,7,1,29,11,10,1,14,20,1,22,17,15,7,22,4,8,3,28,13,5,4,4,11,24,4,13,18,26,5,15,5,7,16,14,3,2,7,2,4,26,20,16,25,11,7,30,27,5,15,10,10,21,18,12,1,16,1,30,28,1,13,16,9,14,21,17,31,29,1,17,23,14,27,23,31,1,30,4,24,20,22,9,27,13,9,29,5,9,4,21,23,13,31,22,4,31,14,29,10,1,9,9,19,15,15,20,25,30,2,12,2,26,20,10,26,24,5,2,13,26,26,11,17,25,2,11,24,6,31,9,30,31,20,30,27,21,1,24,6,28,10,30,31,28,25,13,21,31,12,20,6,28,19,20,8,25,5,3,2,6,14,5,26,12,8,20,14,21,11,2,11,2,4,17]},"toolTipName":"Day","y_domain":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"title":"Days vs Months for Year 2012","reverseX":false,"dripFill":"steelblue","dripOpacity":0.5,"dripSequence":"iterate","ease":"linear","dripSpeed":500,"dripSize":4,"iterationSpeedX":100,"jitterWidth":25,"backgroundFill":"white","fontSize":18,"fontFamily":"times","yAxisTickLocation":"left","toolTipTextColor":"white"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>RainDataFormat[Year==17] %&gt;%
+    d3rain(Day,Month,toolTip = Day,title = &quot;Days vs Months for Year 2017&quot;) %&gt;%
+    drip_settings(dripSequence = &#39;iterate&#39;,
+                  ease = &#39;linear&#39;,
+                  jitterWidth = 25,
+                  dripSpeed = 500,
+                  dripFill = &#39;red&#39;) %&gt;% 
+    chart_settings(fontFamily = &#39;times&#39;,
+                   yAxisTickLocation = &#39;left&#39;)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="d3rain html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":{"ind":[13,21,28,21,13,18,12,9,9,23,29,21,10,31,8,11,28,31,1,15,12,16,14,18,23,8,7,19,21,31,28,13,26,1,12,25,30,17,20,13,28,1,27,5,1,4,7,13,5,12,18,31,1,27,12,11,17,28,31,21,17,26,5,13,10,14,9,18,13,28,30,1,13,8,19,14,3,18,17,29,15,13,14,30,27,15,13,21,30,7,9,26,27,1,15,31,22,3,30,20,17,1,31,26,1,3,1,17,24,14,17,17,28,25,22,2,27,1,1,7,10,17,10,3,16,25,24,5,9,14,18,26,4,4,11,18,17,1,23,21,1,26,22,14,31,4,10,30,1,30,1,1,3,1,27,10,1,22,11,21,12,1,13,14,24,31,10,22,13,17,1,31,1,7,27,4,19,21,21,1,21,6,16,31,5,28,13,1,13,6,27,31,23,30,27,31,16,15,26,4,14,1,27,1,8,8,18,22,15,17,30,31,25,1,27,1,23,21,2,1,31,28,18,18,25,29,26,16,25,30,28,1,11,21,8,28,6,3,1,10,11,20,1,7,10,30,14,2,13,8,7,4,28,3,20,1,1,23,2,28,21,25,7,1,16,31,1,14,25,10,25,8,8,13,7,21,21,21,1,29,21,26,28,20,15,10,31,21,7,1,9,11,14,7,23,1,21,25,31,5,16,10,17,27,15,20,13,31,29,14,16,1,10,10,10,15,17,11,6,24,15,27,9,3,13,1,21,21,15,10,1,13,2,9,22,3,11,16,1,8,27,18,28,1,19,18,19,22,4,8,19,1,12,25,16,18,7,31,17,20,10,21,10,14,2,18,15,15,21,3,6,28,20,30,28,22,24,24,3,10,20,28,20,7,7,6,1,24,21,3,8,14,24,24,28,27,24,1,18,15,1,18,6,9,5,28,22,8,21,10,20,10,22,19,11,26,5,30,7,2,17,10,26,24,5,26,31,11,3,17,3,4,12,26,1,2,22,10,20,2,16,12,27,30,15,22,21,5,5,5,4,24,18,1,15,6,26,1,5,27,3,1,12,6,22,25,30,9,31,24,26,10,16,21,28,6,6,22,31,28,19,1,13,6,7,18,11,20,3,23,13,28,6,7,7,24,21,20,1,9,8,30,1,24,2,2,1,27,13,15,1,23,2,19,31,28,20,19,18,29,14,25,15,6,7,2,21,2,21,13,7,24,8,31,13,5,24,25,1,25,29,4,5,18,12,25,13,30,21,25,1,4,26,4,21,12,16,16,24,1,14,10,17,13,11,6,29,29,7,6,15,18,18,1,13,16,17,18,20,19,21,6,4,28,24,24,27,22,24,20,20,6,13,25,22,3,10,24,30,10,27,14,11,22,18,18,10,24,21,24,10,26,20,6,6,20,25,13,15,17,1,18,26,11,9,24,1,12,27,27,17,16,31,20,21,6,25,20,10,18,21,20,3,12,24,29,27,11,1,8,12,28,16,19,27,29,13,23,26,3,13],"group":["May","Nov","Sep","Aug","May","May","Nov","Nov","Aug","May","Dec","Jun","May","Nov","Jul","Jun","Nov","Nov","Jul","Nov","Nov","Jul","May","Jan","Dec","Feb","Apr","Nov","Jan","Nov","Aug","Nov","Jan","Nov","Jun","Feb","Aug","Apr","Nov","Nov","Jan","Aug","Nov","Feb","Nov","Feb","Apr","Nov","Dec","Apr","Feb","Nov","Nov","Jan","Sep","Jun","Apr","Jun","Nov","Nov","Feb","Feb","May","Jun","Feb","Jan","Dec","Sep","Dec","Jul","Nov","May","Nov","Dec","Sep","Apr","Jun","Nov","Feb","Dec","Dec","Nov","Aug","Nov","Dec","Dec","Nov","Nov","Jul","May","Sep","Nov","Sep","May","Aug","Nov","Dec","Aug","Jul","Dec","May","May","Nov","Feb","Aug","Apr","Dec","Nov","Apr","Jun","Jul","Jul","Jan","Apr","Dec","Sep","Nov","Nov","May","Apr","Aug","Feb","Nov","Jan","Nov","Apr","Dec","Jan","Nov","Jun","May","Feb","Jan","Nov","Jun","Jan","May","Sep","Sep","Jul","Nov","Jan","Aug","Nov","Sep","Apr","Jun","Nov","Jun","Jul","Nov","Jun","Nov","Feb","Nov","Jun","Jan","Dec","Dec","Jun","Sep","Sep","Feb","Apr","Nov","Nov","Feb","Dec","May","Apr","Aug","Nov","Dec","Jan","Jul","Sep","Sep","Dec","Jun","Sep","Jun","May","Sep","Nov","Sep","Nov","Feb","Aug","Jun","Nov","Nov","Sep","Jan","Dec","Jan","Nov","Nov","Jul","Nov","Nov","Apr","Nov","May","Jun","Dec","May","Aug","Dec","May","May","Aug","Nov","Feb","May","May","Nov","Jul","Nov","Jan","Dec","Nov","Aug","Feb","Feb","Jul","Dec","Feb","Jul","Jun","Nov","Jul","Dec","Feb","Apr","Aug","Feb","Jan","Jul","Nov","Jul","Jul","Feb","Jun","Dec","Apr","Dec","Jun","Jan","Aug","Dec","Aug","Jan","Jun","Aug","Nov","Jan","Apr","Dec","Jul","Nov","Jan","Dec","Jul","Apr","Jul","Nov","Nov","Nov","Jan","Jun","Apr","Sep","Nov","Jun","Jan","Dec","Jul","Nov","Jun","Dec","Jan","Dec","Nov","Nov","Sep","Nov","Nov","Jan","Jan","May","May","Jan","Jul","Dec","Jan","Apr","Aug","Apr","Nov","Nov","Sep","Nov","Aug","Nov","Dec","May","Nov","Nov","Dec","Dec","Aug","May","Apr","May","Sep","Dec","Feb","Jan","Dec","May","Dec","Jul","Nov","Nov","Nov","Dec","Nov","Apr","Nov","Aug","Feb","May","Jul","Jul","Dec","Aug","Nov","Dec","Jan","Feb","Feb","Jun","Jan","Feb","Feb","Jun","Dec","Feb","Jun","Feb","Apr","Jan","Feb","May","Nov","Sep","Dec","Feb","Feb","Jan","Apr","Apr","May","May","Sep","Jun","Nov","Apr","Jul","Aug","May","Jan","Sep","Aug","Jun","Jan","Apr","Apr","Dec","Nov","Nov","Apr","Nov","Aug","Nov","Nov","Nov","Apr","Jun","Nov","Nov","Jun","Aug","Jan","Jan","May","Apr","Dec","Feb","May","Dec","Jan","Nov","Feb","Nov","Jun","Dec","Dec","Jan","Jan","Jun","Dec","Apr","Dec","Aug","Nov","Sep","Nov","Apr","Jul","Nov","Apr","Feb","Feb","Nov","Dec","Nov","Jun","Aug","Nov","Aug","Jun","Dec","Nov","Jan","Sep","Dec","Aug","Jan","Jul","May","Nov","Jul","Aug","Jun","Dec","Jan","Jul","Nov","Jan","Sep","Jan","Jun","May","Jul","Jan","Nov","May","Feb","Nov","May","Nov","Nov","Jul","Dec","Nov","Jul","Apr","Nov","Apr","Sep","Apr","May","Feb","Jun","May","Nov","Dec","Nov","Apr","Dec","Nov","May","Jul","Apr","Feb","Dec","Aug","Apr","Sep","Jan","Jul","Nov","Jun","Apr","Dec","Aug","Jan","Jun","Jul","Dec","Dec","Aug","Nov","Jun","Jul","Feb","Nov","Nov","Jul","Dec","Jul","Sep","May","Nov","Aug","May","Jul","Dec","Feb","Jan","Feb","Dec","Nov","Apr","Dec","Jun","Jul","Jan","Dec","Dec","Nov","Dec","Nov","May","Sep","Dec","Dec","Aug","Feb","Dec","Nov","Dec","Jun","Sep","Feb","Nov","Feb","Jun","Feb","Dec","Feb","Dec","Aug","Jan","Sep","Dec","Apr","Aug","Feb","Dec","Nov","Aug","Nov","Feb","Nov","Dec","Dec","Jan","Jul","Dec","Jun","Sep","Dec","Nov","May","Apr","Sep","Nov","Nov","Jun","May","Feb","Jan","Dec","Apr","Jun","Dec","Aug","May","Nov","Nov","Nov","Feb","Dec","Apr","Aug","Nov","Nov","Apr","Sep","Nov","Feb","Feb","Jan","Sep","Nov","Nov","Dec","Dec","May","May","Nov","Nov","Nov","Nov","Dec","Aug","Aug","Apr","Jul","Feb","Sep","May","Jul","Aug","Dec","Dec","Nov","Jan","Feb","Jul","Nov","May","Jan","Nov","Feb","Nov","Aug","Feb","Jun","Nov","Apr","Dec","Aug","Dec","Nov","Feb","Dec","Dec","Nov","Dec","Jul","Sep","May","Jun","May","Jul","Nov","Apr","Nov"],"toolTip":[13,21,28,21,13,18,12,9,9,23,29,21,10,31,8,11,28,31,1,15,12,16,14,18,23,8,7,19,21,31,28,13,26,1,12,25,30,17,20,13,28,1,27,5,1,4,7,13,5,12,18,31,1,27,12,11,17,28,31,21,17,26,5,13,10,14,9,18,13,28,30,1,13,8,19,14,3,18,17,29,15,13,14,30,27,15,13,21,30,7,9,26,27,1,15,31,22,3,30,20,17,1,31,26,1,3,1,17,24,14,17,17,28,25,22,2,27,1,1,7,10,17,10,3,16,25,24,5,9,14,18,26,4,4,11,18,17,1,23,21,1,26,22,14,31,4,10,30,1,30,1,1,3,1,27,10,1,22,11,21,12,1,13,14,24,31,10,22,13,17,1,31,1,7,27,4,19,21,21,1,21,6,16,31,5,28,13,1,13,6,27,31,23,30,27,31,16,15,26,4,14,1,27,1,8,8,18,22,15,17,30,31,25,1,27,1,23,21,2,1,31,28,18,18,25,29,26,16,25,30,28,1,11,21,8,28,6,3,1,10,11,20,1,7,10,30,14,2,13,8,7,4,28,3,20,1,1,23,2,28,21,25,7,1,16,31,1,14,25,10,25,8,8,13,7,21,21,21,1,29,21,26,28,20,15,10,31,21,7,1,9,11,14,7,23,1,21,25,31,5,16,10,17,27,15,20,13,31,29,14,16,1,10,10,10,15,17,11,6,24,15,27,9,3,13,1,21,21,15,10,1,13,2,9,22,3,11,16,1,8,27,18,28,1,19,18,19,22,4,8,19,1,12,25,16,18,7,31,17,20,10,21,10,14,2,18,15,15,21,3,6,28,20,30,28,22,24,24,3,10,20,28,20,7,7,6,1,24,21,3,8,14,24,24,28,27,24,1,18,15,1,18,6,9,5,28,22,8,21,10,20,10,22,19,11,26,5,30,7,2,17,10,26,24,5,26,31,11,3,17,3,4,12,26,1,2,22,10,20,2,16,12,27,30,15,22,21,5,5,5,4,24,18,1,15,6,26,1,5,27,3,1,12,6,22,25,30,9,31,24,26,10,16,21,28,6,6,22,31,28,19,1,13,6,7,18,11,20,3,23,13,28,6,7,7,24,21,20,1,9,8,30,1,24,2,2,1,27,13,15,1,23,2,19,31,28,20,19,18,29,14,25,15,6,7,2,21,2,21,13,7,24,8,31,13,5,24,25,1,25,29,4,5,18,12,25,13,30,21,25,1,4,26,4,21,12,16,16,24,1,14,10,17,13,11,6,29,29,7,6,15,18,18,1,13,16,17,18,20,19,21,6,4,28,24,24,27,22,24,20,20,6,13,25,22,3,10,24,30,10,27,14,11,22,18,18,10,24,21,24,10,26,20,6,6,20,25,13,15,17,1,18,26,11,9,24,1,12,27,27,17,16,31,20,21,6,25,20,10,18,21,20,3,12,24,29,27,11,1,8,12,28,16,19,27,29,13,23,26,3,13]},"toolTipName":"Day","y_domain":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"title":"Days vs Months for Year 2017","reverseX":false,"dripFill":"red","dripOpacity":0.5,"dripSequence":"iterate","ease":"linear","dripSpeed":500,"dripSize":4,"iterationSpeedX":100,"jitterWidth":25,"backgroundFill":"white","fontSize":18,"fontFamily":"times","yAxisTickLocation":"left","toolTipTextColor":"white"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="tree-map" class="section level2">
+<h2>Tree map</h2>
+<p>Some movies have more than three genres assigned to them. So here is the tree map to plot them
+in choice order for genre.</p>
+<pre class="r"><code>TreeData &lt;- treemap(
+                    TreeDataFormat,
+                    index=c(&quot;First_Choice&quot;, &quot;Second_Choice&quot;,&#39;Third_Choice&#39;),
+                    vSize=&quot;Counts&quot;,
+                    vColor=&quot;Counts&quot;,
+                    type=&quot;value&quot;
+                    )
+
+d3tree3(TreeData,rootname = &quot;Choices&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week43/index_files/figure-html/Treemap-1.png" width="672" /><img src="/post/TidyTuesday2019/Week43/index_files/figure-html/Treemap-2.png" width="672" /><div id="htmlwidget-3" style="width:672px;height:480px;" class="d3tree3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":{"name":"Choices","id":1,"size":null,"children":[{"name":"Action","color":"#BFE47A","h":0.423728813559322,"id":2,"size":327,"stdErr":327,"vColor":327,"vColorValue":327,"vSize":327,"w":0.231956717763751,"x0":0.57439134355275,"y0":0,"children":[{"name":"Adult","color":"#FFFFBF","h":0.00815596025379513,"id":3,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0368529364671381,"x0":0.769495124849363,"y0":0,"children":[{"name":"Comedy","color":"#FFFFBF","h":0.00815596025379513,"id":4,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0368529364671381,"x0":0.769495124849363,"y0":0}]},{"name":"Adventure","color":"#FBFDB9","h":0.138651324314518,"id":5,"size":40,"stdErr":40,"vColor":40,"vColorValue":40,"vSize":40,"w":0.0867127916873836,"x0":0.57439134355275,"y0":0,"children":[{"name":"Comedy","color":"#FFFFBF","h":0.0508388189153234,"id":6,"size":11,"stdErr":11,"vColor":11,"vColorValue":11,"vSize":11,"w":0.0650345937655377,"x0":0.57439134355275,"y0":0},{"name":"Drama","color":"#FFFFBF","h":0.0554605297258074,"id":7,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0216781979218459,"x0":0.639425937318288,"y0":0},{"name":"Fantasy","color":"#FFFFBF","h":0.083190794588711,"id":8,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0216781979218459,"x0":0.639425937318288,"y0":0.0554605297258073},{"name":"Horror","color":"#FFFFBF","h":0.0878125053991949,"id":9,"size":19,"stdErr":19,"vColor":19,"vColorValue":19,"vSize":19,"w":0.0650345937655377,"x0":0.57439134355275,"y0":0.0508388189153234}]},{"name":"Comedy","color":"#F7FBB4","h":0.285077489244804,"id":10,"size":59,"stdErr":59,"vColor":59,"vColorValue":59,"vSize":59,"w":0.0622065743093696,"x0":0.744141487007132,"y0":0.138651324314518,"children":[{"name":"Crime","color":"#FFFFBF","h":0.0120795546290171,"id":11,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0248826297237479,"x0":0.781465431592753,"y0":0.138651324314518},{"name":"Drama","color":"#FFFFBF","h":0.0362386638870513,"id":12,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0248826297237478,"x0":0.781465431592753,"y0":0.150730878943535},{"name":"Fantasy","color":"#FFFFBF","h":0.0483182185160684,"id":13,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0373239445856218,"x0":0.744141487007132,"y0":0.138651324314518},{"name":"Horror","color":"#F7FBB4","h":0.236759270728735,"id":14,"size":49,"stdErr":49,"vColor":49,"vColorValue":49,"vSize":49,"w":0.0622065743093696,"x0":0.744141487007132,"y0":0.186969542830587}]},{"name":"Crime","color":"#FFFFBF","h":0.130495364060723,"id":15,"size":16,"stdErr":16,"vColor":16,"vColorValue":16,"vSize":16,"w":0.0368529364671381,"x0":0.769495124849363,"y0":0.00815596025379519,"children":[{"name":"Drama","color":"#FFFFBF","h":0.0326238410151808,"id":16,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0368529364671381,"x0":0.769495124849363,"y0":0.00815596025379519},{"name":"Horror","color":"#FFFFBF","h":0.0978715230455423,"id":17,"size":12,"stdErr":12,"vColor":12,"vColorValue":12,"vSize":12,"w":0.0368529364671381,"x0":0.769495124849363,"y0":0.040779801268976}]},{"name":"Drama","color":"#FBFDB9","h":0.138651324314518,"id":18,"size":27,"stdErr":27,"vColor":27,"vColorValue":27,"vSize":27,"w":0.0585311343889839,"x0":0.661104135240134,"y0":0,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.0256761711693552,"id":19,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0468249075111871,"x0":0.661104135240134,"y0":0},{"name":"History","color":"#FFFFBF","h":0.0256761711693551,"id":20,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0117062268777968,"x0":0.707929042751321,"y0":0},{"name":"Horror","color":"#FBFDB9","h":0.112975153145163,"id":21,"size":22,"stdErr":22,"vColor":22,"vColorValue":22,"vSize":22,"w":0.0585311343889839,"x0":0.661104135240134,"y0":0.0256761711693552}]},{"name":"Fantasy","color":"#FBFDB9","h":0.138651324314518,"id":22,"size":23,"stdErr":23,"vColor":23,"vColorValue":23,"vSize":23,"w":0.0498598552202456,"x0":0.719635269629118,"y0":0,"children":[{"name":"Horror","color":"#FBFDB9","h":0.138651324314518,"id":23,"size":23,"stdErr":23,"vColor":23,"vColorValue":23,"vSize":23,"w":0.0498598552202456,"x0":0.719635269629118,"y0":0}]},{"name":"Horror","color":"#F7FBB4","h":0.205629664373301,"id":24,"size":44,"stdErr":44,"vColor":44,"vColorValue":44,"vSize":44,"w":0.0643152717435856,"x0":0.679826215263546,"y0":0.218099149186021,"children":[{"name":"Mystery","color":"#FFFFBF","h":0.0794478248715026,"id":25,"size":10,"stdErr":10,"vColor":10,"vColorValue":10,"vSize":10,"w":0.0378325127903445,"x0":0.679826215263546,"y0":0.138651324314518},{"name":"Romance","color":"#FFFFBF","h":0.0567484463367876,"id":26,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.0264827589532411,"x0":0.717658728053891,"y0":0.161350702849233},{"name":"Sci-Fi","color":"#F7FBB4","h":0.14538951951485,"id":27,"size":51,"stdErr":51,"vColor":51,"vColorValue":51,"vSize":51,"w":0.105434871710796,"x0":0.57439134355275,"y0":0.278339294044472},{"name":"Sport","color":"#FFFFBF","h":0.0226993785347151,"id":28,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0132413794766205,"x0":0.717658728053891,"y0":0.138651324314518},{"name":"Thriller","color":"#F7FBB4","h":0.139687969729954,"id":29,"size":49,"stdErr":49,"vColor":49,"vColorValue":49,"vSize":49,"w":0.105434871710796,"x0":0.57439134355275,"y0":0.138651324314518},{"name":"Western","color":"#FFFFBF","h":0.0226993785347151,"id":30,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0132413794766205,"x0":0.730900107530511,"y0":0.138651324314518}]}]},{"name":"Adventure","color":"#F3FAAF","h":0.170733221580679,"id":31,"size":64,"stdErr":64,"vColor":64,"vColorValue":64,"vSize":64,"w":0.112670218870399,"x0":0.806348061316501,"y0":0,"children":[{"name":"Comedy","color":"#FFFFBF","h":0.0779434272433536,"id":32,"size":21,"stdErr":21,"vColor":21,"vColorValue":21,"vSize":21,"w":0.0809817198130994,"x0":0.806348061316501,"y0":0,"children":[{"name":"Crime","color":"#FFFFBF","h":0.0519622848289023,"id":33,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0115688171161571,"x0":0.875760964013444,"y0":0.0259811424144512},{"name":"Drama","color":"#FFFFBF","h":0.0259811424144512,"id":34,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.875760964013444,"y0":0},{"name":"Family","color":"#FFFFBF","h":0.0259811424144512,"id":35,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0231376342323141,"x0":0.85262332978113,"y0":0},{"name":"Fantasy","color":"#FFFFBF","h":0.0519622848289023,"id":36,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0231376342323141,"x0":0.85262332978113,"y0":0.0259811424144512},{"name":"Horror","color":"#FFFFBF","h":0.0779434272433536,"id":37,"size":12,"stdErr":12,"vColor":12,"vColorValue":12,"vSize":12,"w":0.0462752684646282,"x0":0.806348061316501,"y0":0}]},{"name":"Crime","color":"#FFFFBF","h":0.0379407159068176,"id":38,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0237663742929748,"x0":0.887329781129601,"y0":0,"children":[{"name":"Drama","color":"#FFFFBF","h":0.0379407159068177,"id":39,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0079221247643249,"x0":0.903174030658251,"y0":0},{"name":"Horror","color":"#FFFFBF","h":0.0379407159068176,"id":40,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0158442495286499,"x0":0.887329781129601,"y0":0}]},{"name":"Drama","color":"#FFFFBF","h":0.0758814318136353,"id":41,"size":8,"stdErr":8,"vColor":8,"vColorValue":8,"vSize":8,"w":0.0316884990572998,"x0":0.887329781129601,"y0":0.0948517897670441,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.00948517897670447,"id":42,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0316884990572998,"x0":0.887329781129601,"y0":0.0948517897670441},{"name":"Horror","color":"#FFFFBF","h":0.0663962528369308,"id":43,"size":7,"stdErr":7,"vColor":7,"vColorValue":7,"vSize":7,"w":0.0316884990572998,"x0":0.887329781129601,"y0":0.104336968743749}]},{"name":"Family","color":"#FFFFBF","h":0.0379407159068177,"id":44,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00792212476432497,"x0":0.911096155422576,"y0":0,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0379407159068177,"id":45,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00792212476432497,"x0":0.911096155422576,"y0":0}]},{"name":"Fantasy","color":"#FFFFBF","h":0.0569110738602263,"id":46,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0316884990572998,"x0":0.887329781129601,"y0":0.0379407159068176,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0569110738602264,"id":47,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0316884990572998,"x0":0.887329781129601,"y0":0.0379407159068175}]},{"name":"Horror","color":"#FFFFBF","h":0.042177179244239,"id":48,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.0356319567177637,"x0":0.851697824411837,"y0":0.0779434272433536,"children":[{"name":"Mystery","color":"#FFFFBF","h":0.0397670547159967,"id":49,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0453497630953357,"x0":0.806348061316501,"y0":0.0779434272433536},{"name":"Sci-Fi","color":"#FFFFBF","h":0.0506126150930867,"id":50,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0356319567177638,"x0":0.851697824411837,"y0":0.120120606487593},{"name":"Thriller","color":"#FFFFBF","h":0.0530227396213289,"id":51,"size":8,"stdErr":8,"vColor":8,"vColorValue":8,"vSize":8,"w":0.0453497630953357,"x0":0.806348061316501,"y0":0.11771048195935}]}]},{"name":"Animation","color":"#FBFDB9","h":0.144752079166228,"id":52,"size":39,"stdErr":39,"vColor":39,"vColorValue":39,"vSize":39,"w":0.0809817198130994,"x0":0.9190182801869,"y0":0.0259811424144512,"children":[{"name":"Action","color":"#FFFFBF","h":0.0685667743418975,"id":53,"size":9,"stdErr":9,"vColor":9,"vColorValue":9,"vSize":9,"w":0.0394526327294586,"x0":0.9190182801869,"y0":0.0259811424144512,"children":[{"name":"Adventure","color":"#FFFFBF","h":0.0489762673870697,"id":54,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.0306853810118012,"x0":0.9190182801869,"y0":0.0455716493692791},{"name":"Comedy","color":"#FFFFBF","h":0.0342833871709488,"id":55,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00876725171765748,"x0":0.949703661198702,"y0":0.0602645295853998},{"name":"Fantasy","color":"#FFFFBF","h":0.0342833871709488,"id":56,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00876725171765748,"x0":0.949703661198702,"y0":0.025981142414451},{"name":"Horror","color":"#FFFFBF","h":0.0195905069548279,"id":57,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0306853810118012,"x0":0.9190182801869,"y0":0.0259811424144512}]},{"name":"Adventure","color":"#FFFFBF","h":0.0506632277081798,"id":58,"size":7,"stdErr":7,"vColor":7,"vColorValue":7,"vSize":7,"w":0.0415290870836408,"x0":0.958470912916359,"y0":0.1200699938725,"children":[{"name":"Comedy","color":"#FFFFBF","h":0.0506632277081798,"id":59,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0177981801787032,"x0":0.958470912916359,"y0":0.1200699938725},{"name":"Fantasy","color":"#FFFFBF","h":0.0126658069270449,"id":60,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0237309069049376,"x0":0.976269093095062,"y0":0.1200699938725},{"name":"Horror","color":"#FFFFBF","h":0.0379974207811349,"id":61,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0237309069049376,"x0":0.976269093095062,"y0":0.132735800799544}]},{"name":"Comedy","color":"#FFFFBF","h":0.0434256237498685,"id":62,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0415290870836408,"x0":0.958470912916359,"y0":0.0766443701226309,"children":[{"name":"Family","color":"#FFFFBF","h":0.0434256237498685,"id":63,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0207645435418204,"x0":0.958470912916359,"y0":0.0766443701226309},{"name":"Fantasy","color":"#FFFFBF","h":0.0144752079166228,"id":64,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0207645435418204,"x0":0.97923545645818,"y0":0.0766443701226309},{"name":"Horror","color":"#FFFFBF","h":0.0289504158332457,"id":65,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0207645435418204,"x0":0.97923545645818,"y0":0.0911195780392538}]},{"name":"Drama","color":"#FFFFBF","h":0.0506632277081798,"id":66,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.029663633631172,"x0":0.958470912916359,"y0":0.0259811424144512,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.0506632277081798,"id":67,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0177981801787032,"x0":0.958470912916359,"y0":0.0259811424144512},{"name":"Horror","color":"#FFFFBF","h":0.0506632277081799,"id":68,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0118654534524688,"x0":0.976269093095062,"y0":0.025981142414451}]},{"name":"Fantasy","color":"#FFFFBF","h":0.02533161385409,"id":69,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0118654534524688,"x0":0.988134546547531,"y0":0.051312756268541,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0253316138540898,"id":70,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0118654534524688,"x0":0.988134546547531,"y0":0.0513127562685411}]},{"name":"History","color":"#FFFFBF","h":0.0253316138540898,"id":71,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0118654534524688,"x0":0.988134546547531,"y0":0.0259811424144512,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0253316138540898,"id":72,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0118654534524688,"x0":0.988134546547531,"y0":0.0259811424144512}]},{"name":"Horror","color":"#FFFFBF","h":0.0685667743418976,"id":73,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0263017551529724,"x0":0.9190182801869,"y0":0.102166447238782,"children":[{"name":"Mystery","color":"#FFFFBF","h":0.0685667743418977,"id":74,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0131508775764862,"x0":0.945320035339873,"y0":0.102166447238782},{"name":"Romance","color":"#FFFFBF","h":0.00761853048243299,"id":75,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0394526327294586,"x0":0.9190182801869,"y0":0.0945479167563487}]}]},{"name":"Biography","color":"#FFFFBF","h":0.0259811424144511,"id":76,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0462752684646282,"x0":0.9190182801869,"y0":0,"children":[{"name":"Comedy","color":"#FFFFBF","h":0.0259811424144511,"id":77,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.942155914419215,"y0":0,"children":[{"name":"Horror","color":"#FFFFBF","h":0.025981142414451,"id":78,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.942155914419215,"y0":0}]},{"name":"Drama","color":"#FFFFBF","h":0.0259811424144511,"id":79,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0231376342323141,"x0":0.9190182801869,"y0":0,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.0259811424144511,"id":80,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.9190182801869,"y0":0},{"name":"History","color":"#FFFFBF","h":0.025981142414451,"id":81,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.930587097303058,"y0":0}]},{"name":"Horror","color":"#FFFFBF","h":0.025981142414451,"id":82,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0115688171161571,"x0":0.953724731535372,"y0":0}]},{"name":"Comedy","color":"#ABDB6D","h":0.576271186440678,"id":83,"size":410,"stdErr":410,"vColor":410,"vColorValue":410,"vSize":410,"w":0.213847486695309,"x0":0.57439134355275,"y0":0.423728813559322,"children":[{"name":"Crime","color":"#FFFFBF","h":0.0804401055744586,"id":84,"size":12,"stdErr":12,"vColor":12,"vColorValue":12,"vSize":12,"w":0.0448389891457907,"x0":0.743399841102269,"y0":0.430432155690527,"children":[{"name":"Drama","color":"#FFFFBF","h":0.0335167106560245,"id":85,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.0448389891457907,"x0":0.743399841102269,"y0":0.430432155690527},{"name":"Horror","color":"#FFFFBF","h":0.0469233949184342,"id":86,"size":7,"stdErr":7,"vColor":7,"vColorValue":7,"vSize":7,"w":0.0448389891457907,"x0":0.743399841102269,"y0":0.463948866346551}]},{"name":"Drama","color":"#FBFDB9","h":0.0871434477056635,"id":87,"size":29,"stdErr":29,"vColor":29,"vColorValue":29,"vSize":29,"w":0.100025437325225,"x0":0.57439134355275,"y0":0.423728813559322,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.0871434477056635,"id":88,"size":7,"stdErr":7,"vColor":7,"vColorValue":7,"vSize":7,"w":0.0241440710785027,"x0":0.650272709799473,"y0":0.423728813559322},{"name":"Horror","color":"#FBFDB9","h":0.0871434477056635,"id":89,"size":22,"stdErr":22,"vColor":22,"vColorValue":22,"vSize":22,"w":0.0758813662467227,"x0":0.57439134355275,"y0":0.423728813559322}]},{"name":"Family","color":"#FFFFBF","h":0.00670334213120488,"id":90,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0448389891457907,"x0":0.743399841102269,"y0":0.423728813559322,"children":[{"name":"Horror","color":"#FFFFBF","h":0.00670334213120488,"id":91,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0448389891457907,"x0":0.743399841102269,"y0":0.423728813559322}]},{"name":"Fantasy","color":"#FFFFBF","h":0.0871434477056635,"id":92,"size":20,"stdErr":20,"vColor":20,"vColorValue":20,"vSize":20,"w":0.0689830602242933,"x0":0.674416780877976,"y0":0.423728813559322,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0871434477056635,"id":93,"size":20,"stdErr":20,"vColor":20,"vColorValue":20,"vSize":20,"w":0.0689830602242933,"x0":0.674416780877976,"y0":0.423728813559322}]},{"name":"Horror","color":"#D3EC87","h":0.344357172385283,"id":94,"size":245,"stdErr":245,"vColor":245,"vColorValue":245,"vSize":245,"w":0.213847486695309,"x0":0.57439134355275,"y0":0.655642827614717,"children":[{"name":"Music","color":"#FFFFBF","h":0.0361926415874328,"id":95,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0166095135297327,"x0":0.771629316718327,"y0":0.528968582058702},{"name":"Musical","color":"#FFFFBF","h":0.0904816039685821,"id":96,"size":5,"stdErr":5,"vColor":5,"vColorValue":5,"vSize":5,"w":0.0166095135297327,"x0":0.771629316718327,"y0":0.565161223646135},{"name":"Mystery","color":"#FFFFBF","h":0.0560402192321541,"id":97,"size":12,"stdErr":12,"vColor":12,"vColorValue":12,"vSize":12,"w":0.0643618649277144,"x0":0.707267451790612,"y0":0.510872261264986},{"name":"Romance","color":"#FFFFBF","h":0.0887303471175773,"id":98,"size":19,"stdErr":19,"vColor":19,"vColorValue":19,"vSize":19,"w":0.0643618649277145,"x0":0.707267451790612,"y0":0.56691248049714},{"name":"Sci-Fi","color":"#FBFDB9","h":0.144770566349731,"id":99,"size":24,"stdErr":24,"vColor":24,"vColorValue":24,"vSize":24,"w":0.0498285405891983,"x0":0.657438911201414,"y0":0.510872261264986},{"name":"Thriller","color":"#FBFDB9","h":0.144770566349731,"id":100,"size":40,"stdErr":40,"vColor":40,"vColorValue":40,"vSize":40,"w":0.0830475676486638,"x0":0.57439134355275,"y0":0.510872261264986},{"name":"Western","color":"#FFFFBF","h":0.0180963207937164,"id":101,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0166095135297328,"x0":0.771629316718327,"y0":0.510872261264986}]}]},{"name":"Crime","color":"#EFF8AA","h":0.252995591978643,"id":102,"size":87,"stdErr":87,"vColor":87,"vColorValue":87,"vSize":87,"w":0.103360237211438,"x0":0.806348061316501,"y0":0.170733221580679,"children":[{"name":"Drama","color":"#FBFDB9","h":0.093055849923179,"id":103,"size":31,"stdErr":31,"vColor":31,"vColorValue":31,"vSize":31,"w":0.10013022979858,"x0":0.806348061316501,"y0":0.170733221580679,"children":[{"name":"Horror","color":"#FBFDB9","h":0.093055849923179,"id":104,"size":31,"stdErr":31,"vColor":31,"vColorValue":31,"vSize":31,"w":0.100130229798581,"x0":0.806348061316501,"y0":0.170733221580679}]},{"name":"Fantasy","color":"#FFFFBF","h":0.093055849923179,"id":105,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00323000741285748,"x0":0.906478291115082,"y0":0.170733221580679,"children":[{"name":"Horror","color":"#FFFFBF","h":0.093055849923179,"id":106,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00323000741285748,"x0":0.906478291115082,"y0":0.170733221580679}]},{"name":"Horror","color":"#FFFFBF","h":0.0959638452332783,"id":107,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0187927704020797,"x0":0.89091552812586,"y0":0.327764968326044,"children":[{"name":"Mystery","color":"#FFFFBF","h":0.042650597881457,"id":108,"size":12,"stdErr":12,"vColor":12,"vColorValue":12,"vSize":12,"w":0.0845674668093583,"x0":0.806348061316501,"y0":0.263789071503858},{"name":"Romance","color":"#FFFFBF","h":0.0319879484110928,"id":109,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0187927704020797,"x0":0.89091552812586,"y0":0.295777019914951},{"name":"Sci-Fi","color":"#FFFFBF","h":0.0319879484110928,"id":110,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0187927704020797,"x0":0.89091552812586,"y0":0.263789071503858},{"name":"Thriller","color":"#FBFDB9","h":0.117289144174007,"id":111,"size":33,"stdErr":33,"vColor":33,"vColorValue":33,"vSize":33,"w":0.0845674668093583,"x0":0.806348061316501,"y0":0.306439669385315}]}]},{"name":"Drama","color":"#ABDB6D","h":0.576271186440678,"id":112,"size":406,"stdErr":406,"vColor":406,"vColorValue":406,"vSize":406,"w":0.21176116975194,"x0":0.78823883024806,"y0":0.423728813559322,"children":[{"name":"Family","color":"#FFFFBF","h":0.035484678968022,"id":113,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00847044679007763,"x0":0.991529553209922,"y0":0.459213492527344,"children":[{"name":"Horror","color":"#FFFFBF","h":0.035484678968022,"id":114,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00847044679007763,"x0":0.991529553209922,"y0":0.459213492527344}]},{"name":"Fantasy","color":"#F7FBB4","h":0.0709693579360441,"id":115,"size":48,"stdErr":48,"vColor":48,"vColorValue":48,"vSize":48,"w":0.203290722961863,"x0":0.78823883024806,"y0":0.423728813559322,"children":[{"name":"Horror","color":"#F7FBB4","h":0.0709693579360441,"id":116,"size":48,"stdErr":48,"vColor":48,"vColorValue":48,"vSize":48,"w":0.203290722961863,"x0":0.78823883024806,"y0":0.423728813559322}]},{"name":"History","color":"#FFFFBF","h":0.035484678968022,"id":117,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00847044679007763,"x0":0.991529553209922,"y0":0.423728813559322,"children":[{"name":"Horror","color":"#FFFFBF","h":0.035484678968022,"id":118,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00847044679007763,"x0":0.991529553209922,"y0":0.423728813559322}]},{"name":"Horror","color":"#F3FAAF","h":0.157551974618018,"id":119,"size":72,"stdErr":72,"vColor":72,"vColorValue":72,"vSize":72,"w":0.137358596595853,"x0":0.78823883024806,"y0":0.494698171495366,"children":[{"name":"Musical","color":"#FFFFBF","h":0.0686765017565719,"id":120,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00437662195035807,"x0":0.995623378049642,"y0":0.494698171495366},{"name":"Mystery","color":"#F3FAAF","h":0.347749853886616,"id":121,"size":83,"stdErr":83,"vColor":83,"vColorValue":83,"vSize":83,"w":0.0717394983241268,"x0":0.928260501675873,"y0":0.652250146113384},{"name":"Romance","color":"#FFFFBF","h":0.0686765017565719,"id":122,"size":16,"stdErr":16,"vColor":16,"vColorValue":16,"vSize":16,"w":0.0700259512057291,"x0":0.925597426843913,"y0":0.494698171495366},{"name":"Sci-Fi","color":"#FBFDB9","h":0.0888754728614459,"id":123,"size":22,"stdErr":22,"vColor":22,"vColorValue":22,"vSize":22,"w":0.0744025731560872,"x0":0.925597426843913,"y0":0.563374673251938},{"name":"Thriller","color":"#E4F39A","h":0.347749853886616,"id":124,"size":162,"stdErr":162,"vColor":162,"vColorValue":162,"vSize":162,"w":0.140021671427814,"x0":0.78823883024806,"y0":0.652250146113384}]}]},{"name":"Family","color":"#FFFFBF","h":0.025981142414451,"id":125,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0115688171161571,"x0":0.988431182883843,"y0":0,"children":[{"name":"Fantasy","color":"#FFFFBF","h":0.025981142414451,"id":126,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0115688171161571,"x0":0.988431182883843,"y0":0,"children":[{"name":"Horror","color":"#FFFFBF","h":0.025981142414451,"id":127,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.0115688171161571,"x0":0.988431182883843,"y0":0}]}]},{"name":"Fantasy","color":"#F3FAAF","h":0.252995591978643,"id":128,"size":76,"stdErr":76,"vColor":76,"vColorValue":76,"vSize":76,"w":0.0902917014720607,"x0":0.909708298527939,"y0":0.170733221580679,"children":[{"name":"Horror","color":"#FBFDB9","h":0.0832222342035009,"id":129,"size":25,"stdErr":25,"vColor":25,"vColorValue":25,"vSize":25,"w":0.0902917014720607,"x0":0.909708298527939,"y0":0.340506579355821,"children":[{"name":"Mystery","color":"#FFFFBF","h":0.136484464093742,"id":130,"size":17,"stdErr":17,"vColor":17,"vColorValue":17,"vSize":17,"w":0.0374380225615862,"x0":0.962561977438414,"y0":0.204022115262079},{"name":"Romance","color":"#FFFFBF","h":0.0332888936814004,"id":131,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00902917014720611,"x0":0.990970829852794,"y0":0.170733221580679},{"name":"Sci-Fi","color":"#FFFFBF","h":0.0332888936814003,"id":132,"size":9,"stdErr":9,"vColor":9,"vColorValue":9,"vSize":9,"w":0.0812625313248546,"x0":0.909708298527939,"y0":0.170733221580679},{"name":"Thriller","color":"#FBFDB9","h":0.136484464093742,"id":133,"size":24,"stdErr":24,"vColor":24,"vColorValue":24,"vSize":24,"w":0.0528536789104746,"x0":0.909708298527939,"y0":0.204022115262079}]}]},{"name":"History","color":"#FFFFBF","h":0.0259811424144511,"id":134,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.0231376342323141,"x0":0.965293548651529,"y0":0,"children":[{"name":"Horror","color":"#FFFFBF","h":0.0259811424144511,"id":135,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.965293548651529,"y0":0,"children":[{"name":"Thriller","color":"#FFFFBF","h":0.025981142414451,"id":136,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.011568817116157,"x0":0.976862365767686,"y0":0}]}]},{"name":"Horror","color":"#006837","h":0.68900455432661,"id":137,"size":1059,"stdErr":1059,"vColor":1059,"vColorValue":1059,"vSize":1059,"w":0.461977757739705,"x0":0,"y0":0.31099544567339,"children":[{"name":"Musical","color":"#FFFFBF","h":0.027501909854851,"id":138,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.0327872958621381,"x0":0.532236248872858,"y0":0},{"name":"Mystery","color":"#F7FBB4","h":0.137636872930991,"id":139,"size":47,"stdErr":47,"vColor":47,"vColorValue":47,"vSize":47,"w":0.102638491394519,"x0":0.461977757739705,"y0":0.399796282149223,"children":[{"name":"Romance","color":"#FFFFBF","h":0.184491978609626,"id":140,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.00977509441852564,"x0":0.564616249134225,"y0":0.352941176470588},{"name":"Sci-Fi","color":"#FFFFBF","h":0.0468551056786351,"id":141,"size":16,"stdErr":16,"vColor":16,"vColorValue":16,"vSize":16,"w":0.102638491394519,"x0":0.461977757739705,"y0":0.352941176470588},{"name":"Thriller","color":"#E0F295","h":0.462566844919786,"id":142,"size":173,"stdErr":173,"vColor":173,"vColorValue":173,"vSize":173,"w":0.112413585813045,"x0":0.461977757739705,"y0":0.537433155080214}]},{"name":"Reality-TV","color":"#FFFFBF","h":0.0320855614973262,"id":143,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00936779881775373,"x0":0.565023544734996,"y0":0.0320855614973262,"children":[{"name":"Thriller","color":"#FFFFBF","h":0.0320855614973262,"id":144,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00936779881775373,"x0":0.565023544734996,"y0":0.0320855614973262}]},{"name":"Romance","color":"#FFFFBF","h":0.0641711229946524,"id":145,"size":6,"stdErr":6,"vColor":6,"vColorValue":6,"vSize":6,"w":0.0281033964532612,"x0":0.494765053601843,"y0":0,"children":[{"name":"Sci-Fi","color":"#FFFFBF","h":0.0641711229946524,"id":146,"size":2,"stdErr":2,"vColor":2,"vColorValue":2,"vSize":2,"w":0.00936779881775372,"x0":0.522868450055105,"y0":0},{"name":"Thriller","color":"#FFFFBF","h":0.0641711229946524,"id":147,"size":7,"stdErr":7,"vColor":7,"vColorValue":7,"vSize":7,"w":0.0327872958621381,"x0":0.461977757739705,"y0":0}]},{"name":"Sci-Fi","color":"#FBFDB9","h":0.112299465240642,"id":148,"size":42,"stdErr":42,"vColor":42,"vColorValue":42,"vSize":42,"w":0.112413585813045,"x0":0.461977757739705,"y0":0.0641711229946524,"children":[{"name":"Thriller","color":"#F3FAAF","h":0.176470588235294,"id":149,"size":66,"stdErr":66,"vColor":66,"vColorValue":66,"vSize":66,"w":0.112413585813045,"x0":0.461977757739705,"y0":0.176470588235294}]},{"name":"Thriller","color":"#99D368","h":0.31099544567339,"id":150,"size":474,"stdErr":474,"vColor":474,"vColorValue":474,"vSize":474,"w":0.458111835080796,"x0":0,"y0":0,"children":[{"name":"War","color":"#FFFFBF","h":0.233246584255042,"id":151,"size":3,"stdErr":3,"vColor":3,"vColorValue":3,"vSize":3,"w":0.00386592265890968,"x0":0.458111835080796,"y0":0.0777488614183475},{"name":"Western","color":"#FFFFBF","h":0.0777488614183475,"id":152,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00386592265890968,"x0":0.458111835080796,"y0":0}]},{"name":"War","color":"#FFFFBF","h":0.0366692131398013,"id":153,"size":4,"stdErr":4,"vColor":4,"vColorValue":4,"vSize":4,"w":0.0327872958621381,"x0":0.532236248872858,"y0":0.027501909854851},{"name":"Western","color":"#FFFFBF","h":0.0320855614973261,"id":154,"size":1,"stdErr":1,"vColor":1,"vColorValue":1,"vSize":1,"w":0.00936779881775373,"x0":0.565023544734996,"y0":0}]}]},"meta":{"type":"value","vSize":"Counts","vColor":"Counts","stdErr":"Counts","algorithm":"pivotSize","vpCoorX":[0.0281214848143982,0.971878515185602],"vpCoorY":[0.171685039370079,0.910314960629921],"aspRatio":1.78879815790035,"range":[0,1000],"mapping":[null,null,null],"draw":true},"legend":["<g id=\"legenda_title.1\" font-size=\"32\">\n  <g id=\"GRID.text.2.1\">\n    <g id=\"GRID.text.2.1.1\" transform=\"translate(672, 40.79)\" stroke-width=\"0.1\">\n      <g id=\"GRID.text.2.1.1.scale\" transform=\"scale(1, -1)\">\n        <text x=\"0\" y=\"0\" id=\"GRID.text.2.1.1.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\">\n          <tspan id=\"GRID.text.2.1.1.tspan.1\" dy=\"12\" x=\"0\">Counts<\/tspan>\n        <\/text>\n      <\/g>\n    <\/g>\n  <\/g>\n<\/g>","<g id=\"legenda.1\" font-size=\"32\">\n  <g id=\"legenda::legenda3.1\">\n    <g id=\"GRID.rect.3.1\">\n      <rect id=\"GRID.rect.3.1.1\" x=\"348\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(255,255,191)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n      <rect id=\"GRID.rect.3.1.2\" x=\"456\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(220,240,144)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n      <rect id=\"GRID.rect.3.1.3\" x=\"564\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(176,221,112)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n      <rect id=\"GRID.rect.3.1.4\" x=\"672\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(114,194,100)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n      <rect id=\"GRID.rect.3.1.5\" x=\"780\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(48,163,85)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n      <rect id=\"GRID.rect.3.1.6\" x=\"888\" y=\"93.39\" width=\"108\" height=\"20.43\" transform=\"\" fill=\"rgb(7,118,62)\" stroke=\"rgb(0,0,0)\" stroke-opacity=\"1\" fill-opacity=\"1\"/>\n    <\/g>\n    <g id=\"GRID.text.4.1\">\n      <g id=\"GRID.text.4.1.1\" transform=\"translate(402, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.1.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.1.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.1.tspan.1\" dy=\"10\" x=\"0\">   0<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n      <g id=\"GRID.text.4.1.2\" transform=\"translate(510, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.2.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.2.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.2.tspan.1\" dy=\"10\" x=\"0\"> 200<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n      <g id=\"GRID.text.4.1.3\" transform=\"translate(618, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.3.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.3.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.3.tspan.1\" dy=\"10\" x=\"0\"> 400<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n      <g id=\"GRID.text.4.1.4\" transform=\"translate(726, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.4.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.4.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.4.tspan.1\" dy=\"10\" x=\"0\"> 600<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n      <g id=\"GRID.text.4.1.5\" transform=\"translate(834, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.5.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.5.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.5.tspan.1\" dy=\"10\" x=\"0\"> 800<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n      <g id=\"GRID.text.4.1.6\" transform=\"translate(942, 81.87)\" stroke-width=\"0.1\">\n        <g id=\"GRID.text.4.1.6.scale\" transform=\"scale(1, -1)\">\n          <text x=\"0\" y=\"0\" id=\"GRID.text.4.1.6.text\" text-anchor=\"middle\" font-family=\"Helvetica, Arial, FreeSans, Liberation Sans, Nimbus Sans L, sans-serif\" fill=\"rgb(0,0,0)\" fill-opacity=\"1\" font-size=\"25.6\">\n            <tspan id=\"GRID.text.4.1.6.tspan.1\" dy=\"10\" x=\"0\">1000<\/tspan>\n          <\/text>\n        <\/g>\n      <\/g>\n    <\/g>\n  <\/g>\n<\/g>"],"options":{"celltext":"name","id":"id","valueField":"size","clickAction":null}},"evals":[],"jsHooks":[]}</script></p>
+<p><em>THANK YOU</em></p>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/d3/">d3</a>
+  
+  <a class="badge badge-light" href="/tags/dplyr/">dplyr</a>
+  
+  <a class="badge badge-light" href="/tags/treemap/">treemap</a>
+  
+  <a class="badge badge-light" href="/tags/splitstackshape/">splitstackshape</a>
+  
+  <a class="badge badge-light" href="/tags/tidytuesday/">TidyTuesday</a>
+  
+  <a class="badge badge-light" href="/tags/tidyverse/">tidyverse</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/tidytuesday2019/week34/week34/">Week 34: Nuclear Explosions</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week29/week29/">Week 29: R4DS Users</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week28/week28/">Week 28: FIFA Womens World Cup</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week27/week27/">Week 27: Media Franchise Powerhouses</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week26/week26/">Week 26: Unidentified Flying Objects</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

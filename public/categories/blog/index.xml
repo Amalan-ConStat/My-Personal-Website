@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Consulting Statistician</title>
+    <link>/categories/blog/</link>
+    <description>Recent content in Blog on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sri Lanka and its affect on/in Journal Articles </title>
+      <link>/post/slandjournal/slandjournal/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/slandjournal/slandjournal/</guid>
+      <description>IntroductionPackages and IdeasCountry InformationRanking of Sri Lanka from 1996 to 2017Ranking of South Asian Region Countries from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka JournalsCitations per Document from Sri Lankan JournalsJournals from Sri LankaRank changes for Sri Lankan JournalsSJR values changing for Sri Lankan JournalsReferences per Document changing for Sri Lankan JournalsPublishers and Journals from Sri LankaTotal Documents and References for Journals from Sri LankaThree year time period for Journals from Sri LankaJournals and categoriesIntroduction“SCImago Journal and Country Rank provides valuable estimates of academic journals’ prestige.</description>
+    </item>
+    
+    <item>
+      <title>Tree of Binomial Distribution</title>
+      <link>/post/binomialdistribution/binomialdistribution/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/binomialdistribution/binomialdistribution/</guid>
+      <description>Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsGrassia Binomial DistributionZero Modified Binomial DistributionDandekar’s Modified Binomial DistributionSimplex Binomial Mixture ModelDouble Binomial DistributionFinite Biomial MixturesBinomial Distribution of order KTruncated Binomial DistributionWeighted Binomial DistributionBinomial Not ParentHypergeometric + BinomialNegative Binomial + BinomialPoisson + BinomialAlternate Binomial DistributionsAdditive Binomial DistributionBeta-Correlated Binomial DistributionCOM-Poisson Binomial DistributionCorrelated Binomial DistributionMultiplicative Binomial DistributionNeyman Type A DistributionPoisson + Binomial + BetaPoisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + BetaHermite DistributionBinomial + PoissonPoisson + BinomialBinomial ParentN/n , K and Y Mixturesp Transformed BinomialLog Inverse Distribution [0,1] DomainCumulative Distribution Functionp BinomialReferencesBinomial DistributionThe binomial distribution can be defined, using the binomial expansion</description>
+    </item>
+    
+    <item>
+      <title>Build Your Own Website or Blog Using R, RStudio and R Packages.</title>
+      <link>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</guid>
+      <description>IntroductionMaterials“Making Websites with Rmarkdown and Blogdown by Yihui Xie.”“Up and Running with Blogdown by Alison Presmanes Hill.”“Rmarkdown Websites.”“How to make an RMarkdown Website by Nick Strayer &amp;amp; Lucy D’Agostino McGowan.”“Creating websites in R by Emily C Zabor.”“Getting Started with Blogdown by David Selby.”“Getting Started with Blogdown by Danielle Navarro.”“Blogdown by Peter’s Blog.”“Academic by George Cushen”“Happy Git and GitHub for the User.</description>
+    </item>
+    
+  </channel>
+</rss>

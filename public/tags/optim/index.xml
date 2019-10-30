@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>optim on Consulting Statistician</title>
+    <link>/tags/optim/</link>
+    <description>Recent content in optim on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 14 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/optim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Benchmarking the optim function</title>
+      <link>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</link>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</guid>
+      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of optim FunctionNelder and Mead methodBFGS methodCG methodL-BFGS-B methodSANN methodBrent methodSummary of Time evaluation for different Analytical methods of optim functionSummary of results after using the optim function for different analytical methodsFinal ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Estimating the shape parameters of Beta-Binomial DistributionIntroductionI wrote a blog postearlier this month to understand the optimization functions in R and compare them.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking optimization functions in R</title>
+      <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
+      <description>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.Introductionoptim Functionnlm Functionnlminb Functionucminf FunctionmaxLik Functionmle Functionmle2 FunctionSummary of the seven optimization functions in RSummary of Time evaluation for the seven optimization R functionsSummary of Results after estimating parameters using the optimization R functionsFinal ConclusionNOTE : Below post is valid for Package version 1.</description>
+    </item>
+    
+  </channel>
+</rss>

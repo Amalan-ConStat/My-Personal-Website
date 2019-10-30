@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Consulting Statistician</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sri Lanka and its affect on/in Journal Articles </title>
+      <link>/post/slandjournal/slandjournal/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/slandjournal/slandjournal/</guid>
+      <description>IntroductionPackages and IdeasCountry InformationRanking of Sri Lanka from 1996 to 2017Ranking of South Asian Region Countries from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka JournalsCitations per Document from Sri Lankan JournalsJournals from Sri LankaRank changes for Sri Lankan JournalsSJR values changing for Sri Lankan JournalsReferences per Document changing for Sri Lankan JournalsPublishers and Journals from Sri LankaTotal Documents and References for Journals from Sri LankaThree year time period for Journals from Sri LankaJournals and categoriesIntroduction“SCImago Journal and Country Rank provides valuable estimates of academic journals’ prestige.</description>
+    </item>
+    
+    <item>
+      <title>Build Your Own Website or Blog Using R, RStudio and R Packages.</title>
+      <link>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</guid>
+      <description>IntroductionMaterials“Making Websites with Rmarkdown and Blogdown by Yihui Xie.”“Up and Running with Blogdown by Alison Presmanes Hill.”“Rmarkdown Websites.”“How to make an RMarkdown Website by Nick Strayer &amp;amp; Lucy D’Agostino McGowan.”“Creating websites in R by Emily C Zabor.”“Getting Started with Blogdown by David Selby.”“Getting Started with Blogdown by Danielle Navarro.”“Blogdown by Peter’s Blog.”“Academic by George Cushen”“Happy Git and GitHub for the User.</description>
+    </item>
+    
+    <item>
+      <title>Olympic : Rshiny Approach</title>
+      <link>/post/olympicrshiny/olympic-rshiny-approach/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/olympicrshiny/olympic-rshiny-approach/</guid>
+      <description>IntroductionMaterial Useful for Rsiny DevelopmentHow To Use The Olympic Rshiny App ?Step 1Step 2Step 3Step 4Step 5Step 6Step 7Step 8IntroductionRshiny is very popular in the rstats community. The glamourous interface and functionality has helped for this level of popularity. In perspective of using an Rshiny App anyone can use it with minimal amount of knowledge.</description>
+    </item>
+    
+    <item>
+      <title>Developing an R package</title>
+      <link>/post/yourownpackage/developing-an-r-package/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/yourownpackage/developing-an-r-package/</guid>
+      <description>IntroductionCredit to People of R Community1) Coding Standards (Coding to Understand)2) Package Structure3) DESCRIPTION file4) README file5) /R directory6) /data directory7) /tests directory8) /man directory9) NAMSESPACE file10) .Rbuildignore file11) .gitignore fileBuilding the PackageDistributing the PackageIntroductionR package development is no longer as it was before 2010 because now most of the work can be done by just a simple mouse-click or with the use of a function.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking the mle and mle2 function </title>
+      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
+      <description>Introductionmlemle2ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
+Introductionmle and mle2are my favorite functions, because they provide extensive amount of outputsfor the optimization process. Even though there is no difference in analytical methodsused in both of these functions. Further, these analytical methods are the same ones usedby optim function. To be honest mle and mle2 functions are wrapper functions of optim.</description>
+    </item>
+    
+    <item>
+      <title>Build a New Package with Existing R packages</title>
+      <link>/post/newpackage/build-a-new-package-with-existing-r-packages/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
+      <description>IntroductionMost Essential Packagesdevtoolspkgbuildpkgloadrcmdcheckusethisroxygen2knitrmarkdown, rmarkdown, rmdformatsspellingtrackmdtestthatEssential Packagesgit2r and ghdesccovrbadgecreatr and badgerhexStickerpkgdownStill I have not UsedpackratpkgconfigpkginspectorrvcheckrversionsformatRwhoamiConclusionIntroductionPackage development is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package fitODBOD for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions.</description>
+    </item>
+    
+    <item>
+      <title>How To Find Your R package ?</title>
+      <link>/post/findrpackage/how-to-find-your-r-package/</link>
+      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
+      <description>1. Google2. CRAN3. Bio - Conductor4. GitHub pages5. Rdocumentation6. Crantastic7. rpackages8. R - Opensci9. Rseek10. R Site Search11. R-forge12. AwesomeR13. CRAN Task View14. Rstudio - Rpackages15. stack overflow - r16. CRANalertsHow to find your R package is simply a blog post helping people to provide a list of websites where they can find R packages.</description>
+    </item>
+    
+  </channel>
+</rss>

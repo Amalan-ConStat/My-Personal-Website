@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R downloads on Consulting Statistician</title>
+    <link>/tags/r-downloads/</link>
+    <description>Recent content in R downloads on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r-downloads/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 31 : R and Package Downloads</title>
+      <link>/post/week_31/week-31-r-and-package-downloads/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
+      <description>IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &amp;lt;- read_csv(&amp;quot;r_downloads_year.csv&amp;quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), time = col_time(format = &amp;quot;%H:%M:%S&amp;quot;)))r_downloads &amp;lt;- read_csv(&amp;quot;r-downloads.csv&amp;quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), time = col_time(format = &amp;quot;%H:%M:%S&amp;quot;)))Week 31 : R and Package Downloads #TidyTuesday https://t.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlminb on Consulting Statistician</title>
+    <link>/tags/nlminb/</link>
+    <description>Recent content in nlminb on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/nlminb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Benchmarking optimization functions in R</title>
+      <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
+      <description>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.Introductionoptim Functionnlm Functionnlminb Functionucminf FunctionmaxLik Functionmle Functionmle2 FunctionSummary of the seven optimization functions in RSummary of Time evaluation for the seven optimization R functionsSummary of Results after estimating parameters using the optimization R functionsFinal ConclusionNOTE : Below post is valid for Package version 1.</description>
+    </item>
+    
+  </channel>
+</rss>

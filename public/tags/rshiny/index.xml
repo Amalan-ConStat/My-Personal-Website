@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rshiny on Consulting Statistician</title>
+    <link>/tags/rshiny/</link>
+    <description>Recent content in Rshiny on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rshiny/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>South Park Text Analytics Shiny App</title>
+      <link>/post/southpark_rshiny/southpark_rshiny/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/southpark_rshiny/southpark_rshiny/</guid>
+      <description>Shiny App of Text Analytics for South Park Tv show.No Inputs needed to generate Plots or ResultsTrivia Sub TabLines Sub TabWords Sub TabSpecial Words Sub TabRatings and Votes from IMDB Sub TabSentiment Analysis Sub TabBigram and Trigram Analysis Sub TabInputs needed from the user to generate Plots and ResultsCompare Two Seasons Tab.Compare Two Characters Tab.Compare Two Characters but Same Season Tab.</description>
+    </item>
+    
+    <item>
+      <title>Olympic : Rshiny Approach</title>
+      <link>/post/olympicrshiny/olympic-rshiny-approach/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/olympicrshiny/olympic-rshiny-approach/</guid>
+      <description>IntroductionMaterial Useful for Rsiny DevelopmentHow To Use The Olympic Rshiny App ?Step 1Step 2Step 3Step 4Step 5Step 6Step 7Step 8IntroductionRshiny is very popular in the rstats community. The glamourous interface and functionality has helped for this level of popularity. In perspective of using an Rshiny App anyone can use it with minimal amount of knowledge.</description>
+    </item>
+    
+  </channel>
+</rss>

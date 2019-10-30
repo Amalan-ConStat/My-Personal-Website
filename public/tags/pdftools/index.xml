@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pdftools on Consulting Statistician</title>
+    <link>/tags/pdftools/</link>
+    <description>Recent content in pdftools on Consulting Statistician</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/pdftools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Presidential Election Data of Sri Lanka from PDF Files.</title>
+      <link>/publication/presidential_election/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/presidential_election/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extract Presidential Election Data of 2015 from the Pdf file </title>
+      <link>/post/slelection/presidential-election/2015/2015/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/slelection/presidential-election/2015/2015/</guid>
+      <description>What I am going to do and Why ?Where is the data !Simplifying and SolvingPage typesTable typesProgramming PartStep 1Step 2Step 3Step 4One Complete FunctionUsing the One Function to extract Data from Multiple pagesValidating the DataIssues in the pdf fileWhat I am going to do and Why ?Sri Lanka will face a presidential election by the end of this year, but in order to understand how peoplehave voted so far in previous elections we need data.</description>
+    </item>
+    
+  </channel>
+</rss>

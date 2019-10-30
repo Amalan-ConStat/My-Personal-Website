@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.49" />
+  <meta name="author" content="Amalan Mahendran">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="2019 Week 4 TidyTuesday: Prisons and Incarceration.">
+
+  
+  <link rel="alternate" hreflang="en-gb" href="/post/tidytuesday2019/week4/week-4-prison-data/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3D3B45">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href=//fonts.googleapis.com/css?family=Playfair+Display:400,700|EB+Garamond>
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/override.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-127634411-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Consulting Statistician">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/tidytuesday2019/week4/week-4-prison-data/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Amalan_Con_Stat">
+  <meta property="twitter:creator" content="@Amalan_Con_Stat">
+  
+  <meta property="og:site_name" content="Consulting Statistician">
+  <meta property="og:url" content="/post/tidytuesday2019/week4/week-4-prison-data/">
+  <meta property="og:title" content="Week 4: Prison Data | Consulting Statistician">
+  <meta property="og:description" content="2019 Week 4 TidyTuesday: Prisons and Incarceration.">
+  
+  
+    
+  <meta property="og:image" content="/img/portray.jpg">
+  <meta property="og:locale" content="en-gb">
+  
+  <meta property="article:published_time" content="2019-01-22T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-01-22T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Week 4: Prison Data | Consulting Statistician</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/equations.png" alt="Consulting Statistician"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">
+            
+            <span>Talents</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#experience">
+            
+            <span>Experience</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Interests</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#twitter">
+            
+            <span>Tweets</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/files/Amalan_Mahendran.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <img src="/post/tidytuesday2019/week4/week-4-prison-data/featured_hudc450574f8517129b13d881b6dcb81b1_40327_1600x400_fill_q90_box_smart1_2.png" class="article-banner" itemprop="image" alt="">
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Week 4: Prison Data</h1>
+
+        
+
+        
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-01-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-01-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jan 22, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%204%3a%20Prison%20Data&amp;url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f&amp;title=Week%204%3a%20Prison%20Data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f&amp;title=Week%204%3a%20Prison%20Data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%204%3a%20Prison%20Data&amp;body=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/tidytuesday2019/week4/week-4-prison-data/featured_hudc450574f8517129b13d881b6dcb81b1_40327_680x500_fill_q90_box_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Week 4: Prison Data</h1>
+
+  
+
+  
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2019-01-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2019-01-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Jan 22, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Amalan Mahendran">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/tidytuesday/">TidyTuesday</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Week%204%3a%20Prison%20Data&amp;url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f&amp;title=Week%204%3a%20Prison%20Data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f&amp;title=Week%204%3a%20Prison%20Data"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Week%204%3a%20Prison%20Data&amp;body=%2fpost%2ftidytuesday2019%2fweek4%2fweek-4-prison-data%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <div id="TOC">
+<ul>
+<li><a href="#prison-summary">Prison Summary</a><ul>
+<li><a href="#prison-summary-with-gender">Prison Summary With Gender</a></li>
+<li><a href="#prison-summary-with-ethnicity">Prison Summary with Ethnicity</a></li>
+<li><a href="#prison-summary-with-other-and-total">Prison Summary with Other and Total</a></li>
+</ul></li>
+<li><a href="#pretrial-summary-with-gender-and-total">Pretrial Summary with Gender and Total</a></li>
+<li><a href="#complete-data-of-incarceration-trends">Complete Data of Incarceration Trends</a><ul>
+<li><a href="#rape-crimes-over-the-years-in-states-of-rural-area">Rape Crimes over the Years in States of Rural Area</a></li>
+<li><a href="#rape-crimes-over-the-years-in-states-of-small-or-mid-area">Rape Crimes over the Years in States of Small or Mid Area</a></li>
+<li><a href="#rape-crimes-over-the-years-in-states-of-suburban-area">Rape Crimes over the Years in States of Suburban Area</a></li>
+<li><a href="#rape-crimes-over-the-years-in-states-of-urban-area">Rape Crimes over the Years in States of Urban Area</a></li>
+</ul></li>
+</ul>
+</div>
+
+<pre class="r"><code># load the packages
+library(readr)
+library(tidyverse)
+library(magrittr)
+library(gganimate)
+library(ggthemr)
+
+# load the theme
+ggthemr(&quot;flat dark&quot;)
+
+# load the data
+pretrial_summary &lt;- read_csv(&quot;pretrial_summary.csv&quot;)
+
+prison_summary &lt;- read_csv(&quot;prison_summary.csv&quot;)
+
+incarceration_trends&lt;-read_csv(&quot;incarceration_trends.csv&quot;)</code></pre>
+<p>TidyTuesday Week 4 of 2019 is focused on prison data. You can find the data <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-22">here</a>. There are 5 csv files, clearly 2 files are a summary of the main data, which are Prison Summary and Pretrial Summary.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Code: <a href="https://t.co/x1Wiq1JzYS">https://t.co/x1Wiq1JzYS</a>  . opinion: Decline of prisoners rate after certain periods for different regions. <a href="https://twitter.com/hashtag/tidytuesday?src=hash&amp;ref_src=twsrc%5Etfw">#tidytuesday</a> <a href="https://t.co/VkOJDJJBoq">pic.twitter.com/VkOJDJJBoq</a></p>&mdash; Amalan Mahendran (@Amalan_Con_Stat) <a href="https://twitter.com/Amalan_Con_Stat/status/1087702502240407552?ref_src=twsrc%5Etfw">January 22, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I have mainly focused on these two data-sets here. Further in order of curiosity I did take a peak at a main data file, which is incarceration_trends.csv.</p>
+<div id="prison-summary" class="section level1">
+<h1>Prison Summary</h1>
+<p>Prison summary data-set has 4 variables. The year of records begin from 1983 and ends in 2015. The unit of incarceration in is Rate per 100,000. Considering the population categories there are clearly 4 sub groups. Each of these sub groups have been plotted here. Further the variable ‘urbanicity’ is simply grouping the observations according to the developed status. Such as rural, small/mid, suburban and urban.</p>
+<div id="prison-summary-with-gender" class="section level2">
+<h2>Prison Summary With Gender</h2>
+<p>The population increase has an effect on it according to the below plot. Urban area has an increase in these prisoners over the years but after mid 1990 there is a decline. This is true for males. Next considering the suburban area this is quite similar as before, only difference is that the decline begins in year 2005.</p>
+<p>Considering rural area there is a clear increase of prisoners for both genders in the years. There is an anomaly in year 1986 with alot of prisoners for males. Both rural and small/mid areas behave similarly for both genders as the increase rate gets somewhat slower after 2010.</p>
+<pre class="r"><code>subset(prison_summary,pop_category==&quot;Male&quot; | pop_category==&quot;Female&quot;) %&gt;%
+ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
+  facet_wrap(~urbanicity)+geom_area()+
+  transition_reveal(year)+ labs(fill=&quot;Gender&quot;)+
+  scale_x_continuous(breaks=c(1983:2015),labels=c(1983:2015))+
+  theme(axis.text.x = element_text(angle = 90),legend.position = &quot;bottom&quot;)+
+  scale_y_continuous(breaks = seq(0,1750,250),labels=seq(0,1750,250))+
+  xlab(&quot;Year&quot;)+ylab(&quot;Rate per 100,000&quot;)+
+  ggtitle(&quot;Gender change over the years from 1983-2015&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Male%20and%20Female-1.gif" /><!-- --></p>
+</div>
+<div id="prison-summary-with-ethnicity" class="section level2">
+<h2>Prison Summary with Ethnicity</h2>
+<p>5 ethnicity types are considered here which are Asian, Black, Latino, White and Native American. From 1980 only we can see the active prisoners of Latino and Native American ethnicity. Over the years we can the increase of prisoners for African American Community. The increase is very high considering the other ethnicity types.</p>
+<p>Asian ethnicity people have prisoners but it is only negligible considering the other ethnicity types. Except the suburban area others have an increase rate until 2005 and there is a decline followed in the next years. This is not the case for suburban area. Here less change after year 2000 and the decline begins only in year 2010.</p>
+<pre class="r"><code>subset(prison_summary,pop_category == &quot;Asian&quot; | pop_category==&quot;Black&quot; |
+                      pop_category == &quot;Latino&quot; |pop_category==&quot;White&quot; |
+                      pop_category == &quot;Native American&quot; ) %&gt;%
+ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
+  facet_wrap(~urbanicity)+geom_area()+
+  transition_reveal(year)+ labs(fill=&quot;Ethnicity&quot;)+
+  scale_x_continuous(breaks=c(1983:2015),labels=c(1983:2015))+
+  theme(axis.text.x = element_text(angle = 90),legend.position = &quot;bottom&quot;)+
+  scale_y_continuous(breaks = seq(0,5250,250),labels=seq(0,5250,250))+
+  xlab(&quot;Year&quot;)+ylab(&quot;Rate per 100,000&quot;)+
+  ggtitle(&quot;Ethnicity change over the years from 1983-2015&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Ethnicity-1.gif" /><!-- --></p>
+</div>
+<div id="prison-summary-with-other-and-total" class="section level2">
+<h2>Prison Summary with Other and Total</h2>
+<p>The Other category is no longer active since 1989, but before that we can see different anomalies in all four areas. Clearly urban area has more prisoners and final place goes to suburban according to the below area plot.</p>
+<p>Rural area has an increase in prisoners over the years and there is no decline. This is not the case for small/mid and suburban areas. Urban areas has a sudden decline in between year 1995 to 2000 and again there is a steep decline after year 2005.</p>
+<pre class="r"><code>subset(prison_summary,pop_category == &quot;Other&quot; | pop_category==&quot;Total&quot;) %&gt;%
+ggplot(.,aes(x=year,y=rate_per_100000,fill=pop_category))+
+    facet_wrap(~urbanicity)+geom_area()+
+    transition_reveal(year)+ labs(fill=&quot;Category&quot;)+
+    scale_x_continuous(breaks=c(1983:2015),labels=c(1983:2015))+
+    theme(axis.text.x = element_text(angle = 90),legend.position = &quot;bottom&quot;)+
+    scale_y_continuous(breaks = seq(0,1000,100),labels=seq(0,1000,100))+
+    xlab(&quot;Year&quot;)+ylab(&quot;Rate per 100,000&quot;)+
+    ggtitle(&quot;Total and Other category change over the years from 1983-2015&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/prison%20summary%20Other%20and%20Total-1.gif" /><!-- --></p>
+</div>
+</div>
+<div id="pretrial-summary-with-gender-and-total" class="section level1">
+<h1>Pretrial Summary with Gender and Total</h1>
+<p>Year 1970 to 2015 is the range of time considered here and the genders male and female are considered with the total. The data-set is for Pretrial prisoners. There is sudden increase after mid 1980s to all the areas. This sudden increase occurs to both genders and the total as well.</p>
+<p>Here, also we can see an odd behavior for urban area in the entire time range with sudden steeps and peaks.</p>
+<pre class="r"><code>ggplot(pretrial_summary,aes(x=year,y=rate_per_100000,fill=pop_category))+
+      geom_area()+facet_wrap(~urbanicity)+
+      transition_reveal(year)+ labs(fill=&quot;Category&quot;)+
+      scale_x_continuous(breaks=c(1970:2015),labels=c(1970:2015))+
+      theme(axis.text.x = element_text(angle = 90),legend.position = &quot;bottom&quot;)+
+      scale_y_continuous(breaks = seq(0,800,50),labels=seq(0,800,50))+
+      xlab(&quot;Year&quot;)+ylab(&quot;Rate per 100,000&quot;)+
+      ggtitle(&quot;Total and Gender category change over the years from 1970-2015&quot;)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/pretrial%20summary%20gender%20and%20total-1.gif" /><!-- --></p>
+</div>
+<div id="complete-data-of-incarceration-trends" class="section level1">
+<h1>Complete Data of Incarceration Trends</h1>
+<p>This data-set has all the necessary information related to Incarceration. Further, it includes data for 11 different crime types. Rather than exploring all the crimes I have explored only one crime here, which is Rape.</p>
+<p>The are four areas in concern are rural, suburban, mid/small and urban. 51 states and 4 regions are considered to see the diversity of these prisoners. We have dropped the years from 1970 to 1976, 2015 and 2016 because they had no data. Even the years 1979 and 1993 has missing data but still I am including this in the plot.</p>
+<div id="rape-crimes-over-the-years-in-states-of-rural-area" class="section level2">
+<h2>Rape Crimes over the Years in States of Rural Area</h2>
+<p>I developed these plots to understand a pattern in state wise or region wise, apparently its very difficult but still I am keeping these plots here. Well, frankly I think there could be some other better way to visualize the above selective data.</p>
+<pre class="r"><code>p1&lt;-subset(incarceration_trends,year!=&quot;1970&quot; &amp; year!=&quot;1971&quot; &amp; year!=&quot;1972&quot; &amp;
+                            year!=&quot;1973&quot; &amp; year!=&quot;1974&quot; &amp; year!=&quot;1975&quot; &amp;
+                            year!=&quot;1976&quot; &amp; year!=&quot;2015&quot; &amp; year!=&quot;2016&quot; &amp;
+                            urbanicity == &quot;rural&quot;,
+       select = c(&quot;year&quot;,&quot;state&quot;,&quot;rape_crime&quot;,&quot;urbanicity&quot;,&quot;region&quot;)) %&gt;%
+ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
+      geom_jitter(width = 0.1)+transition_time(year)+
+      coord_flip()+ 
+      ylab(&quot;Rape Crime&quot;)+xlab(&quot;State&quot;)+
+      theme(legend.position = &quot;bottom&quot;)+
+      labs(title=&quot;Rape Crime for Rural Areas on the Year : {round(frame_time)}&quot;)
+
+animate(p1,fps=1,duration=38)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20rural-1.gif" /><!-- --></p>
+</div>
+<div id="rape-crimes-over-the-years-in-states-of-small-or-mid-area" class="section level2">
+<h2>Rape Crimes over the Years in States of Small or Mid Area</h2>
+<pre class="r"><code>p2&lt;-subset(incarceration_trends,year!=&quot;1970&quot; &amp; year!=&quot;1971&quot; &amp; year!=&quot;1972&quot; &amp;
+                            year!=&quot;1973&quot; &amp; year!=&quot;1974&quot; &amp; year!=&quot;1975&quot; &amp;
+                            year!=&quot;1976&quot; &amp; year!=&quot;2015&quot; &amp; year!=&quot;2016&quot; &amp;
+                            urbanicity == &quot;small/mid&quot;,
+       select = c(&quot;year&quot;,&quot;state&quot;,&quot;rape_crime&quot;,&quot;urbanicity&quot;,&quot;region&quot;)) %&gt;%
+ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
+      geom_jitter(width = 0.1)+transition_time(year)+
+      coord_flip()+ 
+      ylab(&quot;Rape Crime&quot;)+xlab(&quot;State&quot;)+
+      theme(legend.position = &quot;bottom&quot;)+
+      labs(title=&quot;Rape Crime for Small or Mid Areas on the Year: {round(frame_time)}&quot;)
+
+animate(p2,fps=1,duration=38)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20small%20or%20mid-1.gif" /><!-- --></p>
+</div>
+<div id="rape-crimes-over-the-years-in-states-of-suburban-area" class="section level2">
+<h2>Rape Crimes over the Years in States of Suburban Area</h2>
+<pre class="r"><code>p3&lt;-subset(incarceration_trends,year!=&quot;1970&quot; &amp; year!=&quot;1971&quot; &amp; year!=&quot;1972&quot; &amp;
+                            year!=&quot;1973&quot; &amp; year!=&quot;1974&quot; &amp; year!=&quot;1975&quot; &amp;
+                            year!=&quot;1976&quot; &amp; year!=&quot;2015&quot; &amp; year!=&quot;2016&quot; &amp;
+                            urbanicity == &quot;suburban&quot;,
+       select = c(&quot;year&quot;,&quot;state&quot;,&quot;rape_crime&quot;,&quot;urbanicity&quot;,&quot;region&quot;)) %&gt;%
+ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
+      geom_jitter(width = 0.1)+transition_time(year)+
+      coord_flip()+ 
+      ylab(&quot;Rape Crime&quot;)+xlab(&quot;State&quot;)+
+      theme(legend.position = &quot;bottom&quot;)+
+      labs(title=&quot;Rape Crime for Suburban Areas on the Year: {round(frame_time)}&quot;)
+
+animate(p3,fps=1,duration=38)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20suburban-1.gif" /><!-- --></p>
+</div>
+<div id="rape-crimes-over-the-years-in-states-of-urban-area" class="section level2">
+<h2>Rape Crimes over the Years in States of Urban Area</h2>
+<pre class="r"><code>p4&lt;-subset(incarceration_trends,year!=&quot;1970&quot; &amp; year!=&quot;1971&quot; &amp; year!=&quot;1972&quot; &amp;
+                            year!=&quot;1973&quot; &amp; year!=&quot;1974&quot; &amp; year!=&quot;1975&quot; &amp;
+                            year!=&quot;1976&quot; &amp; year!=&quot;2015&quot; &amp; year!=&quot;2016&quot; &amp;
+                            urbanicity == &quot;urban&quot;,
+       select = c(&quot;year&quot;,&quot;state&quot;,&quot;rape_crime&quot;,&quot;urbanicity&quot;,&quot;region&quot;)) %&gt;%
+ggplot(.,aes(x=factor(state),y=rape_crime,color=region))+
+      geom_jitter(width = 0.1)+transition_time(year)+
+      coord_flip()+ 
+      ylab(&quot;Rape Crime&quot;)+xlab(&quot;State&quot;)+
+      theme(legend.position = &quot;bottom&quot;)+
+      labs(title=&quot;Rape Crime for Urban Areas on the Year: {round(frame_time)}&quot;)
+
+animate(p4,fps=1,duration=38)</code></pre>
+<p><img src="/post/TidyTuesday2019/Week4/index_files/figure-html/All%20Data%20Rape%20Crime%20but%20Urban-1.gif" /><!-- --></p>
+<p><em>THANK YOU</em></p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/tidytuesday/">TidyTuesday</a>
+  
+  <a class="badge badge-light" href="/tags/tidyverse/">tidyverse</a>
+  
+  <a class="badge badge-light" href="/tags/gganimate/">gganimate</a>
+  
+  <a class="badge badge-light" href="/tags/r-package/">R package</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/">Week 2: IMDB TV Shows Data</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/">Week 3: Space Agencies and Launches</a></li>
+        
+        <li><a href="/post/tidytuesday2019/week1/week-1-tidytuesday-tweets/">2019 Week 1 : #TidyTuesday Tweets </a></li>
+        
+        <li><a href="/post/week_36/week-36-medium-posts/">Week 36: Medium Posts</a></li>
+        
+        <li><a href="/post/week_34/week-34-thanksgiving/">Week 34 : Thanksgiving </a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy of MIT</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+
