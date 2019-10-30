@@ -1,34 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>stringr on Consulting Statistician</title>
-    <link>/tags/stringr/</link>
-    <description>Recent content in stringr on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 14 Jul 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Extract Presidential Election Data of 2015 from the Pdf file </title>
-      <link>/post/slelection/presidential-election/2015/2015/</link>
-      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/slelection/presidential-election/2015/2015/</guid>
-      <description>What I am going to do and Why ?Where is the data !Simplifying and SolvingPage typesTable typesProgramming PartStep 1Step 2Step 3Step 4One Complete FunctionUsing the One Function to extract Data from Multiple pagesValidating the DataIssues in the pdf fileWhat I am going to do and Why ?Sri Lanka will face a presidential election by the end of this year, but in order to understand how peoplehave voted so far in previous elections we need data.</description>
-    </item>
-    
-    <item>
-      <title>Web-scraping ODI Cricket World Cup Matches </title>
-      <link>/post/webscraping/webscraping/</link>
-      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/webscraping/webscraping/</guid>
-      <description>IntroductionWeb scrapingProcessa. Extracting matches information and storing it in a separate column after removing “:”.b. Extracting the Location and finding who vs who.c. Extracting the Date match and winning conditions.d. Information of both teams who played the match into separate columns.e. All those separate information after extraction now into one data set.Links for world cupsFunction for data extraction of World cup matchesSummarizeIntroductionWorld Cup matches are now in action as all initial matches are over, while semi-final and finalmatches are to come.</description>
-    </item>
-    
-  </channel>
-</rss>

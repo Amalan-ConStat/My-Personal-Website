@@ -1,35 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Movies on Consulting Statistician</title>
-    <link>/tags/movies/</link>
-    <description>Recent content in Movies on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/movies/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Week 30: Movie Profit</title>
-      <link>/post/week_30/week-30-movie-profit/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_30/week-30-movie-profit/</guid>
-      <description>Movie Profit, Not So ProfitUnderstand Genre and Mpaa Rating on MoviesLets Focus of movies which has zero domestic grossZero Domestic gross Point of ViewGenre and MPAA Rating Point of ViewFinding Outliers in Perspective of Genre and MPAA RatingProduction Budget and Worldwide GrossYears, Months and Days versus Production BudgetConclusionFurther AnalysisMovie Profit, Not So ProfitThis is my first post on Tidy Tuesday and the data-set in question is Movie profit data-set.</description>
-    </item>
-    
-    <item>
-      <title>Movies</title>
-      <link>/projects/movies/</link>
-      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/movies/</guid>
-      <description>Watching movies for the last six years(from 2012) with much interest in plot, story line and characters. I have watched more than 300 movies but the below mentioned are in my mind. They are from different decades as well, therefore do not hesistate to watch. If you prefer go through the IMDB link so that the ratings and summary will give you more information.
-0 to 9  12 Angry Men 13 Hours The Secret Soldiers of Benghazi 2012  A  A Private War American Gangster Aquaman Arrival Asterix and Obelix Mansion of Gods Asterix and Obelix The Secret of The Magic Potion Avengers Trilogy Argo  B  Bad Boys Dualogy Batman Trilogy Between Two Ferns The Movie Black Hawk Down Black Panther BlacKkKlansman Bohemian Rhaspody Bridge of Spies  C  Captain America Trilogy Captain Marvel Casablanca Captive State Casino Chaos Charlie Brown Charlie Chaplin Modern Times Charlie Wilsons War Constantine Cast Away  D  Deadpool Dualogy Deja Vu Doctor Strange Dan Brown Trilogy Die Hard Quadropolgy Despicable Me Collection Dr.</description>
-    </item>
-    
-  </channel>
-</rss>

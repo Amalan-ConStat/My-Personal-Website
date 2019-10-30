@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Binomi on Consulting Statistician</title>
-    <link>/categories/binomi/</link>
-    <description>Recent content in Binomi on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/binomi/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Tree of Binomial Distribution</title>
-      <link>/post/binomialdistribution/binomialdistribution/</link>
-      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/binomialdistribution/binomialdistribution/</guid>
-      <description>Binomial DistributionApplicationsBinomial Mixture DistributionsMain Groups for Binomial DistributionOther With No Sub-GroupsGrassia Binomial DistributionZero Modified Binomial DistributionDandekar’s Modified Binomial DistributionSimplex Binomial Mixture ModelDouble Binomial DistributionFinite Biomial MixturesBinomial Distribution of order KTruncated Binomial DistributionWeighted Binomial DistributionBinomial Not ParentHypergeometric + BinomialNegative Binomial + BinomialPoisson + BinomialAlternate Binomial DistributionsAdditive Binomial DistributionBeta-Correlated Binomial DistributionCOM-Poisson Binomial DistributionCorrelated Binomial DistributionMultiplicative Binomial DistributionNeyman Type A DistributionPoisson + Binomial + BetaPoisson + Poisson + Binomial + Beta or Poisson + Binomial + Poisson + BetaHermite DistributionBinomial + PoissonPoisson + BinomialBinomial ParentN/n , K and Y Mixturesp Transformed BinomialLog Inverse Distribution [0,1] DomainCumulative Distribution Functionp BinomialReferencesBinomial DistributionThe binomial distribution can be defined, using the binomial expansion</description>
-    </item>
-    
-  </channel>
-</rss>

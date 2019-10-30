@@ -1,35 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>mle2 on Consulting Statistician</title>
-    <link>/tags/mle2/</link>
-    <description>Recent content in mle2 on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/mle2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Benchmarking the mle and mle2 function </title>
-      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
-      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
-      <description>Introductionmlemle2ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
-Introductionmle and mle2are my favorite functions, because they provide extensive amount of outputsfor the optimization process. Even though there is no difference in analytical methodsused in both of these functions. Further, these analytical methods are the same ones usedby optim function. To be honest mle and mle2 functions are wrapper functions of optim.</description>
-    </item>
-    
-    <item>
-      <title>Benchmarking optimization functions in R</title>
-      <link>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</link>
-      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/fitodbod_1/benchmarking-maximum-liklihood-functions-from-r/</guid>
-      <description>Estimating the shape parameters by Maximizing the Log Likelihood value of Beta-Binomial Distribution.Introductionoptim Functionnlm Functionnlminb Functionucminf FunctionmaxLik Functionmle Functionmle2 FunctionSummary of the seven optimization functions in RSummary of Time evaluation for the seven optimization R functionsSummary of Results after estimating parameters using the optimization R functionsFinal ConclusionNOTE : Below post is valid for Package version 1.</description>
-    </item>
-    
-  </channel>
-</rss>

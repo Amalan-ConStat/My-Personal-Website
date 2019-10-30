@@ -1,45 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>dplyr on Consulting Statistician</title>
-    <link>/tags/dplyr/</link>
-    <description>Recent content in dplyr on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 22 Oct 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Week 43: Horror Movies</title>
-      <link>/post/tidytuesday2019/week43/week43/</link>
-      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week43/week43/</guid>
-      <description>Organize DataRain GraphTree mapData is forWeek 43 under the title Horror Movies. Have not done any plotting for TidyTuesday for some time orto be exact more than two months. So here I am trying out d3 visualisation in R.
-Helpful packages for this post are ‘d3rain’ and ‘d3treeR’.
-# load the packageslibrary(d3rain)library(dplyr)library(ggplot2)library(splitstackshape)library(d3treeR)library(treemap)# load the datahorror_movies &amp;lt;- readr::read_csv(&amp;quot;https://raw.</description>
-    </item>
-    
-    <item>
-      <title>Week 34: Nuclear Explosions</title>
-      <link>/post/tidytuesday2019/week34/week34/</link>
-      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week34/week34/</guid>
-      <description>Magnitude Surface vs Magnitude BodyAll pointsPoints where Magnitude surface and body are more than 0 measurementMagnitude Surface and Body but Based on CountryMagnitude Surface and Body but Based on Country with animationYield Lower vs Yield UpperAll pointsPoints where Yield Upper and Lower are more than 0 measurementYield Upper and Lower but Based on CountryYield Upper and Lower but Based on Country with animationYearly progress based on CountryAnimatedStack graphType vs Purpose by CountryAnimatedSource vs Year by CountryAnimatedGitHub Code</description>
-    </item>
-    
-    <item>
-      <title>Week 28: FIFA Womens World Cup</title>
-      <link>/post/tidytuesday2019/week28/week28/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week28/week28/</guid>
-      <description>SquadsCaptain-ship vs GoalsAge vs GoalsCountry and PositionsAge and PositionsCountry and Age DistributionsCountry and Goal ExperienceTop 15 Highest Goal Scorers participated in the FIFA World CupWWC OutcomesYear vs Countries of participationYear vs Rounds of MatchesYears vs Goalswwc_outcomes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/wwc_outcomes.csv&amp;quot;)squads &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/squads.csv&amp;quot;)codes &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-09/codes.csv&amp;quot;)library(ggplot2)library(gganimate)library(dplyr)library(tvthemes)GitHub Code</description>
-    </item>
-    
-  </channel>
-</rss>

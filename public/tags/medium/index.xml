@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Medium on Consulting Statistician</title>
-    <link>/tags/medium/</link>
-    <description>Recent content in Medium on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 08 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/medium/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Week 36: Medium Posts</title>
-      <link>/post/week_36/week-36-medium-posts/</link>
-      <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_36/week-36-medium-posts/</guid>
-      <description>ClapsTop 10 Authors and Claps for their postsTop 10 Authors with most postsTop 10 Authors who have posts with ImagesTop 10 Authors who have posts without ImagesTop 10 Authors and Reading time for their postsTop 5 Publications with most postsWord Cloud for the Titles from Top 10 AuthorsWord Cloud for the Titles from Top 5 publicationsConclusionFurther Analysis#loading packages#load datalibrary(readr)#manipulate datalibrary(dplyr)library(magrittr)# format table with expenselibrary(formattable)# knitting the documentlibrary(knitr)# another type of tablelibrary(kableExtra)# playing with stringslibrary(stringr)# combining two plotslibrary(grid)library(gridExtra)# that theme you wantedlibrary(ggthemr)# text analysislibrary(tm)library(SnowballC)library(RColorBrewer)library(wordcloud)# adding theme called fresh for plotsggthemr(&amp;quot;fresh&amp;quot;)#loading the datamedium &amp;lt;- read_csv(&amp;quot;medium_datasci.</description>
-    </item>
-    
-  </channel>
-</rss>

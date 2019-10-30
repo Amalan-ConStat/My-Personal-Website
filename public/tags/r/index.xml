@@ -1,243 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>R on Consulting Statistician</title>
-    <link>/tags/r/</link>
-    <description>Recent content in R on Consulting Statistician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Presidential Election Data of Sri Lanka from PDF Files.</title>
-      <link>/publication/presidential_election/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/presidential_election/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fitODBOD: An R Package to Model Binomial Outcome Data using Binomial Mixture and Alternate Binomial Distributions.</title>
-      <link>/publication/fitodbod-article/</link>
-      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-article/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CRAN-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-cran/</link>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-cran/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GitHub-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-github/</link>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Website-fitODBOD: fitting Over Dispersed Binomial Outcome Data</title>
-      <link>/publication/fitodbod-website/</link>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/fitodbod-website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prevalence of antenatal depression in South Asia: a systematic review and meta-analysis.</title>
-      <link>/publication/southasia_antenatal_depression/</link>
-      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/southasia_antenatal_depression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sri Lanka and its affect on/in Journal Articles </title>
-      <link>/post/slandjournal/slandjournal/</link>
-      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/slandjournal/slandjournal/</guid>
-      <description>IntroductionPackages and IdeasCountry InformationRanking of Sri Lanka from 1996 to 2017Ranking of South Asian Region Countries from 1996 to 2017Documents , Citable Documents and Self Citations from Sri Lanka JournalsCitations per Document from Sri Lankan JournalsJournals from Sri LankaRank changes for Sri Lankan JournalsSJR values changing for Sri Lankan JournalsReferences per Document changing for Sri Lankan JournalsPublishers and Journals from Sri LankaTotal Documents and References for Journals from Sri LankaThree year time period for Journals from Sri LankaJournals and categoriesIntroduction“SCImago Journal and Country Rank provides valuable estimates of academic journals’ prestige.</description>
-    </item>
-    
-    <item>
-      <title>Week 5: Dairy Products in USA</title>
-      <link>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</link>
-      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week5/week-5-dairy-products-in-usa/</guid>
-      <description>IntroductionFluid Milk SalesState Milk ProductionUS States and Milk Production Over the YearsSumming States of Same Regions Over the YearsAveraging Regions Considering All the States Over the YearsCheeseCheese with OtherCheese with TotalCheese with known Type Names# load the packageslibrary(tidyverse)library(magrittr)library(ggthemr)library(readr)library(gganimate)library(usmap)# load the datafluid_milk_sales &amp;lt;- read_csv(&amp;quot;fluid_milk_sales.csv&amp;quot;)state_milk_production &amp;lt;- read_csv(&amp;quot;state_milk_production.csv&amp;quot;)clean_cheese &amp;lt;- read_csv(&amp;quot;clean_cheese.</description>
-    </item>
-    
-    <item>
-      <title>Build Your Own Website or Blog Using R, RStudio and R Packages.</title>
-      <link>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</link>
-      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/personalwebsite/build-your-own-website-or-blog-using-r-rstudio-and-r-packages/</guid>
-      <description>IntroductionMaterials“Making Websites with Rmarkdown and Blogdown by Yihui Xie.”“Up and Running with Blogdown by Alison Presmanes Hill.”“Rmarkdown Websites.”“How to make an RMarkdown Website by Nick Strayer &amp;amp; Lucy D’Agostino McGowan.”“Creating websites in R by Emily C Zabor.”“Getting Started with Blogdown by David Selby.”“Getting Started with Blogdown by Danielle Navarro.”“Blogdown by Peter’s Blog.”“Academic by George Cushen”“Happy Git and GitHub for the User.</description>
-    </item>
-    
-    <item>
-      <title>Week 3: Space Agencies and Launches</title>
-      <link>/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/</link>
-      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week3/week-3-space-agencies-and-launches/</guid>
-      <description>AGENCIESAgency vs CountType vs CountClass vs CountAgency Type vs CountState Code vs CountLocation vs CountStart Year and End Year vs agencyLAUNCHESSuccess or Failure of these missions vs Category VariablesSuccess or Failure vs Launch YearSuccess or Failure vs Agency TypeSuccess or Failure vs State CodeState Code vs Category Over time for Success and Failure# load the packageslibrary(readr)library(tidyverse)library(ggalt)library(magrittr)library(dplyr)library(ggthemr)library(gganimate)# Load the Agency dataagencies&amp;lt;-read_csv(&amp;quot;agencies.</description>
-    </item>
-    
-    <item>
-      <title>Developing an R package</title>
-      <link>/post/yourownpackage/developing-an-r-package/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/yourownpackage/developing-an-r-package/</guid>
-      <description>IntroductionCredit to People of R Community1) Coding Standards (Coding to Understand)2) Package Structure3) DESCRIPTION file4) README file5) /R directory6) /data directory7) /tests directory8) /man directory9) NAMSESPACE file10) .Rbuildignore file11) .gitignore fileBuilding the PackageDistributing the PackageIntroductionR package development is no longer as it was before 2010 because now most of the work can be done by just a simple mouse-click or with the use of a function.</description>
-    </item>
-    
-    <item>
-      <title>Week 2: IMDB TV Shows Data</title>
-      <link>/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week2/week-2-imdb-tv-shows-data/</guid>
-      <description>GenreGenre and SeasonGenre and YearGenre and MonthSeasonSeason and YearSeason and MonthTop 3 GenresCrime Drama MysteryComedy DramaDramaRating over the yearsTv Series with more than 14 Seasons# loading the packageslibrary(tidyverse)library(summarytools)library(magrittr)library(readr)library(lubridate)library(gganimate)library(stringr)# load the datasetRatings &amp;lt;- read_csv(&amp;quot;IMDb_Economist_tv_ratings.csv&amp;quot;, col_types = cols(date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;)))Ratings data-set is from the IMDB site.</description>
-    </item>
-    
-    <item>
-      <title>2019 Week 1 : #TidyTuesday Tweets </title>
-      <link>/post/tidytuesday2019/week1/week-1-tidytuesday-tweets/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week1/week-1-tidytuesday-tweets/</guid>
-      <description>#Tidytuesday TweetsEarliest TweetAny Verified Profiles ?Source of TweetsTweets Per MonthMost Tweets By Screen NameMost Tweets By Screen Name and their SourceMost Tweets By Screen Name with their Retweet CountsMost Tweets By Screen Name with their Favorite CountsRelationship between Favorite Counts vs Retweet Counts ?Relationship between Followers Count vs Friends Count ?ConclusionFurther Analysis# load the necessary packageslibrary(tidyverse)library(lubridate)library(kableExtra)library(ggthemr)#load the ggthemrggthemr(&amp;quot;flat dark&amp;quot;)# load the data settidytuesday_tweets&amp;lt;-readRDS(&amp;quot;tidytuesday_tweets.</description>
-    </item>
-    
-    <item>
-      <title>Benchmarking the mle and mle2 function </title>
-      <link>/post/mleand2/benchmarking-the-mle-and-mle2-function/</link>
-      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/mleand2/benchmarking-the-mle-and-mle2-function/</guid>
-      <description>Introductionmlemle2ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
-Introductionmle and mle2are my favorite functions, because they provide extensive amount of outputsfor the optimization process. Even though there is no difference in analytical methodsused in both of these functions. Further, these analytical methods are the same ones usedby optim function. To be honest mle and mle2 functions are wrapper functions of optim.</description>
-    </item>
-    
-    <item>
-      <title>Build a New Package with Existing R packages</title>
-      <link>/post/newpackage/build-a-new-package-with-existing-r-packages/</link>
-      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/newpackage/build-a-new-package-with-existing-r-packages/</guid>
-      <description>IntroductionMost Essential Packagesdevtoolspkgbuildpkgloadrcmdcheckusethisroxygen2knitrmarkdown, rmarkdown, rmdformatsspellingtrackmdtestthatEssential Packagesgit2r and ghdesccovrbadgecreatr and badgerhexStickerpkgdownStill I have not UsedpackratpkgconfigpkginspectorrvcheckrversionsformatRwhoamiConclusionIntroductionPackage development is a sense of accomplishment for any statistical programmer who needs self satisfaction. I developed the R package fitODBOD for the purpose of fitting Over dispersed Binomial Outcome Data using Binomial Mixture Distributions and Alternate Binomial Distributions.</description>
-    </item>
-    
-    <item>
-      <title>How To Find Your R package ?</title>
-      <link>/post/findrpackage/how-to-find-your-r-package/</link>
-      <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/findrpackage/how-to-find-your-r-package/</guid>
-      <description>1. Google2. CRAN3. Bio - Conductor4. GitHub pages5. Rdocumentation6. Crantastic7. rpackages8. R - Opensci9. Rseek10. R Site Search11. R-forge12. AwesomeR13. CRAN Task View14. Rstudio - Rpackages15. stack overflow - r16. CRANalertsHow to find your R package is simply a blog post helping people to provide a list of websites where they can find R packages.</description>
-    </item>
-    
-    <item>
-      <title>Week 38: Sea Creatures</title>
-      <link>/post/week_38/week-38-sea-creatures/</link>
-      <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_38/week-38-sea-creatures/</guid>
-      <description>IOS slide PresentationIntroductionPackages UsedSpecies vs Sex vs BirthYear (code)Species vs Sex vs BirthYear (plot)Status vs Sex vs BirthYear (code)Status vs Sex vs BirthYear (plot)Species vs Sex vs Status (code)Species vs Sex vs Status (plot)Birth Year and Sex of the Acquisitioned (code)Birth Year and Sex of the Acquisitioned (plot)Species and their sex over current location (code)Species and their sex over current location (plot)Acquisitioned ones and thier Sex with Status (code)Acquisitioned ones and thier Sex with Status (plot)ConclusionOver the weeks I have only done blog posts for TidyTuesday.</description>
-    </item>
-    
-    <item>
-      <title>Benchmarking the optim function</title>
-      <link>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</link>
-      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/optim/optim-estimating-the-shape-parameters-of-beta-binomial-distribution/</guid>
-      <description>Estimating the shape parameters of Beta-Binomial DistributionIntroductionBrief of optim FunctionNelder and Mead methodBFGS methodCG methodL-BFGS-B methodSANN methodBrent methodSummary of Time evaluation for different Analytical methods of optim functionSummary of results after using the optim function for different analytical methodsFinal ConclusionNOTE : Below post is valid for Package version 1.4.0 and Before. 
-Estimating the shape parameters of Beta-Binomial DistributionIntroductionI wrote a blog postearlier this month to understand the optimization functions in R and compare them.</description>
-    </item>
-    
-    <item>
-      <title>Week 37: NYC Restaurants</title>
-      <link>/post/week_37/week-37-nyc-restaurants/</link>
-      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_37/week-37-nyc-restaurants/</guid>
-      <description>Inspection TypeCritical FlagInspection Type and Critical Flag over the yearsCycle InspectionPre-permit OperationalAdministrative MiscellaneousMost Inspected RestaurantsDunkin DonutsSubwayMcDonaldsStarbucksKennedy Fried ChickenConclusionFurther Analysis# load the packageslibrary(readr)library(tidyverse)library(magrittr)library(ggthemr)library(lubridate)library(stringr)library(kableExtra)#using themeggthemr(&amp;quot;fresh&amp;quot;)#load dataNYC&amp;lt;-read_csv(&amp;quot;nyc_restaurants.csv&amp;quot;, col_types = cols(inspection_date = col_date(format = &amp;quot;%m/%d/%Y&amp;quot;)))attach(NYC)Data set is completed with more than 300000 records and several important variables such as inspection date, violation code, critical flag, score and violation description.</description>
-    </item>
-    
-    <item>
-      <title>Week 35: Baltimore Bridges</title>
-      <link>/post/week_35/week-35-baltimore-bridges/</link>
-      <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_35/week-35-baltimore-bridges/</guid>
-      <description>Bridge Data and BaltimoreCounties which have bridges owned by State Highway AgencyCounties which have bridges owned by County Highway AgencyCounties which have bridges owned by State Toll AuthorityMost amount of bridges Built based on YearAverage Traffic Less than or equal to 100,000 for Counties with Bridge ConditionAverage Traffic More than 100,000 for Counties with Bridge ConditionImprovement and Bridge Conditions with CountiesConclusionFurther Analysis# loading the packageslibrary(readr)library(tidyverse)library(stringr)library(ggthemr)library(gganimate)library(formattable)# load the theme flat darkggthemr(&amp;quot;flat dark&amp;quot;)# reading the databridges &amp;lt;- read_csv(&amp;quot;baltimore_bridges.</description>
-    </item>
-    
-    <item>
-      <title>Week 34 : Thanksgiving </title>
-      <link>/post/week_34/week-34-thanksgiving/</link>
-      <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_34/week-34-thanksgiving/</guid>
-      <description>People who do and do not celebrate ThanksgivingAge DistributionAge with Other FactorsGender DistributionGender with Other FactorsFamily Income DistributionFamily Income with Other FactorsUS Region DistributionConclusionFurther Analysis# Load the packgeslibrary(ggplot2)library(ggthemr)library(stringr)library(gridExtra)library(tidyverse)library(tweenr)library(gganimate)library(kableExtra)library(magrittr)library(knitr)library(readr)#load the dataThanksgiving&amp;lt;-read_csv(&amp;quot;thanksgiving_meals.csv&amp;quot;)# apply the theme grapeggthemr(&amp;quot;grape&amp;quot;)#subset the people who said yes for celebrating thanksgivingThanksgiving_Yes&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;Yes&amp;quot;)#subset the people who said no for celebrating thanksgivingThanksgiving_No&amp;lt;-subset(Thanksgiving,celebrate==&amp;quot;No&amp;quot;)Data set was provided on week 34 for TidyTuesday analysis.</description>
-    </item>
-    
-    <item>
-      <title>Week 33 : Malaria Deaths</title>
-      <link>/post/week_33/week-33-malaria-deaths/</link>
-      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_33/week-33-malaria-deaths/</guid>
-      <description>What I posted in #TidyTuesday on 13th November 2018.SDI Countries with Malaria Death Count RateSaharan Region with Malaria Death Count RateEuropean Countries with Malaria Death Count RateGreat Britain or United Kingdom with Malaria Death Count RateAmerican Region with Malaria Death Count RateAsian Countries with Malaria Death Count RateNorth Africa and Middle East Region with Death Count RateOceania Region with Death Count RateCaribbean and Latin America and Caribbean Countries with Death Count RateConclusionFurther Analysis# load the packageslibrary(ggplot2)library(ggrepel)library(ggthemr)library(magrittr)library(stringr)library(gridExtra)library(readr)library(gganimate)# load the theme flatggthemr(&amp;quot;flat&amp;quot;)#load the data setsmalaria_deaths&amp;lt;-read_csv(&amp;quot;malaria_deaths.</description>
-    </item>
-    
-    <item>
-      <title>Week 31 : R and Package Downloads</title>
-      <link>/post/week_31/week-31-r-and-package-downloads/</link>
-      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_31/week-31-r-and-package-downloads/</guid>
-      <description>IntroductionOperating SystemsR versionsDate versus Operating SystemDownload Size and IP IDConclusionFurther Analysis# load the packageslibrary(readr)library(ggplot2)library(lubridate)library(ggthemr)library(gridExtra)library(magrittr)library(knitr)library(kableExtra)library(readr)# load the datar_downloads_year &amp;lt;- read_csv(&amp;quot;r_downloads_year.csv&amp;quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), time = col_time(format = &amp;quot;%H:%M:%S&amp;quot;)))r_downloads &amp;lt;- read_csv(&amp;quot;r-downloads.csv&amp;quot;, col_types = cols(X1 = col_skip(), date = col_date(format = &amp;quot;%Y-%m-%d&amp;quot;), time = col_time(format = &amp;quot;%H:%M:%S&amp;quot;)))Week 31 : R and Package Downloads #TidyTuesday https://t.</description>
-    </item>
-    
-    <item>
-      <title>Week 30: Movie Profit</title>
-      <link>/post/week_30/week-30-movie-profit/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/week_30/week-30-movie-profit/</guid>
-      <description>Movie Profit, Not So ProfitUnderstand Genre and Mpaa Rating on MoviesLets Focus of movies which has zero domestic grossZero Domestic gross Point of ViewGenre and MPAA Rating Point of ViewFinding Outliers in Perspective of Genre and MPAA RatingProduction Budget and Worldwide GrossYears, Months and Days versus Production BudgetConclusionFurther AnalysisMovie Profit, Not So ProfitThis is my first post on Tidy Tuesday and the data-set in question is Movie profit data-set.</description>
-    </item>
-    
-    <item>
-      <title>R Package Development to Model Over Dispersed Binomial Outcome Data with the use of Binomial Mixture Distributions and Alternate Binomial Distributions.</title>
-      <link>/publication/4th-year/</link>
-      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/4th-year/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
-</rss>
