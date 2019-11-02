@@ -50,6 +50,7 @@ is not my thing therefore these books are not divided into groups.
 1. [The Lost Symbol by Dan Brown](https://www.amazon.com/Lost-Symbol-Robert-Langdon/dp/0307950689/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
 2. [Jack Reacher thriller, Die Trying by Lee Child ](https://www.amazon.com/Die-Trying-Lee-Child/dp/0857500058/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
 3. [Like a Virgin by Richard Branson](https://www.amazon.com/Like-Virgin-Secrets-Business-School/dp/1591845688/ref=sr_1_1?crid=2B5WHCF9D6HGQ&keywords=like+a+virgin+richard+branson&qid=1571767270&s=books&sprefix=Like+a+virgin+richard%2Cstripbooks-intl-ship%2C349&sr=1-1)
+4. [Crash Bang Wallop](https://www.amazon.com/Crash-Bang-Wallop-Financial-Revolution/dp/B01JM8JW0E)
 
 Books Related to R, Data Science and Statistics
 

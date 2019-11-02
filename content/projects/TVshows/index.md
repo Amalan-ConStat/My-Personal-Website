@@ -137,6 +137,7 @@ re-watching these TV shows again.
 3. [Sex Education](https://www.imdb.com/title/tt7767422/?ref_=nv_sr_1?ref_=nv_sr_1)
 4. [Southpark](https://www.imdb.com/title/tt0121955/?ref_=nv_sr_1)
 5. [Sherlock](https://www.imdb.com/title/tt1475582/?ref_=nv_sr_1)
+6. [Sopranos](https://www.imdb.com/title/tt0141842/)
 
 #   T
 1. [The ABC Murders](https://www.imdb.com/title/tt8463714/?ref_=nv_sr_1?ref_=nv_sr_1)
