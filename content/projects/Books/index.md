@@ -59,7 +59,38 @@ Books Related to R, Data Science and Statistics
 3. [Interpretable Machine Learning by Christoph Molnar](https://christophm.github.io/interpretable-ml-book/)
 4. [Advanced R by Hadley Wickham](https://adv-r.hadley.nz/)
 5. [Modern R with the tidyverse by Bruno Rodrigues](https://b-rodrigues.github.io/modern_R/)
-6. [What They Forgot to Teach You About R by Jennifer Bryan, Jim Hester](https://whattheyforgot.org/)
+6. [What They Forgot to Teach You About R by Jennifer Bryan, Jim Hester](https://rstats.wtf/)
 7. [bookdown: Authoring Books and Technical Documents with R Markdown by Yihui Xie](https://bookdown.org/yihui/bookdown/)
 8. [blogdown: Creating Websites with R Markdown by Yihui Xie, Amber Thomas, Alison Presmanes Hill](https://bookdown.org/yihui/blogdown/)
 9. [Happy Git and GitHub for the UseR by Jenny Bryan, the STAT 545 TAs, Jim Hester](https://happygitwithr.com/)
+10. [Tidy Evaluation](https://tidyeval.tidyverse.org/)
+11. [Building Big Shiny Apps - A Workflow](https://thinkr-open.github.io/building-shiny-apps-workflow/)
+12. [Hands-On Programming with R](https://rstudio-education.github.io/hopr/)
+13. [Mastering Shiny](https://mastering-shiny.org/)
+14. [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+15. [The ggplot2 Tutor ](https://ggplot2tutor.com/)
+16. [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+17. [Machine Learning with rtemis](https://rtemis.netlify.com/index.html)
+18. [Feature Engineering and Selection: A Practical Approach for Predictive Models](https://bookdown.org/max/FES/)
+19. [R for Data Science](https://r4ds.had.co.nz/)
+20. [Introduction to Data Science](https://rafalab.github.io/dsbook/)
+21. [Agile Data Science with R](https://edwinth.github.io/ADSwR/)
+22. [STAT 545](https://stat545.com/)
+23. [UC Business Analytics R Programming Guide](https://uc-r.github.io/)
+
+Podcasts to Listen
+
+1. [The Bad Take](https://thebadtake.com/)
+2. [Not So Standard Deviations](http://nssdeviations.com/)
+3. [Bayes Factor](https://sites.tufts.edu/hilab/series/the-bayes-factor/)
+4. [Stats and Stories](https://statsandstories.net/episodes)
+
+Websites to Keep up with for R
+
+1. [R Views](https://rviews.rstudio.com/)
+2. [R-bloggers](https://www.r-bloggers.com/)
+3. [R Weekly](https://rweekly.org/)
+4. [Rshiny Application for R related Books](https://committedtotape.shinyapps.io/freeR/)
+5. [ggplot2 gallery](https://www.ggplot2-exts.org/gallery/)
+
+*THANK YOU*
