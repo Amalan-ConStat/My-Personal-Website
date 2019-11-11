@@ -237,6 +237,7 @@ give you more information.
 51. [The Hurt Locker](https://www.imdb.com/title/tt0887912/?ref_=nv_sr_1?ref_=nv_sr_1)
 52. [The Martian](https://www.imdb.com/title/tt3659388/?ref_=fn_al_tt_1)
 53. [The Monuments Men](https://www.imdb.com/title/tt2177771/)
+54. [The Terminator Collection](https://www.imdb.com/title/tt0088247/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1)
