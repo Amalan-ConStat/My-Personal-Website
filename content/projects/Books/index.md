@@ -52,6 +52,10 @@ is not my thing therefore these books are not divided into groups.
 3. [Like a Virgin by Richard Branson](https://www.amazon.com/Like-Virgin-Secrets-Business-School/dp/1591845688/ref=sr_1_1?crid=2B5WHCF9D6HGQ&keywords=like+a+virgin+richard+branson&qid=1571767270&s=books&sprefix=Like+a+virgin+richard%2Cstripbooks-intl-ship%2C349&sr=1-1)
 4. [Crash Bang Wallop](https://www.amazon.com/Crash-Bang-Wallop-Financial-Revolution/dp/B01JM8JW0E)
 
+## November 2019 
+
+1. [The Gambler by Fyodor Dostoevsky](https://www.amazon.com/gp/product/1728713706/ref=dbs_a_def_rwt_bibl_vppi_i37)
+
 Books Related to R, Data Science and Statistics
 
 1. [Text Mining with R : A Tidy Approach by Julia Silge and David Robinson](https://www.tidytextmining.com/)
