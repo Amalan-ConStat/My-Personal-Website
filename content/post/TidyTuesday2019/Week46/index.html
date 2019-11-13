@@ -18,4 +18,10 @@ summary: '2019 Week 46 TidyTuesday: Cran Code.'
 
 
 
+<p>Fun to have a R package for TidyTuesday data. Here I am using it, because it is simple.</p>
+<pre class="r"><code># load the package for TidyTuesday data
+#devtools::install_github(&quot;thebioengineer/tidytuesdayR&quot;)
 
+# load the data
+tuesdata &lt;- tidytuesdayR::tt_load(2019, week = 46)
+cran_code &lt;- tuesdata$loc_cran_packages</code></pre>
