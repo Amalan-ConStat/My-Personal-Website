@@ -104,7 +104,7 @@ of Binomial Distribution.
 Clearly with the vast number of distributions and sub groups it is not possible to draw them in one
 diagram, therefore I have divided them in sub groups and sub topics in the following sections.
 
-```{r Diagramme,echo=FALSE}
+```{r Diagramme}
 library(DiagrammeR)
 
 DiagrammeR(
@@ -296,7 +296,7 @@ SpringerVerlag.
 This is the sub group where Binomial Distribution is not the parent but
 rather some other different distribution like Hypergeometric or Negative Binomial or Poisson.
 
-```{r Binomial not parent,echo=FALSE}
+```{r Binomial not parent}
 DiagrammeR(
            "
             graph TB;
@@ -325,10 +325,10 @@ $$ Poisson (\theta) \bigwedge_{\theta/\phi} Binomial(n,p)$$
 This is a sub group of distributions which can be used as an alternative to
 Binomial Distribution.
 
-```{r Alternate Binomial Distributions,echo=FALSE}
+```{r Alternate Binomial Distributions}
 DiagrammeR(
            "
-            graph TB;
+           graph TB;
             A[Binomial <br> Distribution]-->B[Alternate Binomial <br> Distribution];
             B-->C[Additive Binomial <br> Distribution];
             B-->D[Beta-Correlated <br> Binomial Distribution];
@@ -383,7 +383,7 @@ and Methods, 14(6), pp.1497-1506.
 
 ## Neyman Type A Distribution 
 
-```{r Neyman Type A Distribution,echo=FALSE}
+```{r Neyman Type A Distribution}
 DiagrammeR(
            "
             graph TB;
@@ -408,7 +408,6 @@ $$ Poisson(\lambda) \bigvee [\{Binomial(M,P) \bigvee_M Poisson(\phi) \} \bigwedg
 
 $$[\{ Poisson(\lambda) \bigvee Binomial(1,P)\} \bigvee Poisson(\phi)] \bigwedge_P Beta(a,b)$$
 or
-
 $$[\{ Binomial(N,P) \bigvee Poisson(\phi)\} \bigwedge_N Poisson(\lambda)] \bigwedge_P Beta(a,b)$$
 
 Gurland, J. (1958). A generalized class of contagious distributions, Biometrics, 14, 229-249.
@@ -426,7 +425,7 @@ Statistics-Theory and Methods, A7, 673-683.
 
 ## Hermite Distribution
 
-```{r Hermite Distribution,echo=FALSE}
+```{r Hermite Distribution}
 DiagrammeR(
            "
            graph TB;
@@ -465,7 +464,7 @@ mixing distributions and generate new Binomial Mixture Distributions.
 
 The first mixtures with few distributions are mentioned below.
 
-```{r other Mixtures,echo=FALSE}
+```{r other Mixtures}
 DiagrammeR(
            "
            graph TB;
@@ -510,7 +509,7 @@ $$Binomial(m,\frac{Y}{n}) \bigwedge_{Y} Hypergeometric(n,Np,N)$$
 
 ### p Transformed Binomial
 
-```{r Transformed Binomial,echo=FALSE}
+```{r Transformed Binomial}
 DiagrammeR(
            "
            graph LR;
@@ -549,7 +548,7 @@ Beta distribution. Central European Science journals, CEJM 2 (4), 527-537.
 
 ### Log Inverse Distribution [0,1] Domain
 
-```{r Log Inverse Distribution 0,1 Domain,echo=FALSE}
+```{r Log Inverse Distribution 0,1 Domain}
 DiagrammeR(
            "
            graph LR;
@@ -579,7 +578,7 @@ Journal of Econometrics 66,133-152.
 
 ### Cumulative Distribution Function
 
-```{r Cumulative Distribution Function,echo=FALSE}
+```{r Cumulative Distribution Function}
 DiagrammeR(
            "
             graph TB;
@@ -608,7 +607,7 @@ Journal of Statistical Computation and Simulation , 1-14.
 
 ### p Binomial 
 
-```{r p Binomial,echo=FALSE}
+```{r p Binomial}
 DiagrammeR(
            "
            graph LR;

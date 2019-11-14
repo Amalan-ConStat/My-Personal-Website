@@ -13,16 +13,6 @@
     
     
     <item>
-      <title>Week 46: Cran code</title>
-      <link>/post/tidytuesday2019/week46/week46/</link>
-      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tidytuesday2019/week46/week46/</guid>
-      <description>Fun to have a R package for TidyTuesday data. Here I am using it, because it is simple.
-# load the package for TidyTuesday data#devtools::install_github(&amp;quot;thebioengineer/tidytuesdayR&amp;quot;)# load the datatuesdata &amp;lt;- tidytuesdayR::tt_load(2019, week = 46)cran_code &amp;lt;- tuesdata$loc_cran_packages</description>
-    </item>
-    
-    <item>
       <title>Week 43: Horror Movies</title>
       <link>/post/tidytuesday2019/week43/week43/</link>
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
