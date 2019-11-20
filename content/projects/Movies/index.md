@@ -130,6 +130,8 @@ give you more information.
 2. [Lawrence of Arabia](https://www.imdb.com/title/tt0056172/?ref_=nv_sr_1?ref_=nv_sr_1)
 3. [Limitless](https://www.imdb.com/title/tt1219289/?ref_=nv_sr_1?ref_=nv_sr_1)
 4. [Lock, Stock and Two Smoking Barrels](https://www.imdb.com/title/tt0120735/?ref_=nv_sr_1)
+5. [Law abiding Citizen](https://www.imdb.com/title/tt1197624/)
+6. [Lucky Number Slevin](https://www.imdb.com/title/tt0425210/)
 
 #   M
 1. [Margin Call](https://www.imdb.com/title/tt1615147/?ref_=nv_sr_1?ref_=nv_sr_1)
