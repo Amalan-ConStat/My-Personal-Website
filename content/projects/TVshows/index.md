@@ -129,7 +129,6 @@ re-watching these TV shows again.
 
 #   R
 1. [Rick and Morty](https://www.imdb.com/title/tt2861424/?ref_=nv_sr_1)
-2. [Ricky Gervais]()
 
 #   S
 1. [Sahodaraya](https://www.imdb.com/title/tt7690588/?ref_=nv_sr_1?ref_=nv_sr_1)
@@ -165,6 +164,7 @@ re-watching these TV shows again.
 23. [Travel man](https://www.imdb.com/title/tt4719744/?ref_=nv_sr_1?ref_=nv_sr_1)
 24. [True Detective](https://www.imdb.com/title/tt2356777/?ref_=nv_sr_1?ref_=nv_sr_1)
 25. [Two and a Half Men](https://www.imdb.com/title/tt0369179/?ref_=nv_sr_1)
+26. [The Ricky Gervais show](https://www.imdb.com/title/tt1553644/?ref_=nm_flmg_prd_15)
 
 #   U
 1. [Unforgotten](https://www.imdb.com/title/tt4192812/?ref_=nv_sr_1)
