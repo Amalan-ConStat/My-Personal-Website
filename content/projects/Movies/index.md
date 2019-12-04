@@ -160,15 +160,17 @@ give you more information.
 1. [Pain and Gain](https://www.imdb.com/title/tt1980209/?ref_=nv_sr_1?ref_=nv_sr_1)
 2. [Paycheck](https://www.imdb.com/title/tt0338337/?ref_=nv_sr_1?ref_=nv_sr_1)
 3. [Pulp Fiction](https://www.imdb.com/title/tt0110912/?ref_=nv_sr_1?ref_=nv_sr_1)
-4. [Rear Window](https://www.imdb.com/title/tt0047396/?ref_=nv_sr_1?ref_=nv_sr_1)
-5. [Reservior Dogs](https://www.imdb.com/title/tt0105236/?ref_=nv_sr_1?ref_=nv_sr_1)
-6. [Rock n Rolla](https://www.imdb.com/title/tt1032755/?ref_=nv_sr_2?ref_=nv_sr_2)
+4. [Parasite](https://www.imdb.com/title/tt6751668/)
 
 #   Q
 1. [Quiz Show](https://www.imdb.com/title/tt0110932/?ref_=nv_sr_1?ref_=nv_sr_1)
 
 #   R
 1. [Ronin](https://www.imdb.com/title/tt0122690/?ref_=nv_sr_2?ref_=nv_sr_2)
+2. [Rambo Movie Collection](https://www.imdb.com/title/tt0462499/)
+3. [Rear Window](https://www.imdb.com/title/tt0047396/?ref_=nv_sr_1?ref_=nv_sr_1)
+4. [Reservior Dogs](https://www.imdb.com/title/tt0105236/?ref_=nv_sr_1?ref_=nv_sr_1)
+5. [Rock n Rolla](https://www.imdb.com/title/tt1032755/?ref_=nv_sr_2?ref_=nv_sr_2)
 
 #   S
 1. [Se7en](https://www.imdb.com/title/tt0114369/?ref_=nv_sr_1)
@@ -243,6 +245,7 @@ give you more information.
 52. [The Martian](https://www.imdb.com/title/tt3659388/?ref_=fn_al_tt_1)
 53. [The Monuments Men](https://www.imdb.com/title/tt2177771/)
 54. [The Terminator Collection](https://www.imdb.com/title/tt0088247/)
+55. [The Irishman](https://www.imdb.com/title/tt1302006/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1)
