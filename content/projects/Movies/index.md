@@ -246,6 +246,7 @@ give you more information.
 53. [The Monuments Men](https://www.imdb.com/title/tt2177771/)
 54. [The Terminator Collection](https://www.imdb.com/title/tt0088247/)
 55. [The Irishman](https://www.imdb.com/title/tt1302006/)
+56. [The Killing Fields](https://www.imdb.com/title/tt0087553/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/?ref_=nv_sr_1)
