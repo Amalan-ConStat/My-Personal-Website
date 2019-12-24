@@ -192,6 +192,7 @@ give you more information.
 15. [Shaun of The Dead](https://www.imdb.com/title/tt0365748/)
 16. [Spy Game](https://www.imdb.com/title/tt0266987/)
 17. [Swordfish](https://www.imdb.com/title/tt0244244/)
+18. [Sicario Dualogy](https://www.imdb.com/title/tt3397884/)
 
 #   T
 1. [Taken Trilogy](https://www.imdb.com/title/tt0936501/)
@@ -206,7 +207,7 @@ give you more information.
 10. [The Matrix Trilogy](https://www.imdb.com/title/tt0133093/)
 11. [The Bourne Collection](https://www.imdb.com/title/tt4196776/) 
 12. [The Hobbit Collection](https://www.imdb.com/title/tt2310332/) 
-13  [The Raid](https://www.imdb.com/title/tt2265171/) 
+13. [The Raid](https://www.imdb.com/title/tt2265171/) 
 14. [The Prestige](https://www.imdb.com/title/tt0482571/)
 15. [The Intouchables](https://www.imdb.com/title/tt1675434/)
 16. [The Lord of The Rings Collection](https://www.imdb.com/title/tt0167260/) 
@@ -250,6 +251,7 @@ give you more information.
 54. [The Terminator Collection](https://www.imdb.com/title/tt0088247/)
 55. [The Irishman](https://www.imdb.com/title/tt1302006/)
 56. [The Killing Fields](https://www.imdb.com/title/tt0087553/)
+57. [The Accountant](https://www.imdb.com/title/tt2140479/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/)
@@ -273,6 +275,6 @@ give you more information.
 1. [X-Men Collection](https://www.imdb.com/title/tt0120903/)
 
 #  Z
-1. [Zombieland](https://www.imdb.com/title/tt1156398/)
+1. [Zombieland Dualogy](https://www.imdb.com/title/tt1156398/)
 
 *THANK YOU*
