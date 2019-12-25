@@ -55,6 +55,7 @@ give you more information.
 6. [BlacKkKlansman](https://www.imdb.com/title/tt7349662/)
 7. [Bohemian Rhaspody](https://www.imdb.com/title/tt1727824/)
 8. [Bridge of Spies](https://www.imdb.com/title/tt3682448/)
+9. [Batman V Superman Dawn of Justice](https://www.imdb.com/title/tt2975590/)
 
 #   C
 1. [Captain America Trilogy](https://www.imdb.com/title/tt0458339/)
@@ -120,6 +121,7 @@ give you more information.
 4. [John Wick Trilogy](https://www.imdb.com/title/tt6146586/)
 5. [Jackie Brown](https://www.imdb.com/title/tt0119396/)
 6. [Joker](https://www.imdb.com/title/tt7286456/)
+7. [Justice League](https://www.imdb.com/title/tt0974015/)
 
 #   K
 1. [Kill Bill Dualogy](https://www.imdb.com/title/tt0266697/)
@@ -193,6 +195,7 @@ give you more information.
 16. [Spy Game](https://www.imdb.com/title/tt0266987/)
 17. [Swordfish](https://www.imdb.com/title/tt0244244/)
 18. [Sicario Dualogy](https://www.imdb.com/title/tt3397884/)
+19. [Suicide Squad](https://www.imdb.com/title/tt1386697)
 
 #   T
 1. [Taken Trilogy](https://www.imdb.com/title/tt0936501/)
@@ -270,6 +273,7 @@ give you more information.
 2. [Wanted](https://www.imdb.com/title/tt0493464/)
 3. [Wall-E](https://www.imdb.com/title/tt0910970/)
 4. [Watchmen](https://www.imdb.com/title/tt0409459/)
+5. [Wonder Woman](https://www.imdb.com/title/tt0451279/)
 
 # X
 1. [X-Men Collection](https://www.imdb.com/title/tt0120903/)
