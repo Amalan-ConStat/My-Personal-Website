@@ -243,7 +243,7 @@ give you more information.
 43. [The Usual Suspects](https://www.imdb.com/title/tt0114814/)
 44. [Things to Come](https://www.imdb.com/title/tt0028358/)
 45. [Thor](https://www.imdb.com/title/tt3501632/)
-46. [TInker Tailor Soldier Spy](https://www.imdb.com/title/tt1340800/)
+46. [Tinker Tailor Soldier Spy](https://www.imdb.com/title/tt1340800/)
 47. [Toy Story](https://www.imdb.com/title/tt1979376/)
 48. [Training Day](https://www.imdb.com/title/tt0139654/)
 49. [Triple Frontier](https://www.imdb.com/title/tt1488606/)
@@ -255,6 +255,7 @@ give you more information.
 55. [The Irishman](https://www.imdb.com/title/tt1302006/)
 56. [The Killing Fields](https://www.imdb.com/title/tt0087553/)
 57. [The Accountant](https://www.imdb.com/title/tt2140479/)
+58. [The Expendables Collection](https://www.imdb.com/title/tt1320253/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/)
