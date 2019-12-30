@@ -87,6 +87,7 @@ give you more information.
 3. [Fury](https://www.imdb.com/title/tt2713180/)
 4. [Fight Club](https://www.imdb.com/title/tt0137523/)
 5. [Forrest Gump](https://www.imdb.com/title/tt0109830/)
+6. [Ford v Ferrari](https://www.imdb.com/title/tt1950186/)
 
 #   G
 1. [Godfather Trilogy](https://www.imdb.com/title/tt0068646/) 
