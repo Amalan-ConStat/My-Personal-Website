@@ -56,6 +56,7 @@ give you more information.
 7. [Bohemian Rhaspody](https://www.imdb.com/title/tt1727824/)
 8. [Bridge of Spies](https://www.imdb.com/title/tt3682448/)
 9. [Batman V Superman Dawn of Justice](https://www.imdb.com/title/tt2975590/)
+10. [Bruce Almighty](https://www.imdb.com/title/tt0315327/)
 
 #   C
 1. [Captain America Trilogy](https://www.imdb.com/title/tt0458339/)
@@ -152,6 +153,7 @@ give you more information.
 
 #   N
 1. [No Country for Old Men](https://www.imdb.com/title/tt0477348/)
+2. [Now You See Me Collection](https://www.imdb.com/title/tt1670345/)
 
 #   O
 1. [One flew over the cuckoos nest](https://www.imdb.com/title/tt0073486/)
@@ -257,6 +259,7 @@ give you more information.
 56. [The Killing Fields](https://www.imdb.com/title/tt0087553/)
 57. [The Accountant](https://www.imdb.com/title/tt2140479/)
 58. [The Expendables Collection](https://www.imdb.com/title/tt1320253/)
+59. [The Mask](https://www.imdb.com/title/tt0110475/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/)
