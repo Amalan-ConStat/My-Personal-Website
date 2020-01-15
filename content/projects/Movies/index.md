@@ -45,6 +45,7 @@ give you more information.
 6. [Asterix and Obelix The Secret of The Magic Potion](https://www.imdb.com/title/tt8001346/)
 7. [Avengers Trilogy](https://www.imdb.com/title/tt4154796/)
 8. [Argo](https://www.imdb.com/title/tt1024648/)
+9. [Armageddon](https://www.imdb.com/title/tt0120591/)
 
 #   B
 1. [Bad Boys Dualogy](https://www.imdb.com/title/tt0112442/)
@@ -57,6 +58,7 @@ give you more information.
 8. [Bridge of Spies](https://www.imdb.com/title/tt3682448/)
 9. [Batman V Superman Dawn of Justice](https://www.imdb.com/title/tt2975590/)
 10. [Bruce Almighty](https://www.imdb.com/title/tt0315327/)
+11. [Broken City](https://www.imdb.com/title/tt1235522/)
 
 #   C
 1. [Captain America Trilogy](https://www.imdb.com/title/tt0458339/)
@@ -81,6 +83,7 @@ give you more information.
 7. [Dr. Strangelove](https://www.imdb.com/title/tt0057012/)
 8. [Dunkirk](https://www.imdb.com/title/tt5013056/)
 9. [Dead Poets Society](https://www.imdb.com/title/tt0097165/)
+10. [Deep Impact](https://www.imdb.com/title/tt0120647/)
 
 #   F
 1. [Fargo](https://www.imdb.com/title/tt0116282/)
@@ -98,6 +101,7 @@ give you more information.
 5. [Guardians of Galaxy Dualogy](https://www.imdb.com/title/tt2015381/)
 6. [Gladiator](https://www.imdb.com/title/tt0172495/)
 7. [Gone Baby Gone](https://www.imdb.com/title/tt0452623/)
+8. [G. I. Joe Collection](https://www.imdb.com/title/tt1046173/)
 
 #   H
 1. [How to train your dragon](https://www.imdb.com/title/tt0892769/)
@@ -124,6 +128,7 @@ give you more information.
 5. [Jackie Brown](https://www.imdb.com/title/tt0119396/)
 6. [Joker](https://www.imdb.com/title/tt7286456/)
 7. [Justice League](https://www.imdb.com/title/tt0974015/)
+8. [JoJo Rabbit](https://www.imdb.com/title/tt2584384/)
 
 #   K
 1. [Kill Bill Dualogy](https://www.imdb.com/title/tt0266697/)
@@ -138,6 +143,9 @@ give you more information.
 4. [Lock, Stock and Two Smoking Barrels](https://www.imdb.com/title/tt0120735/)
 5. [Law abiding Citizen](https://www.imdb.com/title/tt1197624/)
 6. [Lucky Number Slevin](https://www.imdb.com/title/tt0425210/)
+7. [Liar Liar](https://www.imdb.com/title/tt0119528/)
+8. [Looper](https://www.imdb.com/title/tt1276104/)
+9. [Lord of War](https://www.imdb.com/title/tt0399295/)
 
 #   M
 1. [Margin Call](https://www.imdb.com/title/tt1615147/)
@@ -260,6 +268,8 @@ give you more information.
 57. [The Accountant](https://www.imdb.com/title/tt2140479/)
 58. [The Expendables Collection](https://www.imdb.com/title/tt1320253/)
 59. [The Mask](https://www.imdb.com/title/tt0110475/)
+60. [The Book of Eli](https://www.imdb.com/title/tt1037705/)
+61. [The Peacemaker](https://www.imdb.com/title/tt0119874/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/)
@@ -282,6 +292,9 @@ give you more information.
 
 # X
 1. [X-Men Collection](https://www.imdb.com/title/tt0120903/)
+
+# Y 
+1. [Yes Man](https://www.imdb.com/title/tt1068680/)
 
 #  Z
 1. [Zombieland Dualogy](https://www.imdb.com/title/tt1156398/)
