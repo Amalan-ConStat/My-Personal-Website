@@ -20,6 +20,14 @@ date_format = "January 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "PhD Student"
+  company = "School of Mathematical Sciences, Queensland University of Technology."
+  company_url = "https://www.qut.edu.au/"
+  location = "Brisbane, Queensland, Australia."
+  date_start = "2020-02-24"
+  description = """ PhD Student conducting research in big data and statistics."""
+
+[[experience]]
   title = "Temporary Assistant Lecturer"
   company = "Department of Statistics and Compute Science, Faculty of Science,University of Peradeniya."
   company_url = "https://sci.pdn.ac.lk/scs/"

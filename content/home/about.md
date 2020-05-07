@@ -26,11 +26,20 @@ weight = 4
   course = "BSc in Statistics Special(Honors)"
   institution = "University of Peradeniya"
   year = 2016
+  
+[[education.courses]]
+  course = "Advanced Certificate in Human Resource Management(Merit)"
+  institution = "National Institue of Business Management"
+  year = 2012
+
+[[education.courses]]
+  course = "Foundation in Human Resource Management(Honors)"
+  institution = "National Institue of Business Management"
+  year = 2011  
 +++
 
 # Biography
-Amalan is currently focused in research related work using R statistical programming and statistics 
-which are topics similar to PhD, MPhil and Masters.
+Amalan is currently conducting research as a PhD student at School of Mathematical Sciences, QUT. 
 Published his R package to CRAN, which is ["fitODBOD"](https://cran.r-project.org/package=fitODBOD). 
 This package was a research project to fulfill credit requirements. Journal article is under review with the task 
 of how to use this package to produce meaningful results for researchers. He is a committed researcher, even under

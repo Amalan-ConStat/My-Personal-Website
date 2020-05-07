@@ -25,19 +25,19 @@ weight = 7
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "Experience 5 years"
+  description = "Experience 6 years"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "Experience 6 Years"  
+  description = "Experience 7 Years"  
   
 [[feature]]
   icon = "chart-pie"
   icon_pack = "fas"
   name = "Solve, Code & Try"
-  description = "Experience 2 Years"
+  description = "Experience 3 Years"
 
 [[feature]]
   icon = "globe"
@@ -48,13 +48,13 @@ weight = 7
 [[feature]]
   icon = "gamepad"
   icon_pack = "fas"
-  name = "Dota2"
-  description = "Slow Progress"
+  name = "Crysis I,II,III"
+  description = "Excellent"
   
 [[feature]]
   icon = "book-reader"
   icon_pack = "fas"
-  name = "Books"
+  name = "Books, Articles & Algorithms"
   description = "Successful Progress"  
   
 +++
