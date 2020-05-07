@@ -11,9 +11,10 @@ weight = 4
 [interests]
   interests = [ 
     "Big Data",
-    "Public Health Data",
-    "Latex",
+    "Experimental design",
+    "Bayesian Statistics",
     "R",
+    "Latex",
     "tidyverse",
     "Rshiny",
     "#TidyTuesday",
