@@ -52,18 +52,19 @@ enableGitInfo = false
 
   # Your details.
   name = "Amalan Mahendran"
-  role = "Consulting Research Statistician"
+  role = "PhD Student"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "Self Employed", url = "" } ]
+  organizations = [ { name = "QUT", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portray.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
 
   # Details for the Contact Widget
   email = "amalan0595[at]gmail[dot]com"
-  address = "5D, Dharmashoka Mawatha, Kandy, Sri Lanka."
+  #address = "5D, Dharmashoka Mawatha, Kandy, Sri Lanka."
+  address = "Just Email me"
   office_hours = "Anytime Email me or DM through Twitter"
   #phone = "+94 774 293 788"
   #skype = "amalans10680"

@@ -64,6 +64,7 @@ re-watching these TV shows again.
 #   D
 1. [Dynasties](https://www.imdb.com/title/tt9130692/)
 2. [Doctor Who](https://www.imdb.com/title/tt0436992/)
+3. [Derry Girls](https://www.imdb.com/title/tt7120662/)
 
 #   E
 1. [Episodes](https://www.imdb.com/title/tt1582350/)
@@ -186,6 +187,7 @@ re-watching these TV shows again.
 28. [The Rookie](https://www.imdb.com/title/tt7587890/)
 29. [That 70's Show](https://www.imdb.com/title/tt0165598/)
 30. [The West Wing](https://www.imdb.com/title/tt0200276/)
+31. [The Big Bang Theory](https://www.imdb.com/title/tt0898266/)
 
 #   U
 1. [Unforgotten](https://www.imdb.com/title/tt4192812/)
