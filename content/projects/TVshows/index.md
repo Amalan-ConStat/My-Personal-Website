@@ -52,6 +52,7 @@ re-watching these TV shows again.
 7. [BroadChurch](https://www.imdb.com/title/tt2249364/)
 8. [Brooklynn Nine Nine](https://www.imdb.com/title/tt2467372/)
 9. [Boston Legal](https://www.imdb.com/title/tt0402711/)
+10.[Blood of Zeus](https://www.imdb.com/title/tt10009170/)
 
 #   C
 1. [Chance](https://www.imdb.com/title/tt5620076/)
@@ -61,6 +62,7 @@ re-watching these TV shows again.
 5. [Cosmos A space time odyssey](https://www.imdb.com/title/tt2395695/)
 6. [Community](https://www.imdb.com/title/tt1439629/)
 7. [Criminal : UK](https://www.imdb.com/title/tt9348692/)
+8. [Criminal Minds](https://www.imdb.com/title/tt0452046/)
 
 #   D
 1. [Dynasties](https://www.imdb.com/title/tt9130692/)
@@ -125,11 +127,13 @@ re-watching these TV shows again.
 7. [Mr. Robot](https://www.imdb.com/title/tt4158110/)
 8. [Modern Family](https://www.imdb.com/title/tt1442437/)
 9. [Malcolm in the middle](https://www.imdb.com/title/tt0212671/)
+10. [Monk](https://www.imdb.com/title/tt0312172/)
 
 #   N
 1. [Narcos](https://www.imdb.com/title/tt2707408/)
 2. [Not the Nine O'Clock News](https://www.imdb.com/title/tt0080253/)
-
+3. [New Girl](https://www.imdb.com/title/tt1826940/)
+4. [Never have i ever](https://www.imdb.com/title/tt10062292/)
 #   O
 1. [One Punch Man](https://www.imdb.com/title/tt4508902/)
 2. [Ozark](https://www.imdb.com/title/tt5071412/)
@@ -192,6 +196,9 @@ re-watching these TV shows again.
 31. [The Big Bang Theory](https://www.imdb.com/title/tt0898266/)
 32. [Thanamalvila Kollek](https://www.imdb.com/title/tt12187604/)
 33. [Tiger King](https://www.imdb.com/title/tt11823076/)
+34. [The Crown](https://www.imdb.com/title/tt4786824/)
+35. [Twin peaks](https://www.imdb.com/title/tt0098936/)
+36. [The Last Dance](https://www.imdb.com/title/tt8420184/)
 
 #   U
 1. [Unforgotten](https://www.imdb.com/title/tt4192812/)
@@ -203,6 +210,7 @@ re-watching these TV shows again.
 1. [Westworld](https://www.imdb.com/title/tt0475784/)
 2. [Wu Assassins](https://www.imdb.com/title/tt8652642/)
 3. [Watchmen](https://www.imdb.com/title/tt7049682/)
+4. [Worlds Most wanted](https://www.imdb.com/title/tt12753698/)
 
 #   Y
 1. [Years and Years](https://www.imdb.com/title/tt8694364/)
