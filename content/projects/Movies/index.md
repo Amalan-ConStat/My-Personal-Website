@@ -208,6 +208,7 @@ give you more information.
 17. [Swordfish](https://www.imdb.com/title/tt0244244/)
 18. [Sicario Dualogy](https://www.imdb.com/title/tt3397884/)
 19. [Suicide Squad](https://www.imdb.com/title/tt1386697)
+20. [Snyder Cut : Justice League](https://www.imdb.com/title/tt12361974/)
 
 #   T
 1. [Taken Trilogy](https://www.imdb.com/title/tt0936501/)
@@ -271,6 +272,8 @@ give you more information.
 59. [The Mask](https://www.imdb.com/title/tt0110475/)
 60. [The Book of Eli](https://www.imdb.com/title/tt1037705/)
 61. [The Peacemaker](https://www.imdb.com/title/tt0119874/)
+62. [Train to Busan 1](https://www.imdb.com/title/tt5700672/)
+63. [Train to Busan 2](https://www.imdb.com/title/tt8850222/)
 
 #   U
 1. [Unbreakable](https://www.imdb.com/title/tt0217869/)
