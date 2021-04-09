@@ -136,6 +136,7 @@ give you more information.
 2. [Killer Elite](https://www.imdb.com/title/tt1448755/)
 3. [Knight and Day](https://www.imdb.com/title/tt1013743/)
 4. [Kungfu Panda](https://www.imdb.com/title/tt0441773/)
+5. [Kong : Skull Island](https://www.imdb.com/title/tt3731562/)
 
 #   L 
 1. [L.A. Confidential](https://www.imdb.com/title/tt0119488/)

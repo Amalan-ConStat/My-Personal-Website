@@ -52,8 +52,9 @@ re-watching these TV shows again.
 7. [BroadChurch](https://www.imdb.com/title/tt2249364/)
 8. [Brooklynn Nine Nine](https://www.imdb.com/title/tt2467372/)
 9. [Boston Legal](https://www.imdb.com/title/tt0402711/)
-10.[Blood of Zeus](https://www.imdb.com/title/tt10009170/)
-11.[Behind Her Eyes](https://www.imdb.com/title/tt9698442/)
+10. [Blood of Zeus](https://www.imdb.com/title/tt10009170/)
+11. [Behind Her Eyes](https://www.imdb.com/title/tt9698442/)
+12. [Breaking Bad](https://www.imdb.com/title/tt0903747/)
 
 #   C
 1. [Chance](https://www.imdb.com/title/tt5620076/)
@@ -202,6 +203,7 @@ re-watching these TV shows again.
 35. [Twin peaks](https://www.imdb.com/title/tt0098936/)
 36. [The Last Dance](https://www.imdb.com/title/tt8420184/)
 37. [The Falcon and the Winter Soldier](https://www.imdb.com/title/tt9208876/)
+38. [The Serpent](https://www.imdb.com/title/tt7985576/)
 
 #   U
 1. [Unforgotten](https://www.imdb.com/title/tt4192812/)
