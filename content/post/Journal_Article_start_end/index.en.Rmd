@@ -18,4 +18,6 @@ image:
   focal_point: ''
 ---
 
-In Twitter a recent was observed by me. Tweeting two photos one under the caption "How its started" and the other "How its ended". I figured why not change this humourous trend to journal articles as well.
+In Twitter I recently observed people tweeting two photos,where under one the caption is "How it started" and the other "How it ended". I figured why not change this humorous trend to journal articles as well. 
+
+We start with an initial submission but after rejections and comments the article might get severely scrutinized. Not always but sometimes this leads to somewhat of a stunning transformation of the research idea. Hence, below I have provided how my initial article for the "fitODBOD" R package has evolved. 

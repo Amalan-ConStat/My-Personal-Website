@@ -75,6 +75,7 @@ re-watching these TV shows again.
 #   E
 1. [Episodes](https://www.imdb.com/title/tt1582350/)
 2. [Entourage](https://www.imdb.com/title/tt0387199/)
+3. [Elite](https://www.imdb.com/title/tt7134908/)
 
 #   F    
 1. [Family Guy](https://www.imdb.com/title/tt0182576/)
